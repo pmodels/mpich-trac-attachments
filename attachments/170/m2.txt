@@ -1,0 +1,549 @@
+Beginning make
+make all-local
+make[1]: Entering directory `/tmp/mpich2-1.0.7'
+make[1]: Leaving directory `/tmp/mpich2-1.0.7'
+make[1]: Entering directory `/tmp/mpich2-1.0.7/src'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/mpid'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/ch3'
+make[4]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/ch3/channels'
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/ch3/channels/sock'
+make[6]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/common/sock'
+make[7]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[7]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[6]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/common/sock'
+make[6]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[6]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/ch3/channels/sock'
+make[4]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/ch3/channels'
+make[4]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/ch3/src'
+make[4]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/ch3/src'
+make[4]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/ch3/util'
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/ch3/util/sock'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/ch3/util/sock'
+make[4]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/ch3/util'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/ch3'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/common'
+make[4]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/common/datatype'
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/common/datatype/dataloop'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/common/datatype/dataloop'
+make all-local
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpid/common/datatype'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/common/datatype'
+make[4]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/common/datatype'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid/common'
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/mpid'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/mpi'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/attr'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/attr'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/coll'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/coll'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/comm'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/comm'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/datatype'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/datatype'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/errhan'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/errhan'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/group'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/group'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/init'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/init'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/misc'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/misc'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/pt2pt'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/pt2pt'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/rma'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/rma'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/spawn'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/spawn'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/timer'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/timer'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/topo'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/topo'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/romio'
+make mpiolib
+make[4]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/romio'
+ 
+compiling ROMIO in directory mpi-io
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/romio/mpi-io'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/romio/mpi-io'
+ 
+compiling ROMIO in directory adio/common
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/romio/adio/common'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/romio/adio/common'
+ 
+compiling ROMIO in directory mpi-io/glue/mpich2
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/romio/mpi-io/glue/mpich2'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/romio/mpi-io/glue/mpich2'
+ 
+compiling ROMIO in directory adio/ad_testfs
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/romio/adio/ad_testfs'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/romio/adio/ad_testfs'
+ 
+compiling ROMIO in directory adio/ad_ufs
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/romio/adio/ad_ufs'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/romio/adio/ad_ufs'
+ 
+compiling ROMIO in directory adio/ad_nfs
+make[5]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/romio/adio/ad_nfs'
+make[5]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/romio/adio/ad_nfs'
+make[4]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/romio'
+make[4]: Entering directory `/tmp/mpich2-1.0.7/src/mpi/romio'
+make[4]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/romio'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi/romio'
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/mpi'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/util'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/util/mem'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/util/mem'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/util/info'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/util/info'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/util/msgs'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/util/msgs'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/util/instrm'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/util/instrm'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/util/thread'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/util/thread'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/util/dbg'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/util/dbg'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/util/param'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/util/param'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/util/osserv'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/util/osserv'
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/util'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/nameserv'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/nameserv/mpd'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/nameserv/mpd'
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/nameserv'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/binding'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/binding/cxx'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/binding/cxx'
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/binding'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/env'
+gcc -O2  -o mpich2version mpich2version.o  \
+	../../lib/libmpich.a -lpthread        -lrt    
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/env'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/pkgconfig'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/pkgconfig'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/mpe2'
+
+**** Making src/misc ....
+make --no-print-directory mpe_debug_objs 
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/../../include -O2 -DMPI_LINUX  -DMPE_NOMPI -c mpehname.c
+mv mpehname.o mpehname.no
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a mpehname.no
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/../../include -O2 -DMPI_LINUX  -c decomp.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/../../include -O2 -DMPI_LINUX  -c mpe_seq.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/../../include -O2 -DMPI_LINUX  -c dbxerr.c
+mv decomp.o decomp.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/../../include -O2 -DMPI_LINUX  -c getgrank.c
+mv dbxerr.o dbxerr.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/../../include -O2 -DMPI_LINUX  -c examine.c
+mv getgrank.o getgrank.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/../../include -O2 -DMPI_LINUX  -c privtags.c
+mv mpe_seq.o mpe_seq.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/../../include -O2 -DMPI_LINUX  -c mpehname.c
+mv examine.o examine.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/misc/../../include -O2 -DMPI_LINUX  -c mpe_io.c
+mv mpe_io.o mpe_io.po
+mv privtags.o privtags.po
+mv mpehname.o mpehname.po
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a decomp.po mpe_seq.po dbxerr.po getgrank.po examine.po privtags.po mpehname.po mpe_io.po
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a
+
+**** Making src/callstack ....
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/../../include -O2  -c iterator.c
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/../../include -O2  -c fancyprint.c
+mv fancyprint.o fancyprint.no
+mv iterator.o iterator.no
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a iterator.no fancyprint.no
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/../../include -O2  -c iterator.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/../../include -O2  -c fancyprint.c
+mv fancyprint.o fancyprint.po
+mv iterator.o iterator.po
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a iterator.po fancyprint.po
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/bin/check_callstack
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/callstack/../../include -O2  -c check_callstack.c
+mv check_callstack.o check_callstack.no
+cp -f check_callstack.no mpe2tmp.o
+gcc -Wl,--export-dynamic -O2  -o /tmp/mpich2-1.0.7/src/mpe2/bin/check_callstack mpe2tmp.o \
+	                         -L/tmp/mpich2-1.0.7/src/mpe2/lib -lmpe_nompi
+
+**** Making src/logging ....
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c mpi_null.c
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_util.c
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_timer.c
+mv clog_timer.o clog_timer.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_uuid.c
+mv mpi_null.o mpi_null.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_commset.c
+mv clog_uuid.o clog_uuid.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_preamble.c
+mv clog_util.o clog_util.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_record.c
+mv clog_record.o clog_record.no
+mv clog_commset.o clog_commset.no
+mv clog_preamble.o clog_preamble.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_sync.c
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_block.c
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_buffer.c
+mv clog_block.o clog_block.no
+mv clog_sync.o clog_sync.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_merger.c
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_cache.c
+mv clog_merger.o clog_merger.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_joiner.c
+mv clog_buffer.o clog_buffer.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog.c
+mv clog_cache.o clog_cache.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c mpe_log_thread.c
+mv mpe_log_thread.o mpe_log_thread.no
+mv clog_joiner.o clog_joiner.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c mpe_log.c
+mv clog.o clog.no
+mv mpe_log.o mpe_log.no
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a mpi_null.no clog_util.no clog_timer.no clog_uuid.no clog_commset.no clog_preamble.no clog_record.no clog_sync.no clog_block.no clog_buffer.no clog_merger.no clog_cache.no clog_joiner.no clog.no mpe_log_thread.no mpe_log.no
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi_null.a
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c mpe_log_null.c
+mv mpe_log_null.o mpe_log_null.no
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi_null.a mpi_null.no mpe_log_null.no
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi_null.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_null.a
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c mpe_log_null.c
+mv mpe_log_null.o mpe_log_null.po
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_null.a mpe_log_null.po
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_null.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_util.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_timer.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_uuid.c
+mv clog_util.o clog_util.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_commset.c
+mv clog_timer.o clog_timer.po
+mv clog_uuid.o clog_uuid.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_preamble.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_record.c
+mv clog_record.o clog_record.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_sync.c
+mv clog_preamble.o clog_preamble.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_block.c
+mv clog_commset.o clog_commset.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_buffer.c
+mv clog_buffer.o clog_buffer.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_merger.c
+mv clog_block.o clog_block.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_cache.c
+mv clog_sync.o clog_sync.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog_joiner.c
+mv clog_cache.o clog_cache.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c clog.c
+mv clog_merger.o clog_merger.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c mpe_log_thread.c
+mv clog_joiner.o clog_joiner.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -c mpe_log.c
+mv mpe_log_thread.o mpe_log_thread.po
+mv clog.o clog.po
+mv mpe_log.o mpe_log.po
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a clog_util.po clog_timer.po clog_uuid.po clog_commset.po clog_preamble.po clog_record.po clog_sync.po clog_block.po clog_buffer.po clog_merger.po clog_cache.po clog_joiner.po clog.po mpe_log_thread.po mpe_log.po
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/bin/clog2_print /tmp/mpich2-1.0.7/src/mpe2/bin/clog2_join /tmp/mpich2-1.0.7/src/mpe2/bin/clog2_repair
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_print.c
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_join.c
+mv clog_print.o clog_print.no
+gcc -I.. -I../../.. -I../include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I/tmp/mpich2-1.0.7/src/mpe2/src/logging/../../include -O2  -DCLOG_NOMPI -c clog_repair.c
+mv clog_join.o clog_join.no
+cp -f clog_print.no mpe2tmp.o
+gcc  -O2  -o /tmp/mpich2-1.0.7/src/mpe2/bin/clog2_print mpe2tmp.o \
+	                         -L/tmp/mpich2-1.0.7/src/mpe2/lib -lmpe_nompi
+cp -f clog_join.no mpe2tmp.o
+gcc  -O2  -o /tmp/mpich2-1.0.7/src/mpe2/bin/clog2_join mpe2tmp.o \
+	                         -L/tmp/mpich2-1.0.7/src/mpe2/lib -lmpe_nompi
+gcc: mpe2tmp.o: No such file or directory
+mv clog_repair.o clog_repair.no
+make[5]: *** [/tmp/mpich2-1.0.7/src/mpe2/bin/clog2_join] Error 1
+make[5]: *** Waiting for unfinished jobs....
+make[4]: *** [default] Error 2
+make[3]: *** [build_lib_bin] Error 2
+
+**** Making src/wrappers ....
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/liblmpe.a
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/wrappers/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/wrappers/../../include -O2  -c log_mpi_core.c
+
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/liblmpe.a log_mpi_core.o
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/liblmpe.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libtmpe.a
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/wrappers/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/wrappers/../../include -O2  -c trace_mpi_core.c
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libtmpe.a trace_mpi_core.o
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libtmpe.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/mpe_prof.o
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/wrappers/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/wrappers/../../include -O2  -c mpe_prof.c
+
+**** Making src/graphics ....
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a 
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -DMPE_NOMPI -c mpe_graphics.c
+
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -DMPE_NOMPI -c xcolor.c
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -DMPE_NOMPI -c xframe.c
+mv xframe.o xframe.no
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -DMPE_NOMPI -c xinit.c
+mv mpe_graphics.o mpe_graphics.no
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -DMPE_NOMPI -c xwmap.c
+mv xcolor.o xcolor.no
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -DMPE_NOMPI -c xmouse.c
+mv xwmap.o xwmap.no
+gcc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -DMPE_NOMPI -c xkey.c
+mv xinit.o xinit.no
+mv xkey.o xkey.no
+mv xmouse.o xmouse.no
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a mpe_graphics.no xcolor.no xframe.no xinit.no xwmap.no xmouse.no xkey.no
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a 
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -c mpe_graphics.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -c xcolor.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -c xframe.c
+mv xframe.o xframe.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -c xinit.c
+mv xcolor.o xcolor.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -c xwmap.c
+mv mpe_graphics.o mpe_graphics.po
+mv xinit.o xinit.po
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -c xmouse.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -c xkey.c
+mv xwmap.o xwmap.po
+mv xkey.o xkey.po
+mv xmouse.o xmouse.po
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a mpe_graphics.po xcolor.po xframe.po xinit.po xwmap.po xmouse.po xkey.po
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe.a
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libampe.a
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/graphics/../../include  -O2  -c visual_mess.c
+mv visual_mess.o visual_mess.po
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libampe.a visual_mess.po
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libampe.a
+
+**** Making src/collchk ....
+make --no-print-directory /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_collchk.a
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c begin.c
+
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c err_han.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c is_init.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c check_buff.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c check_dims.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c check_graph.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c check_size.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_amode.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_call.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_dtype.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_high_low.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_int.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_local_leader.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_op.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_root.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_tag.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_datarep.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c same_whence.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c allgather.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c allgatherv.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c allreduce.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c alltoall.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c alltoallv.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c barrier.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c bcast.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c cart_create.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c cart_map.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c gather.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c gatherv.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c graph_create.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c graph_map.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c init.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c intercomm_create.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c intercomm_merge.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c reduce.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c reduce_scatter.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c scan.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c scatter.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c scatterv.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c finalize.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c exscan.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c alltoallw.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_open.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_preallocate.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_read_all_begin.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_read_all.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_read_all_end.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_read_at_all_begin.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_read_at_all.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_read_at_all_end.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_read_ordered_begin.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_read_ordered.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_read_ordered_end.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_seek_shared.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_set_atomicity.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_set_size.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_set_view.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_write_all_begin.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_write_all.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_write_all_end.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_write_at_all_begin.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_write_at_all.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_write_at_all_end.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_write_ordered_begin.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_write_ordered.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c file_write_ordered_end.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c add_fh.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c get_fh.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c win_create.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c win_fence.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c add_win.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c get_win.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c comm_accept.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c comm_connect.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c comm_create.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c comm_disconnect.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c comm_dup.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c comm_spawn.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c comm_spawn_multiple.c
+/tmp/mpich2-1.0.7/bin/mpicc -I.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/include -I/tmp/mpich2-1.0.7/src/mpe2/include -I../../.. -I/tmp/mpich2-1.0.7/src/mpe2/src/collchk/../../include -O2  -c comm_split.c
+ar cr /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_collchk.a *.o
+ranlib /tmp/mpich2-1.0.7/src/mpe2/lib/libmpe_collchk.a
+
+**** Making src/slog2sdk ....
+Making trace_rlog
+cd src && make --no-print-directory
+/bin/bash ../libtool --mode=compile gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace  -O2 -c trace_input.c
+/bin/bash ../libtool --mode=compile gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace  -O2 -c rlogutil.c
+/bin/bash ../libtool --mode=compile gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace  -O2 -c /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace/logformat_trace_InputLog.c
+ gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace -O2 -c rlogutil.c  -fPIC -DPIC -o .libs/rlogutil.o
+ gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace -O2 -c trace_input.c  -fPIC -DPIC -o .libs/trace_input.o
+gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace  -O2 -c trace_input.c
+gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace  -O2 -c rlogutil.c
+ gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace -O2 -c /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace/logformat_trace_InputLog.c  -fPIC -DPIC -o .libs/logformat_trace_InputLog.o
+gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace  -O2 -c /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace/trace_print.c
+gcc -I.. -I/usr/java/latest/include -I/usr/java/latest/include/linux -I/tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace  -O2 -c /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/../src/logformat/trace/trace_check_timeorder.c
+if [ "yes" = "yes" ] ; then \
+	    /bin/bash ../libtool --mode=link gcc -o libTraceInput.la trace_input.lo rlogutil.lo logformat_trace_InputLog.lo -module -no-undefined -avoid-version  \
+	               -export-symbols /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/src/JavaTraceInput.sym \
+	               -rpath /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib ; \
+	else \
+	    /bin/bash ../libtool --mode=link gcc -o libTraceInput.la trace_input.lo rlogutil.lo logformat_trace_InputLog.lo -module -no-undefined -avoid-version  \
+	               -rpath /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib ; \
+	fi
+rm -fr  .libs/libTraceInput.la .libs/libTraceInput.lai .libs/libTraceInput.so .libs/libTraceInput.ver
+echo "{ global:" > .libs/libTraceInput.ver
+ cat /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/src/JavaTraceInput.sym | sed -e "s/\(.*\)/\1;/" >> .libs/libTraceInput.ver
+ echo "local: *; };" >> .libs/libTraceInput.ver
+ gcc -shared  .libs/trace_input.o .libs/rlogutil.o .libs/logformat_trace_InputLog.o   -Wl,-soname -Wl,libTraceInput.so -Wl,-version-script -Wl,.libs/libTraceInput.ver -o .libs/libTraceInput.so
+creating libTraceInput.la
+(cd .libs && rm -f libTraceInput.la && ln -s ../libTraceInput.la libTraceInput.la)
+/bin/bash ../libtool --mode=install /usr/bin/install -c  libTraceInput.la /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib
+gcc  -O2 -o /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/bin/rlog_print trace_input.o rlogutil.o trace_print.o 
+gcc  -O2 -o /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/bin/rlog_check_timeorder trace_input.o rlogutil.o trace_check_timeorder.o 
+/usr/bin/install -c .libs/libTraceInput.so /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib/libTraceInput.so
+/usr/bin/install -c .libs/libTraceInput.lai /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib/libTraceInput.la
+PATH="$PATH:/sbin" ldconfig -n /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+/bin/bash ../libtool --finish /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib
+PATH="$PATH:/sbin" ldconfig -n /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /tmp/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/mpe2'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/pmi'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/pmi/simple'
+gcc -DHAVE_CONFIG_H -I. -I/tmp/mpich2-1.0.7/src/pmi/simple -I../../include -I/tmp/mpich2-1.0.7/src/include -O2  -c simple_pmiutil.c
+gcc -DHAVE_CONFIG_H -I. -I/tmp/mpich2-1.0.7/src/pmi/simple -I../../include -I/tmp/mpich2-1.0.7/src/include -O2  -c simple_pmi.c
+ar cr ../../../lib/libmpich.a simple_pmiutil.o simple_pmi.o
+ar cr ../../../lib/libmpich.a simple_pmiutil.o simple_pmi.o
+ranlib ../../../lib/libmpich.a
+ranlib ../../../lib/libmpich.a
+date > .libstamp0
+date > .libstamp0
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/pmi/simple'
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/pmi'
+make[2]: Entering directory `/tmp/mpich2-1.0.7/src/pm'
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/pm/mpd'
+gcc -I. -I/tmp/mpich2-1.0.7/src/pm/mpd -O2  -c  /tmp/mpich2-1.0.7/src/pm/mpd/mpdroot.c 
+gcc -O2   -o mpdroot mpdroot.o -lpthread        -lrt    
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/pm/mpd'
+make all-postamble
+make[3]: Entering directory `/tmp/mpich2-1.0.7/src/pm'
+if [ -n "mpd" -a -d "mpd" ] ; then \
+	build_prefix=`cd ../.. && pwd` && cd mpd && \
+	make prefix=$build_prefix exec_prefix=$build_prefix bindir=$build_prefix/bin mpich2-build-install ; \
+	fi
+make[4]: Entering directory `/tmp/mpich2-1.0.7/src/pm/mpd'
+/usr/bin/install -c -m 644 /tmp/mpich2-1.0.7/src/pm/mpd/mpdroot.c mpich2-mpdroot.c
+gcc -I. -I/tmp/mpich2-1.0.7/src/pm/mpd -O2  -c mpich2-mpdroot.c
+copying python files/links into  /tmp/mpich2-1.0.7/bin
+rm -f mpich2-mpdroot.c
+gcc -O2   -o mpich2-mpdroot mpich2-mpdroot.o -lpthread        -lrt    
+rm -f mpich2-mpdroot.o
+rm -f mpich2-mpdroot
+make[4]: Leaving directory `/tmp/mpich2-1.0.7/src/pm/mpd'
+make[3]: Leaving directory `/tmp/mpich2-1.0.7/src/pm'
+make[2]: Leaving directory `/tmp/mpich2-1.0.7/src/pm'
+make[1]: Leaving directory `/tmp/mpich2-1.0.7/src'
+make[1]: Entering directory `/tmp/mpich2-1.0.7/examples'
+../bin/mpicc  -I../src/include -I../src/include   -c cpi.c
+../bin/mpicc   -o cpi cpi.o  -lm 
+cpi.o: In function `main':
+cpi.c:(.text+0x71): undefined reference to `MPI_Init'
+cpi.c:(.text+0x87): undefined reference to `MPI_Comm_size'
+cpi.c:(.text+0x9d): undefined reference to `MPI_Comm_rank'
+cpi.c:(.text+0xb5): undefined reference to `MPI_Get_processor_name'
+cpi.c:(.text+0x143): undefined reference to `MPI_Bcast'
+cpi.c:(.text+0x216): undefined reference to `MPI_Reduce'
+cpi.c:(.text+0x283): undefined reference to `MPI_Finalize'
+/tmp/mpich2-1.0.7/lib/libmpich.a(wtime.o): In function `MPI_Wtime':
+wtime.c:(.text+0x9): undefined reference to `MPIR_Process'
+wtime.c:(.text+0x11): undefined reference to `MPIR_Err_preOrPostInit'
+/tmp/mpich2-1.0.7/lib/libmpich.a(mpidtime.o): In function `MPID_Wtick':
+mpidtime.c:(.text+0xf8): undefined reference to `MPIR_ThreadInfo'
+mpidtime.c:(.text+0x1a3): undefined reference to `MPIR_ThreadInfo'
+mpidtime.c:(.text+0x1c7): undefined reference to `MPIR_ThreadInfo'
+mpidtime.c:(.text+0x1e6): undefined reference to `MPIR_ThreadInfo'
+mpidtime.c:(.text+0x1fe): undefined reference to `MPIR_ThreadInfo'
+/tmp/mpich2-1.0.7/lib/libmpich.a(mpidtime.o):mpidtime.c:(.text+0x21d): more undefined references to `MPIR_ThreadInfo' follow
+collect2: ld returned 1 exit status
+make[1]: *** [cpi] Error 1
+make[1]: Leaving directory `/tmp/mpich2-1.0.7/examples'
+make: *** [all-redirect] Error 2

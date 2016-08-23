@@ -1,0 +1,96 @@
+
+
+(gdb) run
+Starting program: /usr/local/python/2.6/bin/python test/runalltest.py
+[Thread debugging using libthread_db enabled]
+[New Thread 0xb7fe76c0 (LWP 2737)]
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df050 <MPIU_CheckHandlesOnFinalize>, extra_data=0x3ef180, priority=1) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df2d0 <MPIU_Handle_finalize>, extra_data=0x3ef180, priority=0) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x38f020 <MPIR_Datatype_finalize>, extra_data=0x0, priority=4) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df050 <MPIU_CheckHandlesOnFinalize>, extra_data=0x3ed4a0, priority=1) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df2d0 <MPIU_Handle_finalize>, extra_data=0x3ed4a0, priority=0) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df050 <MPIU_CheckHandlesOnFinalize>, extra_data=0x3ed4c0, priority=1) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df2d0 <MPIU_Handle_finalize>, extra_data=0x3ed4c0, priority=0) at finalize.c:49
+(gdb) cont
+Continuing.
+mpi4py imported from '/u/dalcinl/lib/python/mpi4py'
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df050 <MPIU_CheckHandlesOnFinalize>, extra_data=0x3ef1a0, priority=1) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df2d0 <MPIU_Handle_finalize>, extra_data=0x3ef1a0, priority=0) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df050 <MPIU_CheckHandlesOnFinalize>, extra_data=0x3ed5a0, priority=1) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df2d0 <MPIU_Handle_finalize>, extra_data=0x3ed5a0, priority=0) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df050 <MPIU_CheckHandlesOnFinalize>, extra_data=0x3ee960, priority=1) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df2d0 <MPIU_Handle_finalize>, extra_data=0x3ee960, priority=0) at finalize.c:49
+(gdb) cont
+Continuing.
+
+running test_p2p_obj
+..
+Breakpoint 1, MPIR_Add_finalize (f=0x2df050 <MPIU_CheckHandlesOnFinalize>, extra_data=0x3ed560, priority=1) at finalize.c:49
+^CQuit
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df2d0 <MPIU_Handle_finalize>, extra_data=0x3ed560, priority=0) at finalize.c:49
+(gdb) cont
+Continuing.
+..........
+----------------------------------------------------------------------
+Ran 12 tests in 0.290s
+
+OK
+
+running test_error
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.009s
+
+OK
+
+running test_win
+....
+Breakpoint 1, MPIR_Add_finalize (f=0x2df050 <MPIU_CheckHandlesOnFinalize>, extra_data=0x3ee940, priority=1) at finalize.c:49
+(gdb) cont
+Continuing.
+
+Breakpoint 1, MPIR_Add_finalize (f=0x2df2d0 <MPIU_Handle_finalize>, extra_data=0x3ee940, priority=0) at finalize.c:49
+(gdb) cont
+Continuing.
+overflow in finalize stack!
+internal ABORT - process 0
+
+Program exited with code 015.

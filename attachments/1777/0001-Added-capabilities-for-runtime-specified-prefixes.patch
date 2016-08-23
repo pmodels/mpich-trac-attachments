@@ -1,0 +1,391 @@
+From f440ac75db4c1a0c623949147c3cebe17bc1638a Mon Sep 17 00:00:00 2001
+From: "Antonio J. Pena" <apenya@mcs.anl.gov>
+Date: Tue, 24 Jun 2014 18:36:06 -0500
+Subject: [PATCH] Added capabilities for runtime-specified prefixes
+
+Fixes #1777
+---
+ README.vin                    | 45 +++++++++++++++++++++++++++++++------------
+ src/env/mpicc.bash.in         | 21 ++++++++++++++++++++
+ src/env/mpicc.sh.in           | 21 ++++++++++++++++++++
+ src/env/mpicxx.bash.in        | 21 ++++++++++++++++++++
+ src/env/mpicxx.sh.in          | 21 ++++++++++++++++++++
+ src/env/mpif77.bash.in        | 21 ++++++++++++++++++++
+ src/env/mpif77.sh.in          | 21 ++++++++++++++++++++
+ src/env/mpifort.bash.in       | 21 ++++++++++++++++++++
+ src/env/mpifort.sh.in         | 21 ++++++++++++++++++++
+ src/pm/hydra/ui/mpich/utils.c | 11 +++++++++++
+ 10 files changed, 212 insertions(+), 12 deletions(-)
+
+diff --git a/README.vin b/README.vin
+index 528164bd..e5ad34f4 100644
+--- a/README.vin
++++ b/README.vin
+@@ -22,11 +22,12 @@ information on bug fixes and new releases.
+ 4.  Alternate Channels and Devices
+ 5.  Alternate Process Managers
+ 6.  Alternate Configure Options
+-7.  Testing the MPICH installation
+-8.  Fault Tolerance
+-9.  Developer Builds
+-10. Multiple Fortran compiler support
+-11. ABI Compatibility
++7.  Alternate Runtime Prefixes
++8.  Testing the MPICH installation
++9.  Fault Tolerance
++10.  Developer Builds
++11. Multiple Fortran compiler support
++12. ABI Compatibility
+ 
+ 
+ -------------------------------------------------------------------------
+@@ -649,8 +650,28 @@ configuration options can be found using:
+ 
+ -------------------------------------------------------------------------
+ 
+-7. Testing the MPICH installation
+-==================================
++7. Alternate Runtime Prefixes
++=============================
++
++MPICH understands a set of environment variables to locate the MPICH
++libraries in case these are moved from their initial installation
++location. This includes those cases in which only the binaries are
++distributed. These are:
++
++  - MPICH_PREFIX
++  - MPICH_EXEC_PREFIX
++  - MPICH_SYSCONFDIR
++  - MPICH_INCLUDEDIR
++  - MPICH_LIBDIR
++
++The first of them is general and specifies the path of the MPICH
++installation. The remaining permit specifying the different
++directories separately if necessary.
++
++-------------------------------------------------------------------------
++
++8. Testing the MPICH installation
++=================================
+ 
+ To test MPICH, we package the MPICH test suite in the MPICH
+ distribution. You can run the test suite using:
+@@ -661,7 +682,7 @@ The results summary will be placed in test/summary.xml
+ 
+ -------------------------------------------------------------------------
+ 
+-8. Fault Tolerance
++9. Fault Tolerance
+ ==================
+ 
+ MPICH has some tolerance to process failures, and supports
+@@ -785,8 +806,8 @@ These instructions can also be found on the MPICH wiki:
+ 
+ -------------------------------------------------------------------------
+ 
+-9. Developer Builds
+-===================
++10. Developer Builds
++====================
+ For MPICH developers who want to directly work on the svn, there are
+ a few additional steps involved (people using the release tarballs do
+ not have to follow these steps). Details about these steps can be
+@@ -795,7 +816,7 @@ http://wiki.mpich.org/mpich/index.php/Getting_And_Building_MPICH
+ 
+ -------------------------------------------------------------------------
+ 
+-10. Multiple Fortran compiler support
++11. Multiple Fortran compiler support
+ =====================================
+ 
+ If the C compiler that is used to build MPICH libraries supports both
+@@ -831,7 +852,7 @@ compilers, the program shall be running fine.
+ 
+ -------------------------------------------------------------------------
+ 
+-11. ABI Compatibility
++12. ABI Compatibility
+ =====================
+ 
+ The MPICH ABI compatibility initiative was announced at SC 2014
+diff --git a/src/env/mpicc.bash.in b/src/env/mpicc.bash.in
+index eaceeccc..f7cab55c 100644
+--- a/src/env/mpicc.bash.in
++++ b/src/env/mpicc.bash.in
+@@ -33,6 +33,27 @@ sysconfdir=__SYSCONFDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ includedir=__INCLUDEDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ libdir=__LIBDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ 
++# override paths with MPICH_PREFIX and friends
++if test -n "$MPICH_PREFIX" ; then
++    prefix=$MPICH_PREFIX
++    exec_prefix=$MPICH_PREFIX
++    sysconfdir=$MPICH_PREFIX/etc
++    includedir=$MPICH_PREFIX/include
++    libdir=$MPICH_PREFIX/lib
++fi
++if test -n "$MPICH_EXEC_PREFIX" ; then
++    exec_prefix=$MPICH_EXEC_PREFIX
++fi
++if test -n "$MPICH_SYSCONFDIR" ; then
++    sysconfdir=$MPICH_SYSCONFDIR
++fi
++if test -n "$MPICH_INCLUDEDIR" ; then
++    includedir=$MPICH_INCLUDEDIR
++fi
++if test -n "$MPICH_LIBDIR" ; then
++    libdir=$MPICH_LIBDIR
++fi
++
+ # Default settings for compiler, flags, and libraries.
+ # Determined by a combination of environment variables and tests within
+ # configure (e.g., determining whehter -lsocket is needee)
+diff --git a/src/env/mpicc.sh.in b/src/env/mpicc.sh.in
+index 51bbfb4f..e0431723 100644
+--- a/src/env/mpicc.sh.in
++++ b/src/env/mpicc.sh.in
+@@ -33,6 +33,27 @@ sysconfdir=__SYSCONFDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ includedir=__INCLUDEDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ libdir=__LIBDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ 
++# override paths with MPICH_PREFIX and friends
++if test -n "$MPICH_PREFIX" ; then
++    prefix=$MPICH_PREFIX
++    exec_prefix=$MPICH_PREFIX
++    sysconfdir=$MPICH_PREFIX/etc
++    includedir=$MPICH_PREFIX/include
++    libdir=$MPICH_PREFIX/lib
++fi
++if test -n "$MPICH_EXEC_PREFIX" ; then
++    exec_prefix=$MPICH_EXEC_PREFIX
++fi
++if test -n "$MPICH_SYSCONFDIR" ; then
++    sysconfdir=$MPICH_SYSCONFDIR
++fi
++if test -n "$MPICH_INCLUDEDIR" ; then
++    includedir=$MPICH_INCLUDEDIR
++fi
++if test -n "$MPICH_LIBDIR" ; then
++    libdir=$MPICH_LIBDIR
++fi
++
+ # Default settings for compiler, flags, and libraries.
+ # Determined by a combination of environment variables and tests within
+ # configure (e.g., determining whehter -lsocket is needee)
+diff --git a/src/env/mpicxx.bash.in b/src/env/mpicxx.bash.in
+index 25179ddd..56fa3fee 100644
+--- a/src/env/mpicxx.bash.in
++++ b/src/env/mpicxx.bash.in
+@@ -32,6 +32,27 @@ sysconfdir=__SYSCONFDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ includedir=__INCLUDEDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ libdir=__LIBDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ 
++# override paths with MPICH_PREFIX and friends
++if test -n "$MPICH_PREFIX" ; then
++    prefix=$MPICH_PREFIX
++    exec_prefix=$MPICH_PREFIX
++    sysconfdir=$MPICH_PREFIX/etc
++    includedir=$MPICH_PREFIX/include
++    libdir=$MPICH_PREFIX/lib
++fi
++if test -n "$MPICH_EXEC_PREFIX" ; then
++    exec_prefix=$MPICH_EXEC_PREFIX
++fi
++if test -n "$MPICH_SYSCONFDIR" ; then
++    sysconfdir=$MPICH_SYSCONFDIR
++fi
++if test -n "$MPICH_INCLUDEDIR" ; then
++    includedir=$MPICH_INCLUDEDIR
++fi
++if test -n "$MPICH_LIBDIR" ; then
++    libdir=$MPICH_LIBDIR
++fi
++
+ # Default settings for compiler, flags, and libraries
+ CXX="@CXX@"
+ MPICH_VERSION="@MPICH_VERSION@"
+diff --git a/src/env/mpicxx.sh.in b/src/env/mpicxx.sh.in
+index 36b93305..025dd4fd 100644
+--- a/src/env/mpicxx.sh.in
++++ b/src/env/mpicxx.sh.in
+@@ -32,6 +32,27 @@ sysconfdir=__SYSCONFDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ includedir=__INCLUDEDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ libdir=__LIBDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ 
++# override paths with MPICH_PREFIX and friends
++if test -n "$MPICH_PREFIX" ; then
++    prefix=$MPICH_PREFIX
++    exec_prefix=$MPICH_PREFIX
++    sysconfdir=$MPICH_PREFIX/etc
++    includedir=$MPICH_PREFIX/include
++    libdir=$MPICH_PREFIX/lib
++fi
++if test -n "$MPICH_EXEC_PREFIX" ; then
++    exec_prefix=$MPICH_EXEC_PREFIX
++fi
++if test -n "$MPICH_SYSCONFDIR" ; then
++    sysconfdir=$MPICH_SYSCONFDIR
++fi
++if test -n "$MPICH_INCLUDEDIR" ; then
++    includedir=$MPICH_INCLUDEDIR
++fi
++if test -n "$MPICH_LIBDIR" ; then
++    libdir=$MPICH_LIBDIR
++fi
++
+ # Default settings for compiler, flags, and libraries
+ CXX="@CXX@"
+ MPICH_VERSION="@MPICH_VERSION@"
+diff --git a/src/env/mpif77.bash.in b/src/env/mpif77.bash.in
+index 8d2a602a..28e4fbad 100644
+--- a/src/env/mpif77.bash.in
++++ b/src/env/mpif77.bash.in
+@@ -35,6 +35,27 @@ sysconfdir=__SYSCONFDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ includedir=__INCLUDEDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ libdir=__LIBDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ 
++# override paths with MPICH_PREFIX and friends
++if test -n "$MPICH_PREFIX" ; then
++    prefix=$MPICH_PREFIX
++    exec_prefix=$MPICH_PREFIX
++    sysconfdir=$MPICH_PREFIX/etc
++    includedir=$MPICH_PREFIX/include
++    libdir=$MPICH_PREFIX/lib
++fi
++if test -n "$MPICH_EXEC_PREFIX" ; then
++    exec_prefix=$MPICH_EXEC_PREFIX
++fi
++if test -n "$MPICH_SYSCONFDIR" ; then
++    sysconfdir=$MPICH_SYSCONFDIR
++fi
++if test -n "$MPICH_INCLUDEDIR" ; then
++    includedir=$MPICH_INCLUDEDIR
++fi
++if test -n "$MPICH_LIBDIR" ; then
++    libdir=$MPICH_LIBDIR
++fi
++
+ # Default settings for compiler, flags, and libraries
+ # Determined by a combination of environment variables and tests within
+ # configure (e.g., determining whehter -lsocket is needee)
+diff --git a/src/env/mpif77.sh.in b/src/env/mpif77.sh.in
+index 1fd760d9..404ded62 100644
+--- a/src/env/mpif77.sh.in
++++ b/src/env/mpif77.sh.in
+@@ -35,6 +35,27 @@ sysconfdir=__SYSCONFDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ includedir=__INCLUDEDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ libdir=__LIBDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ 
++# override paths with MPICH_PREFIX and friends
++if test -n "$MPICH_PREFIX" ; then
++    prefix=$MPICH_PREFIX
++    exec_prefix=$MPICH_PREFIX
++    sysconfdir=$MPICH_PREFIX/etc
++    includedir=$MPICH_PREFIX/include
++    libdir=$MPICH_PREFIX/lib
++fi
++if test -n "$MPICH_EXEC_PREFIX" ; then
++    exec_prefix=$MPICH_EXEC_PREFIX
++fi
++if test -n "$MPICH_SYSCONFDIR" ; then
++    sysconfdir=$MPICH_SYSCONFDIR
++fi
++if test -n "$MPICH_INCLUDEDIR" ; then
++    includedir=$MPICH_INCLUDEDIR
++fi
++if test -n "$MPICH_LIBDIR" ; then
++    libdir=$MPICH_LIBDIR
++fi
++
+ # Default settings for compiler, flags, and libraries
+ # Determined by a combination of environment variables and tests within
+ # configure (e.g., determining whehter -lsocket is needee)
+diff --git a/src/env/mpifort.bash.in b/src/env/mpifort.bash.in
+index 45a191d8..05ca76cc 100644
+--- a/src/env/mpifort.bash.in
++++ b/src/env/mpifort.bash.in
+@@ -35,6 +35,27 @@ includedir=__INCLUDEDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ libdir=__LIBDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ modincdir=@modincdir@
+ 
++# override paths with MPICH_PREFIX and friends
++if test -n "$MPICH_PREFIX" ; then
++    prefix=$MPICH_PREFIX
++    exec_prefix=$MPICH_PREFIX
++    sysconfdir=$MPICH_PREFIX/etc
++    includedir=$MPICH_PREFIX/include
++    libdir=$MPICH_PREFIX/lib
++fi
++if test -n "$MPICH_EXEC_PREFIX" ; then
++    exec_prefix=$MPICH_EXEC_PREFIX
++fi
++if test -n "$MPICH_SYSCONFDIR" ; then
++    sysconfdir=$MPICH_SYSCONFDIR
++fi
++if test -n "$MPICH_INCLUDEDIR" ; then
++    includedir=$MPICH_INCLUDEDIR
++fi
++if test -n "$MPICH_LIBDIR" ; then
++    libdir=$MPICH_LIBDIR
++fi
++
+ # Default settings for compiler, flags, and libraries
+ # Determined by a combination of environment variables and tests within
+ # configure (e.g., determining whehter -lsocket is needee)
+diff --git a/src/env/mpifort.sh.in b/src/env/mpifort.sh.in
+index 263e6965..b18cc6fc 100644
+--- a/src/env/mpifort.sh.in
++++ b/src/env/mpifort.sh.in
+@@ -35,6 +35,27 @@ includedir=__INCLUDEDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ libdir=__LIBDIR_TO_BE_FILLED_AT_INSTALL_TIME__
+ modincdir=@modincdir@
+ 
++# override paths with MPICH_PREFIX and friends
++if test -n "$MPICH_PREFIX" ; then
++    prefix=$MPICH_PREFIX
++    exec_prefix=$MPICH_PREFIX
++    sysconfdir=$MPICH_PREFIX/etc
++    includedir=$MPICH_PREFIX/include
++    libdir=$MPICH_PREFIX/lib
++fi
++if test -n "$MPICH_EXEC_PREFIX" ; then
++    exec_prefix=$MPICH_EXEC_PREFIX
++fi
++if test -n "$MPICH_SYSCONFDIR" ; then
++    sysconfdir=$MPICH_SYSCONFDIR
++fi
++if test -n "$MPICH_INCLUDEDIR" ; then
++    includedir=$MPICH_INCLUDEDIR
++fi
++if test -n "$MPICH_LIBDIR" ; then
++    libdir=$MPICH_LIBDIR
++fi
++
+ # Default settings for compiler, flags, and libraries
+ # Determined by a combination of environment variables and tests within
+ # configure (e.g., determining whehter -lsocket is needee)
+diff --git a/src/pm/hydra/ui/mpich/utils.c b/src/pm/hydra/ui/mpich/utils.c
+index 79416739..4246c25f 100644
+--- a/src/pm/hydra/ui/mpich/utils.c
++++ b/src/pm/hydra/ui/mpich/utils.c
+@@ -1659,6 +1659,17 @@ HYD_status HYD_uii_mpx_get_parameters(char **t_argv)
+             }
+         }
+ 
++        /* Check on the new MPICH_PREFIX */
++        ret = MPL_env2str("MPICH_PREFIX", &env_file);
++        if (ret) {
++            ret = open(env_file, O_RDONLY);
++            if (ret >= 0) {
++                close(ret);
++                config_file = HYDU_strdup(env_file);
++                goto config_file_check_exit;
++            }
++        }
++
+         /* Check if there's a config file in the home directory */
+         ret = MPL_env2str("HOME", &home);
+         if (ret) {
+-- 
+2.0.1
+

@@ -1,0 +1,71 @@
+if [ ! -d /build/FNL7/tai/mpich2-install ] ; then mkdir -p /build/FNL7/tai/mpi
+2-install ; fi
+if [ ! -d /build/FNL7/tai/mpich2-install/share ] ; then mkdir -p /build/FNL7/t
+/mpich2-install/share ; fi
+if [ ! -d /build/FNL7/tai/mpich2-install/share/doc/ ] ; then mkdir -p /build/F
+7/tai/mpich2-install/share/doc/ ; fi
+if [ ! -d /build/FNL7/tai/mpich2-install/share/man ] ; then mkdir -p /build/FN
+/tai/mpich2-install/share/man ; fi
+if [ ! -d /build/FNL7/tai/mpich2-install/include ] ; then mkdir -p /build/FNL7
+ai/mpich2-install/include ; fi
+if [ ! -d /build/FNL7/tai/mpich2-install ] ; then mkdir -p /build/FNL7/tai/mpi
+2-install ; fi
+if [ ! -d /build/FNL7/tai/mpich2-install/lib ] ; then mkdir -p /build/FNL7/tai
+pich2-install/lib ; fi
+make install-local
+if [ "no" = "yes" ] ; then \
+    confdb/install-sh -c -m 644 src/mpi/debugger/libtvmpich2.so \
+                /build/FNL7/tai/mpich2-install/lib/libtvmpich2.so ; fi
+if [ -n " hydra gforker" ] ; then \
+    for pm in  hydra gforker /dev/null ; do \
+        if [ -d src/pm/$pm ] ; then \
+             (cd src/pm/$pm && make install-alt ) ; fi ; \
+    done ; \
+fi
+mpl/confdb/install-sh -c  mpiexec /build/FNL7/tai/mpich2-install/bin/mpiexec.h
+ra
+mpl/confdb/install-sh -c  pmi_proxy /build/FNL7/tai/mpich2-install/bin/
+cd ../util && make
+../../../confdb/install-sh -c  mpiexec /build/FNL7/tai/mpich2-install/bin/mpie
+c.gforker
+confdb/install-sh -c -m 644 src/include/mpi.h /build/FNL7/tai/mpich2-install/i
+lude/mpi.h
+confdb/install-sh -c -m 644 lib/libmpich.a /build/FNL7/tai/mpich2-install/lib/
+bmpich.a
+if [ ! -d /build/FNL7/tai/mpich2-install/share/doc/ ] ; then mkdir -p /build/F
+7/tai/mpich2-install/share/doc/ ; fi
+confdb/install-sh -c -m 644 index.htm /build/FNL7/tai/mpich2-install/share/doc
+index.htm
+bash: line 5: confdb/install-sh: No such file or directory
+*** Error code 1
+The following command caused the error:
+if test -d ./www && cd ./www ; then \
+ for name in * ; do \
+  if [ "$name" = "*" ] ; then continue ; fi ; \
+  if [ -f $name ] ; then \
+    echo "confdb/install-sh -c -m 644 $name /build/FNL7/tai/mpich2-install/sha
+/doc//$name" ; \
+    confdb/install-sh -c -m 644 $name /build/FNL7/tai/mpich2-install/share/doc
+$name ; \
+  elif [ -d $name ] ; then \
+    if [ ! -d /build/FNL7/tai/mpich2-install/share/doc//$name ] ; then mkdir -
+/build/FNL7/tai/mpich2-install/share/doc//$name ; fi ;\
+    ( cd $name && for name2 in * ; do \
+        if [ "$name2" = "*" ] ; then continue ; fi ; \
+        if [ -f $name2 ] ; then \
+            echo "confdb/install-sh -c -m 644 $name2 /build/FNL7/tai/mpich2-in
+all/share/doc//$name/$name2" ; \
+            confdb/install-sh -c -m 644 $name2 /build/FNL7/tai/mpich2-install/
+are/doc//$name/$name2 ; \
+        elif [ -d $name2 ] ; then  \
+            echo "cp -rp $name2 /build/FNL7/tai/mpich2-install/share/doc//$nam
+ ; \
+            cp -rp $name2 /build/FNL7/tai/mpich2-install/share/doc//$name ; \
+        fi \
+    done ) ; \
+  else \
+    echo "Unknown file type for $name" ; \
+  fi ; \
+ done ; \
+fi
+make: Fatal error: Command failed for target `install'

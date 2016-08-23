@@ -1,0 +1,76 @@
+From 2c21c516e8fdcdd03294f20e5cc5a67de4019c43 Mon Sep 17 00:00:00 2001
+From: Pavan Balaji <balaji@mcs.anl.gov>
+Date: Wed, 1 May 2013 14:48:49 -0500
+Subject: [PATCH] Cleanup the code to disable the Comm_create optimization.
+
+No reviewer.
+---
+ src/mpi/comm/comm_create.c                        | 7 +++----
+ src/mpid/pamid/include/mpidpre.h                  | 2 +-
+ src/mpid/pamid/src/dyntask/mpid_comm_disconnect.c | 3 ---
+ 3 files changed, 4 insertions(+), 8 deletions(-)
+
+diff --git a/src/mpi/comm/comm_create.c b/src/mpi/comm/comm_create.c
+index b836f188..816e7361 100644
+--- a/src/mpi/comm/comm_create.c
++++ b/src/mpi/comm/comm_create.c
+@@ -95,7 +95,7 @@ int MPIR_Comm_create_calculate_mapping(MPID_Group  *group_ptr,
+     /* we examine the group's lpids in both the intracomm and non-comm_world cases */
+     MPIR_Group_setup_lpid_list( group_ptr );
+ 
+-#ifndef COMMCREATE_OPTIMIZATION_DISABLED_FOR_SPAWNED_TASK
++#if !defined MPID_DISABLE_COMM_CREATE_OPTIMIZATION
+     /* Optimize for groups contained within MPI_COMM_WORLD. */
+     if (comm_ptr->comm_kind == MPID_INTRACOMM) {
+         int wsize;
+@@ -135,8 +135,9 @@ int MPIR_Comm_create_calculate_mapping(MPID_Group  *group_ptr,
+         vcr = MPIR_Process.comm_world->vcr;
+         vcr_size = MPIR_Process.comm_world->local_size;
+     }
+-    else {
++    else
+ #endif
++    {
+         for (i=0; i<n; i++) {
+             /* mapping[i] is the rank in the communicator of the process
+                that is the ith element of the group */
+@@ -153,9 +154,7 @@ int MPIR_Comm_create_calculate_mapping(MPID_Group  *group_ptr,
+             MPIU_ERR_CHKANDJUMP1(mapping[i] == -1,mpi_errno,MPI_ERR_GROUP,
+                                  "**groupnotincomm", "**groupnotincomm %d", i );
+         }
+-#ifndef COMMCREATE_OPTIMIZATION_DISABLED_FOR_SPAWNED_TASK
+     }
+-#endif
+ 
+     MPIU_Assert(vcr != NULL);
+     MPIU_Assert(mapping != NULL);
+diff --git a/src/mpid/pamid/include/mpidpre.h b/src/mpid/pamid/include/mpidpre.h
+index 2a8e0c97..0cd90869 100644
+--- a/src/mpid/pamid/include/mpidpre.h
++++ b/src/mpid/pamid/include/mpidpre.h
+@@ -64,7 +64,7 @@
+ 
+ #ifdef DYNAMIC_TASKING
+ #define HAVE_GPID_ROUTINES
+-#define COMMCREATE_OPTIMIZATION_DISABLED_FOR_SPAWNED_TASK
++#define MPID_DISABLE_COMM_CREATE_OPTIMIZATION
+ #endif
+ 
+ #endif
+diff --git a/src/mpid/pamid/src/dyntask/mpid_comm_disconnect.c b/src/mpid/pamid/src/dyntask/mpid_comm_disconnect.c
+index 0a0fda1b..094ca0f2 100644
+--- a/src/mpid/pamid/src/dyntask/mpid_comm_disconnect.c
++++ b/src/mpid/pamid/src/dyntask/mpid_comm_disconnect.c
+@@ -47,9 +47,6 @@ typedef struct {
+ extern transactionID_struct *_transactionID_list;
+ 
+ 
+-void MPIDI_get_allremote_leaders(int *tid_arr, MPID_Comm *comm_ptr);
+-
+-
+ void MPIDI_send_AM_to_remote_leader_on_disconnect(int taskid, long long comm_cntr, int whichAM)
+ {
+    pami_send_immediate_t xferP;
+-- 
+1.8.1.2
+

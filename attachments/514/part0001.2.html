@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #514: Fortran support on Windows MPICH2</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; This is a pending issue. Fortran 90 mod files are currently not provided with 64-bit builds of MPICH2 on windows.<BR>
+&nbsp; We will fix this by the next release (beta 2 release due in a month or so). We will let you know of our progress.<BR>
+<BR>
+(PS: Fortran 77 header files &amp; libs are available with the 64-bit build.)<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Thursday, April 02, 2009 4:02 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #514: Fortran support on Windows MPICH2<BR>
+<BR>
+-------------------------------------------------------------------+----<BR>
+-------------------------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Jeyapandian Kottalam&quot; &lt;jkottalam@reactiondesign.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+-------------------------------------------------------------------+----<BR>
+-------------------------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Hi<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;I downloaded Win X86_64 Binary (1.0.8) from&nbsp; <A HREF="http://www.mcs.anl.gov/research/projects/mpich2/">http://www.mcs.anl.gov/research/projects/mpich2/</A> and installed on my<BR>
+&nbsp;Win64 machine. The installer did not present any option to include or&nbsp; exclude Fortran support. The resulting include directory contains only&nbsp; *.h files. When I install on Linux from the source code, the include&nbsp; directory contains mpi_base.mod, mpi_constants.mod, mpi.mod, and&nbsp; mpi_sizeofs.mod. How can I get Fortran support on Windows?<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Thanks<BR>
+<BR>
+&nbsp;Kottalam<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/514">https://trac.mcs.anl.gov/projects/mpich2/ticket/514</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

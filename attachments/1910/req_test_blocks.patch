@@ -1,0 +1,113 @@
+From 5c0af3051b254d9067ca77ce7acae10bdeb8d08d Mon Sep 17 00:00:00 2001
+From: Chaoran Yang <chaoran@rice.com>
+Date: Thu, 18 Jul 2013 13:11:28 -0500
+Subject: [PATCH] A test to show current implmentation of MPI_Test blocks
+
+MPI_Test should be a local, non-blocking operation.
+However, calling MPI_Test on the request handle returned by RMAs will
+call MPI_Win_flush and wait for it, which blocks the program.
+
+The test will block when both the following statement are true:
+
+1. MPI_Test communicates and waits for response;
+2. An MPI process does not serve network requests when busy-waiting.
+
+Either of these two statement being true is a bug.
+---
+ test/mpi/rma/Makefile.am |    1 +
+ test/mpi/rma/req_test.c  |   58 ++++++++++++++++++++++++++++++++++++++++++++++
+ test/mpi/rma/testlist    |    1 +
+ 3 files changed, 60 insertions(+)
+ create mode 100644 test/mpi/rma/req_test.c
+
+diff --git a/test/mpi/rma/Makefile.am b/test/mpi/rma/Makefile.am
+index 00665fe..ca41c98 100644
+--- a/test/mpi/rma/Makefile.am
++++ b/test/mpi/rma/Makefile.am
+@@ -109,6 +109,7 @@ noinst_PROGRAMS =          \
+     get_accumulate_int_derived     \
+     flush                  \
+     reqops                 \
++    req_test               \
+     req_example            \
+     win_info               \
+     pscw_ordering          \
+diff --git a/test/mpi/rma/req_test.c b/test/mpi/rma/req_test.c
+new file mode 100644
+index 0000000..40015b8
+--- /dev/null
++++ b/test/mpi/rma/req_test.c
+@@ -0,0 +1,58 @@
++/* -*- Mode: C; c-basic-offset:4 ; indent-tabs-mode:nil ; -*- */
++/*
++ *  (C) 2003 by Argonne National Laboratory.
++ *      See COPYRIGHT in top-level directory.
++ */
++
++/* The test will block when BOTH the following statements are true:
++ *
++ * 1. MPI_Test communicates and waits for response;
++ * 2. An MPI process does not serve network requests when busy-waiting.
++ *
++ * Either of these two statements being true is a bug.
++ */
++
++#include <mpi.h>
++#include "mpitest.h"
++
++int main(int argc, char *argv[]) {
++    int rank, flag, disp, data = 1;
++    int *buffer;
++
++    volatile char *buffer_remote, *buffer_shared;
++
++    MPI_Win win, win_shared;
++    MPI_Request req;
++    MPI_Status status;
++    MPI_Aint size;
++
++    MPI_Init(&argc, &argv);
++    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
++
++    MPI_Win_allocate(sizeof(int), sizeof(int), MPI_INFO_NULL,
++            MPI_COMM_WORLD, &buffer, &win);
++    MPI_Win_allocate_shared(1, 1, MPI_INFO_NULL,
++            MPI_COMM_WORLD, &buffer_shared, &win_shared);
++
++    *buffer_shared = 0;
++
++    if (rank == 0) {
++        MPI_Win_shared_query(win_shared, 1, &size, &disp, &buffer_remote);
++        MPI_Win_lock(MPI_LOCK_SHARED, 1, 0, win);
++    }
++
++    MPI_Barrier(MPI_COMM_WORLD);
++
++    if (rank == 0) {
++        MPI_Rput(&data, 1, MPI_INT, 1, 0, 1, MPI_INT, win, &req);
++        MPI_Test(&req, &flag, &status);
++
++        *buffer_remote = 1;
++
++        MPI_Win_unlock(1, win);
++    } else {
++        while (*buffer_shared != 1);
++    }
++
++    MPI_Finalize();
++}
+diff --git a/test/mpi/rma/testlist b/test/mpi/rma/testlist
+index 0168a34..d70ae35 100644
+--- a/test/mpi/rma/testlist
++++ b/test/mpi/rma/testlist
+@@ -89,6 +89,7 @@ get_accumulate_short 4 mpiversion=3.0
+ get_accumulate_short_derived 4 mpiversion=3.0
+ flush 4 mpiversion=3.0
+ reqops 4 mpiversion=3.0
++req_test 2 mpiversion=3.0
+ req_example 4 mpiversion=3.0
+ win_info 4 mpiversion=3.0
+ linked_list_lockall 4 mpiversion=3.0
+-- 
+1.7.9.5
+

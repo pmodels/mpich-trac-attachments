@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #636: MPICH2 and .NET issues</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Can you try compiling your code with the multithreaded static runtime lib (/MT)? Also if you don't need the C++ MPI interfaces you can remove cxx.lib from the list of dependencies.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Thursday, June 04, 2009 6:42 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #636: MPICH2 and .NET issues<BR>
+<BR>
+---------------------------------------------+--------------------------<BR>
+---------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;T. Farago&quot; &lt;farago1@zonnet.nl&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+---------------------------------------------+--------------------------<BR>
+---------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;My project is built with the &quot;multi-threaded DLL&quot; runtime library&nbsp; using MSVC 2008.<BR>
+<BR>
+&nbsp;For MPI I include &lt;mpi.h&gt; and its two library files cxx.lib and&nbsp; mpi.lib. Simply compiling and linking the project results in the&nbsp; following error(s):<BR>
+<BR>
+&nbsp;Linking...<BR>
+&nbsp;LIBCMT.lib(hooks.obj) : error LNK2005: &quot;void __cdecl terminate(void)&quot;<BR>
+&nbsp;(?terminate@@YAXXZ) already defined in MSVCRT.lib(MSVCR90.dll)<BR>
+&nbsp;LIBCMT.lib(stdexcpt.obj) : error LNK2005: &quot;public: __thiscall&nbsp; std::exception::exception(class std::exception const &amp;)&quot;<BR>
+&nbsp;(??0exception@std@@QAE@ABV01@@Z) already defined in<BR>
+&nbsp;MSVCRT.lib(MSVCR90.dll)<BR>
+&nbsp;LIBCMT.lib(stdexcpt.obj) : error LNK2005: &quot;public: virtual char const<BR>
+&nbsp;* __thiscall std::exception::what(void)const &quot;<BR>
+&nbsp;(?what@exception@std@@UBEPBDXZ) already defined in<BR>
+&nbsp;MSVCRT.lib(MSVCR90.dll)<BR>
+&nbsp;LIBCMT.lib(typinfo.obj) : error LNK2005: &quot;public: void __thiscall&nbsp; type_info::_type_info_dtor_internal_method(void)&quot;<BR>
+&nbsp;(?_type_info_dtor_internal_method@type_info@@QAEXXZ) already defined&nbsp; in MSVCRT.lib(MSVCR90.dll)<BR>
+&nbsp;LIBCMT.lib(typinfo.obj) : error LNK2005: &quot;private: __thiscall&nbsp; type_info::type_info(class type_info const &amp;)&quot;<BR>
+&nbsp;(??0type_info@@AAE@ABV0@@Z) already defined in MSVCRT.lib(ti_inst.obj)<BR>
+&nbsp;LIBCMT.lib(typinfo.obj) : error LNK2005: &quot;private: class type_info &amp;&nbsp; __thiscall type_info::operator=(class type_info const &amp;)&quot;<BR>
+&nbsp;(??4type_info@@AAEAAV0@ABV0@@Z) already defined in<BR>
+&nbsp;MSVCRT.lib(ti_inst.obj)<BR>
+&nbsp;LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of&nbsp; other libs; use /NODEFAULTLIB:library&nbsp; I:\trunk\bin\Release\graph.exe : fatal error LNK1169: one or more&nbsp; multiply defined symbols found<BR>
+<BR>
+<BR>
+&nbsp;So I ignore &quot;libcmt.lib&quot; and get the following warning(s):<BR>
+<BR>
+&nbsp;graph.obj : warning LNK4248: unresolved typeref token (01000066) for&nbsp; 'ADIOI_FileD'; image may not run<BR>
+&nbsp;cxx.lib(initcxx1.obj) : warning LNK4099: PDB 'vc80.pdb' was not found&nbsp; with 'C:\MPICH2\lib\cxx.lib' or at 'i:\trunk\bin\Release\vc80.pdb';&nbsp; linking object as if no debug info<BR>
+<BR>
+&nbsp;The program crashes at startup during initialisation saying something&nbsp; about &quot;unhandled exception of type System.TypeInitializationException<BR>
+&nbsp;in Unknown Module&quot;<BR>
+<BR>
+&nbsp;How can this be solved?<BR>
+&nbsp;Best regards,<BR>
+&nbsp;T. Farago<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/636">https://trac.mcs.anl.gov/projects/mpich2/ticket/636</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

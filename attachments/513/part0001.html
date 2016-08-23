@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16809" name=GENERATOR></HEAD>
+<BODY>
+<DIV dir=ltr align=left>&nbsp;</DIV><BR>
+<BLOCKQUOTE 
+style="PADDING-LEFT: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: #0000ff 2px solid; MARGIN-RIGHT: 0px">
+  <DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+  <HR tabIndex=-1>
+  <FONT face=Tahoma size=2><B>From:</B> mpich-discuss-bounces@mcs.anl.gov 
+  [mailto:mpich-discuss-bounces@mcs.anl.gov] <B>On Behalf Of </B>Seifer 
+  Lin<BR><B>Sent:</B> Wednesday, April 01, 2009 11:27 AM<BR><B>To:</B> 
+  mpich-discuss@mcs.anl.gov<BR><B>Subject:</B> Re: [mpich-discuss] Is MPICH2 
+  connection failure aware ?<BR></FONT><BR></DIV>
+  <DIV></DIV>
+  <DIV>Hi:</DIV>
+  <DIV>&nbsp;</DIV>
+  <DIV>Unplug the wire of node1 : mpiexec abort</DIV>
+  <DIV>&nbsp;</DIV>
+  <DIV>Unplug the wire of node2: the MPI task at node2 finally disappeared, the 
+  MPI task at node1 hangs (from the console window it just hangs)</DIV>
+  <DIV>&nbsp;</DIV>
+  <DIV>regards,</DIV>
+  <DIV>Seifer<BR><BR></DIV>
+  <DIV class=gmail_quote>2009/4/1 Jayesh Krishna <SPAN dir=ltr>&lt;<A 
+  href="mailto:jayesh@mcs.anl.gov">jayesh@mcs.anl.gov</A>&gt;</SPAN><BR>
+  <BLOCKQUOTE class=gmail_quote 
+  style="PADDING-LEFT: 1ex; MARGIN: 0px 0px 0px 0.8ex; BORDER-LEFT: #ccc 1px solid">
+    <DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>Hi,</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>&nbsp;Did the application crash (or was it an abort 
+    ?)?</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN></SPAN></FONT>&nbsp;</DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>Regards,</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>Jayesh</SPAN></FONT></DIV><BR>
+    <DIV lang=en-us dir=ltr align=left>
+    <HR>
+    <FONT face=Tahoma size=2><B>From:</B> <A 
+    href="mailto:mpich-discuss-bounces@mcs.anl.gov" 
+    target=_blank>mpich-discuss-bounces@mcs.anl.gov</A> [mailto:<A 
+    href="mailto:mpich-discuss-bounces@mcs.anl.gov" 
+    target=_blank>mpich-discuss-bounces@mcs.anl.gov</A>] <B>On Behalf Of 
+    </B>Seifer Lin<BR><B>Sent:</B> Wednesday, April 01, 2009 12:31 
+    AM<BR><B>To:</B> <A href="mailto:mpich-discuss@mcs.anl.gov" 
+    target=_blank>mpich-discuss@mcs.anl.gov</A><BR><B>Subject:</B> 
+    [mpich-discuss] Is MPICH2 connection failure aware ?<BR></FONT><BR></DIV>
+    <DIV>
+    <DIV></DIV>
+    <DIV class=h5>
+    <DIV></DIV>
+    <DIV>Hi all:</DIV>
+    <DIV>&nbsp;</DIV>
+    <DIV>I have run 2 MPI tasks in 2 different nodes. (2 nodes are with Windows 
+    XP Professional)</DIV>
+    <DIV>&nbsp;</DIV>
+    <DIV>The mpiexec command is run on node1.</DIV>
+    <DIV>&nbsp;</DIV>
+    <DIV>During the parallel computing, if I unplug the network wire 
+    of&nbsp;node1, the parallel computing will crash.</DIV>
+    <DIV>&nbsp;</DIV>
+    <DIV>But if I unplug the network wire of node2, the parallel computing just 
+    hangs! I notice that the hanging results from</DIV>
+    <DIV>that I unplug the wire before a MPI_Barrier, therefore node1 waits at 
+    MPI_Barrier, but node2 will never reach that point.</DIV>
+    <DIV>&nbsp;</DIV>
+    <DIV>Is there any mechanism to make the parallel computing crash after the 
+    network wire of node2 is unplugged ?</DIV>
+    <DIV>&nbsp;</DIV>
+    <DIV>regards,</DIV>
+    <DIV>&nbsp;</DIV>
+    <DIV>Seifer</DIV>
+    <DIV>&nbsp;</DIV></DIV></DIV></DIV></BLOCKQUOTE></DIV><BR></BLOCKQUOTE></BODY></HTML>

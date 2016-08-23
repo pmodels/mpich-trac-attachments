@@ -1,0 +1,211 @@
+
+<br><font size=2 face="sans-serif">We only found it in one of our test
+suites too. We didn't see any failures in the Intel test suite or the standard
+suite with MPICH. </font>
+<br>
+<br><font size=2 face="sans-serif">The failure was spotted in an internal
+&quot;MPI Exerciser&quot; our test team wrote for manufacturing test/burn
+in actually. We run the test fairly regularly because it seems to be good
+at finding weird bugs.</font>
+<br>
+<br><font size=2 face="sans-serif"><br>
+Brian Smith<br>
+BlueGene MPI Development<br>
+IBM Rochester<br>
+Phone: 507 253 4717<br>
+smithbr@us.ibm.com<br>
+</font>
+<br>
+<br>
+<br>
+<table width=100%>
+<tr valign=top>
+<td width=40%><font size=1 face="sans-serif"><b>&quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt;</b>
+</font>
+<p><font size=1 face="sans-serif">07/15/2009 10:18 AM</font>
+<table border>
+<tr valign=top>
+<td bgcolor=white>
+<div align=center><font size=1 face="sans-serif">Please respond to<br>
+mpich2-maint@mcs.anl.gov</font></div></table>
+<br>
+<td width=59%>
+<table width=100%>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">To</font></div>
+<td><font size=1 face="sans-serif">undisclosed-recipients: ;</font>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">cc</font></div>
+<td>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">Subject</font></div>
+<td><font size=1 face="sans-serif">Re: [mpich2-maint] #724: MPIR_Scatterv
+typo</font></table>
+<br>
+<table>
+<tr valign=top>
+<td>
+<td></table>
+<br></table>
+<br>
+<br>
+<br><tt><font size=2>#724: MPIR_Scatterv typo<br>
+----------------------------------------------+-----------------------------<br>
+ Reporter: &nbsp;Joe Ratterman &lt;jratt0@…&gt; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;| &nbsp; &nbsp; &nbsp; Owner: &nbsp;goodell <br>
+ &nbsp; &nbsp; Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;
+&nbsp; &nbsp;Status: &nbsp;accepted<br>
+ Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; Milestone: &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;<br>
+Component: &nbsp;mpich2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Keywords:
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+----------------------------------------------+-----------------------------<br>
+Changes (by goodell):<br>
+<br>
+ &nbsp;* owner: &nbsp;=&gt; goodell<br>
+ &nbsp;* status: &nbsp;new =&gt; accepted<br>
+<br>
+<br>
+Old description:<br>
+<br>
+&gt; {{{<br>
+&gt;<br>
+&gt; Looking over the MPIR_Scatterv code, it appears that one of the locations<br>
+&gt; that checks for MPI_IN_PLACE checks the wrong buffer. &nbsp;In 1.0.8,
+both<br>
+&gt; places<br>
+&gt; check recvbuf, but in the current version, one of them was changed
+to<br>
+&gt; sendbuf.<br>
+&gt;<br>
+&gt; 1.0.8:<br>
+&gt; https://svn.mcs.anl.gov/repos/mpi/mpich2/tags/release/mpich2-1.0.8p1/src/mpi/col<br>
+&gt; l/scatterv.c<br>
+&gt; Current:<br>
+&gt; https://svn.mcs.anl.gov/repos/mpi/mpich2/trunk/src/mpi/coll/scatterv.c<br>
+&gt;<br>
+&gt; diff --git a/mpich2/src/mpi/coll/scatterv.c<br>
+&gt; b/mpich2/src/mpi/coll/scatterv.c<br>
+&gt; index 9c06538..955671a 100644<br>
+&gt; --- a/mpich2/src/mpi/coll/scatterv.c<br>
+&gt; +++ b/mpich2/src/mpi/coll/scatterv.c<br>
+&gt; @@ -92,9 +92,9 @@ int MPIR_Scatterv (<br>
+&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;reqs = 0;<br>
+&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for (i = 0; i &lt; comm_size; i++)
+{<br>
+&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (sendcnts[i]) {<br>
+&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if ((comm_ptr-&gt;comm_kind
+== MPID_INTRACOMM) &amp;&amp; (i ==<br>
+&gt; rank))<br>
+&gt; {<br>
+&gt; - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if
+(sendbuf != MPI_IN_PLACE) {<br>
+&gt; + &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if
+(recvbuf != MPI_IN_PLACE) {<br>
+&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;mpi_errno = MPIR_Localcopy(((char<br>
+&gt; *)sendbuf+displs[rank]*extent),<br>
+&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sendcnts[rank],<br>
+&gt; sendtype,<br>
+&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; recvbuf, recvcnt,<br>
+&gt; recvtype);<br>
+&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;}<br>
+&gt;<br>
+<br>
+&gt; Thanks,<br>
+&gt; Joe Ratterman<br>
+&gt; jratt@us.ibm.com<br>
+&gt; }}}<br>
+<br>
+New description:<br>
+<br>
+ {{{<br>
+<br>
+ Looking over the MPIR_Scatterv code, it appears that one of the locations<br>
+ that checks for MPI_IN_PLACE checks the wrong buffer. &nbsp;In 1.0.8,
+both<br>
+ places<br>
+ check recvbuf, but in the current version, one of them was changed to<br>
+ sendbuf.<br>
+<br>
+ 1.0.8:<br>
+ https://svn.mcs.anl.gov/repos/mpi/mpich2/tags/release/mpich2-1.0.8p1/src/mpi/col<br>
+ l/scatterv.c<br>
+ Current:<br>
+ https://svn.mcs.anl.gov/repos/mpi/mpich2/trunk/src/mpi/coll/scatterv.c<br>
+<br>
+ diff --git a/mpich2/src/mpi/coll/scatterv.c<br>
+ b/mpich2/src/mpi/coll/scatterv.c<br>
+ index 9c06538..955671a 100644<br>
+ --- a/mpich2/src/mpi/coll/scatterv.c<br>
+ +++ b/mpich2/src/mpi/coll/scatterv.c<br>
+ @@ -92,9 +92,9 @@ int MPIR_Scatterv (<br>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;reqs = 0;<br>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for (i = 0; i &lt; comm_size; i++) {<br>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (sendcnts[i]) {<br>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if ((comm_ptr-&gt;comm_kind
+== MPID_INTRACOMM) &amp;&amp; (i ==<br>
+ rank))<br>
+ {<br>
+ - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if
+(sendbuf != MPI_IN_PLACE) {<br>
+ + &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if
+(recvbuf != MPI_IN_PLACE) {<br>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;mpi_errno = MPIR_Localcopy(((char<br>
+ *)sendbuf+displs[rank]*extent),<br>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sendcnts[rank],<br>
+ sendtype,<br>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; recvbuf, recvcnt,<br>
+ recvtype);<br>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;}<br>
+<br>
+<br>
+ Thanks,<br>
+ Joe Ratterman<br>
+ jratt@us.ibm.com<br>
+ }}}<br>
+<br>
+--<br>
+<br>
+Comment:<br>
+<br>
+ Yeah, that's pretty clearly a bug. &nbsp;Page 149 of the MPI-2.1 standard
+says<br>
+ that MPI_Scatterv accepts MPI_IN_PLACE in the recvbuf parameter. &nbsp;Line
+96<br>
+ is wrong. &nbsp;It looks like this change was made in r3924 (the autolink
+might<br>
+ be broken, looks like permissions are not right), which was somewhere<br>
+ between 1.1a2 and 1.1b1 AFAICT. &nbsp;The most disappointing part of this
+bug<br>
+ is that none of our test suites caught it.<br>
+<br>
+ I'll code up a fix and a regression test later today. &nbsp;Thanks again
+for<br>
+ all the bug reports, they are always very helpful.<br>
+<br>
+ -Dave<br>
+<br>
+-- <br>
+Ticket URL: &lt;http://testtrac.mcs.anl.gov/projects/mpich2/ticket/724#comment:2&gt;<br>
+mpich2 &lt;http://testtrac.mcs.anl.gov/projects/mpich2&gt;<br>
+<br>
+</font></tt>
+<br>

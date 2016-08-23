@@ -1,0 +1,386 @@
+Beginning make
+Using variables CC='gcc' CFLAGS=' -O2' LDFLAGS='' AR='ar' FC='g77' F90='' FFLAGS=' -O2' F90FLAGS=' ' CXX='c++'
+make all-local
+make[1]: Entering directory `/home/Cornelius/mpich2-1.0.8'
+make[2]: Entering directory `/home/Cornelius/mpich2-1.0.8'
+make clean && cd test && make clean
+make[3]: Entering directory `/home/Cornelius/mpich2-1.0.8'
+make cleanlibs
+make[4]: Entering directory `/home/Cornelius/mpich2-1.0.8'
+rm -f lib/libmpich.a lib/libpmpich.a
+rm -f lib/libmpichcxx.a 
+rm -f lib/libfmpich.a lib/libmpichf90.a
+rm -f lib/libmpich.dll* 
+rm -f lib/libpmpich.dll*
+rm -f lib/libmpichcxx.dll* 
+rm -f lib/libfmpich.dll* 
+rm -f lib/libmpich.*.dll* 
+rm -f lib/libpmpich.*.dll*
+rm -f lib/libmpichcxx.*.dll* 
+rm -f lib/libfmpich.*.dll* 
+rm -f lib/libmpich.la* lib/libpmpich.la*
+rm -f lib/libmpichcxx.la* 
+rm -f lib/libfmpich.la* 
+make[4]: Leaving directory `/home/Cornelius/mpich2-1.0.8'
+for dir in src  examples - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[4]: Entering directory `/home/Cornelius/mpich2-1.0.8/src'
+for dir in mpid mpi util nameserv binding env pkgconfig mpe2 pmi pm - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid'
+for dir in common ch3 - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common'
+(cd locks && make clean )
+make[7]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/locks'
+make[7]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/locks'
+(cd datatype && make clean )
+make[7]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/datatype'
+(cd dataloop && make clean )
+make[8]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/datatype/dataloop'
+make[8]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/datatype/dataloop'
+make[7]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/datatype'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3'
+for dir in channels src util ; do \
+		(cd $dir && make clean ; ) ; done
+make[7]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/channels'
+for dir in sock - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[8]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/channels/sock'
+(cd ../../../common/sock && make clean )
+make[9]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/sock'
+for dir in poll - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[10]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/sock/poll'
+make[10]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/sock/poll'
+make[9]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/sock'
+(cd src && make clean )
+make[9]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/channels/sock/src'
+make[9]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/channels/sock/src'
+make[8]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/channels/sock'
+make[7]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/channels'
+make[7]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/src'
+make[7]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/src'
+make[7]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/util'
+for dir in  sock - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[8]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/util/sock'
+make[8]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/util/sock'
+make[7]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/util'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/ch3'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi'
+for dir in attr coll comm datatype errhan group init misc pt2pt rma spawn timer topo romio  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/attr'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/attr'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/coll'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/coll'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/comm'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/comm'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/datatype'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/datatype'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/errhan'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/errhan'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/group'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/group'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/init'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/init'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/misc'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/misc'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/pt2pt'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/pt2pt'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/rma'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/rma'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/spawn'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/spawn'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/timer'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/timer'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/topo'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/topo'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/romio'
+ 
+cleaning directory mpi-io
+ 
+cleaning directory adio/common
+ 
+cleaning directory mpi-io/glue/mpich2
+ 
+cleaning directory adio/ad_testfs
+ 
+cleaning directory adio/ad_ufs
+ 
+cleaning directory adio/ad_nfs
+ 
+cleaning directory test
+make[7]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpi/romio/test'
+rm -f .P* PI* *.o 
+rm -f simple perf async coll_test coll_perf misc file_info excl large_array atomicity noncontig i_noncontig noncontig_coll split_coll shared_fp large_file psimple error status noncontig_coll2 aggregation1 aggregation2 async-multiple ordered_fp hindexed fcoll_test fperf fmisc pfcoll_test 
+make[7]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/romio/test'
+ 
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi/romio'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpi'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/util'
+for dir in mem info msgs instrm thread dbg param osserv  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/util/mem'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/util/mem'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/util/info'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/util/info'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/util/msgs'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/util/msgs'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/util/instrm'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/util/instrm'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/util/thread'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/util/thread'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/util/dbg'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/util/dbg'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/util/param'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/util/param'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/util/osserv'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/util/osserv'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/util'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/nameserv'
+for dir in mpd - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/nameserv/mpd'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/nameserv/mpd'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/nameserv'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/binding'
+for dir in  f77 cxx - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/binding/f77'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/binding/f77'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/binding/cxx'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/binding/cxx'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/binding'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/env'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/env'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/pkgconfig'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/pkgconfig'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpe2'
+rm -f /home/Cornelius/mpich2-1.0.8/src/mpe2/lib/lib*
+rm -f /home/Cornelius/mpich2-1.0.8/src/mpe2/lib/*.jar
+rm -f /home/Cornelius/mpich2-1.0.8/src/mpe2/lib/*.o
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpe2'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/pmi'
+for dir in simple - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/pmi/simple'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/pmi/simple'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/pmi'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/pm'
+for dir in mpd  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/pm/mpd'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/pm/mpd'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/pm'
+make[4]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src'
+make[4]: Entering directory `/home/Cornelius/mpich2-1.0.8/examples'
+make[4]: Leaving directory `/home/Cornelius/mpich2-1.0.8/examples'
+make[3]: Leaving directory `/home/Cornelius/mpich2-1.0.8'
+make[3]: Entering directory `/home/Cornelius/mpich2-1.0.8/test'
+for dir in mpi mpid util basic commands ; do \
+		(cd $dir && make clean ; ) ; done
+make[4]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi'
+rm -f summary.xml
+for dir in util attr basic datatype coll comm errhan group info init pt2pt rma spawn topo io  f77 cxx threads errors manual perf - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/util'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/util'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/attr'
+rm -f summary.xml
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/attr'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/basic'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/basic'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/datatype'
+rm -f summary.xml
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/datatype'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/coll'
+rm -f summary.xml
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/coll'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/comm'
+rm -f summary.xml
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/comm'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errhan'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errhan'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/group'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/group'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/info'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/info'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/init'
+rm -f summary.xml
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/init'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/pt2pt'
+rm -f summary.xml
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/pt2pt'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/rma'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/rma'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/spawn'
+rm -f summary.xml
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/spawn'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/topo'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/topo'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/io'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/io'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77'
+for dir in util attr datatype coll pt2pt info init comm topo rma spawn io ext ; do \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/util'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/util'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/attr'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/attr'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/datatype'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/datatype'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/coll'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/coll'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/pt2pt'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/pt2pt'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/info'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/info'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/init'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/init'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/comm'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/comm'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/topo'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/topo'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/rma'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/rma'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/spawn'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/spawn'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/io'
+rm -f .iotest.txt.*
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/io'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/ext'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77/ext'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/f77'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx'
+for dir in util attr pt2pt init info comm coll datatype io rma spawn ; do \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/util'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/util'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/attr'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/attr'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/pt2pt'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/pt2pt'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/init'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/init'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/info'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/info'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/comm'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/comm'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/coll'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/coll'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/datatype'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/datatype'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/io'
+rm -f .iotest.txt.*
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/io'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/rma'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/rma'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/spawn'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx/spawn'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/cxx'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads'
+rm -f summary.xml
+for dir in util pt2pt comm spawn ; do \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads/util'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads/util'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads/pt2pt'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads/pt2pt'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads/comm'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads/comm'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads/spawn'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads/spawn'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/threads'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors'
+for dir in attr coll comm group pt2pt rma spawn topo io  f77 cxx - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/attr'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/attr'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/coll'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/coll'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/comm'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/comm'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/group'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/group'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/pt2pt'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/pt2pt'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/rma'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/rma'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/spawn'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/spawn'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/topo'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/topo'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/io'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/io'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/f77'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/f77'
+make[6]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/cxx'
+(cd io && make clean )
+make[7]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/cxx/io'
+make[7]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/cxx/io'
+(cd errhan && make clean )
+make[7]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/cxx/errhan'
+make[7]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/cxx/errhan'
+make[6]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors/cxx'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/errors'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/manual'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/manual'
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpi/perf'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi/perf'
+make[4]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpi'
+make[4]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpid'
+(cd ch3 && make clean )
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/mpid/ch3'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpid/ch3'
+make[4]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/mpid'
+make[4]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/util'
+(cd timer && make clean )
+make[5]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/util/timer'
+make[5]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/util/timer'
+make[4]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/util'
+make[4]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/basic'
+make[4]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/basic'
+make[4]: Entering directory `/home/Cornelius/mpich2-1.0.8/test/commands'
+rm -f err.txt out.log out.txt stdintest stdintest2 sdtiotest a.out
+make[4]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test/commands'
+make[3]: Leaving directory `/home/Cornelius/mpich2-1.0.8/test'
+rm -f lib/newconfig
+make[2]: Leaving directory `/home/Cornelius/mpich2-1.0.8'
+make[1]: Leaving directory `/home/Cornelius/mpich2-1.0.8'
+make[1]: Entering directory `/home/Cornelius/mpich2-1.0.8/src'
+make[2]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid'
+make[3]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common'
+make[4]: Entering directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/locks'
+gcc -DHAVE_CONFIG_H -I. -I. -I. -I../../../include -I/home/Cornelius/mpich2-1.0.8/src/include -O2 -I/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/include -I/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/include -I/home/Cornelius/mpich2-1.0.8/src/mpid/common/datatype -I/home/Cornelius/mpich2-1.0.8/src/mpid/common/datatype -I/home/Cornelius/mpich2-1.0.8/src/mpid/common/locks -I/home/Cornelius/mpich2-1.0.8/src/mpid/common/locks -I/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/channels/sock/include -I/home/Cornelius/mpich2-1.0.8/src/mpid/ch3/channels/sock/include -I/home/Cornelius/mpich2-1.0.8/src/mpid/common/sock -I/home/Cornelius/mpich2-1.0.8/src/mpid/common/sock -I/home/Cornelius/mpich2-1.0.8/src/mpid/common/sock/poll -I/home/Cornelius/mpich2-1.0.8/src/mpid/common/sock/poll -c mpidu_process_locks.c
+In file included from ../../../include/mpiimpl.h:98,
+                 from /home/Cornelius/mpich2-1.0.8/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+../../../include/mpitypedefs.h:17:25: sys/bitypes.h: No such file or directory
+make[4]: *** [mpidu_process_locks.o] Error 1
+make[4]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common/locks'
+make[3]: *** [all-redirect] Error 2
+make[3]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid/common'
+make[2]: *** [all-redirect] Error 2
+make[2]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src/mpid'
+make[1]: *** [all-redirect] Error 2
+make[1]: Leaving directory `/home/Cornelius/mpich2-1.0.8/src'
+make: *** [all-redirect] Error 2

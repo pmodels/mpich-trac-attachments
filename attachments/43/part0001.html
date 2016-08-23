@@ -1,0 +1,82 @@
+
+<br><font size=2 face="sans-serif">Hi,</font>
+<br>
+<br><font size=2 face="sans-serif">I think we are hitting into the same
+problem with fortran mpich libraries. &nbsp; We are using gfortran (which
+accepts -m64 flag for 64 bit compilation).</font>
+<br>
+<br><font size=2 face="sans-serif">We tried the following set of flags:</font>
+<br><font size=2 face="sans-serif">export FCFLAGS=&quot;-m64&quot;</font>
+<br><font size=2 face="sans-serif">export FCFLAGS_f90=&quot;-m64&quot;</font>
+<br><font size=2 face="sans-serif">export FFLAGS=&quot;-m64</font>
+<br>
+<br><font size=2 face="sans-serif">and they didn't seem to work.</font>
+<br>
+<br><font size=2 face="sans-serif">Can you please help?</font>
+<br>
+<br><font size=2 face="sans-serif">Thanks,</font>
+<br>
+<br><font size=2 face="sans-serif">Vijay Mann<br>
+Technical Staff Member, <br>
+IBM India Research Laboratory, &nbsp;New Delhi, India. <br>
+Phone: 91-11- 41292168<br>
+http://www.research.ibm.com/people/v/vijamann/</font>
+<br>
+<br>
+<br>
+<table width=100%>
+<tr valign=top>
+<td width=40%><font size=1 face="sans-serif"><b>Anthony Chan &lt;chan@mcs.anl.gov&gt;</b>
+</font>
+<p><font size=1 face="sans-serif">11/16/2007 04:52 AM</font>
+<td width=59%>
+<table width=100%>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">To</font></div>
+<td><font size=1 face="sans-serif">Pradipta De/India/IBM@IBMIN</font>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">cc</font></div>
+<td><font size=1 face="sans-serif">mpich2-maint@mcs.anl.gov, Vijay Mann/India/IBM@IBMIN</font>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">Subject</font></div>
+<td><font size=1 face="sans-serif">Re: [MPICH2 Req #3768] Problem with
+MPICH2</font></table>
+<br>
+<table>
+<tr valign=top>
+<td>
+<td></table>
+<br></table>
+<br>
+<br>
+<br><tt><font size=2><br>
+<br>
+Did you set CFLAGS and CXXFLAGS to the same 64bit flag used by your<br>
+C/C++ compiler ?<br>
+<br>
+On Thu, 15 Nov 2007, Pradipta De wrote:<br>
+<br>
+&gt; Hi,<br>
+&gt;<br>
+&gt; We downloaded and compiled MPICH2 on a PowerPC box running FC6.<br>
+&gt; We are trying to use mpicxx to compile our mpi code in 64-bit mode.<br>
+&gt; We get the following error: (our mpich2 install directory is<br>
+&gt; /hpcfs/downloaded_software/mpich2-install/)<br>
+&gt;<br>
+&gt; /usr/bin/ld: skipping incompatible<br>
+&gt; /hpcfs/downloaded_software/mpich2-install//lib/libmpichcxx.a when<br>
+&gt; searching for -lmpichcxx<br>
+&gt; /usr/bin/ld: cannot find -lmpichcxx<br>
+&gt; collect2: ld returned 1 exit status<br>
+&gt;<br>
+&gt; Is there some flag that needs to be specified during configuration
+to<br>
+&gt; allow for 64-bit version ?<br>
+&gt;<br>
+&gt; thanks, and regards,<br>
+&gt; -- pradipta<br>
+</font></tt>
+<br>

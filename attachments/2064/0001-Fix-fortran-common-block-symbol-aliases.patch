@@ -1,0 +1,301 @@
+From e2dd9b0026bc3849abf9c17b34560c95d0383b7b Mon Sep 17 00:00:00 2001
+From: "Nysal Jan K.A" <jnysal@in.ibm.com>
+Date: Thu, 11 Sep 2014 10:10:25 -0400
+Subject: [PATCH] Fix fortran common block symbol aliases
+
+The common block symbol aliases defined
+using compiler attributes do not work as
+intended. The application and MPI library
+end up having separate copies of the
+common block symbols in the BSS segment.
+Use linker flags instead to define aliases.
+The following changes were made:
+
+* Use the --defsym linker flag to define
+  aliases for the fortran common block symbols.
+* Added an autoconf test to check if the linker
+  supports the --defsym flag
+* Remove compiler attribute based symbol aliases
+* Fixes mpich ticket #2064
+
+(ibm) D196593
+---
+ Makefile.am                            |    8 +--
+ confdb/aclocal.m4                      |    1 +
+ confdb/aclocal_ldflags.m4              |   64 +++++++++++++++++
+ configure.ac                           |    4 ++
+ src/binding/fortran/mpif_h/setbot.c.in |  123 --------------------------------
+ 5 files changed, 73 insertions(+), 127 deletions(-)
+ create mode 100644 confdb/aclocal_ldflags.m4
+
+diff --git a/Makefile.am b/Makefile.am
+index 4bbe965..e9bb66b 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -149,7 +149,7 @@ if BUILD_PROFILING_LIB
+ # don't contribute any PMPI symbols.
+ lib_LTLIBRARIES += lib/lib@PMPILIBNAME@.la
+ lib_lib@PMPILIBNAME@_la_SOURCES = $(mpi_sources) $(mpi_f77_sources) $(mpi_core_sources)
+-lib_lib@PMPILIBNAME@_la_LDFLAGS = $(external_ldflags) $(ABIVERSIONFLAGS)
++lib_lib@PMPILIBNAME@_la_LDFLAGS = $(external_ldflags) $(ABIVERSIONFLAGS) $(DEFSYM_LDFLAGS)
+ lib_lib@PMPILIBNAME@_la_LIBADD = $(external_libs) $(pmpi_convenience_libs)
+ EXTRA_lib_lib@PMPILIBNAME@_la_DEPENDENCIES = $(pmpi_convenience_libs)
+ 
+@@ -158,7 +158,7 @@ EXTRA_lib_lib@PMPILIBNAME@_la_DEPENDENCIES = $(pmpi_convenience_libs)
+ # confused. (see https://bugzilla.redhat.com/show_bug.cgi?id=91110)
+ lib_LTLIBRARIES += lib/lib@MPILIBNAME@.la
+ lib_lib@MPILIBNAME@_la_SOURCES = $(mpi_sources)
+-lib_lib@MPILIBNAME@_la_LDFLAGS = $(ABIVERSIONFLAGS)
++lib_lib@MPILIBNAME@_la_LDFLAGS = $(ABIVERSIONFLAGS) $(DEFSYM_LDFLAGS)
+ lib_lib@MPILIBNAME@_la_CPPFLAGS = $(AM_CPPFLAGS) -DMPICH_MPI_FROM_PMPI
+ lib_lib@MPILIBNAME@_la_LIBADD = lib/lib@PMPILIBNAME@.la $(mpi_convenience_libs)
+ 
+@@ -166,7 +166,7 @@ else !BUILD_PROFILING_LIB
+ 
+ lib_LTLIBRARIES += lib/lib@MPILIBNAME@.la
+ lib_lib@MPILIBNAME@_la_SOURCES = $(mpi_sources) $(mpi_core_sources)
+-lib_lib@MPILIBNAME@_la_LDFLAGS = $(external_ldflags) $(ABIVERSIONFLAGS)
++lib_lib@MPILIBNAME@_la_LDFLAGS = $(external_ldflags) $(ABIVERSIONFLAGS) $(DEFSYM_LDFLAGS)
+ lib_lib@MPILIBNAME@_la_CPPFLAGS = $(AM_CPPFLAGS)
+ lib_lib@MPILIBNAME@_la_LIBADD = $(external_libs) $(pmpi_convenience_libs) $(mpi_convenience_libs)
+ EXTRA_lib_lib@MPILIBNAME@_la_DEPENDENCIES = $(pmpi_convenience_libs) $(mpi_convenience_libs)
+@@ -183,7 +183,7 @@ if BUILD_FC_BINDING
+ modinc_HEADERS = $(mpi_fc_modules)
+ lib_lib@MPIFCLIBNAME@_la_SOURCES += $(mpi_fc_sources)
+ endif BUILD_FC_BINDING
+-lib_lib@MPIFCLIBNAME@_la_LDFLAGS = $(ABIVERSIONFLAGS)
++lib_lib@MPIFCLIBNAME@_la_LDFLAGS = $(ABIVERSIONFLAGS) $(DEFSYM_LDFLAGS)
+ lib_lib@MPIFCLIBNAME@_la_LIBADD = lib/lib@MPILIBNAME@.la
+ endif BUILD_F77_BINDING
+ 
+diff --git a/confdb/aclocal.m4 b/confdb/aclocal.m4
+index 488feaa..94de3ee 100644
+--- a/confdb/aclocal.m4
++++ b/confdb/aclocal.m4
+@@ -27,6 +27,7 @@ builtin(include,aclocal_libs.m4)
+ builtin(include,aclocal_attr_alias.m4)
+ builtin(include,ax_tls.m4)
+ builtin(include,aclocal_romio.m4)
++builtin(include,aclocal_ldflags.m4)
+ dnl Add the libtool files that libtoolize wants
+ dnl Comment these out until libtool support is enabled.
+ dnl May need to change this anyway, since libtoolize 
+diff --git a/confdb/aclocal_ldflags.m4 b/confdb/aclocal_ldflags.m4
+new file mode 100644
+index 0000000..36c72e5
+--- /dev/null
++++ b/confdb/aclocal_ldflags.m4
+@@ -0,0 +1,64 @@
++AC_DEFUN([PAC_CHECK_LINK_FLAG],
++[AS_VAR_PUSHDEF([CACHEVAR],[pac_cv_check_ldflags_$5_$1])dnl
++AC_CACHE_CHECK([whether the linker accepts $1], CACHEVAR, [
++  pac_check_save_flags=$LDFLAGS
++  LDFLAGS="$LDFLAGS $5 -Wl,$1$2"
++  AC_LINK_IFELSE([m4_default([$6],[AC_LANG_PROGRAM()])],
++    [AS_VAR_SET(CACHEVAR,[yes])],
++    [AS_VAR_SET(CACHEVAR,[no])])
++  LDFLAGS=$pac_check_save_flags])
++AS_IF([test x"AS_VAR_GET(CACHEVAR)" = xyes],
++  [m4_default([$3], :)],
++  [m4_default([$4], :)])
++AS_VAR_POPDEF([CACHEVAR])dnl
++])dnl PAC_CHECK_LINK_FLAG
++
++AC_DEFUN([PAC_CHECK_DEFSYM_LDFLAG],
++[PAC_CHECK_LINK_FLAG([--defsym],["=mpipriv1=mpipriv1_"],
++    [pac_cv_ldflags_defsym="yes"], [pac_cv_ldflags_defsym="no"], [],
++    [AC_LANG_SOURCE([
++        struct mpipriv1_t_ { int imember; };
++        typedef struct mpipriv1_t_ mpipriv1_t;
++        mpipriv1_t mpipriv1_ = {0};
++        int main()
++        {
++            return 0;
++        }
++    ])])
++
++    DEFSYM_LDFLAGS=""
++    if test "$pac_cv_ldflags_defsym" = "yes" ; then
++        f77_name_scheme="`echo $pac_cv_prog_f77_name_mangle | sed 's% stdcall%%g'`"
++        case ${f77_name_scheme} in
++            "lower uscore")
++                cblock_sym_name_mangled="mpipriv1_ mpipriv2_ mpiprivc_ mpifcmb5_ mpifcmb9_" ;;
++            "lower 2uscore")
++                cblock_sym_name_mangled="mpipriv1__ mpipriv2__ mpiprivc__ mpifcmb5__ mpifcmb9__" ;;
++            "lower")
++                cblock_sym_name_mangled="mpipriv1 mpipriv2 mpiprivc mpifcmb5 mpifcmb9" ;;
++            "upper")
++                cblock_sym_name_mangled="MPIPRIV1 MPIPRIV2 MPIPRIVC MPIFCMB5 MPIFCMB9" ;;
++            *)
++                AC_MSG_WARN([Unknown fortran name mangling scheme.]) ;;
++        esac
++
++        cblock_sym_name_alias1="mpipriv1 mpipriv1_ mpipriv1__ MPIPRIV1"
++        cblock_sym_name_alias2="mpipriv2 mpipriv2_ mpipriv2__ MPIPRIV2"
++        cblock_sym_name_alias3="mpiprivc mpiprivc_ mpiprivc__ MPIPRIVC"
++        cblock_sym_name_alias4="mpifcmb5 mpifcmb5_ mpifcmb5__ MPIFCMB5"
++        cblock_sym_name_alias5="mpifcmb9 mpifcmb9_ mpifcmb9__ MPIFCMB9"
++
++        k=1
++        for i in $cblock_sym_name_mangled; do
++            AS_VAR_COPY([var], [cblock_sym_name_alias$k])
++            for j in $var; do
++              if test "$j" != "$i"; then
++                DEFSYM_LDFLAGS="$DEFSYM_LDFLAGS -Wl,--defsym=$j=$i"
++              fi
++            done
++            k=`expr $k + 1`
++        done
++
++    fi
++    AC_SUBST([DEFSYM_LDFLAGS])
++])dnl PAC_CHECK_DEFSYM_LDFLAG 
+diff --git a/configure.ac b/configure.ac
+index 2ce0acf..554ff46 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -2019,6 +2019,10 @@ information to configure with the FCFLAGS environment variable.])
+        AC_DEFINE(USE_FORT_STR_LEN_SIZET,1,[Define if the length of a CHARACTER*(*) string in Fortran should be passed as size_t instead of int] )
+    fi
+ 
++# Check if the linker supports the --defsym flag
++# We use this to define fortran common block symbol aliases 
++PAC_CHECK_DEFSYM_LDFLAG
++
+ fi
+ 
+ # FC requires F77 as well.  If the user disabled f77, do not run the
+diff --git a/src/binding/fortran/mpif_h/setbot.c.in b/src/binding/fortran/mpif_h/setbot.c.in
+index da4a91c..7ee3b0e 100644
+--- a/src/binding/fortran/mpif_h/setbot.c.in
++++ b/src/binding/fortran/mpif_h/setbot.c.in
+@@ -93,126 +93,3 @@ FORT_DLL_SPEC void FORT_CALL mpirinitc2_( char *an FORT_MIXED_LEN(d1)
+ }
+ 
+ 
+-
+-/*
+-   Enable all known common block symbols mangling to be alias to each other,
+-   i.e. [_C]mpifcmb*[_]to one symbol, mpifcmb*r.
+-   Each common block is defined for one MPI Fortran special constant.
+-   This is done to avoid alignment problem.
+-*/
+-
+-#if defined(HAVE_C_MULTI_ATTR_ALIAS)
+-#define MPIF_STATUS_SIZE @MPI_STATUS_SIZE@
+-
+-struct mpif_cmblk1_t_ {
+-    MPI_Fint MPIF_STATUS_IGNORE[MPIF_STATUS_SIZE];
+-};
+-typedef struct mpif_cmblk1_t_ mpif_cmblk1_t;
+-mpif_cmblk1_t mpifcmb1r @CMB_STATUS_ALIGNMENT@ = {{0}};
+-extern mpif_cmblk1_t _CMPIFCMB1  __attribute__ ((alias("mpifcmb1r")));
+-extern mpif_cmblk1_t   MPIFCMB1  __attribute__ ((alias("mpifcmb1r")));
+-extern mpif_cmblk1_t   MPIFCMB1_ __attribute__ ((alias("mpifcmb1r")));
+-extern mpif_cmblk1_t _Cmpifcmb1  __attribute__ ((alias("mpifcmb1r")));
+-extern mpif_cmblk1_t   mpifcmb1  __attribute__ ((alias("mpifcmb1r")));
+-extern mpif_cmblk1_t   mpifcmb1_ __attribute__ ((alias("mpifcmb1r")));
+-
+-struct mpif_cmblk2_t_ {
+-    MPI_Fint MPIF_STATUSES_IGNORE[1][MPIF_STATUS_SIZE];
+-};
+-typedef struct mpif_cmblk2_t_ mpif_cmblk2_t;
+-mpif_cmblk2_t mpifcmb2r @CMB_STATUS_ALIGNMENT@ = {{{0}}};
+-extern mpif_cmblk2_t _CMPIFCMB2  __attribute__ ((alias("mpifcmb2r")));
+-extern mpif_cmblk2_t   MPIFCMB2  __attribute__ ((alias("mpifcmb2r")));
+-extern mpif_cmblk2_t   MPIFCMB2_ __attribute__ ((alias("mpifcmb2r")));
+-extern mpif_cmblk2_t _Cmpifcmb2  __attribute__ ((alias("mpifcmb2r")));
+-extern mpif_cmblk2_t   mpifcmb2  __attribute__ ((alias("mpifcmb2r")));
+-extern mpif_cmblk2_t   mpifcmb2_ __attribute__ ((alias("mpifcmb2r")));
+-
+-struct mpif_cmblk3_t_ {
+-    MPI_Fint MPIF_BOTTOM;
+-};
+-typedef struct mpif_cmblk3_t_ mpif_cmblk3_t;
+-mpif_cmblk3_t mpifcmb3r @CMB_1INT_ALIGNMENT@ = {0};
+-extern mpif_cmblk3_t _CMPIFCMB3  __attribute__ ((alias("mpifcmb3r")));
+-extern mpif_cmblk3_t   MPIFCMB3  __attribute__ ((alias("mpifcmb3r")));
+-extern mpif_cmblk3_t   MPIFCMB3_ __attribute__ ((alias("mpifcmb3r")));
+-extern mpif_cmblk3_t _Cmpifcmb3  __attribute__ ((alias("mpifcmb3r")));
+-extern mpif_cmblk3_t   mpifcmb3  __attribute__ ((alias("mpifcmb3r")));
+-extern mpif_cmblk3_t   mpifcmb3_ __attribute__ ((alias("mpifcmb3r")));
+-
+-struct mpif_cmblk4_t_ {
+-    MPI_Fint MPIF_IN_PLACE;
+-};
+-typedef struct mpif_cmblk4_t_ mpif_cmblk4_t;
+-mpif_cmblk4_t mpifcmb4r @CMB_1INT_ALIGNMENT@ = {0};
+-extern mpif_cmblk4_t _CMPIFCMB4  __attribute__ ((alias("mpifcmb4r")));
+-extern mpif_cmblk4_t   MPIFCMB4  __attribute__ ((alias("mpifcmb4r")));
+-extern mpif_cmblk4_t   MPIFCMB4_ __attribute__ ((alias("mpifcmb4r")));
+-extern mpif_cmblk4_t _Cmpifcmb4  __attribute__ ((alias("mpifcmb4r")));
+-extern mpif_cmblk4_t   mpifcmb4  __attribute__ ((alias("mpifcmb4r")));
+-extern mpif_cmblk4_t   mpifcmb4_ __attribute__ ((alias("mpifcmb4r")));
+-
+-struct mpif_cmblk5_t_ {
+-    MPI_Fint MPIF_UNWEIGHTED;
+-};
+-typedef struct mpif_cmblk5_t_ mpif_cmblk5_t;
+-mpif_cmblk5_t mpifcmb5r @CMB_1INT_ALIGNMENT@ = {0};
+-extern mpif_cmblk5_t _CMPIFCMB5  __attribute__ ((alias("mpifcmb5r")));
+-extern mpif_cmblk5_t   MPIFCMB5  __attribute__ ((alias("mpifcmb5r")));
+-extern mpif_cmblk5_t   MPIFCMB5_ __attribute__ ((alias("mpifcmb5r")));
+-extern mpif_cmblk5_t _Cmpifcmb5  __attribute__ ((alias("mpifcmb5r")));
+-extern mpif_cmblk5_t   mpifcmb5  __attribute__ ((alias("mpifcmb5r")));
+-extern mpif_cmblk5_t   mpifcmb5_ __attribute__ ((alias("mpifcmb5r")));
+-
+-struct mpif_cmblk6_t_ {
+-    MPI_Fint MPIF_ERRCODES_IGNORE[1];
+-};
+-typedef struct mpif_cmblk6_t_ mpif_cmblk6_t;
+-mpif_cmblk6_t mpifcmb6r @CMB_1INT_ALIGNMENT@ = {{0}};
+-extern mpif_cmblk6_t _CMPIFCMB6  __attribute__ ((alias("mpifcmb6r")));
+-extern mpif_cmblk6_t   MPIFCMB6  __attribute__ ((alias("mpifcmb6r")));
+-extern mpif_cmblk6_t   MPIFCMB6_ __attribute__ ((alias("mpifcmb6r")));
+-extern mpif_cmblk6_t _Cmpifcmb6  __attribute__ ((alias("mpifcmb6r")));
+-extern mpif_cmblk6_t   mpifcmb6  __attribute__ ((alias("mpifcmb6r")));
+-extern mpif_cmblk6_t   mpifcmb6_ __attribute__ ((alias("mpifcmb6r")));
+-
+-struct mpif_cmblk7_t_ {
+-    char MPIF_ARGVS_NULL[1][1];
+-    char pads[3];
+-};
+-typedef struct mpif_cmblk7_t_ mpif_cmblk7_t;
+-mpif_cmblk7_t mpifcmb7r @CMB_1INT_ALIGNMENT@ = {{{0}}};
+-extern mpif_cmblk7_t _CMPIFCMB7  __attribute__ ((alias("mpifcmb7r")));
+-extern mpif_cmblk7_t   MPIFCMB7  __attribute__ ((alias("mpifcmb7r")));
+-extern mpif_cmblk7_t   MPIFCMB7_ __attribute__ ((alias("mpifcmb7r")));
+-extern mpif_cmblk7_t _Cmpifcmb7  __attribute__ ((alias("mpifcmb7r")));
+-extern mpif_cmblk7_t   mpifcmb7  __attribute__ ((alias("mpifcmb7r")));
+-extern mpif_cmblk7_t   mpifcmb7_ __attribute__ ((alias("mpifcmb7r")));
+-
+-struct mpif_cmblk8_t_ {
+-    char MPIF_ARGV_NULL[1];
+-    char pads[3];
+-};
+-typedef struct mpif_cmblk8_t_ mpif_cmblk8_t;
+-mpif_cmblk8_t mpifcmb8r @CMB_1INT_ALIGNMENT@ = {{0}};
+-extern mpif_cmblk8_t _CMPIFCMB8  __attribute__ ((alias("mpifcmb8r")));
+-extern mpif_cmblk8_t   MPIFCMB8  __attribute__ ((alias("mpifcmb8r")));
+-extern mpif_cmblk8_t   MPIFCMB8_ __attribute__ ((alias("mpifcmb8r")));
+-extern mpif_cmblk8_t _Cmpifcmb8  __attribute__ ((alias("mpifcmb8r")));
+-extern mpif_cmblk8_t   mpifcmb8  __attribute__ ((alias("mpifcmb8r")));
+-extern mpif_cmblk8_t   mpifcmb8_ __attribute__ ((alias("mpifcmb8r")));
+-
+-struct mpif_cmblk9_t_ {
+-    MPI_Fint MPIF_WEIGHTS_EMPTY;
+-};
+-typedef struct mpif_cmblk9_t_ mpif_cmblk9_t;
+-mpif_cmblk9_t mpifcmb9r @CMB_1INT_ALIGNMENT@ = {0};
+-extern mpif_cmblk9_t _CMPIFCMB9  __attribute__ ((alias("mpifcmb9r")));
+-extern mpif_cmblk9_t   MPIFCMB9  __attribute__ ((alias("mpifcmb9r")));
+-extern mpif_cmblk9_t   MPIFCMB9_ __attribute__ ((alias("mpifcmb9r")));
+-extern mpif_cmblk9_t _Cmpifcmb9  __attribute__ ((alias("mpifcmb9r")));
+-extern mpif_cmblk9_t   mpifcmb9  __attribute__ ((alias("mpifcmb9r")));
+-extern mpif_cmblk9_t   mpifcmb9_ __attribute__ ((alias("mpifcmb9r")));
+-
+-#endif
+-
+-- 
+1.7.10.4
+

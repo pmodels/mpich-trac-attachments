@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #308: u_int32_t vs uint32_t</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;The VS compiler does not support u_int32_t or uint32_t. The windows configure script however recognises uint32_t. I must have replaced u_int32_t with uint32_t since uint32_t is part of the c99 standard.<BR>
+<BR>
+-Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Tuesday, November 25, 2008 2:26 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #308: u_int32_t vs uint32_t<BR>
+<BR>
+----------------------+-------------------------------------------------<BR>
+----------------------+----<BR>
+&nbsp;Reporter:&nbsp; buntinas&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp; buntinas<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+----------------------+-------------------------------------------------<BR>
+----------------------+----<BR>
+<BR>
+<BR>
+&nbsp;I see that we're using both in the MPICH2 tree.&nbsp; We should probably settle&nbsp; on using one of these, and do configure magic to check for it and do&nbsp; typedefs is necessary.<BR>
+<BR>
+&nbsp;Googling indicates that uint32_t is in the c99 standard.<BR>
+<BR>
+&nbsp;Jayesh: looking at the nemesisonwindows changes you changed u_int32_t to&nbsp; uint32_t.&nbsp; Do ms compilers not support u_int32_t?<BR>
+<BR>
+&nbsp;Comments?<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/308">https://trac.mcs.anl.gov/projects/mpich2/ticket/308</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

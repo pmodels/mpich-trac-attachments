@@ -1,0 +1,30 @@
+From 0d4c3b09f1e928db9f38f096e874ffc34a6525bf Mon Sep 17 00:00:00 2001
+From: Rob Latham <robl@mcs.anl.gov>
+Date: Fri, 8 Nov 2013 16:00:35 -0600
+Subject: [PATCH] Bizzare racy time-to-set-to-time-of-check bug
+
+our guard against overflow would, at unpredictable times, fail in no
+clear way.
+---
+ src/mpid/ch3/channels/nemesis/src/mpid_nem_lmt_shm.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/mpid/ch3/channels/nemesis/src/mpid_nem_lmt_shm.c b/src/mpid/ch3/channels/nemesis/src/mpid_nem_lmt_shm.c
+index e8ccc6d7..ae296f04 100644
+--- a/src/mpid/ch3/channels/nemesis/src/mpid_nem_lmt_shm.c
++++ b/src/mpid/ch3/channels/nemesis/src/mpid_nem_lmt_shm.c
+@@ -494,7 +494,10 @@ static int lmt_shm_send_progress(MPIDI_VC_t *vc, MPID_Request *req, int *done)
+         last = (data_sz - first <= copy_limit) ? data_sz : first + copy_limit;
+ 	MPID_Segment_pack(req->dev.segment_ptr, first, &last, (void *)copy_buf->buf[buf_num]); /* cast away volatile */
+         OPA_write_barrier();
+-        MPIU_Assign_trunc(copy_buf->len[buf_num].val, (last - first), volatile int);
++	/* MPIU_Assign_trunc demonstrated racy behavior in odd situations, so
++	 * we manually check for overflow before assigning */
++	MPIU_Assert((last-first) == (int)(last-first));
++        copy_buf->len[buf_num].val = (last - first);
+ 
+         first = last;
+         buf_num = (buf_num+1) % NUM_BUFS;
+-- 
+1.8.3.2
+

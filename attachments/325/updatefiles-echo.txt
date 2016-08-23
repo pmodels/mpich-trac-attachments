@@ -1,0 +1,24 @@
+You have autoconf version 2.62.
+Building Fortran 77 interface
+Building Fortran 90 interface
+Building C++ interface
+Extracting the error messages...
+There are unused error message texts in src/mpi/errhan/errnames.txt
+See the file unusederr.txt for the complete list
+checking for perl... /opt/csw/bin/perl
+configure: creating ./config.status
+config.status: creating simplemake
+config.status: creating checkbuilds
+config.status: creating getcoverage
+config.status: creating genstates
+config.status: creating clmake
+config.status: creating f77tof90
+config.status: creating extractstrings
+config.status: creating extractstates
+config.status: creating extractfixme
+config.status: creating createcoverage
+config.status: executing default-1 commands
+Creating the enumeration of logging states into src/include/mpiallstates.h
+Create or update the Fortran 90 tests derived from the Fortran 77 tests
+libdir{${MPILIBNAME}} = ROOTDIR/lib
+Simplemake step failed!

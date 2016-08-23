@@ -1,0 +1,90 @@
+
+==================================================================================================
+mpiexec options:
+----------------
+  Base path: /grid/cic/nsd-farm3/data/sjfarm/pandeys/mpich2.1.3a1.hydra/bin/
+  Bootstrap server: ssh
+  Debug level: 1
+  Enable X: -1
+
+  Global environment:
+  -------------------
+
+
+    Proxy information:
+    *********************
+      Proxy ID:  1
+      -----------------
+        Proxy name: machine4c-11
+        Process count: 1
+        Start PID: 0
+
+        Proxy exec list:
+        ....................
+          Exec: /home/pandeys/cpi.hydra; Process count: 1
+      Proxy ID:  2
+      -----------------
+        Proxy name: machine4c-12
+        Process count: 1
+        Start PID: 1
+
+        Proxy exec list:
+        ....................
+          Exec: /home/pandeys/cpi.hydra; Process count: 1
+
+==================================================================================================
+
+[mpiexec@machine539] Timeout set to -1 (-1 means infinite)
+[mpiexec@machine539] PMI port: (null); PMI ID: -1
+[mpiexec@machine539] Got a control port string of machine539:37306
+
+Proxy launch args: /grid/cic/nsd-farm3/data/sjfarm/pandeys/mpich2.1.3a1.hydra/bin/pmi_proxy --control-port machine539:37306 --debug --bootstrap ssh --demux poll --pgid 0 --enable-stdin 1 --proxy-id 
+
+Arguments being passed to proxy 0:
+--version 1.3a1 --interface-env-name MPICH_INTERFACE_NAME --hostname machine4c-11 --global-core-count 2 --pmi-id -1 --pmi-kvsname kvs_15897_0 --pmi-process-mapping (vector,(0,2,1)) --bindlib plpa --global-inherited-env 0 --global-user-env 0 --global-system-env 0 --start-pid 0 --proxy-core-count 1 --exec --exec-appnum 0 --exec-proc-count 1 --exec-local-env 0 --exec-wdir /home/pandeys --exec-args 1 /home/pandeys/cpi.hydra 
+
+Arguments being passed to proxy 1:
+--version 1.3a1 --interface-env-name MPICH_INTERFACE_NAME --hostname machine4c-12 --global-core-count 2 --pmi-id -1 --pmi-kvsname kvs_15897_0 --pmi-process-mapping (vector,(0,2,1)) --bindlib plpa --global-inherited-env 0 --global-user-env 0 --global-system-env 0 --start-pid 1 --proxy-core-count 1 --exec --exec-appnum 0 --exec-proc-count 1 --exec-local-env 0 --exec-wdir /home/pandeys --exec-args 1 /home/pandeys/cpi.hydra 
+
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=initack pmiid=0
+[mpiexec@machine539] reply: cmd=initack
+cmd=set size=2
+cmd=set rank=0
+cmd=set debug=1
+
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=initack pmiid=1
+[mpiexec@machine539] reply: cmd=initack
+cmd=set size=2
+cmd=set rank=1
+cmd=set debug=1
+
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@machine539] reply to 7: cmd=barrier_out
+
+[mpiexec@machine539] reply to 10: cmd=barrier_out
+
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=put kvsname=kvs_15897_0 key=P0-businesscard value=description#machine4c-11$port#55744$ifname#172.20.73.141$
+[mpiexec@machine539] reply: cmd=put_result rc=0 msg=success
+
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=put kvsname=kvs_15897_0 key=P1-businesscard value=description#machine4c-12$port#49746$ifname#172.20.73.142$
+[mpiexec@machine539] reply: cmd=put_result rc=0 msg=success
+
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@machine539] reply to 7: cmd=barrier_out
+
+[mpiexec@machine539] reply to 10: cmd=barrier_out
+
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=get kvsname=kvs_15897_0 key=P1-businesscard
+[mpiexec@machine539] reply: cmd=get_result rc=0 msg=success value=description#machine4c-12$port#49746$ifname#172.20.73.142$
+
+Process 0 of 2 is on machine4c-11
+pi is approximately 3.1415926544231318, Error is 0.0000000008333387
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@machine539] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@machine539] reply to 7: cmd=barrier_out
+
+[mpiexec@machine539] reply to 10: cmd=barrier_out
+
+wall clock time = 0.001412

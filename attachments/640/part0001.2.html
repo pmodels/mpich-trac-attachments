@@ -1,0 +1,67 @@
+Hello Chan,<div><br></div><div>I did cd to</div><div><br></div><div>/var/root/Desktop/meso/mpich2-1.1/src/mpe2/src/slog2sdk/trace_rlog/src</div><div><br></div><div>and did</div><div><br></div><div>/usr/bin/gcc -m64 -O3 -DMACOS -o rlog_print trace_input.o rlogutil.o trace_print.o<br>
+</div><div><br></div><div>and found that the rlog_print (32KB) created originally was replaced with same size rlog_print.</div><div><br></div><div>Again while doing so I noticed a problem. Actual error is given below</div>
+<div><br></div><div>--------------</div><div><div>/usr/bin/gcc -m64 -O3 -DMACOS -o /var/root/Desktop/meso/mpich2-1.1/src/mpe2/src/slog2sdk/trace_rlog/bin/rlog_print trace_input.o rlogutil.o trace_print.o    -shrext .jnilib</div>
+<div>i686-apple-darwin9-gcc-4.0.1: .jnilib: No such file or directory</div><div>make[5]: *** [/var/root/Desktop/meso/mpich2-1.1/src/mpe2/src/slog2sdk/trace_rlog/bin/rlog_print] Error 1</div><div>make[4]: *** [all] Error 2</div>
+<div>make[3]: [all] Error 2 (ignored)</div><div>-----------------</div><div><br></div><div>In the error above the directory  src/mpe2/src/slog2sdk/trace_rlog/bin/ should have a file named rlog_print but I could see only a file called rlogprint (4kb) ie without underscore as indicated in the error message.<br>
+</div><div><br></div><div>Please provide further inputs.</div><div><br></div></div><div><br><br><div class="gmail_quote">On Mon, Jun 8, 2009 at 9:46 PM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">-------------------------------------------+--------------------------------<br>
+ Reporter:  jagan TNAU &lt;<a href="mailto:jagan@tnau.ac.in">jagan@tnau.ac.in</a>&gt;  |        Owner:<br>
+<div class="im">     Type:  bug                            |       Status:  new<br>
+ Priority:  major                          |    Milestone:<br>
+</div>Component:  mpich2                         |   Resolution:<br>
+ Keywords:                                 |<br>
+-------------------------------------------+--------------------------------<br>
+<br>
+<br>
+Comment (by ):<br>
+<br>
+ {{{<br>
+<br>
+<br>
+ ----- &quot;mpich2&quot; &lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt; wrote:<br>
+<br>
+ ...<br>
+<div class="im"> &gt;  export CC=/usr/bin/gcc<br>
+</div> &gt;  export CFLAGS=&quot;-m64 -O3  -DMACOS&quot;<br>
+ ...<br>
+<div class="im"> &gt;  /usr/bin/gcc -I..<br>
+ &gt;<br>
+ -I/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/include<br>
+ &gt;  -I../../src/logformat/trace -m64 -O3 -DMACOS -c<br>
+ &gt;  ../../src/logformat/trace/trace_print.c<br>
+ ...<br>
+ &gt;  /usr/bin/gcc -m64 -O3 -DMACOS -o<br>
+ &gt;<br>
+ /var/root/Desktop/meso/mpich2-1.1/src/mpe2/src/slog2sdk/trace_rlog/bin/rlog_pr<br>
+ int<br>
+ &gt;  trace_input.o rlogutil.o trace_print.o    -shrext .jnilib<br>
+ &gt;<br>
+ &gt;  i686-apple-darwin9-gcc-4.0.1: .jnilib: No such file or directory<br>
+ &gt;<br>
+<br>
+</div> Can you do the following and send me the output ?<br>
+<br>
+ cd to<br>
+ /var/root/Desktop/meso/mpich2-1.1/src/mpe2/src/slog2sdk/trace_rlog/src<br>
+<br>
+ /usr/bin/gcc -m64 -O3 -DMACOS -o rlog_print trace_input.o rlogutil.o<br>
+ trace_print.o<br>
+<br>
+ &gt;<br>
+<div class="im"> &gt;  acrc:~ root# mpd &amp;<br>
+ &gt;<br>
+ &gt;  [1] 19462<br>
+ &gt;<br>
+ &gt;  acrc:~ root# mpd failed: gethostbyname_ex failed for acrc.local<br>
+<br>
+</div> I am not familar with Mac&#39;s networking.  It seems there is networking<br>
+ problem for root of getting hostname for acrc.local<br>
+<br>
+ A.Chan<br>
+ }}}<br>
+<font color="#888888"><br>
+--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/640#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/640#comment</a>:&gt;<br>
+</font></blockquote></div><br><br clear="all"><br>-- <br>With regards<br><br>Dr.R.Jagannathan				<br>Professor and Head				<br>Agro Climate Research Centre,			<br>Tamil Nadu Agricultural University,		<br>Coimbatore - 641 003 India			<br>
+<br>PHONE: Off: 91-422-6611519 Res: 91-422-2453600<br>       Fax: 91-422-2430657 Mob: 91-94438 89891<br>
+</div>

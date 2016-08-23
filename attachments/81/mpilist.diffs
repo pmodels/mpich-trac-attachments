@@ -1,0 +1,1997 @@
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/attr/baseattr2f90.f90 /opt/mpich2-1.0.7/test/mpi/f90/attr/baseattr2f90.f90
+15c15
+<         call mtest_init( ierr )
+---
+>         call mpi_init( ierr )
+104a105,109
+>       if (errs .eq. 0) then
+>          print *, " No Errors"
+>       else
+>          print *, " Found ", errs, " errors"
+>       endif
+106d110
+<       call mtest_finalize( errs )
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/attr/baseattrf90.f90 /opt/mpich2-1.0.7/test/mpi/f90/attr/baseattrf90.f90
+14c14
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+53c53,59
+<       call mtest_finalize( errs )
+---
+>       ! Check for errors
+>       if (errs .eq. 0) then
+>          print *, " No Errors"
+>       else
+>          print *, " Found ", errs, " errors"
+>       endif
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/datatype/createf90.f90 /opt/mpich2-1.0.7/test/mpi/f90/datatype/createf90.f90
+18c18
+<         call mtest_init( ierr )
+---
+>         call mpi_init( ierr )
+59c59,67
+<         call mtest_finalize( errs )
+---
+>         call mpi_comm_rank( MPI_COMM_WORLD, rank, ierr )
+>         if (rank .eq. 0) then
+>            if (errs .eq. 0) then
+>               print *, " No Errors"
+>            else
+>               print *, " Found ", errs, " Errors"
+>            endif
+>         endif
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/datatype/gaddressf90.f90 /opt/mpich2-1.0.7/test/mpi/f90/datatype/gaddressf90.f90
+19c19
+<       call mtest_init( ierr )
+---
+>       call MPI_Init(ierr)
+31a32,36
+>       if (errs .gt. 0) then
+>           print *, ' Found ', errs, ' errors'
+>       else
+>           print *, ' No Errors'
+>       endif
+33d37
+<       call mtest_finalize( errs )
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/datatype/indtype.f90 /opt/mpich2-1.0.7/test/mpi/f90/datatype/indtype.f90
+20c20
+<       call mtest_init ( ierr )
+---
+>       call mpi_init ( ierr )
+106c106
+<       endif
+---
+> 
+107a108,114
+>          if (errs .eq. 0) then
+>             print*,' No Errors'
+>          else
+>             print*,'**',errs,' errors found.'
+>          endif
+>       endif
+> 
+109d115
+<       call mtest_finalize( errs )
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/datatype/sizeof.f90 /opt/mpich2-1.0.7/test/mpi/f90/datatype/sizeof.f90
+24c24
+<       call mtest_init ( ierr )
+---
+>       call mpi_init ( ierr )
+76c76,83
+<       call mtest_finalize( errs )
+---
+>       if (rank .eq. 0) then
+>          if (errs == 0) then
+>             print*,' No Errors'
+>          else
+>             print*,'**',errs,' errors found.'
+>          endif
+>       endif
+> 
+79a87
+>       
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/datatype/typenamef90.f90 /opt/mpich2-1.0.7/test/mpi/f90/datatype/typenamef90.f90
+16c16
+<       call mtest_init( ierr )
+---
+>       call MPI_Init(ierr)
+199c199,204
+<       call mtest_finalize( errs )
+---
+>       if (errs .gt. 0) then
+>           print *, ' Found ', errs, ' errors'
+>       else
+>           print *, ' No Errors'
+>       endif
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/datatype/structf.f90 /opt/mpich2-1.0.7/test/mpi/f90/datatype/structf.f90
+19c19
+< 
+---
+>       
+40c40
+<       call mtest_init( ierr )
+---
+>       call mpi_init(ierr)
+100a101,109
+>       call mpi_reduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM, 0,         &
+>      &                 MPI_COMM_WORLD, ierr )
+>       if (me .eq. 0) then
+>          if (toterrs .eq. 0) then
+>             print *, " No Errors"
+>          else
+>             print *, " Found ", toterrs, " errors"
+>          endif
+>       endif
+102d110
+<       call mtest_finalize( errs )
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/pt2pt/statusesf90.f90 /opt/mpich2-1.0.7/test/mpi/f90/pt2pt/statusesf90.f90
+18c18
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/misc/sizeof.f90 /opt/mpich2-1.0.7/test/mpi/f90/misc/sizeof.f90
+16c16
+<           call mtest_init( ierr )
+---
+>           call mpi_init(ierr)
+59c59,63
+<           call mtest_finalize( errs )
+---
+>           if (errs .gt. 0) then
+>              print *, ' Found ', errs, ' errors'
+>           else
+>              print *, ' No Errors'
+>           endif
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/ext/c2f2cf90.f90 /opt/mpich2-1.0.7/test/mpi/f90/ext/c2f2cf90.f90
+20c20
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+109c109,118
+<       call mtest_finalize( errs )
+---
+>       call mpi_allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM, &
+>       &     MPI_COMM_WORLD, ierr )
+>       if (wrank .eq. 0) then
+>          if (toterrs .eq. 0) then
+>             print *, ' No Errors'
+>          else
+>             print *, ' Found ', toterrs, ' errors'
+>          endif
+>       endif
+> 
+112a122
+>       
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/f90types/createf90types.c /opt/mpich2-1.0.7/test/mpi/f90/f90types/createf90types.c
+89c89
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(0,0);
+135c135,141
+<     MTest_Finalize( errs );
+---
+>     if (errs == 0) {
+> 	printf( " No Errors\n" );
+>     }
+>     else {
+> 	printf( " Found %d errors\n", errs );
+>     }
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/io/atomicityf90.f90 /opt/mpich2-1.0.7/test/mpi/f90/io/atomicityf90.f90
+18c18
+<       integer i, mynod, nprocs, len, ierr, errs
+---
+>       integer i, mynod, nprocs, len, ierr, errs, toterrs
+24c24
+<       call mtest_init( ierr )
+---
+>       call MPI_Init(ierr)
+184a185,194
+>       call MPI_Allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM, &
+>       &     MPI_COMM_WORLD, ierr )
+>       if (mynod .eq. 0) then
+>          if( toterrs .gt. 0) then
+>             print *, "Found ", toterrs, " errors"
+>          else 
+>             print *, " No Errors"
+>          endif
+>       endif
+> 
+188d197
+<       call mtest_finalize( errs )
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/io/c2f2ciof90.f90 /opt/mpich2-1.0.7/test/mpi/f90/io/c2f2ciof90.f90
+10c10
+<       integer errs, ierr
+---
+>       integer errs, toterrs, ierr
+19c19
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+48c48,57
+<       call mtest_finalize( errs )
+---
+>       call mpi_allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM, &
+>       &     MPI_COMM_WORLD, ierr )
+>       if (wrank .eq. 0) then
+>          if (toterrs .eq. 0) then
+>             print *, ' No Errors'
+>          else
+>             print *, ' Found ', toterrs, ' errors'
+>          endif
+>       endif
+> 
+49a59
+>       stop
+51c61
+< 
+---
+>       
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/io/miscfilef90.f90 /opt/mpich2-1.0.7/test/mpi/f90/io/miscfilef90.f90
+18c18
+<       integer ierr, errs
+---
+>       integer ierr, errs, toterrs
+30c30
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+199,200d198
+< 
+<       call mpi_type_free( newtype, ierr )
+203,204c201,212
+< !
+<       call mtest_finalize( errs )
+---
+>       call MPI_Allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM, &
+>       &     MPI_COMM_WORLD, ierr )
+>       if (rank .eq. 0) then
+>          if( toterrs .gt. 0) then
+>             print *, "Found ", toterrs, " errors"
+>          else 
+>             print *, " No Errors"
+>          endif
+>       endif
+> 
+>       call mpi_type_free( newtype, ierr )
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/rma/c2f2cwinf90.f90 /opt/mpich2-1.0.7/test/mpi/f90/rma/c2f2cwinf90.f90
+21c21
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+42c42,51
+<       call mtest_finalize( errs )
+---
+>       call mpi_allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM, &
+>       &     MPI_COMM_WORLD, ierr )
+>       if (wrank .eq. 0) then
+>          if (toterrs .eq. 0) then
+>             print *, ' No Errors'
+>          else
+>             print *, ' Found ', toterrs, ' errors'
+>          endif
+>       endif
+> 
+45a55
+>       
+diff /home/hoekstra/MPICH2_feedback/mpi/f90/timer/wtimef90.f90 /opt/mpich2-1.0.7/test/mpi/f90/timer/wtimef90.f90
+12c12
+<           integer errs, ierr
+---
+>           integer err
+15c15
+<           errs = 0
+---
+>           call mpi_init(err)
+17,18d16
+<           call mtest_init( ierr )
+< 
+29c27,28
+<              errs = errs + 1
+---
+>           else
+>                 print *, ' No Errors'
+31,33c30,31
+< 
+<           call mtest_finalize( errs )          
+<           call mpi_finalize( ierr )
+---
+>           
+>           call mpi_finalize(err)
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/attr/baseattr2f.f /opt/mpich2-1.0.7/test/mpi/f77/attr/baseattr2f.f
+15c15
+<         call mtest_init( ierr )
+---
+>         call mpi_init( ierr )
+104c104,110
+<       call mtest_finalize( errs )
+---
+> C     Check for errors
+>       if (errs .eq. 0) then
+>          print *, " No Errors"
+>       else
+>          print *, " Found ", errs, " errors"
+>       endif
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/attr/baseattrf.f /opt/mpich2-1.0.7/test/mpi/f77/attr/baseattrf.f
+14c14
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+53c53,59
+<       call mtest_finalize( errs )
+---
+>       ! Check for errors
+>       if (errs .eq. 0) then
+>          print *, " No Errors"
+>       else
+>          print *, " Found ", errs, " errors"
+>       endif
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/datatype/gaddressf.f /opt/mpich2-1.0.7/test/mpi/f77/datatype/gaddressf.f
+18c18
+<       call mtest_init( ierr )
+---
+>       call MPI_Init(ierr)
+30a31,35
+>       if (errs .gt. 0) then
+>           print *, ' Found ', errs, ' errors'
+>       else
+>           print *, ' No Errors'
+>       endif
+32d36
+<       call mtest_finalize( errs )
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/datatype/typenamef.f /opt/mpich2-1.0.7/test/mpi/f77/datatype/typenamef.f
+16c16
+<       call mtest_init( ierr )
+---
+>       call MPI_Init(ierr)
+199c199,204
+<       call mtest_finalize( errs )
+---
+>       if (errs .gt. 0) then
+>           print *, ' Found ', errs, ' errors'
+>       else
+>           print *, ' No Errors'
+>       endif
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/pt2pt/statusesf.f /opt/mpich2-1.0.7/test/mpi/f77/pt2pt/statusesf.f
+18c18
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/ext/c2f2cf.f /opt/mpich2-1.0.7/test/mpi/f77/ext/c2f2cf.f
+9c9
+<       integer errs, ierr
+---
+>       integer errs, toterrs, ierr
+20c20
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+109c109,118
+<       call mtest_finalize( errs )
+---
+>       call mpi_allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM,
+>      $     MPI_COMM_WORLD, ierr )
+>       if (wrank .eq. 0) then
+>          if (toterrs .eq. 0) then
+>             print *, ' No Errors'
+>          else
+>             print *, ' Found ', toterrs, ' errors'
+>          endif
+>       endif
+> 
+112a122
+>       
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/io/atomicityf.f /opt/mpich2-1.0.7/test/mpi/f77/io/atomicityf.f
+17c17
+<       integer i, mynod, nprocs, len, ierr, errs
+---
+>       integer i, mynod, nprocs, len, ierr, errs, toterrs
+23c23
+<       call mtest_init( ierr )
+---
+>       call MPI_Init(ierr)
+183a184,193
+>       call MPI_Allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM,
+>      $     MPI_COMM_WORLD, ierr )
+>       if (mynod .eq. 0) then
+>          if( toterrs .gt. 0) then
+>             print *, "Found ", toterrs, " errors"
+>          else 
+>             print *, " No Errors"
+>          endif
+>       endif
+> 
+187d196
+<       call mtest_finalize( errs )
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/io/c2f2ciof.f /opt/mpich2-1.0.7/test/mpi/f77/io/c2f2ciof.f
+10c10
+<       integer errs, ierr
+---
+>       integer errs, toterrs, ierr
+19c19
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+48c48,57
+<       call mtest_finalize( errs )
+---
+>       call mpi_allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM,
+>      $     MPI_COMM_WORLD, ierr )
+>       if (wrank .eq. 0) then
+>          if (toterrs .eq. 0) then
+>             print *, ' No Errors'
+>          else
+>             print *, ' Found ', toterrs, ' errors'
+>          endif
+>       endif
+> 
+49a59
+>       stop
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/io/miscfilef.f /opt/mpich2-1.0.7/test/mpi/f77/io/miscfilef.f
+16c16
+<       integer ierr, errs
+---
+>       integer ierr, errs, toterrs
+28c28
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+197d196
+<       call mpi_type_free( newtype, ierr )
+200,201c199,210
+< C
+<       call mtest_finalize( errs )
+---
+>       call MPI_Allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM,
+>      $     MPI_COMM_WORLD, ierr )
+>       if (rank .eq. 0) then
+>          if( toterrs .gt. 0) then
+>             print *, "Found ", toterrs, " errors"
+>          else 
+>             print *, " No Errors"
+>          endif
+>       endif
+> 
+>       call mpi_type_free( newtype, ierr )
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/f77/rma/c2f2cwinf.f /opt/mpich2-1.0.7/test/mpi/f77/rma/c2f2cwinf.f
+20c20
+<       call mtest_init( ierr )
+---
+>       call mpi_init( ierr )
+41c41,50
+<       call mtest_finalize( errs )
+---
+>       call mpi_allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM,
+>      $     MPI_COMM_WORLD, ierr )
+>       if (wrank .eq. 0) then
+>          if (toterrs .eq. 0) then
+>             print *, ' No Errors'
+>          else
+>             print *, ' Found ', toterrs, ' errors'
+>          endif
+>       endif
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/cxx/datatype/typenamex.cxx /opt/mpich2-1.0.7/test/mpi/cxx/datatype/typenamex.cxx
+40c40
+<     MTest_Init();
+---
+>     MPI::Init();
+85a86,92
+> 
+>     if (errs) {
+> 	cout << "Found " << errs << " errors\n";
+>     }
+>     else {
+> 	cout << " No Errors\n";
+>     }
+89d95
+<     MTest_Finalize( errs );
+155c161
+<         { MPI::BOOL, "MPI::BOOL" },
+---
+> 	{ MPI::BOOL, "MPI::BOOL" },
+diff /home/hoekstra/MPICH2_feedback/mpi/cxx/io/filemiscx.cxx /opt/mpich2-1.0.7/test/mpi/cxx/io/filemiscx.cxx
+32c32
+<     int errs = 0;
+---
+>     int errs = 0, toterrs;
+41c41
+<     MTest_Init();
+---
+>     MPI::Init();
+265,266c265,275
+<     MTest_Finalize( errs );
+< 
+---
+>     MPI::COMM_WORLD.Allreduce( &errs, &toterrs, 1, MPI::INT, MPI::SUM );
+>     if (mynod == 0) {
+> 	if( toterrs > 0) {
+> 	    cout << "Found " << toterrs << "\n";
+> 	    cout.flush();
+> 	}
+> 	else {
+> 	    cout << " No Errors\n";
+> 	    cout.flush();
+> 	}
+>     }
+275c284
+< 	cout << "Unhandled MPI exception caught: code " << e.Get_error_code() << ", class " << e.Get_error_class() << ", string \"" << e.Get_error_string() <dirs 
+---
+> 	cout << "Unhandled MPI exception caught: code " << e.Get_error_code() << ", class " << e.Get_error_class() << ", string \"" << e.Get_error_string() << "\"" << endl;
+283d291
+<     
+diff /home/hoekstra/MPICH2_feedback/mpi/errors/coll/rerr.c /opt/mpich2-1.0.7/test/mpi/errors/coll/rerr.c
+21c21
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+39c39,48
+<     MTest_Finalize( errs );
+---
+>     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+>     MPI_Allreduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     if (rank == 0) {
+> 	if (toterrs == 0) {
+> 	    printf( " No Errors\n" );
+> 	}
+> 	else {
+> 	    printf( " Found %d errors\n", toterrs );
+> 	}
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/errors/group/gerr.c /opt/mpich2-1.0.7/test/mpi/errors/group/gerr.c
+18c18
+<     int errs = 0;
+---
+>     int errs = 0, toterrs;
+25c25
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+43a44,52
+>     MPI_Allreduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     if (rank == 0) {
+> 	if (toterrs == 0) {
+> 	    printf( " No Errors\n" );
+> 	}
+> 	else {
+> 	    printf( " Found %d errors\n", toterrs );
+> 	}
+>     }
+45d53
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/errors/io/fileerrret.c /opt/mpich2-1.0.7/test/mpi/errors/io/fileerrret.c
+31c31
+<     int errs = 0, rank, rc;
+---
+>     int errs = 0, toterrs, rank, rc;
+33c33
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+60a61,70
+>     MPI_Allreduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+>     if (rank == 0) {
+> 	if (toterrs == 0) {
+> 	    printf( " No Errors\n" );
+> 	}
+> 	else {
+> 	    printf( " Saw %d errors\n", toterrs );
+> 	}
+>     }
+62d71
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/errors/spawn/badport.c /opt/mpich2-1.0.7/test/mpi/errors/spawn/badport.c
+17c17
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+38c38,43
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	printf( " Found %d errors\n", errs );
+>     }
+>     else
+> 	printf( " No Errors\n" );
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/errors/cxx/errhan/errsetx.cxx /opt/mpich2-1.0.7/test/mpi/errors/cxx/errhan/errsetx.cxx
+25a26,27
+> static int verbose = 0;
+> 
+34a37
+>     char *filename;
+37c40,41
+<     int errs = 0;
+---
+>     int errs = 0, toterrs, rank;
+>     int sawErr;
+39c43
+<     MTest_Init( );
+---
+>     MPI::Init();
+49a54
+>     sawErr = 0;
+58a64
+> 	sawErr = 1;
+65a72,80
+>     MPI::COMM_WORLD.Allreduce( &errs, &toterrs, 1, MPI::INT, MPI::SUM );
+>     if (MPI::COMM_WORLD.Get_rank() == 0) {
+> 	if (toterrs == 0) {
+> 	    cout << " No Errors" << endl;
+> 	}
+> 	else {
+> 	    cout << " Saw " << toterrs << " errors" << endl;
+> 	}
+>     }
+67d81
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/errors/cxx/io/fileerrretx.cxx /opt/mpich2-1.0.7/test/mpi/errors/cxx/io/fileerrretx.cxx
+39c39
+<     int errs = 0;
+---
+>     int errs = 0, toterrs, rank;
+42c42
+<     MTest_Init( );
+---
+>     MPI::Init();
+87a88,96
+>     MPI::COMM_WORLD.Allreduce( &errs, &toterrs, 1, MPI::INT, MPI::SUM );
+>     if (MPI::COMM_WORLD.Get_rank() == 0) {
+> 	if (toterrs == 0) {
+> 	    cout << " No Errors" << endl;
+> 	}
+> 	else {
+> 	    cout << " Saw " << toterrs << " errors" << endl;
+> 	}
+>     }
+89d97
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/attr/attr2type.c /opt/mpich2-1.0.7/test/mpi/attr/attr2type.c
+31d30
+<     int errs = 0;
+33c32
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+53a53
+>       int errs = 0;
+61a62,67
+>       if (errs == 0) {
+> 	printf( " No Errors\n" );
+>       }
+>       else {
+> 	printf( " Found %d errors\n", errs );
+>       }
+65d70
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/basic/adapt.c /opt/mpich2-1.0.7/test/mpi/basic/adapt.c
+153c153
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv);
+162d161
+<         MTest_Finalize( 1 );
+1232d1230
+<     MTest_Finalize( 0 );
+diff /home/hoekstra/MPICH2_feedback/mpi/basic/allmpi.c /opt/mpich2-1.0.7/test/mpi/basic/allmpi.c
+208d207
+< /*
+211d209
+<  */
+375c373
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+381d378
+<     MTest_Finalize( 0 );
+diff /home/hoekstra/MPICH2_feedback/mpi/basic/netmpi.c /opt/mpich2-1.0.7/test/mpi/basic/netmpi.c
+45d44
+< int errs = 0;
+152c151
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv);
+161,162d159
+<         errs++;
+<         MTest_Finalize( errs );
+742d738
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/basic/patterns.c /opt/mpich2-1.0.7/test/mpi/basic/patterns.c
+245d244
+<     int errs = 0;
+247c246
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+266,267d264
+<         errs++;
+<         MTest_Finalize( errs );
+297,302c294
+<             if (result)
+<               printf("%d:SUCCESS - sr\n", rank);
+<             else {
+<               printf("%d:FAILURE - sr\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - sr\n" : "%d:FAILURE - sr\n", rank);
+314,319c306
+<             if (result)
+<               printf("%d:SUCCESS - isr\n", rank);
+<             else {
+<               printf("%d:FAILURE - isr\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - isr\n" : "%d:FAILURE - isr\n", rank);
+331,336c318
+<             if (result)
+<               printf("%d:SUCCESS - iisr\n", rank);
+<             else {
+<               printf("%d:FAILURE - iisr\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - iisr\n" : "%d:FAILURE - iisr\n", rank);
+348,353c330
+<             if (result)
+<               printf("%d:SUCCESS - oo\n", rank);
+<             else {
+<               printf("%d:FAILURE - oo\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - oo\n" : "%d:FAILURE - oo\n", rank);
+365,370c342
+<             if (result)
+<               printf("%d:SUCCESS - unex\n", rank);
+<             else {
+<               printf("%d:FAILURE - unex\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - unex\n" : "%d:FAILURE - unex\n", rank);
+388,393c360
+<             if (result)
+<               printf("%d:SUCCESS - rndv\n", rank);
+<             else {
+<               printf("%d:FAILURE - rndv\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - rndv\n" : "%d:FAILURE - rndv\n", rank);
+416,421c383
+<             if (result)
+<               printf("%d:SUCCESS - rndv_reps\n", rank);
+<             else {
+<               printf("%d:FAILURE - rndv_reps\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - rndv_reps\n" : "%d:FAILURE - rndv_reps\n", rank);
+437,442c399
+<             if (result)
+<               printf("%d:SUCCESS - rndv_iisr\n", rank);
+<             else {
+<               printf("%d:FAILURE - rndv_iisr\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - rndv_iisr\n" : "%d:FAILURE - rndv_iisr\n", rank);
+458,463c415
+<             if (result)
+<               printf("%d:SUCCESS - rndv_oo\n", rank);
+<             else {
+<               printf("%d:FAILURE - rndv_oo\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - rndv_oo\n" : "%d:FAILURE - rndv_oo\n", rank);
+481,486c433
+<             if (result)
+<               printf("%d:SUCCESS - rndv_unex\n", rank);
+<             else {
+<               printf("%d:FAILURE - rndv_unex\n", rank);
+<               errs++;
+<             }
+---
+> 	    printf(result ? "%d:SUCCESS - rndv_unex\n" : "%d:FAILURE - rndv_unex\n", rank);
+491d437
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/basic/self.c /opt/mpich2-1.0.7/test/mpi/basic/self.c
+12d11
+<     int errs = 0;
+15c14
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc,&argv);
+21d19
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/basic/sendrecv.c /opt/mpich2-1.0.7/test/mpi/basic/sendrecv.c
+22d21
+<     int errs = 0;
+27c26
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+34,35d32
+<         errs++;
+<         MTest_Finalize( errs );
+98d94
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/basic/simple.c /opt/mpich2-1.0.7/test/mpi/basic/simple.c
+10,12c10
+<     int errs = 0;
+<     MTest_Init( &argc, &argv );
+<     MTest_Finalize( errs );
+---
+>     MPI_Init(&argc, &argv);
+diff /home/hoekstra/MPICH2_feedback/mpi/basic/srtest.c /opt/mpich2-1.0.7/test/mpi/basic/srtest.c
+15d14
+<     int errs = 0;
+19c18
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc,&argv);
+52d50
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/basic/wtime.c /opt/mpich2-1.0.7/test/mpi/basic/wtime.c
+13d12
+<         int errs = 0;
+16c15
+< 	MTest_Init( &argc, &argv );
+---
+> 	MPI_Init(&argc, &argv);
+26d24
+<         MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/allred.c /opt/mpich2-1.0.7/test/mpi/coll/allred.c
+Binary files /home/hoekstra/MPICH2_feedback/mpi/coll/allred.c and /opt/mpich2-1.0.7/test/mpi/coll/allred.c differ
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/allredmany.c /opt/mpich2-1.0.7/test/mpi/coll/allredmany.c
+18d17
+<   int errs = 0;
+20c19
+<   MTest_Init( &argc, &argv );
+---
+>   MPI_Init(&argc,&argv);
+28,30c27,30
+<   /* If we get here at all, we're ok */
+< 
+<   MTest_Finalize( errs );
+---
+>   if (myid == 0) {
+>       /* If we get here at all, we're ok */
+>       printf( " No Errors\n" );
+>   }
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/bcasttest.c /opt/mpich2-1.0.7/test/mpi/coll/bcasttest.c
+23c23
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+96a97,102
+>     /* printf("Node %d done\n", rank); */
+>     MPI_Reduce( &num_errors, &tot_errors, 1, MPI_INT, MPI_SUM, 0, 
+> 		MPI_COMM_WORLD );
+>     if (rank == 0 && tot_errors == 0) 
+> 	printf(" No Errors\n");
+> 
+101d106
+<     MTest_Finalize( num_errors );
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll10.c /opt/mpich2-1.0.7/test/mpi/coll/coll10.c
+44c44
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+56c56,62
+<     MTest_Finalize( errors );
+---
+>     if (errors)
+>       printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf(" No Errors\n");
+>     }
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll11.c /opt/mpich2-1.0.7/test/mpi/coll/coll11.c
+53c53
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+104c104,110
+<     MTest_Finalize( errors );
+---
+>     if (errors)
+>         printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf(" No Errors\n");
+>     }
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll12.c /opt/mpich2-1.0.7/test/mpi/coll/coll12.c
+18c18
+<   int    errors = 0;
+---
+>   int    errors = 0, toterrors;
+21c21
+<   MTest_Init( &argc, &argv );
+---
+>   MPI_Init( &argc, &argv );
+69,70c69,77
+< 
+<   MTest_Finalize( errors );
+---
+>   MPI_Allreduce( &errors, &toterrors, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>   if (toterrors) {
+>       if (errors)
+> 	  printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>   }
+>   else {
+>       if (rank == 0) printf( " No Errors\n" );
+>   }
+>       
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll13.c /opt/mpich2-1.0.7/test/mpi/coll/coll13.c
+30c30
+<     int status;
+---
+>     int status, gstatus;
+32c32
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc,&argv);
+72a73,83
+>     /* fputs("Before MPI_Allreduce\n",stdout); */
+>     MPI_Allreduce( &status, &gstatus, 1, MPI_INT, MPI_SUM, 
+> 		   MPI_COMM_WORLD );
+> 
+>     /* fputs("After MPI_Allreduce\n",stdout); */
+>     if (rank == 0) {
+> 	if (gstatus == 0) printf( " No Errors\n" );
+> 	else 
+> 	    printf("all_to_all returned %d\n",gstatus);
+>     }
+> 
+76d86
+<     MTest_Finalize( status );
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll2.c /opt/mpich2-1.0.7/test/mpi/coll/coll2.c
+18c18
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+61d60
+<     MTest_Finalize( errors );
+62a62,67
+>     if (errors)
+>         printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll3.c /opt/mpich2-1.0.7/test/mpi/coll/coll3.c
+20c20
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+85d84
+<     MTest_Finalize( errors );
+86a86,91
+>     if (errors)
+>         printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0)  
+> 	    printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll4.c /opt/mpich2-1.0.7/test/mpi/coll/coll4.c
+19c19
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+45d44
+<     MTest_Finalize( errors );
+46a46,51
+>     if (errors)
+>       printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf( " No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll5.c /opt/mpich2-1.0.7/test/mpi/coll/coll5.c
+21c21
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+50d49
+<     MTest_Finalize( errors );
+51a51,56
+>     if (errors)
+>         printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf(" No Errors\n");
+> 	}
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll6.c /opt/mpich2-1.0.7/test/mpi/coll/coll6.c
+20c20
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+81d80
+<     MTest_Finalize( errors );
+82a82,87
+>     if (errors)
+>         printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll7.c /opt/mpich2-1.0.7/test/mpi/coll/coll7.c
+18c18
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+58d57
+<     MTest_Finalize( errors );
+59a59,64
+>     if (errors)
+>         printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll8.c /opt/mpich2-1.0.7/test/mpi/coll/coll8.c
+17c17
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+38d37
+<     MTest_Finalize( errors );
+39a39,44
+>     if (errors)
+>       printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/coll9.c /opt/mpich2-1.0.7/test/mpi/coll/coll9.c
+27c27
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+41d40
+<     MTest_Finalize( errors );
+42a42,47
+>     if (errors)
+>       printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/longuser.c /opt/mpich2-1.0.7/test/mpi/coll/longuser.c
+28c28
+<     int    i, rank, size, bufsize, errcnt = 0;
+---
+>     int    i, rank, size, bufsize, errcnt = 0, toterr;
+31c31
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+68a69,77
+>     MPI_Allreduce( &errcnt, &toterr, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+>     if (rank == 0) {
+> 	if (toterr == 0) 
+> 	    printf( " No Errors\n" );
+> 	else 
+> 	    printf( "*! %d errors!\n", toterr );
+>     }
+> 
+70d78
+<     MTest_Finalize( errcnt );
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/redscat.c /opt/mpich2-1.0.7/test/mpi/coll/redscat.c
+21c21
+<     int      err = 0;
+---
+>     int      err = 0, toterr;
+27c27
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+49c49,52
+<     MTest_Finalize( err );
+---
+>     MPI_Allreduce( &err, &toterr, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     if (rank == 0 && toterr == 0) {
+> 	printf( " No Errors\n" );
+>     }
+52c55
+<     return err;
+---
+>     return toterr;
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/scantst.c /opt/mpich2-1.0.7/test/mpi/coll/scantst.c
+54c54
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+108d107
+<     MTest_Finalize( errors );
+109a109,114
+>     if (errors)
+>         printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+>     else {
+> 	if (rank == 0) 
+> 	    printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/scattern.c /opt/mpich2-1.0.7/test/mpi/coll/scattern.c
+19c19
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+46a47,52
+>     i = err;
+>     MPI_Allreduce( &i, &err, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     if (rank == 0) {
+> 	if (err > 0) printf( "Found %d errors!\n", err );
+> 	else         printf( " No Errors\n" );
+>     }
+48d53
+<     MTest_Finalize( err );
+diff /home/hoekstra/MPICH2_feedback/mpi/coll/scatterv.c /opt/mpich2-1.0.7/test/mpi/coll/scatterv.c
+78c78
+<     int rank, size, myrow, mycol, nx, ny, stride, cnt, i, j, errs;
+---
+>     int rank, size, myrow, mycol, nx, ny, stride, cnt, i, j, errs, tot_errs;
+89c89
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+152a153,159
+>     MPI_Allreduce( &errs, &tot_errs, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     if (rank == 0) {
+> 	if (tot_errs == 0)
+> 	    printf( " No Errors\n" );
+> 	else
+> 	    printf( "%d errors in use of MPI_SCATTERV\n", tot_errs );
+> 	}
+160d166
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/comm/ic1.c /opt/mpich2-1.0.7/test/mpi/comm/ic1.c
+17c17
+<     int      remote_rank, rank, size, errs = 0;
+---
+>     int      remote_rank, rank, size, errs = 0, toterr;
+20c20
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+59c59,68
+<     MTest_Finalize( errs );
+---
+>     MPI_Allreduce( &errs, &toterr, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     if (rank == 0) {
+> 	if (toterr == 0) {
+> 	    printf( " No Errors\n" );
+> 	}
+> 	else {
+> 	    printf (" Found %d errors\n", toterr );
+> 	}
+>     }
+>     
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/blockindexed-misc.c /opt/mpich2-1.0.7/test/mpi/datatype/blockindexed-misc.c
+31c31
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+50,51c50,55
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/blockindexed-zero-count.c /opt/mpich2-1.0.7/test/mpi/datatype/blockindexed-zero-count.c
+26c26
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+40,41c40,45
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/contents.c /opt/mpich2-1.0.7/test/mpi/datatype/contents.c
+32c32
+<     MTest_Init(&argc, &argv); 
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+75c75,81
+<     MTest_Finalize( errs );
+---
+>     /* print message and exit */
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/contig-zero-count.c /opt/mpich2-1.0.7/test/mpi/datatype/contig-zero-count.c
+26c26
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+40,41c40,45
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/contigstruct.c /opt/mpich2-1.0.7/test/mpi/datatype/contigstruct.c
+23d22
+<     int errs = 0;
+25c24
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+43a43,45
+>     if (rank == 0) {
+> 	printf( " No Errors\n" );
+>     }
+45d46
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/darray-pack.c /opt/mpich2-1.0.7/test/mpi/datatype/darray-pack.c
+28c28
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+47,48c47,52
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/get-elements-pairtype.c /opt/mpich2-1.0.7/test/mpi/datatype/get-elements-pairtype.c
+30c30
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+43c43,49
+<     MTest_Finalize( errs );
+---
+>     /* print message and exit */
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/hindexed-zeros.c /opt/mpich2-1.0.7/test/mpi/datatype/hindexed-zeros.c
+28c28
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+44,45c44,49
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/indexed-misc.c /opt/mpich2-1.0.7/test/mpi/datatype/indexed-misc.c
+33c33
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+66,67c66,71
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/lbub.c /opt/mpich2-1.0.7/test/mpi/datatype/lbub.c
+37c37
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+86,87c86,91
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/localpack.c /opt/mpich2-1.0.7/test/mpi/datatype/localpack.c
+35c35
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+79,80c79,84
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/pairtype-pack.c /opt/mpich2-1.0.7/test/mpi/datatype/pairtype-pack.c
+29c29
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+40,41c40,45
+<     
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/pairtype-size-extent.c /opt/mpich2-1.0.7/test/mpi/datatype/pairtype-size-extent.c
+77c77
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv);
+121c121,128
+<     MTest_Finalize( errs );
+---
+> 
+>     /* print message and exit */
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/segtest.c /opt/mpich2-1.0.7/test/mpi/datatype/segtest.c
+139d138
+<     int errs = 0;
+142c141
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+208d206
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/simple-commit.c /opt/mpich2-1.0.7/test/mpi/datatype/simple-commit.c
+25c25
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+51,52c51,56
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/simple-pack.c /opt/mpich2-1.0.7/test/mpi/datatype/simple-pack.c
+28c28
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+51c51,57
+<     MTest_Finalize( errs );
+---
+>     /* print message and exit */
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/simple-resized.c /opt/mpich2-1.0.7/test/mpi/datatype/simple-resized.c
+26c26
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+40,41c40,45
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/simple-size-extent.c /opt/mpich2-1.0.7/test/mpi/datatype/simple-size-extent.c
+28c28
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+140,141c140,145
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/slice-pack.c /opt/mpich2-1.0.7/test/mpi/datatype/slice-pack.c
+46c46
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv);
+101a102,108
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+> 
+106d112
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/slice-pack-external.c /opt/mpich2-1.0.7/test/mpi/datatype/slice-pack-external.c
+40c40
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv);
+100a101,107
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+> 
+105d111
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/struct-empty-el.c /opt/mpich2-1.0.7/test/mpi/datatype/struct-empty-el.c
+27c27
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+39,40c39,44
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/struct-ezhov.c /opt/mpich2-1.0.7/test/mpi/datatype/struct-ezhov.c
+21d20
+<     int                 errs = 0;
+23c22
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv);
+50d48
+<     MTest_Finalize( errs );
+51a50,52
+> 
+>     printf(" No Errors\n");
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/struct-no-real-types.c /opt/mpich2-1.0.7/test/mpi/datatype/struct-no-real-types.c
+26c26
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+40,41c40,45
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/struct-pack.c /opt/mpich2-1.0.7/test/mpi/datatype/struct-pack.c
+31c31
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+51,52c51,56
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/struct-zero-count.c /opt/mpich2-1.0.7/test/mpi/datatype/struct-zero-count.c
+26c26
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+39,40c39,44
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/subarray-pack.c /opt/mpich2-1.0.7/test/mpi/datatype/subarray-pack.c
+33c33
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+79,80c79,84
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/transpose-pack.c /opt/mpich2-1.0.7/test/mpi/datatype/transpose-pack.c
+43c43
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+93,94c93,98
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/triangular-pack.c /opt/mpich2-1.0.7/test/mpi/datatype/triangular-pack.c
+40c40
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+84,85c84,89
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/unusual-noncontigs.c /opt/mpich2-1.0.7/test/mpi/datatype/unusual-noncontigs.c
+25c25
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+45,46c45,50
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/zero-blklen-vector.c /opt/mpich2-1.0.7/test/mpi/datatype/zero-blklen-vector.c
+14d13
+<         int errs = 0;
+19c18
+<         MTest_Init( &argc, &argv );
+---
+> 	MPI_Init(&argc,&argv);
+37d35
+<         MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/zeroparms.c /opt/mpich2-1.0.7/test/mpi/datatype/zeroparms.c
+14d13
+<     int errs = 0;
+16c15
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( 0, 0 );
+31a31,32
+>     printf( " No Errors\n" );
+> 
+34d34
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/datatype/simple-pack-external.c /opt/mpich2-1.0.7/test/mpi/datatype/simple-pack-external.c
+27c27
+<     MTest_Init(&argc, &argv);
+---
+>     MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
+55c55,61
+<     MTest_Finalize( errs );
+---
+>     /* print message and exit */
+>     if (errs) {
+> 	fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/errhan/errfatal.c /opt/mpich2-1.0.7/test/mpi/errhan/errfatal.c
+16c16
+< 	sprintf(MY_ERROR_STRING, "MY Error");
+---
+> 	sprintf(MY_ERROR_STRING, "MY ERROR");
+18c18
+< 	MTest_Init( &argc, &argv );
+---
+> 	MPI_Init(&argc, &argv);
+41d40
+<         MTest_Finalize( 1 );
+diff /home/hoekstra/MPICH2_feedback/mpi/errhan/errring.c /opt/mpich2-1.0.7/test/mpi/errhan/errring.c
+18c18
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( 0, 0 );
+25d24
+<     MTest_Finalize( 0 );
+diff /home/hoekstra/MPICH2_feedback/mpi/errhan/errstring.c /opt/mpich2-1.0.7/test/mpi/errhan/errstring.c
+14c14
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(0,0);
+20d19
+<     MTest_Finalize( 0 );
+diff /home/hoekstra/MPICH2_feedback/mpi/group/glpid.c /opt/mpich2-1.0.7/test/mpi/group/glpid.c
+15d14
+<     int errs=0;
+17c16
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+45d43
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/group/groupcreate.c /opt/mpich2-1.0.7/test/mpi/group/groupcreate.c
+13d12
+<     int errs = 0;
+19c18
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+39d37
+<             errs++;
+50d47
+<                 errs++;
+64d60
+<             errs++;
+68c64
+<     
+---
+> 
+80d75
+<             errs++;
+83c78
+< 	 /* printf( " No Errors\n" ); */
+---
+> 	    printf( " No Errors\n" );
+89d83
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/group/grouptest.c /opt/mpich2-1.0.7/test/mpi/group/grouptest.c
+23c23
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(0,0);
+172c172,181
+<     MTest_Finalize( errs );
+---
+>     if (myrank == 0) 
+>     {
+> 	if (errs == 0) {
+> 	    printf( " No Errors\n" );
+> 	}
+> 	else {
+> 	    printf( "Found %d errors\n", errs );
+> 	}
+>     }
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/group/grouptest2.c /opt/mpich2-1.0.7/test/mpi/group/grouptest2.c
+29c29
+<     int errs=0;
+---
+>     int errs=0, toterr;
+39c39
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+203c203,210
+<     MTest_Finalize( errs );
+---
+>     MPI_Allreduce( &errs, &toterr, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     if (worldrank == 0) {
+> 	if (toterr == 0) 
+> 	    printf( " No Errors\n" );
+> 	else
+> 	    printf( "Found %d errors in MPI Group routines\n", toterr );
+>     }
+> 
+205c212
+<     return 0;
+---
+>     return toterr;
+diff /home/hoekstra/MPICH2_feedback/mpi/info/infomany.c /opt/mpich2-1.0.7/test/mpi/info/infomany.c
+28c28
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( 0, 0 );
+90a91,96
+>     if (errs) {
+> 	printf( " Found %d errors\n", errs );
+>     }
+>     else {
+> 	printf( " No Errors\n" );
+>     }
+92d97
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/info/infomany2.c /opt/mpich2-1.0.7/test/mpi/info/infomany2.c
+26c26
+< int main( int argc, char *argv[] )
+---
+> int main( int arg, char *argv[] )
+33c33
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( 0, 0 );
+116a117,122
+>     if (errs) {
+> 	printf( " Found %d errors\n", errs );
+>     }
+>     else {
+> 	printf( " No Errors\n" );
+>     }
+118d123
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/info/infotest.c /opt/mpich2-1.0.7/test/mpi/info/infotest.c
+23c23
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( 0, 0 );
+48,49c48,53
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	printf( " Found %d errors\n", errs );
+>     }
+>     else {
+> 	printf( " No Errors\n" );
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/init/exitst1.c /opt/mpich2-1.0.7/test/mpi/init/exitst1.c
+14,16c14
+<     int errs = 0;
+<     MTest_Init( &argc, &argv );
+<     MTest_Finalize( errs );
+---
+>     MPI_Init( 0, 0 );
+diff /home/hoekstra/MPICH2_feedback/mpi/init/exitst3.c /opt/mpich2-1.0.7/test/mpi/init/exitst3.c
+15,16c15
+<     int errs = 0;
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( 0, 0 );
+25d23
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/init/timeout.c /opt/mpich2-1.0.7/test/mpi/init/timeout.c
+14d13
+<     int errs = 0;
+16c15
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( 0, 0 );
+19d17
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/init/exitst2.c /opt/mpich2-1.0.7/test/mpi/init/exitst2.c
+7d6
+< #include <stdio.h>
+17,18c16
+<     int errs = 0;
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( 0, 0 );
+20d17
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/pt2pt/sendflood.c /opt/mpich2-1.0.7/test/mpi/pt2pt/sendflood.c
+27d26
+<     int errs = 0;
+29c28
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv ) ;
+142d140
+<     MTest_Finalize( errs );
+146c144
+< /*  if (rank == 0) {
+---
+>     if (rank == 0) {
+149d146
+< */
+diff /home/hoekstra/MPICH2_feedback/mpi/pt2pt/sendrecv2.c /opt/mpich2-1.0.7/test/mpi/pt2pt/sendrecv2.c
+26c26
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+109,110c109,114
+< 
+<     MTest_Finalize( errs );
+---
+>     if (errs) {
+> 	if (rank == 0) fprintf(stderr, "Found %d errors\n", errs);
+>     }
+>     else {
+> 	if (rank == 0) printf(" No Errors\n");
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/pt2pt/waitany-null.c /opt/mpich2-1.0.7/test/mpi/pt2pt/waitany-null.c
+21c21
+<     int i, err, errs = 0;
+---
+>     int i, err, errs = 0, rank, toterrs;
+27c27
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+54,55c54,63
+< 
+<     MTest_Finalize( errs );
+---
+>     MPI_Comm_rank( MPI_COMM_WORLD, & rank );
+>     MPI_Allreduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+>     if (rank == 0) {
+> 	if (toterrs) {
+> 	    fprintf(stderr, " Found %d errors\n", toterrs);
+> 	}
+> 	else {
+> 	    printf(" No Errors\n");
+> 	}
+>     }
+diff /home/hoekstra/MPICH2_feedback/mpi/pt2pt/cancelrecv.c /opt/mpich2-1.0.7/test/mpi/pt2pt/cancelrecv.c
+17c17
+<     int rank, size, src, dest, flag, errs = 0;
+---
+>     int rank, size, src, dest, flag, errs = 0, toterrs;
+21c21
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init( &argc, &argv );
+136c136,146
+<     MTest_Finalize( errs );
+---
+>     MPI_Reduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD );
+>     if (rank == 0) {
+> 	if (toterrs) { 
+> 	    printf( " Found %d errors\n", toterrs );
+> 	}
+> 	else {
+> 	    printf( " No Errors\n" );
+> 	}
+> 	fflush(stdout);
+>     }
+> 
+diff /home/hoekstra/MPICH2_feedback/mpi/rma/fetchandadd_tree.c /opt/mpich2-1.0.7/test/mpi/rma/fetchandadd_tree.c
+36c36
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc,&argv); 
+diff /home/hoekstra/MPICH2_feedback/mpi/rma/fetchandadd_tree_am.c /opt/mpich2-1.0.7/test/mpi/rma/fetchandadd_tree_am.c
+37c37
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc,&argv); 
+diff /home/hoekstra/MPICH2_feedback/mpi/rma/ircpi.c /opt/mpich2-1.0.7/test/mpi/rma/ircpi.c
+15d14
+<     int errs=0;
+20c19
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc,&argv); 
+70d68
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/spawn/disconnect_reconnect2.c /opt/mpich2-1.0.7/test/mpi/spawn/disconnect_reconnect2.c
+52d51
+<     int errs = 0;
+60c59
+<     error = MTest_Init(&argc, &argv);
+---
+>     error = MPI_Init(&argc, &argv);
+254d252
+<     MTest_Finalize( errs );
+diff /home/hoekstra/MPICH2_feedback/mpi/spawn/multiple_ports.c /opt/mpich2-1.0.7/test/mpi/spawn/multiple_ports.c
+31c31
+<     int num_errors = 0;
+---
+>     int num_errors = 0, total_num_errors = 0;
+45c45
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+52,53d51
+<         num_errors = 1;
+<         MTest_Finalize( num_errors );
+137c135,147
+<     MTest_Finalize( num_errors );
+---
+>     MPI_Reduce(&num_errors, &total_num_errors, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+>     if (rank == 0)
+>     {
+> 	if (total_num_errors)
+> 	{
+> 	    printf(" Found %d errors\n", total_num_errors);
+> 	}
+> 	else
+> 	{
+> 	    printf(" No Errors\n");
+> 	}
+> 	fflush(stdout);
+>     }
+139c149
+<     return num_errors;
+---
+>     return total_num_errors;
+diff /home/hoekstra/MPICH2_feedback/mpi/spawn/multiple_ports2.c /opt/mpich2-1.0.7/test/mpi/spawn/multiple_ports2.c
+31c31
+<     int num_errors = 0;
+---
+>     int num_errors = 0, total_num_errors = 0;
+46c46
+<     MTest_Init( &argc, &argv );
+---
+>     MPI_Init(&argc, &argv);
+53,54d52
+<         num_errors = 1;
+<         MTest_Finalize( num_errors );
+172c170,182
+<     MTest_Finalize( num_errors );
+---
+>     MPI_Reduce(&num_errors, &total_num_errors, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+>     if (rank == 0)
+>     {
+> 	if (total_num_errors)
+> 	{
+> 	    printf(" Found %d errors\n", total_num_errors);
+> 	}
+> 	else
+> 	{
+> 	    printf(" No Errors\n");
+> 	}
+> 	fflush(stdout);
+>     }
+174c184
+<     return num_errors;
+---
+>     return total_num_errors;

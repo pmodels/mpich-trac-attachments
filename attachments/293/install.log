@@ -1,0 +1,849 @@
+if [ ! -d /usr/local ] ; then mkdir -p /usr/local ; fi
+if [ ! -d /usr/local/www ] ; then mkdir -p /usr/local/www ; fi
+if [ ! -d /usr/local/man ] ; then mkdir -p /usr/local/man ; fi
+if [ ! -d /usr/local/include ] ; then mkdir -p /usr/local/include ; fi
+make install-local
+make[1]: Entering directory `/share/apps/mpich2-1.0.3'
+if [ "no" = "yes" ] ; then \
+	    /usr/bin/install -c -m 644 src/mpi/debugger/libtvmpich.so \
+			/usr/local/lib/libtvmpich.so ; fi
+if test ! -d /usr/local/examples ; then \
+	    mkdir -p /usr/local/examples ; \
+	fi
+/usr/bin/install -c examples/cpi /usr/local/examples/cpi
+make[1]: Leaving directory `/share/apps/mpich2-1.0.3'
+/usr/bin/install -c -m 644 src/include/mpi.h /usr/local/include/mpi.h
+if [ ! -d /usr/local ] ; then mkdir -p /usr/local ; fi
+if [ ! -d /usr/local/lib ] ; then mkdir -p /usr/local/lib ; fi
+/usr/bin/install -c -m 644 lib/libmpich.a /usr/local/lib/libmpich.a
+if [ ! -d /usr/local/doc ] ; then mkdir -p /usr/local/doc ; fi
+/usr/bin/install -c -m 644 index.htm /usr/local/www/index.htm
+/usr/bin/install -c -m 644 index.htm /usr/local/www/www1/index.htm
+/usr/bin/install -c -m 644 mpicc.html /usr/local/www/www1/mpicc.html
+/usr/bin/install -c -m 644 mpicxx.html /usr/local/www/www1/mpicxx.html
+/usr/bin/install -c -m 644 mpiexec.html /usr/local/www/www1/mpiexec.html
+/usr/bin/install -c -m 644 mpif77.html /usr/local/www/www1/mpif77.html
+/usr/bin/install -c -m 644 mpif90.html /usr/local/www/www1/mpif90.html
+/usr/bin/install -c -m 644 MPI.html /usr/local/www/www1/MPI.html
+/usr/bin/install -c -m 644 index.htm /usr/local/www/www3/index.htm
+/usr/bin/install -c -m 644 MPI_Abort.html /usr/local/www/www3/MPI_Abort.html
+/usr/bin/install -c -m 644 MPI_Accumulate.html /usr/local/www/www3/MPI_Accumulate.html
+/usr/bin/install -c -m 644 MPI_Add_error_class.html /usr/local/www/www3/MPI_Add_error_class.html
+/usr/bin/install -c -m 644 MPI_Add_error_code.html /usr/local/www/www3/MPI_Add_error_code.html
+/usr/bin/install -c -m 644 MPI_Add_error_string.html /usr/local/www/www3/MPI_Add_error_string.html
+/usr/bin/install -c -m 644 MPI_Address.html /usr/local/www/www3/MPI_Address.html
+/usr/bin/install -c -m 644 MPI_Allgather.html /usr/local/www/www3/MPI_Allgather.html
+/usr/bin/install -c -m 644 MPI_Allgatherv.html /usr/local/www/www3/MPI_Allgatherv.html
+/usr/bin/install -c -m 644 MPI_Alloc_mem.html /usr/local/www/www3/MPI_Alloc_mem.html
+/usr/bin/install -c -m 644 MPI_Allreduce.html /usr/local/www/www3/MPI_Allreduce.html
+/usr/bin/install -c -m 644 MPI_Alltoall.html /usr/local/www/www3/MPI_Alltoall.html
+/usr/bin/install -c -m 644 MPI_Alltoallv.html /usr/local/www/www3/MPI_Alltoallv.html
+/usr/bin/install -c -m 644 MPI_Alltoallw.html /usr/local/www/www3/MPI_Alltoallw.html
+/usr/bin/install -c -m 644 MPI_Attr_delete.html /usr/local/www/www3/MPI_Attr_delete.html
+/usr/bin/install -c -m 644 MPI_Attr_get.html /usr/local/www/www3/MPI_Attr_get.html
+/usr/bin/install -c -m 644 MPI_Attr_put.html /usr/local/www/www3/MPI_Attr_put.html
+/usr/bin/install -c -m 644 MPI_Barrier.html /usr/local/www/www3/MPI_Barrier.html
+/usr/bin/install -c -m 644 MPI_Bcast.html /usr/local/www/www3/MPI_Bcast.html
+/usr/bin/install -c -m 644 MPI_Bsend.html /usr/local/www/www3/MPI_Bsend.html
+/usr/bin/install -c -m 644 MPI_Bsend_init.html /usr/local/www/www3/MPI_Bsend_init.html
+/usr/bin/install -c -m 644 MPI_Buffer_attach.html /usr/local/www/www3/MPI_Buffer_attach.html
+/usr/bin/install -c -m 644 MPI_Buffer_detach.html /usr/local/www/www3/MPI_Buffer_detach.html
+/usr/bin/install -c -m 644 MPI_Cancel.html /usr/local/www/www3/MPI_Cancel.html
+/usr/bin/install -c -m 644 MPI_Cart_coords.html /usr/local/www/www3/MPI_Cart_coords.html
+/usr/bin/install -c -m 644 MPI_Cart_create.html /usr/local/www/www3/MPI_Cart_create.html
+/usr/bin/install -c -m 644 MPI_Cartdim_get.html /usr/local/www/www3/MPI_Cartdim_get.html
+/usr/bin/install -c -m 644 MPI_Cart_get.html /usr/local/www/www3/MPI_Cart_get.html
+/usr/bin/install -c -m 644 MPI_Cart_map.html /usr/local/www/www3/MPI_Cart_map.html
+/usr/bin/install -c -m 644 MPI_Cart_rank.html /usr/local/www/www3/MPI_Cart_rank.html
+/usr/bin/install -c -m 644 MPI_Cart_shift.html /usr/local/www/www3/MPI_Cart_shift.html
+/usr/bin/install -c -m 644 MPI_Cart_sub.html /usr/local/www/www3/MPI_Cart_sub.html
+/usr/bin/install -c -m 644 MPI_Close_port.html /usr/local/www/www3/MPI_Close_port.html
+/usr/bin/install -c -m 644 MPI_Comm_accept.html /usr/local/www/www3/MPI_Comm_accept.html
+/usr/bin/install -c -m 644 MPI_Comm_call_errhandler.html /usr/local/www/www3/MPI_Comm_call_errhandler.html
+/usr/bin/install -c -m 644 MPI_Comm_compare.html /usr/local/www/www3/MPI_Comm_compare.html
+/usr/bin/install -c -m 644 MPI_Comm_connect.html /usr/local/www/www3/MPI_Comm_connect.html
+/usr/bin/install -c -m 644 MPI_Comm_create_errhandler.html /usr/local/www/www3/MPI_Comm_create_errhandler.html
+/usr/bin/install -c -m 644 MPI_Comm_create.html /usr/local/www/www3/MPI_Comm_create.html
+/usr/bin/install -c -m 644 MPI_Comm_create_keyval.html /usr/local/www/www3/MPI_Comm_create_keyval.html
+/usr/bin/install -c -m 644 MPI_Comm_delete_attr.html /usr/local/www/www3/MPI_Comm_delete_attr.html
+/usr/bin/install -c -m 644 MPI_Comm_disconnect.html /usr/local/www/www3/MPI_Comm_disconnect.html
+/usr/bin/install -c -m 644 MPI_Comm_dup.html /usr/local/www/www3/MPI_Comm_dup.html
+/usr/bin/install -c -m 644 MPI_Comm_free.html /usr/local/www/www3/MPI_Comm_free.html
+/usr/bin/install -c -m 644 MPI_Comm_free_keyval.html /usr/local/www/www3/MPI_Comm_free_keyval.html
+/usr/bin/install -c -m 644 MPI_Comm_get_attr.html /usr/local/www/www3/MPI_Comm_get_attr.html
+/usr/bin/install -c -m 644 MPI_Comm_get_errhandler.html /usr/local/www/www3/MPI_Comm_get_errhandler.html
+/usr/bin/install -c -m 644 MPI_Comm_get_name.html /usr/local/www/www3/MPI_Comm_get_name.html
+/usr/bin/install -c -m 644 MPI_Comm_get_parent.html /usr/local/www/www3/MPI_Comm_get_parent.html
+/usr/bin/install -c -m 644 MPI_Comm_group.html /usr/local/www/www3/MPI_Comm_group.html
+/usr/bin/install -c -m 644 MPI_Comm_join.html /usr/local/www/www3/MPI_Comm_join.html
+/usr/bin/install -c -m 644 MPI_Comm_rank.html /usr/local/www/www3/MPI_Comm_rank.html
+/usr/bin/install -c -m 644 MPI_Comm_remote_group.html /usr/local/www/www3/MPI_Comm_remote_group.html
+/usr/bin/install -c -m 644 MPI_Comm_remote_size.html /usr/local/www/www3/MPI_Comm_remote_size.html
+/usr/bin/install -c -m 644 MPI_Comm_set_attr.html /usr/local/www/www3/MPI_Comm_set_attr.html
+/usr/bin/install -c -m 644 MPI_Comm_set_errhandler.html /usr/local/www/www3/MPI_Comm_set_errhandler.html
+/usr/bin/install -c -m 644 MPI_Comm_set_name.html /usr/local/www/www3/MPI_Comm_set_name.html
+/usr/bin/install -c -m 644 MPI_Comm_size.html /usr/local/www/www3/MPI_Comm_size.html
+/usr/bin/install -c -m 644 MPI_Comm_spawn.html /usr/local/www/www3/MPI_Comm_spawn.html
+/usr/bin/install -c -m 644 MPI_Comm_spawn_multiple.html /usr/local/www/www3/MPI_Comm_spawn_multiple.html
+/usr/bin/install -c -m 644 MPI_Comm_split.html /usr/local/www/www3/MPI_Comm_split.html
+/usr/bin/install -c -m 644 MPI_Comm_test_inter.html /usr/local/www/www3/MPI_Comm_test_inter.html
+/usr/bin/install -c -m 644 MPI_Dims_create.html /usr/local/www/www3/MPI_Dims_create.html
+/usr/bin/install -c -m 644 MPI_Errhandler_create.html /usr/local/www/www3/MPI_Errhandler_create.html
+/usr/bin/install -c -m 644 MPI_Errhandler_free.html /usr/local/www/www3/MPI_Errhandler_free.html
+/usr/bin/install -c -m 644 MPI_Errhandler_get.html /usr/local/www/www3/MPI_Errhandler_get.html
+/usr/bin/install -c -m 644 MPI_Errhandler_set.html /usr/local/www/www3/MPI_Errhandler_set.html
+/usr/bin/install -c -m 644 MPI_Error_class.html /usr/local/www/www3/MPI_Error_class.html
+/usr/bin/install -c -m 644 MPI_Error_string.html /usr/local/www/www3/MPI_Error_string.html
+/usr/bin/install -c -m 644 MPI_Exscan.html /usr/local/www/www3/MPI_Exscan.html
+/usr/bin/install -c -m 644 MPI_File_c2f.html /usr/local/www/www3/MPI_File_c2f.html
+/usr/bin/install -c -m 644 MPI_File_call_errhandler.html /usr/local/www/www3/MPI_File_call_errhandler.html
+/usr/bin/install -c -m 644 MPI_File_close.html /usr/local/www/www3/MPI_File_close.html
+/usr/bin/install -c -m 644 MPI_File_create_errhandler.html /usr/local/www/www3/MPI_File_create_errhandler.html
+/usr/bin/install -c -m 644 MPI_File_delete.html /usr/local/www/www3/MPI_File_delete.html
+/usr/bin/install -c -m 644 MPI_File_f2c.html /usr/local/www/www3/MPI_File_f2c.html
+/usr/bin/install -c -m 644 MPI_File_get_amode.html /usr/local/www/www3/MPI_File_get_amode.html
+/usr/bin/install -c -m 644 MPI_File_get_atomicity.html /usr/local/www/www3/MPI_File_get_atomicity.html
+/usr/bin/install -c -m 644 MPI_File_get_byte_offset.html /usr/local/www/www3/MPI_File_get_byte_offset.html
+/usr/bin/install -c -m 644 MPI_File_get_errhandler.html /usr/local/www/www3/MPI_File_get_errhandler.html
+/usr/bin/install -c -m 644 MPI_File_get_group.html /usr/local/www/www3/MPI_File_get_group.html
+/usr/bin/install -c -m 644 MPI_File_get_info.html /usr/local/www/www3/MPI_File_get_info.html
+/usr/bin/install -c -m 644 MPI_File_get_position.html /usr/local/www/www3/MPI_File_get_position.html
+/usr/bin/install -c -m 644 MPI_File_get_position_shared.html /usr/local/www/www3/MPI_File_get_position_shared.html
+/usr/bin/install -c -m 644 MPI_File_get_size.html /usr/local/www/www3/MPI_File_get_size.html
+/usr/bin/install -c -m 644 MPI_File_get_type_extent.html /usr/local/www/www3/MPI_File_get_type_extent.html
+/usr/bin/install -c -m 644 MPI_File_get_view.html /usr/local/www/www3/MPI_File_get_view.html
+/usr/bin/install -c -m 644 MPI_File_iread_at.html /usr/local/www/www3/MPI_File_iread_at.html
+/usr/bin/install -c -m 644 MPI_File_iread.html /usr/local/www/www3/MPI_File_iread.html
+/usr/bin/install -c -m 644 MPI_File_iread_shared.html /usr/local/www/www3/MPI_File_iread_shared.html
+/usr/bin/install -c -m 644 MPI_File_iwrite_at.html /usr/local/www/www3/MPI_File_iwrite_at.html
+/usr/bin/install -c -m 644 MPI_File_iwrite.html /usr/local/www/www3/MPI_File_iwrite.html
+/usr/bin/install -c -m 644 MPI_File_iwrite_shared.html /usr/local/www/www3/MPI_File_iwrite_shared.html
+/usr/bin/install -c -m 644 MPI_File_open.html /usr/local/www/www3/MPI_File_open.html
+/usr/bin/install -c -m 644 MPI_File_preallocate.html /usr/local/www/www3/MPI_File_preallocate.html
+/usr/bin/install -c -m 644 MPI_File_read_all_begin.html /usr/local/www/www3/MPI_File_read_all_begin.html
+/usr/bin/install -c -m 644 MPI_File_read_all_end.html /usr/local/www/www3/MPI_File_read_all_end.html
+/usr/bin/install -c -m 644 MPI_File_read_all.html /usr/local/www/www3/MPI_File_read_all.html
+/usr/bin/install -c -m 644 MPI_File_read_at_all_begin.html /usr/local/www/www3/MPI_File_read_at_all_begin.html
+/usr/bin/install -c -m 644 MPI_File_read_at_all_end.html /usr/local/www/www3/MPI_File_read_at_all_end.html
+/usr/bin/install -c -m 644 MPI_File_read_at_all.html /usr/local/www/www3/MPI_File_read_at_all.html
+/usr/bin/install -c -m 644 MPI_File_read_at.html /usr/local/www/www3/MPI_File_read_at.html
+/usr/bin/install -c -m 644 MPI_File_read.html /usr/local/www/www3/MPI_File_read.html
+/usr/bin/install -c -m 644 MPI_File_read_ordered_begin.html /usr/local/www/www3/MPI_File_read_ordered_begin.html
+/usr/bin/install -c -m 644 MPI_File_read_ordered_end.html /usr/local/www/www3/MPI_File_read_ordered_end.html
+/usr/bin/install -c -m 644 MPI_File_read_ordered.html /usr/local/www/www3/MPI_File_read_ordered.html
+/usr/bin/install -c -m 644 MPI_File_read_shared.html /usr/local/www/www3/MPI_File_read_shared.html
+/usr/bin/install -c -m 644 MPI_File_seek.html /usr/local/www/www3/MPI_File_seek.html
+/usr/bin/install -c -m 644 MPI_File_seek_shared.html /usr/local/www/www3/MPI_File_seek_shared.html
+/usr/bin/install -c -m 644 MPI_File_set_atomicity.html /usr/local/www/www3/MPI_File_set_atomicity.html
+/usr/bin/install -c -m 644 MPI_File_set_errhandler.html /usr/local/www/www3/MPI_File_set_errhandler.html
+/usr/bin/install -c -m 644 MPI_File_set_info.html /usr/local/www/www3/MPI_File_set_info.html
+/usr/bin/install -c -m 644 MPI_File_set_size.html /usr/local/www/www3/MPI_File_set_size.html
+/usr/bin/install -c -m 644 MPI_File_set_view.html /usr/local/www/www3/MPI_File_set_view.html
+/usr/bin/install -c -m 644 MPI_File_sync.html /usr/local/www/www3/MPI_File_sync.html
+/usr/bin/install -c -m 644 MPI_File_write_all_begin.html /usr/local/www/www3/MPI_File_write_all_begin.html
+/usr/bin/install -c -m 644 MPI_File_write_all_end.html /usr/local/www/www3/MPI_File_write_all_end.html
+/usr/bin/install -c -m 644 MPI_File_write_all.html /usr/local/www/www3/MPI_File_write_all.html
+/usr/bin/install -c -m 644 MPI_File_write_at_all_begin.html /usr/local/www/www3/MPI_File_write_at_all_begin.html
+/usr/bin/install -c -m 644 MPI_File_write_at_all_end.html /usr/local/www/www3/MPI_File_write_at_all_end.html
+/usr/bin/install -c -m 644 MPI_File_write_at_all.html /usr/local/www/www3/MPI_File_write_at_all.html
+/usr/bin/install -c -m 644 MPI_File_write_at.html /usr/local/www/www3/MPI_File_write_at.html
+/usr/bin/install -c -m 644 MPI_File_write.html /usr/local/www/www3/MPI_File_write.html
+/usr/bin/install -c -m 644 MPI_File_write_ordered_begin.html /usr/local/www/www3/MPI_File_write_ordered_begin.html
+/usr/bin/install -c -m 644 MPI_File_write_ordered_end.html /usr/local/www/www3/MPI_File_write_ordered_end.html
+/usr/bin/install -c -m 644 MPI_File_write_ordered.html /usr/local/www/www3/MPI_File_write_ordered.html
+/usr/bin/install -c -m 644 MPI_File_write_shared.html /usr/local/www/www3/MPI_File_write_shared.html
+/usr/bin/install -c -m 644 MPI_Finalized.html /usr/local/www/www3/MPI_Finalized.html
+/usr/bin/install -c -m 644 MPI_Finalize.html /usr/local/www/www3/MPI_Finalize.html
+/usr/bin/install -c -m 644 MPI_Free_mem.html /usr/local/www/www3/MPI_Free_mem.html
+/usr/bin/install -c -m 644 MPI_Gather.html /usr/local/www/www3/MPI_Gather.html
+/usr/bin/install -c -m 644 MPI_Gatherv.html /usr/local/www/www3/MPI_Gatherv.html
+/usr/bin/install -c -m 644 MPI_Get_address.html /usr/local/www/www3/MPI_Get_address.html
+/usr/bin/install -c -m 644 MPI_Get_count.html /usr/local/www/www3/MPI_Get_count.html
+/usr/bin/install -c -m 644 MPI_Get_elements.html /usr/local/www/www3/MPI_Get_elements.html
+/usr/bin/install -c -m 644 MPI_Get.html /usr/local/www/www3/MPI_Get.html
+/usr/bin/install -c -m 644 MPI_Get_processor_name.html /usr/local/www/www3/MPI_Get_processor_name.html
+/usr/bin/install -c -m 644 MPI_Get_version.html /usr/local/www/www3/MPI_Get_version.html
+/usr/bin/install -c -m 644 MPI_Graph_create.html /usr/local/www/www3/MPI_Graph_create.html
+/usr/bin/install -c -m 644 MPI_Graphdims_get.html /usr/local/www/www3/MPI_Graphdims_get.html
+/usr/bin/install -c -m 644 MPI_Graph_get.html /usr/local/www/www3/MPI_Graph_get.html
+/usr/bin/install -c -m 644 MPI_Graph_map.html /usr/local/www/www3/MPI_Graph_map.html
+/usr/bin/install -c -m 644 MPI_Graph_neighbors_count.html /usr/local/www/www3/MPI_Graph_neighbors_count.html
+/usr/bin/install -c -m 644 MPI_Graph_neighbors.html /usr/local/www/www3/MPI_Graph_neighbors.html
+/usr/bin/install -c -m 644 MPI_Grequest_complete.html /usr/local/www/www3/MPI_Grequest_complete.html
+/usr/bin/install -c -m 644 MPI_Grequest_start.html /usr/local/www/www3/MPI_Grequest_start.html
+/usr/bin/install -c -m 644 MPI_Group_compare.html /usr/local/www/www3/MPI_Group_compare.html
+/usr/bin/install -c -m 644 MPI_Group_difference.html /usr/local/www/www3/MPI_Group_difference.html
+/usr/bin/install -c -m 644 MPI_Group_excl.html /usr/local/www/www3/MPI_Group_excl.html
+/usr/bin/install -c -m 644 MPI_Group_free.html /usr/local/www/www3/MPI_Group_free.html
+/usr/bin/install -c -m 644 MPI_Group_incl.html /usr/local/www/www3/MPI_Group_incl.html
+/usr/bin/install -c -m 644 MPI_Group_intersection.html /usr/local/www/www3/MPI_Group_intersection.html
+/usr/bin/install -c -m 644 MPI_Group_range_excl.html /usr/local/www/www3/MPI_Group_range_excl.html
+/usr/bin/install -c -m 644 MPI_Group_range_incl.html /usr/local/www/www3/MPI_Group_range_incl.html
+/usr/bin/install -c -m 644 MPI_Group_rank.html /usr/local/www/www3/MPI_Group_rank.html
+/usr/bin/install -c -m 644 MPI_Group_size.html /usr/local/www/www3/MPI_Group_size.html
+/usr/bin/install -c -m 644 MPI_Group_translate_ranks.html /usr/local/www/www3/MPI_Group_translate_ranks.html
+/usr/bin/install -c -m 644 MPI_Group_union.html /usr/local/www/www3/MPI_Group_union.html
+/usr/bin/install -c -m 644 MPI_Ibsend.html /usr/local/www/www3/MPI_Ibsend.html
+/usr/bin/install -c -m 644 MPI_Info_create.html /usr/local/www/www3/MPI_Info_create.html
+/usr/bin/install -c -m 644 MPI_Info_delete.html /usr/local/www/www3/MPI_Info_delete.html
+/usr/bin/install -c -m 644 MPI_Info_dup.html /usr/local/www/www3/MPI_Info_dup.html
+/usr/bin/install -c -m 644 MPI_Info_free.html /usr/local/www/www3/MPI_Info_free.html
+/usr/bin/install -c -m 644 MPI_Info_get.html /usr/local/www/www3/MPI_Info_get.html
+/usr/bin/install -c -m 644 MPI_Info_get_nkeys.html /usr/local/www/www3/MPI_Info_get_nkeys.html
+/usr/bin/install -c -m 644 MPI_Info_get_nthkey.html /usr/local/www/www3/MPI_Info_get_nthkey.html
+/usr/bin/install -c -m 644 MPI_Info_get_valuelen.html /usr/local/www/www3/MPI_Info_get_valuelen.html
+/usr/bin/install -c -m 644 MPI_Info_set.html /usr/local/www/www3/MPI_Info_set.html
+/usr/bin/install -c -m 644 MPI_Init.html /usr/local/www/www3/MPI_Init.html
+/usr/bin/install -c -m 644 MPI_Initialized.html /usr/local/www/www3/MPI_Initialized.html
+/usr/bin/install -c -m 644 MPI_Init_thread.html /usr/local/www/www3/MPI_Init_thread.html
+/usr/bin/install -c -m 644 MPI_Intercomm_create.html /usr/local/www/www3/MPI_Intercomm_create.html
+/usr/bin/install -c -m 644 MPI_Intercomm_merge.html /usr/local/www/www3/MPI_Intercomm_merge.html
+/usr/bin/install -c -m 644 MPI_Iprobe.html /usr/local/www/www3/MPI_Iprobe.html
+/usr/bin/install -c -m 644 MPI_Irecv.html /usr/local/www/www3/MPI_Irecv.html
+/usr/bin/install -c -m 644 MPI_Irsend.html /usr/local/www/www3/MPI_Irsend.html
+/usr/bin/install -c -m 644 MPI_Isend.html /usr/local/www/www3/MPI_Isend.html
+/usr/bin/install -c -m 644 MPI_Issend.html /usr/local/www/www3/MPI_Issend.html
+/usr/bin/install -c -m 644 MPI_Is_thread_main.html /usr/local/www/www3/MPI_Is_thread_main.html
+/usr/bin/install -c -m 644 MPI_Keyval_create.html /usr/local/www/www3/MPI_Keyval_create.html
+/usr/bin/install -c -m 644 MPI_Keyval_free.html /usr/local/www/www3/MPI_Keyval_free.html
+/usr/bin/install -c -m 644 MPI_Lookup_name.html /usr/local/www/www3/MPI_Lookup_name.html
+/usr/bin/install -c -m 644 MPI_Op_create.html /usr/local/www/www3/MPI_Op_create.html
+/usr/bin/install -c -m 644 MPI_Open_port.html /usr/local/www/www3/MPI_Open_port.html
+/usr/bin/install -c -m 644 MPI_Op_free.html /usr/local/www/www3/MPI_Op_free.html
+/usr/bin/install -c -m 644 MPI_Pack_external.html /usr/local/www/www3/MPI_Pack_external.html
+/usr/bin/install -c -m 644 MPI_Pack_external_size.html /usr/local/www/www3/MPI_Pack_external_size.html
+/usr/bin/install -c -m 644 MPI_Pack.html /usr/local/www/www3/MPI_Pack.html
+/usr/bin/install -c -m 644 MPI_Pack_size.html /usr/local/www/www3/MPI_Pack_size.html
+/usr/bin/install -c -m 644 MPI_Pcontrol.html /usr/local/www/www3/MPI_Pcontrol.html
+/usr/bin/install -c -m 644 MPI_Probe.html /usr/local/www/www3/MPI_Probe.html
+/usr/bin/install -c -m 644 MPI_Publish_name.html /usr/local/www/www3/MPI_Publish_name.html
+/usr/bin/install -c -m 644 MPI_Put.html /usr/local/www/www3/MPI_Put.html
+/usr/bin/install -c -m 644 MPI_Query_thread.html /usr/local/www/www3/MPI_Query_thread.html
+/usr/bin/install -c -m 644 MPI_Recv.html /usr/local/www/www3/MPI_Recv.html
+/usr/bin/install -c -m 644 MPI_Recv_init.html /usr/local/www/www3/MPI_Recv_init.html
+/usr/bin/install -c -m 644 MPI_Reduce.html /usr/local/www/www3/MPI_Reduce.html
+/usr/bin/install -c -m 644 MPI_Reduce_scatter.html /usr/local/www/www3/MPI_Reduce_scatter.html
+/usr/bin/install -c -m 644 MPI_Register_datarep.html /usr/local/www/www3/MPI_Register_datarep.html
+/usr/bin/install -c -m 644 MPI_Request_free.html /usr/local/www/www3/MPI_Request_free.html
+/usr/bin/install -c -m 644 MPI_Request_get_status.html /usr/local/www/www3/MPI_Request_get_status.html
+/usr/bin/install -c -m 644 MPI_Rsend.html /usr/local/www/www3/MPI_Rsend.html
+/usr/bin/install -c -m 644 MPI_Rsend_init.html /usr/local/www/www3/MPI_Rsend_init.html
+/usr/bin/install -c -m 644 MPI_Scan.html /usr/local/www/www3/MPI_Scan.html
+/usr/bin/install -c -m 644 MPI_Scatter.html /usr/local/www/www3/MPI_Scatter.html
+/usr/bin/install -c -m 644 MPI_Scatterv.html /usr/local/www/www3/MPI_Scatterv.html
+/usr/bin/install -c -m 644 MPI_Send.html /usr/local/www/www3/MPI_Send.html
+/usr/bin/install -c -m 644 MPI_Send_init.html /usr/local/www/www3/MPI_Send_init.html
+/usr/bin/install -c -m 644 MPI_Sendrecv.html /usr/local/www/www3/MPI_Sendrecv.html
+/usr/bin/install -c -m 644 MPI_Sendrecv_replace.html /usr/local/www/www3/MPI_Sendrecv_replace.html
+/usr/bin/install -c -m 644 MPI_Ssend.html /usr/local/www/www3/MPI_Ssend.html
+/usr/bin/install -c -m 644 MPI_Ssend_init.html /usr/local/www/www3/MPI_Ssend_init.html
+/usr/bin/install -c -m 644 MPI_Startall.html /usr/local/www/www3/MPI_Startall.html
+/usr/bin/install -c -m 644 MPI_Start.html /usr/local/www/www3/MPI_Start.html
+/usr/bin/install -c -m 644 MPI_Status_set_cancelled.html /usr/local/www/www3/MPI_Status_set_cancelled.html
+/usr/bin/install -c -m 644 MPI_Status_set_elements.html /usr/local/www/www3/MPI_Status_set_elements.html
+/usr/bin/install -c -m 644 MPI_Testall.html /usr/local/www/www3/MPI_Testall.html
+/usr/bin/install -c -m 644 MPI_Testany.html /usr/local/www/www3/MPI_Testany.html
+/usr/bin/install -c -m 644 MPI_Test_cancelled.html /usr/local/www/www3/MPI_Test_cancelled.html
+/usr/bin/install -c -m 644 MPI_Test.html /usr/local/www/www3/MPI_Test.html
+/usr/bin/install -c -m 644 MPI_Testsome.html /usr/local/www/www3/MPI_Testsome.html
+/usr/bin/install -c -m 644 MPI_Topo_test.html /usr/local/www/www3/MPI_Topo_test.html
+/usr/bin/install -c -m 644 MPI_Type_commit.html /usr/local/www/www3/MPI_Type_commit.html
+/usr/bin/install -c -m 644 MPI_Type_contiguous.html /usr/local/www/www3/MPI_Type_contiguous.html
+/usr/bin/install -c -m 644 MPI_Type_create_darray.html /usr/local/www/www3/MPI_Type_create_darray.html
+/usr/bin/install -c -m 644 MPI_Type_create_hindexed.html /usr/local/www/www3/MPI_Type_create_hindexed.html
+/usr/bin/install -c -m 644 MPI_Type_create_hvector.html /usr/local/www/www3/MPI_Type_create_hvector.html
+/usr/bin/install -c -m 644 MPI_Type_create_indexed_block.html /usr/local/www/www3/MPI_Type_create_indexed_block.html
+/usr/bin/install -c -m 644 MPI_Type_create_keyval.html /usr/local/www/www3/MPI_Type_create_keyval.html
+/usr/bin/install -c -m 644 MPI_Type_create_resized.html /usr/local/www/www3/MPI_Type_create_resized.html
+/usr/bin/install -c -m 644 MPI_Type_create_struct.html /usr/local/www/www3/MPI_Type_create_struct.html
+/usr/bin/install -c -m 644 MPI_Type_create_subarray.html /usr/local/www/www3/MPI_Type_create_subarray.html
+/usr/bin/install -c -m 644 MPI_Type_delete_attr.html /usr/local/www/www3/MPI_Type_delete_attr.html
+/usr/bin/install -c -m 644 MPI_Type_dup.html /usr/local/www/www3/MPI_Type_dup.html
+/usr/bin/install -c -m 644 MPI_Type_extent.html /usr/local/www/www3/MPI_Type_extent.html
+/usr/bin/install -c -m 644 MPI_Type_free.html /usr/local/www/www3/MPI_Type_free.html
+/usr/bin/install -c -m 644 MPI_Type_free_keyval.html /usr/local/www/www3/MPI_Type_free_keyval.html
+/usr/bin/install -c -m 644 MPI_Type_get_attr.html /usr/local/www/www3/MPI_Type_get_attr.html
+/usr/bin/install -c -m 644 MPI_Type_get_contents.html /usr/local/www/www3/MPI_Type_get_contents.html
+/usr/bin/install -c -m 644 MPI_Type_get_envelope.html /usr/local/www/www3/MPI_Type_get_envelope.html
+/usr/bin/install -c -m 644 MPI_Type_get_extent.html /usr/local/www/www3/MPI_Type_get_extent.html
+/usr/bin/install -c -m 644 MPI_Type_get_name.html /usr/local/www/www3/MPI_Type_get_name.html
+/usr/bin/install -c -m 644 MPI_Type_get_true_extent.html /usr/local/www/www3/MPI_Type_get_true_extent.html
+/usr/bin/install -c -m 644 MPI_Type_hindexed.html /usr/local/www/www3/MPI_Type_hindexed.html
+/usr/bin/install -c -m 644 MPI_Type_hvector.html /usr/local/www/www3/MPI_Type_hvector.html
+/usr/bin/install -c -m 644 MPI_Type_indexed.html /usr/local/www/www3/MPI_Type_indexed.html
+/usr/bin/install -c -m 644 MPI_Type_lb.html /usr/local/www/www3/MPI_Type_lb.html
+/usr/bin/install -c -m 644 MPI_Type_match_size.html /usr/local/www/www3/MPI_Type_match_size.html
+/usr/bin/install -c -m 644 MPI_Type_set_attr.html /usr/local/www/www3/MPI_Type_set_attr.html
+/usr/bin/install -c -m 644 MPI_Type_set_name.html /usr/local/www/www3/MPI_Type_set_name.html
+/usr/bin/install -c -m 644 MPI_Type_size.html /usr/local/www/www3/MPI_Type_size.html
+/usr/bin/install -c -m 644 MPI_Type_struct.html /usr/local/www/www3/MPI_Type_struct.html
+/usr/bin/install -c -m 644 MPI_Type_ub.html /usr/local/www/www3/MPI_Type_ub.html
+/usr/bin/install -c -m 644 MPI_Type_vector.html /usr/local/www/www3/MPI_Type_vector.html
+/usr/bin/install -c -m 644 MPI_Unpack_external.html /usr/local/www/www3/MPI_Unpack_external.html
+/usr/bin/install -c -m 644 MPI_Unpack.html /usr/local/www/www3/MPI_Unpack.html
+/usr/bin/install -c -m 644 MPI_Unpublish_name.html /usr/local/www/www3/MPI_Unpublish_name.html
+/usr/bin/install -c -m 644 MPI_Waitall.html /usr/local/www/www3/MPI_Waitall.html
+/usr/bin/install -c -m 644 MPI_Waitany.html /usr/local/www/www3/MPI_Waitany.html
+/usr/bin/install -c -m 644 MPI_Wait.html /usr/local/www/www3/MPI_Wait.html
+/usr/bin/install -c -m 644 MPI_Waitsome.html /usr/local/www/www3/MPI_Waitsome.html
+/usr/bin/install -c -m 644 MPI_Win_call_errhandler.html /usr/local/www/www3/MPI_Win_call_errhandler.html
+/usr/bin/install -c -m 644 MPI_Win_complete.html /usr/local/www/www3/MPI_Win_complete.html
+/usr/bin/install -c -m 644 MPI_Win_create_errhandler.html /usr/local/www/www3/MPI_Win_create_errhandler.html
+/usr/bin/install -c -m 644 MPI_Win_create.html /usr/local/www/www3/MPI_Win_create.html
+/usr/bin/install -c -m 644 MPI_Win_create_keyval.html /usr/local/www/www3/MPI_Win_create_keyval.html
+/usr/bin/install -c -m 644 MPI_Win_delete_attr.html /usr/local/www/www3/MPI_Win_delete_attr.html
+/usr/bin/install -c -m 644 MPI_Win_fence.html /usr/local/www/www3/MPI_Win_fence.html
+/usr/bin/install -c -m 644 MPI_Win_free.html /usr/local/www/www3/MPI_Win_free.html
+/usr/bin/install -c -m 644 MPI_Win_free_keyval.html /usr/local/www/www3/MPI_Win_free_keyval.html
+/usr/bin/install -c -m 644 MPI_Win_get_attr.html /usr/local/www/www3/MPI_Win_get_attr.html
+/usr/bin/install -c -m 644 MPI_Win_get_errhandler.html /usr/local/www/www3/MPI_Win_get_errhandler.html
+/usr/bin/install -c -m 644 MPI_Win_get_group.html /usr/local/www/www3/MPI_Win_get_group.html
+/usr/bin/install -c -m 644 MPI_Win_get_name.html /usr/local/www/www3/MPI_Win_get_name.html
+/usr/bin/install -c -m 644 MPI_Win_lock.html /usr/local/www/www3/MPI_Win_lock.html
+/usr/bin/install -c -m 644 MPI_Win_post.html /usr/local/www/www3/MPI_Win_post.html
+/usr/bin/install -c -m 644 MPI_Win_set_attr.html /usr/local/www/www3/MPI_Win_set_attr.html
+/usr/bin/install -c -m 644 MPI_Win_set_errhandler.html /usr/local/www/www3/MPI_Win_set_errhandler.html
+/usr/bin/install -c -m 644 MPI_Win_set_name.html /usr/local/www/www3/MPI_Win_set_name.html
+/usr/bin/install -c -m 644 MPI_Win_start.html /usr/local/www/www3/MPI_Win_start.html
+/usr/bin/install -c -m 644 MPI_Win_test.html /usr/local/www/www3/MPI_Win_test.html
+/usr/bin/install -c -m 644 MPI_Win_unlock.html /usr/local/www/www3/MPI_Win_unlock.html
+/usr/bin/install -c -m 644 MPI_Win_wait.html /usr/local/www/www3/MPI_Win_wait.html
+/usr/bin/install -c -m 644 MPI_Wtick.html /usr/local/www/www3/MPI_Wtick.html
+/usr/bin/install -c -m 644 MPI_Wtime.html /usr/local/www/www3/MPI_Wtime.html
+/usr/bin/install -c -m 644 MPI.1 /usr/local/man/man1/MPI.1
+/usr/bin/install -c -m 644 mpicc.1 /usr/local/man/man1/mpicc.1
+/usr/bin/install -c -m 644 mpicxx.1 /usr/local/man/man1/mpicxx.1
+/usr/bin/install -c -m 644 mpiexec.1 /usr/local/man/man1/mpiexec.1
+/usr/bin/install -c -m 644 mpif77.1 /usr/local/man/man1/mpif77.1
+/usr/bin/install -c -m 644 mpif90.1 /usr/local/man/man1/mpif90.1
+/usr/bin/install -c -m 644 MPI_Abort.3 /usr/local/man/man3/MPI_Abort.3
+/usr/bin/install -c -m 644 MPI_Accumulate.3 /usr/local/man/man3/MPI_Accumulate.3
+/usr/bin/install -c -m 644 MPI_Add_error_class.3 /usr/local/man/man3/MPI_Add_error_class.3
+/usr/bin/install -c -m 644 MPI_Add_error_code.3 /usr/local/man/man3/MPI_Add_error_code.3
+/usr/bin/install -c -m 644 MPI_Add_error_string.3 /usr/local/man/man3/MPI_Add_error_string.3
+/usr/bin/install -c -m 644 MPI_Address.3 /usr/local/man/man3/MPI_Address.3
+/usr/bin/install -c -m 644 MPI_Allgather.3 /usr/local/man/man3/MPI_Allgather.3
+/usr/bin/install -c -m 644 MPI_Allgatherv.3 /usr/local/man/man3/MPI_Allgatherv.3
+/usr/bin/install -c -m 644 MPI_Alloc_mem.3 /usr/local/man/man3/MPI_Alloc_mem.3
+/usr/bin/install -c -m 644 MPI_Allreduce.3 /usr/local/man/man3/MPI_Allreduce.3
+/usr/bin/install -c -m 644 MPI_Alltoall.3 /usr/local/man/man3/MPI_Alltoall.3
+/usr/bin/install -c -m 644 MPI_Alltoallv.3 /usr/local/man/man3/MPI_Alltoallv.3
+/usr/bin/install -c -m 644 MPI_Alltoallw.3 /usr/local/man/man3/MPI_Alltoallw.3
+/usr/bin/install -c -m 644 MPI_Attr_delete.3 /usr/local/man/man3/MPI_Attr_delete.3
+/usr/bin/install -c -m 644 MPI_Attr_get.3 /usr/local/man/man3/MPI_Attr_get.3
+/usr/bin/install -c -m 644 MPI_Attr_put.3 /usr/local/man/man3/MPI_Attr_put.3
+/usr/bin/install -c -m 644 MPI_Barrier.3 /usr/local/man/man3/MPI_Barrier.3
+/usr/bin/install -c -m 644 MPI_Bcast.3 /usr/local/man/man3/MPI_Bcast.3
+/usr/bin/install -c -m 644 MPI_Bsend.3 /usr/local/man/man3/MPI_Bsend.3
+/usr/bin/install -c -m 644 MPI_Bsend_init.3 /usr/local/man/man3/MPI_Bsend_init.3
+/usr/bin/install -c -m 644 MPI_Buffer_attach.3 /usr/local/man/man3/MPI_Buffer_attach.3
+/usr/bin/install -c -m 644 MPI_Buffer_detach.3 /usr/local/man/man3/MPI_Buffer_detach.3
+/usr/bin/install -c -m 644 MPI_Cancel.3 /usr/local/man/man3/MPI_Cancel.3
+/usr/bin/install -c -m 644 MPI_Cart_coords.3 /usr/local/man/man3/MPI_Cart_coords.3
+/usr/bin/install -c -m 644 MPI_Cart_create.3 /usr/local/man/man3/MPI_Cart_create.3
+/usr/bin/install -c -m 644 MPI_Cartdim_get.3 /usr/local/man/man3/MPI_Cartdim_get.3
+/usr/bin/install -c -m 644 MPI_Cart_get.3 /usr/local/man/man3/MPI_Cart_get.3
+/usr/bin/install -c -m 644 MPI_Cart_map.3 /usr/local/man/man3/MPI_Cart_map.3
+/usr/bin/install -c -m 644 MPI_Cart_rank.3 /usr/local/man/man3/MPI_Cart_rank.3
+/usr/bin/install -c -m 644 MPI_Cart_shift.3 /usr/local/man/man3/MPI_Cart_shift.3
+/usr/bin/install -c -m 644 MPI_Cart_sub.3 /usr/local/man/man3/MPI_Cart_sub.3
+/usr/bin/install -c -m 644 MPI_Close_port.3 /usr/local/man/man3/MPI_Close_port.3
+/usr/bin/install -c -m 644 MPI_Comm_accept.3 /usr/local/man/man3/MPI_Comm_accept.3
+/usr/bin/install -c -m 644 MPI_Comm_call_errhandler.3 /usr/local/man/man3/MPI_Comm_call_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_compare.3 /usr/local/man/man3/MPI_Comm_compare.3
+/usr/bin/install -c -m 644 MPI_Comm_connect.3 /usr/local/man/man3/MPI_Comm_connect.3
+/usr/bin/install -c -m 644 MPI_Comm_create.3 /usr/local/man/man3/MPI_Comm_create.3
+/usr/bin/install -c -m 644 MPI_Comm_create_errhandler.3 /usr/local/man/man3/MPI_Comm_create_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_create_keyval.3 /usr/local/man/man3/MPI_Comm_create_keyval.3
+/usr/bin/install -c -m 644 MPI_Comm_delete_attr.3 /usr/local/man/man3/MPI_Comm_delete_attr.3
+/usr/bin/install -c -m 644 MPI_Comm_disconnect.3 /usr/local/man/man3/MPI_Comm_disconnect.3
+/usr/bin/install -c -m 644 MPI_Comm_dup.3 /usr/local/man/man3/MPI_Comm_dup.3
+/usr/bin/install -c -m 644 MPI_Comm_free.3 /usr/local/man/man3/MPI_Comm_free.3
+/usr/bin/install -c -m 644 MPI_Comm_free_keyval.3 /usr/local/man/man3/MPI_Comm_free_keyval.3
+/usr/bin/install -c -m 644 MPI_Comm_get_attr.3 /usr/local/man/man3/MPI_Comm_get_attr.3
+/usr/bin/install -c -m 644 MPI_Comm_get_errhandler.3 /usr/local/man/man3/MPI_Comm_get_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_get_name.3 /usr/local/man/man3/MPI_Comm_get_name.3
+/usr/bin/install -c -m 644 MPI_Comm_get_parent.3 /usr/local/man/man3/MPI_Comm_get_parent.3
+/usr/bin/install -c -m 644 MPI_Comm_group.3 /usr/local/man/man3/MPI_Comm_group.3
+/usr/bin/install -c -m 644 MPI_Comm_join.3 /usr/local/man/man3/MPI_Comm_join.3
+/usr/bin/install -c -m 644 MPI_Comm_rank.3 /usr/local/man/man3/MPI_Comm_rank.3
+/usr/bin/install -c -m 644 MPI_Comm_remote_group.3 /usr/local/man/man3/MPI_Comm_remote_group.3
+/usr/bin/install -c -m 644 MPI_Comm_remote_size.3 /usr/local/man/man3/MPI_Comm_remote_size.3
+/usr/bin/install -c -m 644 MPI_Comm_set_attr.3 /usr/local/man/man3/MPI_Comm_set_attr.3
+/usr/bin/install -c -m 644 MPI_Comm_set_errhandler.3 /usr/local/man/man3/MPI_Comm_set_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_set_name.3 /usr/local/man/man3/MPI_Comm_set_name.3
+/usr/bin/install -c -m 644 MPI_Comm_size.3 /usr/local/man/man3/MPI_Comm_size.3
+/usr/bin/install -c -m 644 MPI_Comm_spawn.3 /usr/local/man/man3/MPI_Comm_spawn.3
+/usr/bin/install -c -m 644 MPI_Comm_spawn_multiple.3 /usr/local/man/man3/MPI_Comm_spawn_multiple.3
+/usr/bin/install -c -m 644 MPI_Comm_split.3 /usr/local/man/man3/MPI_Comm_split.3
+/usr/bin/install -c -m 644 MPI_Comm_test_inter.3 /usr/local/man/man3/MPI_Comm_test_inter.3
+/usr/bin/install -c -m 644 MPI_Dims_create.3 /usr/local/man/man3/MPI_Dims_create.3
+/usr/bin/install -c -m 644 MPI_Errhandler_create.3 /usr/local/man/man3/MPI_Errhandler_create.3
+/usr/bin/install -c -m 644 MPI_Errhandler_free.3 /usr/local/man/man3/MPI_Errhandler_free.3
+/usr/bin/install -c -m 644 MPI_Errhandler_get.3 /usr/local/man/man3/MPI_Errhandler_get.3
+/usr/bin/install -c -m 644 MPI_Errhandler_set.3 /usr/local/man/man3/MPI_Errhandler_set.3
+/usr/bin/install -c -m 644 MPI_Error_class.3 /usr/local/man/man3/MPI_Error_class.3
+/usr/bin/install -c -m 644 MPI_Error_string.3 /usr/local/man/man3/MPI_Error_string.3
+/usr/bin/install -c -m 644 MPI_Exscan.3 /usr/local/man/man3/MPI_Exscan.3
+/usr/bin/install -c -m 644 MPI_File_c2f.3 /usr/local/man/man3/MPI_File_c2f.3
+/usr/bin/install -c -m 644 MPI_File_call_errhandler.3 /usr/local/man/man3/MPI_File_call_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_close.3 /usr/local/man/man3/MPI_File_close.3
+/usr/bin/install -c -m 644 MPI_File_create_errhandler.3 /usr/local/man/man3/MPI_File_create_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_delete.3 /usr/local/man/man3/MPI_File_delete.3
+/usr/bin/install -c -m 644 MPI_File_f2c.3 /usr/local/man/man3/MPI_File_f2c.3
+/usr/bin/install -c -m 644 MPI_File_get_amode.3 /usr/local/man/man3/MPI_File_get_amode.3
+/usr/bin/install -c -m 644 MPI_File_get_atomicity.3 /usr/local/man/man3/MPI_File_get_atomicity.3
+/usr/bin/install -c -m 644 MPI_File_get_byte_offset.3 /usr/local/man/man3/MPI_File_get_byte_offset.3
+/usr/bin/install -c -m 644 MPI_File_get_errhandler.3 /usr/local/man/man3/MPI_File_get_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_get_group.3 /usr/local/man/man3/MPI_File_get_group.3
+/usr/bin/install -c -m 644 MPI_File_get_info.3 /usr/local/man/man3/MPI_File_get_info.3
+/usr/bin/install -c -m 644 MPI_File_get_position.3 /usr/local/man/man3/MPI_File_get_position.3
+/usr/bin/install -c -m 644 MPI_File_get_position_shared.3 /usr/local/man/man3/MPI_File_get_position_shared.3
+/usr/bin/install -c -m 644 MPI_File_get_size.3 /usr/local/man/man3/MPI_File_get_size.3
+/usr/bin/install -c -m 644 MPI_File_get_type_extent.3 /usr/local/man/man3/MPI_File_get_type_extent.3
+/usr/bin/install -c -m 644 MPI_File_get_view.3 /usr/local/man/man3/MPI_File_get_view.3
+/usr/bin/install -c -m 644 MPI_File_iread.3 /usr/local/man/man3/MPI_File_iread.3
+/usr/bin/install -c -m 644 MPI_File_iread_at.3 /usr/local/man/man3/MPI_File_iread_at.3
+/usr/bin/install -c -m 644 MPI_File_iread_shared.3 /usr/local/man/man3/MPI_File_iread_shared.3
+/usr/bin/install -c -m 644 MPI_File_iwrite.3 /usr/local/man/man3/MPI_File_iwrite.3
+/usr/bin/install -c -m 644 MPI_File_iwrite_at.3 /usr/local/man/man3/MPI_File_iwrite_at.3
+/usr/bin/install -c -m 644 MPI_File_iwrite_shared.3 /usr/local/man/man3/MPI_File_iwrite_shared.3
+/usr/bin/install -c -m 644 MPI_File_open.3 /usr/local/man/man3/MPI_File_open.3
+/usr/bin/install -c -m 644 MPI_File_preallocate.3 /usr/local/man/man3/MPI_File_preallocate.3
+/usr/bin/install -c -m 644 MPI_File_read.3 /usr/local/man/man3/MPI_File_read.3
+/usr/bin/install -c -m 644 MPI_File_read_all.3 /usr/local/man/man3/MPI_File_read_all.3
+/usr/bin/install -c -m 644 MPI_File_read_all_begin.3 /usr/local/man/man3/MPI_File_read_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_read_all_end.3 /usr/local/man/man3/MPI_File_read_all_end.3
+/usr/bin/install -c -m 644 MPI_File_read_at.3 /usr/local/man/man3/MPI_File_read_at.3
+/usr/bin/install -c -m 644 MPI_File_read_at_all.3 /usr/local/man/man3/MPI_File_read_at_all.3
+/usr/bin/install -c -m 644 MPI_File_read_at_all_begin.3 /usr/local/man/man3/MPI_File_read_at_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_read_at_all_end.3 /usr/local/man/man3/MPI_File_read_at_all_end.3
+/usr/bin/install -c -m 644 MPI_File_read_ordered.3 /usr/local/man/man3/MPI_File_read_ordered.3
+/usr/bin/install -c -m 644 MPI_File_read_ordered_begin.3 /usr/local/man/man3/MPI_File_read_ordered_begin.3
+/usr/bin/install -c -m 644 MPI_File_read_ordered_end.3 /usr/local/man/man3/MPI_File_read_ordered_end.3
+/usr/bin/install -c -m 644 MPI_File_read_shared.3 /usr/local/man/man3/MPI_File_read_shared.3
+/usr/bin/install -c -m 644 MPI_File_seek.3 /usr/local/man/man3/MPI_File_seek.3
+/usr/bin/install -c -m 644 MPI_File_seek_shared.3 /usr/local/man/man3/MPI_File_seek_shared.3
+/usr/bin/install -c -m 644 MPI_File_set_atomicity.3 /usr/local/man/man3/MPI_File_set_atomicity.3
+/usr/bin/install -c -m 644 MPI_File_set_errhandler.3 /usr/local/man/man3/MPI_File_set_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_set_info.3 /usr/local/man/man3/MPI_File_set_info.3
+/usr/bin/install -c -m 644 MPI_File_set_size.3 /usr/local/man/man3/MPI_File_set_size.3
+/usr/bin/install -c -m 644 MPI_File_set_view.3 /usr/local/man/man3/MPI_File_set_view.3
+/usr/bin/install -c -m 644 MPI_File_sync.3 /usr/local/man/man3/MPI_File_sync.3
+/usr/bin/install -c -m 644 MPI_File_write.3 /usr/local/man/man3/MPI_File_write.3
+/usr/bin/install -c -m 644 MPI_File_write_all.3 /usr/local/man/man3/MPI_File_write_all.3
+/usr/bin/install -c -m 644 MPI_File_write_all_begin.3 /usr/local/man/man3/MPI_File_write_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_write_all_end.3 /usr/local/man/man3/MPI_File_write_all_end.3
+/usr/bin/install -c -m 644 MPI_File_write_at.3 /usr/local/man/man3/MPI_File_write_at.3
+/usr/bin/install -c -m 644 MPI_File_write_at_all.3 /usr/local/man/man3/MPI_File_write_at_all.3
+/usr/bin/install -c -m 644 MPI_File_write_at_all_begin.3 /usr/local/man/man3/MPI_File_write_at_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_write_at_all_end.3 /usr/local/man/man3/MPI_File_write_at_all_end.3
+/usr/bin/install -c -m 644 MPI_File_write_ordered.3 /usr/local/man/man3/MPI_File_write_ordered.3
+/usr/bin/install -c -m 644 MPI_File_write_ordered_begin.3 /usr/local/man/man3/MPI_File_write_ordered_begin.3
+/usr/bin/install -c -m 644 MPI_File_write_ordered_end.3 /usr/local/man/man3/MPI_File_write_ordered_end.3
+/usr/bin/install -c -m 644 MPI_File_write_shared.3 /usr/local/man/man3/MPI_File_write_shared.3
+/usr/bin/install -c -m 644 MPI_Finalize.3 /usr/local/man/man3/MPI_Finalize.3
+/usr/bin/install -c -m 644 MPI_Finalized.3 /usr/local/man/man3/MPI_Finalized.3
+/usr/bin/install -c -m 644 MPI_Free_mem.3 /usr/local/man/man3/MPI_Free_mem.3
+/usr/bin/install -c -m 644 MPI_Gather.3 /usr/local/man/man3/MPI_Gather.3
+/usr/bin/install -c -m 644 MPI_Gatherv.3 /usr/local/man/man3/MPI_Gatherv.3
+/usr/bin/install -c -m 644 MPI_Get.3 /usr/local/man/man3/MPI_Get.3
+/usr/bin/install -c -m 644 MPI_Get_address.3 /usr/local/man/man3/MPI_Get_address.3
+/usr/bin/install -c -m 644 MPI_Get_count.3 /usr/local/man/man3/MPI_Get_count.3
+/usr/bin/install -c -m 644 MPI_Get_elements.3 /usr/local/man/man3/MPI_Get_elements.3
+/usr/bin/install -c -m 644 MPI_Get_processor_name.3 /usr/local/man/man3/MPI_Get_processor_name.3
+/usr/bin/install -c -m 644 MPI_Get_version.3 /usr/local/man/man3/MPI_Get_version.3
+/usr/bin/install -c -m 644 MPI_Graph_create.3 /usr/local/man/man3/MPI_Graph_create.3
+/usr/bin/install -c -m 644 MPI_Graphdims_get.3 /usr/local/man/man3/MPI_Graphdims_get.3
+/usr/bin/install -c -m 644 MPI_Graph_get.3 /usr/local/man/man3/MPI_Graph_get.3
+/usr/bin/install -c -m 644 MPI_Graph_map.3 /usr/local/man/man3/MPI_Graph_map.3
+/usr/bin/install -c -m 644 MPI_Graph_neighbors.3 /usr/local/man/man3/MPI_Graph_neighbors.3
+/usr/bin/install -c -m 644 MPI_Graph_neighbors_count.3 /usr/local/man/man3/MPI_Graph_neighbors_count.3
+/usr/bin/install -c -m 644 MPI_Grequest_complete.3 /usr/local/man/man3/MPI_Grequest_complete.3
+/usr/bin/install -c -m 644 MPI_Grequest_start.3 /usr/local/man/man3/MPI_Grequest_start.3
+/usr/bin/install -c -m 644 MPI_Group_compare.3 /usr/local/man/man3/MPI_Group_compare.3
+/usr/bin/install -c -m 644 MPI_Group_difference.3 /usr/local/man/man3/MPI_Group_difference.3
+/usr/bin/install -c -m 644 MPI_Group_excl.3 /usr/local/man/man3/MPI_Group_excl.3
+/usr/bin/install -c -m 644 MPI_Group_free.3 /usr/local/man/man3/MPI_Group_free.3
+/usr/bin/install -c -m 644 MPI_Group_incl.3 /usr/local/man/man3/MPI_Group_incl.3
+/usr/bin/install -c -m 644 MPI_Group_intersection.3 /usr/local/man/man3/MPI_Group_intersection.3
+/usr/bin/install -c -m 644 MPI_Group_range_excl.3 /usr/local/man/man3/MPI_Group_range_excl.3
+/usr/bin/install -c -m 644 MPI_Group_range_incl.3 /usr/local/man/man3/MPI_Group_range_incl.3
+/usr/bin/install -c -m 644 MPI_Group_rank.3 /usr/local/man/man3/MPI_Group_rank.3
+/usr/bin/install -c -m 644 MPI_Group_size.3 /usr/local/man/man3/MPI_Group_size.3
+/usr/bin/install -c -m 644 MPI_Group_translate_ranks.3 /usr/local/man/man3/MPI_Group_translate_ranks.3
+/usr/bin/install -c -m 644 MPI_Group_union.3 /usr/local/man/man3/MPI_Group_union.3
+/usr/bin/install -c -m 644 MPI_Ibsend.3 /usr/local/man/man3/MPI_Ibsend.3
+/usr/bin/install -c -m 644 MPI_Info_create.3 /usr/local/man/man3/MPI_Info_create.3
+/usr/bin/install -c -m 644 MPI_Info_delete.3 /usr/local/man/man3/MPI_Info_delete.3
+/usr/bin/install -c -m 644 MPI_Info_dup.3 /usr/local/man/man3/MPI_Info_dup.3
+/usr/bin/install -c -m 644 MPI_Info_free.3 /usr/local/man/man3/MPI_Info_free.3
+/usr/bin/install -c -m 644 MPI_Info_get.3 /usr/local/man/man3/MPI_Info_get.3
+/usr/bin/install -c -m 644 MPI_Info_get_nkeys.3 /usr/local/man/man3/MPI_Info_get_nkeys.3
+/usr/bin/install -c -m 644 MPI_Info_get_nthkey.3 /usr/local/man/man3/MPI_Info_get_nthkey.3
+/usr/bin/install -c -m 644 MPI_Info_get_valuelen.3 /usr/local/man/man3/MPI_Info_get_valuelen.3
+/usr/bin/install -c -m 644 MPI_Info_set.3 /usr/local/man/man3/MPI_Info_set.3
+/usr/bin/install -c -m 644 MPI_Init.3 /usr/local/man/man3/MPI_Init.3
+/usr/bin/install -c -m 644 MPI_Initialized.3 /usr/local/man/man3/MPI_Initialized.3
+/usr/bin/install -c -m 644 MPI_Init_thread.3 /usr/local/man/man3/MPI_Init_thread.3
+/usr/bin/install -c -m 644 MPI_Intercomm_create.3 /usr/local/man/man3/MPI_Intercomm_create.3
+/usr/bin/install -c -m 644 MPI_Intercomm_merge.3 /usr/local/man/man3/MPI_Intercomm_merge.3
+/usr/bin/install -c -m 644 MPI_Iprobe.3 /usr/local/man/man3/MPI_Iprobe.3
+/usr/bin/install -c -m 644 MPI_Irecv.3 /usr/local/man/man3/MPI_Irecv.3
+/usr/bin/install -c -m 644 MPI_Irsend.3 /usr/local/man/man3/MPI_Irsend.3
+/usr/bin/install -c -m 644 MPI_Isend.3 /usr/local/man/man3/MPI_Isend.3
+/usr/bin/install -c -m 644 MPI_Issend.3 /usr/local/man/man3/MPI_Issend.3
+/usr/bin/install -c -m 644 MPI_Is_thread_main.3 /usr/local/man/man3/MPI_Is_thread_main.3
+/usr/bin/install -c -m 644 MPI_Keyval_create.3 /usr/local/man/man3/MPI_Keyval_create.3
+/usr/bin/install -c -m 644 MPI_Keyval_free.3 /usr/local/man/man3/MPI_Keyval_free.3
+/usr/bin/install -c -m 644 MPI_Lookup_name.3 /usr/local/man/man3/MPI_Lookup_name.3
+/usr/bin/install -c -m 644 MPI_Op_create.3 /usr/local/man/man3/MPI_Op_create.3
+/usr/bin/install -c -m 644 MPI_Open_port.3 /usr/local/man/man3/MPI_Open_port.3
+/usr/bin/install -c -m 644 MPI_Op_free.3 /usr/local/man/man3/MPI_Op_free.3
+/usr/bin/install -c -m 644 MPI_Pack.3 /usr/local/man/man3/MPI_Pack.3
+/usr/bin/install -c -m 644 MPI_Pack_external.3 /usr/local/man/man3/MPI_Pack_external.3
+/usr/bin/install -c -m 644 MPI_Pack_external_size.3 /usr/local/man/man3/MPI_Pack_external_size.3
+/usr/bin/install -c -m 644 MPI_Pack_size.3 /usr/local/man/man3/MPI_Pack_size.3
+/usr/bin/install -c -m 644 MPI_Pcontrol.3 /usr/local/man/man3/MPI_Pcontrol.3
+/usr/bin/install -c -m 644 MPI_Probe.3 /usr/local/man/man3/MPI_Probe.3
+/usr/bin/install -c -m 644 MPI_Publish_name.3 /usr/local/man/man3/MPI_Publish_name.3
+/usr/bin/install -c -m 644 MPI_Put.3 /usr/local/man/man3/MPI_Put.3
+/usr/bin/install -c -m 644 MPI_Query_thread.3 /usr/local/man/man3/MPI_Query_thread.3
+/usr/bin/install -c -m 644 MPI_Recv.3 /usr/local/man/man3/MPI_Recv.3
+/usr/bin/install -c -m 644 MPI_Recv_init.3 /usr/local/man/man3/MPI_Recv_init.3
+/usr/bin/install -c -m 644 MPI_Reduce.3 /usr/local/man/man3/MPI_Reduce.3
+/usr/bin/install -c -m 644 MPI_Reduce_scatter.3 /usr/local/man/man3/MPI_Reduce_scatter.3
+/usr/bin/install -c -m 644 MPI_Register_datarep.3 /usr/local/man/man3/MPI_Register_datarep.3
+/usr/bin/install -c -m 644 MPI_Request_free.3 /usr/local/man/man3/MPI_Request_free.3
+/usr/bin/install -c -m 644 MPI_Request_get_status.3 /usr/local/man/man3/MPI_Request_get_status.3
+/usr/bin/install -c -m 644 MPI_Rsend.3 /usr/local/man/man3/MPI_Rsend.3
+/usr/bin/install -c -m 644 MPI_Rsend_init.3 /usr/local/man/man3/MPI_Rsend_init.3
+/usr/bin/install -c -m 644 MPI_Scan.3 /usr/local/man/man3/MPI_Scan.3
+/usr/bin/install -c -m 644 MPI_Scatter.3 /usr/local/man/man3/MPI_Scatter.3
+/usr/bin/install -c -m 644 MPI_Scatterv.3 /usr/local/man/man3/MPI_Scatterv.3
+/usr/bin/install -c -m 644 MPI_Send.3 /usr/local/man/man3/MPI_Send.3
+/usr/bin/install -c -m 644 MPI_Send_init.3 /usr/local/man/man3/MPI_Send_init.3
+/usr/bin/install -c -m 644 MPI_Sendrecv.3 /usr/local/man/man3/MPI_Sendrecv.3
+/usr/bin/install -c -m 644 MPI_Sendrecv_replace.3 /usr/local/man/man3/MPI_Sendrecv_replace.3
+/usr/bin/install -c -m 644 MPI_Ssend.3 /usr/local/man/man3/MPI_Ssend.3
+/usr/bin/install -c -m 644 MPI_Ssend_init.3 /usr/local/man/man3/MPI_Ssend_init.3
+/usr/bin/install -c -m 644 MPI_Start.3 /usr/local/man/man3/MPI_Start.3
+/usr/bin/install -c -m 644 MPI_Startall.3 /usr/local/man/man3/MPI_Startall.3
+/usr/bin/install -c -m 644 MPI_Status_set_cancelled.3 /usr/local/man/man3/MPI_Status_set_cancelled.3
+/usr/bin/install -c -m 644 MPI_Status_set_elements.3 /usr/local/man/man3/MPI_Status_set_elements.3
+/usr/bin/install -c -m 644 MPI_Test.3 /usr/local/man/man3/MPI_Test.3
+/usr/bin/install -c -m 644 MPI_Testall.3 /usr/local/man/man3/MPI_Testall.3
+/usr/bin/install -c -m 644 MPI_Testany.3 /usr/local/man/man3/MPI_Testany.3
+/usr/bin/install -c -m 644 MPI_Test_cancelled.3 /usr/local/man/man3/MPI_Test_cancelled.3
+/usr/bin/install -c -m 644 MPI_Testsome.3 /usr/local/man/man3/MPI_Testsome.3
+/usr/bin/install -c -m 644 MPI_Topo_test.3 /usr/local/man/man3/MPI_Topo_test.3
+/usr/bin/install -c -m 644 MPI_Type_commit.3 /usr/local/man/man3/MPI_Type_commit.3
+/usr/bin/install -c -m 644 MPI_Type_contiguous.3 /usr/local/man/man3/MPI_Type_contiguous.3
+/usr/bin/install -c -m 644 MPI_Type_create_darray.3 /usr/local/man/man3/MPI_Type_create_darray.3
+/usr/bin/install -c -m 644 MPI_Type_create_hindexed.3 /usr/local/man/man3/MPI_Type_create_hindexed.3
+/usr/bin/install -c -m 644 MPI_Type_create_hvector.3 /usr/local/man/man3/MPI_Type_create_hvector.3
+/usr/bin/install -c -m 644 MPI_Type_create_indexed_block.3 /usr/local/man/man3/MPI_Type_create_indexed_block.3
+/usr/bin/install -c -m 644 MPI_Type_create_keyval.3 /usr/local/man/man3/MPI_Type_create_keyval.3
+/usr/bin/install -c -m 644 MPI_Type_create_resized.3 /usr/local/man/man3/MPI_Type_create_resized.3
+/usr/bin/install -c -m 644 MPI_Type_create_struct.3 /usr/local/man/man3/MPI_Type_create_struct.3
+/usr/bin/install -c -m 644 MPI_Type_create_subarray.3 /usr/local/man/man3/MPI_Type_create_subarray.3
+/usr/bin/install -c -m 644 MPI_Type_delete_attr.3 /usr/local/man/man3/MPI_Type_delete_attr.3
+/usr/bin/install -c -m 644 MPI_Type_dup.3 /usr/local/man/man3/MPI_Type_dup.3
+/usr/bin/install -c -m 644 MPI_Type_extent.3 /usr/local/man/man3/MPI_Type_extent.3
+/usr/bin/install -c -m 644 MPI_Type_free.3 /usr/local/man/man3/MPI_Type_free.3
+/usr/bin/install -c -m 644 MPI_Type_free_keyval.3 /usr/local/man/man3/MPI_Type_free_keyval.3
+/usr/bin/install -c -m 644 MPI_Type_get_attr.3 /usr/local/man/man3/MPI_Type_get_attr.3
+/usr/bin/install -c -m 644 MPI_Type_get_contents.3 /usr/local/man/man3/MPI_Type_get_contents.3
+/usr/bin/install -c -m 644 MPI_Type_get_envelope.3 /usr/local/man/man3/MPI_Type_get_envelope.3
+/usr/bin/install -c -m 644 MPI_Type_get_extent.3 /usr/local/man/man3/MPI_Type_get_extent.3
+/usr/bin/install -c -m 644 MPI_Type_get_name.3 /usr/local/man/man3/MPI_Type_get_name.3
+/usr/bin/install -c -m 644 MPI_Type_get_true_extent.3 /usr/local/man/man3/MPI_Type_get_true_extent.3
+/usr/bin/install -c -m 644 MPI_Type_hindexed.3 /usr/local/man/man3/MPI_Type_hindexed.3
+/usr/bin/install -c -m 644 MPI_Type_hvector.3 /usr/local/man/man3/MPI_Type_hvector.3
+/usr/bin/install -c -m 644 MPI_Type_indexed.3 /usr/local/man/man3/MPI_Type_indexed.3
+/usr/bin/install -c -m 644 MPI_Type_lb.3 /usr/local/man/man3/MPI_Type_lb.3
+/usr/bin/install -c -m 644 MPI_Type_match_size.3 /usr/local/man/man3/MPI_Type_match_size.3
+/usr/bin/install -c -m 644 MPI_Type_set_attr.3 /usr/local/man/man3/MPI_Type_set_attr.3
+/usr/bin/install -c -m 644 MPI_Type_set_name.3 /usr/local/man/man3/MPI_Type_set_name.3
+/usr/bin/install -c -m 644 MPI_Type_size.3 /usr/local/man/man3/MPI_Type_size.3
+/usr/bin/install -c -m 644 MPI_Type_struct.3 /usr/local/man/man3/MPI_Type_struct.3
+/usr/bin/install -c -m 644 MPI_Type_ub.3 /usr/local/man/man3/MPI_Type_ub.3
+/usr/bin/install -c -m 644 MPI_Type_vector.3 /usr/local/man/man3/MPI_Type_vector.3
+/usr/bin/install -c -m 644 MPI_Unpack.3 /usr/local/man/man3/MPI_Unpack.3
+/usr/bin/install -c -m 644 MPI_Unpack_external.3 /usr/local/man/man3/MPI_Unpack_external.3
+/usr/bin/install -c -m 644 MPI_Unpublish_name.3 /usr/local/man/man3/MPI_Unpublish_name.3
+/usr/bin/install -c -m 644 MPI_Wait.3 /usr/local/man/man3/MPI_Wait.3
+/usr/bin/install -c -m 644 MPI_Waitall.3 /usr/local/man/man3/MPI_Waitall.3
+/usr/bin/install -c -m 644 MPI_Waitany.3 /usr/local/man/man3/MPI_Waitany.3
+/usr/bin/install -c -m 644 MPI_Waitsome.3 /usr/local/man/man3/MPI_Waitsome.3
+/usr/bin/install -c -m 644 MPI_Win_call_errhandler.3 /usr/local/man/man3/MPI_Win_call_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_complete.3 /usr/local/man/man3/MPI_Win_complete.3
+/usr/bin/install -c -m 644 MPI_Win_create.3 /usr/local/man/man3/MPI_Win_create.3
+/usr/bin/install -c -m 644 MPI_Win_create_errhandler.3 /usr/local/man/man3/MPI_Win_create_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_create_keyval.3 /usr/local/man/man3/MPI_Win_create_keyval.3
+/usr/bin/install -c -m 644 MPI_Win_delete_attr.3 /usr/local/man/man3/MPI_Win_delete_attr.3
+/usr/bin/install -c -m 644 MPI_Win_fence.3 /usr/local/man/man3/MPI_Win_fence.3
+/usr/bin/install -c -m 644 MPI_Win_free.3 /usr/local/man/man3/MPI_Win_free.3
+/usr/bin/install -c -m 644 MPI_Win_free_keyval.3 /usr/local/man/man3/MPI_Win_free_keyval.3
+/usr/bin/install -c -m 644 MPI_Win_get_attr.3 /usr/local/man/man3/MPI_Win_get_attr.3
+/usr/bin/install -c -m 644 MPI_Win_get_errhandler.3 /usr/local/man/man3/MPI_Win_get_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_get_group.3 /usr/local/man/man3/MPI_Win_get_group.3
+/usr/bin/install -c -m 644 MPI_Win_get_name.3 /usr/local/man/man3/MPI_Win_get_name.3
+/usr/bin/install -c -m 644 MPI_Win_lock.3 /usr/local/man/man3/MPI_Win_lock.3
+/usr/bin/install -c -m 644 MPI_Win_post.3 /usr/local/man/man3/MPI_Win_post.3
+/usr/bin/install -c -m 644 MPI_Win_set_attr.3 /usr/local/man/man3/MPI_Win_set_attr.3
+/usr/bin/install -c -m 644 MPI_Win_set_errhandler.3 /usr/local/man/man3/MPI_Win_set_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_set_name.3 /usr/local/man/man3/MPI_Win_set_name.3
+/usr/bin/install -c -m 644 MPI_Win_start.3 /usr/local/man/man3/MPI_Win_start.3
+/usr/bin/install -c -m 644 MPI_Win_test.3 /usr/local/man/man3/MPI_Win_test.3
+/usr/bin/install -c -m 644 MPI_Win_unlock.3 /usr/local/man/man3/MPI_Win_unlock.3
+/usr/bin/install -c -m 644 MPI_Win_wait.3 /usr/local/man/man3/MPI_Win_wait.3
+/usr/bin/install -c -m 644 MPI_Wtick.3 /usr/local/man/man3/MPI_Wtick.3
+/usr/bin/install -c -m 644 MPI_Wtime.3 /usr/local/man/man3/MPI_Wtime.3
+if [ -s src/mpi/romio/include/mpiof.h ] ; then /usr/bin/install -c -m 644 src/mpi/romio/include/mpiof.h /usr/local/include/mpiof.h ; fi
+if [ -s src/mpi/romio/include/mpio.h ] ; then /usr/bin/install -c -m 644 src/mpi/romio/include/mpio.h /usr/local/include/mpio.h ; fi
+if [ -s lib/libmpich.a ] ; then /usr/bin/install -c -m 644 lib/libmpich.a /usr/local/lib/libmpich.a ; fi
+if [ -s lib/libmpichcxx.a ] ; then /usr/bin/install -c -m 644 lib/libmpichcxx.a /usr/local/lib/libmpichcxx.a ; fi
+if [ -s lib/libpmpich.a ] ; then /usr/bin/install -c -m 644 lib/libpmpich.a /usr/local/lib/libpmpich.a ; fi
+if [ -s lib/libfmpich.a ] ; then /usr/bin/install -c -m 644 lib/libfmpich.a /usr/local/lib/libfmpich.a ; fi
+if [ -s lib/libmpich.so ] ; then false --mode=install lib/libmpich.so /usr/local/lib/libmpich.so ; fi
+if [ -s lib/libpmpich.so ] ; then false --mode=install lib/libpmpich.so /usr/local/lib/libpmpich.so ; fi
+if [ -s lib/libfmpich.so ] ; then false --mode=install lib/libfmpich.so /usr/local/lib/libfmpich.so ; fi
+if [ -s ./doc/userguide/user.pdf ] ; then /usr/bin/install -c -m 644 ./doc/userguide/user.pdf /usr/local/doc/user.pdf ; fi
+if [ -s ./doc/installguide/install.pdf ] ; then /usr/bin/install -c -m 644 ./doc/installguide/install.pdf /usr/local/doc/install.pdf ; fi
+if [ -s ./doc/smpd/smpd_pmi.pdf ] ; then /usr/bin/install -c -m 644 ./doc/smpd/smpd_pmi.pdf /usr/local/doc/smpd_pmi.pdf ; fi
+if [ -s ./doc/logging/logging.pdf ] ; then /usr/bin/install -c -m 644 ./doc/logging/logging.pdf /usr/local/doc/logging.pdf ; fi
+(cd src/util/thread && make INSTALL_STRIP_FLAG= install)
+make[1]: Entering directory `/share/apps/mpich2-1.0.3/src/util/thread'
+if [ ! -d /usr/local ] ; then mkdir -p /usr/local ; fi
+if [ ! -d /usr/local/include ] ; then mkdir -p /usr/local/include ; fi
+/usr/bin/install -c -m 644 ../../include/mpe_thread.h /usr/local/include/mpe_thread.h
+make[1]: Leaving directory `/share/apps/mpich2-1.0.3/src/util/thread'
+(cd src/env && make INSTALL_STRIP_FLAG= install)
+make[1]: Entering directory `/share/apps/mpich2-1.0.3/src/env'
+if [ ! -d /usr/local ] ; then mkdir -p /usr/local ; fi
+if [ ! -d /usr/local ] ; then mkdir -p /usr/local ; fi
+if [ ! -d /usr/local/bin ] ; then mkdir -p /usr/local/bin ; fi
+/usr/bin/install -c  mpicc /usr/local/bin/mpicc
+/usr/bin/install -c  mpich2version /usr/local/bin/mpich2version
+if [ ! -d /usr/local/etc ] ; then mkdir -p /usr/local/etc ; fi
+/usr/bin/install -c -m 644 mpicc.conf /usr/local/etc/mpicc.conf
+if [ -s mpicxx ] ; then /usr/bin/install -c  mpicxx /usr/local/bin/mpicxx ; fi
+if [ -s mpif77 ] ; then /usr/bin/install -c  mpif77 /usr/local/bin/mpif77 ; fi
+if [ -s mpif90 ] ; then /usr/bin/install -c  mpif90 /usr/local/bin/mpif90 ; fi
+if [ -s mpicxx.conf ] ; then /usr/bin/install -c -m 644 mpicxx.conf /usr/local/etc/mpicxx.conf ; fi
+if [ -s mpif77.conf ] ; then /usr/bin/install -c -m 644 mpif77.conf /usr/local/etc/mpif77.conf ; fi
+if [ -s mpif90.conf ] ; then /usr/bin/install -c -m 644 mpif90.conf /usr/local/etc/mpif90.conf ; fi
+make[1]: Leaving directory `/share/apps/mpich2-1.0.3/src/env'
+for dir in  src/binding/cxx - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ;\
+		(cd $dir && make INSTALL_STRIP_FLAG= install) ;\
+	done
+make[1]: Entering directory `/share/apps/mpich2-1.0.3/src/binding/cxx'
+if [ ! -d /usr/local ] ; then mkdir -p /usr/local ; fi
+if [ ! -d /usr/local/include ] ; then mkdir -p /usr/local/include ; fi
+/usr/bin/install -c -m 644 mpicxx.h /usr/local/include/mpicxx.h
+make[1]: Leaving directory `/share/apps/mpich2-1.0.3/src/binding/cxx'
+for dir in  src/pm/mpd src/mpe2 - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ;\
+		(cd $dir && make INSTALL_STRIP_FLAG= install) ;\
+	done
+make[1]: Entering directory `/share/apps/mpich2-1.0.3/src/pm/mpd'
+copying python files/links into  /usr/local/bin
+make[1]: Leaving directory `/share/apps/mpich2-1.0.3/src/pm/mpd'
+make[1]: Entering directory `/share/apps/mpich2-1.0.3/src/mpe2'
+Copying MPE include files to /usr/local/include
+Replacing existing file /usr/local/include/clog_commset.h...
+Replacing existing file /usr/local/include/clog_uuid.h...
+Replacing existing file /usr/local/include/mpe_graphics.h...
+Replacing existing file /usr/local/include/mpe.h...
+Replacing existing file /usr/local/include/mpe_logf.h...
+Replacing existing file /usr/local/include/mpe_log.h...
+Replacing existing file /usr/local/include/mpe_misc.h...
+Copying MPE libraries to /usr/local/lib
+Replacing existing file /usr/local/lib/libmpe.a...
+Replacing existing file /usr/local/lib/libmpe_collchk.a...
+Replacing existing file /usr/local/lib/libmpe_nompi.a...
+Replacing existing file /usr/local/lib/libmpe_nompi_null.a...
+Replacing existing file /usr/local/lib/libmpe_null.a...
+Copying MPE utility programs to /usr/local/bin
+Replacing existing file /usr/local/bin/clog2_print...
+Copying MPE compiler configuration files to /usr/local/etc
+Replacing existing file /usr/local/etc/mpe_f77env.conf...
+Replacing existing file /usr/local/etc/mpe_f77env.conf.in...
+Replacing existing file /usr/local/etc/mpe_help.conf...
+Replacing existing file /usr/local/etc/mpe_help.conf.in...
+Replacing existing file /usr/local/etc/mpe_log.conf...
+Replacing existing file /usr/local/etc/mpe_mpicheck.conf...
+Replacing existing file /usr/local/etc/mpe_mpilog.conf...
+Replacing existing file /usr/local/etc/mpe_mpitrace.conf...
+Replacing existing file /usr/local/etc/mpe_nolog.conf...
+Replacing existing file /usr/local/share/examples_collchk/composite.c...
+Replacing existing file /usr/local/share/examples_collchk/Makefile...
+Replacing existing file /usr/local/share/examples_collchk/Makefile.in...
+Replacing existing file /usr/local/share/examples_collchk/scatterv.c...
+Replacing existing file /usr/local/share/examples_collchk/time_allreduce.c...
+Replacing existing file /usr/local/share/examples_collchk/time_alltoallv0.c...
+Replacing existing file /usr/local/share/examples_collchk/time_alltoallv.c...
+Replacing existing file /usr/local/share/examples_collchk/time_bcast.c...
+Replacing existing file /usr/local/share/examples_collchk/wrong_composite.c...
+Replacing existing file /usr/local/share/examples_collchk/wrong_int_byte.c...
+Replacing existing file /usr/local/share/examples_collchk/wrong_reals.f...
+Replacing existing file /usr/local/share/examples_collchk/wrong_root.c...
+Replacing existing file /usr/local/share/examples_collchk/wrong_scatterv.c...
+Copying SLOG2SDK's lib
+Replacing existing file /usr/local/lib/clog2print.jar...
+Replacing existing file /usr/local/lib/clog2TOdrawable.jar...
+Replacing existing file /usr/local/lib/clog2TOslog2.jar...
+Replacing existing file /usr/local/lib/clogprint.jar...
+Replacing existing file /usr/local/lib/clogTOdrawable.jar...
+Replacing existing file /usr/local/lib/clogTOslog2.jar...
+Replacing existing file /usr/local/lib/jumpshot.jar...
+Replacing existing file /usr/local/lib/jumpshot_launcher.jar...
+Replacing existing file /usr/local/lib/logconvertor.jar...
+Replacing existing file /usr/local/lib/slog2filter.jar...
+Replacing existing file /usr/local/lib/slog2navigator.jar...
+Replacing existing file /usr/local/lib/slog2printrecur.jar...
+Replacing existing file /usr/local/lib/slog2printserial.jar...
+Replacing existing file /usr/local/lib/slog2update205to206.jar...
+Replacing existing file /usr/local/lib/traceprint.jar...
+Replacing existing file /usr/local/lib/traceTOslog2.jar...
+Copying SLOG2SDK's doc
+Replacing existing file /usr/local/doc/jumpshot-4/usersguide.pdf...
+Replacing existing file /usr/local/doc/jumpshot-4/html/About24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/adj_row_count.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/adj_row_height.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Backward24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/contents.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Convert24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/ConvertCancel24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/ConvertOk24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/convertor_done.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/convertor_init.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/convertor_parameters.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/convertor_progress.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Delete24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Down24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Edit24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Find24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/FindBack24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/FindFore24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Forward24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/HandCloseUpLeft25.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/HandOpenUpLeft25.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Help24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/histogram_arrow_infobox.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/histogram_arrow.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/histogram_mpi_overhead.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/histogram_state_all_cumu_excl.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/histogram_state_infobox.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/histogram_state_over_incl.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Home24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/index.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Information24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/internals.pl...
+Replacing existing file /usr/local/doc/jumpshot-4/html/labels.pl...
+Replacing existing file /usr/local/doc/jumpshot-4/html/legend_checkbox_menu.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/legend_color_chooser.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/legend_name.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/legend_popup.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/legend_sort_menu.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/legend_s.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/legend_topo.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/legend_v.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/main.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/mouse_hand_mode.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/mouse_zoom_mode.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/New24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/next_g.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/next.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node10.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node11.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node12.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node13.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node14.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node15.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node16.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node17.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node18.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node19.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node1.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node20.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node21.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node22.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node23.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node24.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node25.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node26.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node27.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node28.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node29.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node2.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node30.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node31.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node32.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node33.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node34.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node3.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node4.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node5.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node6.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node7.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node8.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/node9.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Open24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Paste24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/preference_pview_state.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Preferences24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/prev_g.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/prev.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Print24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Properties24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Refresh24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Stop24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_infobox_duration.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_infobox_preview_state.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_infobox_real_primitive.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_infobox_time.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_mpi_overhead.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_nesting_detail.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_nesting_legend_innermost.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_nesting_legend_middle.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_nesting_legend_outermost.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_nesting_preview_all.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_popup_finer.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_popup.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_preview_detail_0_excl.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_preview_detail_0.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_preview_detail_1_excl.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_preview_detail_1.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_preview_detail_2.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_preview_detail_3.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_preview_detail_4.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_search_preview.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/timeline_search_preview_zoomed.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/TreeCollapse24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/TreeExpand24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/Up24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/up_g.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/up.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/usersguide.css...
+Replacing existing file /usr/local/doc/jumpshot-4/html/usersguide.html...
+Replacing existing file /usr/local/doc/jumpshot-4/html/WARNINGS...
+Replacing existing file /usr/local/doc/jumpshot-4/html/WinRedo.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/WinUndo.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/yaxis_label_panel_expanded.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/yaxis_label_panel_simple.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/ZoomIn24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/ZoomMinusUpLeft25.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/ZoomOut24.png...
+Replacing existing file /usr/local/doc/jumpshot-4/html/ZoomPlusUpLeft25.png...
+Copying SLOG2SDK's logfiles
+Replacing existing file /usr/local/logfiles/fpilog.clog...
+Replacing existing file /usr/local/logfiles/fpilog.slog2...
+Creating SLOG2SDK's bin
+Installed SLOG2SDK in /usr/local
+/usr/local/sbin/mpeuninstall may be used to remove the installation
+Installed MPE in /usr/local
+/usr/local/sbin/mpeuninstall may be used to remove the installation
+make[1]: Leaving directory `/share/apps/mpich2-1.0.3/src/mpe2'

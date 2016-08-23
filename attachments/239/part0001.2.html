@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #239: (No subject)</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; You can run MPI programs with the processes spanning windows and linux machines if the machines involved have the same data model (eg: You can run your MPI program on x86 linux machines and x86 windows machines. You cannot run your MPI program on x86 linux machines and x86-64 windows machines.).<BR>
+&nbsp; If you want to run your MPI program across linux and windows machines try the following steps,<BR>
+<BR>
+# Install MPICH2 on windows (MPICH2 on windows has SMPD as the process manager. MPD is not available on windows.)<BR>
+# configure MPICH2 on unix to use SMPD as the process manager (--with-pm=smpd), make/install MPICH2.<BR>
+# Run your MPI program using the &quot;-machinefile&quot; option of mpiexec making sure that the path of the executables is specified correctly using the &quot;-path&quot; option of mpiexec.<BR>
+<BR>
+&nbsp;mpiexec -n 2 -path &quot;/home/myhome;c:\temp&quot; -machinefile mf.txt cpi.exe<BR>
+<BR>
+&nbsp; Let us know if you need further help.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@lists.mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@lists.mcs.anl.gov">mailto:mpich2-bugs-bounces@lists.mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Tuesday, October 28, 2008 3:19 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #239: (No subject)<BR>
+<BR>
+---------------------------------------------------+--------------------<BR>
+---------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; James E Gentile &lt;jegentil@us.ibm.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+---------------------------------------------------+--------------------<BR>
+---------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Hello, i was hoping you could help me out.<BR>
+<BR>
+&nbsp;I am unable to find a clear answer to this question:<BR>
+<BR>
+&nbsp;Is it possible to communicate between Linux and Windows machines using<BR>
+&nbsp;MPICH2 with SMPD as the process manager?<BR>
+<BR>
+&nbsp;In the literature, there is mention of the Windows credentials but nothing&nbsp; on Linux credentials. It is said that MPICH2 should be preferred unless&nbsp; heterogenous data types are used- therefore, should be be preferred even&nbsp; with heterogenous clusters?<BR>
+<BR>
+&nbsp;If i am missing something, can you point me to where SMPD credentials are&nbsp; made in Linux?<BR>
+<BR>
+&nbsp;Thanks<BR>
+&nbsp;-James<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/239">https://trac.mcs.anl.gov/projects/mpich2/ticket/239</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

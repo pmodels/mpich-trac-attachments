@@ -1,0 +1,1554 @@
+Configuring MPICH2 version 1.3b1 with  '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install' '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio'
+Running on system: CYGWIN_NT-6.1-WOW64 msnehalem1 1.7.6(0.230/5/3) 2010-08-16 16:06 i686 Cygwin
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking build system type... i686-pc-cygwin
+checking host system type... i686-pc-cygwin
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for fgrep... /usr/bin/grep -F
+Executing mpich2prereq in /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3 with 
+Executing mpich2prereq in /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis
+configure: ===== configuring src/mpl =====
+configure: executing: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl/configure  '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install' '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio' --disable-option-checking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking build system type... i686-pc-cygwin
+checking host system type... i686-pc-cygwin
+checking how to print strings... printf
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... gcc3
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/i686-pc-cygwin/bin/ld.exe
+checking if the linker (/usr/i686-pc-cygwin/bin/ld.exe) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 8192
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/i686-pc-cygwin/bin/ld.exe option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... file_magic ^x86 archive import|^x86 DLL
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -DDLL_EXPORT -DPIC
+checking if gcc PIC flag -DDLL_EXPORT -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/i686-pc-cygwin/bin/ld.exe) supports shared libraries... yes
+checking dynamic linker characteristics... Win32 ld.exe
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking dependency style of gcc... (cached) gcc3
+checking for an ANSI C-conforming const... yes
+checking for C/C++ restrict keyword... __restrict
+checking for variable argument list macro functionality... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking valgrind.h usability... no
+checking valgrind.h presence... no
+checking for valgrind.h... no
+checking memcheck.h usability... no
+checking memcheck.h presence... no
+checking for memcheck.h... no
+checking valgrind/valgrind.h usability... no
+checking valgrind/valgrind.h presence... no
+checking for valgrind/valgrind.h... no
+checking valgrind/memcheck.h usability... no
+checking valgrind/memcheck.h presence... no
+checking for valgrind/memcheck.h... no
+checking helgrind.h usability... no
+checking helgrind.h presence... no
+checking for helgrind.h... no
+checking valgrind/helgrind.h usability... no
+checking valgrind/helgrind.h presence... no
+checking for valgrind/helgrind.h... no
+checking drd.h usability... no
+checking drd.h presence... no
+checking for drd.h... no
+checking valgrind/drd.h usability... no
+checking valgrind/drd.h presence... no
+checking for valgrind/drd.h... no
+checking whether the valgrind headers are broken or too old... yes
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for strncmp... yes
+checking whether strncmp needs a declaration... no
+checking for putenv... yes
+checking whether putenv needs a declaration... no
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating include/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing include/mplconfig.h commands
+config.status: creating include/mplconfig.h - prefix MPL for include/config.h defines
+configure: ===== done with src/mpl configure =====
+configure: ===== configuring src/openpa =====
+configure: executing: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/configure --with-atomic-primitives=auto_allow_emulation '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install' '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio' --disable-option-checking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking build system type... i686-pc-cygwin
+checking host system type... i686-pc-cygwin
+checking how to print strings... printf
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... gcc3
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/i686-pc-cygwin/bin/ld.exe
+checking if the linker (/usr/i686-pc-cygwin/bin/ld.exe) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 8192
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/i686-pc-cygwin/bin/ld.exe option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... file_magic ^x86 archive import|^x86 DLL
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -DDLL_EXPORT -DPIC
+checking if gcc PIC flag -DDLL_EXPORT -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/i686-pc-cygwin/bin/ld.exe) supports shared libraries... yes
+checking dynamic linker characteristics... Win32 ld.exe
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking dependency style of gcc... (cached) gcc3
+checking whether to enable assertions... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking atomic.h usability... no
+checking atomic.h presence... no
+checking for atomic.h... no
+checking intrin.h usability... no
+checking intrin.h presence... no
+checking for intrin.h... no
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for C/C++ restrict keyword... __restrict
+checking for inline... inline
+checking for an ANSI C-conforming const... yes
+checking for pthread_create in -lpthread... yes
+checking for pthread_yield... no
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking for sched_yield... yes
+checking if 100 threads can be run at once... yes
+checking size of void *... 4
+checking size of int... 4
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking if compiler rejects bogus asm statements... yes
+checking for support for gcc x86/x86_64 primitives... yes
+checking for support for gcc x86 primitives for pre-Pentium 4... yes
+checking for support for gcc ia64 primitives... no
+checking for support for gcc PowerPC atomics... no
+checking for support for gcc SiCortex atomics... no
+checking for support for gcc atomic intrinsics... yes
+checking for support for Windows NT atomic intrinsics... no
+checking for support for Sun atomic operations library... no
+checking whether to enable strict fairness checks... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating openpa.pc
+config.status: creating src/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing src/opa_config.h commands
+config.status: creating src/opa_config.h - prefix OPA for src/config.h defines
+configure: ===== done with src/openpa configure =====
+sourcing /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/mpich2prereq
+checking whether the compiler defines __func__... yes
+checking whether the compiler defines __FUNC__... no
+checking whether the compiler sets __FUNCTION__... yes
+checking whether C compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for type of weak symbol alias support... pragma weak does not work outside of a file
+no
+checking whether __attribute__ ((weak)) allowed... yes
+checking whether __attribute__ ((weak_import)) allowed... yes
+checking whether __attribute__((weak,alias(...))) allowed... no
+checking for perl... /usr/bin/perl
+checking for ar... ar
+checking for ranlib... ranlib
+checking for killall... killall
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking whether install breaks libraries... no
+checking whether mkdir -p works... yes
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for bash... /usr/bin/bash
+checking whether /usr/bin/bash supports arrays... yes
+checking for doctext... false
+checking for location of doctext style files... unavailable
+checking for an ANSI C-conforming const... yes
+checking for working volatile... yes
+checking for C/C++ restrict keyword... __restrict
+checking for inline... inline
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking whether byte ordering is bigendian... no
+checking whether C compiler allows unaligned doubles... yes
+checking whether gcc supports __func__... yes
+Using gcc to determine dependencies
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for max C struct integer alignment... eight
+checking for max C struct floating point alignment... four
+checking for max C struct alignment of structs with doubles... eight
+checking for max C struct floating point alignment with long doubles... four
+configure: WARNING: Structures containing long doubles may be aligned differently from structures with floats or longs.  MPICH2 does not handle this case automatically and you should avoid assumed extents for structures containing float types.
+checking if alignment of structs with doubles is based on position... no
+checking if alignment of structs with long long ints is based on position... no
+checking if double alignment breaks rules, find actual alignment... no
+checking for alignment restrictions on pointers... int or better
+checking size of char... 1
+checking size of unsigned char... 1
+checking size of short... 2
+checking size of unsigned short... 2
+checking size of int... 4
+checking size of unsigned int... 4
+checking size of long... 4
+checking size of unsigned long... 4
+checking size of long long... 8
+checking size of unsigned long long... 8
+checking size of float... 4
+checking size of double... 8
+checking size of long double... 12
+checking size of void *... 4
+checking for ANSI C header files... no
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking size of wchar_t... 2
+checking size of float_int... 8
+checking size of double_int... 16
+checking size of long_int... 8
+checking size of short_int... 8
+checking size of two_int... 8
+checking size of long_double_int... 16
+checking sys/bitypes.h usability... no
+checking sys/bitypes.h presence... no
+checking for sys/bitypes.h... no
+checking inttypes.h usability... yes
+checking inttypes.h presence... yes
+checking for inttypes.h... yes
+checking stdint.h usability... yes
+checking stdint.h presence... yes
+checking for stdint.h... yes
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking size of _Bool... 1
+checking size of float _Complex... 8
+checking size of double _Complex... 16
+checking size of long double _Complex... 24
+checking for _Bool... yes
+checking for float _Complex... yes
+checking for double _Complex... yes
+checking for long double _Complex... yes
+checking if char * pointers use byte addresses... yes
+checking for alignment restrictions on ... no
+checking for alignment restrictions on int32_t... no
+checking size of MPIR_Bsend_data_t... 56
+checking for gcc __asm__ and pentium cmpxchgl instruction... yes
+checking for gcc __asm__ and AMD x86_64 cmpxchgq instruction... no
+checking for gcc __asm__ and IA64 xchg4 instruction... no
+checking for ANSI C header files... (cached) no
+checking stdlib.h usability... yes
+checking stdlib.h presence... yes
+checking for stdlib.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking sys/types.h usability... yes
+checking sys/types.h presence... yes
+checking for sys/types.h... yes
+checking string.h usability... yes
+checking string.h presence... yes
+checking for string.h... yes
+checking for inttypes.h... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for stddef.h... (cached) yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking unistd.h usability... yes
+checking unistd.h presence... yes
+checking for unistd.h... yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for sys/uio.h... yes
+checking for size_t... yes
+checking for setitimer... yes
+checking for alarm... yes
+checking for vsnprintf... yes
+checking for vsprintf... yes
+checking whether vsnprintf needs a declaration... no
+checking for strerror... yes
+checking for strncasecmp... yes
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... yes
+checking whether strerror_r needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for va_copy... yes
+checking for variable argument list macro functionality... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for mkstemp... yes
+checking whether mkstemp needs a declaration... no
+checking for fdopen... yes
+checking whether fdopen needs a declaration... yes
+checking for putenv... yes
+checking whether putenv needs a declaration... no
+checking for clock_gettime... yes
+checking for clock_getres... yes
+checking for gethrtime... no
+checking for gettimeofday... yes
+checking for library containing clock_gettime... none required
+checking for library containing clock_getres... none required
+checking whether struct timespec is defined in time.h... yes
+checking for CLOCK_REALTIME defined in time.h... yes
+sourcing /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/setup_device
+RUNNING SETUP_DEVICE FOR THE CH3 DEVICE
+sourcing /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/setup_channel
+RUNNING SETUP_CHANNEL FOR THE NEMESIS CHANNEL
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_key_create in -lpthread... yes
+checking for pthread_yield... no
+checking for pthread_key_create... yes
+checking for pthread_cleanup_push... no
+checking whether pthread_cleanup_push is available (may be a macro in pthread.h)... no
+checking whether pthread.h defines PTHREAD_MUTEX_RECURSIVE_NP... no
+checking whether pthread.h defines PTHREAD_MUTEX_RECURSIVE... yes
+checking whether pthread.h defines PTHREAD_MUTEX_ERRORCHECK_NP... no
+checking whether pthread.h defines PTHREAD_MUTEX_ERRORCHECK... yes
+checking for thread local storage specifier... __thread
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking for sched_yield... yes
+checking for yield... no
+checking for usleep... yes
+checking for sleep... yes
+checking for select... yes
+checking for getpid... yes
+checking for sched_setaffinity... no
+checking for sched_getaffinity... no
+checking for bindprocessor... no
+checking for thread_policy_set... no
+configure: ===== configuring src/mpid/ch3 =====
+configure: executing: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/configure  '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install' '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio' --disable-option-checking
+RUNNING CONFIGURE FOR CH3 DEVICE
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for string.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking sys/uio.h usability... yes
+checking sys/uio.h presence... yes
+checking for sys/uio.h... yes
+checking uuid/uuid.h usability... yes
+checking uuid/uuid.h presence... yes
+checking for uuid/uuid.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking for unistd.h... (cached) yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking for net/if.h... yes
+checking for pid_t... yes
+checking for inet_pton... yes
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for CFUUIDCreate... no
+checking for uuid_generate... no
+checking for time... yes
+checking whether CPP accepts variable length argument lists... yes
+checking whether byte ordering is bigendian... no
+checking whether we can use struct ifconf... yes
+configure: ===== configuring channels/nemesis =====
+configure: executing: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/configure  '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install' '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio' '--disable-option-checking' 'CC=gcc' 'CFLAGS=   -O2' 'LDFLAGS= ' 'LIBS=-lpthread  ' 'CPPFLAGS= -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/locks -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/locks -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/wrappers -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/wrappers' --disable-option-checking
+RUNNING CONFIGURE FOR THE NEMESIS CHANNEL
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for inline... inline
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for pid_t... yes
+checking for net/if.h... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking for unistd.h... (cached) yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/sockio.h usability... no
+checking sys/sockio.h presence... no
+checking for sys/sockio.h... no
+checking for sys/types.h... (cached) yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking sys/ipc.h usability... yes
+checking sys/ipc.h presence... yes
+checking for sys/ipc.h... yes
+checking sys/shm.h usability... yes
+checking sys/shm.h presence... yes
+checking for sys/shm.h... yes
+checking for netinet/in.h... yes
+checking for mkstemp... yes
+checking for rand... yes
+checking for srand... yes
+checking for OpenPA atomic primitive availability... yes
+checking for mmap... yes
+checking for munmap... yes
+configure: Using a memory-mapped file for shared memory
+checking whether struct hostent contains h_addr_list... yes
+checking whether we can use struct ifconf... yes
+checking knem_io.h usability... no
+checking knem_io.h presence... no
+checking for knem_io.h... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating nemesis/Makefile
+config.status: creating nemesis/src/Makefile
+config.status: creating nemesis/utils/Makefile
+config.status: creating nemesis/utils/replacements/Makefile
+config.status: creating nemesis/utils/monitor/Makefile
+config.status: creating nemesis/netmod/Makefile
+config.status: creating nemesis/netmod/elan/Makefile
+config.status: creating nemesis/netmod/gm/Makefile
+config.status: creating nemesis/netmod/mx/Makefile
+config.status: creating nemesis/netmod/tcp/Makefile
+config.status: creating nemesis/netmod/psm/Makefile
+config.status: creating nemesis/netmod/newmad/Makefile
+config.status: creating nemesis/netmod/none/Makefile
+config.status: creating localdefs
+config.status: creating nemesis/include/mpid_nem_net_module_defs.h
+config.status: creating nemesis/src/mpid_nem_net_array.c
+config.status: creating include/mpidi_ch3i_nemesis_conf.h
+configure: ===== done with channels/nemesis configure =====
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating util/Makefile
+config.status: creating channels/Makefile
+config.status: creating util/ftb/Makefile
+config.status: creating localdefs
+config.status: creating include/mpid_thread.h
+config.status: creating include/mpidi_ch3_conf.h
+config.status: executing default-1 commands
+copying ./../common/thread/mpid_thread_mpe.c to src/mpid_thread.c
+configure: ===== done with src/mpid/ch3 configure =====
+configure: ===== configuring src/pmi/simple =====
+configure: executing: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pmi/simple/configure  '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install' '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio' --disable-option-checking
+RUNNING CONFIGURE FOR THE SIMPLE PMI
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking for string.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking for strings.h... (cached) yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for strncasecmp... yes
+checking for sys/types.h... (cached) yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for sys/socket.h... (cached) yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking netinet/tcp.h usability... yes
+checking netinet/tcp.h presence... yes
+checking for netinet/tcp.h... yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+checking for socket... yes
+checking for setsockopt... yes
+checking for gethostbyname... yes
+checking whether socklen_t is defined (in sys/socket.h if present)... yes
+checking whether struct hostent contains h_addr_list... yes
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating pmiconf.h
+configure: ===== done with src/pmi/simple configure =====
+configure: ===== configuring src/pm/hydra =====
+configure: executing: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/configure  '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install' '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio' --disable-option-checking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for size_t... yes
+checking build system type... i686-pc-cygwin
+checking host system type... i686-pc-cygwin
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/i686-pc-cygwin/bin/ld.exe
+checking if the linker (/usr/i686-pc-cygwin/bin/ld.exe) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 8192
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/i686-pc-cygwin/bin/ld.exe option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... file_magic ^x86 archive import|^x86 DLL
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -DDLL_EXPORT -DPIC
+checking if gcc PIC flag -DDLL_EXPORT -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/i686-pc-cygwin/bin/ld.exe) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... yes
+checking dynamic linker characteristics... Win32 ld.exe
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for variable argument list macro functionality... yes
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking whether the compiler defines __func__... yes
+checking whether the compiler defines __FUNC__... no
+checking whether the compiler sets __FUNCTION__... yes
+checking for doxygen... /usr/bin/doxygen
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking for sys/stat.h... (cached) yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking netinet/tcp.h usability... yes
+checking netinet/tcp.h presence... yes
+checking for netinet/tcp.h... yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking ifaddrs.h usability... yes
+checking ifaddrs.h presence... yes
+checking for ifaddrs.h... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for netdb.h... (cached) yes
+checking winsock2.h usability... no
+checking winsock2.h presence... yes
+configure: WARNING: winsock2.h: present but cannot be compiled
+configure: WARNING: winsock2.h:     check for missing prerequisite headers?
+configure: WARNING: winsock2.h: see the Autoconf documentation
+configure: WARNING: winsock2.h:     section "Present But Cannot Be Compiled"
+configure: WARNING: winsock2.h: proceeding with the preprocessor's result
+configure: WARNING: winsock2.h: in the future, the compiler will take precedence
+checking for winsock2.h... yes
+checking windows.h usability... yes
+checking windows.h presence... yes
+checking for windows.h... yes
+checking for socket in -lsocket... no
+checking for gethostbyname in -lnsl... no
+checking for gettimeofday... yes
+checking for time... yes
+checking for strdup... yes
+checking for sigaction... yes
+checking for signal... yes
+checking for usleep... yes
+checking for alloca... no
+checking for unsetenv... yes
+checking for strerror... yes
+checking for strsignal... yes
+checking for stat... yes
+checking for getifaddrs... yes
+checking for fcntl... yes
+checking for alarm... yes
+checking for environ in unistd.h... yes
+checking boot-strap server... ssh,rsh,fork,slurm,ll,lsf,sge,persist
+checking resource management kernel... dummy,pbs
+checking process manager... pmiserv
+checking user interface... mpich
+checking process binding library... hwloc,plpa
+configure: ===== configuring tools/bind/hwloc/hwloc =====
+configure: executing: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/configure  '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install' '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio' '--disable-option-checking' 'CC=gcc' 'CFLAGS=   -O2 ' 'LDFLAGS=' 'LDFLAGS= ' 'LIBS=' 'LIBS=-lpthread  ' 'CPPFLAGS= -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/locks -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/locks -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/wrappers -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/wrappers' --disable-option-checking
+
+###
+### Configuring hwloc distribution tarball
+### Startup tests
+###
+checking build system type... i686-pc-cygwin
+checking host system type... i686-pc-cygwin
+checking target system type... i686-pc-cygwin
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking how to create a ustar tar archive... gnutar
+checking for hwloc version... 1.0.2rc3r7117
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking whether gcc and cc understand -c and -o together... yes
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+
+###
+### Configuring hwloc core
+###
+checking hwloc building mode... standalone
+configure: hwloc builddir: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc
+configure: hwloc srcdir: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc
+checking if want hwloc maintainer support... enabled (SVN checkout default)
+checking for hwloc directory prefix... (none)
+checking for hwloc symbol prefix... hwloc_
+checking for gcc option to accept ISO C99... -std=gnu99
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking size of void *... 4
+checking which OS support to include... Windows
+checking which CPU support to include... x86_32
+checking whether diff accepts -u... -u
+checking size of unsigned long... 4
+checking size of unsigned int... 4
+checking for __attribute__... yes
+checking for __attribute__(aligned)... yes
+checking for __attribute__(always_inline)... yes
+checking for __attribute__(cold)... yes
+checking for __attribute__(const)... yes
+checking for __attribute__(deprecated)... yes
+checking for __attribute__(format)... no
+checking for __attribute__(hot)... yes
+checking for __attribute__(malloc)... yes
+checking for __attribute__(may_alias)... yes
+checking for __attribute__(no_instrument_function)... yes
+checking for __attribute__(nonnull)... no
+checking for __attribute__(noreturn)... yes
+checking for __attribute__(packed)... yes
+checking for __attribute__(pure)... yes
+checking for __attribute__(sentinel)... no
+checking for __attribute__(unused)... yes
+checking for __attribute__(warn_unused_result)... yes
+checking for __attribute__(weak_alias)... yes
+checking if gcc supports -fvisibility... no
+checking enable symbol visibility... no
+checking for inline compatibility keyword... __inline__
+checking for strncasecmp... yes
+checking whether function strncasecmp is declared... yes
+checking for stdint.h... (cached) yes
+checking for wchar_t... yes
+checking for putwc... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking for setlocale... yes
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking for nl_langinfo... yes
+checking curses.h usability... no
+checking curses.h presence... no
+checking for curses.h... no
+checking for KAFFINITY... no
+checking for PROCESSOR_CACHE_TYPE... no
+checking for CACHE_DESCRIPTOR... no
+checking for LOGICAL_PROCESSOR_RELATIONSHIP... no
+checking for SYSTEM_LOGICAL_PROCESSOR_INFORMATION... no
+checking for GROUP_AFFINITY... no
+checking for PROCESSOR_RELATIONSHIP... no
+checking for NUMA_NODE_RELATIONSHIP... no
+checking for CACHE_RELATIONSHIP... no
+checking for PROCESSOR_GROUP_INFO... no
+checking for GROUP_RELATIONSHIP... no
+checking for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX... no
+checking for main in -lgdi32... yes
+checking windows.h usability... yes
+checking windows.h presence... yes
+checking for windows.h... yes
+checking sys/lgrp_user.h usability... no
+checking sys/lgrp_user.h presence... no
+checking for sys/lgrp_user.h... no
+checking kstat.h usability... no
+checking kstat.h presence... no
+checking for kstat.h... no
+checking infiniband/verbs.h usability... no
+checking infiniband/verbs.h presence... no
+checking for infiniband/verbs.h... no
+checking whether _SC_NPROCESSORS_ONLN is declared... yes
+checking whether _SC_NPROCESSORS_CONF is declared... yes
+checking whether _SC_NPROC_ONLN is declared... no
+checking whether _SC_NPROC_CONF is declared... no
+checking whether _SC_LARGE_PAGESIZE is declared... no
+checking mach/mach_host.h usability... no
+checking mach/mach_host.h presence... no
+checking for mach/mach_host.h... no
+checking mach/mach_init.h usability... no
+checking mach/mach_init.h presence... no
+checking for mach/mach_init.h... no
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for sys/sysctl.h... no
+checking for sysctl... no
+checking for sysctlbyname... no
+checking whether function sched_setaffinity is declared... no
+checking for working CPU_SET... no
+checking for working CPU_SET_S... no
+checking for KERRIGHED... no
+checking for lib... no
+checking for bash... /usr/bin/sh
+checking for ffs... yes
+checking whether function ffs is declared... yes
+checking for ffsl... no
+checking for fls... no
+checking for flsl... no
+checking for clz... no
+checking for clzl... no
+checking for openat... yes
+checking whether numa_bitmask_alloc is declared... no
+checking pthread_np.h usability... no
+checking pthread_np.h presence... no
+checking for pthread_np.h... no
+checking whether pthread_setaffinity_np is declared... no
+checking whether pthread_getaffinity_np is declared... no
+checking for sched_setaffinity... no
+checking for sys/cpuset.h... no
+checking for library containing pthread_getthrds_np... no
+checking for cpuid... yes
+checking for X... libraries , headers 
+
+###
+### Configuring hwloc documentation
+###
+checking if this is a developer build... yes
+checking for doxygen... /usr/bin/doxygen
+checking for pdflatex... /usr/bin/pdflatex
+checking for makeindex... /usr/bin/makeindex
+checking for fig2dev... /usr/bin/fig2dev
+checking if can build doxygen docs... yes
+checking for w3m... /usr/bin/w3m
+checking for lynx... /usr/bin/lynx
+checking if can build top-level README... yes
+checking if will build doxygen docs... no
+checking if will install doxygen docs... no
+checking whether to enable "picky" compiler mode... yes (default)
+
+###
+### Configuring hwloc command line utilities
+###
+checking for CAIRO... yes
+checking for cairo_fill... yes
+checking for final CAIRO support... yes
+checking for gethostbyname... yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking for X11/Xlib.h... yes
+checking X11/Xutil.h usability... yes
+checking X11/Xutil.h presence... yes
+checking for X11/Xutil.h... yes
+checking for XOpenDisplay in -lX11... yes
+checking X11/keysym.h usability... yes
+checking X11/keysym.h presence... yes
+checking for X11/keysym.h... yes
+checking for XOpenDisplay in -lX11... (cached) yes
+checking for XML... yes
+checking for xmlNewDoc... yes
+checking for final XML support... yes
+checking for xmllint... xmllint
+
+###
+### Configuring hwloc tests
+###
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/i686-pc-cygwin/bin/ld.exe
+checking if the linker (/usr/i686-pc-cygwin/bin/ld.exe) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 8192
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/i686-pc-cygwin/bin/ld.exe option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... file_magic ^x86 archive import|^x86 DLL
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for dlfcn.h... yes
+checking for as... as
+checking for dlltool... dlltool
+checking for objdump... (cached) objdump
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -DDLL_EXPORT -DPIC
+checking if gcc PIC flag -DDLL_EXPORT -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/i686-pc-cygwin/bin/ld.exe) supports shared libraries... yes
+checking dynamic linker characteristics... Win32 ld.exe
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating include/Makefile
+config.status: creating src/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/doxygen-config.cfg
+config.status: creating utils/Makefile
+config.status: creating hwloc.pc
+config.status: creating tests/Makefile
+config.status: creating tests/linux/Makefile
+config.status: creating tests/xml/Makefile
+config.status: creating tests/ports/Makefile
+config.status: creating tests/linux/gather-topology.sh
+config.status: creating tests/linux/test-topology.sh
+config.status: creating tests/xml/test-topology.sh
+config.status: creating utils/test-hwloc-distrib.sh
+config.status: creating include/private/config.h
+config.status: creating include/hwloc/config.h
+config.status: linking src/topology.c to tests/ports/topology.c
+config.status: linking src/traversal.c to tests/ports/traversal.c
+config.status: linking src/topology-synthetic.c to tests/ports/topology-synthetic.c
+config.status: linking src/topology-solaris.c to tests/ports/topology-solaris.c
+config.status: linking src/topology-aix.c to tests/ports/topology-aix.c
+config.status: linking src/topology-osf.c to tests/ports/topology-osf.c
+config.status: linking src/topology-windows.c to tests/ports/topology-windows.c
+config.status: linking src/topology-darwin.c to tests/ports/topology-darwin.c
+config.status: linking src/topology-freebsd.c to tests/ports/topology-freebsd.c
+config.status: linking src/topology-hpux.c to tests/ports/topology-hpux.c
+config.status: executing depfiles commands
+config.status: executing chmoding-scripts commands
+config.status: executing libtool commands
+configure: ===== done with tools/bind/hwloc/hwloc configure =====
+configure: ===== configuring tools/bind/plpa/plpa =====
+configure: executing: /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/plpa/plpa/configure  '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install' '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio' '--disable-option-checking' 'CC=gcc' 'CFLAGS=   -O2 ' 'LDFLAGS=' 'LDFLAGS= ' 'LIBS=' 'LIBS=-lpthread  ' 'CPPFLAGS= -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/locks -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/locks -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/wrappers -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/wrappers' --disable-option-checking
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking for PLPA version... 1.3.2
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking whether gcc and cc understand -c and -o together... yes
+checking whether to enable "picky" compiler mode... yes (default)
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... -lfl
+checking whether yytext is a pointer... yes
+checking for bison... bison -y
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for syscall... no
+configure: error: Cannot continue
+configure: ===== done with tools/bind/plpa/plpa configure =====
+checking checkpointing library... none
+checking demux engine... poll,select,port
+checking for poll... yes
+checking for select... yes
+checking debugging support... none
+checking error checking... yes
+checking warnings... no
+checking profiling... yes
+checking for strsignal... (cached) yes
+checking whether strsignal needs a declaration... no
+checking for sigaction... (cached) yes
+checking for signal... (cached) yes
+checking for sigset... yes
+checking for struct sigaction and sa_handler... yes
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating tools/bootstrap/src/bsci_init.c
+config.status: creating tools/bootstrap/include/bsci.h
+config.status: creating tools/rmk/src/rmki_init.c
+config.status: creating tools/rmk/include/rmki.h
+config.status: creating hydra-doxygen.cfg
+config.status: creating include/hydra_config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: ===== done with src/pm/hydra configure =====
+checking size of OPA_ptr_t... 4
+configure: WARNING: Could not define Fortran MPI datatypes for C
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/include/Makefile
+config.status: creating src/include/mpich2info.h
+config.status: creating mpich2-doxygen
+config.status: creating src/include/mpichtimer.h
+config.status: creating src/binding/Makefile
+config.status: creating src/binding/cxx/Makefile
+config.status: creating src/binding/cxx/mpicxx.h
+config.status: creating src/binding/f77/Makefile
+config.status: creating src/binding/f77/mpif.h
+config.status: creating src/binding/f77/setbotf.f
+config.status: creating src/binding/f77/setbot.c
+config.status: creating src/binding/f90/Makefile
+config.status: creating src/binding/f90/mpi_sizeofs.f90
+config.status: creating src/packaging/Makefile
+config.status: creating src/packaging/pkgconfig/mpich2-ch3.pc
+config.status: creating src/packaging/pkgconfig/Makefile
+config.status: creating src/packaging/envmods/mpich2.module
+config.status: WARNING:  'src/packaging/envmods/mpich2.module.in' seems to ignore the --datarootdir setting
+config.status: creating src/packaging/envmods/Makefile
+config.status: creating src/env/mpixxx_opts.conf
+config.status: creating src/env/mpicc
+config.status: creating src/env/mpicc.conf
+config.status: creating src/env/mpicc.bash
+config.status: creating src/env/mpicxx
+config.status: creating src/env/mpicxx.conf
+config.status: creating src/env/mpicxx.bash
+config.status: creating src/env/mpif77
+config.status: creating src/env/mpif77.conf
+config.status: creating src/env/mpif77.bash
+config.status: creating src/env/mpif90
+config.status: creating src/env/mpif90.conf
+config.status: creating src/env/mpif90.bash
+config.status: creating src/env/parkill
+config.status: creating src/env/Makefile
+config.status: creating src/util/createshlib
+config.status: creating src/mpi/Makefile
+config.status: creating src/mpi/attr/Makefile
+config.status: creating src/mpi/coll/Makefile
+config.status: creating src/mpi/comm/Makefile
+config.status: creating src/mpi/datatype/Makefile
+config.status: creating src/mpi/debugger/Makefile
+config.status: creating src/mpi/errhan/Makefile
+config.status: creating src/mpi/group/Makefile
+config.status: creating src/mpi/init/Makefile
+config.status: creating src/mpi/misc/Makefile
+config.status: creating src/mpi/pt2pt/Makefile
+config.status: creating src/mpi/rma/Makefile
+config.status: creating src/mpi/spawn/Makefile
+config.status: creating src/mpi/timer/Makefile
+config.status: creating src/mpi/topo/Makefile
+config.status: creating src/mpid/Makefile
+config.status: creating src/mpid/common/Makefile
+config.status: creating src/mpid/common/datatype/Makefile
+config.status: creating src/mpid/common/datatype/dataloop/Makefile
+config.status: creating src/pm/Makefile
+config.status: creating src/pmi/Makefile
+config.status: creating src/pmi/simple/Makefile
+config.status: creating src/nameserv/Makefile
+config.status: creating src/nameserv/file/Makefile
+config.status: creating src/nameserv/mpd/Makefile
+config.status: creating src/nameserv/pmi/Makefile
+config.status: creating src/nameserv/test/Makefile
+config.status: creating src/util/Makefile
+config.status: creating src/util/info/Makefile
+config.status: creating src/util/instrm/Makefile
+config.status: creating src/util/thread/Makefile
+config.status: creating src/util/mem/Makefile
+config.status: creating src/util/msgs/Makefile
+config.status: creating src/util/param/Makefile
+config.status: creating src/util/dbg/Makefile
+config.status: creating src/util/dbg/getfuncstack
+config.status: creating src/util/osserv/Makefile
+config.status: creating src/util/procmap/Makefile
+config.status: creating src/util/other/Makefile
+config.status: creating src/include/mpi.h
+config.status: creating test/Makefile
+config.status: creating test/util/Makefile
+config.status: creating test/basic/Makefile
+config.status: creating test/commands/Makefile
+config.status: creating test/commands/cmdtests
+config.status: creating test/mpid/Makefile
+config.status: creating test/mpid/ch3/Makefile
+config.status: creating test/util/timer/Makefile
+config.status: creating examples/Makefile
+config.status: creating examples/f77/Makefile
+config.status: creating examples/f90/Makefile
+config.status: creating examples/cxx/Makefile
+config.status: creating src/util/logging/Makefile
+config.status: creating src/util/logging/common/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/mansrc/Makefile
+config.status: creating doc/mansrc/createhtmlindex
+config.status: creating doc/refman/Makefile
+config.status: creating doc/installguide/Makefile
+config.status: creating doc/userguide/Makefile
+config.status: creating doc/logging/Makefile
+config.status: creating doc/design/Makefile
+config.status: creating doc/smpd/Makefile
+config.status: creating doc/windev/Makefile
+config.status: creating src/include/mpichconf.h
+config.status: executing default-1 commands
+config.status: executing default-2 commands
+config.status: executing default-3 commands
+config.status: executing default-4 commands
+config.status: executing default-5 commands
+config.status: executing default-6 commands
+config.status: executing default-7 commands
+config.status: executing default-8 commands
+Updating dependency directories .deps
+config.status: executing default-9 commands
+config.status: executing default-10 commands
+config.status: executing default-11 commands
+config.status: executing default-12 commands
+config.status: executing default-13 commands
+=== configuring in test/mpi (/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install'  '--disable-f77' '--disable-f90' '--disable-cxx' '--disable-mpe' '--disable-romio' --cache-file=/dev/null --srcdir=.
+RUNNING CONFIGURE FOR MPI TESTS
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/bin/mpicc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/bin/mpicc accepts -g... yes
+checking for /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/bin/mpicc option to accept ISO C89... none needed
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for an ANSI C-conforming const... yes
+checking for C/C++ restrict keyword... __restrict
+checking how to run the C preprocessor... /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/bin/mpicc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for _Bool... yes
+checking for float _Complex... yes
+checking for double _Complex... yes
+checking for long double _Complex... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for library containing pthread_create... none required
+checking for library containing pthread_barrier_init... no
+checking for pthread_create... yes
+checking for pthread_yield... no
+checking for pthread_barrier_init... no
+checking for pthread_barrier_wait... no
+checking whether struct hostent contains h_addr_list... no
+checking for major version of MPI... 2
+checking for minor version of MPI... 2
+configure: WARNING: Selecting integer*8 as the Fortran type for MPI_Offset
+configure: WARNING: Selecting integer as the Fortran type for MPI_Aint
+checking whether MPI_2DOUBLE_COMPLEX is available... no
+checking whether MPI_2COMPLEX is available... no
+checking size of void *... 4
+checking size of int... 4
+checking size of long... 4
+checking size of long long... 8
+checking size of short... 2
+checking for C integer type of address size... int
+checking for perl... /usr/bin/perl
+configure: creating ./config.status
+config.status: creating maint/testmerge
+config.status: creating runtests
+config.status: creating Makefile
+config.status: creating basic/Makefile
+config.status: creating attr/Makefile
+config.status: creating util/Makefile
+config.status: creating coll/Makefile
+config.status: creating comm/Makefile
+config.status: creating datatype/Makefile
+config.status: creating errhan/Makefile
+config.status: creating group/Makefile
+config.status: creating info/Makefile
+config.status: creating init/Makefile
+config.status: creating pt2pt/Makefile
+config.status: creating rma/Makefile
+config.status: creating spawn/Makefile
+config.status: creating topo/Makefile
+config.status: creating io/Makefile
+config.status: creating f77/Makefile
+config.status: creating f77/attr/Makefile
+config.status: creating f77/attr/attraints.h
+config.status: creating f77/pt2pt/attr1aints.h
+config.status: creating f77/ext/add1size.h
+config.status: creating f77/datatype/Makefile
+config.status: creating f77/datatype/typeaints.h
+config.status: creating f77/util/Makefile
+config.status: creating f77/coll/Makefile
+config.status: creating f77/comm/Makefile
+config.status: creating f77/topo/Makefile
+config.status: creating f77/init/Makefile
+config.status: creating f77/rma/addsize.h
+config.status: creating f77/pt2pt/Makefile
+config.status: creating f77/info/Makefile
+config.status: creating f77/spawn/Makefile
+config.status: creating f77/spawn/type1aint.h
+config.status: creating f77/rma/Makefile
+config.status: creating f77/ext/Makefile
+config.status: creating f77/ext/testlist
+config.status: creating f77/io/Makefile
+config.status: creating f77/io/iooffset.h
+config.status: creating f77/io/iodisp.h
+config.status: creating f77/io/ioaint.h
+config.status: creating f90/Makefile
+config.status: creating f90/attr/Makefile
+config.status: creating f90/datatype/Makefile
+config.status: creating f90/f90types/Makefile
+config.status: creating f90/util/Makefile
+config.status: creating f90/coll/Makefile
+config.status: creating f90/comm/Makefile
+config.status: creating f90/topo/Makefile
+config.status: creating f90/init/Makefile
+config.status: creating f90/pt2pt/Makefile
+config.status: creating f90/rma/Makefile
+config.status: creating f90/info/Makefile
+config.status: creating f90/spawn/Makefile
+config.status: creating f90/timer/Makefile
+config.status: creating f90/ext/Makefile
+config.status: creating f90/ext/testlist
+config.status: creating f90/io/Makefile
+config.status: creating f90/misc/Makefile
+config.status: creating cxx/Makefile
+config.status: creating cxx/util/Makefile
+config.status: creating cxx/attr/Makefile
+config.status: creating cxx/pt2pt/Makefile
+config.status: creating cxx/comm/Makefile
+config.status: creating cxx/coll/Makefile
+config.status: creating cxx/info/Makefile
+config.status: creating cxx/datatype/Makefile
+config.status: creating cxx/io/Makefile
+config.status: creating cxx/init/Makefile
+config.status: creating cxx/rma/Makefile
+config.status: creating cxx/spawn/Makefile
+config.status: creating threads/Makefile
+config.status: creating threads/pt2pt/Makefile
+config.status: creating threads/util/Makefile
+config.status: creating threads/comm/Makefile
+config.status: creating threads/init/Makefile
+config.status: creating threads/spawn/Makefile
+config.status: creating errors/Makefile
+config.status: creating errors/attr/Makefile
+config.status: creating errors/basic/Makefile
+config.status: creating errors/coll/Makefile
+config.status: creating errors/comm/Makefile
+config.status: creating errors/faults/Makefile
+config.status: creating errors/group/Makefile
+config.status: creating errors/pt2pt/Makefile
+config.status: creating errors/rma/Makefile
+config.status: creating errors/spawn/Makefile
+config.status: creating errors/topo/Makefile
+config.status: creating errors/io/Makefile
+config.status: creating errors/cxx/Makefile
+config.status: creating errors/cxx/errhan/Makefile
+config.status: creating errors/cxx/io/Makefile
+config.status: creating errors/f77/Makefile
+config.status: creating errors/f90/Makefile
+config.status: creating manual/Makefile
+config.status: creating manual/manyconnect
+config.status: creating perf/Makefile
+config.status: creating testlist
+config.status: creating cxx/testlist
+config.status: creating f77/testlist
+config.status: creating f90/testlist
+config.status: creating threads/testlist
+config.status: creating errors/testlist
+config.status: creating errors/cxx/testlist
+config.status: creating include/mpitestconf.h
+config.status: executing default-1 commands
+config.status: executing default-2 commands
+config.status: executing default-3 commands
+Configuration completed.

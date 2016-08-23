@@ -1,0 +1,23 @@
+*** configure.in	2011-04-26 14:43:58.000000000 -0500
+--- configure.in.fixed	2011-05-06 11:11:01.000000000 -0500
+***************
+*** 3328,3336 ****
+             if test $type != long_long -a \
+                     $type != long_double -a \
+                     $type != long_double_int -a \
+!                    $type != _Bool \
+!                    $type != float__Complex \
+!                    $type != double__Complex \
+                     $type != long_double__Complex ; then
+                 AC_MSG_ERROR([Configure was unable to determine the size of $type ; if cross compiling,
+  use the environment variables CROSS_SIZEOF_typename, e.g., CROSS_SIZEOF_SHORT,
+--- 3328,3336 ----
+             if test $type != long_long -a \
+                     $type != long_double -a \
+                     $type != long_double_int -a \
+!                    $type != _Bool -a \
+!                    $type != float__Complex -a \
+!                    $type != double__Complex -a \
+                     $type != long_double__Complex ; then
+                 AC_MSG_ERROR([Configure was unable to determine the size of $type ; if cross compiling,
+  use the environment variables CROSS_SIZEOF_typename, e.g., CROSS_SIZEOF_SHORT,

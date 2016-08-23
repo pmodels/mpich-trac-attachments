@@ -1,0 +1,304 @@
+[-1:3752]...\smpd_get_opt_int
+[-1:3752].../smpd_get_opt_int
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt_int
+[-1:3752].../smpd_get_opt_int
+[-1:3752]...\smpd_get_opt_int
+[-1:3752].../smpd_get_opt_int
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt_string
+[-1:3752].../smpd_get_opt_string
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt_string
+[-1:3752].../smpd_get_opt_string
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt_string
+[-1:3752].../smpd_get_opt_string
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt_string
+[-1:3752].../smpd_get_opt_string
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt_string
+[-1:3752].../smpd_get_opt_string
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt_string
+[-1:3752].../smpd_get_opt_string
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]...\smpd_get_opt_string
+[-1:3752].../smpd_get_opt_string
+[-1:3752]...\smpd_get_opt_string
+[-1:3752].../smpd_get_opt_string
+[-1:3752]...\smpd_get_opt
+[-1:3752].../smpd_get_opt
+[-1:3752]../smpd_parse_command_args
+[-1:3752]..\smpd_get_smpd_data
+[-1:3752]...\smpd_get_smpd_data_from_environment
+[-1:3752].../smpd_get_smpd_data_from_environment
+[-1:3752]../smpd_get_smpd_data
+[-1:3752]..\smpd_entry_point
+[00:3752]...\smpd_set_smpd_data
+[00:3752].../smpd_set_smpd_data
+[00:3752]...\SMPDU_Sock_create_set
+[00:3752]....\SMPDU_Sock_get_sock_set_id
+[00:3752]..../SMPDU_Sock_get_sock_set_id
+[00:3752]....created a set for the listener: 584
+[00:3752]....\SMPDU_Sock_listen
+[00:3752]..../SMPDU_Sock_listen
+[00:3752]....smpd listening on port 8676
+[00:3752]....\smpd_create_context
+[00:3752].....\smpd_init_context
+[00:3752]......\smpd_init_command
+[00:3752]....../smpd_init_command
+[00:3752]......\SMPDU_Sock_set_user_ptr
+[00:3752]....../SMPDU_Sock_set_user_ptr
+[00:3752]...../smpd_init_context
+[00:3752]..../smpd_create_context
+[00:3752]....\SMPDU_Sock_set_user_ptr
+[00:3752]..../SMPDU_Sock_set_user_ptr
+[00:3752]....\smpd_option_on
+[00:3752].....\smpd_get_smpd_data
+[00:3752]......\smpd_get_smpd_data_from_environment
+[00:3752]....../smpd_get_smpd_data_from_environment
+[00:3752]......\smpd_get_smpd_data_default
+[00:3752]....../smpd_get_smpd_data_default
+[00:3752]......Unable to get the data for the key 'no_dynamic_hosts'
+[00:3752]...../smpd_get_smpd_data
+[00:3752]..../smpd_option_on
+[00:3752]....\smpd_insert_into_dynamic_hosts
+[00:3752]..../smpd_insert_into_dynamic_hosts
+[00:3752]....\smpd_enter_at_state
+[00:3752].....sock_waiting for the next event.
+[00:3752].....\SMPDU_Sock_wait
+[00:3752]...../SMPDU_Sock_wait
+[00:3752].....SOCK_OP_ACCEPT event.error = 0, result = 0, context=listener
+[00:3752].....\smpd_handle_op_accept
+[00:3752]......\smpd_state_smpd_listening
+[00:3752].......\SMPDU_Sock_accept
+[00:3752]......./SMPDU_Sock_accept
+[00:3752].......authenticating new connection
+[00:3752].......\smpd_create_context
+[00:3752]........\smpd_init_context
+[00:3752].........\smpd_init_command
+[00:3752]........./smpd_init_command
+[00:3752].........\SMPDU_Sock_set_user_ptr
+[00:3752]........./SMPDU_Sock_set_user_ptr
+[00:3752]......../smpd_init_context
+[00:3752]......./smpd_create_context
+[00:3752].......\SMPDU_Sock_set_user_ptr
+[00:3752]......./SMPDU_Sock_set_user_ptr
+[00:3752].......\smpd_gen_authentication_strings
+[00:3752]........\smpd_hash
+[00:3752]......../smpd_hash
+[00:3752]......./smpd_gen_authentication_strings
+[00:3752].......posting a write of the challenge string: 1.3rc1 12291
+[00:3752].......\SMPDU_Sock_post_write
+[00:3752]........\SMPDU_Sock_post_writev
+[00:3752]......../SMPDU_Sock_post_writev
+[00:3752]......./SMPDU_Sock_post_write
+[00:3752]....../smpd_state_smpd_listening
+[00:3752]...../smpd_handle_op_accept
+[00:3752].....sock_waiting for the next event.
+[00:3752].....\SMPDU_Sock_wait
+[00:3752]...../SMPDU_Sock_wait
+[00:3752].....SOCK_OP_WRITE event.error = 0, result = 0, context=undetermined
+[00:3752].....\smpd_handle_op_write
+[00:3752]......\smpd_state_writing_challenge_string
+[00:3752].......wrote challenge string: '1.3rc1 12291'
+[00:3752].......\SMPDU_Sock_post_read
+[00:3752]........\SMPDU_Sock_post_readv
+[00:3752]......../SMPDU_Sock_post_readv
+[00:3752]......./SMPDU_Sock_post_read
+[00:3752]....../smpd_state_writing_challenge_string
+[00:3752]...../smpd_handle_op_write
+[00:3752].....sock_waiting for the next event.
+[00:3752].....\SMPDU_Sock_wait
+[00:3752]...../SMPDU_Sock_wait
+[00:3752].....SOCK_OP_READ event.error = 0, result = 0, context=undetermined
+[00:3752].....\smpd_handle_op_read
+[00:3752]......\smpd_state_reading_challenge_response
+[00:3752].......read challenge response: 'b0997962d13f390417af712b9856bdf6'
+[00:3752].......\SMPDU_Sock_post_write
+[00:3752]........\SMPDU_Sock_post_writev
+[00:3752]......../SMPDU_Sock_post_writev
+[00:3752]......./SMPDU_Sock_post_write
+[00:3752]....../smpd_state_reading_challenge_response
+[00:3752]...../smpd_handle_op_read
+[00:3752].....sock_waiting for the next event.
+[00:3752].....\SMPDU_Sock_wait
+[00:3752]...../SMPDU_Sock_wait
+[00:3752].....SOCK_OP_WRITE event.error = 0, result = 0, context=undetermined
+[00:3752].....\smpd_handle_op_write
+[00:3752]......\smpd_state_writing_connect_result
+[00:3752].......wrote connect result: 'SUCCESS'
+[00:3752].......\SMPDU_Sock_post_read
+[00:3752]........\SMPDU_Sock_post_readv
+[00:3752]......../SMPDU_Sock_post_readv
+[00:3752]......./SMPDU_Sock_post_read
+[00:3752]....../smpd_state_writing_connect_result
+[00:3752]...../smpd_handle_op_write
+[00:3752].....sock_waiting for the next event.
+[00:3752].....\SMPDU_Sock_wait
+[00:3752]...../SMPDU_Sock_wait
+[00:3752].....SOCK_OP_READ event.error = 0, result = 0, context=undetermined
+[00:3752].....\smpd_handle_op_read
+[00:3752]......\smpd_state_reading_session_request
+[00:3752].......read session request: 'process'
+[00:3752].......\SMPDU_Sock_post_write
+[00:3752]........\SMPDU_Sock_post_writev
+[00:3752]......../SMPDU_Sock_post_writev
+[00:3752]......./SMPDU_Sock_post_write
+[00:3752]....../smpd_state_reading_session_request
+[00:3752]...../smpd_handle_op_read
+[00:3752].....sock_waiting for the next event.
+[00:3752].....\SMPDU_Sock_wait
+[00:3752]...../SMPDU_Sock_wait
+[00:3752].....SOCK_OP_WRITE event.error = 0, result = 0, context=undetermined
+[00:3752].....\smpd_handle_op_write
+[00:3752]......\smpd_state_writing_no_cred_request
+[00:3752].......wrote no cred request: 'nocredentials'
+[00:3752].......\smpd_start_win_mgr
+[00:3752]........starting command: "C:\Program Files\MPICH2\bin\smpd.exe" -d 27 -mgr -read 0000000000000308 -write 0000000000000304
+[00:3752]........CreateProcess
+[00:3752]........smpd reading the port string from the manager
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt_int
+[-1:3820].../smpd_get_opt_int
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt_int
+[-1:3820].../smpd_get_opt_int
+[-1:3820]...\smpd_get_opt_int
+[-1:3820].../smpd_get_opt_int
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+[-1:3820]...\smpd_get_opt
+[-1:3820].../smpd_get_opt
+=================== CORE INFO =======================
+[0/-1] - mask=1, rel=0 
+core flag = 0
+==========================================
+[1/-1] - mask=2, rel=0 
+core flag = 0
+==========================================
+[2/-1] - mask=3, rel=3 
+Unhandled rel, 3
+==========================================
+[3/2] - mask=1, rel=2 
+level=1, assoc=8, lnsz=64, sz=32768, type=2 
+==========================================
+[4/2] - mask=1, rel=2 
+level=1, assoc=8, lnsz=64, sz=32768, type=2 
+==========================================
+[5/2] - mask=2, rel=2 
+level=1, assoc=8, lnsz=64, sz=32768, type=2 
+==========================================
+[6/2] - mask=2, rel=2 
+level=1, assoc=8, lnsz=64, sz=32768, type=2 
+==========================================
+[7/3] - mask=3, rel=2 
+level=2, assoc=24, lnsz=64, sz=6291456, type=2 
+==========================================
+[8/1001] - mask=3, rel=1 
+numa node num = 0
+==========================================
+[-1:3820]...ERROR:Assertion failed in file ..\src\pm\smpd\smpd_affinitize.c at line 157
+[00:3752]........ERROR:ReadFile() failed, error 109
+[00:3752]......./smpd_start_win_mgr
+[00:3752].......\SMPDU_Sock_post_close
+[00:3752]........\SMPDU_Sock_post_read
+[00:3752].........\SMPDU_Sock_post_readv
+[00:3752]........./SMPDU_Sock_post_readv
+[00:3752]......../SMPDU_Sock_post_read
+[00:3752]......./SMPDU_Sock_post_close
+[00:3752]....../smpd_state_writing_no_cred_request
+[00:3752]...../smpd_handle_op_write
+[00:3752].....sock_waiting for the next event.
+[00:3752].....\SMPDU_Sock_wait
+[00:3752]...../SMPDU_Sock_wait
+[00:3752].....SOCK_OP_CLOSE event.error = 0, result = 0, context=undetermined
+[00:3752].....\smpd_handle_op_close
+[00:3752]......\smpd_get_state_string
+[00:3752]....../smpd_get_state_string
+[00:3752]......op_close received - SMPD_CLOSING state.
+[00:3752]......Unaffiliated undetermined context closing.
+[00:3752]......\smpd_free_context
+[00:3752].......freeing undetermined context.
+[00:3752].......\smpd_init_context
+[00:3752]........\smpd_init_command
+[00:3752]......../smpd_init_command
+[00:3752]......./smpd_init_context
+[00:3752]....../smpd_free_context
+[00:3752]...../smpd_handle_op_close
+[00:3752].....sock_waiting for the next event.
+[00:3752].....\SMPDU_Sock_wait

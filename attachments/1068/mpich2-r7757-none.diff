@@ -1,0 +1,65 @@
+Index: src/pm/hydra/tools/bootstrap/external/external_init.c
+===================================================================
+--- src/pm/hydra/tools/bootstrap/external/external_init.c	(revision 7757)
++++ src/pm/hydra/tools/bootstrap/external/external_init.c	(working copy)
+@@ -102,6 +102,11 @@
+     return external_launcher_init();
+ }
+ 
++HYD_status HYDT_bsci_launcher_none_init(void)
++{
++    return external_launcher_init();
++}
++
+ HYD_status HYDT_bsci_rmk_lsf_init(void)
+ {
+     return external_rmk_init();
+Index: src/pm/hydra/tools/bootstrap/external/external_launch.c
+===================================================================
+--- src/pm/hydra/tools/bootstrap/external/external_launch.c	(revision 7757)
++++ src/pm/hydra/tools/bootstrap/external/external_launch.c	(working copy)
+@@ -172,7 +172,8 @@
+ 
+         /* If launcher is 'fork', or this is the localhost, use fork
+          * to launch the process */
+-        if (!strcmp(HYDT_bsci_info.launcher, "fork") || lh) {
++        if (!strcmp(HYDT_bsci_info.launcher, "fork") ||
++            !strcmp(HYDT_bsci_info.launcher, "none") || lh) {
+             offset = exec_idx;
+ 
+             if (control_fd) {
+@@ -220,6 +221,12 @@
+             HYDU_print_strlist(targs + offset);
+         }
+ 
++        if (!strcmp(HYDT_bsci_info.launcher, "none")) {
++            HYDU_dump_noprefix(stdout, "HYDRA_LAUNCH: ");
++            HYDU_print_strlist(targs + offset);
++            continue;
++        }
++
+         /* The stdin pointer is a dummy value. We don't just pass it
+          * NULL, as older versions of ssh seem to freak out when no
+          * stdin socket is provided. */
+@@ -250,6 +257,9 @@
+         HYDU_ERR_POP(status, "demux returned error registering fd\n");
+     }
+ 
++    if (!strcmp(HYDT_bsci_info.launcher, "none"))
++        HYDU_dump_noprefix(stdout, "HYDRA_LAUNCH_END\n");
++
+   fn_exit:
+     HYDU_free_strlist(targs);
+     if (path)
+Index: src/pm/hydra/configure.in
+===================================================================
+--- src/pm/hydra/configure.in	(revision 7757)
++++ src/pm/hydra/configure.in	(working copy)
+@@ -210,6 +210,7 @@
+ 	none|no)
+ 		hydra_bss_none=true
+ 		available_bss=`echo $available_bss none`
++		available_launchers=`echo $available_launchers none`
+ 		available_rmks=`echo $available_rmks none`
+ 		;;
+ 	*)

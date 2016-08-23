@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16735" name=GENERATOR></HEAD>
+<BODY>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=572460122-13012009>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=572460122-13012009>&nbsp;As per the microsoft support article below there 
+is a limit of 5 incoming connections for Win XP Home and a limit of 10 incoming 
+connections for Win XP Pro.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+size=2></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><A 
+href="http://support.microsoft.com/kb/314882">http://support.microsoft.com/kb/314882</A></FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV><SPAN class=572460122-13012009></SPAN><FONT face=Arial><FONT 
+color=#0000ff><FONT size=2><U>&nbsp;</U><SPAN class=572460122-13012009>Are you 
+using Win XP Home ?</SPAN></FONT></FONT></FONT></DIV>
+<DIV><FONT face=Arial><FONT color=#0000ff><FONT size=2><SPAN 
+class=572460122-13012009></SPAN></FONT></FONT></FONT>&nbsp;</DIV>
+<DIV><FONT face=Arial><FONT color=#0000ff><FONT size=2><SPAN 
+class=572460122-13012009>Regards,</SPAN></FONT></FONT></FONT></DIV>
+<DIV><FONT face=Arial><FONT color=#0000ff><FONT size=2><SPAN 
+class=572460122-13012009>Jayesh</SPAN></FONT></FONT></FONT></DIV>
+<DIV><BR></DIV>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Tina Tina [mailto:gucigu@gmail.com] 
+<BR><B>Sent:</B> Tuesday, January 13, 2009 3:46 PM<BR><B>To:</B> Jayesh 
+Krishna<BR><B>Subject:</B> Re: [mpich-discuss] MPICH2 1.1a2 - problems with more 
+than 4 computers<BR></FONT><BR></DIV>
+<DIV></DIV>Hi,<BR><BR>Yes, all connections were cleaned up. But I already have 
+one share \\computer1\share1$ that is shared among the rest of the computers. Is 
+it posible that Windows XP SP3 have some limitations regarding the number of 
+active shared connections. If so do you maybe know how to raise it? <BR><BR>In 
+any case if this is true than this would be a big limitation of usage of MPICH2 
+on Windows (if there is no way to raise this limit). Tommorrow I will do some 
+testing regarding this and let you know what I found out. Of course if you have 
+the solution to this problem ... do not hesitate to tell me. ;-)<BR><BR>In any 
+case thanks for your support.<BR><BR>Regards<BR><BR>
+<DIV class=gmail_quote>2009/1/13 Jayesh Krishna <SPAN dir=ltr>&lt;<A 
+href="mailto:jayesh@mcs.anl.gov">jayesh@mcs.anl.gov</A>&gt;</SPAN><BR>
+<BLOCKQUOTE class=gmail_quote 
+style="PADDING-LEFT: 1ex; MARGIN: 0pt 0pt 0pt 0.8ex; BORDER-LEFT: rgb(204,204,204) 1px solid">
+  <DIV>
+  <DIV dir=ltr align=left>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD>
+        <P><FONT face=Arial color=#0000ff size=2><SPAN>Hi,</SPAN></FONT></P>
+        <P><FONT face=Arial color=#0000ff size=2><SPAN>&nbsp;From the error 
+        codes in the hostname tests it looks like Computer1 (Where the shared 
+        network folder resides) is unable to handle the number of connections to 
+        it.</SPAN></FONT></P>
+        <P><FONT face=Arial color=#0000ff size=2><SPAN>############ Error code 
+        desc from MS <SPAN>############</SPAN></SPAN></FONT></P>
+        <P><FONT face=Arial><FONT color=#0000ff><FONT 
+        size=2>ERROR_REQ_NOT_ACCEP<SPAN> (</SPAN>71<SPAN> </SPAN>0x47<SPAN>) : 
+        </SPAN></FONT></FONT></FONT><FONT face=Arial color=#0000ff size=2>No 
+        more connections can be made to this remote computer at this time 
+        because there are already as many connections as the computer can 
+        accept.</FONT></P></TD></TR></TBODY></TABLE></DIV>
+  <DIV><FONT face=Arial color=#0000ff size=2>
+  <P><FONT face=Arial color=#0000ff size=2><SPAN>############ Error code desc 
+  from MS <SPAN>############</SPAN></SPAN></FONT></P>
+  <P><FONT face=Arial color=#0000ff size=2><SPAN><SPAN>&nbsp;We should retry 
+  (but we do not)&nbsp;in this case. </SPAN></SPAN></FONT></P>
+  <P><FONT face=Arial color=#0000ff size=2><SPAN><SPAN>&nbsp;Can you verify that 
+  the existing network mapped drive connections are cleanedup in all the 
+  machines (Type "net use" in a command prompt on each machine to view the 
+  existing network mapped conns)? </SPAN></SPAN></FONT></P>
+  <P><FONT face=Arial color=#0000ff 
+  size=2><SPAN><SPAN>Regards,</SPAN></SPAN></FONT></P>
+  <P><FONT face=Arial color=#0000ff 
+  size=2><SPAN><SPAN>Jayesh</SPAN></SPAN></FONT></P>
+  <P></P></FONT>
+  <HR>
+  <FONT face=Tahoma size=2><B>From:</B> Tina Tina [mailto:<A 
+  href="mailto:gucigu@gmail.com" target=_blank>gucigu@gmail.com</A>] 
+  <BR><B>Sent:</B> Tuesday, January 13, 2009 3:21 PM<BR><B>To:</B> Jayesh 
+  Krishna<BR><B>Subject:</B> Re: [mpich-discuss] MPICH2 1.1a2 - problems with 
+  more than 4 computers<BR></FONT><BR></DIV>
+  <DIV>
+  <DIV></DIV>
+  <DIV class=Wj3C7c>
+  <DIV></DIV>Dear Community!<BR><BR>I started testng with the exampel cpi.exe 
+  program (so the problem is not in my program). I run the following command for 
+  all computers X=(1..8) and everything worked ok:<BR>"C:\Program 
+  Files\MPICH2\bin\mpiexec.exe" -map X:\\Computer1\MPI$ -wdir X:\CPI\ -hosts 1 
+  ComputerX -machinefile "C:\Program Files\MPICH2\bin\machines.txt" 
+  X:\CPI\cpi.exe<BR><BR>Than I ran the following command:<BR>"C:\Program 
+  Files\MPICH2\bin\mpiexec.exe" -map X:\\Computer1\MPI$ -wdir X:\CPI\ -n X 
+  -machinefile "C:\Program Files\MPICH2\bin\machines.txt" 
+  X:\CPI\cpi.exe<BR><BR>Note: I also changed the machines.txt file as you 
+  suggested (adding :1).<BR><BR>The result was the following for X up to 5 it 
+  worked ok (I did only one test run). But when I tested with X=6 (aka. on 6 
+  computers). I got the following error:<BR><BR>launch failed: 
+  CreateProcess(X:\CPI\cpi.exe) on 'Computer2' failed, error 3 - The system 
+  cannot find the path specified.<BR><BR>On next run with X=6:<BR><BR>launch 
+  failed: CreateProcess(X:\CPI\cpi.exe) on 'Computer2' failed, error 3 - The 
+  system cannot find the path specified.<BR><BR>launch failed: 
+  CreateProcess(X:\CPI\cpi.exe) on 'Computer6' failed, error 3 - The system 
+  cannot find the path specified.<BR><BR>launch failed: 
+  CreateProcess(X:\CPI\cpi.exe) on 'Computer3' failed, error 3 - The system 
+  cannot find the path specified.<BR><BR>launch failed: 
+  CreateProcess(X:\CPI\cpi.exe) on 'Computer5' failed, error 3 - The system 
+  cannot find the path specified.<BR><BR>launch failed: 
+  CreateProcess(X:\CPI\cpi.exe) on 'Computer4' failed, error 3 - The system 
+  cannot find the path specified.<BR><BR>On next run with X=6:<BR><BR>I got the 
+  same error as on the first run.<BR><BR>And this errors were repeating on and 
+  on and on ... most of the times the error with only one computer and in most 
+  cases it was the second computer in the machinefile list. But not necesary. 
+  When there were more than one launch failed errors (like in second case) the 
+  order could be also different. In 20 tries not one was 
+  successfull.<BR><BR>Than just for kicks I tried with X=8 I got the same errors 
+  with random number of launch failed errors and&nbsp; more or less random 
+  ComputerX that reported this.<BR><BR>But every now or than I got one of the 
+  following errors (after the list of launch failed errors):<BR>1)<BR>unable to 
+  post a write for the next command,<BR>sock error: generic socket failure, 
+  error stack:<BR>MPIDU_Sock_post_writev(1768): An established connection was 
+  aborted by the software in your host machine. (errno 10053)<BR>unable to post 
+  a write of the close command to tear down the job tree as part of the abort 
+  process.<BR>unable to post an abort command.<BR>2)<BR>unable to post a read 
+  for the next command header,<BR>sock error: generic socket failure, error 
+  stack:<BR>MPIDU_Sock_post_readv(1656): An existing connection was forcibly 
+  closed by the remote host. (errno 10054)<BR>unable to post a read for the next 
+  command on left context.<BR>3)<BR>unable to read the cmd header on the left 
+  context, socket connection closed.<BR><BR><BR>Hope this info 
+  helps<BR><BR>Regards<BR><BR>P.S.: I tried a couple of runs with X=5 and got 
+  mixed results, on some runs it worked ok on some it did not. Basically the 
+  same as with my program. So I would still say, as the number of computers 
+  increases, the problem gets worse.<BR><BR>P.P.S.: Almost forgot to test the 
+  hostname. Here are the results of two runs.<BR><BR>"C:\Program 
+  Files\MPICH2\bin\mpiexec.exe" -map X:\\computer1\MPI$ -wdir X:\CPI\ -n 8 
+  -machinefile "C:\Program Files\MPICH2\bin\machines.txt" 
+  hostname<BR>*********** Warning ************<BR>Unable to map 
+  \\computer1\MPI$. (error 71)<BR><BR>*********** Warning 
+  ************<BR>*********** Warning ************<BR>Unable to map 
+  \\computer1\MPI$. (error 71)<BR><BR>*********** Warning 
+  ************<BR>computer4<BR>computer1<BR>computer8<BR>computer2<BR>*********** 
+  Warning ************<BR>Unable to map \\computer1\MPI$. (error 
+  71)<BR><BR>*********** Warning 
+  ************<BR>computer7<BR>computer5<BR>computer3<BR>*********** Warning 
+  ************<BR>Unable to map \\computer1\MPI$. (error 71)<BR><BR>*********** 
+  Warning ************<BR>computer6<BR><BR>"C:\Program 
+  Files\MPICH2\bin\mpiexec.exe" -map X:\\computer1\MPI$ -wdir X:\CPI\ -n 8 
+  -machinefile "C:\Program Files\MPICH2\bin\machines.txt" 
+  hostname<BR>*********** Warning ************<BR>Unable to map 
+  \\computer1\MPI$. (error 71)<BR><BR>*********** Warning 
+  ************<BR>*********** Warning ************<BR>Unable to map 
+  \\computer1\MPI$. (error 71)<BR><BR>*********** Warning 
+  ************<BR>computer3<BR>computer7<BR>computer5<BR>computer1<BR>computer4<BR>computer8<BR>computer2<BR>computer6<BR><BR><BR>
+  <DIV class=gmail_quote>2009/1/13 Jayesh Krishna <SPAN dir=ltr>&lt;<A 
+  href="mailto:jayesh@mcs.anl.gov" 
+  target=_blank>jayesh@mcs.anl.gov</A>&gt;</SPAN><BR>
+  <BLOCKQUOTE class=gmail_quote 
+  style="PADDING-LEFT: 1ex; MARGIN: 0pt 0pt 0pt 0.8ex; BORDER-LEFT: rgb(204,204,204) 1px solid">
+    <DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>Hi,</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>#&nbsp;Do you get any error message related to mapping network 
+    drives when you ran your job ?</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>&nbsp;Please provide us with the command+output of your MPI job 
+    (Copy-paste your complete mpiexec command and its output in your 
+    email).</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN></SPAN></FONT>&nbsp;</DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN># Can 
+    you run a command like (Note that I have removed "-noprompt" 
+    option),&nbsp;</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN></SPAN></FONT>&nbsp;</DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mpiexec -map 
+    x:\\computer1\MPI -wdir x:\ -n&nbsp;8 -machinefile&nbsp;testallnamesmf.txt 
+    hostname</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN></SPAN></FONT>&nbsp;</DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN>&nbsp; 
+    with the following contents in the machinefile (testallnamesmf.txt - 
+    contains all the computer/host names - Note that I specify that only 1 MPI 
+    process be launched on each host using "hostname:1" 
+    syntax),</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN></SPAN></FONT>&nbsp;</DIV>
+    <DIV dir=ltr align=left><FONT size=+0><SPAN>computer1:1 -ifhn 
+    192.168.1.1<BR>computer2:1 -ifhn 192.168.1.2<BR>...<BR>computer8:1 -ifhn 
+    192.168.1.8</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN></SPAN></FONT>&nbsp;</DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN># Does 
+    your program fail consistently for certain computers ? Try running a simple 
+    job (mpiexec -map x:\\computer1\MPI -wdir x:\ -n 1 -machinefile testmf.txt 
+    hostname) with only specifying 1 computer/host at a 
+time.</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN></SPAN></FONT>&nbsp;</DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN># Try 
+    removing "-noprompt" from the mpiexec command and see if mpiexec prompts you 
+    for anything (password, inputs etc).</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN></SPAN></FONT>&nbsp;</DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>Regards,</SPAN></FONT></DIV>
+    <DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+    size=2><SPAN>Jayesh</SPAN></FONT></DIV><BR>
+    <DIV lang=en-us dir=ltr align=left>
+    <HR>
+    <FONT face=Tahoma size=2><B>From:</B> <A 
+    href="mailto:mpich-discuss-bounces@mcs.anl.gov" 
+    target=_blank>mpich-discuss-bounces@mcs.anl.gov</A> [mailto:<A 
+    href="mailto:mpich-discuss-bounces@mcs.anl.gov" 
+    target=_blank>mpich-discuss-bounces@mcs.anl.gov</A>] <B>On Behalf Of 
+    </B>Tina Tina<BR><B>Sent:</B> Tuesday, January 13, 2009 12:01 
+    PM<BR><B>To:</B> <A href="mailto:mpich-discuss@mcs.anl.gov" 
+    target=_blank>mpich-discuss@mcs.anl.gov</A><BR><B>Subject:</B> 
+    [mpich-discuss] MPICH2 1.1a2 - problems with more than 4 
+    computers<BR></FONT><BR></DIV>
+    <DIV>
+    <DIV></DIV>
+    <DIV>
+    <DIV></DIV>Dear Community!<BR><BR>I am using the latest version of MPICH2 
+    for Windows (the problem occurs also on 1.0.8). I have 8 computers connected 
+    over giga-bit switch. I have written a program that uses MPI for 
+    paralelization. When I run a program on one or two computers. Everything 
+    works OK (lets say most of the time). When I run it on 4 computers, 
+    sometimes it works and sometimes it does not. The error that I get 
+    is:<BR>launch failed: CreateProcess(X:\mpi_program.exe) on 'computerX' 
+    failed, error 3 - The system cannot find the path specified.<BR><BR>Most 
+    times I get this error for one computer in machine list, but it can also 
+    happen for 2 or more computers etc.<BR><BR>If I increase number of computers 
+    over 4. I get this error almost every time. With 6 or more this happens 
+    every time. It looks like the higher the number the worse it gets. I would 
+    really like to make this work. Has anybody had such experiences and what was 
+    the solution.<BR><BR>It looks like the computer tries to start the program 
+    before the mapped drive would be made operational. Is there any way to 
+    increase this delay? Or are there any other settings that needs to be 
+    set?<BR><BR>There are some other errors that I occasionally get, but this is 
+    the most important one (for now).<BR><BR>Systems:<BR>Windows XP SP3 (on all 
+    computers)<BR>Installed latest MPICH2<BR>Connection giga-bit NICs (local 
+    network) over switch<BR><BR>Example of run command: "C:\Program 
+    Files\MPICH2\bin\mpiexec.exe" -map X:\\computer1\MPI -wdir X:\ -n 4 
+    -machinefile "C:\Program Files\MPICH2\bin\machines.txt" -noprompt 
+    X:\mpi_program.exe<BR><BR>\\computer1\MPI is a shared folder on computer1 
+    from which the command is run<BR><BR>machines.txt consists of following 
+    lines:<BR>computer1 -ifhn 192.168.1.1<BR>computer2 -ifhn 
+    192.168.1.2<BR>...<BR>computer8 -ifhn 192.168.1.8<BR><BR>These are the NICs 
+    I would like MPI to use them for communication. The order of computers in 
+    machines.txt is irrelevant (it happens on every 
+    combination).<BR><BR>Regards<BR></DIV></DIV></DIV></BLOCKQUOTE></DIV><BR></DIV></DIV></DIV></BLOCKQUOTE></DIV><BR></BODY></HTML>

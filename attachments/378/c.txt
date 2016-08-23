@@ -1,0 +1,1415 @@
+Configuring MPICH2 version 1.1a3 with  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux'
+Running on system: Linux login1 2.6.16.46-0.12-ppc64 #1 SMP Thu May 17 14:00:09 UTC 2007 ppc64 ppc64 ppc64 GNU/Linux
+Executing mpich2prereq in /home/chan/mpich_work/mpich2/src/mpid/dcmfd with BGP
+configure: WARNING: The device dcmfd:BGP does not support MPI dynamic process routines
+Reading values from cross-compilation file /home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking whether the compiler defines __func__... yes
+checking whether the compiler defines __FUNC__... 
+checking whether the compiler sets __FUNCTION__... 
+checking whether C compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for type of weak symbol support... pragma weak
+checking whether __attribute__ ((weak)) allowed... yes
+checking for multiple weak symbol support... yes
+checking for powerpc-bgp-linux-g77... no
+checking for powerpc-bgp-linux-xlf... no
+checking for powerpc-bgp-linux-f77... no
+checking for powerpc-bgp-linux-frt... no
+checking for powerpc-bgp-linux-pgf77... no
+checking for powerpc-bgp-linux-cf77... no
+checking for powerpc-bgp-linux-fort77... no
+checking for powerpc-bgp-linux-fl32... no
+checking for powerpc-bgp-linux-af77... no
+checking for powerpc-bgp-linux-xlf90... no
+checking for powerpc-bgp-linux-f90... no
+checking for powerpc-bgp-linux-pgf90... no
+checking for powerpc-bgp-linux-pghpf... no
+checking for powerpc-bgp-linux-epcf90... no
+checking for powerpc-bgp-linux-gfortran... powerpc-bgp-linux-gfortran
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether powerpc-bgp-linux-gfortran accepts -g... yes
+checking whether Fortran 77 compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking how to get verbose linking output from powerpc-bgp-linux-gfortran... -v
+checking for Fortran 77 libraries of powerpc-bgp-linux-gfortran...  -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/lib/gcc/powerpc-bgp-linux/4.1.2 -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/lib/gcc/powerpc-bgp-linux/4.1.2/../../../../powerpc-bgp-linux/lib -lgfortranbegin -lgfortran -lm
+checking whether powerpc-bgp-linux-gfortran accepts the FLIBS found by autoconf... yes
+checking whether C can link with  -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/lib/gcc/powerpc-bgp-linux/4.1.2 -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/lib/gcc/powerpc-bgp-linux/4.1.2/../../../../powerpc-bgp-linux/lib -lgfortranbegin -lgfortran -lm... yes
+checking for linker for Fortran main programs... Use Fortran to link programs
+checking whether Fortran 77 and C objects are compatible... yes
+checking for Fortran 77 name mangling... lower underscore
+checking what libraries are needed to link Fortran programs with C routines that use stdio... none
+checking for powerpc-bgp-linux-f90... no
+checking for powerpc-bgp-linux-xlf90... no
+checking for powerpc-bgp-linux-pgf90... no
+checking for powerpc-bgp-linux-ifort... no
+checking for powerpc-bgp-linux-epcf90... no
+checking for powerpc-bgp-linux-f95... no
+checking for powerpc-bgp-linux-fort... no
+checking for powerpc-bgp-linux-xlf95... no
+checking for powerpc-bgp-linux-lf95... no
+checking for powerpc-bgp-linux-pathf95... no
+checking for powerpc-bgp-linux-pathf90... no
+checking for powerpc-bgp-linux-g95... no
+checking for powerpc-bgp-linux-gfortran... powerpc-bgp-linux-gfortran
+checking that f works as the extension for Fortran 90 program... yes
+checking whether we are using the GNU Fortran 90 compiler... yes
+checking whether powerpc-bgp-linux-gfortran accepts -g... yes
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (powerpc-bgp-linux-gfortran  ) works... yes
+checking whether the Fortran 90 compiler (powerpc-bgp-linux-gfortran  ) is a cross-compiler... yes
+checking whether Fortran 90 works with Fortran 77... yes
+checking whether Fortran accepts ! for comments... yes
+checking for include directory flag for Fortran... -I
+checking for Fortran 77 flag for library directories... -L
+checking for which Fortran libraries are needed to link C with Fortran... none
+checking whether Fortran compiler processes .F files with C preprocessor... yes
+checking for powerpc-bgp-linux-f90... (cached) powerpc-bgp-linux-gfortran
+checking that f works as the extension for Fortran 90 program... yes
+checking whether we are using the GNU Fortran 90 compiler... (cached) yes
+checking whether powerpc-bgp-linux-gfortran accepts -g... (cached) yes
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (powerpc-bgp-linux-gfortran  ) works... yes
+checking whether the Fortran 90 compiler (powerpc-bgp-linux-gfortran  ) is a cross-compiler... yes
+checking for Fortran 90 module extension... mod
+checking for Fortran 90 module include flag... -I
+checking whether Fortran 90 accepts f90 suffix... yes
+checking whether Fortran 90 compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking whether Fortran 90 compiler processes .F90 files with C preprocessor... yes
+checking what libraries are needed to link Fortran90 programs with C routines that use stdio... none
+checking for f90 compiler vendor... gnu
+checking for c++... c++
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether the C++ compiler c++ can build an executable... yes
+checking whether C++ compiler works with string... yes
+checking whether the compiler supports exceptions... yes
+checking whether the compiler recognizes bool as a built-in type... yes
+checking whether the compiler implements namespaces... yes
+checking whether <iostream> available... yes
+checking whether the compiler implements the namespace std... yes
+checking whether <math> available... no
+checking whether C++ compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for perl... /usr/bin/perl
+checking for ar... ar
+checking for ranlib... ranlib
+checking for etags... etags
+checking for etags argument to specify language... --language=c
+checking for killall... killall
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking for powerpc-bgp-linux-ranlib... (cached) ranlib
+checking whether install breaks libraries... no
+checking whether mkdir -p works... yes
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for bash... /bin/bash
+checking whether /bin/bash supports arrays... yes
+checking for doctext... false
+checking for location of doctext style files... unavailable
+checking for an ANSI C-conforming const... yes
+checking for volatile... yes
+checking for restrict... __restrict
+checking for inline... inline
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking whether byte ordering is bigendian... universal
+checking whether C compiler allows unaligned doubles... unknown
+checking whether powerpc-bgp-linux-gcc supports __func__... yes
+Using gcc to determine dependencies
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for max C struct integer alignment... 
+checking for max C struct floating point alignment... 
+checking for max C struct alignment of structs with doubles... 
+checking for max C struct floating point alignment with long doubles... 
+checking if alignment of structs with doubles is based on position... 
+checking if alignment of structs with long long ints is based on position... 
+checking if double alignment breaks rules, find actual alignment... 
+checking for alignment restrictions on pointers... pointer
+checking size of char... 1
+checking size of unsigned char... 1
+checking size of short... 2
+checking size of unsigned short... 2
+checking size of int... 4
+checking size of unsigned int... 4
+checking size of long... 4
+checking size of unsigned long... 4
+checking size of long long... 8
+checking size of unsigned long long... 8
+checking size of float... 4
+checking size of double... 8
+checking size of long double... 16
+checking size of wchar_t... 4
+checking size of void *... 4
+checking for size of float int... 8
+checking for size of double int... 16
+checking for size of long int... 8
+checking for size of short int... 8
+checking for size of 2 int... 8
+checking for size of long double int... 16
+checking sys/bitypes.h usability... yes
+checking sys/bitypes.h presence... yes
+checking for sys/bitypes.h... yes
+checking inttypes.h usability... yes
+checking inttypes.h presence... yes
+checking for inttypes.h... yes
+checking stdint.h usability... yes
+checking stdint.h presence... yes
+checking for stdint.h... yes
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for size of Fortran type integer... 4
+checking for size of Fortran type real... 4
+checking for size of Fortran type double precision... 8
+checking whether integer*1 is supported... yes
+checking whether integer*2 is supported... yes
+checking whether integer*4 is supported... yes
+checking whether integer*8 is supported... yes
+checking whether integer*16 is supported... no
+checking whether real*4 is supported... yes
+checking whether real*8 is supported... yes
+checking whether real*16 is supported... yes
+checking for C type matching Fortran integer... int
+checking for size of MPI_Status... 20
+checking whether real*8 is supported in Fortran 90... yes
+checking size of bool... 1
+checking how to run the C++ preprocessor... c++ -E
+checking complex usability... yes
+checking complex presence... yes
+checking for complex... yes
+checking size of Complex... 8
+checking size of DoubleComplex... 16
+checking size of LongDoubleComplex... 32
+checking if char * pointers use byte addresses... 
+checking for alignment restrictions on ... unknown
+checking for alignment restrictions on int32_t... unknown
+checking for size of MPI_BSEND_OVERHEAD... -1
+checking for gcc __asm__ and pentium cmpxchgl instruction... not checking when cross compiling
+checking for gcc __asm__ and AMD x86_64 cmpxchgq instruction... not checking when cross compiling
+checking for gcc __asm__ and IA64 xchg4 instruction... not checking when cross compiling
+checking for ANSI C header files... no
+checking stdlib.h usability... yes
+checking stdlib.h presence... yes
+checking for stdlib.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking sys/types.h usability... yes
+checking sys/types.h presence... yes
+checking for sys/types.h... yes
+checking string.h usability... yes
+checking string.h presence... yes
+checking for string.h... yes
+checking for inttypes.h... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking unistd.h usability... yes
+checking unistd.h presence... yes
+checking for unistd.h... yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for sys/uio.h... yes
+checking for size_t... yes
+checking for setitimer... yes
+checking for alarm... yes
+checking for vsnprintf... yes
+checking for vsprintf... yes
+checking whether vsnprintf needs a declaration... no
+checking for strerror... yes
+checking for strncasecmp... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for va_copy... yes
+checking valgrind.h usability... no
+checking valgrind.h presence... no
+checking for valgrind.h... no
+checking memcheck.h usability... no
+checking memcheck.h presence... no
+checking for memcheck.h... no
+checking valgrind/valgrind.h usability... no
+checking valgrind/valgrind.h presence... no
+checking for valgrind/valgrind.h... no
+checking valgrind/memcheck.h usability... no
+checking valgrind/memcheck.h presence... no
+checking for valgrind/memcheck.h... no
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for mkstemp... yes
+checking whether mkstemp needs a declaration... no
+checking for fdopen... yes
+checking whether fdopen needs a declaration... yes
+sourcing /home/chan/mpich_work/mpich2/src/mpid/dcmfd/setup_device
+****** RUNNING SETUP_DEVICE FOR THE DCMF DEVICE ******
+* CC=powerpc-bgp-linux-gcc
+* configure args= '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux'
+* MSGLAYER_LIB=-L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna
+* device_args=BGP
+******************************************************
+******************************************************
+CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include
+******************************************************
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_yield... yes
+checking for library containing pthread_key_create... none required
+checking whether pthread routines without explicit lib are broken... unknown
+checking for pthread_cleanup_push... no
+checking whether pthread_cleanup_push is available (may be a macro in pthread.h)... no
+checking whether pthread.h defines PTHREAD_MUTEX_RECURSIVE_NP... yes
+checking whether pthread.h defines PTHREAD_MUTEX_RECURSIVE... no
+checking for sched_yield... yes
+checking for yield... no
+checking for usleep... yes
+checking for sleep... yes
+checking for select... yes
+checking for getpid... yes
+checking for sched_setaffinity... yes
+checking for sched_getaffinity... yes
+checking for bindprocessor... no
+checking for thread_policy_set... no
+checking whether cpu_set_t available... yes
+checking whether the CPU_SET and CPU_ZERO macros are defined... no
+configure: WARNING: Unrecognized options: --with-device, --with-pmi, --with-pm, --with-file-system, --enable-timer-type, --with-cross
+RUNNING CONFIGURE FOR DCMF DEVICE
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating localdefs
+config.status: creating include/mpid_thread.h
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/misc/Makefile
+config.status: creating src/comm/Makefile
+config.status: creating src/comm/collselect/Makefile
+config.status: creating src/comm/topo/Makefile
+config.status: creating src/onesided/Makefile
+config.status: creating src/pt2pt/Makefile
+config.status: creating src/coll/Makefile
+config.status: creating src/coll/gather/Makefile
+config.status: creating src/coll/reduce/Makefile
+config.status: creating src/coll/scatter/Makefile
+config.status: creating src/coll/alltoall/Makefile
+config.status: creating src/coll/allgather/Makefile
+config.status: creating src/coll/allreduce/Makefile
+config.status: creating src/coll/bcast/Makefile
+config.status: creating src/coll/reduce_scatter/Makefile
+config.status: creating src/coll/alltoallw/Makefile
+config.status: creating src/coll/scatterv/Makefile
+config.status: creating src/coll/alltoallv/Makefile
+config.status: creating src/coll/allgatherv/Makefile
+config.status: creating src/coll/barrier/Makefile
+config.status: creating src/impl/Makefile
+config.status: creating src/persistent/Makefile
+config.status: creating include/mpid_config.h
+config.status: executing default-1 commands
+copying /home/chan/mpich_work/mpich2/src/mpid/dcmfd/../common/thread/mpid_thread_mpe.c to src/mpid_thread.c
+configure: WARNING: Unrecognized options: --with-device, --with-pmi, --with-pm, --with-file-system, --enable-timer-type, --with-cross
+******** Running DCMF localdefs *****
+configure: WARNING: Unrecognized options: --with-device, --with-pmi, --with-pm, --with-file-system, --enable-timer-type, --with-cross
+RUNNING CONFIGURE FOR LOCKS
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for ar... ar
+checking for ranlib... ranlib
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking for yield... no
+checking for sched_yield... yes
+checking for usleep... yes
+checking for sleep... yes
+checking for select... yes
+checking for mutex_init... no
+checking for compare_and_swap... no
+checking for pthread_mutexattr_init... yes
+checking for pthread_mutexattr_setpshared... yes
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking for inline... inline
+checking for working volatile... yes
+checking for an ANSI C-conforming const... yes
+checking for sun atomic library... no
+checking for gcc atomic intrinsics... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating mpid_locksconf.h
+configure: WARNING: Unrecognized options: --with-device, --with-pmi, --with-pm, --with-file-system, --enable-timer-type, --with-cross
+configure: WARNING: Unrecognized options: --with-device, --with-pmi, --with-pm, --enable-timer-type, --with-cross
+Configuring with args --prefix=NONE --with-device=dcmfd:BGP --with-pmi=no --with-pm=no --with-file-system=bgl --enable-timer-type=device --with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross --host=powerpc-bgp-linux --build=powerpc-pc-linux build_alias=powerpc-pc-linux host_alias=powerpc-bgp-linux
+checking for architecture... LINUX
+ROMIO home directory is /home/chan/mpich_work/mpich2/src/mpi/romio
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking for powerpc-bgp-linux-g77... powerpc-bgp-linux-gfortran
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether powerpc-bgp-linux-gfortran accepts -g... yes
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for memalign... yes
+checking Fortran external names
+Fortran externals have a trailing underscore and are lowercase
+checking for inline... inline
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking size of int... 4
+checking size of void *... 4
+checking for int large enough for pointers... yes
+checking size of long long... 8
+checking for extension for Fortran 90 programs... f90
+checking for Fortran 90 KIND parameter for 8-byte integers... /home/chan/mpich_work/mpich2/src/mpi/romio/configure: line 6844: 22778 Illegal instruction     ./conftest >/dev/null 2>&1
+unavailable
+checking that we can use integer*8 to declare MPI_DISPLACMENT_CURRENT... yes
+Overriding Array test for MPICH2
+checking for weak symbol support... pragma weak
+checking that weak symbols are visible to other files... yes
+checking that the compiler correctly implements weak symbols... yes
+checking whether struct flock compatible with MPI_Offset... yes
+checking for pvfs2-config... /usr/bin/pvfs2-config
+checking configured file systems... testfs bgl
+checking sys/vfs.h usability... yes
+checking sys/vfs.h presence... yes
+checking for sys/vfs.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/mount.h usability... yes
+checking sys/mount.h presence... yes
+checking for sys/mount.h... yes
+checking sys/statvfs.h usability... yes
+checking sys/statvfs.h presence... yes
+checking for sys/statvfs.h... yes
+checking whether struct statfs properly defined... yes
+checking for f_fstypename member of statfs structure... no
+checking for sys/stat.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for stat... yes
+checking for st_fstype member of stat structure... no
+checking for sys/types.h... (cached) yes
+checking for sys/statvfs.h... (cached) yes
+checking for sys/vfs.h... (cached) yes
+checking for statvfs... yes
+checking for f_basetype member of statvfs structure... no
+checking for unistd.h... (cached) yes
+checking for large file defines... yes
+checking whether off64_t is an scalar type... yes
+checking for strerror... yes
+checking for doctext... false
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for lstat... yes
+checking whether lstat needs a declaration... yes
+checking for readlink... yes
+checking whether readlink needs a declaration... no
+checking for fsync... yes
+checking whether fsync needs a declaration... no
+checking for ftruncate... yes
+checking whether ftruncate needs a declaration... no
+checking for unistd.h... (cached) yes
+checking for large file defines... yes
+setting SYSDEP_INC to -INONE/include
+checking for restrict... __restrict
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+setting CC to powerpc-bgp-linux-gcc
+setting F77 to powerpc-bgp-linux-gfortran
+setting TEST_CC to /scratch/chan/mpich2_work/build/bin/mpicc
+setting TEST_F77 to /scratch/chan/mpich2_work/build/bin/mpif77
+setting CFLAGS to  -O2  -DFORTRANUNDERSCORE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_ROMIOCONF_H -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+setting USER_CFLAGS to 
+setting USER_FFLAGS to 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating mpi-io/Makefile
+config.status: creating mpi2-other/info/Makefile
+config.status: creating mpi2-other/array/Makefile
+config.status: creating adio/common/Makefile
+config.status: creating test/Makefile
+config.status: creating test/misc.c
+config.status: creating test/large_file.c
+config.status: creating test/runtests
+config.status: creating test-internal/Makefile
+config.status: creating util/romioinstall
+config.status: creating include/mpio.h
+config.status: creating include/mpiof.h
+config.status: creating adio/ad_nfs/Makefile
+config.status: creating adio/ad_ufs/Makefile
+config.status: creating adio/ad_bgl/Makefile
+config.status: creating adio/ad_bglockless/Makefile
+config.status: creating adio/ad_panfs/Makefile
+config.status: creating adio/ad_xfs/Makefile
+config.status: creating adio/ad_sfs/Makefile
+config.status: creating adio/ad_pfs/Makefile
+config.status: creating adio/ad_testfs/Makefile
+config.status: creating adio/ad_pvfs/Makefile
+config.status: creating adio/ad_pvfs2/Makefile
+config.status: creating adio/ad_gridftp/Makefile
+config.status: creating adio/ad_lustre/Makefile
+config.status: creating adio/ad_zoidfs/Makefile
+config.status: creating mpi-io/fortran/Makefile
+config.status: creating mpi2-other/info/fortran/Makefile
+config.status: creating mpi2-other/array/fortran/Makefile
+config.status: creating test/fmisc.f
+config.status: creating test/fcoll_test.f
+config.status: creating test/pfcoll_test.f
+config.status: creating test/fperf.f
+config.status: creating mpi-io/glue/mpich2/Makefile
+config.status: creating mpi-io/glue/mpich1/Makefile
+config.status: creating mpi-io/glue/default/Makefile
+config.status: creating common/dataloop/Makefile
+config.status: creating adio/include/romioconf.h
+config.status: executing default-1 commands
+configure: WARNING: Unrecognized options: --with-device, --with-pmi, --with-pm, --enable-timer-type, --with-cross
+Configuring MPE Profiling System with  '--prefix=NONE' '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+This MPE build is part of the MPICH2 build
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking whether MPI_CC has been set ... /scratch/chan/mpich2_work/build/bin/mpicc 
+checking for powerpc-bgp-linux-g77... powerpc-bgp-linux-gfortran
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether powerpc-bgp-linux-gfortran accepts -g... yes
+checking whether MPI_F77 has been set ... /scratch/chan/mpich2_work/build/bin/mpif77 
+checking how to get verbose linking output from powerpc-bgp-linux-gfortran... -v
+checking for Fortran 77 libraries of powerpc-bgp-linux-gfortran...  -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/lib/gcc/powerpc-bgp-linux/4.1.2 -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/lib/gcc/powerpc-bgp-linux/4.1.2/../../../../powerpc-bgp-linux/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -lSPI.cna -lgfortranbegin -lgfortran -lm
+checking whether powerpc-bgp-linux-gfortran accepts the FLIBS found by autoconf... yes
+checking whether C can link with  -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/lib/gcc/powerpc-bgp-linux/4.1.2 -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/lib/gcc/powerpc-bgp-linux/4.1.2/../../../../powerpc-bgp-linux/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -lSPI.cna -lgfortranbegin -lgfortran -lm... yes
+checking for linker for Fortran main programs... Use Fortran to link programs
+checking whether Fortran 77 and C objects are compatible... yes
+checking for Fortran 77 name mangling... lower underscore
+checking what libraries are needed to link Fortran programs with C routines that use stdio... none
+checking for Fortran 77 flag for library directories... -L
+checking for include directory flag for Fortran... -I
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking for powerpc-bgp-linux-ranlib... ranlib
+checking whether install breaks libraries... no
+checking for leftover Makefiles in subpackages ... none 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/mpetestlink
+config.status: creating sbin/mpetestexec
+config.status: creating sbin/mpetestexeclog
+config.status: creating sbin/mpeinstall
+config.status: creating sbin/mpecheckinstall
+config.status: WARNING:  '/home/chan/mpich_work/mpich2/src/mpe2/sbin/mpecheckinstall.in' seems to ignore the --datarootdir setting
+config.status: creating sbin/mpecheckbuild
+config.status: creating etc/mpe_help.conf
+config.status: creating etc/mpe_f77env.conf
+config.status: creating mpe_conf.h
+config.status: executing default-1 commands
+=== configuring in src/misc (/scratch/chan/mpich2_work/build/src/mpe2/src/misc)
+configure: running /bin/sh /home/chan/mpich_work/mpich2/src/mpe2/src/misc/configure --disable-option-checking '--prefix=/usr/local'  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' --cache-file=/dev/null --srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/misc
+Configuring MPE Miscellaneous Library with  '--disable-option-checking' '--prefix=/usr/local' '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' '--cache-file=/dev/null' '--srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/misc'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... powerpc-pc-linux-gnu
+checking host system type... powerpc-bgp-linux-gnu
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for powerpc-bgp-linux-ranlib... ranlib
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for dbx... no
+checking for gdb... /bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/bin/gdb
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sysinfo... yes
+checking for uname... yes
+checking for gethostbyname... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking sys/systeminfo.h usability... no
+checking sys/systeminfo.h presence... no
+checking for sys/systeminfo.h... no
+checking for sys/types.h... (cached) yes
+checking for sighandler_t... no
+checking for kill... yes
+checking whether kill needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/dbxerr.c
+config.status: creating mpe_misc_conf.h
+=== configuring in src/callstack (/scratch/chan/mpich2_work/build/src/mpe2/src/callstack)
+configure: running /bin/sh /home/chan/mpich_work/mpich2/src/mpe2/src/callstack/configure --disable-option-checking '--prefix=/usr/local'  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' --cache-file=/dev/null --srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/callstack
+Configuring MPE CallStack Library with  '--disable-option-checking' '--prefix=/usr/local' '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' '--cache-file=/dev/null' '--srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/callstack'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for powerpc-bgp-linux-ranlib... ranlib
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking whether <execinfo.h> defines backtrace_symbols_fd() ... yes
+checking if <execinfo.h> links with -Wl,--export-dynamic ... yes
+checking for fdopen... yes
+checking whether fdopen needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating include/mpe_callstack.h
+config.status: creating etc/mpe_callstack_ldflags.conf
+config.status: creating mpe_callstack_conf.h
+=== configuring in src/logging (/scratch/chan/mpich2_work/build/src/mpe2/src/logging)
+configure: running /bin/sh /home/chan/mpich_work/mpich2/src/mpe2/src/logging/configure --disable-option-checking '--prefix=/usr/local'  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' --cache-file=/dev/null --srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/logging
+Configuring MPE Logging Library and Tools with  '--disable-option-checking' '--prefix=/usr/local' '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' '--cache-file=/dev/null' '--srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/logging'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for powerpc-bgp-linux-ranlib... ranlib
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for byte ordering... defined to be big endian 
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking stdlib.h usability... yes
+checking stdlib.h presence... yes
+checking for stdlib.h... yes
+checking string.h usability... yes
+checking string.h presence... yes
+checking for string.h... yes
+checking unistd.h usability... yes
+checking unistd.h presence... yes
+checking for unistd.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/types.h usability... yes
+checking sys/types.h presence... yes
+checking for sys/types.h... yes
+checking sys/bitypes.h usability... yes
+checking sys/bitypes.h presence... yes
+checking for sys/bitypes.h... yes
+checking sys/stat.h usability... yes
+checking sys/stat.h presence... yes
+checking for sys/stat.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for header that defines C99 integer types, intXX_t ... <stdint.h> 
+checking inttypes.h usability... yes
+checking inttypes.h presence... yes
+checking for inttypes.h... yes
+checking whether <inttypes.h> defines the PRIdXX macros ... yes
+checking if <stdint.h> can be behind system headers ... yes
+checking size of void *... 4
+checking for address-sized integer ... CLOG_int32_t
+checking build system type... powerpc-pc-linux-gnu
+checking host system type... powerpc-bgp-linux-gnu
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for mkstemp... yes
+checking whether mkstemp needs a declaration... no
+checking for srand48... yes
+checking whether srand48 needs a declaration... no
+checking for lrand48... yes
+checking whether lrand48 needs a declaration... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for O_LARGEFILE for open() ... needs _LARGEFILE64_SOURCE 
+checking for O_BINARY for open() ... no
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_mutex_lock in -lpthread... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating include/clog_inttypes.h
+config.status: creating include/mpi_null.h
+config.status: creating include/mpe_log_thread.h
+config.status: creating etc/mpe_log.conf
+config.status: creating etc/mpe_nolog.conf
+config.status: creating etc/mpe_log_postlib.conf
+config.status: creating mpe_logging_conf.h
+=== configuring in src/wrappers (/scratch/chan/mpich2_work/build/src/mpe2/src/wrappers)
+configure: running /bin/sh /home/chan/mpich_work/mpich2/src/mpe2/src/wrappers/configure --disable-option-checking '--prefix=/usr/local'  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' --cache-file=/dev/null --srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/wrappers
+Configuring MPE Wrapper Libraries For MPI with  '--disable-option-checking' '--prefix=/usr/local' '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' '--cache-file=/dev/null' '--srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/wrappers'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for powerpc-bgp-linux-ranlib... ranlib
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdarg is correct... yes
+checking if compiler accepts prototypes ... yes
+checking build system type... powerpc-pc-linux-gnu
+checking host system type... powerpc-bgp-linux-gnu
+checking for safe PMPI invocations ... no
+checking for the value of MPI_STATUS_SIZE ... 5
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating etc/mpe_f77env.conf
+config.status: creating etc/mpe_mpilog.conf
+config.status: creating etc/mpe_mpitrace.conf
+config.status: creating mpe_wrappers_conf.h
+=== configuring in src/graphics (/scratch/chan/mpich2_work/build/src/mpe2/src/graphics)
+configure: running /bin/sh /home/chan/mpich_work/mpich2/src/mpe2/src/graphics/configure --disable-option-checking '--prefix=/usr/local'  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' --cache-file=/dev/null --srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/graphics
+Configuring MPE X Graphics Library with  '--disable-option-checking' '--prefix=/usr/local' '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' '--cache-file=/dev/null' '--srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/graphics'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for powerpc-bgp-linux-ranlib... ranlib
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for X... libraries /usr/X11R6/lib, headers /usr/X11R6/include
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking size of void *... 4
+checking for long pointer... no
+checking for system... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating contrib/life/Makefile
+config.status: creating contrib/mandel/Makefile
+config.status: creating contrib/mastermind/Makefile
+config.status: creating contrib/test/Makefile
+config.status: creating etc/mpe_mpianim.conf
+config.status: creating etc/mpe_graphics.conf
+config.status: creating mpe_graphics_conf.h
+=== configuring in src/collchk (/scratch/chan/mpich2_work/build/src/mpe2/src/collchk)
+configure: running /bin/sh /home/chan/mpich_work/mpich2/src/mpe2/src/collchk/configure --disable-option-checking '--prefix=/usr/local'  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' --cache-file=/dev/null --srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/collchk
+Configuring MPE Collective and Datatype Checking Library with  '--disable-option-checking' '--prefix=/usr/local' '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' '--cache-file=/dev/null' '--srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/collchk'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... powerpc-pc-linux-gnu
+checking host system type... powerpc-bgp-linux-gnu
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for powerpc-bgp-linux-ranlib... ranlib
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for working alloca.h... yes
+checking for alloca... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating etc/mpe_mpicheck.conf
+config.status: creating mpe_collchk_conf.h
+=== configuring in src/slog2sdk (/scratch/chan/mpich2_work/build/src/mpe2/src/slog2sdk)
+configure: running /bin/sh /home/chan/mpich_work/mpich2/src/mpe2/src/slog2sdk/configure --disable-option-checking '--prefix=/usr/local'  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' --cache-file=/dev/null --srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/slog2sdk
+Configuring SLOG2SDK with  '--disable-option-checking' '--prefix=/usr/local' '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' '--cache-file=/dev/null' '--srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/slog2sdk'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking if CLASSPATH is set... no, good to go
+checking build system type... powerpc-pc-linux-gnu
+checking host system type... powerpc-bgp-linux-gnu
+checking for java in user's PATH... found /etc/java
+checking if /etc/java runs simple java class... no
+checking for java in user's PATH... found /usr/bin/java
+checking if /usr/bin/java runs simple java class... yes
+checking if /usr/bin/java runs simple jar file... yes
+checking if /usr/bin/java runs non-GUI tool... yes
+checking if /usr/bin/java runs simple Swing class... yes
+checking if /usr/bin/java runs simple Swing jar file... yes
+checking for Java version... java full version "J2RE 1.4.2 IBM build cxppc32142-20080515 (SR11)", i.e. Java 2 SDK
+checking for cygpath... no
+creating /scratch/chan/mpich2_work/build/src/mpe2/src/slog2sdk/lib from source
+creating directory /scratch/chan/mpich2_work/build/src/mpe2/src/slog2sdk/bin
+creating /scratch/chan/mpich2_work/build/src/mpe2/src/slog2sdk/doc from source
+creating /scratch/chan/mpich2_work/build/src/mpe2/src/slog2sdk/share
+creating /scratch/chan/mpich2_work/build/src/mpe2/src/slog2sdk/share/logfiles
+creating sample logfiles from source
+checking for leftover Makefiles in subpackages ... none 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/install-package
+config.status: creating bin/slog2print
+config.status: creating bin/slog2navigator
+config.status: creating bin/slog2filter
+config.status: creating bin/slog2updater
+config.status: creating bin/logconvertor
+config.status: creating bin/jumpshot
+config.status: creating bin/clogprint
+config.status: creating bin/clogTOslog2
+config.status: creating bin/clog2print
+config.status: creating bin/clog2TOslog2
+=== configuring in trace_rlog (/scratch/chan/mpich2_work/build/src/mpe2/src/slog2sdk/trace_rlog)
+configure: running /bin/sh /home/chan/mpich_work/mpich2/src/mpe2/src/slog2sdk/trace_rlog/configure --disable-option-checking '--prefix=/usr/local'  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' --cache-file=/dev/null --srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/slog2sdk/trace_rlog
+Configuring TRACE_RLOG implementation with  '--disable-option-checking' '--prefix=/usr/local' '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' 'MPI_CC=/scratch/chan/mpich2_work/build/bin/mpicc' 'MPI_F77=/scratch/chan/mpich2_work/build/bin/mpif77' 'CC=powerpc-bgp-linux-gcc' 'CFLAGS= -O2' 'LIBS= -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/runtime/SPI -lSPI.cna ' 'CPPFLAGS= -I/scratch/chan/mpich2_work/build/src/mpid/dcmfd/include -I/home/chan/mpich_work/mpich2/src/mpid/dcmfd/include -I/scratch/chan/mpich2_work/build/src/mpid/common/datatype -I/home/chan/mpich_work/mpich2/src/mpid/common/datatype -I/scratch/chan/mpich2_work/build/src/mpid/common/locks -I/home/chan/mpich_work/mpich2/src/mpid/common/locks -I/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/comm/include' 'F77=powerpc-bgp-linux-gfortran' 'FFLAGS= -O2' '--cache-file=/dev/null' '--srcdir=/home/chan/mpich_work/mpich2/src/mpe2/src/slog2sdk/trace_rlog'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking for an ANSI C-conforming const... yes
+checking size of void *... 4
+checking size of int... 4
+checking size of long... 4
+checking size of long long... 8
+checking size of __int64... 0
+checking for byte ordering... defined to be big endian 
+checking build system type... powerpc-pc-linux-gnu
+checking host system type... powerpc-bgp-linux-gnu
+checking for sed... sed
+checking for a sed that does not truncate output... sed
+checking for fgrep... /bin/grep -F
+checking for ld used by powerpc-bgp-linux-gcc... /bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/powerpc-bgp-linux/bin/ld
+checking if the linker (/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/powerpc-bgp-linux/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/bin/powerpc-bgp-linux-nm -B
+checking the name lister (/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/bin/powerpc-bgp-linux-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 98304
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/powerpc-bgp-linux/bin/ld option to reload object files... -r
+checking how to recognize dependent libraries... pass_all
+checking for powerpc-bgp-linux-ar... ar
+checking for powerpc-bgp-linux-strip... powerpc-bgp-linux-strip
+checking for powerpc-bgp-linux-ranlib... ranlib
+checking command to parse /bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/bin/powerpc-bgp-linux-nm -B output from powerpc-bgp-linux-gcc object... ok
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if powerpc-bgp-linux-gcc supports -fno-rtti -fno-exceptions... no
+checking for powerpc-bgp-linux-gcc option to produce PIC... -fPIC -DPIC
+checking if powerpc-bgp-linux-gcc PIC flag -fPIC -DPIC works... yes
+checking if powerpc-bgp-linux-gcc static flag -static works... yes
+checking if powerpc-bgp-linux-gcc supports -c -o file.o... yes
+checking if powerpc-bgp-linux-gcc supports -c -o file.o... (cached) yes
+checking whether the powerpc-bgp-linux-gcc linker (/bgsys/drivers/V1R2M0_200_2008-080513P/ppc/gnu-linux/powerpc-bgp-linux/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for malloc in -lefence... no
+checking for strstr... yes
+checking target system type... powerpc-bgp-linux-gnu
+checking for javah in user's PATH... found /usr/bin/javah
+checking if /usr exists... yes
+checking for <jni.h> include flag... no
+checking for javah in user's PATH... found /usr/bin/javah
+checking if /usr exists... yes
+checking for <jni.h> include flag... no
+configure: WARNING:  Invalid JNI include dir, exit! 
+configure: WARNING: SLOG2SDK: No sub-package has been configured
+MPE2:  "src/misc" "src/callstack" "src/logging" "src/wrappers" "src/graphics" "src/collchk" "src/slog2sdk" have been configured
+checking the sizeof MPI_Offset... 8
+checking whether the Fortran Offset type works with Fortran77... yes
+checking whether the Fortran Offset type works with Fortran90... yes
+Running Configure for F90 Type routines
+checking for cc... powerpc-bgp-linux-gcc
+checking whether the C compiler sets its return status correctly... yes
+checking for an ANSI C-conforming const... no
+checking that f works as the extension for Fortran 90 program... yes
+checking for Fortran 90 compiler default output file name... a.out
+checking whether the Fortran 90 compiler works... configure: error: cannot run Fortran 90 compiled programs.
+If you meant to cross compile, use `--host'.
+See `config.log' for more details.
+configure: WARNING: Unable to determine F90 type support; defaults used
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/include/Makefile
+config.status: creating src/include/mpich2info.h
+config.status: creating mpich2-doxygen
+config.status: creating src/include/mpichtimer.h
+config.status: creating src/binding/Makefile
+config.status: creating src/binding/cxx/Makefile
+config.status: creating src/binding/cxx/mpicxx.h
+config.status: creating src/binding/f77/Makefile
+config.status: creating src/binding/f77/mpif.h
+config.status: creating src/binding/f77/setbotf.f
+config.status: creating src/binding/f90/Makefile
+config.status: creating src/binding/f90/mpi_sizeofs.f90
+config.status: creating src/pkgconfig/mpich2-ch3.pc
+config.status: creating src/pkgconfig/Makefile
+config.status: creating src/env/mpixxx_opts.conf
+config.status: creating src/env/mpicc
+config.status: creating src/env/mpicc.conf
+config.status: creating src/env/mpicc.bash
+config.status: creating src/env/mpicxx
+config.status: creating src/env/mpicxx.conf
+config.status: creating src/env/mpicxx.bash
+config.status: creating src/env/mpif77
+config.status: creating src/env/mpif77.conf
+config.status: creating src/env/mpif77.bash
+config.status: creating src/env/mpif90
+config.status: creating src/env/mpif90.conf
+config.status: creating src/env/mpif90.bash
+config.status: creating src/env/parkill
+config.status: creating src/env/Makefile
+config.status: creating src/util/createshlib
+config.status: creating src/mpi/Makefile
+config.status: creating src/mpi/attr/Makefile
+config.status: creating src/mpi/coll/Makefile
+config.status: creating src/mpi/comm/Makefile
+config.status: creating src/mpi/datatype/Makefile
+config.status: creating src/mpi/debugger/Makefile
+config.status: creating src/mpi/errhan/Makefile
+config.status: creating src/mpi/group/Makefile
+config.status: creating src/mpi/init/Makefile
+config.status: creating src/mpi/misc/Makefile
+config.status: creating src/mpi/pt2pt/Makefile
+config.status: creating src/mpi/rma/Makefile
+config.status: creating src/mpi/spawn/Makefile
+config.status: creating src/mpi/timer/Makefile
+config.status: creating src/mpi/topo/Makefile
+config.status: creating src/mpid/Makefile
+config.status: creating src/mpid/common/Makefile
+config.status: creating src/mpid/common/datatype/Makefile
+config.status: creating src/mpid/common/datatype/dataloop/Makefile
+config.status: creating src/pm/Makefile
+config.status: creating src/pmi/Makefile
+config.status: creating src/nameserv/Makefile
+config.status: creating src/nameserv/file/Makefile
+config.status: creating src/nameserv/mpd/Makefile
+config.status: creating src/nameserv/pmi/Makefile
+config.status: creating src/nameserv/test/Makefile
+config.status: creating src/util/Makefile
+config.status: creating src/util/info/Makefile
+config.status: creating src/util/instrm/Makefile
+config.status: creating src/util/thread/Makefile
+config.status: creating src/util/thread/mpe_thread.h
+config.status: creating src/util/mem/Makefile
+config.status: creating src/util/msgs/Makefile
+config.status: creating src/util/param/Makefile
+config.status: creating src/util/dbg/Makefile
+config.status: creating src/util/dbg/getfuncstack
+config.status: creating src/util/osserv/Makefile
+config.status: creating src/util/procmap/Makefile
+config.status: creating src/include/mpi.h
+config.status: creating test/Makefile
+config.status: creating test/util/Makefile
+config.status: creating test/basic/Makefile
+config.status: creating test/commands/Makefile
+config.status: creating test/commands/cmdtests
+config.status: creating test/mpid/Makefile
+config.status: creating test/mpid/ch3/Makefile
+config.status: creating test/util/timer/Makefile
+config.status: creating examples/Makefile
+config.status: creating examples/f77/Makefile
+config.status: creating examples/f90/Makefile
+config.status: creating examples/cxx/Makefile
+config.status: creating src/util/logging/Makefile
+config.status: creating src/util/logging/common/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/mansrc/Makefile
+config.status: creating doc/mansrc/createhtmlindex
+config.status: creating doc/refman/Makefile
+config.status: creating doc/installguide/Makefile
+config.status: creating doc/userguide/Makefile
+config.status: creating doc/logging/Makefile
+config.status: creating doc/design/Makefile
+config.status: creating doc/smpd/Makefile
+config.status: creating doc/windev/Makefile
+config.status: creating src/include/mpichconf.h
+config.status: executing default-1 commands
+config.status: executing default-2 commands
+config.status: executing default-3 commands
+config.status: executing default-4 commands
+copying /home/chan/mpich_work/mpich2/src/util/thread/mpe_thread_posix.c to src/util/thread/mpe_thread.c
+moving mpe_thread.h to src/include
+config.status: executing default-5 commands
+config.status: executing default-6 commands
+config.status: executing default-7 commands
+config.status: executing default-8 commands
+config.status: executing default-9 commands
+Updating dependency directories .deps
+config.status: executing default-10 commands
+config.status: executing default-11 commands
+config.status: executing default-12 commands
+config.status: executing default-13 commands
+config.status: executing default-14 commands
+=== configuring in test/mpi (/scratch/chan/mpich2_work/build/test/mpi)
+configure: running /bin/sh /home/chan/mpich_work/mpich2/test/mpi/configure --disable-option-checking '--prefix=/usr/local'  '--with-device=dcmfd:BGP' '--with-pmi=no' '--with-pm=no' '--with-file-system=bgl' '--enable-timer-type=device' '--with-cross=/home/chan/mpich_work/mpich2/src/mpid/dcmfd/cross' '--host=powerpc-bgp-linux' '--build=powerpc-pc-linux' 'build_alias=powerpc-pc-linux' 'host_alias=powerpc-bgp-linux' --cache-file=/dev/null --srcdir=/home/chan/mpich_work/mpich2/test/mpi
+RUNNING CONFIGURE FOR MPI TESTS
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for powerpc-bgp-linux-gcc... powerpc-bgp-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether powerpc-bgp-linux-gcc accepts -g... yes
+checking for powerpc-bgp-linux-gcc option to accept ISO C89... none needed
+checking for powerpc-bgp-linux-g77... powerpc-bgp-linux-gfortran
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether powerpc-bgp-linux-gfortran accepts -g... yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for an ANSI C-conforming const... yes
+checking for restrict... __restrict
+checking how to run the C preprocessor... powerpc-bgp-linux-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for string.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for memory.h... (cached) yes
+Configuring tests for MPICH2
+checking whether struct hostent contains h_addr_list... no
+checking whether integer*4 is supported... yes
+checking whether integer*8 is supported... yes
+checking whether integer*16 is supported... no
+/home/chan/mpich_work/mpich2/test/mpi/configure: line 6449: f77/init/checksizes.c: No such file or directory
+checking for Fortran 77 name mangling... lower underscore
+checking for Fortran libraries needed for getarg... none needed
+checking whether Fortran has pointer declaration... no
+checking for powerpc-bgp-linux-f90... powerpc-bgp-linux-gfortran
+checking that f works as the extension for Fortran 90 program... yes
+checking whether we are using the GNU Fortran 90 compiler... yes
+checking whether powerpc-bgp-linux-gfortran accepts -g... yes
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (powerpc-bgp-linux-gfortran  ) works... yes
+checking whether the Fortran 90 compiler (powerpc-bgp-linux-gfortran  ) is a cross-compiler... yes
+checking whether Fortran 90 has Cray-style pointer declaration... no
+checking whether <iostream> available... yes
+checking whether the compiler implements namespaces... yes
+checking whether the compiler implements the namespace std... yes
+checking whether MPI_2DOUBLE_COMPLEX is available... no
+checking for perl... /usr/bin/perl
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating maint/testmerge
+config.status: creating runtests
+config.status: creating Makefile
+config.status: creating basic/Makefile
+config.status: creating attr/Makefile
+config.status: creating util/Makefile
+config.status: creating coll/Makefile
+config.status: creating comm/Makefile
+config.status: creating datatype/Makefile
+config.status: creating errhan/Makefile
+config.status: creating group/Makefile
+config.status: creating info/Makefile
+config.status: creating init/Makefile
+config.status: creating pt2pt/Makefile
+config.status: creating rma/Makefile
+config.status: creating spawn/Makefile
+config.status: creating topo/Makefile
+config.status: creating io/Makefile
+config.status: creating f77/Makefile
+config.status: creating f77/attr/Makefile
+config.status: creating f77/attr/attraints.h
+config.status: creating f77/pt2pt/attr1aints.h
+config.status: creating f77/ext/add1size.h
+config.status: creating f77/datatype/Makefile
+config.status: creating f77/datatype/typeaints.h
+config.status: creating f77/util/Makefile
+config.status: creating f77/coll/Makefile
+config.status: creating f77/comm/Makefile
+config.status: creating f77/topo/Makefile
+config.status: creating f77/init/Makefile
+config.status: creating f77/rma/addsize.h
+config.status: creating f77/pt2pt/Makefile
+config.status: creating f77/info/Makefile
+config.status: creating f77/spawn/Makefile
+config.status: creating f77/spawn/type1aint.h
+config.status: creating f77/rma/Makefile
+config.status: creating f77/ext/Makefile
+config.status: creating f77/ext/testlist
+config.status: creating f77/io/Makefile
+config.status: creating f77/io/iooffset.h
+config.status: creating f77/io/iodisp.h
+config.status: creating f77/io/ioaint.h
+config.status: creating f90/Makefile
+config.status: creating f90/attr/Makefile
+config.status: creating f90/datatype/Makefile
+config.status: creating f90/f90types/Makefile
+config.status: creating f90/util/Makefile
+config.status: creating f90/coll/Makefile
+config.status: creating f90/comm/Makefile
+config.status: creating f90/topo/Makefile
+config.status: creating f90/init/Makefile
+config.status: creating f90/pt2pt/Makefile
+config.status: creating f90/rma/Makefile
+config.status: creating f90/info/Makefile
+config.status: creating f90/spawn/Makefile
+config.status: creating f90/timer/Makefile
+config.status: creating f90/ext/Makefile
+config.status: creating f90/ext/testlist
+config.status: creating f90/io/Makefile
+config.status: creating f90/misc/Makefile
+config.status: creating cxx/Makefile
+config.status: creating cxx/util/Makefile
+config.status: creating cxx/attr/Makefile
+config.status: creating cxx/pt2pt/Makefile
+config.status: creating cxx/comm/Makefile
+config.status: creating cxx/coll/Makefile
+config.status: creating cxx/info/Makefile
+config.status: creating cxx/datatype/Makefile
+config.status: creating cxx/io/Makefile
+config.status: creating cxx/init/Makefile
+config.status: creating cxx/rma/Makefile
+config.status: creating cxx/spawn/Makefile
+config.status: creating threads/Makefile
+config.status: creating threads/pt2pt/Makefile
+config.status: creating threads/util/Makefile
+config.status: creating threads/comm/Makefile
+config.status: creating threads/init/Makefile
+config.status: creating threads/spawn/Makefile
+config.status: creating errors/Makefile
+config.status: creating errors/attr/Makefile
+config.status: creating errors/basic/Makefile
+config.status: creating errors/coll/Makefile
+config.status: creating errors/comm/Makefile
+config.status: creating errors/group/Makefile
+config.status: creating errors/pt2pt/Makefile
+config.status: creating errors/rma/Makefile
+config.status: creating errors/spawn/Makefile
+config.status: creating errors/topo/Makefile
+config.status: creating errors/io/Makefile
+config.status: creating errors/cxx/Makefile
+config.status: creating errors/cxx/errhan/Makefile
+config.status: creating errors/cxx/io/Makefile
+config.status: creating errors/f77/Makefile
+config.status: creating errors/f90/Makefile
+config.status: creating manual/Makefile
+config.status: creating manual/manyconnect
+config.status: creating perf/Makefile
+config.status: creating testlist
+config.status: creating cxx/testlist
+config.status: creating f77/testlist
+config.status: creating f90/testlist
+config.status: creating threads/testlist
+config.status: creating errors/testlist
+config.status: creating errors/cxx/testlist
+config.status: creating include/mpitestconf.h
+config.status: executing default-1 commands
+config.status: executing default-2 commands
+config.status: executing default-3 commands
+Configuration completed.

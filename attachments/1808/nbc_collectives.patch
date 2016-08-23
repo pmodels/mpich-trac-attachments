@@ -1,0 +1,189 @@
+From: Michael Blocksome <blocksom@us.ibm.com>
+Date: Fri, 2 Nov 2012 18:45:11 +0000 (-0500)
+Subject: Enable MPIR_* non-blocking collectives implementation
+X-Git-Url: http://git01.rchland.ibm.com/gitweb/var/git/bgq/comm/lib/dev/commitdiff_plain/56a6dc04ebe9d14d839a97aedf8f2fad52087518?js=1
+
+Enable MPIR_* non-blocking collectives implementation
+
+If the environment variable 'PAMID_MPIR_NBC' is set to non-zero then a
+pami work function is posted to context 0 which will invoke the schedule
+progress function.
+
+By default, MPIR_* non-blocking collectives are disabled in order to
+avoid impacting the performance of other MPI operations.
+
+(ibm) 213eb5171c8cc3e636a6a7ea665e10454b174ef8
+
+Signed-off-by: Charles Archer <archerc@us.ibm.com>
+---
+
+diff --git a/src/mpid/pamid/include/mpidi_datatypes.h b/src/mpid/pamid/include/mpidi_datatypes.h
+index 0edc6d9..810f242 100644
+--- a/src/mpid/pamid/include/mpidi_datatypes.h
++++ b/src/mpid/pamid/include/mpidi_datatypes.h
+@@ -130,6 +130,7 @@ typedef struct
+     } context_post;
+   } perobj;                  /**< This structure is only used in the 'perobj' mpich lock mode. */
+ 
++  unsigned mpir_nbc;         /**< Enable MPIR_* non-blocking collectives implementations. */
+ } MPIDI_Process_t;
+ 
+ 
+diff --git a/src/mpid/pamid/include/mpidi_prototypes.h b/src/mpid/pamid/include/mpidi_prototypes.h
+index 79119a9..74e91d7 100644
+--- a/src/mpid/pamid/include/mpidi_prototypes.h
++++ b/src/mpid/pamid/include/mpidi_prototypes.h
+@@ -263,4 +263,8 @@ int MPIDI_Datatype_to_pami(MPI_Datatype        dt,
+ void MPIDI_Op_to_string(MPI_Op op, char *string);
+ pami_result_t MPIDI_Pami_post_wrapper(pami_context_t context, void *cookie);
+ 
++
++void MPIDI_NBC_init ();
++
++
+ #endif
+diff --git a/src/mpid/pamid/src/Makefile.mk b/src/mpid/pamid/src/Makefile.mk
+index 247812a..1fc9915 100644
+--- a/src/mpid/pamid/src/Makefile.mk
++++ b/src/mpid/pamid/src/Makefile.mk
+@@ -56,7 +56,8 @@ lib_lib@MPILIBNAME@_la_SOURCES +=               \
+     src/mpid/pamid/src/mpid_mrecv.c             \
+     src/mpid/pamid/src/mpid_mprobe.c            \
+     src/mpid/pamid/src/mpid_imrecv.c            \
+-    src/mpid/pamid/src/mpid_improbe.c
++    src/mpid/pamid/src/mpid_improbe.c           \
++    src/mpid/pamid/src/mpidi_nbc_sched.c
+ 
+ endif BUILD_PAMID
+ 
+diff --git a/src/mpid/pamid/src/mpid_init.c b/src/mpid/pamid/src/mpid_init.c
+index e4ac607..e571d16 100644
+--- a/src/mpid/pamid/src/mpid_init.c
++++ b/src/mpid/pamid/src/mpid_init.c
+@@ -111,6 +111,8 @@ MPIDI_Process_t  MPIDI_Process = {
+     .subcomms            = 1,
+     .select_colls        = 2,
+   },
++
++  .mpir_nbc              = 0,
+ };
+ 
+ 
+@@ -597,7 +599,8 @@ MPIDI_PAMI_init(int* rank, int* size, int* threading)
+ #endif
+              "  optimized.collectives : %u\n"
+              "  optimized.select_colls: %u\n"
+-             "  optimized.subcomms    : %u\n",
++             "  optimized.subcomms    : %u\n"
++             "  mpir_nbc              : %u\n",
+              MPIDI_Process.verbose,
+              MPIDI_Process.statistics,
+              MPIDI_Process.avail_contexts,
+@@ -629,7 +632,8 @@ MPIDI_PAMI_init(int* rank, int* size, int* threading)
+ #endif
+              MPIDI_Process.optimized.collectives,
+              MPIDI_Process.optimized.select_colls,
+-             MPIDI_Process.optimized.subcomms);
++             MPIDI_Process.optimized.subcomms,
++             MPIDI_Process.mpir_nbc);
+       switch (*threading)
+         {
+           case MPI_THREAD_MULTIPLE:
+@@ -828,6 +832,7 @@ int MPID_Init(int * argc,
+  */
+ int MPID_InitCompleted()
+ {
++  MPIDI_NBC_init();
+   MPIDI_Progress_init();
+   return MPI_SUCCESS;
+ }
+diff --git a/src/mpid/pamid/src/mpidi_env.c b/src/mpid/pamid/src/mpidi_env.c
+index 1eab34a..427a042 100644
+--- a/src/mpid/pamid/src/mpidi_env.c
++++ b/src/mpid/pamid/src/mpidi_env.c
+@@ -847,6 +847,12 @@ MPIDI_Env_setup(int rank, int requested)
+     ENV_Unsigned(names, &MPIDI_Process.shmem_pt2pt, 2, &found_deprecated_env_var, rank);
+   }
+ 
++  /* Enable MPIR_* implementations of non-blocking collectives */
++  {
++    char* names[] = {"PAMID_MPIR_NBC", NULL};
++    ENV_Unsigned(names, &MPIDI_Process.mpir_nbc, 1, &found_deprecated_env_var, rank);
++  }
++
+   /* Check for deprecated collectives environment variables. These variables are
+    * used in src/mpid/pamid/src/comm/mpid_selectcolls.c */
+   {
+diff --git a/src/mpid/pamid/src/misc/mpid_mem.c b/src/mpid/pamid/src/mpidi_nbc_sched.c
+similarity index 51%
+copy from src/mpid/pamid/src/misc/mpid_mem.c
+copy to src/mpid/pamid/src/mpidi_nbc_sched.c
+index 8b7a685..998d03e 100644
+--- a/src/mpid/pamid/src/misc/mpid_mem.c
++++ b/src/mpid/pamid/src/mpidi_nbc_sched.c
+@@ -16,27 +16,50 @@
+ /* end_generated_IBM_copyright_prolog                               */
+ /*  (C)Copyright IBM Corp.  2007, 2011  */
+ /**
+- * \file src/misc/mpid_mem.c
+- * \brief ???
+- */
+-/*
+- *
+- *  (C) 2001 by Argonne National Laboratory.
+- *      See COPYRIGHT in top-level directory.
++ * \file src/mpidi_nbc_sched.c
++ * \brief Non-blocking collectives hooks
+  */
+ 
++#include <pami.h>
+ #include <mpidimpl.h>
+ 
+-void *MPID_Alloc_mem( size_t size, MPID_Info *info_ptr )
++/**
++ * work object for persistent advance of nbc schedules
++ */
++pami_work_t mpidi_nbc_work_object;
++
++/**
++ * \brief Persistent work function for nbc schedule progress
++ */
++pami_result_t mpidi_nbc_work_function (pami_context_t context, void *cookie)
+ {
+-    void *ap;
+-    ap = MPIU_Malloc(size);
+-    return ap;
++  int made_progress = 0;
++  MPIDU_Sched_progress (&made_progress);
++
++  return PAMI_EAGAIN;
+ }
+ 
+-int MPID_Free_mem( void *ptr )
++/**
++ * \brief Initialize support for MPIR_* nbc implementation.
++ *
++ * The MPIR_* non-blocking collectives only work if the schedule is advanced.
++ * This is done by posting a work function to context 0 that invokes the
++ * schedule progress function.
++ *
++ * Because this is a persistent work function and will negatively impact the
++ * performance of all other MPI operations - even when mpir non-blocking
++ * collectives are not used - the work function is only posted if explicitly
++ * requested.
++ */
++void MPIDI_NBC_init ()
+ {
+-    int mpi_errno = MPI_SUCCESS;
+-    MPIU_Free(ptr);
+-    return mpi_errno;
++  if (MPIDI_Process.mpir_nbc != 0)
++  {
++    PAMI_Context_post(MPIDI_Context[0],
++                      &mpidi_nbc_work_object,
++                      mpidi_nbc_work_function,
++                      NULL);
++  }
++
++  return;
+ }

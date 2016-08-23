@@ -1,0 +1,39 @@
+Index: src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h
+===================================================================
+--- src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h	(revision 3009)
++++ src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h	(revision 3010)
+@@ -4,17 +4,11 @@
+  *      See COPYRIGHT in top-level directory.
+  */
+ 
+-#ifdef MPID_NEM_DONT_INLINE_FUNCTIONS
+-#undef MPID_NEM_INLINE_DECL
+-#define MPID_NEM_INLINE_DECL
+-#undef _MPID_NEM_INLINE_H /* ok to include again: we're including the non-inline functions in a .c file */
+-#else
+-#define MPID_NEM_INLINE_DECL extern inline
+-#endif
+-
+ #ifndef _MPID_NEM_INLINE_H
+ #define _MPID_NEM_INLINE_H
+ 
++#define MPID_NEM_INLINE_DECL static inline
++
+ #define MPID_NEM_POLLS_BEFORE_YIELD 1000
+ 
+ #include "my_papi_defs.h"
+Index: src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_mpich2.c
+===================================================================
+--- src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_mpich2.c	(revision 3009)
++++ src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_mpich2.c	(revision 3010)
+@@ -33,10 +33,6 @@
+ #define POLLS_BEFORE_YIELD 1000
+ #endif
+ 
+-/* here we include the non-inlined versions of the files in mpid_nem_inline.h */
+-#define MPID_NEM_DONT_INLINE_FUNCTIONS 1
+-#include <mpid_nem_inline.h>
+-
+ #undef FUNCNAME
+ #define FUNCNAME MPID_nem_mpich2_init
+ #undef FCNAME

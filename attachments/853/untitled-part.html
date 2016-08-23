@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7654.12">
+<TITLE>Problems with mpich</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/rtf format -->
+
+<P><FONT SIZE=2 FACE="Arial">Hi!</FONT><FONT FACE="Times New Roman"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Arial">I have been trying to get mpich-1.2.7p1 installed on my workstation (HP xw8600 with 8 intel processors) and I have been having some difficulty. I would like to be able to use the CMAQ and SMOKE modelling programs for work related to photochemical air modelling and they use mpich in their processing.</FONT></P>
+
+<P><FONT SIZE=2 FACE="Arial">I have have used a cshrc file to set up my environmental variables. Under these conditions I am trying to install mpich with the following sequence:</FONT></P>
+
+<P><FONT SIZE=2 FACE="Arial">1. From the directory with the mpich source code:</FONT><FONT FACE="Times New Roman"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Arial">./configure --prefix=/model2/cmaq4.6/lib/mpich-1.2.7p1 |&amp; tee config.log</FONT><FONT FACE="Times New Roman"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Arial">This seems to work correctly on the basis of the info sent to the screen but there are warnings generated that are caught in the log file specifying there were problems with undefined references to gethrtime, clock_gettime and clock_getres. Also, the configure file could not find /sys/sockio.h</FONT></P>
+
+<P><FONT SIZE=2 FACE="Arial">2. Next, I ran:</FONT><FONT FACE="Times New Roman"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Arial">make |&amp; tee make.log</FONT><FONT FACE="Times New Roman"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Arial">On the screen this time there were errors reported regarding linking an animation library and graphics library and these links failed.</FONT></P>
+
+<P><FONT SIZE=2 FACE="Arial">3. Finally, I ran:</FONT><FONT FACE="Times New Roman"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Arial">make install |&amp; tee make_install.log</FONT><FONT FACE="Times New Roman"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Arial">In this case the make process died right away and complained that tarch was the same and would not be moved.</FONT><FONT FACE="Times New Roman"><BR>
+</FONT><FONT SIZE=2 FACE="Arial">Note: When I restart the machine and go through the above steps all the way through make install does generate a mpichinstall.o file but I don't trust it since the errors mentioned in steps 1 and 2 still persisted.</FONT></P>
+
+<P><FONT SIZE=2 FACE="Arial">I have attached all of the relevant files below.</FONT><FONT FACE="Times New Roman"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Arial">Any thoughts, comments, opinions as to how to correct this would be greatly appreciated.</FONT><FONT FACE="Times New Roman"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Arial">Thanks,</FONT><FONT FACE="Times New Roman"> </FONT>
+</P>
+<BR>
+
+<P><FONT SIZE=1 FACE="Microsoft Sans Serif">David A. Lyder, Ph.D., E.I.T<BR>
+</FONT><FONT SIZE=1 FACE="Microsoft Sans Serif">Air Emissions Specialist, Air Policy Branch</FONT>
+
+<BR><FONT SIZE=1 FACE="Microsoft Sans Serif">Environmental Assurance Division</FONT>
+
+<BR><FONT SIZE=1 FACE="Microsoft Sans Serif">Alberta Environment</FONT>
+
+<BR><FONT SIZE=1 FACE="Microsoft Sans Serif">11th Floor, Baker Centre</FONT>
+
+<BR><FONT SIZE=1 FACE="Microsoft Sans Serif">10025-106 Street, Edmonton, Alberta T5J 1G4</FONT><BR>
+<FONT SIZE=1 FACE="Microsoft Sans Serif">Phone: (780) 644-8693 Fax: (780) 644-8946</FONT>
+</P>
+
+</BODY>
+</HTML>

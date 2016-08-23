@@ -1,0 +1,485 @@
+Beginning make
+Using variables CC='gcc' CFLAGS=' -O2' LDFLAGS='' AR='ar' FC='g77' F90='' FFLAGS=' -O2' F90FLAGS='' CXX='c++' CPPFLAGS=' -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -DUSE_PROCESS_LOCKS  -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/datatype -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/datatype -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers -I/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers'
+make all-local
+Making all in src
+make  all-am
+gcc -DHAVE_CONFIG_H -I.    -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -DUSE_PROCESS_LOCKS  -O2 -MT opa_primitives.o -MD -MP -MF .deps/opa_primitives.Tpo -c -o opa_primitives.o opa_primitives.c
+mv -f .deps/opa_primitives.Tpo .deps/opa_primitives.Po
+gcc -DHAVE_CONFIG_H -I.    -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -DUSE_PROCESS_LOCKS  -O2 -MT opa_queue.o -MD -MP -MF .deps/opa_queue.Tpo -c -o opa_queue.o opa_queue.c
+mv -f .deps/opa_queue.Tpo .deps/opa_queue.Po
+rm -f libopa.a
+ar cru libopa.a opa_primitives.o opa_queue.o 
+ranlib libopa.a
+Making all in test
+gcc -DHAVE_CONFIG_H -I. -I. -I. -I../../../include -I/export/home/kimikhoi/mpich2-1.2.1/src/include -O2 -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -DUSE_PROCESS_LOCKS -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/datatype -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/datatype -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers -I/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers -c mpidu_process_locks.c
+In file included from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:13:28: mpidi_ch3_conf.h: No such file or directory
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:10:38: mpid_nem_net_module_defs.h: No such file or directory
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:11:37: mpidi_ch3i_nemesis_conf.h: No such file or directory
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:10:28: mpidi_ch3_conf.h: No such file or directory
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_datatypes.h:11,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_atomics.h:11:37: mpidi_ch3i_nemesis_conf.h: No such file or directory
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_datatypes.h:39:27: mpid_thread.h: No such file or directory
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_datatypes.h:235: error: syntax error before "MPID_Thread_mutex_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_datatypes.h:235: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_datatypes.h:236: error: `MPID_Thread_mutex_t' undeclared here (not in a function)
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_datatypes.h:238: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_datatypes.h:238: warning: data definition has no type or storage class
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_os_wrappers.h:11,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:14,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:39:5: #error "No shared memory mechanism specified"
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:47,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_os_wrappers.h:11,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:14,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+../../../include/mpiimplthread.h:25:25: mpid_thread.h: No such file or directory
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:47,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_os_wrappers.h:11,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:14,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+../../../include/mpiimplthread.h:58: error: syntax error before "MPID_Thread_tls_t"
+../../../include/mpiimplthread.h:58: warning: no semicolon at end of struct or union
+../../../include/mpiimplthread.h:59: warning: data definition has no type or storage class
+../../../include/mpiimplthread.h:71: error: syntax error before "handle_mutex"
+../../../include/mpiimplthread.h:71: warning: data definition has no type or storage class
+../../../include/mpiimplthread.h:81: error: syntax error before "global_mutex"
+../../../include/mpiimplthread.h:81: warning: data definition has no type or storage class
+../../../include/mpiimplthread.h:85: error: syntax error before "memalloc_mutex"
+../../../include/mpiimplthread.h:85: warning: data definition has no type or storage class
+../../../include/mpiimplthread.h:87: warning: data definition has no type or storage class
+../../../include/mpiimplthread.h:88: error: syntax error before "MPIR_ThreadInfo"
+../../../include/mpiimplthread.h:88: warning: data definition has no type or storage class
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_os_wrappers.h:11,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:14,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:72: error: syntax error before "MPIU_SHMW_Lhnd_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:72: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:75: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:75: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:77: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:77: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:219: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Ghnd_alloc':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:221: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:221: error: (Each undeclared identifier is reported only once
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:221: error: for each function it appears in.)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:222: error: `MPIU_SHMW_GHND_SZ' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:248: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Hnd_alloc':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:250: error: `hnd_ptr' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:251: error: syntax error before "malloc"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:264: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Hnd_reset_val':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:266: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:267: error: `MPIU_SHMW_LHND_INIT_VAL' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:277: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Hnd_free':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:279: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:287: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:288: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:307: error: syntax error before "MPIU_SHMW_Hnd_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Hnd_serialize':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:312: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:313: error: `str' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:314: error: `str_len' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:314: error: `MPIU_SHMW_GHND_SZ' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:338: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Hnd_deserialize':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:343: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:344: error: `str_hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:345: error: `str_hnd_len' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:345: error: `MPIU_SHMW_GHND_SZ' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:381: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Hnd_get_serialized_by_ref':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:385: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:386: error: `str_ptr' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:408: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Hnd_deserialize_by_ref':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:412: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:413: error: `ser_hnd_ptr' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:438: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Hnd_init':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:443: error: `hnd_ptr' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:466: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Hnd_finalize':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:470: error: `hnd_ptr' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:862: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Seg_create':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:866: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:867: error: `seg_sz' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:889: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Seg_open':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:893: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:895: error: `seg_sz' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:917: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Seg_create_and_attach':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:922: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:923: error: `seg_sz' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:924: error: `shm_addr_ptr' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:927: error: `offset' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:949: error: syntax error before "hnd"
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h: In function `MPIU_SHMW_Seg_attach':
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:954: error: `hnd' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:955: error: `shm_addr_ptr' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:957: error: `seg_sz' undeclared (first use in this function)
+/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers/mpiu_shm_wrappers.h:958: error: `offset' undeclared (first use in this function)
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_pre.h:12,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_pre.h:9,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:30,
+                 from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h: At top level:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:75: error: syntax error before "MPIU_SHMW_Hnd_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:75: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:82: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:82: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:115: error: syntax error before "MPID_nem_seg_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:115: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:128: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:128: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:129: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:129: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:132: error: syntax error before "my_freeQ"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:132: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:133: error: syntax error before "my_recvQ"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:133: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:137: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:137: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:144: error: syntax error before "MPID_nem_mem_region"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:144: warning: data definition has no type or storage class
+In file included from ../../../include/mpiimpl.h:120,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:59: error: syntax error before "MPID_Node_id_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:59: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:83: error: syntax error before "MPIR_Rank_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:83: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:83: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:85: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:85: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:87: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:87: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:195: error: syntax error before "MPIDI_Message_match"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:195: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:196: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:274: error: conflicting types for 'next'
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_defs.h:136: error: previous declaration of 'next' was here
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:275: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpre.h:275: warning: data definition has no type or storage class
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+../../../include/mpiimpl.h:1332: error: syntax error before "MPIDI_Request"
+../../../include/mpiimpl.h:1332: warning: no semicolon at end of struct or union
+../../../include/mpiimpl.h:1334: error: syntax error before '}' token
+../../../include/mpiimpl.h:1334: warning: data definition has no type or storage class
+../../../include/mpiimpl.h:1338: error: syntax error before "MPID_Request_direct"
+../../../include/mpiimpl.h:1338: warning: data definition has no type or storage class
+../../../include/mpiimpl.h:1375: error: syntax error before "MPID_Node_id_t"
+../../../include/mpiimpl.h:1376: error: syntax error before "MPID_Node_id_t"
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+../../../include/mpiimpl.h:2244: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2245: error: syntax error before '*' token
+../../../include/mpiimpl.h:2251: error: syntax error before '*' token
+../../../include/mpiimpl.h:2252: error: syntax error before '*' token
+../../../include/mpiimpl.h:2253: error: syntax error before '*' token
+../../../include/mpiimpl.h:2257: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2259: error: syntax error before "MPID_Request"
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+../../../include/mpiimpl.h:2602: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2627: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2652: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2707: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2726: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2745: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2767: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2787: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2806: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2809: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2827: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2845: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2864: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2879: error: syntax error before "MPID_Request"
+../../../include/mpiimpl.h:2979: error: syntax error before '*' token
+../../../include/mpiimpl.h:3002: error: syntax error before '*' token
+../../../include/mpiimpl.h:3134: error: syntax error before '*' token
+../../../include/mpiimpl.h:3134: warning: data definition has no type or storage class
+../../../include/mpiimpl.h:3135: error: syntax error before '*' token
+../../../include/mpiimpl.h:3150: error: syntax error before '*' token
+In file included from ../../../include/mpiimpl.h:3377,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpost.h:30: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpost.h:160: error: syntax error before '*' token
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpost.h:169,
+                 from ../../../include/mpiimpl.h:3377,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_post.h:39: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_post.h:41: error: syntax error before '*' token
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_post.h:48,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpost.h:169,
+                 from ../../../include/mpiimpl.h:3377,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_post.h:93: error: syntax error before "qhead"
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpost.h:169,
+                 from ../../../include/mpiimpl.h:3377,
+                 from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_post.h:56: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_post.h:58: error: syntax error before "MPID_Request"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_post.h:61: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include/mpidi_ch3_post.h:61: error: syntax error before '*' token
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:22,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+../../../include/mpiimpl.h:3462: error: syntax error before '*' token
+In file included from /export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:31,
+                 from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:62: error: syntax error before "MPIDI_Message_match"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:62: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:68: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:69: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:73: error: syntax error before "MPIDI_CH3_Pkt_eager_send_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:73: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:74: error: syntax error before "MPIDI_CH3_Pkt_eager_sync_send_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:74: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:75: error: syntax error before "MPIDI_CH3_Pkt_ready_send_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:75: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:81: error: syntax error before "MPIDI_Message_match"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:81: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:87: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:88: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:98: error: syntax error before "MPIDI_CH3_Pkt_rndv_req_to_send_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:98: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:118: error: syntax error before "MPIDI_Message_match"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:118: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:120: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:121: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:262: error: syntax error before "MPIDI_CH3_Pkt_eager_send_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:262: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:264: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:266: error: syntax error before "eager_sync_send"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:266: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:268: error: syntax error before "ready_send"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:268: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:269: error: syntax error before "rndv_req_to_send"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:269: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:272: error: syntax error before "cancel_send_req"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:272: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:284: error: 'close' redeclared as different kind of symbol
+/usr/include/unistd.h:244: error: previous declaration of 'close' was here
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:284: error: 'close' redeclared as different kind of symbol
+/usr/include/unistd.h:244: error: previous declaration of 'close' was here
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:288: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidpkt.h:289: warning: data definition has no type or storage class
+In file included from mpidu_process_locks.h:20,
+                 from mpidu_process_locks.c:6:
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:710: error: syntax error before "MPID_Node_id_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:710: warning: no semicolon at end of struct or union
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:773: error: syntax error before '}' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:774: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:790: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:959: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1021: error: syntax error before "MPID_Request"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1049: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1050: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1153: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1154: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1251: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1252: error: syntax error before "MPIDI_VC_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1255: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1264: error: syntax error before "MPIDI_VC_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1265: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1298: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1331: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1363: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1395: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1408: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1413: error: syntax error before "MPIDI_VC_t"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1420: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1420: error: syntax error before "MPIDI_Message_match"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1420: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1421: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1423: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1424: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1425: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1425: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1426: warning: data definition has no type or storage class
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1430: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1432: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1433: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1434: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1440: error: syntax error before "MPID_Request"
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1441: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1442: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1443: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1444: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1455: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1549: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1564: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1570: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1573: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1575: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1683: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1686: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1689: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1691: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1693: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1695: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1697: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1699: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1701: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1703: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1705: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1707: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1709: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1711: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1713: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1715: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1717: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1719: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1721: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1723: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1725: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1727: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1729: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1742: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1759: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1763: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1766: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1769: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1774: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1777: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1780: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1787: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1788: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1789: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1793: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1794: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1796: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1798: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1800: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1802: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1804: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1806: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1809: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1811: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1815: error: syntax error before '*' token
+/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include/mpidimpl.h:1817: error: syntax error before '*' token
+../../../include/mpiimpl.h:1338: warning: array 'MPID_Request_direct' assumed to have one element
+*** Error code 1
+The following command caused the error:
+gcc -DHAVE_CONFIG_H -I. -I. -I. -I../../../include -I/export/home/kimikhoi/mpich2-1.2.1/src/include -O2  -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -I/export/home/kimikhoi/mpich2-1.2.1/src/openpa/src -DUSE_PROCESS_LOCKS  -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/datatype -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/datatype -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks -I/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers -I/export/home/kimikhoi/mpich2-1.2.1/src/util/wrappers -c mpidu_process_locks.c
+make: Fatal error: Command failed for target `mpidu_process_locks.o'
+Current working directory /export/home/kimikhoi/mpich2-1.2.1/src/mpid/common/locks
+*** Error code 1
+The following command caused the error:
+(cd locks && make all )
+make: Fatal error: Command failed for target `all-redirect'
+Current working directory /export/home/kimikhoi/mpich2-1.2.1/src/mpid/common
+*** Error code 1
+The following command caused the error:
+(cd common && make all )
+make: Fatal error: Command failed for target `all-redirect'
+Current working directory /export/home/kimikhoi/mpich2-1.2.1/src/mpid
+*** Error code 1
+The following command caused the error:
+(cd mpid && make all )
+make: Fatal error: Command failed for target `all-redirect'
+Current working directory /export/home/kimikhoi/mpich2-1.2.1/src
+*** Error code 1
+The following command caused the error:
+(cd src && make all )
+make: Fatal error: Command failed for target `all-redirect'

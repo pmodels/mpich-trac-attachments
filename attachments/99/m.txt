@@ -1,0 +1,48 @@
+Beginning make
+make all-local
+make[1]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7'
+make[1]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7'
+make[1]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src'
+make[2]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid'
+make[3]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3'
+make[4]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels'
+make[5]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock'
+make[6]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock'
+make[7]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[8]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[8]: `.libstamp1' is up to date.
+make[8]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[8]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[8]: `libmpich2sock.la' is up to date.
+make[8]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[7]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[6]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock'
+make[6]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[7]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[7]: `.libstamp1' is up to date.
+make[7]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[7]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[7]: `libmpich2-ch3-sock.la' is up to date.
+make[7]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[6]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[5]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock'
+make[4]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels'
+make[4]: Entering directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/src'
+gcc -DHAVE_CONFIG_H -I. -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/src -I../../../include -I/home/mhelal/Downloads/mpich2-1.0.7/src/include -g -DNDEBUG -O2 -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/include -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/include -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/datatype -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/datatype -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3u_handle_connection.c
+ch3u_handle_connection.c: In function ‘MPIDI_CH3U_Handle_connection’:
+ch3u_handle_connection.c:52: error: ‘MPIU_CALL_MPIDI_CH3’ undeclared (first use in this function)
+ch3u_handle_connection.c:52: error: (Each undeclared identifier is reported only once
+ch3u_handle_connection.c:52: error: for each function it appears in.)
+ch3u_handle_connection.c: In function ‘MPIDI_CH3U_VC_SendClose’:
+ch3u_handle_connection.c:178: error: ‘MPIU_CALL_MPIDI_CH3’ undeclared (first use in this function)
+ch3u_handle_connection.c: In function ‘MPIDI_CH3_PktHandler_Close’:
+ch3u_handle_connection.c:223: error: ‘MPIU_CALL_MPIDI_CH3’ undeclared (first use in this function)
+make[4]: *** [ch3u_handle_connection.o] Error 1
+make[4]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3/src'
+make[3]: *** [all-redirect] Error 2
+make[3]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid/ch3'
+make[2]: *** [all-redirect] Error 1
+make[2]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src/mpid'
+make[1]: *** [all-redirect] Error 2
+make[1]: Leaving directory `/home/mhelal/Downloads/mpich2-1.0.7/src'
+make: *** [all-redirect] Error 2

@@ -1,0 +1,74 @@
+#! /bin/sh
+defSRC=/Users/gropp/projects/software/mpich2-current
+defPrefix=/Users/gropp/installs/mpich2
+defStrict=posix
+defCS=global
+defRefcount=default
+defThreadLevel=runtime
+defDevice=ch3:nemesis
+#defDbg="log,mem,dbg,mutex,nesting,handlealloc"
+#defDbg="log,mem,dbg,mutex,nesting"
+defDbg=""
+defFast="--enable-fast=O3,notiming,ndebug"
+defShared="--enable-sharedlibs=gcc-osx"
+shared=yes
+#
+readarg=""
+#mpe=--without-mpe
+otherArgs=""
+for arg in "$@" ; do
+  if [ -n "$readarg" ] ; then
+     eval $readarg=$arg
+     readarg=""
+     shift
+  else
+    case $arg in 
+      -echo) shift ; set -x 
+      ;;
+      -mpe) shift ; mpe=--with-mpe 
+      ;;
+      -prefix) shift ; readarg=prefix 
+      ;;
+      -thread-cs) shift ; readarg=threadcs
+      ;;
+      -thread-level) shift ; readarg=threadLevel
+      ;;
+      -refcount) shift ; readarg=refcount
+      ;;
+      -strict) shift ; readarg=strict 
+      ;;
+      -device) shift ; readarg=device 
+      ;;
+      -g) shift ; readarg=dbg
+      ;;
+      -fast) shift ; readarg=fast
+      ;;
+      -noshared) shift ; shared=no 
+      ;;
+      *)
+      readarg="" 
+      otherArgs="$otherArgs $arg"
+      shift
+      ;;
+    esac
+  fi
+done
+if [ -z "$threadcs" ] ; then threadcs=$defCS ; fi
+if [ -z "$threadLevel" ] ; then threadLevel=$defThreadLevel ; fi
+if [ -z "$refcount" ] ; then refcount=$defRefcount ; fi
+if [ -z "$prefix" ] ; then prefix=$defPrefix ; fi
+if [ -z "$strict" ] ; then strict=$defStrict ; fi
+if [ -z "$device" ] ; then device=$defDevice ; fi
+if [ -z "$dbg" ] ; then dbg=$defDbg ; fi
+if [ -n "$dbg" ] ; then gDbg="--enable-g=$dbg" ; fi
+if [ "$shared" = "yes" ] ; then shared=$defShared ; else shared="" ; fi
+if [ -z "$fast" ] ; then fast=$defFast ; fi
+#
+#
+$defSRC/configure --with-pm=gforker:hydra:mpd:remshell \
+    --with-device=$device \
+    --enable-threads=$threadLevel --enable-thread-cs=$threadcs \
+    --enable-refcount=$refcount \
+    $gDbg $fast $shared --enable-strict=$strict \
+    --enable-dependencies $mpe \
+    --prefix=$prefix $otherArgs

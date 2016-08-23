@@ -1,0 +1,44 @@
+0-1:  (gdb) start
+0-1:  Breakpoint 2 at 0x40116c
+0:  Starting program: /home/Mike/mpich2-1.2.1/examples/cpi
+0:  [New thread 4112.0x1260]
+1:  Starting program: /home/Mike/mpich2-1.2.1/examples/cpi
+0:  [New thread 4112.0x12d0]
+1:  [New thread 5000.0x1138]
+0:
+1:  [New thread 5000.0x155c]
+0:  Breakpoint 1, 0x0040116c in main ()
+1:  [New thread 5000.0xd80]
+0:  (gdb) 1:
+1:  Breakpoint 1, 0x0040116c in main ()
+1:  (gdb) n
+0-1:  Single stepping until exit from function main,
+0-1:  which has no line number information.
+0:  [New thread 4112.0x128c]
+0-1:  warning: Lowest section in /cygdrive/c/Windows/system32/normaliz.dll
+ext at 00401000
+0-1:  warning: Lowest section in /cygdrive/c/Windows/system32/odbcint.dll i
+rc at 00401000
+1:  warning: ProxyIE CSProxy refcount 13
+0:  warning: ProxyIE CSProxy refcount 12
+0-1:
+0-1:  warning: ProxyIE Loading C:\cygwin\home\Mike\mpich2-1.2.1\examples\cp
+...
+0-1:
+0-1:  warning: ProxyIE WSPStartup ===> C:\cygwin\home\Mike\mpich2-1.2.1\exa
+\cpi.exe
+1:  warning: ProxyIE WSPSocket===> 0 708
+0:  warning: ProxyIE WSPSocket===> 0 704
+1:  [New thread 5000.0x1544]
+0:  [New thread 4112.0x7b8]
+0-1:  warning: ClientNSP   NSPStartup
+0-1:  warning: ClientNSP   NSPStartup
+0-1:  warning: ClientNSP NSPLookupServiceBegin 0
+0-1:  warning: ClientNSP NSPLookupServiceBegin 0
+0:
+0:  Program received signal SIGSYS, Bad system call.
+0:  0x00000000 in ?? ()
+0:  (gdb) n
+0:  Cannot find bounds of current function
+0:  (gdb) finish
+0:  Run till exit from #0  0x00000000 in ?? ()

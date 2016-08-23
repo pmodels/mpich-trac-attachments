@@ -1,0 +1,124 @@
+Index: src/slog2sdk/trace_rlog/src/Makefile.in
+===================================================================
+--- src/slog2sdk/trace_rlog/src/Makefile.in	(revision 7202)
++++ src/slog2sdk/trace_rlog/src/Makefile.in	(working copy)
+@@ -41,7 +41,6 @@
+ OBJ4E            = $(CSRC4E:.c=.@OBJEXT@)
+ 
+ CC               = @CC@
+-LD_CC            = @CC@ @CFLAGS@
+ INSTALL          = @INSTALL@ 
+ LIBTOOL          = $(SHELL) ../libtool
+ EXPORT_SYMBOLS   = @EXPORT_SYMBOLS@
+@@ -49,7 +48,8 @@
+ 
+ JNI_INC          = @JNI_INC@
+ CFLAGS           = -I.. $(JNI_INC) -I$(TRACE_INCDIR) @CFLAGS@
+-LDFLAGS          = -module -no-undefined -avoid-version @CFLAGS@ @LDFLAGS@
++LDFLAGS          = @LDFLAGS@
++LTFLAGS          = -module -no-undefined -avoid-version @LDFLAGS@
+ 
+ # memory leak checker
+ MEMLIBS          = @DEBUG_LIBS@
+@@ -69,11 +69,11 @@
+ 
+ $(libbuild_dir)/$(LIB_TRACE): $(LOBJ)
+ 	if [ "$(EXPORT_SYMBOLS)" = "yes" ] ; then \
+-	    $(LIBTOOL) --mode=link $(LD_CC) -o $(LIB_TRACE) $(LOBJ) $(LDFLAGS) \
++	    $(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $(LIB_TRACE) $(LOBJ) $(LTFLAGS) \
+ 	               -export-symbols $(srcdir)/JavaTraceInput.sym \
+ 	               -rpath $(libbuild_dir) ; \
+ 	else \
+-	    $(LIBTOOL) --mode=link $(LD_CC) -o $(LIB_TRACE) $(LOBJ) $(LDFLAGS) \
++	    $(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $(LIB_TRACE) $(LOBJ) $(LTFLAGS) \
+ 	               -rpath $(libbuild_dir) ; \
+ 	fi
+ 	$(LIBTOOL) --mode=install $(INSTALL) $(LIB_TRACE) $(libbuild_dir)
+@@ -81,21 +81,21 @@
+ 
+ INSTALL_LIBSO: $(LOBJ)
+ 	if [ "$(EXPORT_SYMBOLS)" = "yes" ] ; then \
+-	    $(LIBTOOL) --mode=link $(LD_CC) -o $(LIB_TRACE) $(LOBJ) $(LDFLAGS) \
++	    $(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $(LIB_TRACE) $(LOBJ) $(LTFLAGS) \
+ 	               -export-symbols $(srcdir)/JavaTraceInput.sym \
+ 	               -rpath $(LIBDIR) ; \
+ 	else \
+-	    $(LIBTOOL) --mode=link $(LD_CC) -o $(LIB_TRACE) $(LOBJ) $(LDFLAGS) \
++	    $(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $(LIB_TRACE) $(LOBJ) $(LTFLAGS) \
+ 	               -rpath $(LIBDIR) ; \
+ 	fi
+ 	$(LIBTOOL) --mode=install $(INSTALL) $(LIB_TRACE) $(DESTDIR)$(LIBDIR)
+ 	$(LIBTOOL) --finish $(LIBDIR)
+ 
+ $(binbuild_dir)/$(PGM_PRINT): $(OBJ4T)
+-	$(LD_CC) -o $@ $(OBJ4T) $(MEMLIBS) @LDFLAGS@
++	$(CC) $(CFLAGS) -o $@ $(OBJ4T) $(MEMLIBS) $(LDFLAGS)
+ 
+ $(binbuild_dir)/$(PGM_CHECK): $(OBJ4E)
+-	$(LD_CC) -o $@ $(OBJ4E) $(MEMLIBS) @LDFLAGS@
++	$(CC) $(CFLAGS) -o $@ $(OBJ4E) $(MEMLIBS) $(LDFLAGS)
+ 
+ clean:
+ 	@-$(RM) *.@OBJEXT@ *.lo *.la
+Index: src/slog2sdk/trace_sample/src/Makefile.in
+===================================================================
+--- src/slog2sdk/trace_sample/src/Makefile.in	(revision 7202)
++++ src/slog2sdk/trace_sample/src/Makefile.in	(working copy)
+@@ -41,7 +41,6 @@
+ OBJ4E            = $(CSRC4E:.c=.@OBJEXT@)
+ 
+ CC               = @CC@
+-LD_CC            = @CC@ @CFLAGS@
+ INSTALL          = @INSTALL@ 
+ LIBTOOL          = $(SHELL) ../libtool
+ EXPORT_SYMBOLS   = @EXPORT_SYMBOLS@
+@@ -49,7 +48,8 @@
+ 
+ JNI_INC          = @JNI_INC@
+ CFLAGS           = -I.. $(JNI_INC) -I$(TRACE_INCDIR) @CFLAGS@
+-LDFLAGS          = -module -no-undefined -avoid-version @CFLAGS@ @LDFLAGS@
++LDFLAGS          = @LDFLAGS@
++LTFLAGS          = -module -no-undefined -avoid-version @LDFLAGS@
+ 
+ # memory leak checker
+ MEMLIBS          = @DEBUG_LIBS@
+@@ -69,11 +69,11 @@
+ 
+ $(libbuild_dir)/$(LIB_TRACE): $(LOBJ)
+ 	if [ "$(EXPORT_SYMBOLS)" = "yes" ] ; then \
+-	    $(LIBTOOL) --mode=link $(LD_CC) -o $(LIB_TRACE) $(LOBJ) $(LDFLAGS) \
++	    $(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $(LIB_TRACE) $(LOBJ) $(LTFLAGS) \
+ 	               -export-symbols $(srcdir)/JavaTraceInput.sym \
+ 	               -rpath $(libbuild_dir) ; \
+ 	else \
+-	    $(LIBTOOL) --mode=link $(LD_CC) -o $(LIB_TRACE) $(LOBJ) $(LDFLAGS) \
++	    $(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $(LIB_TRACE) $(LOBJ) $(LTFLAGS) \
+ 	               -rpath $(libbuild_dir) ; \
+ 	fi
+ 	$(LIBTOOL) --mode=install $(INSTALL) $(LIB_TRACE) $(libbuild_dir)
+@@ -81,21 +81,21 @@
+ 
+ INSTALL_LIBSO: $(LOBJ)
+ 	if [ "$(EXPORT_SYMBOLS)" = "yes" ] ; then \
+-	    $(LIBTOOL) --mode=link $(LD_CC) -o $(LIB_TRACE) $(LOBJ) $(LDFLAGS) \
++	    $(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $(LIB_TRACE) $(LOBJ) $(LTFLAGS) \
+ 	               -export-symbols $(srcdir)/JavaTraceInput.sym \
+ 	               -rpath $(LIBDIR) ; \
+ 	else \
+-	    $(LIBTOOL) --mode=link $(LD_CC) -o $(LIB_TRACE) $(LOBJ) $(LDFLAGS) \
++	    $(LIBTOOL) --mode=link $(CC) $(CFLAGS) -o $(LIB_TRACE) $(LOBJ) $(LTFLAGS) \
+ 	               -rpath $(LIBDIR) ; \
+ 	fi
+ 	$(LIBTOOL) --mode=install $(INSTALL) $(LIB_TRACE) $(DESTDIR)$(LIBDIR)
+ 	$(LIBTOOL) --finish $(LIBDIR)
+ 
+ $(binbuild_dir)/$(PGM_PRINT): $(OBJ4T)
+-	$(LD_CC) -o $@ $(OBJ4T) $(MEMLIBS) @LDFLAGS@
++	$(CC) $(CFLAGS) -o $@ $(OBJ4T) $(MEMLIBS) $(LDFLAGS)
+ 
+ $(binbuild_dir)/$(PGM_CHECK): $(OBJ4E)
+-	$(LD_CC) -o $@ $(OBJ4E) $(MEMLIBS) @LDFLAGS@
++	$(CC) $(CFLAGS) -o $@ $(OBJ4E) $(MEMLIBS) $(LDFLAGS)
+ 
+ clean:
+ 	@-$(RM) *.@OBJEXT@ *.lo *.la

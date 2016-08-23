@@ -1,0 +1,8 @@
+MPICH2 Version:    	1.4.1p1
+MPICH2 Release date:	Thu Sep  1 13:53:02 CDT 2011
+MPICH2 Device:    	ch3:sock
+MPICH2 configure: 	--prefix=/home/jski/petsc/petsc-3.2-p5/arch-linux2-c-debug CC=gcc CFLAGS= -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -g3 --disable-cxx FC=gfortran FCFLAGS= -Wall -Wno-unused-variable -Wno-unused-dummy-argument -g F77=gfortran FFLAGS= -Wall -Wno-unused-variable -Wno-unused-dummy-argument -g --with-device=ch3:sock --without-mpe --with-pm=hydra --enable-g=meminit --enable-fast
+MPICH2 CC: 	gcc  -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -g3    -DNDEBUG -DNVALGRIND -O2
+MPICH2 CXX: 	   -DNDEBUG -DNVALGRIND
+MPICH2 F77: 	gfortran  -Wall -Wno-unused-variable -Wno-unused-dummy-argument -g    -O2
+MPICH2 FC: 	gfortran  -Wall -Wno-unused-variable -Wno-unused-dummy-argument -g    -O2

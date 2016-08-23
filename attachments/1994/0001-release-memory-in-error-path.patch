@@ -1,0 +1,215 @@
+From 06aa09f8afef130f39b0a2493a798a2f5c18c23d Mon Sep 17 00:00:00 2001
+From: Rob Latham <robl@mcs.anl.gov>
+Date: Fri, 3 Jan 2014 11:16:58 -0600
+Subject: [PATCH] release memory in error path
+
+Clean up memory allocated in write (for read-modify-write) when
+encountering error.  Still todo: blue gene, lustre, and any other driver
+that acts this way.
+
+closes #1994
+---
+ src/mpi/romio/adio/ad_nfs/ad_nfs_write.c | 22 +++++++++++-----------
+ src/mpi/romio/adio/common/ad_write_str.c | 26 ++++++++++++--------------
+ 2 files changed, 23 insertions(+), 25 deletions(-)
+
+diff --git a/src/mpi/romio/adio/ad_nfs/ad_nfs_write.c b/src/mpi/romio/adio/ad_nfs/ad_nfs_write.c
+index 6b607a1e..dda2fea0 100644
+--- a/src/mpi/romio/adio/ad_nfs/ad_nfs_write.c
++++ b/src/mpi/romio/adio/ad_nfs/ad_nfs_write.c
+@@ -110,7 +110,7 @@ void ADIOI_NFS_WriteContig(ADIO_File fd, const void *buf, int count,
+ 					       MPIR_ERR_RECOVERABLE, myname, \
+ 					       __LINE__, MPI_ERR_IO, \
+ 					       "**ioRMWrdwr", 0); \
+-	    return; \
++	    goto fn_exit; \
+         } \
+     } \
+     write_sz = (int) (ADIOI_MIN(req_len, writebuf_off + writebuf_len - req_off)); \
+@@ -140,7 +140,7 @@ void ADIOI_NFS_WriteContig(ADIO_File fd, const void *buf, int count,
+ 					       MPIR_ERR_RECOVERABLE, myname, \
+ 					       __LINE__, MPI_ERR_IO, \
+ 					       "**ioRMWrdwr", 0); \
+-	    return; \
++	    goto fn_exit; \
+         } \
+         write_sz = ADIOI_MIN(req_len, writebuf_len); \
+         memcpy(writebuf, (char *)buf + userbuf_off, write_sz);\
+@@ -164,7 +164,7 @@ void ADIOI_NFS_WriteContig(ADIO_File fd, const void *buf, int count,
+ 					       MPIR_ERR_RECOVERABLE, myname, \
+ 					       __LINE__, MPI_ERR_IO, \
+ 					       "**ioRMWrdwr", 0); \
+-	    return; \
++	    goto fn_exit; \
+         } \
+     } \
+     write_sz = (int) (ADIOI_MIN(req_len, writebuf_off + writebuf_len - req_off)); \
+@@ -186,7 +186,7 @@ void ADIOI_NFS_WriteContig(ADIO_File fd, const void *buf, int count,
+ 					       MPIR_ERR_RECOVERABLE, myname, \
+ 					       __LINE__, MPI_ERR_IO, \
+ 					       "**ioRMWrdwr", 0); \
+-	    return; \
++	    goto fn_exit; \
+         } \
+         write_sz = ADIOI_MIN(req_len, writebuf_len); \
+         memcpy(writebuf, (char *)buf + userbuf_off, write_sz);\
+@@ -280,7 +280,7 @@ void ADIOI_NFS_WriteStrided(ADIO_File fd, const void *buf, int count,
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off;
+     ADIO_Offset off, req_off, disp, end_offset=0, writebuf_off, start_off;
+-    char *writebuf, *value;
++    char *writebuf=NULL, *value;
+     int st_fwr_size, st_n_filetypes, writebuf_len, write_sz;
+     int new_bwr_size, new_fwr_size, err_flag=0, info_flag, max_bufsize;
+     static char myname[] = "ADIOI_NFS_WRITESTRIDED";
+@@ -364,8 +364,6 @@ void ADIOI_NFS_WriteStrided(ADIO_File fd, const void *buf, int count,
+         if (fd->atomicity) 
+             ADIOI_UNLOCK(fd, start_off, SEEK_SET, end_offset-start_off+1);
+ 
+-	ADIOI_Free(writebuf); /* malloced in the buffered_write macro */
+-
+         if (file_ptr_type == ADIO_INDIVIDUAL) fd->fp_ind = off;
+ 	if (err_flag) {
+ 	    *error_code = MPIO_Err_create_code(MPI_SUCCESS,
+@@ -517,8 +515,8 @@ void ADIOI_NFS_WriteStrided(ADIO_File fd, const void *buf, int count,
+ 					       myname, __LINE__,
+ 					       MPI_ERR_IO,
+ 					       "ADIOI_NFS_WriteStrided: ROMIO tries to optimize this access by doing a read-modify-write, but is unable to read the file. Please give the file read permission and open it with MPI_MODE_RDWR.", 0);
+-	    return;
+-        } 
++	    goto fn_exit;
++        }
+ 
+ 	if (buftype_is_contig && !filetype_is_contig) {
+ 
+@@ -653,8 +651,6 @@ void ADIOI_NFS_WriteStrided(ADIO_File fd, const void *buf, int count,
+ 
+         if (err == -1) err_flag = 1; 
+ 
+-	ADIOI_Free(writebuf); /* malloced in the buffered_write macro */
+-
+ 	if (file_ptr_type == ADIO_INDIVIDUAL) fd->fp_ind = off;
+ 	if (err_flag) {
+ 	    *error_code = MPIO_Err_create_code(MPI_SUCCESS,
+@@ -674,4 +670,8 @@ void ADIOI_NFS_WriteStrided(ADIO_File fd, const void *buf, int count,
+ #endif
+ 
+     if (!buftype_is_contig) ADIOI_Delete_flattened(datatype);
++fn_exit:
++    if (writebuf != NULL) ADIOI_Free(writebuf);
++
++    return;
+ }
+diff --git a/src/mpi/romio/adio/common/ad_write_str.c b/src/mpi/romio/adio/common/ad_write_str.c
+index b09d6f57..839fecab 100644
+--- a/src/mpi/romio/adio/common/ad_write_str.c
++++ b/src/mpi/romio/adio/common/ad_write_str.c
+@@ -20,7 +20,7 @@
+                                                   MPIR_ERR_RECOVERABLE, myname, \
+                                                   __LINE__, MPI_ERR_IO, \
+                                                   "**iowswc", 0); \
+-               return; \
++               goto fn_exit; \
+            } \
+         } \
+ 	writebuf_off = req_off; \
+@@ -33,7 +33,7 @@
+ 					       MPIR_ERR_RECOVERABLE, myname, \
+ 					       __LINE__, MPI_ERR_IO, \
+ 					       "**iowsrc", 0); \
+-	    return; \
++	    goto fn_exit; \
+ 	} \
+     } \
+     write_sz = (unsigned) (ADIOI_MIN(req_len, writebuf_off + writebuf_len - req_off)); \
+@@ -48,7 +48,7 @@
+                                                MPIR_ERR_RECOVERABLE, myname, \
+                                                __LINE__, MPI_ERR_IO, \
+                                                "**iowswc", 0); \
+-            return; \
++            goto fn_exit; \
+         } \
+         req_len -= write_sz; \
+         userbuf_off += write_sz; \
+@@ -62,7 +62,7 @@
+ 					       MPIR_ERR_RECOVERABLE, myname, \
+ 					       __LINE__, MPI_ERR_IO, \
+ 					       "**iowsrc", 0); \
+-	    return; \
++	    goto fn_exit; \
+ 	} \
+         write_sz = ADIOI_MIN(req_len, writebuf_len); \
+         memcpy(writebuf, (char *)buf + userbuf_off, write_sz);\
+@@ -82,7 +82,7 @@
+                                                MPIR_ERR_RECOVERABLE, myname, \
+                                                __LINE__, MPI_ERR_IO, \
+                                                "**iowswc", 0); \
+-            return; \
++            goto fn_exit; \
+         } \
+ 	writebuf_off = req_off; \
+         writebuf_len = (unsigned) (ADIOI_MIN(max_bufsize,end_offset-writebuf_off+1));\
+@@ -98,7 +98,7 @@
+                                                MPIR_ERR_RECOVERABLE, myname, \
+                                                __LINE__, MPI_ERR_IO, \
+                                                "**iowswc", 0); \
+-            return; \
++            goto fn_exit; \
+         } \
+         req_len -= write_sz; \
+         userbuf_off += write_sz; \
+@@ -126,7 +126,7 @@ void ADIOI_GEN_WriteStrided(ADIO_File fd, const void *buf, int count,
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off;
+     ADIO_Offset off, req_off, disp, end_offset=0, writebuf_off, start_off;
+-    char *writebuf;
++    char *writebuf=NULL;
+     unsigned writebuf_len, max_bufsize, write_sz;
+     MPI_Aint bufsize;
+     ADIO_Status status1;
+@@ -215,9 +215,7 @@ void ADIOI_GEN_WriteStrided(ADIO_File fd, const void *buf, int count,
+ 	if (fd->atomicity) 
+ 	    ADIOI_UNLOCK(fd, start_off, SEEK_SET, end_offset-start_off+1);
+ 
+-	if (*error_code != MPI_SUCCESS) return;
+-
+-	ADIOI_Free(writebuf); 
++	if (*error_code != MPI_SUCCESS) goto fn_exit;
+ 
+         if (file_ptr_type == ADIO_INDIVIDUAL) fd->fp_ind = off;
+     }
+@@ -312,7 +310,7 @@ void ADIOI_GEN_WriteStrided(ADIO_File fd, const void *buf, int count,
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	    MPIR_Status_set_bytes(status, datatype, bufsize);
+ #endif 
+-            return;
++            goto fn_exit;
+         }
+ 
+        /* Calculate end_offset, the last byte-offset that will be accessed.
+@@ -466,13 +464,11 @@ void ADIOI_GEN_WriteStrided(ADIO_File fd, const void *buf, int count,
+ 			writebuf_off, &status1, error_code);
+ 	    if (!(fd->atomicity)) 
+ 		ADIOI_UNLOCK(fd, writebuf_off, SEEK_SET, writebuf_len);
+-	    if (*error_code != MPI_SUCCESS) return;
++	    if (*error_code != MPI_SUCCESS) goto fn_exit;
+ 	}
+ 	if (fd->atomicity) 
+ 	    ADIOI_UNLOCK(fd, start_off, SEEK_SET, end_offset-start_off+1);
+ 
+-	ADIOI_Free(writebuf); 
+-
+ 	if (file_ptr_type == ADIO_INDIVIDUAL) fd->fp_ind = off;
+     }
+ 
+@@ -486,5 +482,7 @@ void ADIOI_GEN_WriteStrided(ADIO_File fd, const void *buf, int count,
+ #endif
+ 
+     if (!buftype_is_contig) ADIOI_Delete_flattened(datatype);
++fn_exit:
++    if (writebuf != NULL) ADIOI_Free(writebuf);
+ }
+ 
+-- 
+1.8.3.2
+

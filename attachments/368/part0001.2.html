@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7653.38">
+<TITLE>RE: [mpich2-maint] #368: FW: MPI error message</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/rtf format -->
+<BR>
+
+<P><FONT SIZE=2 FACE="Arial">Rajeev,</FONT>
+</P>
+
+<P><FONT SIZE=2 FACE="Arial">Thanks for the previous response about the &quot;<B>MPI_Comm_dup</B>&quot; error that we were getting. But we are not using MPI_File_open or any other IO related calls or &quot;MPI_Cart_create, MPI_Win_create&quot; calls in our code to cause the reference to MPI_Comm_dup. </FONT></P>
+
+<P><FONT SIZE=2 FACE="Arial">So instead we tried to make our &quot;IRECV&quot; calls blocking to see if it was the cause of the error &#8230; (Attached snippet below)</FONT></P>
+
+<P><FONT FACE="Arial" SIZE=2 COLOR="#000000">
+<IMG SRC="No%20AttachName-1" alt="Picture (Device Independent Bitmap)"></FONT>
+</P>
+
+<P><FONT SIZE=2 FACE="Arial">Now we are seeing some other errors related to &quot;shared memory read&quot; and &quot;allocating memory&quot;. We are using the &quot;shm channel&quot; for mpiexec on PC.</FONT></P>
+
+<P><FONT SIZE=2 FACE="Arial">Please advise what may be the cause of these error messages. </FONT>
+</P>
+
+<P><FONT FACE="Arial" SIZE=2 COLOR="#000000">
+<IMG SRC="No%20AttachName" alt="Picture (Device Independent Bitmap)"></FONT>
+</P>
+<BR>
+<BR>
+
+<P><B><FONT SIZE=2 FACE="Arial">//CODE SNIPPET</FONT></B>
+</P>
+
+<P><FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B> <FONT COLOR="#0000FF" SIZE=2 FACE="Courier New">do</FONT></B><FONT SIZE=2 FACE="Courier New"> i=1,nneigh</FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; kdeb=ilstout(i)</FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; kfin=ilstout(i+1)-1</FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; if2(1) = kfin-kdeb&nbsp; </FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; kdeb=ilstin(i)</FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; kfin=ilstin(i+1)-1</FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; if2(2) = kfin-kdeb</FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; idest=ineigh(i)&nbsp;&nbsp;&nbsp; </FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B> <FONT COLOR="#0000FF" SIZE=2 FACE="Courier New">call</FONT></B><FONT SIZE=2 FACE="Courier New"> MPI_ISEND(if2,2,MPI_INTEGER,idest,&nbsp;&nbsp; </FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT COLOR="#FFFFFF" SIZE=2 FACE="Courier New">&amp;</FONT><FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 101,icomm,ireqo(i),ier)</FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT>&nbsp;<FONT SIZE=2 FACE="Courier New"></FONT><B> <FONT COLOR="#0000FF" SIZE=2 FACE="Courier New">enddo</FONT></B><FONT SIZE=2 FACE="Courier New"> </FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT>&nbsp;<FONT SIZE=2 FACE="Courier New"></FONT><B> <FONT COLOR="#0000FF" SIZE=2 FACE="Courier New">do</FONT></B><FONT SIZE=2 FACE="Courier New"> i=1,nneigh</FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp; idest=ineigh(i)&nbsp;&nbsp;&nbsp; </FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT><B> <FONT COLOR="#0000FF" SIZE=2 FACE="Courier New">call</FONT></B><FONT SIZE=2 FACE="Courier New"> MPI_RECV(iflag(1:2,idest+1),2,MPI_INTEGER,idest,&nbsp;&nbsp; </FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <FONT COLOR="#FFFFFF" SIZE=2 FACE="Courier New">&amp;</FONT><FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 101,icomm,ISTATUS,ier)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT>
+
+<BR><FONT COLOR="#FF0000" SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;</FONT>&nbsp;<FONT SIZE=2 FACE="Courier New"></FONT><B> <FONT COLOR="#0000FF" SIZE=2 FACE="Courier New">enddo</FONT></B>
+</P>
+<BR>
+
+<P><B><FONT SIZE=2 FACE="Arial">Thanks</FONT></B><I></I>
+</P>
+
+<P><FONT SIZE=2 FACE="Courier New">-----Original Message-----</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">From: owner-mpich2-bugs@mcs.anl.gov [</FONT><A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov"><U><FONT COLOR="#0000FF" SIZE=2 FACE="Courier New">mailto:owner-mpich2-bugs@mcs.anl.gov</FONT></U></A><FONT SIZE=2 FACE="Courier New">] On Behalf Of mpich2</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">Sent: Thursday, January 15, 2009 2:58 PM</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">Subject: Re: [mpich2-maint] #368: FW: MPI error message</FONT>
+</P>
+
+<P><FONT SIZE=2 FACE="Courier New">------------------------------------------------------------------+---------</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;Reporter:&nbsp; &quot;Sudan, Hari Hara&quot; &lt;Hari.H.Sudan@conocophillips.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp; </FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp; </FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp; </FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; </FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">------------------------------------------------------------------+---------</FONT>
+</P>
+<BR>
+
+<P><FONT SIZE=2 FACE="Courier New">Comment (by Rajeev Thakur):</FONT>
+</P>
+
+<P><FONT SIZE=2 FACE="Courier New">&nbsp;{{{</FONT>
+</P>
+
+<P><FONT SIZE=2 FACE="Courier New">&nbsp;Each call to MPI_File_open does a Comm_dup. The new comm will get freed in</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;MPI_File_close.</FONT>
+</P>
+
+<P><FONT SIZE=2 FACE="Courier New">&nbsp;The calls to get/set the current location of the shared file pointer also</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;do</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;a Comm_dup once (not every time).</FONT>
+</P>
+
+<P><FONT SIZE=2 FACE="Courier New">&nbsp;Rajeev</FONT>
+</P>
+<BR>
+
+<P><FONT SIZE=2 FACE="Courier New">&nbsp;&gt;&nbsp; Thanks Rajeev,</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;&gt;</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;&gt;&nbsp; We are not calling MPI_Cart_create, MPI_Win_create..</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;&gt;&nbsp; Can you let us know which MPI-IO functions call comm_dup.</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;&gt;</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;&gt;&nbsp; In our code we only use MPI_COMM_WORLD as the default</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;&gt; communicator. We</FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">&nbsp;&gt;&nbsp; assign this communicator to other variables in our FORTRAN code.</FONT>
+</P>
+
+<P><FONT SIZE=2 FACE="Courier New">&nbsp;}}}</FONT>
+</P>
+
+<P><FONT SIZE=2 FACE="Courier New">-- </FONT>
+
+<BR><FONT SIZE=2 FACE="Courier New">Ticket URL: &lt;</FONT><A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/368#comment:"><U><FONT COLOR="#0000FF" SIZE=2 FACE="Courier New">https://trac.mcs.anl.gov/projects/mpich2/ticket/368#comment:</FONT></U></A><FONT SIZE=2 FACE="Courier New">&gt;</FONT>
+</P>
+<BR>
+
+<P><I><FONT SIZE=2 FACE="Arial">Regards,</FONT></I>
+
+<BR><FONT SIZE=2 FACE="Arial">Hari Sudan</FONT>
+
+<BR><I><FONT SIZE=2 FACE="Arial">Reservoir Engineer</FONT></I>
+
+<BR><I><FONT SIZE=2 FACE="Arial">Reservoir Simulation Development</FONT></I>
+
+<BR><I><FONT SIZE=2 FACE="Arial">ConocoPhillips Co.</FONT></I>
+
+<BR><I><FONT SIZE=2 FACE="Arial">600 N. Dairy Ashford, NS 2068</FONT></I>
+
+<BR><I><FONT SIZE=2 FACE="Arial">Houston, TX 77079-1175</FONT></I>
+
+<BR><I><FONT SIZE=2 FACE="Arial">Ph: 281-293-4873&nbsp; Fax: 281-293-5247</FONT></I>
+</P>
+
+</BODY>
+</HTML>

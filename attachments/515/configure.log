@@ -1,0 +1,12 @@
+Configuring MPICH2 version 1.0.8p1 with  '--with-device=ch3:nemesis' 'CC=/opt/intel/Compiler/11.0/059/bin/intel64/icc' 'F77=/opt/intel/Compiler/11.0/059/bin/intel64/ifort' 'F90=/opt/intel/Compiler/11.0/059/bin/intel64/ifort'
+Running on system: Darwin Macintosh.local 9.6.0 Darwin Kernel Version 9.6.0: Mon Nov 24 17:37:00 PST 2008; root:xnu-1228.9.59~1/RELEASE_I386 i386
+Executing mpich2prereq in /Users/dougdommermuth/mpich2/mpich2-1.0.8p1/src/mpid/ch3 with nemesis
+Executing mpich2prereq in /Users/dougdommermuth/mpich2/mpich2-1.0.8p1/src/mpid/ch3/channels/nemesis
+configure: WARNING: The device ch3:nemesis does not support MPI dynamic process routines
+sourcing /Users/dougdommermuth/mpich2/mpich2-1.0.8p1/src/pm/mpd/mpich2prereq
+sourcing /Users/dougdommermuth/mpich2/mpich2-1.0.8p1/src/pm/mpd/setup_pm
+checking for gcc... /opt/intel/Compiler/11.0/059/bin/intel64/icc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... configure: error: cannot run C compiled programs.
+If you meant to cross compile, use `--host'.
+See `config.log' for more details.

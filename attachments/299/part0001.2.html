@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #299: ERROR MESSAGE:../../../include/mpitypedefs.h:17:25: sys/bitypes.h:No such file or directory</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; I am using Cygwin &quot;CYGWIN_NT-5.1 1.5.25(0.156/4/2)&quot; on my laptop (Same as your version of Cygwin). However when I run MPICH2 configure on my machine &quot;sys/bitypes.h&quot; is not found on my system (In your machine configure is able to find &lt;sys/bitypes.h&gt; - Look in configure.log. But make fails when the source includes &quot;sys/bitypes.h&quot;).<BR>
+<BR>
+#&nbsp; Can you try running configure on a fresh download of MPICH2 1.0.8 (Download a fresh copy of MPICH2 1.0.8 source. Untar and re-run configure. Check if configure finds &quot;sys/bitypes.h&quot; - Look in configure.log)?<BR>
+<BR>
+# Can you manually check whether you have the header file in your system (1. First check for /usr/include/sys/bitypes.h 2. Next try to find the header file in your system, find / -name bitypes.h)?<BR>
+<BR>
+&nbsp; Let us know the results.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Sunday, November 23, 2008 6:45 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #299: ERROR MESSAGE:../../../include/mpitypedefs.h:17:25: sys/bitypes.h:No such file or directory<BR>
+<BR>
+--------------------------------------------------------------------------+-<BR>
+&nbsp;Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+--------------------------------------------------------------------------+-<BR>
+<BR>
+<BR>
+Comment (by Lee Mun Chiew, Cornelius):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Dear Jaysesh,<BR>
+<BR>
+&nbsp;Thank you for your reply.<BR>
+<BR>
+&nbsp;Attached is the configure.log file.<BR>
+<BR>
+&nbsp;regards,<BR>
+&nbsp;Cornelius<BR>
+<BR>
+<BR>
+&nbsp;________________________________________<BR>
+&nbsp;From: owner-mpich2-bugs@mcs.anl.gov [owner-mpich2-bugs@mcs.anl.gov] On&nbsp; Behalf Of<BR>
+&nbsp;mpich2 [mpich2-maint@mcs.anl.gov]<BR>
+&nbsp;Sent: Friday, November 21, 2008 11:31 PM<BR>
+&nbsp;Subject: Re: [mpich2-maint] #299: ERROR<BR>
+&nbsp;MESSAGE:../../../include/mpitypedefs.h:17:25: sys/bitypes.h:No such file&nbsp; or&nbsp; directory<BR>
+<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;&nbsp; |<BR>
+&nbsp;Owner:<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp;|<BR>
+&nbsp;Status:&nbsp; new<BR>
+&nbsp; Priority:&nbsp; major<BR>
+&nbsp;|<BR>
+&nbsp;Milestone:<BR>
+&nbsp;Component:&nbsp; mpich2<BR>
+&nbsp;|<BR>
+&nbsp;Resolution:<BR>
+&nbsp; Keywords:<BR>
+&nbsp;|<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+<BR>
+<BR>
+&nbsp;Comment (by Jayesh Krishna):<BR>
+<BR>
+&nbsp; {{{<BR>
+<BR>
+&nbsp;&nbsp; Hi,<BR>
+&nbsp;&nbsp;&nbsp; Can you send us your configure output ( 1) configure.log --- output of<BR>
+&nbsp; configure to the stdout&nbsp; &amp; (2) config.log --- output of configure script<BR>
+&nbsp;)<BR>
+<BR>
+&nbsp; Regards,<BR>
+&nbsp; Jayesh<BR>
+<BR>
+&nbsp; -----Original Message-----<BR>
+&nbsp; From: mpich2-bugs-bounces@mcs.anl.gov<BR>
+&nbsp; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&nbsp; Sent: Friday, November 21, 2008 2:02 AM<BR>
+&nbsp; To: undisclosed-recipients:<BR>
+&nbsp; Subject: [mpich2-maint] #299: ERROR<BR>
+&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25: sys/bitypes.h:No such file<BR>
+&nbsp; or directory<BR>
+<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; +-<BR>
+&nbsp;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;<BR>
+&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; Milestone:<BR>
+&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; +-<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; {{{<BR>
+<BR>
+&nbsp;&nbsp; Dear Sir/Mdm,<BR>
+<BR>
+&nbsp;&nbsp; I am trying to install MPICH2 into CYGWIN and encountered this error<BR>
+&nbsp; message at&nbsp; the end of my make.log file.<BR>
+<BR>
+&nbsp;&nbsp; Attached is my make.log file for your kind consideration.<BR>
+<BR>
+&nbsp;&nbsp; I would like to request for some advice about it, please.<BR>
+<BR>
+&nbsp;&nbsp; Thank you.<BR>
+<BR>
+&nbsp;&nbsp; regards,<BR>
+&nbsp;&nbsp; Cornelius<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; 1) This email is confidential and may be privileged. If you are not the<BR>
+&nbsp; intended recipient, please delete it and notify us immediately. Please&nbsp; do<BR>
+&nbsp; not copy or use it for any purpose, or disclose its contents to any&nbsp; other<BR>
+&nbsp; person.<BR>
+<BR>
+&nbsp;&nbsp; 2) If you believe you're receiving this e-mail in error or prefer not to<BR>
+&nbsp; receive publicity materials from Data Storage Institute,&nbsp; please send<BR>
+&nbsp; e-mail to admin@dsi.a-star.edu.sg with the subject&nbsp; &quot;Unsubscribe&quot;.<BR>
+<BR>
+&nbsp;&nbsp; Please remember to include the body text&nbsp; received.<BR>
+&nbsp;&nbsp; Removal requests will be honored and respected. Please allow 1 to 3 days<BR>
+&nbsp; for&nbsp; processing.<BR>
+&nbsp;&nbsp; You may still receive other e-mails from us within the grace period.<BR>
+<BR>
+&nbsp;&nbsp; 3) As an anti-virus measure, our mail server rejects the following<BR>
+&nbsp;&nbsp; attachments:<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *.bat, *.com, *.cmd, *.exe, *.hta, *.Ink, *.pif, *.scr,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *.shs; *.vb*; *.{*, *.js, *.sct, *.wsh, *.jse, *.swf.<BR>
+<BR>
+&nbsp;&nbsp; If you need to send us an attachment of this type, please contact us&nbsp; at<BR>
+&nbsp; helpline@dsi.a-star.edu.sg.<BR>
+<BR>
+&nbsp;&nbsp; Thank you!<BR>
+<BR>
+&nbsp;&nbsp; }}}<BR>
+<BR>
+<BR>
+&nbsp; --<BR>
+&nbsp; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/299">https://trac.mcs.anl.gov/projects/mpich2/ticket/299</A>&gt;<BR>
+&nbsp; }}}<BR>
+<BR>
+&nbsp;--<BR>
+&nbsp;Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;1) This email is confidential and may be privileged. If you are not the&nbsp; intended recipient, please delete it and notify us immediately. Please&nbsp; do not copy or use it for any purpose, or disclose its contents to any&nbsp; other person.<BR>
+<BR>
+&nbsp;2) If you believe you're receiving this e-mail in error or prefer not to&nbsp; receive publicity materials from Data Storage Institute,&nbsp; please send e-mail to admin@dsi.a-star.edu.sg with the subject&nbsp; &quot;Unsubscribe&quot;.<BR>
+<BR>
+&nbsp;Please remember to include the body text&nbsp; received.<BR>
+&nbsp;Removal requests will be honored and respected. Please allow 1 to 3 days&nbsp; for&nbsp; processing.<BR>
+&nbsp;You may still receive other e-mails from us within the grace period.<BR>
+<BR>
+&nbsp;3) As an anti-virus measure, our mail server rejects the following<BR>
+&nbsp;attachments:<BR>
+&nbsp;&nbsp;&nbsp; *.bat, *.com, *.cmd, *.exe, *.hta, *.Ink, *.pif, *.scr,<BR>
+&nbsp;&nbsp;&nbsp; *.shs; *.vb*; *.{*, *.js, *.sct, *.wsh, *.jse, *.swf.<BR>
+<BR>
+&nbsp;If you need to send us an attachment of this type, please contact us&nbsp; at helpline@dsi.a-star.edu.sg.<BR>
+<BR>
+&nbsp;Thank you!<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

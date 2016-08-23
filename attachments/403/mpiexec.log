@@ -1,0 +1,580 @@
+..\smpd_get_full_path_name
+../smpd_get_full_path_name
+..handling executable:
+hellow
+..\smpd_get_next_host
+...\smpd_get_next_hostname
+.../smpd_get_next_hostname
+...\smpd_get_host_id
+.../smpd_get_host_id
+../smpd_get_next_host
+..\smpd_create_cliques
+...\next_launch_node
+.../next_launch_node
+...\next_launch_node
+.../next_launch_node
+../smpd_create_cliques
+..\smpd_fix_up_host_tree
+../smpd_fix_up_host_tree
+./mp_parse_command_args
+.host tree:
+. host: korebot, parent: 0, id: 1
+.launch nodes:
+. iproc: 0, id: 1, exe: hellow
+.\smpd_get_smpd_data
+..\smpd_hide_string_arg
+...\first_token
+.../first_token
+...\compare_token
+.../compare_token
+...\next_token
+....\first_token
+..../first_token
+....\first_token
+..../first_token
+.../next_token
+../smpd_hide_string_arg
+../smpd_hide_string_arg
+..\smpd_get_smpd_data_from_environment
+../smpd_get_smpd_data_from_environment
+..\smpd_parse_smpd_file
+...\smpd_open_smpd_file
+.../smpd_open_smpd_file
+...\str_replace
+.../str_replace
+../smpd_parse_smpd_file
+..\smpd_hide_string_arg
+...\first_token
+.../first_token
+...\compare_token
+.../compare_token
+...\next_token
+....\first_token
+..../first_token
+....\first_token
+..../first_token
+.../next_token
+../smpd_hide_string_arg
+../smpd_hide_string_arg
+./smpd_get_smpd_data
+.\smpd_create_context
+..\smpd_init_context
+...\smpd_init_command
+.../smpd_init_command
+../smpd_init_context
+./smpd_create_context
+.\smpd_enter_at_state
+..sock_waiting for the next event.
+..SOCK_OP_CONNECT
+..\smpd_handle_op_connect
+...connect succeeded, posting read of the challenge string
+../smpd_handle_op_connect
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_challenge_string
+....read challenge string: '1.0.8 1677504931'
+....\smpd_verify_version
+..../smpd_verify_version
+....\smpd_hash
+..../smpd_hash
+.../smpd_state_reading_challenge_string
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_WRITE
+..\smpd_handle_op_write
+...\smpd_state_writing_challenge_response
+....wrote challenge response: '472baaf52e5a75b372b87ea8a39dd899'
+.../smpd_state_writing_challenge_response
+../smpd_handle_op_write
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_connect_result
+....read connect result: 'SUCCESS'
+.../smpd_state_reading_connect_result
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_WRITE
+..\smpd_handle_op_write
+...\smpd_state_writing_process_session_request
+....wrote process session request: 'process'
+.../smpd_state_writing_process_session_request
+../smpd_handle_op_write
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cred_request
+....read cred request: 'nocredentials'
+.../smpd_state_reading_cred_request
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_reconnect_request
+....read re-connect request: '-1'
+....\smpd_generate_session_header
+.....session header: (id=1 parent=0 level=0)
+..../smpd_generate_session_header
+.../smpd_state_reading_reconnect_request
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_WRITE
+..\smpd_handle_op_write
+...\smpd_state_writing_session_header
+....wrote session header: 'id=1 parent=0 level=0'
+....\smpd_post_read_command
+.....posting a read for a command header on the left context, sock 16777216
+..../smpd_post_read_command
+....\smpd_create_command
+.....\smpd_init_command
+...../smpd_init_command
+..../smpd_create_command
+....\smpd_post_write_command
+.....\smpd_package_command
+...../smpd_package_command
+.....smpd_post_write_command on the left context sock 16777216: 47 bytes for command: "cmd=start_dbs src=0 dest=1 tag=0 "
+..../smpd_post_write_command
+.../smpd_state_writing_session_header
+../smpd_handle_op_write
+..sock_waiting for the next event.
+..SOCK_OP_WRITE
+..\smpd_handle_op_write
+...\smpd_state_writing_cmd
+....wrote command
+....command written to left: "cmd=start_dbs src=0 dest=1 tag=0 "
+....moving 'start_dbs' command to the wait_list.
+.../smpd_state_writing_cmd
+../smpd_handle_op_write
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd_header
+....read command header
+....command header read, posting read for data: 160 bytes
+.../smpd_state_reading_cmd_header
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd
+....read command
+....\smpd_parse_command
+..../smpd_parse_command
+....read command: "cmd=result src=1 dest=0 tag=0 cmd_tag=0 cmd_orig=start_dbs kvs_name=6DC1FF701F36082079D54B278C15143 domain_name=2BC077DE75D48D473A224399AFC56CA result=SUCCESS "
+....\smpd_handle_command
+.....handling command:
+..... src  = 1
+..... dest = 0
+..... cmd  = result
+..... tag  = 0
+..... ctx  = left
+..... len  = 160
+..... str  = cmd=result src=1 dest=0 tag=0 cmd_tag=0 cmd_orig=start_dbs kvs_name=6DC1FF701F36082079D54B278C15143 domain_name=2BC077DE75D48D473A224399AFC56CA result=SUCCESS 
+.....\smpd_command_destination
+......0 -> 0 : returning NULL context
+...../smpd_command_destination
+.....\smpd_handle_result
+......start_dbs succeeded, kvs_name: '6DC1FF701F36082079D54B278C15143', domain_name: '2BC077DE75D48D473A224399AFC56CA'
+......\smpd_launch_processes
+.......creating a process group of size 1 on node 0 called 6DC1FF701F36082079D54B278C15143
+.......\create_process_group
+......./create_process_group
+.......launching the processes.
+.......\smpd_create_command
+........\smpd_init_command
+......../smpd_init_command
+......./smpd_create_command
+.......\smpd_add_command_arg
+......./smpd_add_command_arg
+.......\smpd_add_command_int_arg
+......./smpd_add_command_int_arg
+.......\smpd_add_command_int_arg
+......./smpd_add_command_int_arg
+.......\smpd_add_command_arg
+......./smpd_add_command_arg
+.......\smpd_add_command_arg
+......./smpd_add_command_arg
+.......\smpd_add_command_arg
+......./smpd_add_command_arg
+.......\smpd_add_command_int_arg
+......./smpd_add_command_int_arg
+.......\smpd_add_command_int_arg
+......./smpd_add_command_int_arg
+.......\smpd_add_command_arg
+......./smpd_add_command_arg
+.......\smpd_add_command_arg
+......./smpd_add_command_arg
+.......\smpd_post_write_command
+........\smpd_package_command
+......../smpd_package_command
+........smpd_post_write_command on the left context sock 16777216: 178 bytes for command: "cmd=launch src=0 dest=1 tag=1 c=hellow s=0 a=0 d=/usr/local/bin p=/usr/local/bin/. q=0 i=0 n=1 k=6DC1FF701F36082079D54B278C15143 kd=2BC077DE75D48D473A224399AFC56CA "
+......./smpd_post_write_command
+....../smpd_launch_processes
+......\smpd_free_command
+.......\smpd_init_command
+......./smpd_init_command
+....../smpd_free_command
+...../smpd_handle_result
+..../smpd_handle_command
+....\smpd_post_read_command
+.....posting a read for a command header on the left context, sock 16777216
+..../smpd_post_read_command
+.../smpd_state_reading_cmd
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_WRITE
+..\smpd_handle_op_write
+...\smpd_state_writing_cmd
+....wrote command
+....command written to left: "cmd=launch src=0 dest=1 tag=1 c=hellow s=0 a=0 d=/usr/local/bin p=/usr/local/bin/. q=0 i=0 n=1 k=6DC1FF701F36082079D54B278C15143 kd=2BC077DE75D48D473A224399AFC56CA "
+....moving 'launch' command to the wait_list.
+.../smpd_state_writing_cmd
+../smpd_handle_op_write
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd_header
+....read command header
+....command header read, posting read for data: 129 bytes
+.../smpd_state_reading_cmd_header
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd
+....read command
+....\smpd_parse_command
+..../smpd_parse_command
+....read command: "cmd=result src=1 dest=0 tag=1 cmd_tag=1 cmd_orig=launch result=SUCCESS pg_id=6DC1FF701F36082079D54B278C15143 pg_rank=0 pg_ctx=0 "
+....\smpd_handle_command
+.....handling command:
+..... src  = 1
+..... dest = 0
+..... cmd  = result
+..... tag  = 1
+..... ctx  = left
+..... len  = 129
+..... str  = cmd=result src=1 dest=0 tag=1 cmd_tag=1 cmd_orig=launch result=SUCCESS pg_id=6DC1FF701F36082079D54B278C15143 pg_rank=0 pg_ctx=0 
+.....\smpd_command_destination
+......0 -> 0 : returning NULL context
+...../smpd_command_destination
+.....\smpd_handle_result
+......successfully launched: 'cmd=launch src=0 dest=1 tag=1 c=hellow s=0 a=0 d=/usr/local/bin p=/usr/local/bin/. q=0 i=0 n=1 k=6DC1FF701F36082079D54B278C15143 kd=2BC077DE75D48D473A224399AFC56CA '
+......root process launched, starting stdin redirection.
+......\smpd_create_context
+.......\smpd_init_context
+........\smpd_init_command
+......../smpd_init_command
+......./smpd_init_context
+....../smpd_create_context
+......\smpd_free_command
+.......\smpd_init_command
+......./smpd_init_command
+....../smpd_free_command
+...../smpd_handle_result
+..../smpd_handle_command
+....\smpd_post_read_command
+.....posting a read for a command header on the left context, sock 16777216
+..../smpd_post_read_command
+.../smpd_state_reading_cmd
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd_header
+....read command header
+....command header read, posting read for data: 100 bytes
+.../smpd_state_reading_cmd_header
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd
+....read command
+....\smpd_parse_command
+..../smpd_parse_command
+....read command: "cmd=init src=1 dest=0 tag=0 ctx_key=0 name=6DC1FF701F36082079D54B278C15143 key=0 value=1 node_id=1 "
+....\smpd_handle_command
+.....handling command:
+..... src  = 1
+..... dest = 0
+..... cmd  = init
+..... tag  = 0
+..... ctx  = left
+..... len  = 100
+..... str  = cmd=init src=1 dest=0 tag=0 ctx_key=0 name=6DC1FF701F36082079D54B278C15143 key=0 value=1 node_id=1 
+.....\smpd_command_destination
+......0 -> 0 : returning NULL context
+...../smpd_command_destination
+.....\smpd_handle_init_command
+......\smpd_create_command
+.......\smpd_init_command
+......./smpd_init_command
+....../smpd_create_command
+......\smpd_add_command_int_arg
+....../smpd_add_command_int_arg
+......\smpd_add_command_arg
+....../smpd_add_command_arg
+......\get_name_key_value
+....../get_name_key_value
+......init: 0:1:6DC1FF701F36082079D54B278C15143
+......sending reply to init command 'cmd=init src=1 dest=0 tag=0 ctx_key=0 name=6DC1FF701F36082079D54B278C15143 key=0 value=1 node_id=1 '.
+......\smpd_add_command_arg
+....../smpd_add_command_arg
+......sending result command to left context: "cmd=result src=0 dest=1 tag=2 cmd_tag=0 ctx_key=0 result=SUCCESS "
+......\smpd_post_write_command
+.......\smpd_package_command
+......./smpd_package_command
+.......smpd_post_write_command on the left context sock 16777216: 79 bytes for command: "cmd=result src=0 dest=1 tag=2 cmd_tag=0 ctx_key=0 result=SUCCESS "
+....../smpd_post_write_command
+...../smpd_handle_init_command
+..../smpd_handle_command
+....\smpd_post_read_command
+.....posting a read for a command header on the left context, sock 16777216
+..../smpd_post_read_command
+.../smpd_state_reading_cmd
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_WRITE
+..\smpd_handle_op_write
+...\smpd_state_writing_cmd
+....wrote command
+....command written to left: "cmd=result src=0 dest=1 tag=2 cmd_tag=0 ctx_key=0 result=SUCCESS "
+....\smpd_free_command
+.....\smpd_init_command
+...../smpd_init_command
+..../smpd_free_command
+.../smpd_state_writing_cmd
+../smpd_handle_op_write
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd_header
+....read command header
+....command header read, posting read for data: 96 bytes
+.../smpd_state_reading_cmd_header
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd
+....read command
+....\smpd_parse_command
+..../smpd_parse_command
+....read command: "cmd=finalize src=1 dest=0 tag=2 ctx_key=0 name=6DC1FF701F36082079D54B278C15143 key=0 node_id=1 "
+....\smpd_handle_command
+.....handling command:
+..... src  = 1
+..... dest = 0
+..... cmd  = finalize
+..... tag  = 2
+..... ctx  = left
+..... len  = 96
+..... str  = cmd=finalize src=1 dest=0 tag=2 ctx_key=0 name=6DC1FF701F36082079D54B278C15143 key=0 node_id=1 
+.....\smpd_command_destination
+......0 -> 0 : returning NULL context
+...../smpd_command_destination
+.....\smpd_handle_finalize_command
+......\smpd_create_command
+.......\smpd_init_command
+......./smpd_init_command
+....../smpd_create_command
+......\smpd_add_command_int_arg
+....../smpd_add_command_int_arg
+......\smpd_add_command_arg
+....../smpd_add_command_arg
+......\get_name_key_value
+....../get_name_key_value
+......finalize: 0:6DC1FF701F36082079D54B278C15143
+......sending reply to finalize command 'cmd=finalize src=1 dest=0 tag=2 ctx_key=0 name=6DC1FF701F36082079D54B278C15143 key=0 node_id=1 '.
+......\smpd_add_command_arg
+....../smpd_add_command_arg
+......sending result command to left context: "cmd=result src=0 dest=1 tag=3 cmd_tag=2 ctx_key=0 result=SUCCESS "
+......\smpd_post_write_command
+.......\smpd_package_command
+......./smpd_package_command
+.......smpd_post_write_command on the left context sock 16777216: 79 bytes for command: "cmd=result src=0 dest=1 tag=3 cmd_tag=2 ctx_key=0 result=SUCCESS "
+....../smpd_post_write_command
+...../smpd_handle_finalize_command
+..../smpd_handle_command
+....\smpd_post_read_command
+.....posting a read for a command header on the left context, sock 16777216
+..../smpd_post_read_command
+.../smpd_state_reading_cmd
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_WRITE
+..\smpd_handle_op_write
+...\smpd_state_writing_cmd
+....wrote command
+....command written to left: "cmd=result src=0 dest=1 tag=3 cmd_tag=2 ctx_key=0 result=SUCCESS "
+....\smpd_free_command
+.....\smpd_init_command
+...../smpd_init_command
+..../smpd_free_command
+.../smpd_state_writing_cmd
+../smpd_handle_op_write
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd_header
+....read command header
+....command header read, posting read for data: 116 bytes
+.../smpd_state_reading_cmd_header
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd
+....read command
+....\smpd_parse_command
+..../smpd_parse_command
+....read command: "cmd=stdout src=1 dest=0 tag=3 rank=0 first=1 data=48656C6C6F20776F726C642066726F6D2070726F636573732030206F6620310A "
+....\smpd_handle_command
+.....handling command:
+..... src  = 1
+..... dest = 0
+..... cmd  = stdout
+..... tag  = 3
+..... ctx  = left
+..... len  = 116
+..... str  = cmd=stdout src=1 dest=0 tag=3 rank=0 first=1 data=48656C6C6F20776F726C642066726F6D2070726F636573732030206F6620310A 
+.....\smpd_command_destination
+......0 -> 0 : returning NULL context
+...../smpd_command_destination
+.....\smpd_handle_stdout_command
+......\write_to_stdout
+Hello world from process 0 of 1
+....../write_to_stdout
+...../smpd_handle_stdout_command
+..../smpd_handle_command
+....\smpd_post_read_command
+.....posting a read for a command header on the left context, sock 16777216
+..../smpd_post_read_command
+.../smpd_state_reading_cmd
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd_header
+....read command header
+....command header read, posting read for data: 79 bytes
+.../smpd_state_reading_cmd_header
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd
+....read command
+....\smpd_parse_command
+..../smpd_parse_command
+....read command: "cmd=exit src=1 dest=0 tag=4 rank=0 code=0 kvs=6DC1FF701F36082079D54B278C15143 "
+....\smpd_handle_command
+.....handling command:
+..... src  = 1
+..... dest = 0
+..... cmd  = exit
+..... tag  = 4
+..... ctx  = left
+..... len  = 79
+..... str  = cmd=exit src=1 dest=0 tag=4 rank=0 code=0 kvs=6DC1FF701F36082079D54B278C15143 
+.....\smpd_command_destination
+......0 -> 0 : returning NULL context
+...../smpd_command_destination
+.....\smpd_handle_exit_command
+......saving exit code: rank 0, exitcode 0, pg <6DC1FF701F36082079D54B278C15143>
+......last process exited, returning SMPD_EXIT.
+...../smpd_handle_exit_command
+..../smpd_handle_command
+....\smpd_post_read_command
+.....posting a read for a command header on the left context, sock 16777216
+..../smpd_post_read_command
+....\smpd_create_command
+.....\smpd_init_command
+...../smpd_init_command
+..../smpd_create_command
+....\smpd_post_write_command
+.....\smpd_package_command
+...../smpd_package_command
+.....smpd_post_write_command on the left context sock 16777216: 43 bytes for command: "cmd=close src=0 dest=1 tag=4 "
+..../smpd_post_write_command
+.../smpd_state_reading_cmd
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_WRITE
+..\smpd_handle_op_write
+...\smpd_state_writing_cmd
+....wrote command
+....command written to left: "cmd=close src=0 dest=1 tag=4 "
+....\smpd_free_command
+.....\smpd_init_command
+...../smpd_init_command
+..../smpd_free_command
+.../smpd_state_writing_cmd
+../smpd_handle_op_write
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd_header
+....read command header
+....command header read, posting read for data: 31 bytes
+.../smpd_state_reading_cmd_header
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_READ
+..\smpd_handle_op_read
+...\smpd_state_reading_cmd
+....read command
+....\smpd_parse_command
+..../smpd_parse_command
+....read command: "cmd=closed src=1 dest=0 tag=5 "
+....\smpd_handle_command
+.....handling command:
+..... src  = 1
+..... dest = 0
+..... cmd  = closed
+..... tag  = 5
+..... ctx  = left
+..... len  = 31
+..... str  = cmd=closed src=1 dest=0 tag=5 
+.....\smpd_command_destination
+......0 -> 0 : returning NULL context
+...../smpd_command_destination
+.....\smpd_handle_closed_command
+......closed command received from left child, closing sock.
+......MPIDU_Sock_post_close(16777216)
+......received a closed at node with no parent context, assuming root, returning SMPD_EXITING.
+...../smpd_handle_closed_command
+..../smpd_handle_command
+....not posting read for another command because SMPD_EXITING returned
+.../smpd_state_reading_cmd
+../smpd_handle_op_read
+..sock_waiting for the next event.
+..SOCK_OP_CLOSE
+..\smpd_handle_op_close
+...\smpd_get_state_string
+.../smpd_get_state_string
+...op_close received - SMPD_EXITING state.
+...\smpd_free_context
+....freeing left context.
+....\smpd_init_context
+.....\smpd_init_command
+...../smpd_init_command
+..../smpd_init_context
+.../smpd_free_context
+../smpd_handle_op_close
+./smpd_enter_at_state
+/main
+\smpd_exit
+.#\smpd_kill_all_processes
+.\smpd_kill_all_processes
+./smpd_kill_all_processes
+.#/smpd_kill_all_processes
+.#\smpd_finalize_printf
+.#/smpd_finalize_printf
+.#\PMI_Finalize
+.\smpd_dbs_finalize
+./smpd_dbs_finalize
+.#/PMI_Finalize
+.#smpd_exit() exiting with error code = 0

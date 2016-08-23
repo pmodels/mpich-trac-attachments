@@ -1,0 +1,108 @@
+Configuring MPICH2 version 1.0.7 with '-prefix=/home/Jonas/mpich2-install'
+Running on system: CYGWIN_NT-5.1 martinim 1.5.25(0.156/4/2) 2008-06-12 19:34 i686 Cygwin
+Executing mpich2prereq in /home/Jonas/libraries/mpich2-1.0.7/src/mpid/ch3 with 
+Executing mpich2prereq in /home/Jonas/libraries/mpich2-1.0.7/src/mpid/ch3/channels/sock
+sourcing /home/Jonas/libraries/mpich2-1.0.7/src/pm/mpd/mpich2prereq
+sourcing /home/Jonas/libraries/mpich2-1.0.7/src/pm/mpd/setup_pm
+checking for gcc... gcc
+checking for C compiler default output file name... a.exe
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... .exe
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking whether C compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for type of weak symbol support... pragma weak accepted but does not work (probably creates two non-weak entries)
+no
+checking whether __attribute__ ((weak)) allowed... yes
+checking for g77... g77
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether g77 accepts -g... yes
+checking whether Fortran 77 compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking how to get verbose linking output from g77... -v
+checking for Fortran libraries of g77...  -L/usr/lib/gcc/i686-pc-cygwin/3.4.4 -L/usr/lib/gcc/i686-pc-cygwin/3.4.4/../../.. -lfrtbegin -lg2c -lcygwin -luser32 -lkernel32 -ladvapi32 -lshell32
+checking whether g77 accepts the FLIBS found by autoconf... yes
+checking whether C can link with  -L/usr/lib/gcc/i686-pc-cygwin/3.4.4 -L/usr/lib/gcc/i686-pc-cygwin/3.4.4/../../.. -lfrtbegin -lg2c -lcygwin -luser32 -lkernel32 -ladvapi32 -lshell32... yes
+checking for linker for Fortran main programs... Use Fortran to link programs
+checking for Fortran 77 name mangling... lower doubleunderscore
+checking what libraries are needed to link Fortran programs with C routines that use stdio... none
+checking for f90... no
+checking for xlf90... no
+checking for pgf90... no
+checking for ifort... no
+checking for epcf90... no
+checking for f95... no
+checking for fort... no
+checking for xlf95... no
+checking for lf95... no
+checking for pathf90... no
+checking for g95... no
+checking for gfortran... no
+checking for ifc... no
+checking for efc... no
+checking that f works as the extension for Fortran 90 program... no
+checking for extension for Fortran 90 programs... unknown!
+checking whether Fortran accepts ! for comments... yes
+checking for include directory flag for Fortran... -I
+checking for Fortran 77 flag for library directories... -L
+checking for which Fortran libraries are needed to link C with Fortran... none
+checking whether Fortran compiler processes .F files with C preprocessor... yes
+checking for c++... c++
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether the C++ compiler c++ can build an executable... yes
+checking whether the compiler supports exceptions... yes
+checking whether the compiler recognizes bool as a built-in type... yes
+checking whether the compiler implements namespaces... yes
+checking whether <iostream> available... yes
+checking whether the compiler implements the namespace std... yes
+checking whether <math> available... no
+checking for GNU g++ version... 3 . 4
+checking whether C++ compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for perl... no
+checking for ar... ar
+checking for ranlib... ranlib
+checking for etags... no
+checking for killall... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking whether install breaks libraries... no
+checking whether mkdir -p works... yes
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for bash... /usr/bin/sh
+checking whether /usr/bin/sh supports arrays... yes
+checking for doctext... false
+checking for location of doctext style files... unavailable
+checking for an ANSI C-conforming const... yes
+checking for volatile... yes
+checking for restrict... __restrict
+checking for inline... inline
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking whether byte ordering is bigendian... no
+checking whether C compiler allows unaligned doubles... yes
+checking whether gcc supports __func__... yes
+Using gcc to determine dependencies
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for max C struct integer alignment... eight
+checking for max C struct floating point alignment... four
+checking for max C struct alignment of structs with doubles... eight
+checking for max C struct floating point alignment with long doubles... four
+configure: WARNING: Structures containing long doubles may be aligned differently from structures with floats or longs.  MPICH2 does not handle this case automatically and you should avoid assumed extents for structures containing float types.
+checking if alignment of structs with doubles is based on position... no
+checking if alignment of structs with long long ints is based on position... no
+checking if double alignment breaks rules, find actual alignment... no
+checking for alignment restrictions on pointers... int or better
+checking for egrep... grep -E
+checking for ANSI C header files... 

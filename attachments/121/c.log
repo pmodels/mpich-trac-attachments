@@ -1,0 +1,28 @@
+Configuring with args --prefix=/home/pelle/libraries/mpich-1.2.7
+Configuring MPICH Version 1.2.7 (release) of : 2005/06/22 16:33:49
+checking whether filesystem respects case in file names... yes
+checking for current directory name... /home/pelle/tmp/mpich-1.2.7
+checking for architecture... LINUX
+checking for device... ch_p4
+checking for install
+checking for ranlib
+checking for gnumake... yes using --no-print-directory
+checking whether make supports include... yes
+checking for OSF V3 make... no
+checking for virtual path format... VPATH
+checking for xlC
+checking for g++
+checking for c++
+checking for aCC
+checking for CC
+checking for cxx
+checking for cc... found /usr/bin/cc (cc)
+checking whether the compiler cc accepts ANSI prototypes... no
+*# The compiler cc does not accept ANSI prototypes
+checking for gcc... found /usr/bin/gcc (gcc)
+checking whether cross-compiling... yes
+checking whether the compiler gcc runs... no
+conftest.c: In function 'main':
+conftest.c:2: warning: incompatible implicit declaration of built-in function 'exit'
+/usr/bin/ld: crt1.o: No such file: No such file or directory
+collect2: ld returned 1 exit status

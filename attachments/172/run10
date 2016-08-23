@@ -1,0 +1,17 @@
+#!/bin/csh
+
+# start with Studio compilers to preempt C compilers in other directories
+set path = ( /opt/SUNWspro/bin /usr/bin /bin )
+
+set MPICH = mpich2-1.1.0a1
+
+gunzip $MPICH.tar.gz
+tar xf $MPICH.tar
+
+cd $MPICH
+set INSTALLDIR = `pwd`/mybits
+
+./configure --prefix=$INSTALLDIR CC=cc
+
+make
+

@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+<BR>
+
+<P><FONT SIZE=2>Hi,<BR>
+&nbsp;If you explicitly pass character string lengths in your code, your code is no longer portable. Do you have to pass character strings btw the sources compiled with different options ?<BR>
+&nbsp;The default options of FORTRAN compilers are not standardized. For example if you use Compaq Digital fortran compiler the default option is &quot;mixed_str_len_arg&quot; &amp; if you use the Intel fortran compiler the default option is &quot;no_mixed_str_len_arg&quot; (So even if the developer compiled their code with the default options there is no consensus on all the compiler options).<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+<BR>
+----- Original Message -----<BR>
+Dear Jayesh,<BR>
+<BR>
+I can do it in this way:<BR>
+<BR>
+If this is the subroutine compilied with After Individual String Argument,<BR>
+Subroutine MySub1(int1,real1,char1,int2,real2,char2)<BR>
+In my code, I need to call the routine by adding additional string length arguments,<BR>
+MySub1(int1,real1,char1[,int3],int2,real2,char2[,int4]), where int3 and int4 are the string lengths.<BR>
+<BR>
+I tried it, it works.<BR>
+<BR>
+The libs I am using is actually CHEMKIN libs. They compilied their code with After Individual String Argument option.<BR>
+I really do not understand why they do not use the default options in Intel Compilier.<BR>
+<BR>
+I appreciate your help very much.<BR>
+<BR>
+Cheers,<BR>
+Wei<BR>
+<BR>
+<BR>
+<BR>
+----- Original Message -----<BR>
+From: Jayesh Krishna<BR>
+To: Wei Yao<BR>
+Cc: mpich2-maint@mcs.anl.gov<BR>
+Sent: Wednesday, December 10, 2008 5:50 PM<BR>
+Subject: RE: [mpich2-maint] #307: about /iface:mixed_str_len_arg<BR>
+<BR>
+<BR>
+&nbsp;Hi,<BR>
+&nbsp; As long as you don't have to pass CHARACTER strings between the two source files (the one that makes MPI calls &amp; the one that makes CHEMKIN calls) you should be ok. You can compile the source that makes MPI calls with &quot;stdcall+reference+names_uppercase+no_mixed_str_len&quot; settiings (/iface:stdref /names:uppercase) &amp; the source that makes CHEMKIN calls with &quot;/iface:cvf&quot; option. The linker would then be able to link your object files to create an executable.<BR>
+&nbsp; Let us know if it works for you.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Wednesday, December 10, 2008 4:07 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg<BR>
+<BR>
+--------------------------------------------------+---------------------<BR>
+--------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+--------------------------------------------------+---------------------<BR>
+--------------------------------------------------+----<BR>
+<BR>
+<BR>
+Comment (by Wei Yao):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Dear Jayesh,<BR>
+<BR>
+&nbsp;The CHEMKIN does not include any MPI calls.<BR>
+&nbsp;It is easy to do what you suggest: to separate the code that makes MPI&nbsp; calls and&nbsp; calls to<BR>
+&nbsp; CHEMKIN to different source files &amp; compile with different compiler&nbsp; arguments.<BR>
+&nbsp;But How<BR>
+&nbsp;can I build them in the same executable file?<BR>
+<BR>
+<BR>
+&nbsp;Cheers,<BR>
+&nbsp;Wei<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;----- Original Message -----<BR>
+&nbsp;From: &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt;<BR>
+&nbsp;Sent: Tuesday, December 09, 2008 10:39 PM<BR>
+&nbsp;Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg<BR>
+<BR>
+<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------------+-------------------------<BR>
+&nbsp;&gt; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;&gt; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp;&gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp;&gt; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------------+-------------------------<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; Comment (by Jayesh Krishna):<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Hi,<BR>
+&nbsp;&gt;&nbsp;&nbsp; Does the library CHEMKIN make any MPI calls (Is it linked with MPICH2<BR>
+&nbsp;?<BR>
+&nbsp;&gt; ) ? If not, can you separate the code that makes MPI calls and calls to&nbsp; &gt; CHEMKIN to different source files &amp; compile with different compiler&nbsp; &gt; arguments (calls to MPI/MPICH2 with no_mixed_str_len_arg &amp; calls to&nbsp; &gt; CHEMKIN with mixed_str_len_arg) ?<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; (PS: Supporting mixed_str_len_arg compiler option would require some&nbsp; work&nbsp; &gt; and might not be available instantly.)&nbsp; &gt; Regards,&nbsp; &gt; Jayesh&nbsp; &gt;&nbsp; &gt; -----Original Message-----&nbsp; &gt; From: mpich2-bugs-bounces@mcs.anl.gov&nbsp; &gt; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2&nbsp; &gt; Sent: Monday, December 08, 2008 9:25 AM&nbsp; &gt; To: undisclosed-recipients:<BR>
+&nbsp;&gt; Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg&nbsp; &gt;&nbsp; &gt; --------------------------------------------------+---------------------<BR>
+&nbsp;&gt; --------------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;&gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp;&gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp;&gt;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt; --------------------------------------------------+---------------------<BR>
+&nbsp;&gt; --------------------------------------------------+----<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; Comment (by Jayesh Krishna):<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Hi,<BR>
+&nbsp;&gt;&nbsp;&nbsp; We are still working on a solution to the problem.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; (PS: We know what the problem is but are still looking for an elegant&nbsp; &gt; soln. With mixed str len arg, FORTRAN code passes string lengths just&nbsp; &gt; after a string, CHARACTER array, argument to a function. So MPICH2 lib,&nbsp; &gt; fmpich2s.lib, exports two versions of the MPI functions that accept a&nbsp; user&nbsp; &gt; buffer. However the fortran compiler does not generate different symbols&nbsp; &gt; for functions that differ in the number of the arguments. In your code&nbsp; &gt; this results in all instances of MPI_SEND() being linked to either the&nbsp; &gt; interface function that accept CHARACTER arrays OR the function that&nbsp; &gt; accepts non-CHARACTER arrays - the interface function linked to depends&nbsp; on&nbsp; &gt; the type/number of arguments for MPI_SEND() that the compiler first&nbsp; &quot;see&quot;s&nbsp; &gt; in your code.)&nbsp; &gt;&nbsp; &gt;&nbsp; Regards,&nbsp; &gt;&nbsp; Jayesh&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; _____<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; From: Wei Yao [<A HREF="mailto:Yao-W@email.ulster.ac.uk">mailto:Yao-W@email.ulster.ac.uk</A>]&nbsp; &gt;&nbsp; Sent: Monday, December 08, 2008 8:01 AM&nbsp; &gt;&nbsp; To: Jayesh Krishna&nbsp; &gt;&nbsp; Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;&nbsp; Hi, Jayesh,&nbsp; &gt;&nbsp; &gt;&nbsp; Got any solution for the problem?<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Cheers,<BR>
+&nbsp;&gt;&nbsp; Wei<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; ----- Original Message -----<BR>
+&nbsp;&gt;&nbsp; From: Jayesh&nbsp; &lt;<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>&gt; Krishna&nbsp; &gt;&nbsp; To: Wei Yao &lt;<A HREF="mailto:Yao-W@email.ulster.ac.uk">mailto:Yao-W@email.ulster.ac.uk</A>&gt;&nbsp; &gt;&nbsp; Cc: mpich2-maint@mcs.anl.gov&nbsp; &gt;&nbsp; Sent: Monday, December 01, 2008 6:40 PM&nbsp; &gt;&nbsp; Subject: RE: [mpich2-maint] #307: about /iface:mixed_str_len_arg&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;&nbsp; Hi,<BR>
+&nbsp;&gt;&nbsp;&nbsp; Please try the following,<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; # Delete all object files and executables created by your project.<BR>
+&nbsp;&gt;&nbsp; # Set the following settings in IVF for compiling your source,&nbsp; &gt;&nbsp; &gt;&nbsp; ====&nbsp; Set the &quot;Calling convention&quot; for &quot;External procedures&quot; in IVF to&nbsp; &gt; CVF&nbsp; &gt;&nbsp; (&quot;/iface:cvf&quot;)&nbsp; &gt;&nbsp; ====&nbsp; Leave the &quot;Name Case interpretation&quot; for &quot;External procedures&quot; to&nbsp; &gt; default (don't change anything here)&nbsp; ====&nbsp; Leave the &quot;String length&nbsp; &gt; argument passing&quot; for &quot;External procedures&quot;<BR>
+&nbsp;&gt;&nbsp; in IVF to default (don't change anything here - the compiler should&nbsp; &gt; select&nbsp; &quot;After Individual string argument&quot; by default for CVF calling&nbsp; &gt; convention)&nbsp; ====&nbsp; Leave the &quot;Append Underscore to External Names&quot;<BR>
+&nbsp;setting<BR>
+&nbsp;&gt; for&nbsp; &quot;External procedures&quot; to default (don't change anything here)&nbsp; ====&nbsp; &gt; Compile your code and Link your code with &quot;fmpich2s.lib&quot;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; If you are compiling from command line use the following example to<BR>
+&nbsp;&gt; compile your code (in the example below source code is &quot;fpi.f&quot; &amp; MPICH2&nbsp; is&nbsp; &gt; installed in &quot;c:\progra~1\mpich2&quot;)&nbsp; &gt;&nbsp; &gt;&nbsp; C:\test&gt; ifort fpi.f /Ic:\progra~1\mpich2\include /iface:cvf /link&nbsp; &gt; /OUT:fpi.exe /LIBPATH:c:\progra~1\mpich2\lib fmpich2s.lib&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; Let us know if it works for you.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Regards,<BR>
+&nbsp;&gt;&nbsp; Jayesh<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; -----Original Message-----<BR>
+&nbsp;&gt;&nbsp; Dear jayesh Krishna,<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; I tried using fmpich2s.lib with /iface:mixed_str_len_arg&nbsp; but it gives&nbsp; &gt; errors like:<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol _MPI_INIT<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol _MPI_COMM_RANK<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_COMM_SIZE<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_GET_PROCE<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_BARRIER<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_ALLGATHER<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_GATHER<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_ALLREDUCE<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_REDUCE<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_FINALIZE<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_SEND<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_RECV<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_ISEND<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_WAITALL<BR>
+&nbsp;&gt;&nbsp; unrecognized symbol&nbsp; _MPI_IRECV<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Cheers,<BR>
+&nbsp;&gt;&nbsp; Wei<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; -----Original Message-----<BR>
+&nbsp;&gt;&nbsp; From: mpich2-bugs-bounces@mcs.anl.gov&nbsp; &gt;&nbsp; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2&nbsp; &gt;&nbsp; Sent: Wednesday, November 26, 2008 5:42 PM&nbsp; &gt;&nbsp; To: undisclosed-recipients:<BR>
+&nbsp;&gt;&nbsp; Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg&nbsp; &gt;&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------+---------------------<BR>
+&nbsp;&gt;&nbsp; --------------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;&gt;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp;&gt;&nbsp; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp;&gt;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------------+---------------------<BR>
+&nbsp;&gt;&nbsp; --------------------------------------------------+----<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Comment (by Jayesh Krishna):<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Hi,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Did you try compiling your code with fmpich2s.lib ?<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; Regards,<BR>
+&nbsp;&gt;&nbsp;&nbsp; Jayesh<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; -----Original Message-----<BR>
+&nbsp;&gt;&nbsp;&nbsp; From: mpich2-bugs-bounces@mcs.anl.gov<BR>
+&nbsp;&gt;&nbsp;&nbsp; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&nbsp;&gt;&nbsp;&nbsp; Sent: Wednesday, November 26, 2008 10:28 AM<BR>
+&nbsp;&gt;&nbsp;&nbsp; To: undisclosed-recipients:<BR>
+&nbsp;&gt;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------------+---------------------<BR>
+&nbsp;&gt;&nbsp;&nbsp; --------------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp;&gt;&nbsp;&nbsp; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------------+---------------------<BR>
+&nbsp;&gt;&nbsp;&nbsp; --------------------------------------------------+----<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; Comment (by Jayesh Krishna):<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Hi,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Changing the options of the fortran compiler won't work. Let me<BR>
+&nbsp;take<BR>
+&nbsp;&gt; a&nbsp; look into this and get back to you (I will try to make your life&nbsp; easier&nbsp; &gt; :)&nbsp; ).<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Regards,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Jayesh<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; -----Original Message-----<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; From: mpich2-bugs-bounces@mcs.anl.gov<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Sent: Tuesday, November 25, 2008 6:27 PM<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; To: undisclosed-recipients:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; --------------------------------------------------+---------------------<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; --------------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:<BR>
+&nbsp;new<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; --------------------------------------------------+---------------------<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; --------------------------------------------------+----<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Comment (by Wei Yao):<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Dear Jayesh,<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; I am using MPI+IF on windows.<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; I need to use libs from another software (CHEMKIN ) in my code.<BR>
+&nbsp;These<BR>
+&nbsp;&gt; libs&nbsp; are&nbsp; compiled with /iface:CVF option and I can not recompiled&nbsp; these&nbsp; &gt; libs.<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; I changed the compiler option of Fortran projects to<BR>
+&nbsp;&gt; /iface:mixed_str_len_arg&nbsp; and recompilied it. But this&nbsp; does not solved&nbsp; &gt; the problem. I know few about the structure of MPI source&nbsp; code;&nbsp; maybe&nbsp; I&nbsp; &gt; need to do some changes in the MPICH2f project.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Cheers,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Wei<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; ----- Original Message -----<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; From: &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Sent: Tuesday, November 25, 2008 8:21 PM<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------------+-----------------------<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; --<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:<BR>
+&nbsp;&gt; new<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------------+-----------------------<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; --<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Comment (by Jayesh Krishna):<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; {{{<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Hi,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Are you using MPICH2+IF on windows ? Why do you want to use the<BR>
+&nbsp;&gt;&nbsp;&nbsp; mixed<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; string length args when compiling your fortran code ?<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Regards,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Jayesh<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; -----Original Message-----<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; From: mpich2-bugs-bounces@mcs.anl.gov&nbsp; &gt;<BR>
+&nbsp;&gt; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2&nbsp; &gt; Sent:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Tuesday, November 25, 2008 11:34 AM&nbsp; &gt; To: undisclosed-recipients:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Subject: [mpich2-maint] #307: about /iface:mixed_str_len_arg&nbsp; &gt;&nbsp; &gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; --------------------------------------------------+---------------------<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; --------------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:<BR>
+&nbsp;&gt; bug<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:<BR>
+&nbsp;&gt;&nbsp;&nbsp; major<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; mpich2<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; --------------------------------------------------+---------------------<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; --------------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; {{{<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Dear MPI developing group,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; I am trying to run a FORTRAN code (Intel Fortran compilier). In<BR>
+&nbsp;my<BR>
+&nbsp;&gt; code&nbsp; I&nbsp; &gt; need&nbsp; to use&nbsp; the compilier option:<BR>
+&nbsp;&quot;/iface:mixed_str_len_arg&quot;.<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Unfortrantely MPICH2 does not support this mixed_str_len_arg.<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; I tried compiling the MPICH2 source code with mixed_str_len_arg<BR>
+&nbsp;&gt; option,&nbsp; &gt; but it&nbsp; still does not work.<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Do you know how to compile a MPI version that supports&nbsp; &gt;<BR>
+&nbsp;&gt; /iface:mixed_str_len_arg&nbsp; (based in Interl Fortran compilier).<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Cheers,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Wei Yao<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;&nbsp; }}}<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; --<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/307">https://trac.mcs.anl.gov/projects/mpich2/ticket/307</A>&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; }}}<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; --<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt; Ticket URL:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; }}}<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; --<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Ticket URL:<BR>
+&nbsp;&gt;&nbsp;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; }}}<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; --<BR>
+&nbsp;&gt;&nbsp;&nbsp; Ticket URL:<BR>
+&nbsp;&gt;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; }}}<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; --<BR>
+&nbsp;&gt;&nbsp; Ticket URL:<BR>
+&nbsp;&gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; }}}<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; --<BR>
+&nbsp;&gt; Ticket URL:<BR>
+&nbsp;&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+&nbsp;&gt; }}}<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; --<BR>
+&nbsp;&gt; Ticket URL:<BR>
+&nbsp;&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

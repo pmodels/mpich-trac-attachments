@@ -1,0 +1,332 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:1698: checking for gcc
+configure:1811: checking whether the C compiler (gcc  ) works
+configure:1827: gcc -o conftest    conftest.c  1>&5
+configure:1853: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:1858: checking whether we are using GNU C
+configure:1867: gcc -E conftest.c
+configure:1886: checking whether gcc accepts -g
+configure:1953: checking for g77
+configure:1953: checking for f77
+configure:1986: checking whether the Fortran 77 compiler (f77  ) works
+configure:1999: f77 -o conftest   conftest.f  1>&5
+** conftest   === End of Compilation 1 ===
+1501-510  Compilation successful for file conftest.f.
+configure:2025: checking whether the Fortran 77 compiler (f77  ) is a cross-compiler
+configure:2030: checking whether we are using GNU Fortran 77
+configure:2039: f77 -E conftest.fpp
+f77: 1501-214 command option E reserved for future use - ignored
+f77: 1501-218 file conftest.fpp contains an incorrect file suffix
+ld: 0711-715 ERROR: File conftest.fpp cannot be processed.
+	The file must be an object file, an import file, or an archive.
+configure:2096: checking for f95
+configure:2129: checking for extension for Fortran 90 programs
+configure:2136: f95 -c  conftest.f90 1>&5
+** conftest   === End of Compilation 1 ===
+1501-510  Compilation successful for file conftest.f90.
+configure:2152: checking whether the Fortran 90 compiler (f95  ) works
+configure:2168: f95 -o conftest   conftest.f90  1>&5
+** conftest   === End of Compilation 1 ===
+1501-510  Compilation successful for file conftest.f90.
+configure:2195: checking whether the Fortran 90 compiler (f95  ) is a cross-compiler
+configure:2360: checking whether Fortran 90 works with Fortran 77
+configure:2389: f77 -c -g conftest2.f 1>&5
+** t1   === End of Compilation 1 ===
+1501-510  Compilation successful for file conftest2.f.
+configure:2390: f95 -o conftest   conftest1.f90 conftest2.o  1>&5
+** main   === End of Compilation 1 ===
+1501-510  Compilation successful for file conftest1.f90.
+configure:2477: checking how to run the C preprocessor
+configure:2498: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:2567: checking for ar
+configure:2606: checking for ranlib
+configure:2734: checking for ranlib
+configure:2763: checking whether global variables handled properly
+configure:2824: checking for a BSD compatible install
+configure:2885: checking whether install works
+configure:2906: checking whether install breaks libraries
+configure:2969: checking whether mkdir -p works
+configure:3248: checking for perl
+configure:3314: checking for strerror
+configure:3342: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:3417: checking for make
+configure:3450: checking whether clock skew breaks make
+configure:3480: checking whether make echos directory changes
+configure:3521: checking whether make supports include
+configure:3554: checking whether make allows comments in actions
+configure:3588: checking for virtual path format
+configure:3637: checking whether make sets CFLAGS
+configure:3668: checking whether make sets ${MAKE}
+configure:3706: checking for type of weak symbol support
+configure:3726: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:3780: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+ld: 0711-317 ERROR: Undefined symbol: .PFoo
+ld: 0711-345 Use the -bloadmap or -bnoquiet option to obtain more information.
+collect2: ld returned 8 exit status
+configure: failed program was:
+#line 3769 "configure"
+#include "confdefs.h"
+
+extern int PFoo(int);
+#pragma _HP_SECONDARY_DEF Foo  PFoo
+int Foo(int a) { return a; }
+
+int main() {
+return PFoo(1);
+; return 0; }
+configure:3802: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+ld: 0711-317 ERROR: Undefined symbol: .PFoo
+ld: 0711-345 Use the -bloadmap or -bnoquiet option to obtain more information.
+collect2: ld returned 8 exit status
+configure: failed program was:
+#line 3791 "configure"
+#include "confdefs.h"
+
+extern int PFoo(int);
+#pragma _CRI duplicate PFoo as Foo
+int Foo(int a) { return a; }
+
+int main() {
+return PFoo(1);
+; return 0; }
+configure:3844: checking whether __attribute__ ((weak)) allowed
+configure:3857: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:3892: checking for working const
+configure:3946: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:3968: checking for volatile
+configure:3981: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:4003: checking for restrict
+configure:4016: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure: In function `main':
+configure:4012: error: syntax error before "a"
+configure: failed program was:
+#line 4009 "configure"
+#include "confdefs.h"
+
+int main() {
+int * restrict a;
+; return 0; }
+configure:4035: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure: In function `main':
+configure:4031: error: syntax error before "a"
+configure: failed program was:
+#line 4028 "configure"
+#include "confdefs.h"
+
+int main() {
+int * _Restrict a;
+; return 0; }
+configure:4055: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:4083: checking for inline
+configure:4097: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:4126: checking whether __attribute__ allowed
+configure:4139: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:4153: checking whether __attribute__((format)) allowed
+configure:4166: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:4290: checking whether long double is supported
+configure:4303: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:4323: checking whether long long is supported
+configure:4336: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:4358: checking for C struct alignment
+configure:4495: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4541: checking for alignment restrictions on pointers
+configure:4561: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4585: checking size of char
+configure:4604: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4624: checking size of short
+configure:4643: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4663: checking size of int
+configure:4682: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4702: checking size of long
+configure:4721: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4741: checking size of long long
+configure:4760: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4780: checking size of float
+configure:4799: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4819: checking size of double
+configure:4838: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4858: checking size of long double
+configure:4877: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:4897: checking size of wchar_t
+configure:4916: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:5045: checking size of void *
+configure:5064: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:5085: checking for size of float int
+configure:5106: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:5125: checking for size of double int
+configure:5146: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:5165: checking for size of long int
+configure:5186: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:5205: checking for size of short int
+configure:5226: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:5245: checking for size of 2 int
+configure:5266: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:5285: checking for size of long double int
+configure:5306: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:5329: checking for sys/bitypes.h
+configure:5342: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:5338:25: sys/bitypes.h: No such file or directory
+configure: failed program was:
+#line 5337 "configure"
+#include "confdefs.h"
+#include <sys/bitypes.h>
+configure:5363: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:5358:25: sys/bitypes.h: No such file or directory
+configure: failed program was:
+#line 5357 "configure"
+#include "confdefs.h"
+#include <sys/bitypes.h>
+int conftest() {return 0;}
+configure:5391: checking for int16_t
+configure:5406: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:5478: checking for int32_t
+configure:5493: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:5565: checking for int64_t
+configure:5580: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:5971: checking if char * pointers use give byte addresses
+configure:5989: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:6012: checking for size of MPI_BSEND_OVERHEAD
+configure:6050: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:6075: checking for size of MPI_Status
+configure:6104: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:6535: checking for gcc __asm__ and pentium cmpxchgl instruction
+configure:6558: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure: In function `main':
+configure:6550: error: impossible constraint in `asm'
+configure: failed program was:
+#line 6540 "configure"
+#include "confdefs.h"
+
+int main(int argc, char *argv[])
+{
+long int compval = 10;
+volatile long int *p = &compval;
+long int oldval = 10;
+long int newval = 20;
+char ret;
+long int readval;
+__asm__ __volatile__ ("lock; cmpxchgl %3, %1; sete %0"
+	: "=q" (ret), "=m" (*p), "=a" (readval)
+	: "r" (newval), "m" (*p), "a" (oldval) : "memory");
+return (compval == 20) ? 0 : -1;
+}
+
+configure:6584: checking for gcc __asm__ and AMD x86_64 cmpxchgq instruction
+configure:6607: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure: In function `main':
+configure:6599: error: impossible constraint in `asm'
+configure: failed program was:
+#line 6589 "configure"
+#include "confdefs.h"
+
+int main(int argc, char *argv[])
+{
+long int compval = 10;
+volatile long int *p = &compval;
+long int oldval = 10;
+long int newval = 20;
+char ret;
+long int readval;
+__asm__ __volatile__ ("lock; cmpxchgq %3, %1; sete %0"
+	: "=q" (ret), "=m" (*p), "=a" (readval)
+	: "r" (newval), "m" (*p), "a" (oldval) : "memory");
+return (compval == 20) ? 0 : -1;
+}
+
+configure:6626: checking for gcc __asm__ and IA64 xchg4 instruction
+configure:6650: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+Assembler:
+/tmp//cc7JBkna.s: line 19: Invalid source character 0x3d
+/tmp//cc7JBkna.s: line 19: invalid opcode or pseudo-op
+/tmp//cc7JBkna.s: line 19: Error In Syntax 
+configure: failed program was:
+#line 6631 "configure"
+#include "confdefs.h"
+
+unsigned long _InterlockedExchange(volatile void *ptr, unsigned long x)
+{
+   unsigned long result;
+   __asm__ __volatile ("xchg4 %0=[%1],%2" : "=r" (result)
+       : "r" (ptr), "r" (x) : "memory");
+   return result;
+}
+int main(int argc, char *argv[])
+{
+long val = 1;
+volatile long *p = &val;
+long oldval = _InterlockedExchange(p, (unsigned long)2);
+return (oldval == 1 && val == 2) ? 0 : -1;
+}
+
+configure:6738: checking for ANSI C header files
+configure:6751: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:6818: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:6849: checking for stdlib.h
+configure:6862: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:6849: checking for stdarg.h
+configure:6862: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:6849: checking for sys/types.h
+configure:6862: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:6849: checking for inttypes.h
+configure:6862: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:6849: checking for limits.h
+configure:6862: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:6849: checking for stddef.h
+configure:6862: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:6849: checking for errno.h
+configure:6862: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:6849: checking for sys/socket.h
+configure:6862: gcc -E  -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c >/dev/null 2>conftest.out
+configure:6912: checking for sys/uio.h
+configure:6928: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure:6950: checking for setitimer
+configure:6978: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:6950: checking for alarm
+configure:6978: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:7005: checking for vsnprintf
+configure:7033: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:7017: warning: conflicting types for built-in function `vsnprintf'
+configure:7005: checking for vsprintf
+configure:7033: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:7017: warning: conflicting types for built-in function `vsprintf'
+configure:7060: checking for snprintf
+configure:7088: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:7072: warning: conflicting types for built-in function `snprintf'
+configure:7115: checking whether snprintf needs a declaration
+configure:7128: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure: In function `main':
+configure:7124: error: incompatible type for argument 1 of `snprintf'
+configure:7124: error: incompatible type for argument 3 of `snprintf'
+configure: failed program was:
+#line 7121 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+int main() {
+int a=snprintf(1.0,27,1.0,"foo");
+; return 0; }
+configure:7154: checking for va_copy
+configure:7176: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:7377: checking for working alloca.h
+configure:7389: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:7410: checking for alloca
+configure:7443: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:7613: checking for strdup
+configure:7641: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77  conftest.c  1>&5
+configure:7669: checking whether strdup needs a declaration
+configure:7682: gcc -c   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 conftest.c 1>&5
+configure: In function `main':
+configure:7678: error: incompatible type for argument 1 of `strdup'
+configure:7678: error: too many arguments to function `strdup'
+configure:7678: warning: initialization makes integer from pointer without a cast
+configure: failed program was:
+#line 7675 "configure"
+#include "confdefs.h"
+#include <string.h>
+int main() {
+int a=strdup(1.0,27,1.0,"foo");
+; return 0; }
+configure:8553: checking the sizeof MPI_Offset
+configure:8572: gcc -o conftest   -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/binding/f77 -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/ch3/include -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/ch3/include -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/common/datatype -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/common/datatype -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/common/locks -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/common/locks -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/common/sock -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/common/sock -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/common/sock/poll -I/Home8/ihpc/ihpcpaul/MERLIN/lib/mpich2-1.0/src/mpid/common/sock/poll  conftest.c      -lpthread     1>&5
+configure:8679: checking for doctext

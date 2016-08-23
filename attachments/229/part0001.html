@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.6000.16735" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=893330714-27102008>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=893330714-27102008>&nbsp;Have you tried the latest stable version (1.0.8) 
+of MPICH2 (available at <A 
+href="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads</A>)?</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=893330714-27102008>&nbsp;How are you running your MPI program ? What is 
+the error message that you get when you run your MPI program 
+?</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=893330714-27102008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=893330714-27102008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=893330714-27102008>Jayesh</SPAN></FONT></DIV>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Franz Th. Langer 
+[mailto:eplanung@t-online.de] <BR><B>Sent:</B> Saturday, October 25, 2008 7:07 
+AM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> Re: [mpich2-maint] #229: 
+basic questions<BR></FONT><BR></DIV>
+<DIV></DIV>Hi Jayesh,<BR><BR>thansk very much for help!<BR>when I try 
+to:<BR><BR><FONT size=2>mpiexec -n 2 -localroot cpi.exe <BR><BR>it claims that 
+localroot is not known!<BR><BR></FONT><FONT size=2>mpiexec -n 2 
+cpi.exe<BR><BR>without localroot it is running!<BR><BR>Best 
+regards<BR>Franz<BR></FONT><BR><BR>Jayesh Krishna wrote:<BR>
+<BLOCKQUOTE cite=midC5CA9CCB09AE47D985739BDC1E0040C5@mcs.anl.gov type="cite">
+  <META content="MS Exchange Server version 6.5.7036.0" name=Generator><!-- Converted from text/plain format -->
+  <P><FONT size=2>&nbsp;Hi,<BR>&nbsp; Did you try running your MPI program in 
+  Cygwin with the "-localroot" option (mpiexec -n 2 -localroot cpi.exe) 
+  ?<BR><BR>Regards,<BR>Jayesh<BR><BR>-----Original Message-----<BR>From: <A 
+  class=moz-txt-link-abbreviated 
+  href="mailto:owner-mpich2-bugs@mcs.anl.gov">owner-mpich2-bugs@mcs.anl.gov</A> 
+  [<A 
+  href="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] 
+  On Behalf Of mpich2<BR>Sent: Friday, October 24, 2008 4:54 AM<BR>To: 
+  undisclosed-recipients:<BR>Subject: [mpich2-maint] #229: basic 
+  questions<BR><BR>-------------------------------------------------------+----------------<BR>-------------------------------------------------------+----<BR>&nbsp;Reporter:&nbsp; 
+  "Franz Th. Langer" <A class=moz-txt-link-rfc2396E 
+  href="mailto:eplanung@t-online.de">&lt;eplanung@t-online.de&gt;</A>&nbsp; 
+  |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; 
+  bug&nbsp;&nbsp;<BR>&nbsp;&nbsp; Status:&nbsp; 
+  new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  |&nbsp;&nbsp;&nbsp; Priority:&nbsp; 
+  major<BR>Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  |&nbsp;&nbsp; Component:&nbsp; 
+  mpich2<BR>-------------------------------------------------------+----------------<BR>-------------------------------------------------------+----<BR><BR><BR>&nbsp;{{{<BR><BR>&nbsp;Hi,<BR><BR>&nbsp;I 
+  am very sorry when using the wrong mailing-list for my questions,&nbsp; I just 
+  couldnt find the right place for my simple/basic 
+  questions.<BR><BR><BR>&nbsp;in the past I was using MPI for the 
+  following&nbsp; workbench:<BR><BR>&nbsp;Windows 2000,&nbsp; vc6.0<BR>&nbsp;I 
+  was using Rexecshell.exe, and everything worked fine!<BR><BR>&nbsp;now I have 
+  a program compiled and linked with (MPICH2) under&nbsp; cygwin.<BR>&nbsp;I can 
+  run the parallel-program on 1 PC with windows 2000 without 
+  trouble!<BR><BR>&nbsp;now I want to use some more nodes, to do parallel 
+  calculations.<BR><BR>&nbsp;when I use Rexecshell.exe, there is a complaint 
+  about the command-line ,&nbsp; and it doesnt work.<BR><BR>&nbsp;perhaps 
+  somebody can help me in this matter?<BR><BR>&nbsp;Best 
+  regards<BR>&nbsp;Franz<BR><BR>&nbsp;--<BR>&nbsp;Mit freundlichen 
+  Grüßen<BR><BR>&nbsp;Dipl.-Ing. Franz Theodor Langer 
+  (Geschäftsführer)<BR>&nbsp;-----------------------------------------------------------------<BR>&nbsp;E_Planung 
+  GmbH<BR>&nbsp;Planung + Berechnung für Wissenschaft und Technik im 
+  Ingenieurbau<BR><BR>&nbsp;Schlüsselbergstraße 30, 81673 München, Tel. 
+  089/454933-0 Fax -14<BR>&nbsp;Geschäftsnummer: HRB 90116, Gerichtsstand: 
+  München<BR><BR><BR>&nbsp;}}}<BR><BR><BR>--<BR>Ticket URL: &lt;<A 
+  href="https://trac.mcs.anl.gov/projects/mpich2/ticket/229">https://trac.mcs.anl.gov/projects/mpich2/ticket/229</A>&gt;<BR><BR></FONT></P></BLOCKQUOTE><BR><PRE class=moz-signature cols="72">-- 
+Mit freundlichen Grüßen
+
+Dipl.-Ing. Franz Theodor Langer (Geschäftsführer)
+-----------------------------------------------------------------
+E_Planung GmbH
+Planung + Berechnung für Wissenschaft und Technik im Ingenieurbau
+
+Schlüsselbergstraße 30, 81673 München, Tel. 089/454933-0 Fax -14
+Geschäftsnummer: HRB 90116, Gerichtsstand: München
+</PRE></BODY></HTML>

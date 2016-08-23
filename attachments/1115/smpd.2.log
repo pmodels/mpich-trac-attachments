@@ -1,0 +1,1497 @@
+[-1:3936]...\smpd_get_opt_int
+[-1:3936].../smpd_get_opt_int
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt_int
+[-1:3936].../smpd_get_opt_int
+[-1:3936]...\smpd_get_opt_int
+[-1:3936].../smpd_get_opt_int
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt_string
+[-1:3936].../smpd_get_opt_string
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt_string
+[-1:3936].../smpd_get_opt_string
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt_string
+[-1:3936].../smpd_get_opt_string
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt_string
+[-1:3936].../smpd_get_opt_string
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt_string
+[-1:3936].../smpd_get_opt_string
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt_string
+[-1:3936].../smpd_get_opt_string
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]...\smpd_get_opt_string
+[-1:3936].../smpd_get_opt_string
+[-1:3936]...\smpd_get_opt_string
+[-1:3936].../smpd_get_opt_string
+[-1:3936]...\smpd_get_opt
+[-1:3936].../smpd_get_opt
+[-1:3936]../smpd_parse_command_args
+[-1:3936]..\smpd_get_smpd_data
+[-1:3936]...\smpd_get_smpd_data_from_environment
+[-1:3936].../smpd_get_smpd_data_from_environment
+[-1:3936]../smpd_get_smpd_data
+[-1:3936]..\smpd_entry_point
+[00:3936]...\smpd_set_smpd_data
+[00:3936].../smpd_set_smpd_data
+[00:3936]...\SMPDU_Sock_create_set
+[00:3936]....\SMPDU_Sock_get_sock_set_id
+[00:3936]..../SMPDU_Sock_get_sock_set_id
+[00:3936]....created a set for the listener: 584
+[00:3936]....\SMPDU_Sock_listen
+[00:3936]..../SMPDU_Sock_listen
+[00:3936]....smpd listening on port 8676
+[00:3936]....\smpd_create_context
+[00:3936].....\smpd_init_context
+[00:3936]......\smpd_init_command
+[00:3936]....../smpd_init_command
+[00:3936]......\SMPDU_Sock_set_user_ptr
+[00:3936]....../SMPDU_Sock_set_user_ptr
+[00:3936]...../smpd_init_context
+[00:3936]..../smpd_create_context
+[00:3936]....\SMPDU_Sock_set_user_ptr
+[00:3936]..../SMPDU_Sock_set_user_ptr
+[00:3936]....\smpd_option_on
+[00:3936].....\smpd_get_smpd_data
+[00:3936]......\smpd_get_smpd_data_from_environment
+[00:3936]....../smpd_get_smpd_data_from_environment
+[00:3936]......\smpd_get_smpd_data_default
+[00:3936]....../smpd_get_smpd_data_default
+[00:3936]......Unable to get the data for the key 'no_dynamic_hosts'
+[00:3936]...../smpd_get_smpd_data
+[00:3936]..../smpd_option_on
+[00:3936]....\smpd_insert_into_dynamic_hosts
+[00:3936]..../smpd_insert_into_dynamic_hosts
+[00:3936]....\smpd_enter_at_state
+[00:3936].....sock_waiting for the next event.
+[00:3936].....\SMPDU_Sock_wait
+[00:3936]...../SMPDU_Sock_wait
+[00:3936].....SOCK_OP_ACCEPT event.error = 0, result = 0, context=listener
+[00:3936].....\smpd_handle_op_accept
+[00:3936]......\smpd_state_smpd_listening
+[00:3936].......\SMPDU_Sock_accept
+[00:3936]......./SMPDU_Sock_accept
+[00:3936].......authenticating new connection
+[00:3936].......\smpd_create_context
+[00:3936]........\smpd_init_context
+[00:3936].........\smpd_init_command
+[00:3936]........./smpd_init_command
+[00:3936].........\SMPDU_Sock_set_user_ptr
+[00:3936]........./SMPDU_Sock_set_user_ptr
+[00:3936]......../smpd_init_context
+[00:3936]......./smpd_create_context
+[00:3936].......\SMPDU_Sock_set_user_ptr
+[00:3936]......./SMPDU_Sock_set_user_ptr
+[00:3936].......\smpd_gen_authentication_strings
+[00:3936]........\smpd_hash
+[00:3936]......../smpd_hash
+[00:3936]......./smpd_gen_authentication_strings
+[00:3936].......posting a write of the challenge string: 1.3rc1 12891
+[00:3936].......\SMPDU_Sock_post_write
+[00:3936]........\SMPDU_Sock_post_writev
+[00:3936]......../SMPDU_Sock_post_writev
+[00:3936]......./SMPDU_Sock_post_write
+[00:3936]....../smpd_state_smpd_listening
+[00:3936]...../smpd_handle_op_accept
+[00:3936].....sock_waiting for the next event.
+[00:3936].....\SMPDU_Sock_wait
+[00:3936]...../SMPDU_Sock_wait
+[00:3936].....SOCK_OP_WRITE event.error = 0, result = 0, context=undetermined
+[00:3936].....\smpd_handle_op_write
+[00:3936]......\smpd_state_writing_challenge_string
+[00:3936].......wrote challenge string: '1.3rc1 12891'
+[00:3936].......\SMPDU_Sock_post_read
+[00:3936]........\SMPDU_Sock_post_readv
+[00:3936]......../SMPDU_Sock_post_readv
+[00:3936]......./SMPDU_Sock_post_read
+[00:3936]....../smpd_state_writing_challenge_string
+[00:3936]...../smpd_handle_op_write
+[00:3936].....sock_waiting for the next event.
+[00:3936].....\SMPDU_Sock_wait
+[00:3936]...../SMPDU_Sock_wait
+[00:3936].....SOCK_OP_READ event.error = 0, result = 0, context=undetermined
+[00:3936].....\smpd_handle_op_read
+[00:3936]......\smpd_state_reading_challenge_response
+[00:3936].......read challenge response: 'ade770f9ddf6d2ac79f6c99bd6f01e23'
+[00:3936].......\SMPDU_Sock_post_write
+[00:3936]........\SMPDU_Sock_post_writev
+[00:3936]......../SMPDU_Sock_post_writev
+[00:3936]......./SMPDU_Sock_post_write
+[00:3936]....../smpd_state_reading_challenge_response
+[00:3936]...../smpd_handle_op_read
+[00:3936].....sock_waiting for the next event.
+[00:3936].....\SMPDU_Sock_wait
+[00:3936]...../SMPDU_Sock_wait
+[00:3936].....SOCK_OP_WRITE event.error = 0, result = 0, context=undetermined
+[00:3936].....\smpd_handle_op_write
+[00:3936]......\smpd_state_writing_connect_result
+[00:3936].......wrote connect result: 'SUCCESS'
+[00:3936].......\SMPDU_Sock_post_read
+[00:3936]........\SMPDU_Sock_post_readv
+[00:3936]......../SMPDU_Sock_post_readv
+[00:3936]......./SMPDU_Sock_post_read
+[00:3936]....../smpd_state_writing_connect_result
+[00:3936]...../smpd_handle_op_write
+[00:3936].....sock_waiting for the next event.
+[00:3936].....\SMPDU_Sock_wait
+[00:3936]...../SMPDU_Sock_wait
+[00:3936].....SOCK_OP_READ event.error = 0, result = 0, context=undetermined
+[00:3936].....\smpd_handle_op_read
+[00:3936]......\smpd_state_reading_session_request
+[00:3936].......read session request: 'process'
+[00:3936].......\SMPDU_Sock_post_write
+[00:3936]........\SMPDU_Sock_post_writev
+[00:3936]......../SMPDU_Sock_post_writev
+[00:3936]......./SMPDU_Sock_post_write
+[00:3936]....../smpd_state_reading_session_request
+[00:3936]...../smpd_handle_op_read
+[00:3936].....sock_waiting for the next event.
+[00:3936].....\SMPDU_Sock_wait
+[00:3936]...../SMPDU_Sock_wait
+[00:3936].....SOCK_OP_WRITE event.error = 0, result = 0, context=undetermined
+[00:3936].....\smpd_handle_op_write
+[00:3936]......\smpd_state_writing_no_cred_request
+[00:3936].......wrote no cred request: 'nocredentials'
+[00:3936].......\smpd_start_win_mgr
+[00:3936]........starting command: "C:\Program Files\MPICH2\bin\smpd.exe" -d 27 -mgr -read 0000000000000308 -write 0000000000000304
+[00:3936]........CreateProcess
+[00:3936]........smpd reading the port string from the manager
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt_int
+[-1:3968].../smpd_get_opt_int
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt_int
+[-1:3968].../smpd_get_opt_int
+[-1:3968]...\smpd_get_opt_int
+[-1:3968].../smpd_get_opt_int
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...\smpd_get_opt
+[-1:3968].../smpd_get_opt
+[-1:3968]...WARNING: Duplicate resource Info [for core=1], Ignoring resource : 
+[-1:3968]...==========================
+[-1:3968]...Data cache info
+[-1:3968]...level=1, assoc=8, lnsz=64, sz=32768
+[-1:3968]...==========================
+[-1:3968]...WARNING: Duplicate resource Info [for core=2], Ignoring resource : 
+[-1:3968]...==========================
+[-1:3968]...Data cache info
+[-1:3968]...level=1, assoc=8, lnsz=64, sz=32768
+[-1:3968]...==========================
+[-1:3968]...\smpd_get_opt_string
+[-1:3968].../smpd_get_opt_string
+[-1:3968]...\smpd_get_opt_string
+[-1:3968].../smpd_get_opt_string
+[-1:3968]...manager creating listener and session sets.
+[-1:3968]...\SMPDU_Sock_create_set
+[-1:3968]....\SMPDU_Sock_get_sock_set_id
+[-1:3968]..../SMPDU_Sock_get_sock_set_id
+[-1:3968]....created set for manager listener, 848
+[-1:3968]....\SMPDU_Sock_listen
+[-1:3968]..../SMPDU_Sock_listen
+[-1:3968]....smpd manager listening on port 49301
+[-1:3968]....\smpd_create_context
+[-1:3968].....\smpd_init_context
+[-1:3968]......\smpd_init_command
+[-1:3968]....../smpd_init_command
+[-1:3968]......\SMPDU_Sock_set_user_ptr
+[-1:3968]....../SMPDU_Sock_set_user_ptr
+[-1:3968]...../smpd_init_context
+[-1:3968]..../smpd_create_context
+[-1:3968]....\SMPDU_Sock_set_user_ptr
+[-1:3968]..../SMPDU_Sock_set_user_ptr
+[-1:3968]....manager writing port back to smpd.
+[-1:3968]....\smpd_hide_string_arg
+[-1:3968].....\first_token
+[-1:3968]...../first_token
+[-1:3968].....\compare_token
+[-1:3968]...../compare_token
+[-1:3968].....\next_token
+[-1:3968]......\first_token
+[-1:3968]....../first_token
+[-1:3968]......\first_token
+[-1:3968]....../first_token
+[-1:3968]...../next_token
+[-1:3968].....\compare_token
+[-1:3968]...../compare_token
+[-1:3968].....\compare_token
+[-1:3968]...../compare_token
+[-1:3968].....\next_token
+[-1:3968]......\first_token
+[-1:3968]....../first_token
+[-1:3968]......\first_token
+[-1:3968]....../first_token
+[-1:3968]...../next_token
+[-1:3968].....\compare_token
+[-1:3968]...../compare_token
+[-1:3968].....\next_token
+[-1:3968]......\first_token
+[-1:3968]....../first_token
+[-1:3968]......\first_token
+[-1:3968]....../first_token
+[-1:3968]...../next_token
+[-1:3968]..../smpd_hide_string_arg
+[-1:3968]..../smpd_hide_string_arg
+[00:3936]........smpd sending the account to the manager
+[00:3936]........\smpd_hide_string_arg
+[00:3936].........\first_token
+[00:3936]........./first_token
+[00:3936].........\compare_token
+[00:3936]........./compare_token
+[00:3936].........\next_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]........./next_token
+[00:3936]......../smpd_hide_string_arg
+[00:3936]......../smpd_hide_string_arg
+[00:3936]........\smpd_hide_string_arg
+[00:3936].........\first_token
+[00:3936]........./first_token
+[00:3936].........\compare_token
+[00:3936]........./compare_token
+[00:3936].........\next_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]........./next_token
+[00:3936].........\compare_token
+[00:3936]........./compare_token
+[00:3936].........\compare_token
+[00:3936]........./compare_token
+[00:3936].........\next_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]........./next_token
+[00:3936].........\compare_token
+[00:3936]........./compare_token
+[00:3936].........\next_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]........./next_token
+[00:3936].........\compare_token
+[00:3936]........./compare_token
+[00:3936].........\next_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]..........\first_token
+[00:3936]........../first_token
+[00:3936]........./next_token
+[00:3936]......../smpd_hide_string_arg
+[00:3936]......../smpd_hide_string_arg
+[00:3936]........closing the pipe to the manager
+[00:3936]........smpd writing reconnect request: port 49301
+[00:3936]........\SMPDU_Sock_post_write
+[00:3936].........\SMPDU_Sock_post_writev
+[00:3936]........./SMPDU_Sock_post_writev
+[00:3936]......../SMPDU_Sock_post_write
+[00:3936]......./smpd_state_writing_no_cred_request
+[00:3936]....../smpd_handle_op_write
+[00:3936]......sock_waiting for the next event.
+[00:3936]......\SMPDU_Sock_wait
+[00:3936]....../SMPDU_Sock_wait
+[00:3936]......SOCK_OP_WRITE event.error = 0, result = 0, context=undetermined
+[00:3936]......\smpd_handle_op_write
+[00:3936].......\smpd_state_writing_reconnect_request
+[00:3936]........wrote reconnect request: '49301'
+[00:3936]........\SMPDU_Sock_post_close
+[00:3936].........\SMPDU_Sock_post_read
+[00:3936]..........\SMPDU_Sock_post_readv
+[00:3936]........../SMPDU_Sock_post_readv
+[00:3936]........./SMPDU_Sock_post_read
+[00:3936]......../SMPDU_Sock_post_close
+[00:3936]......./smpd_state_writing_reconnect_request
+[00:3936]....../smpd_handle_op_write
+[00:3936]......sock_waiting for the next event.
+[00:3936]......\SMPDU_Sock_wait
+[-1:3968]....\smpd_enter_at_state
+[-1:3968].....sock_waiting for the next event.
+[-1:3968].....\SMPDU_Sock_wait
+[00:3936]....../SMPDU_Sock_wait
+[00:3936]......SOCK_OP_CLOSE event.error = 0, result = 0, context=undetermined
+[00:3936]......\smpd_handle_op_close
+[00:3936].......\smpd_get_state_string
+[00:3936]......./smpd_get_state_string
+[00:3936].......op_close received - SMPD_CLOSING state.
+[00:3936].......Unaffiliated undetermined context closing.
+[00:3936].......\smpd_free_context
+[00:3936]........freeing undetermined context.
+[00:3936]........\smpd_init_context
+[00:3936].........\smpd_init_command
+[00:3936]........./smpd_init_command
+[00:3936]......../smpd_init_context
+[00:3936]......./smpd_free_context
+[00:3936]....../smpd_handle_op_close
+[00:3936]......sock_waiting for the next event.
+[00:3936]......\SMPDU_Sock_wait
+[-1:3968]...../SMPDU_Sock_wait
+[-1:3968].....SOCK_OP_ACCEPT event.error = 0, result = 0, context=listener
+[-1:3968].....\smpd_handle_op_accept
+[-1:3968]......\smpd_state_mgr_listening
+[-1:3968].......\SMPDU_Sock_accept
+[-1:3968]......./SMPDU_Sock_accept
+[-1:3968].......accepted re-connection
+[-1:3968].......\smpd_create_context
+[-1:3968]........\smpd_init_context
+[-1:3968].........\smpd_init_command
+[-1:3968]........./smpd_init_command
+[-1:3968].........\SMPDU_Sock_set_user_ptr
+[-1:3968]........./SMPDU_Sock_set_user_ptr
+[-1:3968]......../smpd_init_context
+[-1:3968]......./smpd_create_context
+[-1:3968].......\SMPDU_Sock_set_user_ptr
+[-1:3968]......./SMPDU_Sock_set_user_ptr
+[-1:3968].......\SMPDU_Sock_post_read
+[-1:3968]........\SMPDU_Sock_post_readv
+[-1:3968]......../SMPDU_Sock_post_readv
+[-1:3968]......./SMPDU_Sock_post_read
+[-1:3968].......closing the mgr listener.
+[-1:3968].......\SMPDU_Sock_post_close
+[-1:3968]......./SMPDU_Sock_post_close
+[-1:3968]....../smpd_state_mgr_listening
+[-1:3968]...../smpd_handle_op_accept
+[-1:3968].....sock_waiting for the next event.
+[-1:3968].....\SMPDU_Sock_wait
+[-1:3968]...../SMPDU_Sock_wait
+[-1:3968].....SOCK_OP_READ event.error = 0, result = 0, context=undetermined
+[-1:3968].....\smpd_handle_op_read
+[-1:3968]......\smpd_state_reading_session_header
+[-1:3968].......read session header: 'id=1 parent=0 level=0'
+[-1:3968].......\smpd_interpret_session_header
+[-1:3968]........interpreting session header: "id=1 parent=0 level=0"
+[-1:3968]........ id = 1
+[01:3968]........ parent = 0
+[01:3968]........ level = 0
+[01:3968]......./smpd_interpret_session_header
+[01:3968].......\smpd_post_read_command
+[01:3968]........\SMPDU_Sock_get_sock_id
+[01:3968]......../SMPDU_Sock_get_sock_id
+[01:3968]........posting a read for a command header on the parent context, sock 988
+[01:3968]........\SMPDU_Sock_post_read
+[01:3968].........\SMPDU_Sock_post_readv
+[01:3968]........./SMPDU_Sock_post_readv
+[01:3968]......../SMPDU_Sock_post_read
+[01:3968]......./smpd_post_read_command
+[01:3968]....../smpd_state_reading_session_header
+[01:3968]...../smpd_handle_op_read
+[01:3968].....sock_waiting for the next event.
+[01:3968].....\SMPDU_Sock_wait
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]...../SMPDU_Sock_wait
+[01:3968].....SOCK_OP_CLOSE event.error = 0, result = 0, context=listener
+[01:3968].....\smpd_handle_op_close
+[01:3968]......\smpd_get_state_string
+[01:3968]....../smpd_get_state_string
+[01:3968]......op_close received - SMPD_MGR_LISTENING state.
+[01:3968]......\smpd_free_context
+[01:3968].......freeing listener context.
+[01:3968].......\smpd_init_context
+[01:3968]........\smpd_init_command
+[01:3968]......../smpd_init_command
+[01:3968]......./smpd_init_context
+[01:3968]....../smpd_free_context
+[01:3968]...../smpd_handle_op_close
+[01:3968].....sock_waiting for the next event.
+[01:3968].....\SMPDU_Sock_wait
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]......GetQueuedCompletionStatus failed, GetLastError: 995
+[01:3968]...../SMPDU_Sock_wait
+[01:3968].....SOCK_OP_READ event.error = 0, result = 0, context=parent
+[01:3968].....\smpd_handle_op_read
+[01:3968]......\smpd_state_reading_cmd_header
+[01:3968].......read command header
+[01:3968].......command header read, posting read for data: 34 bytes
+[01:3968].......\SMPDU_Sock_post_read
+[01:3968]........\SMPDU_Sock_post_readv
+[01:3968]......../SMPDU_Sock_post_readv
+[01:3968]......./SMPDU_Sock_post_read
+[01:3968]....../smpd_state_reading_cmd_header
+[01:3968]...../smpd_handle_op_read
+[01:3968].....sock_waiting for the next event.
+[01:3968].....\SMPDU_Sock_wait
+[01:3968]...../SMPDU_Sock_wait
+[01:3968].....SOCK_OP_READ event.error = 0, result = 0, context=parent
+[01:3968].....\smpd_handle_op_read
+[01:3968]......\smpd_state_reading_cmd
+[01:3968].......read command
+[01:3968].......\smpd_parse_command
+[01:3968]......./smpd_parse_command
+[01:3968].......read command: "cmd=start_dbs src=0 dest=1 tag=0 "
+[01:3968].......\smpd_handle_command
+[01:3968]........handling command:
+[01:3968]........ src  = 0
+[01:3968]........ dest = 1
+[01:3968]........ cmd  = start_dbs
+[01:3968]........ tag  = 0
+[01:3968]........ ctx  = parent
+[01:3968]........ len  = 34
+[01:3968]........ str  = cmd=start_dbs src=0 dest=1 tag=0 
+[01:3968]........\smpd_command_destination
+[01:3968].........1 -> 1 : returning NULL context
+[01:3968]......../smpd_command_destination
+[01:3968]........\smpd_handle_start_dbs_command
+[01:3968].........\smpd_dbs_init
+[01:3968]........./smpd_dbs_init
+[01:3968].........\smpd_create_command
+[01:3968]..........\smpd_init_command
+[01:3968]........../smpd_init_command
+[01:3968]........./smpd_create_command
+[01:3968].........\smpd_add_command_int_arg
+[01:3968]........./smpd_add_command_int_arg
+[01:3968].........\smpd_add_command_arg
+[01:3968]........./smpd_add_command_arg
+[01:3968].........\smpd_dbs_create
+[01:3968]........./smpd_dbs_create
+[01:3968].........\smpd_add_command_arg
+[01:3968]........./smpd_add_command_arg
+[01:3968].........\smpd_add_command_arg
+[01:3968]........./smpd_add_command_arg
+[01:3968].........\smpd_add_command_arg
+[01:3968]........./smpd_add_command_arg
+[01:3968].........sending result command to parent context: "cmd=result src=1 dest=0 tag=0 cmd_tag=0 cmd_orig=start_dbs kvs_name=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E domain_name=4315DD55-CE38-4924-A807-B601FF02CB32 result=SUCCESS "
+[01:3968].........\smpd_post_write_command
+[01:3968]..........\smpd_package_command
+[01:3968]........../smpd_package_command
+[01:3968]..........\SMPDU_Sock_get_sock_id
+[01:3968]........../SMPDU_Sock_get_sock_id
+[01:3968]..........smpd_post_write_command on the parent context sock 988: 183 bytes for command: "cmd=result src=1 dest=0 tag=0 cmd_tag=0 cmd_orig=start_dbs kvs_name=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E domain_name=4315DD55-CE38-4924-A807-B601FF02CB32 result=SUCCESS "
+[01:3968]..........\SMPDU_Sock_post_writev
+[01:3968]........../SMPDU_Sock_post_writev
+[01:3968]........./smpd_post_write_command
+[01:3968]......../smpd_handle_start_dbs_command
+[01:3968]......./smpd_handle_command
+[01:3968].......\smpd_post_read_command
+[01:3968]........\SMPDU_Sock_get_sock_id
+[01:3968]......../SMPDU_Sock_get_sock_id
+[01:3968]........posting a read for a command header on the parent context, sock 988
+[01:3968]........\SMPDU_Sock_post_read
+[01:3968].........\SMPDU_Sock_post_readv
+[01:3968]........./SMPDU_Sock_post_readv
+[01:3968]......../SMPDU_Sock_post_read
+[01:3968]......./smpd_post_read_command
+[01:3968]....../smpd_state_reading_cmd
+[01:3968]...../smpd_handle_op_read
+[01:3968].....sock_waiting for the next event.
+[01:3968].....\SMPDU_Sock_wait
+[01:3968]...../SMPDU_Sock_wait
+[01:3968].....SOCK_OP_WRITE event.error = 0, result = 0, context=parent
+[01:3968].....\smpd_handle_op_write
+[01:3968]......\smpd_state_writing_cmd
+[01:3968].......wrote command
+[01:3968].......command written to parent: "cmd=result src=1 dest=0 tag=0 cmd_tag=0 cmd_orig=start_dbs kvs_name=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E domain_name=4315DD55-CE38-4924-A807-B601FF02CB32 result=SUCCESS "
+[01:3968].......\smpd_free_command
+[01:3968]........\smpd_init_command
+[01:3968]......../smpd_init_command
+[01:3968]......./smpd_free_command
+[01:3968]....../smpd_state_writing_cmd
+[01:3968]...../smpd_handle_op_write
+[01:3968].....sock_waiting for the next event.
+[01:3968].....\SMPDU_Sock_wait
+[01:3968]...../SMPDU_Sock_wait
+[01:3968].....SOCK_OP_READ event.error = 0, result = 0, context=parent
+[01:3968].....\smpd_handle_op_read
+[01:3968]......\smpd_state_reading_cmd_header
+[01:3968].......read command header
+[01:3968].......command header read, posting read for data: 202 bytes
+[01:3968].......\SMPDU_Sock_post_read
+[01:3968]........\SMPDU_Sock_post_readv
+[01:3968]......../SMPDU_Sock_post_readv
+[01:3968]......./SMPDU_Sock_post_read
+[01:3968]....../smpd_state_reading_cmd_header
+[01:3968]...../smpd_handle_op_read
+[01:3968].....sock_waiting for the next event.
+[01:3968].....\SMPDU_Sock_wait
+[01:3968]...../SMPDU_Sock_wait
+[01:3968].....SOCK_OP_READ event.error = 0, result = 0, context=parent
+[01:3968].....\smpd_handle_op_read
+[01:3968]......\smpd_state_reading_cmd
+[01:3968].......read command
+[01:3968].......\smpd_parse_command
+[01:3968]......./smpd_parse_command
+[01:3968].......read command: "cmd=launch src=0 dest=1 tag=1 c=hostname.exe s=0 a=0 d="C:\Program Files\MPICH2\bin" p=C:\Windows\system32 q=0..1 i=1 n=2 k=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E kd=4315DD55-CE38-4924-A807-B601FF02CB32 "
+[01:3968].......\smpd_handle_command
+[01:3968]........handling command:
+[01:3968]........ src  = 0
+[01:3968]........ dest = 1
+[01:3968]........ cmd  = launch
+[01:3968]........ tag  = 1
+[01:3968]........ ctx  = parent
+[01:3968]........ len  = 202
+[01:3968]........ str  = cmd=launch src=0 dest=1 tag=1 c=hostname.exe s=0 a=0 d="C:\Program Files\MPICH2\bin" p=C:\Windows\system32 q=0..1 i=1 n=2 k=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E kd=4315DD55-CE38-4924-A807-B601FF02CB32 
+[01:3968]........\smpd_command_destination
+[01:3968].........1 -> 1 : returning NULL context
+[01:3968]......../smpd_command_destination
+[01:3968]........\smpd_handle_launch_command
+[01:3968].........\smpd_create_process_struct
+[01:3968]..........\smpd_create_context
+[01:3968]...........\smpd_init_context
+[01:3968]............\smpd_init_command
+[01:3968]............/smpd_init_command
+[01:3968].........../smpd_init_context
+[01:3968]........../smpd_create_context
+[01:3968]..........\smpd_create_context
+[01:3968]...........\smpd_init_context
+[01:3968]............\smpd_init_command
+[01:3968]............/smpd_init_command
+[01:3968].........../smpd_init_context
+[01:3968]........../smpd_create_context
+[01:3968]..........\smpd_create_context
+[01:3968]...........\smpd_init_context
+[01:3968]............\smpd_init_command
+[01:3968]............/smpd_init_command
+[01:3968].........../smpd_init_context
+[01:3968]........../smpd_create_context
+[01:3968]..........\smpd_create_context
+[01:3968]...........\smpd_init_context
+[01:3968]............\smpd_init_command
+[01:3968]............/smpd_init_command
+[01:3968].........../smpd_init_context
+[01:3968]........../smpd_create_context
+[01:3968]........./smpd_create_process_struct
+[01:3968].........launching: 'hostname.exe'
+[01:3968].........\smpd_launch_process
+[01:3968]..........searching for 'hostname.exe' in 'C:\Windows\system32'
+[01:3968]..........\smpd_search_path
+[01:3968]........../smpd_search_path
+[01:3968]..........\smpd_priority_class_to_win_class
+[01:3968]........../smpd_priority_class_to_win_class
+[01:3968]..........\smpd_priority_to_win_priority
+[01:3968]........../smpd_priority_to_win_priority
+[01:3968]..........\smpd_make_socket_loop_choose
+[01:3968]...........\smpd_get_hostname
+[01:3968].........../smpd_get_hostname
+[01:3968]........../smpd_make_socket_loop_choose
+[01:3968]..........\smpd_make_socket_loop_choose
+[01:3968]...........\smpd_get_hostname
+[01:3968].........../smpd_get_hostname
+[01:3968]........../smpd_make_socket_loop_choose
+[01:3968]..........\smpd_make_socket_loop_choose
+[01:3968]...........\smpd_get_hostname
+[01:3968].........../smpd_get_hostname
+[01:3968]........../smpd_make_socket_loop_choose
+[01:3968]..........\SMPDU_Sock_listen
+[01:3968]........../SMPDU_Sock_listen
+[01:3968]..........pmi listening on port 49309
+[01:3968]..........\smpd_create_context
+[01:3968]...........\smpd_init_context
+[01:3968]............\smpd_init_command
+[01:3968]............/smpd_init_command
+[01:3968]............\SMPDU_Sock_set_user_ptr
+[01:3968]............/SMPDU_Sock_set_user_ptr
+[01:3968].........../smpd_init_context
+[01:3968]........../smpd_create_context
+[01:3968]..........\SMPDU_Sock_set_user_ptr
+[01:3968]........../SMPDU_Sock_set_user_ptr
+[01:3968]........./SMPDU_Sock_get_host_description
+[01:3968].........\SMPDU_Sock_hostname_to_host_description
+[01:3968]..........adding host: jahwin7 to host list
+[01:3968]..........adding host: jahwin7.  to host list
+[01:3968]..........adding host: fe80::6dd1:e739:f401:bf61%11 to host list
+[01:3968]..........adding host: fe80::186f:5ae8:9d92:81ac%13 to host list
+[01:3968]..........adding host: 10.0.2.15 to host list
+[01:3968]..........adding host: 2001:0:4137:9e74:186f:5ae8:9d92:81ac to host list
+[01:3968]........./SMPDU_Sock_hostname_to_host_description
+[01:3968]......../SMPDU_Sock_get_host_description
+[01:3968]........\SetEnvironmentVariables
+[01:3968]......../SetEnvironmentVariables
+[01:3968]........env: PMI_RANK=1
+[01:3968]........env: PMI_SIZE=2
+[01:3968]........env: PMI_KVS=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E
+[01:3968]........env: PMI_DOMAIN=4315DD55-CE38-4924-A807-B601FF02CB32
+[01:3968]........env: PMI_HOST=jahwin7 "jahwin7. " fe80::6dd1:e739:f401:bf61%11 fe80::186f:5ae8:9d92:81ac%13 10.0.2.15 2001:0:4137:9e74:186f:5ae8:9d92:81ac 
+[01:3968]........env: PMI_PORT=49309
+[01:3968]........env: PMI_SMPD_ID=1
+[01:3968]........env: PMI_SMPD_KEY=0
+[01:3968]........env: PMI_CLIQUE=0..1
+[01:3968]........env: PMI_SPAWN=0
+[01:3968]........env: PMI_APPNUM=0
+[01:3968]........CreateProcess(C:\Windows\system32\hostname.exe)
+[01:3968]........\RemoveEnvironmentVariables
+[01:3968]......../RemoveEnvironmentVariables
+[01:3968]........\SMPDU_Sock_native_to_sock
+[01:3968]......../SMPDU_Sock_native_to_sock
+[01:3968]........\SMPDU_Sock_native_to_sock
+[01:3968]......../SMPDU_Sock_native_to_sock
+[01:3968]........\SMPDU_Sock_native_to_sock
+[01:3968]......../SMPDU_Sock_native_to_sock
+[01:3968]........\SMPDU_Sock_set_user_ptr
+[01:3968]......../SMPDU_Sock_set_user_ptr
+[01:3968]........\SMPDU_Sock_set_user_ptr
+[01:3968]......../SMPDU_Sock_set_user_ptr
+[01:3968]........\SMPDU_Sock_set_user_ptr
+[01:3968]......../SMPDU_Sock_set_user_ptr
+[01:3968]........\SMPDU_Sock_post_read
+[01:3968].........\SMPDU_Sock_post_readv
+[01:3968]........./SMPDU_Sock_post_readv
+[01:3968]......../SMPDU_Sock_post_read
+[01:3968]........\SMPDU_Sock_post_read
+[01:3968].........\SMPDU_Sock_post_readv
+[01:3968]........./SMPDU_Sock_post_readv
+[01:3968]......../SMPDU_Sock_post_read
+[01:3968]........\smpd_process_to_registry
+[01:3968].........*** entering smpd_piothread pid:3980 sock:1008 ***
+[01:3968]......../smpd_process_to_registry
+[01:3968].......*** entering smpd_piothread pid:3980 sock:1016 ***
+[01:3968]......./smpd_launch_process
+[01:3968].......*** entering smpd_pinthread pid:3980 sock:1004 ***
+[01:3968].......\smpd_create_command
+[01:3968]........\smpd_init_command
+[01:3968]......../smpd_init_command
+[01:3968]......./smpd_create_command
+[01:3968].......\smpd_add_command_int_arg
+[01:3968]......./smpd_add_command_int_arg
+[01:3968].......\smpd_add_command_arg
+[01:3968]......./smpd_add_command_arg
+[01:3968].......\smpd_add_command_arg
+[01:3968]......./smpd_add_command_arg
+[01:3968].......\smpd_add_command_arg
+[01:3968]......./smpd_add_command_arg
+[01:3968].......\smpd_add_command_int_arg
+[01:3968]......./smpd_add_command_int_arg
+[01:3968].......\smpd_add_command_int_arg
+[01:3968]......./smpd_add_command_int_arg
+[01:3968].......\smpd_post_write_command
+[01:3968]........\smpd_package_command
+[01:3968]......../smpd_package_command
+[01:3968]........\SMPDU_Sock_get_sock_id
+[01:3968]......../SMPDU_Sock_get_sock_id
+[01:3968]........smpd_post_write_command on the parent context sock 988: 147 bytes for command: "cmd=result src=1 dest=0 tag=1 cmd_tag=1 cmd_orig=launch result=SUCCESS pg_id=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E pg_rank=1 pg_ctx=0 "
+[01:3968]........\SMPDU_Sock_post_writev
+[01:3968]......../SMPDU_Sock_post_writev
+[01:3968]......./smpd_post_write_command
+[01:3968]....../smpd_handle_launch_command
+[01:3968]...../smpd_handle_command
+[01:3968].....\smpd_post_read_command
+[01:3968]......\SMPDU_Sock_get_sock_id
+[01:3968]....../SMPDU_Sock_get_sock_id
+[01:3968]......posting a read for a command header on the parent context, sock 988
+[01:3968]......\SMPDU_Sock_post_read
+[01:3968].......\SMPDU_Sock_post_readv
+[01:3968]......./SMPDU_Sock_post_readv
+[01:3968]....../SMPDU_Sock_post_read
+[01:3968]...../smpd_post_read_command
+[01:3968]..../smpd_state_reading_cmd
+[01:3968].../smpd_handle_op_read
+[01:3968]...sock_waiting for the next event.
+[01:3968]...\SMPDU_Sock_wait
+[01:3968].../SMPDU_Sock_wait
+[01:3968]...SOCK_OP_WRITE event.error = 0, result = 0, context=parent
+[01:3968]...\smpd_handle_op_write
+[01:3968]....\smpd_state_writing_cmd
+[01:3968].....wrote command
+[01:3968].....command written to parent: "cmd=result src=1 dest=0 tag=1 cmd_tag=1 cmd_orig=launch result=SUCCESS pg_id=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E pg_rank=1 pg_ctx=0 "
+[01:3968].....\smpd_free_command
+[01:3968]......\smpd_init_command
+[01:3968]....../smpd_init_command
+[01:3968]...../smpd_free_command
+[01:3968]..../smpd_state_writing_cmd
+[01:3968].../smpd_handle_op_write
+[01:3968]...sock_waiting for the next event.
+[01:3968]...\SMPDU_Sock_wait
+[01:3968].../SMPDU_Sock_wait
+[01:3968]...SOCK_OP_READ event.error = 0, result = 0, context=parent
+[01:3968]...\smpd_handle_op_read
+[01:3968]....\smpd_state_reading_cmd_header
+[01:3968].....read command header
+[01:3968].....command header read, posting read for data: 202 bytes
+[01:3968].....\SMPDU_Sock_post_read
+[01:3968]......\SMPDU_Sock_post_readv
+[01:3968]....../SMPDU_Sock_post_readv
+[01:3968]...../SMPDU_Sock_post_read
+[01:3968]..../smpd_state_reading_cmd_header
+[01:3968].../smpd_handle_op_read
+[01:3968]...sock_waiting for the next event.
+[01:3968]...\SMPDU_Sock_wait
+[01:3968].../SMPDU_Sock_wait
+[01:3968]...SOCK_OP_READ event.error = 0, result = 0, context=parent
+[01:3968]...\smpd_handle_op_read
+[01:3968]....\smpd_state_reading_cmd
+[01:3968].....read command
+[01:3968].....\smpd_parse_command
+[01:3968]...../smpd_parse_command
+[01:3968].....read command: "cmd=launch src=0 dest=1 tag=2 c=hostname.exe s=0 a=0 d="C:\Program Files\MPICH2\bin" p=C:\Windows\system32 q=0..1 i=0 n=2 k=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E kd=4315DD55-CE38-4924-A807-B601FF02CB32 "
+[01:3968].....\smpd_handle_command
+[01:3968]......handling command:
+[01:3968]...... src  = 0
+[01:3968]...... dest = 1
+[01:3968]...... cmd  = launch
+[01:3968]...... tag  = 2
+[01:3968]...... ctx  = parent
+[01:3968]...... len  = 202
+[01:3968]...... str  = cmd=launch src=0 dest=1 tag=2 c=hostname.exe s=0 a=0 d="C:\Program Files\MPICH2\bin" p=C:\Windows\system32 q=0..1 i=0 n=2 k=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E kd=4315DD55-CE38-4924-A807-B601FF02CB32 
+[01:3968]......\smpd_command_destination
+[01:3968].......1 -> 1 : returning NULL context
+[01:3968]....../smpd_command_destination
+[01:3968]......\smpd_handle_launch_command
+[01:3968].......\smpd_create_process_struct
+[01:3968]........\smpd_create_context
+[01:3968].........\smpd_init_context
+[01:3968]..........\smpd_init_command
+[01:3968]........../smpd_init_command
+[01:3968]........./smpd_init_context
+[01:3968]......../smpd_create_context
+[01:3968]........\smpd_create_context
+[01:3968].........\smpd_init_context
+[01:3968]..........\smpd_init_command
+[01:3968]........../smpd_init_command
+[01:3968]........./smpd_init_context
+[01:3968]......../smpd_create_context
+[01:3968]........\smpd_create_context
+[01:3968].........\smpd_init_context
+[01:3968]..........\smpd_init_command
+[01:3968]........../smpd_init_command
+[01:3968]........./smpd_init_context
+[01:3968]......../smpd_create_context
+[01:3968]........\smpd_create_context
+[01:3968].........\smpd_init_context
+[01:3968]..........\smpd_init_command
+[01:3968]........../smpd_init_command
+[01:3968]........./smpd_init_context
+[01:3968]......../smpd_create_context
+[01:3968]......./smpd_create_process_struct
+[01:3968].......launching: 'hostname.exe'
+[01:3968].......\smpd_launch_process
+[01:3968]........searching for 'hostname.exe' in 'C:\Windows\system32'
+[01:3968]........\smpd_search_path
+[01:3968]......../smpd_search_path
+[01:3968]........\smpd_priority_class_to_win_class
+[01:3968]......../smpd_priority_class_to_win_class
+[01:3968]........\smpd_priority_to_win_priority
+[01:3968]......../smpd_priority_to_win_priority
+[01:3968]........\smpd_make_socket_loop_choose
+[01:3968].........\smpd_get_hostname
+[01:3968]........./smpd_get_hostname
+[01:3968]......../smpd_make_socket_loop_choose
+[01:3968]........\smpd_make_socket_loop_choose
+[01:3968].........\smpd_get_hostname
+[01:3968]........./smpd_get_hostname
+[01:3968]......../smpd_make_socket_loop_choose
+[01:3968]........\smpd_make_socket_loop_choose
+[01:3968].........\smpd_get_hostname
+[01:3968]........./smpd_get_hostname
+[01:3968]......../smpd_make_socket_loop_choose
+[01:3968]........\SMPDU_Sock_listen
+[01:3968]......../SMPDU_Sock_listen
+[01:3968]........pmi listening on port 49316
+[01:3968]........\smpd_create_context
+[01:3968].........\smpd_init_context
+[01:3968]..........\smpd_init_command
+[01:3968]........../smpd_init_command
+[01:3968]..........\SMPDU_Sock_set_user_ptr
+[01:3968]........../SMPDU_Sock_set_user_ptr
+[01:3968]........./smpd_init_context
+[01:3968]......../smpd_create_context
+[01:3968]........\SMPDU_Sock_set_user_ptr
+[01:3968]......../SMPDU_Sock_set_user_ptr
+[01:3968]......./SMPDU_Sock_get_host_description
+[01:3968].......\SMPDU_Sock_hostname_to_host_description
+[01:3968]........adding host: jahwin7 to host list
+[01:3968]........adding host: jahwin7.  to host list
+[01:3968]........adding host: fe80::6dd1:e739:f401:bf61%11 to host list
+[01:3968]........adding host: fe80::186f:5ae8:9d92:81ac%13 to host list
+[01:3968]........adding host: 10.0.2.15 to host list
+[01:3968]........adding host: 2001:0:4137:9e74:186f:5ae8:9d92:81ac to host list
+[01:3968]......./SMPDU_Sock_hostname_to_host_description
+[01:3968]....../SMPDU_Sock_get_host_description
+[01:3968]......\SetEnvironmentVariables
+[01:3968]....../SetEnvironmentVariables
+[01:3968]......env: PMI_RANK=0
+[01:3968]......env: PMI_SIZE=2
+[01:3968]......env: PMI_KVS=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E
+[01:3968]......env: PMI_DOMAIN=4315DD55-CE38-4924-A807-B601FF02CB32
+[01:3968]......env: PMI_HOST=jahwin7 "jahwin7. " fe80::6dd1:e739:f401:bf61%11 fe80::186f:5ae8:9d92:81ac%13 10.0.2.15 2001:0:4137:9e74:186f:5ae8:9d92:81ac 
+[01:3968]......env: PMI_PORT=49316
+[01:3968]......env: PMI_SMPD_ID=1
+[01:3968]......env: PMI_SMPD_KEY=1
+[01:3968]......env: PMI_CLIQUE=0..1
+[01:3968]......env: PMI_SPAWN=0
+[01:3968]......env: PMI_APPNUM=0
+[01:3968]......CreateProcess(C:\Windows\system32\hostname.exe)
+[01:3968]......\RemoveEnvironmentVariables
+[01:3968]....../RemoveEnvironmentVariables
+[01:3968]......\SMPDU_Sock_native_to_sock
+[01:3968]....../SMPDU_Sock_native_to_sock
+[01:3968]......\SMPDU_Sock_native_to_sock
+[01:3968]....../SMPDU_Sock_native_to_sock
+[01:3968]......\SMPDU_Sock_native_to_sock
+[01:3968]....../SMPDU_Sock_native_to_sock
+[01:3968]......\SMPDU_Sock_set_user_ptr
+[01:3968]....../SMPDU_Sock_set_user_ptr
+[01:3968]......\SMPDU_Sock_set_user_ptr
+[01:3968]....../SMPDU_Sock_set_user_ptr
+[01:3968]......\SMPDU_Sock_set_user_ptr
+[01:3968]....../SMPDU_Sock_set_user_ptr
+[01:3968]......\SMPDU_Sock_post_read
+[01:3968].......\SMPDU_Sock_post_readv
+[01:3968]......./SMPDU_Sock_post_readv
+[01:3968]....../SMPDU_Sock_post_read
+[01:3968]......\SMPDU_Sock_post_read
+[01:3968].......\SMPDU_Sock_post_readv
+[01:3968]......./SMPDU_Sock_post_readv
+[01:3968]....../SMPDU_Sock_post_read
+[01:3968]......\smpd_process_to_registry
+[01:3968]....../smpd_process_to_registry
+[01:3968]...../smpd_launch_process
+[01:3968].....\smpd_create_command
+[01:3968]......\smpd_init_command
+[01:3968]....../smpd_init_command
+[01:3968]...../smpd_create_command
+[01:3968].....\smpd_add_command_int_arg
+[01:3968]...../smpd_add_command_int_arg
+[01:3968].....\smpd_add_command_arg
+[01:3968]...../smpd_add_command_arg
+[01:3968].....\smpd_add_command_arg
+[01:3968]...../smpd_add_command_arg
+[01:3968].....\smpd_add_command_arg
+[01:3968]...../smpd_add_command_arg
+[01:3968].....\smpd_add_command_int_arg
+[01:3968]...../smpd_add_command_int_arg
+[01:3968].....\smpd_add_command_int_arg
+[01:3968]...../smpd_add_command_int_arg
+[01:3968].....\smpd_post_write_command
+[01:3968]......\smpd_package_command
+[01:3968]....../smpd_package_command
+[01:3968]......\SMPDU_Sock_get_sock_id
+[01:3968]....../SMPDU_Sock_get_sock_id
+[01:3968]......smpd_post_write_command on the parent context sock 988: 147 bytes for command: "cmd=result src=1 dest=0 tag=2 cmd_tag=2 cmd_orig=launch result=SUCCESS pg_id=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E pg_rank=0 pg_ctx=1 "
+[01:3968]......\SMPDU_Sock_post_writev
+[01:3968]....../SMPDU_Sock_post_writev
+[01:3968]...../smpd_post_write_command
+[01:3968]..../smpd_handle_launch_command
+[01:3968].../smpd_handle_command
+[01:3968]...\smpd_post_read_command
+[01:3968]....\SMPDU_Sock_get_sock_id
+[01:3968]..../SMPDU_Sock_get_sock_id
+[01:3968]....posting a read for a command header on the parent context, sock 988
+[01:3968]....\SMPDU_Sock_post_read
+[01:3968].....\SMPDU_Sock_post_readv
+[01:3968]...../SMPDU_Sock_post_readv
+[01:3968]..../SMPDU_Sock_post_read
+[01:3968].../smpd_post_read_command
+[01:3968]../smpd_state_reading_cmd
+[01:3968]./smpd_handle_op_read
+[01:3968].sock_waiting for the next event.
+[01:3968].\SMPDU_Sock_wait
+[01:3968]./SMPDU_Sock_wait
+[01:3968].SOCK_OP_WRITE event.error = 0, result = 0, context=parent
+[01:3968].\smpd_handle_op_write
+[01:3968]..\smpd_state_writing_cmd
+[01:3968]...wrote command
+[01:3968]...command written to parent: "cmd=result src=1 dest=0 tag=2 cmd_tag=2 cmd_orig=launch result=SUCCESS pg_id=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E pg_rank=0 pg_ctx=1 "
+[01:3968]...\smpd_free_command
+[01:3968]....\smpd_init_command
+[01:3968]..../smpd_init_command
+[01:3968].../smpd_free_command
+[01:3968]../smpd_state_writing_cmd
+[01:3968]./smpd_handle_op_write
+[01:3968].sock_waiting for the next event.
+[01:3968].\SMPDU_Sock_wait
+[01:3968]..*** entering smpd_piothread pid:4008 sock:1240 ***
+[01:3968]..*** entering smpd_pinthread pid:4008 sock:1236 ***
+[01:3968]..*** entering smpd_piothread pid:4008 sock:1248 ***
+[01:3968]./smpd_easy_send
+[01:3968]/smpd_easy_send
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_READ event.error = 0, result = 0, context=stdout
+[01:3968]\smpd_handle_op_read
+[01:3968]\smpd_state_reading_stdouterr
+[01:3968].read from stdout
+[01:3968].\SMPDU_Sock_read
+[01:3968]..\SMPDU_Sock_readv
+[01:3968]../SMPDU_Sock_readv
+[01:3968]./SMPDU_Sock_read
+[01:3968].9 bytes read from stdout
+[01:3968].\smpd_create_command
+[01:3968]..\smpd_init_command
+[01:3968]../smpd_init_command
+[01:3968]./smpd_create_command
+[01:3968].\smpd_add_command_int_arg
+[01:3968]./smpd_add_command_int_arg
+[01:3968].\smpd_add_command_int_arg
+[01:3968]./smpd_add_command_int_arg
+[01:3968].\smpd_add_command_arg
+[01:3968]./smpd_add_command_arg
+[01:3968].\smpd_post_write_command
+[01:3968]..\smpd_package_command
+[01:3968]../smpd_package_command
+[01:3968]..\SMPDU_Sock_get_sock_id
+[01:3968]../SMPDU_Sock_get_sock_id
+[01:3968]..smpd_post_write_command on the parent context sock 988: 83 bytes for command: "cmd=stdout src=1 dest=0 tag=3 rank=0 first=1 data=6A616877696E370D0A "
+[01:3968]..\SMPDU_Sock_post_writev
+[01:3968]../SMPDU_Sock_post_writev
+[01:3968]./smpd_post_write_command
+[01:3968].\SMPDU_Sock_post_read
+[01:3968]..\SMPDU_Sock_post_readv
+[01:3968]../SMPDU_Sock_post_readv
+[01:3968]./SMPDU_Sock_post_read
+[01:3968]/smpd_state_reading_stdouterr
+[01:3968]/smpd_handle_op_read
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_WRITE event.error = 0, result = 0, context=parent
+[01:3968]\smpd_handle_op_write
+[01:3968]\smpd_state_writing_cmd
+[01:3968].wrote command
+[01:3968].command written to parent: "cmd=stdout src=1 dest=0 tag=3 rank=0 first=1 data=6A616877696E370D0A "
+[01:3968].\smpd_free_command
+[01:3968]..\smpd_init_command
+[01:3968]../smpd_init_command
+[01:3968]./smpd_free_command
+[01:3968]/smpd_state_writing_cmd
+[01:3968]/smpd_handle_op_write
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]ReadFile failed, error 109
+[01:3968]*** smpd_piothread finishing pid:4008 ***
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_READ event.error = -1, result = 0, context=stdout
+[01:3968]\smpd_handle_op_read
+[01:3968]\smpd_state_reading_stdouterr
+[01:3968]/smpd_state_reading_stdouterr
+[01:3968]/smpd_handle_op_read
+[01:3968]SOCK_OP_READ failed - result = -1, closing stdout context.
+[01:3968]\SMPDU_Sock_post_close
+[01:3968]\SMPDU_Sock_post_read
+[01:3968].\SMPDU_Sock_post_readv
+[01:3968]./SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_read
+[01:3968]/SMPDU_Sock_post_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_CLOSE event.error = 0, result = 0, context=stdout
+[01:3968]\smpd_handle_op_close
+[01:3968]\smpd_get_state_string
+[01:3968]/smpd_get_state_string
+[01:3968]op_close received - SMPD_CLOSING state.
+[01:3968]process refcount == 1, stdout closed.
+[01:3968]\smpd_free_context
+[01:3968].freeing stdout context.
+[01:3968].\smpd_init_context
+[01:3968]..\smpd_init_command
+[01:3968]../smpd_init_command
+[01:3968]./smpd_init_context
+[01:3968]/smpd_free_context
+[01:3968]/smpd_handle_op_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]closing output socket took 0.000 seconds
+[01:3968]ReadFile failed, error 109
+[01:3968]*** smpd_piothread finishing pid:4008 ***
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_READ event.error = -1, result = 0, context=stderr
+[01:3968]\smpd_handle_op_read
+[01:3968]\smpd_state_reading_stdouterr
+[01:3968]/smpd_state_reading_stdouterr
+[01:3968]/smpd_handle_op_read
+[01:3968]SOCK_OP_READ failed - result = -1, closing stderr context.
+[01:3968]\SMPDU_Sock_post_close
+[01:3968]\SMPDU_Sock_post_read
+[01:3968].\SMPDU_Sock_post_readv
+[01:3968]./SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_read
+[01:3968]closing output socket took 0.000 seconds
+[01:3968]/SMPDU_Sock_post_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_CLOSE event.error = 0, result = 0, context=stderr
+[01:3968]\smpd_handle_op_close
+[01:3968]\smpd_get_state_string
+[01:3968]/smpd_get_state_string
+[01:3968]op_close received - SMPD_CLOSING state.
+[01:3968]process refcount == 0, waiting for the process to finish exiting.
+[01:3968]\smpd_process_from_registry
+[01:3968]/smpd_process_from_registry
+[01:3968]\smpd_wait_process
+[01:3968]/smpd_wait_process
+[01:3968]\SMPDU_Sock_post_close
+[01:3968].\SMPDU_Sock_post_read
+[01:3968]..*** smpd_pinthread finishing pid:4008 ***
+[01:3968]..\SMPDU_Sock_post_readv
+[01:3968]../SMPDU_Sock_post_readv
+[01:3968]./SMPDU_Sock_post_read
+[01:3968]/SMPDU_Sock_post_close
+[01:3968]\smpd_create_command
+[01:3968].\smpd_init_command
+[01:3968]./smpd_init_command
+[01:3968]/smpd_create_command
+[01:3968]\smpd_add_command_int_arg
+[01:3968]/smpd_add_command_int_arg
+[01:3968]\smpd_add_command_int_arg
+[01:3968]/smpd_add_command_int_arg
+[01:3968]\smpd_add_command_arg
+[01:3968]/smpd_add_command_arg
+[01:3968]creating an exit command for rank 0, pid 4008, exit code 0.
+[01:3968]\smpd_post_write_command
+[01:3968].\smpd_package_command
+[01:3968]./smpd_package_command
+[01:3968].\SMPDU_Sock_get_sock_id
+[01:3968]./SMPDU_Sock_get_sock_id
+[01:3968].smpd_post_write_command on the parent context sock 988: 97 bytes for command: "cmd=exit src=1 dest=0 tag=4 rank=0 code=0 kvs=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E "
+[01:3968].\SMPDU_Sock_post_writev
+[01:3968]./SMPDU_Sock_post_writev
+[01:3968]/smpd_post_write_command
+[01:3968]\smpd_free_process_struct
+[01:3968].\smpd_free_context
+[01:3968]..freeing pmi context.
+[01:3968]..\smpd_init_context
+[01:3968]...\smpd_init_command
+[01:3968].../smpd_init_command
+[01:3968]../smpd_init_context
+[01:3968]./smpd_free_context
+[01:3968]/smpd_free_process_struct
+[01:3968]\smpd_free_context
+[01:3968].freeing stderr context.
+[01:3968].\smpd_init_context
+[01:3968]..\smpd_init_command
+[01:3968]../smpd_init_command
+[01:3968]./smpd_init_context
+[01:3968]/smpd_free_context
+[01:3968]/smpd_handle_op_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_CLOSE event.error = 0, result = 0, context=stdin
+[01:3968]\smpd_handle_op_close
+[01:3968]\smpd_get_state_string
+[01:3968]/smpd_get_state_string
+[01:3968]op_close received - SMPD_CLOSING state.
+[01:3968]Unaffiliated stdin context closing.
+[01:3968]\smpd_free_context
+[01:3968].freeing stdin context.
+[01:3968].\smpd_init_context
+[01:3968]..\smpd_init_command
+[01:3968]../smpd_init_command
+[01:3968]./smpd_init_context
+[01:3968]/smpd_free_context
+[01:3968]/smpd_handle_op_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_WRITE event.error = 0, result = 0, context=parent
+[01:3968]\smpd_handle_op_write
+[01:3968]\smpd_state_writing_cmd
+[01:3968].wrote command
+[01:3968].command written to parent: "cmd=exit src=1 dest=0 tag=4 rank=0 code=0 kvs=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E "
+[01:3968].\smpd_free_command
+[01:3968]..\smpd_init_command
+[01:3968]../smpd_init_command
+[01:3968]./smpd_free_command
+[01:3968]/smpd_state_writing_cmd
+[01:3968]/smpd_handle_op_write
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/smpd_easy_send
+[01:3968]/smpd_easy_send
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_READ event.error = 0, result = 0, context=stdout
+[01:3968]\smpd_handle_op_read
+[01:3968]\smpd_state_reading_stdouterr
+[01:3968]read from stdout
+[01:3968]\SMPDU_Sock_read
+[01:3968]\SMPDU_Sock_readv
+[01:3968]/SMPDU_Sock_readv
+[01:3968]/SMPDU_Sock_read
+[01:3968]9 bytes read from stdout
+[01:3968]\smpd_create_command
+[01:3968]\smpd_init_command
+[01:3968]/smpd_init_command
+[01:3968]/smpd_create_command
+[01:3968]\smpd_add_command_int_arg
+[01:3968]/smpd_add_command_int_arg
+[01:3968]\smpd_add_command_int_arg
+[01:3968]/smpd_add_command_int_arg
+[01:3968]\smpd_add_command_arg
+[01:3968]/smpd_add_command_arg
+[01:3968]\smpd_post_write_command
+[01:3968]\smpd_package_command
+[01:3968]/smpd_package_command
+[01:3968]\SMPDU_Sock_get_sock_id
+[01:3968]/SMPDU_Sock_get_sock_id
+[01:3968]smpd_post_write_command on the parent context sock 988: 83 bytes for command: "cmd=stdout src=1 dest=0 tag=5 rank=1 first=1 data=6A616877696E370D0A "
+[01:3968]\SMPDU_Sock_post_writev
+[01:3968]/SMPDU_Sock_post_writev
+[01:3968]/smpd_post_write_command
+[01:3968]\SMPDU_Sock_post_read
+[01:3968]\SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_read
+[01:3968]/smpd_state_reading_stdouterr
+[01:3968]/smpd_handle_op_read
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_WRITE event.error = 0, result = 0, context=parent
+[01:3968]\smpd_handle_op_write
+[01:3968]\smpd_state_writing_cmd
+[01:3968]wrote command
+[01:3968]command written to parent: "cmd=stdout src=1 dest=0 tag=5 rank=1 first=1 data=6A616877696E370D0A "
+[01:3968]\smpd_free_command
+[01:3968]\smpd_init_command
+[01:3968]/smpd_init_command
+[01:3968]/smpd_free_command
+[01:3968]/smpd_state_writing_cmd
+[01:3968]/smpd_handle_op_write
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]ReadFile failed, error 109
+[01:3968]ReadFile failed, error 109
+[01:3968]*** smpd_piothread finishing pid:3980 ***
+[01:3968]*** smpd_piothread finishing pid:3980 ***
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_READ event.error = -1, result = 0, context=stdout
+[01:3968]\smpd_handle_op_read
+[01:3968]\smpd_state_reading_stdouterr
+[01:3968]/smpd_state_reading_stdouterr
+[01:3968]/smpd_handle_op_read
+[01:3968]SOCK_OP_READ failed - result = -1, closing stdout context.
+[01:3968]\SMPDU_Sock_post_close
+[01:3968]\SMPDU_Sock_post_read
+[01:3968]\SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_readv
+[01:3968]closing output socket took 0.000 seconds
+[01:3968]/SMPDU_Sock_post_read
+[01:3968]/SMPDU_Sock_post_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_READ event.error = -1, result = 0, context=stderr
+[01:3968]\smpd_handle_op_read
+[01:3968]\smpd_state_reading_stdouterr
+[01:3968]/smpd_state_reading_stdouterr
+[01:3968]/smpd_handle_op_read
+[01:3968]SOCK_OP_READ failed - result = -1, closing stderr context.
+[01:3968]\SMPDU_Sock_post_close
+[01:3968]\SMPDU_Sock_post_read
+[01:3968]\SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_read
+[01:3968]/SMPDU_Sock_post_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_CLOSE event.error = 0, result = 0, context=stdout
+[01:3968]\smpd_handle_op_close
+[01:3968]\smpd_get_state_string
+[01:3968]/smpd_get_state_string
+[01:3968]op_close received - SMPD_CLOSING state.
+[01:3968]process refcount == 1, stdout closed.
+[01:3968]\smpd_free_context
+[01:3968]freeing stdout context.
+[01:3968]\smpd_init_context
+[01:3968]\smpd_init_command
+[01:3968]/smpd_init_command
+[01:3968]/smpd_init_context
+[01:3968]/smpd_free_context
+[01:3968]/smpd_handle_op_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_CLOSE event.error = 0, result = 0, context=stderr
+[01:3968]\smpd_handle_op_close
+[01:3968]\smpd_get_state_string
+[01:3968]/smpd_get_state_string
+[01:3968]op_close received - SMPD_CLOSING state.
+[01:3968]process refcount == 0, waiting for the process to finish exiting.
+[01:3968]\smpd_process_from_registry
+[01:3968]/smpd_process_from_registry
+[01:3968]\smpd_wait_process
+[01:3968]closing output socket took 0.000 seconds
+[01:3968]/smpd_wait_process
+[01:3968]\SMPDU_Sock_post_close
+[01:3968]\SMPDU_Sock_post_read
+[01:3968]\SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_read
+[01:3968]/SMPDU_Sock_post_close
+[01:3968]\smpd_create_command
+[01:3968]\smpd_init_command
+[01:3968]/smpd_init_command
+[01:3968]/smpd_create_command
+[01:3968]\smpd_add_command_int_arg
+[01:3968]/smpd_add_command_int_arg
+[01:3968]\smpd_add_command_int_arg
+[01:3968]/smpd_add_command_int_arg
+[01:3968]\smpd_add_command_arg
+[01:3968]/smpd_add_command_arg
+[01:3968]creating an exit command for rank 1, pid 3980, exit code 0.
+[01:3968]\smpd_post_write_command
+[01:3968]\smpd_package_command
+[01:3968]/smpd_package_command
+[01:3968]\SMPDU_Sock_get_sock_id
+[01:3968]/SMPDU_Sock_get_sock_id
+[01:3968]smpd_post_write_command on the parent context sock 988: 97 bytes for command: "cmd=exit src=1 dest=0 tag=6 rank=1 code=0 kvs=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E "
+[01:3968]\SMPDU_Sock_post_writev
+[01:3968]/SMPDU_Sock_post_writev
+[01:3968]/smpd_post_write_command
+[01:3968]\smpd_free_process_struct
+[01:3968]\smpd_free_context
+[01:3968]freeing pmi context.
+[01:3968]\smpd_init_context
+[01:3968].\smpd_init_command
+[01:3968]./smpd_init_command
+[01:3968]/smpd_init_context
+[01:3968]/smpd_free_context
+[01:3968]/smpd_free_process_struct
+[01:3968]\smpd_free_context
+[01:3968]freeing stderr context.
+[01:3968]\smpd_init_context
+[01:3968]\smpd_init_command
+[01:3968]/smpd_init_command
+[01:3968]/smpd_init_context
+[01:3968]/smpd_free_context
+[01:3968]/smpd_handle_op_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_WRITE event.error = 0, result = 0, context=parent
+[01:3968]\smpd_handle_op_write
+[01:3968]\smpd_state_writing_cmd
+[01:3968]wrote command
+[01:3968]command written to parent: "cmd=exit src=1 dest=0 tag=6 rank=1 code=0 kvs=B651FF2D-1CE3-4d82-A1F3-87F80A701A3E "
+[01:3968]\smpd_free_command
+[01:3968]\smpd_init_command
+[01:3968]/smpd_init_command
+[01:3968]/smpd_free_command
+[01:3968]/smpd_state_writing_cmd
+[01:3968]/smpd_handle_op_write
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]*** smpd_pinthread finishing pid:3980 ***
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_CLOSE event.error = 0, result = 0, context=stdin
+[01:3968]\smpd_handle_op_close
+[01:3968]\smpd_get_state_string
+[01:3968]/smpd_get_state_string
+[01:3968]op_close received - SMPD_CLOSING state.
+[01:3968]Unaffiliated stdin context closing.
+[01:3968]\smpd_free_context
+[01:3968]freeing stdin context.
+[01:3968]\smpd_init_context
+[01:3968]\smpd_init_command
+[01:3968]/smpd_init_command
+[01:3968]/smpd_init_context
+[01:3968]/smpd_free_context
+[01:3968]/smpd_handle_op_close
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_READ event.error = 0, result = 0, context=parent
+[01:3968]\smpd_handle_op_read
+[01:3968]\smpd_state_reading_cmd_header
+[01:3968]read command header
+[01:3968]command header read, posting read for data: 30 bytes
+[01:3968]\SMPDU_Sock_post_read
+[01:3968]\SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_read
+[01:3968]/smpd_state_reading_cmd_header
+[01:3968]/smpd_handle_op_read
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_READ event.error = 0, result = 0, context=parent
+[01:3968]\smpd_handle_op_read
+[01:3968]\smpd_state_reading_cmd
+[01:3968]read command
+[01:3968]\smpd_parse_command
+[01:3968]/smpd_parse_command
+[01:3968]read command: "cmd=close src=0 dest=1 tag=3 "
+[01:3968]\smpd_handle_command
+[01:3968]handling command:
+[01:3968] src  = 0
+[01:3968] dest = 1
+[01:3968] cmd  = close
+[01:3968] tag  = 3
+[01:3968] ctx  = parent
+[01:3968] len  = 30
+[01:3968] str  = cmd=close src=0 dest=1 tag=3 
+[01:3968]\smpd_command_destination
+[01:3968].1 -> 1 : returning NULL context
+[01:3968]/smpd_command_destination
+[01:3968]\smpd_handle_close_command
+[01:3968].\smpd_create_command
+[01:3968]..\smpd_init_command
+[01:3968]../smpd_init_command
+[01:3968]./smpd_create_command
+[01:3968].sending closed command to parent: "cmd=closed src=1 dest=0 tag=7 "
+[01:3968].\smpd_post_write_command
+[01:3968]..\smpd_package_command
+[01:3968]../smpd_package_command
+[01:3968]..\SMPDU_Sock_get_sock_id
+[01:3968]../SMPDU_Sock_get_sock_id
+[01:3968]..smpd_post_write_command on the parent context sock 988: 44 bytes for command: "cmd=closed src=1 dest=0 tag=7 "
+[01:3968]..\SMPDU_Sock_post_writev
+[01:3968]../SMPDU_Sock_post_writev
+[01:3968]./smpd_post_write_command
+[01:3968].posted closed command.
+[01:3968]/smpd_handle_close_command
+[01:3968]/smpd_handle_command
+[01:3968]not posting read for another command because SMPD_CLOSE returned
+[01:3968]/smpd_state_reading_cmd
+[01:3968]/smpd_handle_op_read
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_WRITE event.error = 0, result = 0, context=parent
+[01:3968]\smpd_handle_op_write
+[01:3968]\smpd_state_writing_cmd
+[01:3968]wrote command
+[01:3968]command written to parent: "cmd=closed src=1 dest=0 tag=7 "
+[01:3968]closed command written, posting close of the sock.
+[01:3968]\SMPDU_Sock_get_sock_id
+[01:3968]/SMPDU_Sock_get_sock_id
+[01:3968]SMPDU_Sock_post_close(988)
+[01:3968]\SMPDU_Sock_post_close
+[01:3968]\SMPDU_Sock_post_read
+[01:3968].\SMPDU_Sock_post_readv
+[01:3968]./SMPDU_Sock_post_readv
+[01:3968]/SMPDU_Sock_post_read
+[01:3968]/SMPDU_Sock_post_close
+[01:3968]\smpd_free_command
+[01:3968]\smpd_init_command
+[01:3968]/smpd_init_command
+[01:3968]/smpd_free_command
+[01:3968]/smpd_state_writing_cmd
+[01:3968]/smpd_handle_op_write
+[01:3968]sock_waiting for the next event.
+[01:3968]\SMPDU_Sock_wait
+[01:3968]/SMPDU_Sock_wait
+[01:3968]SOCK_OP_CLOSE event.error = 0, result = 0, context=parent
+[01:3968]\smpd_handle_op_close
+[01:3968]\smpd_get_state_string
+[01:3968]/smpd_get_state_string
+[01:3968]op_close received - SMPD_CLOSING state.
+[01:3968]Unaffiliated parent context closing.
+[01:3968]\smpd_free_context
+[01:3968]freeing parent context.
+[01:3968]\smpd_init_context
+[01:3968]\smpd_init_command
+[01:3968]/smpd_init_command
+[01:3968]/smpd_init_context
+[01:3968]/smpd_free_context
+[01:3968]all contexts closed, exiting state machine.
+[01:3968]/smpd_handle_op_close
+[01:3968]/smpd_enter_at_state
+[01:3968]\smpd_exit
+[01:3968]\smpd_kill_all_processes
+[01:3968]/smpd_kill_all_processes
+[01:3968]\smpd_finalize_drive_maps
+[01:3968]/smpd_finalize_drive_maps
+[01:3968]\smpd_dbs_finalize
+[01:3968]/smpd_dbs_finalize
+[01:3968]\SMPDU_Sock_finalize
+[01:3968]/SMPDU_Sock_finalize

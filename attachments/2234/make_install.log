@@ -1,0 +1,480 @@
+/usr/bin/make  install-recursive
+Making install in /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4/src/mpl
+Making install in /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4/src/openpa
+Making install in src
+ ../confdb/install-sh -c -d '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include'
+ /usr/bin/install -c -m 644 opa_primitives.h opa_queue.h opa_util.h '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include'
+ ../confdb/install-sh -c -d '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include'
+ ../confdb/install-sh -c -d '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include/primitives'
+ /usr/bin/install -c -m 644  primitives/opa_by_lock.h primitives/opa_emulated.h primitives/opa_gcc_ia64.h primitives/opa_gcc_intel_32_64.h primitives/opa_gcc_intel_32_64_barrier.h primitives/opa_gcc_intel_32_64_ops.h primitives/opa_gcc_intel_32_64_p3.h primitives/opa_gcc_intel_32_64_p3barrier.h primitives/opa_gcc_intrinsics.h primitives/opa_gcc_ppc.h primitives/opa_gcc_sicortex.h primitives/opa_nt_intrinsics.h primitives/opa_sun_atomic_ops.h primitives/opa_unsafe.h '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include/primitives'
+ ../confdb/install-sh -c -d '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include'
+ /usr/bin/install -c -m 644 opa_config.h '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include'
+Making install in test
+ confdb/install-sh -c -d '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/pkgconfig'
+ /usr/bin/install -c -m 644 openpa.pc '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/pkgconfig'
+Making install in src/mpi/romio
+ mkdir -p '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include'
+ /usr/bin/install -c -m 644 include/mpio.h include/mpiof.h '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include'
+Making install in src/pm/hydra
+Making install in ../../mpl
+Making install in tools/topo/hwloc/hwloc
+Making install in src
+/usr/bin/make  install-exec-hook
+Making install in include
+Making install in .
+ mkdir -p '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c hydra_persist hydra_nameserver hydra_pmi_proxy mpiexec.hydra '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin'
+libtool: install: /usr/bin/install -c hydra_persist /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/hydra_persist
+libtool: install: /usr/bin/install -c hydra_nameserver /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/hydra_nameserver
+libtool: install: /usr/bin/install -c hydra_pmi_proxy /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/hydra_pmi_proxy
+libtool: install: /usr/bin/install -c mpiexec.hydra /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpiexec.hydra
+/usr/bin/make  install-exec-hook
+if [ -x /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpiexec.hydra ] ; then  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin && ln -f -s mpiexec.hydra mpiexec ;  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin && ln -f -s mpiexec.hydra mpirun ;  fi
+Making install in .
+ mkdir -p '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   lib/libmpi.la lib/libmpifort.la lib/libmpicxx.la '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib'
+libtool: install: /usr/bin/install -c lib/.libs/libmpi.so.12.0.5 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpi.so.12.0.5
+libtool: install: (cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && { ln -s -f libmpi.so.12.0.5 libmpi.so.12 || { rm -f libmpi.so.12 && ln -s libmpi.so.12.0.5 libmpi.so.12; }; })
+libtool: install: (cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && { ln -s -f libmpi.so.12.0.5 libmpi.so || { rm -f libmpi.so && ln -s libmpi.so.12.0.5 libmpi.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libmpi.lai /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpi.la
+libtool: warning: relinking 'lib/libmpifort.la'
+libtool: install: (cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4; /bin/sh "/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4/libtool"  --silent --tag FC --mode=relink gfortran -Isrc/binding/fortran/use_mpi -fPIC -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O -O2 -version-info 12:5:0 -o lib/libmpifort.la -rpath /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib src/binding/fortran/mpif_h/lib_libmpifort_la-sendf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-recvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-get_countf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-bsendf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ssendf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-rsendf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-bufattachf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-bufdetachf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-isendf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ibsendf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-issendf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-irsendf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-irecvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-waitf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-testf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-request_freef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-waitanyf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-testanyf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-waitallf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-testallf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-waitsomef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-testsomef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-iprobef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-probef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-cancelf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-testcancelf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-send_initf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-bsend_initf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ssend_initf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-rsend_initf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-recv_initf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-startf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-startallf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-sendrecvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-sndrcvrplf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typecontigf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_vectorf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_hvectorf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_indexedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_hindexedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_structf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_extentf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_sizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_lbf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_ubf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_commitf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_freef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-get_elementsf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-packf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-unpackf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-pack_sizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-barrierf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-bcastf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-gatherf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-gathervf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-scatterf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-scattervf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-allgatherf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-allgathervf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-alltoallf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-alltoallvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-alltoallwf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-exscanf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-reducef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-op_createf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-op_freef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-allreducef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-redscatf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-scanf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-group_sizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-group_rankf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-grouptranksf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-group_comparef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_groupf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-group_unionf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-groupinterf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-groupdifff.lo src/binding/fortran/mpif_h/lib_libmpifort_la-group_inclf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-group_exclf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-grouprinclf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-grouprexclf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-group_freef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_sizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_rankf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_comparef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_dupf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_dup_with_infof.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_createf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_splitf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_freef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commtesticf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commrsizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commrgroupf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-iccreatef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-icmergef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-keyval_freef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-attr_putf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-attr_getf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-attr_deletef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-topo_testf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-cart_createf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-dims_createf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-graph_createf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-graphdims_getf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-graph_getf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-cartdim_getf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-cart_getf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-cart_rankf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-cart_coordsf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-grfnbcountf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-grfnbrsf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-cart_shiftf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-cart_subf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-cart_mapf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-graph_mapf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-getpnamef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-get_versionf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-get_library_versionf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-errhcreatef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-errhsetf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-errhgetf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-errhfreef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-error_stringf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-error_classf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-finalizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-initializedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-abortf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-close_portf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_acceptf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_connectf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commdiscf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commparentf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_joinf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_spawnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-spawnmultf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-lookup_namef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-open_portf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-publish_namef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-unpubnamef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_set_infof.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_get_infof.lo src/binding/fortran/mpif_h/lib_libmpifort_la-accumulatef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-getf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-putf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_completef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_createf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_fencef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_freef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_get_groupf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_lockf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_postf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_startf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_testf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_unlockf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_waitf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_allocatef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_allocate_sharedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_shared_queryf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_create_dynamicf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_attachf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_detachf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_get_infof.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_set_infof.lo src/binding/fortran/mpif_h/lib_libmpifort_la-get_accumulatef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-fetch_and_opf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-compare_and_swapf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-rputf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-rgetf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-raccumulatef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-rget_accumulatef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_lock_allf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_unlock_allf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_flushf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_flush_allf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_flush_localf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_flush_local_allf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_syncf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-adderrclassf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-adderrcodef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-adderrstringf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commcallerrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commnewkeyf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commdelattrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commfreekeyf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_get_attrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commgetnamf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_set_attrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_set_namef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-filecallerrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-greqcompletef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-greqstartf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-isthrmainf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-query_threadf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-statgetclf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-statsetelf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typenewkeyf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typedelattrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_dupf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typefreekeyf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_get_attrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typegetcntsf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typegetenvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typegnamef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typesetattrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typesetnamef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_match_sizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-wincallerrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-winnewkeyf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-windelattrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-winfreekeyf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_get_attrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_get_namef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_set_attrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-win_set_namef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-alloc_memf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commcreerrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commgeterrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-commseterrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-filecreerrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-filegeterrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-fileseterrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-finalizedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-free_memf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-info_createf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-info_deletef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-info_dupf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-info_freef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-info_getf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-infognkf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-infognthkf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-infovallenf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-info_setf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-pack_externalf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-packesizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-reqgetstatf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typedarrayf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typechindf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typechvecf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typecindbf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_create_hindexed_blockf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typecresizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typecstructf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typecsubarrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typegetextentf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-typegtextf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-unpackextf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-wincreerrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-wingeterrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-winseterrf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-reduce_localf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-op_commutativef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-reduce_scatter_blockf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-dist_graph_create_adjacentf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-dist_graph_createf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-dist_graph_neighbors_countf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-dist_graph_neighborsf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-improbef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-imrecvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-mprobef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-mrecvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_idupf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ibarrierf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ibcastf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-igatherf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-igathervf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-iscatterf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-iscattervf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-iallgatherf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-iallgathervf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ialltoallf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ialltoallvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ialltoallwf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ireducef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-iallreducef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ireduce_scatterf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ireduce_scatter_blockf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-iscanf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-iexscanf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ineighbor_allgatherf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ineighbor_allgathervf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ineighbor_alltoallf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ineighbor_alltoallvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-ineighbor_alltoallwf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-neighbor_allgatherf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-neighbor_allgathervf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-neighbor_alltoallf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-neighbor_alltoallvf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-neighbor_alltoallwf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_split_typef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-get_elements_xf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-status_set_elements_xf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_get_extent_xf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_get_true_extent_xf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-type_size_xf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_create_groupf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_failure_ackf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_failure_get_ackedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_revokef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_shrinkf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-comm_agreef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_openf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_closef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_deletef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_set_sizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_preallocatef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_sizef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_groupf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_amodef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_set_infof.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_infof.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_set_viewf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_viewf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_atf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_at_allf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_atf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_at_allf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_iread_atf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_iwrite_atf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_readf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_allf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_writef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_allf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_ireadf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_iwritef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_seekf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_positionf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_byte_offsetf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_sharedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_sharedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_iread_sharedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_iwrite_sharedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_orderedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_orderedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_seek_sharedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_position_sharedf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_at_all_beginf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_at_all_endf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_at_all_beginf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_at_all_endf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_all_beginf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_all_endf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_all_beginf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_all_endf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_ordered_beginf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_read_ordered_endf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_ordered_beginf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_write_ordered_endf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_type_extentf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-register_datarepf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_set_atomicityf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_get_atomicityf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-file_syncf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-initf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-initthreadf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-pcontrolf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-addressf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-getaddressf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-wtimef.lo src/binding/fortran/mpif_h/lib_libmpifort_la-wtickf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-keyval_createf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-dup_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-null_del_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-null_copy_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-dup_comm_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-null_comm_del_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-null_comm_copy_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-dup_win_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-null_win_del_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-null_win_copy_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-dup_type_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-null_type_del_fnf.lo src/binding/fortran/mpif_h/lib_libmpifort_la-null_type_copy_fnf.lo src/binding/fortran/use_mpi/lib_libmpifort_la-typef90cmplxf.lo src/binding/fortran/use_mpi/lib_libmpifort_la-typef90realf.lo src/binding/fortran/use_mpi/lib_libmpifort_la-typef90intf.lo src/binding/fortran/use_mpi/mpi.lo src/binding/fortran/use_mpi/mpi_constants.lo src/binding/fortran/use_mpi/mpi_sizeofs.lo src/binding/fortran/use_mpi/mpi_base.lo lib/libmpi.la -lpthread )
+libtool: install: /usr/bin/install -c lib/.libs/libmpifort.so.12.0.5T /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpifort.so.12.0.5
+libtool: install: (cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && { ln -s -f libmpifort.so.12.0.5 libmpifort.so.12 || { rm -f libmpifort.so.12 && ln -s libmpifort.so.12.0.5 libmpifort.so.12; }; })
+libtool: install: (cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && { ln -s -f libmpifort.so.12.0.5 libmpifort.so || { rm -f libmpifort.so && ln -s libmpifort.so.12.0.5 libmpifort.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libmpifort.lai /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpifort.la
+libtool: warning: relinking 'lib/libmpicxx.la'
+libtool: install: (cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4; /bin/sh "/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4/libtool"  --silent --tag CXX --mode=relink g++ -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O -fPIC -DNDEBUG -DNVALGRIND -O2 -version-info 12:5:0 -o lib/libmpicxx.la -rpath /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib src/binding/cxx/initcxx.lo lib/libmpi.la -lpthread )
+libtool: install: /usr/bin/install -c lib/.libs/libmpicxx.so.12.0.5T /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpicxx.so.12.0.5
+libtool: install: (cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && { ln -s -f libmpicxx.so.12.0.5 libmpicxx.so.12 || { rm -f libmpicxx.so.12 && ln -s libmpicxx.so.12.0.5 libmpicxx.so.12; }; })
+libtool: install: (cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && { ln -s -f libmpicxx.so.12.0.5 libmpicxx.so || { rm -f libmpicxx.so && ln -s libmpicxx.so.12.0.5 libmpicxx.so; }; })
+libtool: install: /usr/bin/install -c lib/.libs/libmpicxx.lai /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpicxx.la
+libtool: install: /usr/bin/install -c lib/.libs/libmpi.a /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpi.a
+libtool: install: chmod 644 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpi.a
+libtool: install: ranlib /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpi.a
+libtool: install: /usr/bin/install -c lib/.libs/libmpifort.a /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpifort.a
+libtool: install: chmod 644 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpifort.a
+libtool: install: ranlib /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpifort.a
+libtool: install: /usr/bin/install -c lib/.libs/libmpicxx.a /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpicxx.a
+libtool: install: chmod 644 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpicxx.a
+libtool: install: ranlib /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpicxx.a
+ mkdir -p '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c src/env/mpichversion src/env/mpivars '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin'
+libtool: install: /usr/bin/install -c src/env/mpichversion /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpichversion
+libtool: install: /usr/bin/install -c src/env/mpivars /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpivars
+ mkdir -p '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin'
+ /usr/bin/install -c src/env/mpicc src/env/parkill src/env/mpifort src/env/mpicxx '/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin'
+/usr/bin/make  install-exec-hook
+for e in /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpicc /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpicxx  /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpif77 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpifort ; do  if test -e ${e} ; then  sed -e 's|__PREFIX_TO_BE_FILLED_AT_INSTALL_TIME__|/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt|g'  -e 's|__EXEC_PREFIX_TO_BE_FILLED_AT_INSTALL_TIME__|/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt|g'  -e 's|__SYSCONFDIR_TO_BE_FILLED_AT_INSTALL_TIME__|/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/etc|g'  -e 's|__INCLUDEDIR_TO_BE_FILLED_AT_INSTALL_TIME__|/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/include|g'  -e 's|__LIBDIR_TO_BE_FILLED_AT_INSTALL_TIME__|/usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib|g' ${e} > ${e}.tmp ;  /usr/bin/install -c ${e}.tmp ${e} ;  rm -f ${e}.tmp ;  fi ;  done ;  if test -e /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpicxx ; then  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin && ln -f -s mpicxx mpic++ ; fi ;  if test -e /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpifort ; then  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin && ln -f -s mpifort mpif90 ; fi ;  if test -e /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpifort -a ! -e /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin/mpif77 ; then  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/bin && ln -f -s mpifort mpif77 ; fi ;  if test -e /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpi.so ; then  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && ln -f -s libmpi.so libmpl.so ;  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && ln -f -s libmpi.so libopa.so ;  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && ln -f -s libmpi.so libmpich.so ; fi ;  if test -e /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpifort.so ; then  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && ln -f -s libmpifort.so libfmpich.so ;  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && ln -f -s libmpifort.so libmpichf90.so ; fi ;  if test -e /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib/libmpicxx.so ; then  cd /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/lib && ln -f -s libmpicxx.so libmpichcxx.so ; fi
+/usr/bin/install -c -m 644 hydra_nameserver.1 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man1/hydra_nameserver.1
+/usr/bin/install -c -m 644 hydra_persist.1 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man1/hydra_persist.1
+/usr/bin/install -c -m 644 hydra_pmi_proxy.1 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man1/hydra_pmi_proxy.1
+/usr/bin/install -c -m 644 mpicc.1 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man1/mpicc.1
+/usr/bin/install -c -m 644 mpicxx.1 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man1/mpicxx.1
+/usr/bin/install -c -m 644 mpiexec.1 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man1/mpiexec.1
+/usr/bin/install -c -m 644 mpif77.1 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man1/mpif77.1
+/usr/bin/install -c -m 644 mpifort.1 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man1/mpifort.1
+/usr/bin/install -c -m 644 MPIX_Comm_agree.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPIX_Comm_agree.3
+/usr/bin/install -c -m 644 MPIX_Comm_failure_ack.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPIX_Comm_failure_ack.3
+/usr/bin/install -c -m 644 MPIX_Comm_failure_get_acked.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPIX_Comm_failure_get_acked.3
+/usr/bin/install -c -m 644 MPIX_Comm_revoke.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPIX_Comm_revoke.3
+/usr/bin/install -c -m 644 MPIX_Comm_shrink.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPIX_Comm_shrink.3
+/usr/bin/install -c -m 644 MPI_Abort.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Abort.3
+/usr/bin/install -c -m 644 MPI_Accumulate.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Accumulate.3
+/usr/bin/install -c -m 644 MPI_Add_error_class.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Add_error_class.3
+/usr/bin/install -c -m 644 MPI_Add_error_code.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Add_error_code.3
+/usr/bin/install -c -m 644 MPI_Add_error_string.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Add_error_string.3
+/usr/bin/install -c -m 644 MPI_Address.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Address.3
+/usr/bin/install -c -m 644 MPI_Allgather.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Allgather.3
+/usr/bin/install -c -m 644 MPI_Allgatherv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Allgatherv.3
+/usr/bin/install -c -m 644 MPI_Alloc_mem.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Alloc_mem.3
+/usr/bin/install -c -m 644 MPI_Allreduce.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Allreduce.3
+/usr/bin/install -c -m 644 MPI_Alltoall.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Alltoall.3
+/usr/bin/install -c -m 644 MPI_Alltoallv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Alltoallv.3
+/usr/bin/install -c -m 644 MPI_Alltoallw.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Alltoallw.3
+/usr/bin/install -c -m 644 MPI_Attr_delete.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Attr_delete.3
+/usr/bin/install -c -m 644 MPI_Attr_get.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Attr_get.3
+/usr/bin/install -c -m 644 MPI_Attr_put.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Attr_put.3
+/usr/bin/install -c -m 644 MPI_Barrier.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Barrier.3
+/usr/bin/install -c -m 644 MPI_Bcast.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Bcast.3
+/usr/bin/install -c -m 644 MPI_Bsend.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Bsend.3
+/usr/bin/install -c -m 644 MPI_Bsend_init.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Bsend_init.3
+/usr/bin/install -c -m 644 MPI_Buffer_attach.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Buffer_attach.3
+/usr/bin/install -c -m 644 MPI_Buffer_detach.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Buffer_detach.3
+/usr/bin/install -c -m 644 MPI_Cancel.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Cancel.3
+/usr/bin/install -c -m 644 MPI_Cart_coords.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Cart_coords.3
+/usr/bin/install -c -m 644 MPI_Cart_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Cart_create.3
+/usr/bin/install -c -m 644 MPI_Cart_get.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Cart_get.3
+/usr/bin/install -c -m 644 MPI_Cart_map.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Cart_map.3
+/usr/bin/install -c -m 644 MPI_Cart_rank.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Cart_rank.3
+/usr/bin/install -c -m 644 MPI_Cart_shift.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Cart_shift.3
+/usr/bin/install -c -m 644 MPI_Cart_sub.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Cart_sub.3
+/usr/bin/install -c -m 644 MPI_Cartdim_get.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Cartdim_get.3
+/usr/bin/install -c -m 644 MPI_Close_port.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Close_port.3
+/usr/bin/install -c -m 644 MPI_Comm_accept.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_accept.3
+/usr/bin/install -c -m 644 MPI_Comm_call_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_call_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_compare.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_compare.3
+/usr/bin/install -c -m 644 MPI_Comm_connect.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_connect.3
+/usr/bin/install -c -m 644 MPI_Comm_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_create.3
+/usr/bin/install -c -m 644 MPI_Comm_create_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_create_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_create_group.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_create_group.3
+/usr/bin/install -c -m 644 MPI_Comm_create_keyval.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_create_keyval.3
+/usr/bin/install -c -m 644 MPI_Comm_delete_attr.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_delete_attr.3
+/usr/bin/install -c -m 644 MPI_Comm_disconnect.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_disconnect.3
+/usr/bin/install -c -m 644 MPI_Comm_dup.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_dup.3
+/usr/bin/install -c -m 644 MPI_Comm_dup_with_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_dup_with_info.3
+/usr/bin/install -c -m 644 MPI_Comm_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_free.3
+/usr/bin/install -c -m 644 MPI_Comm_free_keyval.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_free_keyval.3
+/usr/bin/install -c -m 644 MPI_Comm_get_attr.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_get_attr.3
+/usr/bin/install -c -m 644 MPI_Comm_get_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_get_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_get_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_get_info.3
+/usr/bin/install -c -m 644 MPI_Comm_get_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_get_name.3
+/usr/bin/install -c -m 644 MPI_Comm_get_parent.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_get_parent.3
+/usr/bin/install -c -m 644 MPI_Comm_group.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_group.3
+/usr/bin/install -c -m 644 MPI_Comm_idup.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_idup.3
+/usr/bin/install -c -m 644 MPI_Comm_join.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_join.3
+/usr/bin/install -c -m 644 MPI_Comm_rank.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_rank.3
+/usr/bin/install -c -m 644 MPI_Comm_remote_group.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_remote_group.3
+/usr/bin/install -c -m 644 MPI_Comm_remote_size.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_remote_size.3
+/usr/bin/install -c -m 644 MPI_Comm_set_attr.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_set_attr.3
+/usr/bin/install -c -m 644 MPI_Comm_set_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_set_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_set_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_set_info.3
+/usr/bin/install -c -m 644 MPI_Comm_set_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_set_name.3
+/usr/bin/install -c -m 644 MPI_Comm_size.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_size.3
+/usr/bin/install -c -m 644 MPI_Comm_spawn.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_spawn.3
+/usr/bin/install -c -m 644 MPI_Comm_spawn_multiple.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_spawn_multiple.3
+/usr/bin/install -c -m 644 MPI_Comm_split.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_split.3
+/usr/bin/install -c -m 644 MPI_Comm_split_type.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_split_type.3
+/usr/bin/install -c -m 644 MPI_Comm_test_inter.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Comm_test_inter.3
+/usr/bin/install -c -m 644 MPI_Compare_and_swap.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Compare_and_swap.3
+/usr/bin/install -c -m 644 MPI_Dims_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Dims_create.3
+/usr/bin/install -c -m 644 MPI_Dist_graph_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Dist_graph_create.3
+/usr/bin/install -c -m 644 MPI_Dist_graph_create_adjacent.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Dist_graph_create_adjacent.3
+/usr/bin/install -c -m 644 MPI_Dist_graph_neighbors.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Dist_graph_neighbors.3
+/usr/bin/install -c -m 644 MPI_Dist_graph_neighbors_count.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Dist_graph_neighbors_count.3
+/usr/bin/install -c -m 644 MPI_Errhandler_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Errhandler_create.3
+/usr/bin/install -c -m 644 MPI_Errhandler_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Errhandler_free.3
+/usr/bin/install -c -m 644 MPI_Errhandler_get.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Errhandler_get.3
+/usr/bin/install -c -m 644 MPI_Errhandler_set.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Errhandler_set.3
+/usr/bin/install -c -m 644 MPI_Error_class.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Error_class.3
+/usr/bin/install -c -m 644 MPI_Error_string.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Error_string.3
+/usr/bin/install -c -m 644 MPI_Exscan.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Exscan.3
+/usr/bin/install -c -m 644 MPI_Fetch_and_op.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Fetch_and_op.3
+/usr/bin/install -c -m 644 MPI_File_c2f.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_c2f.3
+/usr/bin/install -c -m 644 MPI_File_call_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_call_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_close.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_close.3
+/usr/bin/install -c -m 644 MPI_File_create_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_create_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_delete.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_delete.3
+/usr/bin/install -c -m 644 MPI_File_f2c.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_f2c.3
+/usr/bin/install -c -m 644 MPI_File_get_amode.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_amode.3
+/usr/bin/install -c -m 644 MPI_File_get_atomicity.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_atomicity.3
+/usr/bin/install -c -m 644 MPI_File_get_byte_offset.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_byte_offset.3
+/usr/bin/install -c -m 644 MPI_File_get_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_get_group.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_group.3
+/usr/bin/install -c -m 644 MPI_File_get_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_info.3
+/usr/bin/install -c -m 644 MPI_File_get_position.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_position.3
+/usr/bin/install -c -m 644 MPI_File_get_position_shared.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_position_shared.3
+/usr/bin/install -c -m 644 MPI_File_get_size.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_size.3
+/usr/bin/install -c -m 644 MPI_File_get_type_extent.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_type_extent.3
+/usr/bin/install -c -m 644 MPI_File_get_view.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_get_view.3
+/usr/bin/install -c -m 644 MPI_File_iread.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_iread.3
+/usr/bin/install -c -m 644 MPI_File_iread_at.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_iread_at.3
+/usr/bin/install -c -m 644 MPI_File_iread_shared.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_iread_shared.3
+/usr/bin/install -c -m 644 MPI_File_iwrite.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_iwrite.3
+/usr/bin/install -c -m 644 MPI_File_iwrite_at.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_iwrite_at.3
+/usr/bin/install -c -m 644 MPI_File_iwrite_shared.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_iwrite_shared.3
+/usr/bin/install -c -m 644 MPI_File_open.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_open.3
+/usr/bin/install -c -m 644 MPI_File_preallocate.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_preallocate.3
+/usr/bin/install -c -m 644 MPI_File_read.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read.3
+/usr/bin/install -c -m 644 MPI_File_read_all.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_all.3
+/usr/bin/install -c -m 644 MPI_File_read_all_begin.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_read_all_end.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_all_end.3
+/usr/bin/install -c -m 644 MPI_File_read_at.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_at.3
+/usr/bin/install -c -m 644 MPI_File_read_at_all.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_at_all.3
+/usr/bin/install -c -m 644 MPI_File_read_at_all_begin.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_at_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_read_at_all_end.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_at_all_end.3
+/usr/bin/install -c -m 644 MPI_File_read_ordered.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_ordered.3
+/usr/bin/install -c -m 644 MPI_File_read_ordered_begin.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_ordered_begin.3
+/usr/bin/install -c -m 644 MPI_File_read_ordered_end.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_ordered_end.3
+/usr/bin/install -c -m 644 MPI_File_read_shared.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_read_shared.3
+/usr/bin/install -c -m 644 MPI_File_seek.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_seek.3
+/usr/bin/install -c -m 644 MPI_File_seek_shared.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_seek_shared.3
+/usr/bin/install -c -m 644 MPI_File_set_atomicity.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_set_atomicity.3
+/usr/bin/install -c -m 644 MPI_File_set_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_set_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_set_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_set_info.3
+/usr/bin/install -c -m 644 MPI_File_set_size.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_set_size.3
+/usr/bin/install -c -m 644 MPI_File_set_view.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_set_view.3
+/usr/bin/install -c -m 644 MPI_File_sync.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_sync.3
+/usr/bin/install -c -m 644 MPI_File_write.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write.3
+/usr/bin/install -c -m 644 MPI_File_write_all.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_all.3
+/usr/bin/install -c -m 644 MPI_File_write_all_begin.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_write_all_end.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_all_end.3
+/usr/bin/install -c -m 644 MPI_File_write_at.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_at.3
+/usr/bin/install -c -m 644 MPI_File_write_at_all.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_at_all.3
+/usr/bin/install -c -m 644 MPI_File_write_at_all_begin.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_at_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_write_at_all_end.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_at_all_end.3
+/usr/bin/install -c -m 644 MPI_File_write_ordered.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_ordered.3
+/usr/bin/install -c -m 644 MPI_File_write_ordered_begin.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_ordered_begin.3
+/usr/bin/install -c -m 644 MPI_File_write_ordered_end.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_ordered_end.3
+/usr/bin/install -c -m 644 MPI_File_write_shared.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_File_write_shared.3
+/usr/bin/install -c -m 644 MPI_Finalize.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Finalize.3
+/usr/bin/install -c -m 644 MPI_Finalized.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Finalized.3
+/usr/bin/install -c -m 644 MPI_Free_mem.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Free_mem.3
+/usr/bin/install -c -m 644 MPI_Gather.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Gather.3
+/usr/bin/install -c -m 644 MPI_Gatherv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Gatherv.3
+/usr/bin/install -c -m 644 MPI_Get.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Get.3
+/usr/bin/install -c -m 644 MPI_Get_accumulate.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Get_accumulate.3
+/usr/bin/install -c -m 644 MPI_Get_address.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Get_address.3
+/usr/bin/install -c -m 644 MPI_Get_count.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Get_count.3
+/usr/bin/install -c -m 644 MPI_Get_elements.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Get_elements.3
+/usr/bin/install -c -m 644 MPI_Get_elements_x.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Get_elements_x.3
+/usr/bin/install -c -m 644 MPI_Get_library_version.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Get_library_version.3
+/usr/bin/install -c -m 644 MPI_Get_processor_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Get_processor_name.3
+/usr/bin/install -c -m 644 MPI_Get_version.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Get_version.3
+/usr/bin/install -c -m 644 MPI_Graph_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Graph_create.3
+/usr/bin/install -c -m 644 MPI_Graph_get.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Graph_get.3
+/usr/bin/install -c -m 644 MPI_Graph_map.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Graph_map.3
+/usr/bin/install -c -m 644 MPI_Graph_neighbors.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Graph_neighbors.3
+/usr/bin/install -c -m 644 MPI_Graph_neighbors_count.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Graph_neighbors_count.3
+/usr/bin/install -c -m 644 MPI_Graphdims_get.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Graphdims_get.3
+/usr/bin/install -c -m 644 MPI_Grequest_complete.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Grequest_complete.3
+/usr/bin/install -c -m 644 MPI_Grequest_start.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Grequest_start.3
+/usr/bin/install -c -m 644 MPI_Group_compare.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_compare.3
+/usr/bin/install -c -m 644 MPI_Group_difference.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_difference.3
+/usr/bin/install -c -m 644 MPI_Group_excl.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_excl.3
+/usr/bin/install -c -m 644 MPI_Group_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_free.3
+/usr/bin/install -c -m 644 MPI_Group_incl.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_incl.3
+/usr/bin/install -c -m 644 MPI_Group_intersection.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_intersection.3
+/usr/bin/install -c -m 644 MPI_Group_range_excl.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_range_excl.3
+/usr/bin/install -c -m 644 MPI_Group_range_incl.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_range_incl.3
+/usr/bin/install -c -m 644 MPI_Group_rank.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_rank.3
+/usr/bin/install -c -m 644 MPI_Group_size.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_size.3
+/usr/bin/install -c -m 644 MPI_Group_translate_ranks.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_translate_ranks.3
+/usr/bin/install -c -m 644 MPI_Group_union.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Group_union.3
+/usr/bin/install -c -m 644 MPI_Iallgather.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Iallgather.3
+/usr/bin/install -c -m 644 MPI_Iallgatherv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Iallgatherv.3
+/usr/bin/install -c -m 644 MPI_Iallreduce.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Iallreduce.3
+/usr/bin/install -c -m 644 MPI_Ialltoall.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ialltoall.3
+/usr/bin/install -c -m 644 MPI_Ialltoallv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ialltoallv.3
+/usr/bin/install -c -m 644 MPI_Ialltoallw.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ialltoallw.3
+/usr/bin/install -c -m 644 MPI_Ibarrier.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ibarrier.3
+/usr/bin/install -c -m 644 MPI_Ibcast.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ibcast.3
+/usr/bin/install -c -m 644 MPI_Ibsend.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ibsend.3
+/usr/bin/install -c -m 644 MPI_Iexscan.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Iexscan.3
+/usr/bin/install -c -m 644 MPI_Igather.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Igather.3
+/usr/bin/install -c -m 644 MPI_Igatherv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Igatherv.3
+/usr/bin/install -c -m 644 MPI_Improbe.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Improbe.3
+/usr/bin/install -c -m 644 MPI_Imrecv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Imrecv.3
+/usr/bin/install -c -m 644 MPI_Ineighbor_allgather.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ineighbor_allgather.3
+/usr/bin/install -c -m 644 MPI_Ineighbor_allgatherv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ineighbor_allgatherv.3
+/usr/bin/install -c -m 644 MPI_Ineighbor_alltoall.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ineighbor_alltoall.3
+/usr/bin/install -c -m 644 MPI_Ineighbor_alltoallv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ineighbor_alltoallv.3
+/usr/bin/install -c -m 644 MPI_Ineighbor_alltoallw.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ineighbor_alltoallw.3
+/usr/bin/install -c -m 644 MPI_Info_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Info_create.3
+/usr/bin/install -c -m 644 MPI_Info_delete.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Info_delete.3
+/usr/bin/install -c -m 644 MPI_Info_dup.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Info_dup.3
+/usr/bin/install -c -m 644 MPI_Info_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Info_free.3
+/usr/bin/install -c -m 644 MPI_Info_get.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Info_get.3
+/usr/bin/install -c -m 644 MPI_Info_get_nkeys.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Info_get_nkeys.3
+/usr/bin/install -c -m 644 MPI_Info_get_nthkey.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Info_get_nthkey.3
+/usr/bin/install -c -m 644 MPI_Info_get_valuelen.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Info_get_valuelen.3
+/usr/bin/install -c -m 644 MPI_Info_set.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Info_set.3
+/usr/bin/install -c -m 644 MPI_Init.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Init.3
+/usr/bin/install -c -m 644 MPI_Init_thread.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Init_thread.3
+/usr/bin/install -c -m 644 MPI_Initialized.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Initialized.3
+/usr/bin/install -c -m 644 MPI_Intercomm_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Intercomm_create.3
+/usr/bin/install -c -m 644 MPI_Intercomm_merge.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Intercomm_merge.3
+/usr/bin/install -c -m 644 MPI_Iprobe.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Iprobe.3
+/usr/bin/install -c -m 644 MPI_Irecv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Irecv.3
+/usr/bin/install -c -m 644 MPI_Ireduce.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ireduce.3
+/usr/bin/install -c -m 644 MPI_Ireduce_scatter.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ireduce_scatter.3
+/usr/bin/install -c -m 644 MPI_Ireduce_scatter_block.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ireduce_scatter_block.3
+/usr/bin/install -c -m 644 MPI_Irsend.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Irsend.3
+/usr/bin/install -c -m 644 MPI_Is_thread_main.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Is_thread_main.3
+/usr/bin/install -c -m 644 MPI_Iscan.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Iscan.3
+/usr/bin/install -c -m 644 MPI_Iscatter.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Iscatter.3
+/usr/bin/install -c -m 644 MPI_Iscatterv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Iscatterv.3
+/usr/bin/install -c -m 644 MPI_Isend.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Isend.3
+/usr/bin/install -c -m 644 MPI_Issend.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Issend.3
+/usr/bin/install -c -m 644 MPI_Keyval_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Keyval_create.3
+/usr/bin/install -c -m 644 MPI_Keyval_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Keyval_free.3
+/usr/bin/install -c -m 644 MPI_Lookup_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Lookup_name.3
+/usr/bin/install -c -m 644 MPI_Mprobe.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Mprobe.3
+/usr/bin/install -c -m 644 MPI_Mrecv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Mrecv.3
+/usr/bin/install -c -m 644 MPI_Neighbor_allgather.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Neighbor_allgather.3
+/usr/bin/install -c -m 644 MPI_Neighbor_allgatherv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Neighbor_allgatherv.3
+/usr/bin/install -c -m 644 MPI_Neighbor_alltoall.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Neighbor_alltoall.3
+/usr/bin/install -c -m 644 MPI_Neighbor_alltoallv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Neighbor_alltoallv.3
+/usr/bin/install -c -m 644 MPI_Neighbor_alltoallw.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Neighbor_alltoallw.3
+/usr/bin/install -c -m 644 MPI_Op_commute.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Op_commute.3
+/usr/bin/install -c -m 644 MPI_Op_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Op_create.3
+/usr/bin/install -c -m 644 MPI_Op_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Op_free.3
+/usr/bin/install -c -m 644 MPI_Open_port.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Open_port.3
+/usr/bin/install -c -m 644 MPI_Pack.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Pack.3
+/usr/bin/install -c -m 644 MPI_Pack_external.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Pack_external.3
+/usr/bin/install -c -m 644 MPI_Pack_external_size.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Pack_external_size.3
+/usr/bin/install -c -m 644 MPI_Pack_size.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Pack_size.3
+/usr/bin/install -c -m 644 MPI_Pcontrol.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Pcontrol.3
+/usr/bin/install -c -m 644 MPI_Probe.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Probe.3
+/usr/bin/install -c -m 644 MPI_Publish_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Publish_name.3
+/usr/bin/install -c -m 644 MPI_Put.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Put.3
+/usr/bin/install -c -m 644 MPI_Query_thread.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Query_thread.3
+/usr/bin/install -c -m 644 MPI_Raccumulate.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Raccumulate.3
+/usr/bin/install -c -m 644 MPI_Recv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Recv.3
+/usr/bin/install -c -m 644 MPI_Recv_init.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Recv_init.3
+/usr/bin/install -c -m 644 MPI_Reduce.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Reduce.3
+/usr/bin/install -c -m 644 MPI_Reduce_local.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Reduce_local.3
+/usr/bin/install -c -m 644 MPI_Reduce_scatter.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Reduce_scatter.3
+/usr/bin/install -c -m 644 MPI_Reduce_scatter_block.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Reduce_scatter_block.3
+/usr/bin/install -c -m 644 MPI_Register_datarep.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Register_datarep.3
+/usr/bin/install -c -m 644 MPI_Request_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Request_free.3
+/usr/bin/install -c -m 644 MPI_Request_get_status.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Request_get_status.3
+/usr/bin/install -c -m 644 MPI_Rget.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Rget.3
+/usr/bin/install -c -m 644 MPI_Rget_accumulate.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Rget_accumulate.3
+/usr/bin/install -c -m 644 MPI_Rput.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Rput.3
+/usr/bin/install -c -m 644 MPI_Rsend.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Rsend.3
+/usr/bin/install -c -m 644 MPI_Rsend_init.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Rsend_init.3
+/usr/bin/install -c -m 644 MPI_Scan.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Scan.3
+/usr/bin/install -c -m 644 MPI_Scatter.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Scatter.3
+/usr/bin/install -c -m 644 MPI_Scatterv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Scatterv.3
+/usr/bin/install -c -m 644 MPI_Send.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Send.3
+/usr/bin/install -c -m 644 MPI_Send_init.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Send_init.3
+/usr/bin/install -c -m 644 MPI_Sendrecv.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Sendrecv.3
+/usr/bin/install -c -m 644 MPI_Sendrecv_replace.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Sendrecv_replace.3
+/usr/bin/install -c -m 644 MPI_Ssend.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ssend.3
+/usr/bin/install -c -m 644 MPI_Ssend_init.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Ssend_init.3
+/usr/bin/install -c -m 644 MPI_Start.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Start.3
+/usr/bin/install -c -m 644 MPI_Startall.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Startall.3
+/usr/bin/install -c -m 644 MPI_Status_set_cancelled.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Status_set_cancelled.3
+/usr/bin/install -c -m 644 MPI_Status_set_elements.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Status_set_elements.3
+/usr/bin/install -c -m 644 MPI_Status_set_elements_x.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Status_set_elements_x.3
+/usr/bin/install -c -m 644 MPI_T_category_changed.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_category_changed.3
+/usr/bin/install -c -m 644 MPI_T_category_get_categories.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_category_get_categories.3
+/usr/bin/install -c -m 644 MPI_T_category_get_cvars.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_category_get_cvars.3
+/usr/bin/install -c -m 644 MPI_T_category_get_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_category_get_info.3
+/usr/bin/install -c -m 644 MPI_T_category_get_num.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_category_get_num.3
+/usr/bin/install -c -m 644 MPI_T_category_get_pvars.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_category_get_pvars.3
+/usr/bin/install -c -m 644 MPI_T_cvar_get_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_cvar_get_info.3
+/usr/bin/install -c -m 644 MPI_T_cvar_get_num.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_cvar_get_num.3
+/usr/bin/install -c -m 644 MPI_T_cvar_handle_alloc.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_cvar_handle_alloc.3
+/usr/bin/install -c -m 644 MPI_T_cvar_handle_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_cvar_handle_free.3
+/usr/bin/install -c -m 644 MPI_T_cvar_read.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_cvar_read.3
+/usr/bin/install -c -m 644 MPI_T_cvar_write.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_cvar_write.3
+/usr/bin/install -c -m 644 MPI_T_enum_get_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_enum_get_info.3
+/usr/bin/install -c -m 644 MPI_T_enum_get_item.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_enum_get_item.3
+/usr/bin/install -c -m 644 MPI_T_finalize.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_finalize.3
+/usr/bin/install -c -m 644 MPI_T_init_thread.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_init_thread.3
+/usr/bin/install -c -m 644 MPI_T_pvar_get_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_get_info.3
+/usr/bin/install -c -m 644 MPI_T_pvar_get_num.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_get_num.3
+/usr/bin/install -c -m 644 MPI_T_pvar_handle_alloc.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_handle_alloc.3
+/usr/bin/install -c -m 644 MPI_T_pvar_handle_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_handle_free.3
+/usr/bin/install -c -m 644 MPI_T_pvar_read.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_read.3
+/usr/bin/install -c -m 644 MPI_T_pvar_readreset.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_readreset.3
+/usr/bin/install -c -m 644 MPI_T_pvar_reset.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_reset.3
+/usr/bin/install -c -m 644 MPI_T_pvar_session_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_session_create.3
+/usr/bin/install -c -m 644 MPI_T_pvar_session_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_session_free.3
+/usr/bin/install -c -m 644 MPI_T_pvar_start.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_start.3
+/usr/bin/install -c -m 644 MPI_T_pvar_stop.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_stop.3
+/usr/bin/install -c -m 644 MPI_T_pvar_write.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_T_pvar_write.3
+/usr/bin/install -c -m 644 MPI_Test.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Test.3
+/usr/bin/install -c -m 644 MPI_Test_cancelled.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Test_cancelled.3
+/usr/bin/install -c -m 644 MPI_Testall.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Testall.3
+/usr/bin/install -c -m 644 MPI_Testany.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Testany.3
+/usr/bin/install -c -m 644 MPI_Testsome.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Testsome.3
+/usr/bin/install -c -m 644 MPI_Topo_test.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Topo_test.3
+/usr/bin/install -c -m 644 MPI_Type_commit.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_commit.3
+/usr/bin/install -c -m 644 MPI_Type_contiguous.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_contiguous.3
+/usr/bin/install -c -m 644 MPI_Type_create_darray.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_create_darray.3
+/usr/bin/install -c -m 644 MPI_Type_create_hindexed.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_create_hindexed.3
+/usr/bin/install -c -m 644 MPI_Type_create_hindexed_block.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_create_hindexed_block.3
+/usr/bin/install -c -m 644 MPI_Type_create_hvector.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_create_hvector.3
+/usr/bin/install -c -m 644 MPI_Type_create_indexed_block.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_create_indexed_block.3
+/usr/bin/install -c -m 644 MPI_Type_create_keyval.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_create_keyval.3
+/usr/bin/install -c -m 644 MPI_Type_create_resized.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_create_resized.3
+/usr/bin/install -c -m 644 MPI_Type_create_struct.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_create_struct.3
+/usr/bin/install -c -m 644 MPI_Type_create_subarray.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_create_subarray.3
+/usr/bin/install -c -m 644 MPI_Type_delete_attr.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_delete_attr.3
+/usr/bin/install -c -m 644 MPI_Type_dup.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_dup.3
+/usr/bin/install -c -m 644 MPI_Type_extent.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_extent.3
+/usr/bin/install -c -m 644 MPI_Type_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_free.3
+/usr/bin/install -c -m 644 MPI_Type_free_keyval.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_free_keyval.3
+/usr/bin/install -c -m 644 MPI_Type_get_attr.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_get_attr.3
+/usr/bin/install -c -m 644 MPI_Type_get_contents.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_get_contents.3
+/usr/bin/install -c -m 644 MPI_Type_get_envelope.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_get_envelope.3
+/usr/bin/install -c -m 644 MPI_Type_get_extent.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_get_extent.3
+/usr/bin/install -c -m 644 MPI_Type_get_extent_x.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_get_extent_x.3
+/usr/bin/install -c -m 644 MPI_Type_get_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_get_name.3
+/usr/bin/install -c -m 644 MPI_Type_get_true_extent.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_get_true_extent.3
+/usr/bin/install -c -m 644 MPI_Type_get_true_extent_x.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_get_true_extent_x.3
+/usr/bin/install -c -m 644 MPI_Type_hindexed.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_hindexed.3
+/usr/bin/install -c -m 644 MPI_Type_hvector.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_hvector.3
+/usr/bin/install -c -m 644 MPI_Type_indexed.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_indexed.3
+/usr/bin/install -c -m 644 MPI_Type_lb.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_lb.3
+/usr/bin/install -c -m 644 MPI_Type_match_size.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_match_size.3
+/usr/bin/install -c -m 644 MPI_Type_set_attr.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_set_attr.3
+/usr/bin/install -c -m 644 MPI_Type_set_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_set_name.3
+/usr/bin/install -c -m 644 MPI_Type_size.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_size.3
+/usr/bin/install -c -m 644 MPI_Type_size_x.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_size_x.3
+/usr/bin/install -c -m 644 MPI_Type_struct.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_struct.3
+/usr/bin/install -c -m 644 MPI_Type_ub.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_ub.3
+/usr/bin/install -c -m 644 MPI_Type_vector.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Type_vector.3
+/usr/bin/install -c -m 644 MPI_Unpack.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Unpack.3
+/usr/bin/install -c -m 644 MPI_Unpack_external.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Unpack_external.3
+/usr/bin/install -c -m 644 MPI_Unpublish_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Unpublish_name.3
+/usr/bin/install -c -m 644 MPI_Wait.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Wait.3
+/usr/bin/install -c -m 644 MPI_Waitall.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Waitall.3
+/usr/bin/install -c -m 644 MPI_Waitany.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Waitany.3
+/usr/bin/install -c -m 644 MPI_Waitsome.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Waitsome.3
+/usr/bin/install -c -m 644 MPI_Win_allocate.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_allocate.3
+/usr/bin/install -c -m 644 MPI_Win_allocate_shared.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_allocate_shared.3
+/usr/bin/install -c -m 644 MPI_Win_attach.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_attach.3
+/usr/bin/install -c -m 644 MPI_Win_call_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_call_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_complete.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_complete.3
+/usr/bin/install -c -m 644 MPI_Win_create.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_create.3
+/usr/bin/install -c -m 644 MPI_Win_create_dynamic.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_create_dynamic.3
+/usr/bin/install -c -m 644 MPI_Win_create_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_create_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_create_keyval.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_create_keyval.3
+/usr/bin/install -c -m 644 MPI_Win_delete_attr.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_delete_attr.3
+/usr/bin/install -c -m 644 MPI_Win_detach.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_detach.3
+/usr/bin/install -c -m 644 MPI_Win_fence.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_fence.3
+/usr/bin/install -c -m 644 MPI_Win_flush.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_flush.3
+/usr/bin/install -c -m 644 MPI_Win_flush_all.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_flush_all.3
+/usr/bin/install -c -m 644 MPI_Win_flush_local.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_flush_local.3
+/usr/bin/install -c -m 644 MPI_Win_flush_local_all.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_flush_local_all.3
+/usr/bin/install -c -m 644 MPI_Win_free.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_free.3
+/usr/bin/install -c -m 644 MPI_Win_free_keyval.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_free_keyval.3
+/usr/bin/install -c -m 644 MPI_Win_get_attr.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_get_attr.3
+/usr/bin/install -c -m 644 MPI_Win_get_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_get_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_get_group.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_get_group.3
+/usr/bin/install -c -m 644 MPI_Win_get_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_get_info.3
+/usr/bin/install -c -m 644 MPI_Win_get_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_get_name.3
+/usr/bin/install -c -m 644 MPI_Win_lock.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_lock.3
+/usr/bin/install -c -m 644 MPI_Win_lock_all.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_lock_all.3
+/usr/bin/install -c -m 644 MPI_Win_post.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_post.3
+/usr/bin/install -c -m 644 MPI_Win_set_attr.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_set_attr.3
+/usr/bin/install -c -m 644 MPI_Win_set_errhandler.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_set_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_set_info.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_set_info.3
+/usr/bin/install -c -m 644 MPI_Win_set_name.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_set_name.3
+/usr/bin/install -c -m 644 MPI_Win_shared_query.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_shared_query.3
+/usr/bin/install -c -m 644 MPI_Win_start.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_start.3
+/usr/bin/install -c -m 644 MPI_Win_sync.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_sync.3
+/usr/bin/install -c -m 644 MPI_Win_test.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_test.3
+/usr/bin/install -c -m 644 MPI_Win_unlock.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_unlock.3
+/usr/bin/install -c -m 644 MPI_Win_unlock_all.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_unlock_all.3
+/usr/bin/install -c -m 644 MPI_Win_wait.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Win_wait.3
+/usr/bin/install -c -m 644 MPI_Wtick.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Wtick.3
+/usr/bin/install -c -m 644 MPI_Wtime.3 /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/man/man3/MPI_Wtime.3
+/usr/bin/install -c -m 644 index.html /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/doc/mpich/index.html
+install: /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/share/doc/mpich/index.html: No such file or directory
+*** [install-html-local] Error code 71
+
+Stop in /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4.
+*** [install-am] Error code 1
+
+Stop in /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4.
+*** [install-recursive] Error code 1
+
+Stop in /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4.
+*** [install] Error code 1
+
+Stop in /usr/home/balay/petsc.clone/arch-freebsd-pkgs-opt/externalpackages/mpich-3.1.4.

@@ -1,0 +1,22 @@
+Index: src/mpi/coll/gather.c
+===================================================================
+--- src/mpi/coll/gather.c	(revision 9330)
++++ src/mpi/coll/gather.c	(revision 9331)
+@@ -72,7 +72,15 @@
+     int curr_cnt=0, relative_rank, nbytes, is_homogeneous;
+     int mask, sendtype_size, recvtype_size, src, dst, relative_src;
+     int recvblks;
+-    int tmp_buf_size, missing;
++    /*
++     * BUG 786518
++     * Change tmp_buf_size from int (int32) to size_t due to overflow
++     * for large buffer.  Negative temporary buffer size is passed to
++     * MALLOC which expects 64 bit value, so the malloc size becomes
++     * very large postive number.
++     */
++    size_t tmp_buf_size;
++    int missing;
+     void *tmp_buf=NULL;
+     MPI_Status status;
+     MPI_Aint   extent=0;            /* Datatype extent */
+

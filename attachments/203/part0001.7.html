@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #203: mpi_send and recieve problem between windows and linux</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Yes, that should be the source of your problem. MPICH2 currently does not support heterogeneous systems (machines with different data models). Heterogeneous support is slated for a release sometime next year.<BR>
+<BR>
+(PS: If you need support for heterogeneous systems you will have to use MPICH1 - available at <A HREF="http://www-unix.mcs.anl.gov/mpi/mpich1/download.html">http://www-unix.mcs.anl.gov/mpi/mpich1/download.html</A> - instead.)<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Monday, October 20, 2008 3:48 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #203: mpi_send and recieve problem between windows and linux<BR>
+<BR>
+------------------------------------------------------------------------+---<BR>
+&nbsp;Reporter:&nbsp; &quot;vemireddy ramakrishnareddy&quot; &lt;vemireddy.rkreddy@gmail.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+------------------------------------------------------------------------+---<BR>
+<BR>
+<BR>
+Comment (by vemireddy ramakrishnareddy):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;hai sir,<BR>
+<BR>
+&nbsp; i got the problem<BR>
+<BR>
+&nbsp;&nbsp; MY LINUX SYSTEM IS 64 bit ARCHITECTURE SYSTEM<BR>
+<BR>
+&nbsp;WHERE AS MY WINDOWS SYSTEM IS 32 bit arcitecture system<BR>
+<BR>
+&nbsp;may be that is the reason send and receive are failing&nbsp; On Fri, Oct 10, 2008 at 4:46 PM, mpich2 &lt;mpich2-maint@mcs.anl.gov&gt; wrote:<BR>
+<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;------------------------------------------------------------------------+---<BR>
+&nbsp;&gt;&nbsp; Reporter:&nbsp; &quot;vemireddy ramakrishnareddy&quot; &lt;vemireddy.rkreddy@gmail.com&gt;&nbsp; |<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp;&gt;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;&nbsp; Priority:&nbsp; major<BR>
+&nbsp;&gt; Milestone:<BR>
+&nbsp;|<BR>
+&nbsp;&gt; Component:&nbsp; mpich2<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;------------------------------------------------------------------------+---<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; i am a able to fire a exe on both linux and windows systems&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;&nbsp; but sending and receiving are failing&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;&nbsp; saying that unable to find process group structure with id &lt;&gt;&nbsp; &gt;&nbsp; }}}&nbsp; &gt;&nbsp; &gt;&nbsp; &gt; --&nbsp; &gt; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/203">https://trac.mcs.anl.gov/projects/mpich2/ticket/203</A>&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/203#comment:&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

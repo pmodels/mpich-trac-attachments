@@ -1,0 +1,11 @@
+--- intercomm_create.c	2012-02-01 12:32:58.000028000 -0600
++++ intercomm_create.bug.c	2012-02-01 13:26:58.000152000 -0600
+@@ -68,7 +68,7 @@
+ 	lpidmask = lpidmaskPrealloc;
+     }
+     
+-    for (i=0; i<=maxi; i++) lpidmask[i] = 0;
++    for (i=0; i<maxi; i++) lpidmask[i] = 0;
+ 
+     /* Set the bits for the first array */
+     for (i=0; i<n1; i++) {

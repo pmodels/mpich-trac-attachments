@@ -1,0 +1,597 @@
+**********************************************
+Program name: C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.exe (pid 5368, ppid 1)
+App version:  1005.25, api: 0.156
+DLL version:  1005.25, api: 0.156
+DLL build:    2008-06-12 19:34
+OS version:   Windows NT-6.0
+Heap size:    402653184
+Date/Time:    2009-09-16 15:23:28
+**********************************************
+   66     662 [main] shm_test 5368 set_myself: myself->dwProcessId 5368
+   65     727 [main] shm_test 5368 time: 1253136208 = time (0)
+ 1381    2108 [main] shm_test 5368 environ_init: GetEnvironmentStrings returned 0x2669B0 - "=C:=C:\cygwin\bin"
+  131    2239 [main] shm_test 5368 environ_init: 0xD90238: !C:=C:\cygwin\bin
+  108    2347 [main] shm_test 5368 environ_init: 0xD90250: ALLUSERSPROFILE=C:\ProgramData
+  109    2456 [main] shm_test 5368 environ_init: 0xD90278: APPDATA=C:\Users\Andy\AppData\Roaming
+  108    2564 [main] shm_test 5368 environ_init: 0xD902A8: CLASSPATH=.;C:\Program Files\Java\jre1.6.0_05\lib\ext\QTJava.zip
+  109    2673 [main] shm_test 5368 environ_init: 0xD902F0: COMMONPROGRAMFILES=C:\Program Files\Common Files
+  109    2782 [main] shm_test 5368 environ_init: 0xD90328: COMPUTERNAME=ANDY-LAPTOP
+  108    2890 [main] shm_test 5368 environ_init: 0xD90348: COMSPEC=C:\Windows\system32\cmd.exe
+  108    2998 [main] shm_test 5368 environ_init: 0xD90370: CVS_RSH=/bin/ssh
+  110    3108 [main] shm_test 5368 parse_options: ntsec (called func)
+  108    3216 [main] shm_test 5368 parse_options: server 1
+  107    3323 [main] shm_test 5368 parse_options: returning
+   59    3382 [main] shm_test 5368 environ_init: 0xD90388: CYGWIN=ntsec server
+  108    3490 [main] shm_test 5368 environ_init: 0xD903C0: FP_NO_HOST_CHECK=NO
+  113    3603 [main] shm_test 5368 getwinenv: can't set native for HOME= since no environ yet
+  113    3716 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy, no-keep-rel, no-add-slash)
+   65    3781 [main] shm_test 5368 normalize_win32_path: C:\cygwin\home\Andy = normalize_win32_path (C:\cygwin\home\Andy)
+   71    3852 [main] shm_test 5368 mount_info::conv_to_posix_path: /home/Andy = conv_to_posix_path (C:\cygwin\home\Andy)
+  156    4008 [main] shm_test 5368 win_env::add_cache: posix /home/Andy
+   60    4068 [main] shm_test 5368 win_env::add_cache: native HOME=C:\cygwin\home\Andy
+   60    4128 [main] shm_test 5368 posify: env var converted to HOME=/home/Andy
+  108    4236 [main] shm_test 5368 environ_init: 0xD903F8: HOME=/home/Andy
+  108    4344 [main] shm_test 5368 environ_init: 0xD903D8: HOMEDRIVE=C:
+  108    4452 [main] shm_test 5368 environ_init: 0xD90538: HOMEPATH=\Users\Andy
+  108    4560 [main] shm_test 5368 environ_init: 0xD90558: HOSTNAME=Andy-laptop
+  108    4668 [main] shm_test 5368 environ_init: 0xD90578: IDL_DLM_PATH=C:\Program Files\NCAR\VAPOR\bin
+  108    4776 [main] shm_test 5368 environ_init: 0xD905B0: INFOPATH=/usr/local/info:/usr/share/info:/usr/info:
+  108    4884 [main] shm_test 5368 environ_init: 0xD905E8: JASPERINC=/usr/include
+  108    4992 [main] shm_test 5368 environ_init: 0xD90608: JASPERLIB=/usr/lib
+  108    5100 [main] shm_test 5368 environ_init: 0xD90620: LOCALAPPDATA=C:\Users\Andy\AppData\Local
+  108    5208 [main] shm_test 5368 environ_init: 0xD90650: LOGONSERVER=\\ANDY-LAPTOP
+  108    5316 [main] shm_test 5368 environ_init: 0xD90670: MAKE_MODE=unix
+  108    5424 [main] shm_test 5368 environ_init: 0xD90688: MANPATH=/usr/local/man:/usr/share/man:/usr/man::/usr/ssl/man:/usr/share/qt3/doc/man
+  111    5535 [main] shm_test 5368 environ_init: 0xD906E0: MP_STACK_SIZE=640000000
+  108    5643 [main] shm_test 5368 environ_init: 0xD90700: NETCDF=/usr/local/
+  108    5751 [main] shm_test 5368 environ_init: 0xD90718: NUMBER_OF_PROCESSORS=2
+  108    5859 [main] shm_test 5368 environ_init: 0xD90738: OLDPWD=/home/Andy
+  108    5967 [main] shm_test 5368 environ_init: 0xD90750: OMP_DYNAMIC=FALSE
+  107    6074 [main] shm_test 5368 environ_init: 0xD90768: OMP_NUM_THREADS=2
+  107    6181 [main] shm_test 5368 environ_init: 0xD90780: OS=Windows_NT
+  179    6360 [main] shm_test 5368 getwinenv: can't set native for PATH= since no environ yet
+   71    6431 [main] shm_test 5368 normalize_posix_path: src .
+   64    6495 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1, no-keep-rel, no-add-slash)
+   70    6565 [main] shm_test 5368 normalize_win32_path: C:\cygwin\home\Andy\mpich2-1.1.1p1 = normalize_win32_path (C:\cygwin\home\Andy\mpich2-1.1.1p1)
+   62    6627 [main] shm_test 5368 mount_info::conv_to_posix_path: /home/Andy/mpich2-1.1.1p1 = conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1)
+   64    6691 [main] shm_test 5368 cwdstuff::get: posix /home/Andy/mpich2-1.1.1p1
+   65    6756 [main] shm_test 5368 cwdstuff::get: (/home/Andy/mpich2-1.1.1p1) = cwdstuff::get (0x22C860, 260, 1, 0), errno 0
+   62    6818 [main] shm_test 5368 normalize_posix_path: /home/Andy/mpich2-1.1.1p1/ = normalize_posix_path (.)
+   61    6879 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/home/Andy/mpich2-1.1.1p1)
+   70    6949 [main] shm_test 5368 set_flags: flags: binary (0x2)
+   61    7010 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /home/Andy/mpich2-1.1.1p1, dst C:\cygwin\home\Andy\mpich2-1.1.1p1, flags 0xA, rc 0
+  166    7176 [main] shm_test 5368 symlink_info::check: not a symlink
+   62    7238 [main] shm_test 5368 symlink_info::check: 0 = symlink.check (C:\cygwin\home\Andy\mpich2-1.1.1p1, 0x22C520) (0xA)
+  930    8168 [main] shm_test 5368 set_privilege: 1 = set_privilege ((token 108) SeChangeNotifyPrivilege, 1)
+  235    8403 [main] shm_test 5368 path_conv::check: this->path(C:\cygwin\home\Andy\mpich2-1.1.1p1), has_acls(1)
+  123    8526 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy, keep-rel, no-add-slash)
+   62    8588 [main] shm_test 5368 normalize_win32_path: C:\cygwin\home\Andy = normalize_win32_path (C:\cygwin\home\Andy)
+   62    8650 [main] shm_test 5368 mount_info::conv_to_posix_path: /home/Andy = conv_to_posix_path (C:\cygwin\home\Andy)
+   62    8712 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\bin, keep-rel, no-add-slash)
+   61    8773 [main] shm_test 5368 normalize_win32_path: C:\cygwin\home\Andy\bin = normalize_win32_path (C:\cygwin\home\Andy\bin)
+   61    8834 [main] shm_test 5368 mount_info::conv_to_posix_path: /home/Andy/bin = conv_to_posix_path (C:\cygwin\home\Andy\bin)
+   62    8896 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\local\bin, keep-rel, no-add-slash)
+   61    8957 [main] shm_test 5368 normalize_win32_path: C:\cygwin\usr\local\bin = normalize_win32_path (C:\cygwin\usr\local\bin)
+   61    9018 [main] shm_test 5368 mount_info::conv_to_posix_path: /usr/local/bin = conv_to_posix_path (C:\cygwin\usr\local\bin)
+   61    9079 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\bin, keep-rel, no-add-slash)
+   61    9140 [main] shm_test 5368 normalize_win32_path: C:\cygwin\bin = normalize_win32_path (C:\cygwin\bin)
+   60    9200 [main] shm_test 5368 mount_info::conv_to_posix_path: /usr/bin = conv_to_posix_path (C:\cygwin\bin)
+   61    9261 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\bin, keep-rel, no-add-slash)
+   61    9322 [main] shm_test 5368 normalize_win32_path: C:\cygwin\bin = normalize_win32_path (C:\cygwin\bin)
+   60    9382 [main] shm_test 5368 mount_info::conv_to_posix_path: /usr/bin = conv_to_posix_path (C:\cygwin\bin)
+   61    9443 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\X11R6\bin, keep-rel, no-add-slash)
+   61    9504 [main] shm_test 5368 normalize_win32_path: C:\cygwin\usr\X11R6\bin = normalize_win32_path (C:\cygwin\usr\X11R6\bin)
+   61    9565 [main] shm_test 5368 mount_info::conv_to_posix_path: /usr/X11R6/bin = conv_to_posix_path (C:\cygwin\usr\X11R6\bin)
+   61    9626 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows\system32, keep-rel, no-add-slash)
+   67    9693 [main] shm_test 5368 normalize_win32_path: c:\Windows\system32 = normalize_win32_path (c:\Windows\system32)
+   62    9755 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Windows/system32 = conv_to_posix_path (c:\Windows\system32)
+   62    9817 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows, keep-rel, no-add-slash)
+   61    9878 [main] shm_test 5368 normalize_win32_path: c:\Windows = normalize_win32_path (c:\Windows)
+   61    9939 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Windows = conv_to_posix_path (c:\Windows)
+   61   10000 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows\System32\Wbem, keep-rel, no-add-slash)
+   61   10061 [main] shm_test 5368 normalize_win32_path: c:\Windows\System32\Wbem = normalize_win32_path (c:\Windows\System32\Wbem)
+   62   10123 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Windows/System32/Wbem = conv_to_posix_path (c:\Windows\System32\Wbem)
+  106   10229 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\, keep-rel, add-slash)
+   62   10291 [main] shm_test 5368 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+   63   10354 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+   64   10418 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\, keep-rel, add-slash)
+   62   10480 [main] shm_test 5368 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+   63   10543 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+   64   10607 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\, keep-rel, add-slash)
+   62   10669 [main] shm_test 5368 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\)
+   63   10732 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\)
+   63   10795 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\QuickTime\QTSystem\, keep-rel, add-slash)
+   62   10857 [main] shm_test 5368 normalize_win32_path: c:\Program Files\QuickTime\QTSystem\ = normalize_win32_path (c:\Program Files\QuickTime\QTSystem\)
+   62   10919 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/QuickTime/QTSystem/ = conv_to_posix_path (c:\Program Files\QuickTime\QTSystem\)
+   62   10981 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\NCAR\VAPOR\bin, keep-rel, no-add-slash)
+   62   11043 [main] shm_test 5368 normalize_win32_path: c:\Program Files\NCAR\VAPOR\bin = normalize_win32_path (c:\Program Files\NCAR\VAPOR\bin)
+   62   11105 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/NCAR/VAPOR/bin = conv_to_posix_path (c:\Program Files\NCAR\VAPOR\bin)
+   63   11168 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\SSH Communications Security\SSH Secure Shell, keep-rel, no-add-slash)
+   63   11231 [main] shm_test 5368 normalize_win32_path: c:\Program Files\SSH Communications Security\SSH Secure Shell = normalize_win32_path (c:\Program Files\SSH Communications Security\SSH Secure Shell)
+   63   11294 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell = conv_to_posix_path (c:\Program Files\SSH Communications Security\SSH Secure Shell)
+   67   11361 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\lib\lapack, keep-rel, no-add-slash)
+   62   11423 [main] shm_test 5368 normalize_win32_path: C:\cygwin\lib\lapack = normalize_win32_path (C:\cygwin\lib\lapack)
+   62   11485 [main] shm_test 5368 mount_info::conv_to_posix_path: /usr/lib/lapack = conv_to_posix_path (C:\cygwin\lib\lapack)
+   61   11546 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\local\mpich2\bin, keep-rel, no-add-slash)
+   62   11608 [main] shm_test 5368 normalize_win32_path: C:\cygwin\usr\local\mpich2\bin = normalize_win32_path (C:\cygwin\usr\local\mpich2\bin)
+   62   11670 [main] shm_test 5368 mount_info::conv_to_posix_path: /usr/local/mpich2/bin = conv_to_posix_path (C:\cygwin\usr\local\mpich2\bin)
+  168   11838 [main] shm_test 5368 win_env::add_cache: posix /home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+   73   11911 [main] shm_test 5368 win_env::add_cache: native PATH=C:\cygwin\home\Andy;C:\cygwin\home\Andy\bin;C:\cygwin\usr\local\bin;C:\cygwin\bin;C:\cygwin\bin;C:\cygwin\usr\X11R6\bin;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Program Files\Common Files\Roxio Shared\DLLShared\;c:\Program Files\Common Files\Roxio Shared\DLLShared\;c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\;c:\Program Files\QuickTime\QTSystem\;c:\Program Files\NCAR\VAPOR\bin;c:\Program Files\SSH Communications Security\SSH Secure Shell;C:\cygwin\lib\lapack;C:\cygwin\usr\local\mpich2\bin
+   71   11982 [main] shm_test 5368 posify: env var converted to PATH=/home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+  118   12100 [main] shm_test 5368 environ_init: 0xD909B0: PATH=/home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+  122   12222 [main] shm_test 5368 environ_init: 0xD90798: PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+  109   12331 [main] shm_test 5368 environ_init: 0xD907E0: PRINTER=Microsoft XPS Document Writer
+  108   12439 [main] shm_test 5368 environ_init: 0xD90810: PROCESSOR_ARCHITECTURE=x86
+  108   12547 [main] shm_test 5368 environ_init: 0xD90830: PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 10, GenuineIntel
+  109   12656 [main] shm_test 5368 environ_init: 0xD90880: PROCESSOR_LEVEL=6
+  108   12764 [main] shm_test 5368 environ_init: 0xD90898: PROCESSOR_REVISION=0f0a
+  109   12873 [main] shm_test 5368 environ_init: 0xD908B8: PROGRAMDATA=C:\ProgramData
+  179   13052 [main] shm_test 5368 environ_init: 0xD908D8: PROGRAMFILES=C:\Program Files
+  111   13163 [main] shm_test 5368 environ_init: 0xD90900: PROMPT=$P$G
+  109   13272 [main] shm_test 5368 environ_init: 0xD90910: PS1=\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ 
+  108   13380 [main] shm_test 5368 environ_init: 0xD90958: PUBLIC=C:\Users\Public
+  108   13488 [main] shm_test 5368 environ_init: 0xD90978: PWD=/home/Andy/mpich2-1.1.1p1
+  108   13596 [main] shm_test 5368 environ_init: 0xD912C8: QMAKESPEC=/usr/lib/qt3/mkspecs/cygwin-g++
+  108   13704 [main] shm_test 5368 environ_init: 0xD912F8: QTDIR=/usr/lib/qt3
+  108   13812 [main] shm_test 5368 environ_init: 0xD91310: QTJAVA=C:\Program Files\Java\jre1.6.0_05\lib\ext\QTJava.zip
+  109   13921 [main] shm_test 5368 environ_init: 0xD91350: ROXIOCENTRAL=C:\Program Files\Common Files\Roxio Shared\9.0\Roxio Central33\
+  109   14030 [main] shm_test 5368 environ_init: 0xD909A0: SHLVL=1
+  106   14136 [main] shm_test 5368 environ_init: 0xD913A8: SYSTEMDRIVE=C:
+  108   14244 [main] shm_test 5368 environ_init: 0xD913C0: SYSTEMROOT=C:\Windows
+  108   14352 [main] shm_test 5368 getwinenv: can't set native for TEMP= since no environ yet
+  108   14460 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\Users\Andy\AppData\Local\Temp, no-keep-rel, no-add-slash)
+   61   14521 [main] shm_test 5368 normalize_win32_path: C:\Users\Andy\AppData\Local\Temp = normalize_win32_path (C:\Users\Andy\AppData\Local\Temp)
+  115   14636 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Users/Andy/AppData/Local/Temp = conv_to_posix_path (C:\Users\Andy\AppData\Local\Temp)
+  185   14821 [main] shm_test 5368 win_env::add_cache: posix /cygdrive/c/Users/Andy/AppData/Local/Temp
+   63   14884 [main] shm_test 5368 win_env::add_cache: native TEMP=C:\Users\Andy\AppData\Local\Temp
+   61   14945 [main] shm_test 5368 posify: env var converted to TEMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+  109   15054 [main] shm_test 5368 environ_init: 0xD91410: TEMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+  111   15165 [main] shm_test 5368 environ_init: 0xD913E0: TERM=cygwin
+  110   15275 [main] shm_test 5368 environ_init: 0xD913F0: TEXDOCVIEW_DVI=cygstart %s
+ -104   15171 [sig] shm_test 5368 wait_sig: entering ReadFile loop, my_readsig 0x0, my_sendsig 0x0
+  279   15450 [main] shm_test 5368 environ_init: 0xD91580: TEXDOCVIEW_HTML=cygstart %s
+  110   15560 [main] shm_test 5368 environ_init: 0xD915A0: TEXDOCVIEW_PDF=cygstart %s
+  109   15669 [main] shm_test 5368 environ_init: 0xD915C0: TEXDOCVIEW_PS=cygstart %s
+  108   15777 [main] shm_test 5368 environ_init: 0xD915E0: TEXDOCVIEW_TXT=cygstart %s
+  108   15885 [main] shm_test 5368 getwinenv: can't set native for TMP= since no environ yet
+  108   15993 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\Users\Andy\AppData\Local\Temp, no-keep-rel, no-add-slash)
+   62   16055 [main] shm_test 5368 normalize_win32_path: C:\Users\Andy\AppData\Local\Temp = normalize_win32_path (C:\Users\Andy\AppData\Local\Temp)
+   62   16117 [main] shm_test 5368 mount_info::conv_to_posix_path: /cygdrive/c/Users/Andy/AppData/Local/Temp = conv_to_posix_path (C:\Users\Andy\AppData\Local\Temp)
+  156   16273 [main] shm_test 5368 win_env::add_cache: posix /cygdrive/c/Users/Andy/AppData/Local/Temp
+   60   16333 [main] shm_test 5368 win_env::add_cache: native TMP=C:\Users\Andy\AppData\Local\Temp
+   60   16393 [main] shm_test 5368 posify: env var converted to TMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+  107   16500 [main] shm_test 5368 environ_init: 0xD91630: TMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+  107   16607 [main] shm_test 5368 environ_init: 0xD91600: USER=Andy
+  107   16714 [main] shm_test 5368 environ_init: 0xD91610: USERDOMAIN=Andy-laptop
+  108   16822 [main] shm_test 5368 environ_init: 0xD917A0: USERNAME=Andy
+  107   16929 [main] shm_test 5368 environ_init: 0xD917B8: USERPROFILE=C:\Users\Andy
+  107   17036 [main] shm_test 5368 environ_init: 0xD917D8: VAPOR_HOME=C:\Program Files\NCAR\VAPOR
+  112   17148 [main] shm_test 5368 environ_init: 0xD91808: VAPOR_SHARE=C:\Program Files\NCAR\VAPOR\share
+  109   17257 [main] shm_test 5368 environ_init: 0xD91840: WINDIR=C:\Windows
+  107   17364 [main] shm_test 5368 environ_init: 0xD91858: WRF_MACH=i686
+  108   17472 [main] shm_test 5368 environ_init: 0xD91870: WRF_OS=Linux
+  107   17579 [main] shm_test 5368 environ_init: 0xD91888: _=/usr/bin/strace
+   73   17652 [main] shm_test 5368 pinfo_init: Set nice to 0
+   60   17712 [main] shm_test 5368 pinfo_init: pid 5368, pgid 5368
+  867   18579 [main] shm_test 5368 set_privilege: 0 = set_privilege ((token E8) SeRestorePrivilege, 1)
+  807   19386 [main] shm_test 5368 set_privilege: 0 = set_privilege ((token E8) SeBackupPrivilege, 1)
+   78   19464 [main] shm_test 5368 set_privilege: 1 = set_privilege ((token E8) SeChangeNotifyPrivilege, 1)
+  131   19595 [main] shm_test 5368 dtable::extend: size 32, fds 0x611696D0
+   76   19671 [main] shm_test 5368 normalize_posix_path: src /etc/passwd
+   61   19732 [main] shm_test 5368 normalize_posix_path: /etc/passwd = normalize_posix_path (/etc/passwd)
+   61   19793 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/etc/passwd)
+   61   19854 [main] shm_test 5368 set_flags: flags: binary (0x2)
+   61   19915 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /etc/passwd, dst C:\cygwin\etc\passwd, flags 0xA, rc 0
+  152   20067 [main] shm_test 5368 symlink_info::check: not a symlink
+   62   20129 [main] shm_test 5368 symlink_info::check: 0 = symlink.check (C:\cygwin\etc\passwd, 0x22C5E0) (0xA)
+   63   20192 [main] shm_test 5368 path_conv::check: this->path(C:\cygwin\etc\passwd), has_acls(1)
+  221   20413 [main] shm_test 5368 etc::test_file_change: FindFirstFile succeeded
+  542   20955 [main] shm_test 5368 pwdgrp::load: /etc/passwd curr_lines 10
+   59   21014 [main] shm_test 5368 pwdgrp::load: /etc/passwd load succeeded
+   84   21098 [main] shm_test 5368 normalize_posix_path: src /etc/group
+   59   21157 [main] shm_test 5368 normalize_posix_path: /etc/group = normalize_posix_path (/etc/group)
+   60   21217 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/etc/group)
+   65   21282 [main] shm_test 5368 set_flags: flags: binary (0x2)
+   60   21342 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /etc/group, dst C:\cygwin\etc\group, flags 0xA, rc 0
+  143   21485 [main] shm_test 5368 symlink_info::check: not a symlink
+   61   21546 [main] shm_test 5368 symlink_info::check: 0 = symlink.check (C:\cygwin\etc\group, 0x22C5B0) (0xA)
+   62   21608 [main] shm_test 5368 path_conv::check: this->path(C:\cygwin\etc\group), has_acls(1)
+  200   21808 [main] shm_test 5368 etc::test_file_change: FindFirstFile succeeded
+  543   22351 [main] shm_test 5368 pwdgrp::load: /etc/group curr_lines 11
+   59   22410 [main] shm_test 5368 pwdgrp::load: /etc/group load succeeded
+   67   22477 [main] shm_test 5368 cygheap_user::ontherange: what 2, pw 0xD91D48
+   64   22541 [main] shm_test 5368 cygheap_user::ontherange: HOME is already in the environment /home/Andy
+  132   22673 [main] shm_test 5368 wait_for_sigthread: wait_sig_inited 0x3C
+   68   22741 [main] shm_test 5368 wait_for_sigthread: process/signal handling enabled, state 0x41
+  182   22923 [main] shm_test 5368 build_argv: argv[0] = 'shm_test.exe'
+   60   22983 [main] shm_test 5368 build_argv: argc 1
+  205   23188 [main] shm_test 5368 build_fh_pc: fh 0x61169818
+  103   23291 [main] shm_test 5368 open_shared: name (null), n 0, shared 0x60020000 (wanted 0x60020000), h 0x3C
+   71   23362 [main] shm_test 5368 _pinfo::set_ctty: old no ctty
+   63   23425 [main] shm_test 5368 _pinfo::set_ctty: attaching ctty /dev/console sid 5368, pid 5368, pgid 5368, tty->pgid 0, tty->sid 5368
+20804   44229 [main] shm_test 5368 fhandler_base::set_flags: flags 0x10002, supplied_bin 0x0
+   73   44302 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   52   44354 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+  160   44514 [main] shm_test 5368 init_cygheap::manage_console_count: fhandler_console::open: console_count 1, amount 1, ctty /dev/console, avoid_freeing_console 0
+  102   44616 [main] shm_test 5368 fhandler_console::open: opened conin$ 0x3, conout$ 0xF
+  103   44719 [main] shm_test 5368 fhandler_console::output_tcsetattr: 0 = tcsetattr (,6002001C) (ENABLE FLAGS 3) (lflag 107 oflag 9)
+  265   44984 [main] shm_test 5368 handle_to_fn: nt name '\Device\HarddiskVolume3\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log'
+ 1134   46118 [main] shm_test 5368 handle_to_fn: current match '\Device\HarddiskVolume3'
+   87   46205 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log, no-keep-rel, no-add-slash)
+   54   46259 [main] shm_test 5368 normalize_win32_path: C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log = normalize_win32_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log)
+   53   46312 [main] shm_test 5368 mount_info::conv_to_posix_path: /home/Andy/mpich2-1.1.1p1/shm_test.log = conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log)
+   50   46362 [main] shm_test 5368 handle_to_fn: derived path 'C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log', posix '/home/Andy/mpich2-1.1.1p1/shm_test.log'
+   50   46412 [main] shm_test 5368 normalize_posix_path: src /home/Andy/mpich2-1.1.1p1/shm_test.log
+   49   46461 [main] shm_test 5368 normalize_posix_path: /home/Andy/mpich2-1.1.1p1/shm_test.log = normalize_posix_path (/home/Andy/mpich2-1.1.1p1/shm_test.log)
+   49   46510 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/home/Andy/mpich2-1.1.1p1/shm_test.log)
+   51   46561 [main] shm_test 5368 set_flags: flags: binary (0x2)
+   48   46609 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /home/Andy/mpich2-1.1.1p1/shm_test.log, dst C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log, flags 0xA, rc 0
+  184   46793 [main] shm_test 5368 symlink_info::check: not a symlink
+   52   46845 [main] shm_test 5368 symlink_info::check: 0 = symlink.check (C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log, 0x224160) (0xA)
+   53   46898 [main] shm_test 5368 path_conv::check: this->path(C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log), has_acls(1)
+   58   46956 [main] shm_test 5368 build_fh_pc: fh 0x61169A20
+   53   47009 [main] shm_test 5368 fhandler_base::set_flags: flags 0x10001, supplied_bin 0x0
+   49   47058 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   48   47106 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   46   47152 [main] shm_test 5368 fhandler_base::init: created new fhandler_base for handle 0x264, bin 1
+  199   47351 [main] shm_test 5368 handle_to_fn: nt name '\Device\HarddiskVolume3\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log'
+  906   48257 [main] shm_test 5368 handle_to_fn: current match '\Device\HarddiskVolume3'
+   78   48335 [main] shm_test 5368 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log, no-keep-rel, no-add-slash)
+   53   48388 [main] shm_test 5368 normalize_win32_path: C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log = normalize_win32_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log)
+   51   48439 [main] shm_test 5368 mount_info::conv_to_posix_path: /home/Andy/mpich2-1.1.1p1/shm_test.log = conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log)
+   50   48489 [main] shm_test 5368 handle_to_fn: derived path 'C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log', posix '/home/Andy/mpich2-1.1.1p1/shm_test.log'
+   49   48538 [main] shm_test 5368 normalize_posix_path: src /home/Andy/mpich2-1.1.1p1/shm_test.log
+   48   48586 [main] shm_test 5368 normalize_posix_path: /home/Andy/mpich2-1.1.1p1/shm_test.log = normalize_posix_path (/home/Andy/mpich2-1.1.1p1/shm_test.log)
+   49   48635 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/home/Andy/mpich2-1.1.1p1/shm_test.log)
+   50   48685 [main] shm_test 5368 set_flags: flags: binary (0x2)
+   54   48739 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /home/Andy/mpich2-1.1.1p1/shm_test.log, dst C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log, flags 0xA, rc 0
+  155   48894 [main] shm_test 5368 symlink_info::check: not a symlink
+   51   48945 [main] shm_test 5368 symlink_info::check: 0 = symlink.check (C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log, 0x224160) (0xA)
+   52   48997 [main] shm_test 5368 path_conv::check: this->path(C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log), has_acls(1)
+   52   49049 [main] shm_test 5368 build_fh_pc: fh 0x61169C28
+   48   49097 [main] shm_test 5368 fhandler_base::set_flags: flags 0x10001, supplied_bin 0x0
+   48   49145 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   48   49193 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   47   49240 [main] shm_test 5368 fhandler_base::init: created new fhandler_base for handle 0x258, bin 1
+  109   49349 [main] shm_test 5368 fhandler_console::need_invisible: invisible_console 0
+   74   49423 [main] shm_test 5368 dll_crt0_1: user_data->main 0x401100
+   57   49480 [main] shm_test 5368 __set_errno: void dll_crt0_1(void*):946 val 0
+  191   49671 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   61   49732 [main] shm_test 5368 sig_send: wakeup 0x124
+   64   49796 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    9   49805 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  131   49936 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   55   49991 [main] shm_test 5368 open: open (/dev/urandom, 0x0)
+   50   50041 [main] shm_test 5368 normalize_posix_path: src /dev/urandom
+   48   50089 [main] shm_test 5368 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   47   50136 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   49   50185 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   56   50241 [main] shm_test 5368 build_fh_pc: fh 0x61169E30
+   96   50337 [main] shm_test 5368 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   60   50397 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   55   50452 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   54   50506 [main] shm_test 5368 open: 3 = open (/dev/urandom, 0x0)
+   55   50561 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   59   50620 [main] shm_test 5368 sig_send: wakeup 0x124
+   62   50682 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    7   50689 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  125   50814 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   54   50868 [main] shm_test 5368 readv: readv (3, 0x22CB50, 1) blocking, sigcatchers 0
+   50   50918 [main] shm_test 5368 readv: no need to call ready_for_read
+33401   84319 [main] shm_test 5368 readv: 4 = readv (3, 0x22CB50, 1), errno 0
+   94   84413 [main] shm_test 5368 close: close (3)
+   65   84478 [main] shm_test 5368 close: 0 = close (3)
+   50   84528 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   56   84584 [main] shm_test 5368 sig_send: wakeup 0x124
+   63   84647 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    9   84656 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  125   84781 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   54   84835 [main] shm_test 5368 open: open (/dev/urandom, 0x0)
+   50   84885 [main] shm_test 5368 normalize_posix_path: src /dev/urandom
+   48   84933 [main] shm_test 5368 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   49   84982 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   49   85031 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+  156   85187 [main] shm_test 5368 build_fh_pc: fh 0x61169E30
+   54   85241 [main] shm_test 5368 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   49   85290 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   50   85340 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   47   85387 [main] shm_test 5368 open: 3 = open (/dev/urandom, 0x0)
+   48   85435 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   53   85488 [main] shm_test 5368 sig_send: wakeup 0x124
+   55   85543 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    7   85550 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  120   85670 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   54   85724 [main] shm_test 5368 readv: readv (3, 0x22CB50, 1) blocking, sigcatchers 0
+   49   85773 [main] shm_test 5368 readv: no need to call ready_for_read
+  876   86649 [main] shm_test 5368 readv: 4 = readv (3, 0x22CB50, 1), errno 0
+   53   86702 [main] shm_test 5368 close: close (3)
+  181   86883 [main] shm_test 5368 close: 0 = close (3)
+   49   86932 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   53   86985 [main] shm_test 5368 sig_send: wakeup 0x124
+   57   87042 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    6   87048 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  123   87171 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   52   87223 [main] shm_test 5368 open: open (/dev/urandom, 0x0)
+   49   87272 [main] shm_test 5368 normalize_posix_path: src /dev/urandom
+   48   87320 [main] shm_test 5368 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   48   87368 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   49   87417 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   51   87468 [main] shm_test 5368 build_fh_pc: fh 0x61169E30
+   49   87517 [main] shm_test 5368 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   48   87565 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   48   87613 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   48   87661 [main] shm_test 5368 open: 3 = open (/dev/urandom, 0x0)
+   48   87709 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   52   87761 [main] shm_test 5368 sig_send: wakeup 0x124
+   55   87816 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    6   87822 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  118   87940 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   53   87993 [main] shm_test 5368 readv: readv (3, 0x22CB50, 1) blocking, sigcatchers 0
+   48   88041 [main] shm_test 5368 readv: no need to call ready_for_read
+  852   88893 [main] shm_test 5368 readv: 4 = readv (3, 0x22CB50, 1), errno 0
+   52   88945 [main] shm_test 5368 close: close (3)
+  181   89126 [main] shm_test 5368 close: 0 = close (3)
+   48   89174 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   53   89227 [main] shm_test 5368 sig_send: wakeup 0x124
+   56   89283 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    6   89289 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  121   89410 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   53   89463 [main] shm_test 5368 open: open (/dev/urandom, 0x0)
+   48   89511 [main] shm_test 5368 normalize_posix_path: src /dev/urandom
+   48   89559 [main] shm_test 5368 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   48   89607 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   48   89655 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   51   89706 [main] shm_test 5368 build_fh_pc: fh 0x61169E30
+   55   89761 [main] shm_test 5368 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   49   89810 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   49   89859 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   47   89906 [main] shm_test 5368 open: 3 = open (/dev/urandom, 0x0)
+   48   89954 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   51   90005 [main] shm_test 5368 sig_send: wakeup 0x124
+   56   90061 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    6   90067 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  117   90184 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   52   90236 [main] shm_test 5368 readv: readv (3, 0x22CB50, 1) blocking, sigcatchers 0
+   49   90285 [main] shm_test 5368 readv: no need to call ready_for_read
+  850   91135 [main] shm_test 5368 readv: 4 = readv (3, 0x22CB50, 1), errno 0
+   52   91187 [main] shm_test 5368 close: close (3)
+  180   91367 [main] shm_test 5368 close: 0 = close (3)
+   49   91416 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   52   91468 [main] shm_test 5368 sig_send: wakeup 0x124
+   56   91524 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    6   91530 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  122   91652 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   53   91705 [main] shm_test 5368 open: open (/dev/urandom, 0x0)
+   48   91753 [main] shm_test 5368 normalize_posix_path: src /dev/urandom
+   48   91801 [main] shm_test 5368 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   48   91849 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   48   91897 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   51   91948 [main] shm_test 5368 build_fh_pc: fh 0x61169E30
+   49   91997 [main] shm_test 5368 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   48   92045 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   48   92093 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   48   92141 [main] shm_test 5368 open: 3 = open (/dev/urandom, 0x0)
+   48   92189 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   52   92241 [main] shm_test 5368 sig_send: wakeup 0x124
+   56   92297 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    6   92303 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  116   92419 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   52   92471 [main] shm_test 5368 readv: readv (3, 0x22CB50, 1) blocking, sigcatchers 0
+   49   92520 [main] shm_test 5368 readv: no need to call ready_for_read
+ 1016   93536 [main] shm_test 5368 readv: 4 = readv (3, 0x22CB50, 1), errno 0
+   69   93605 [main] shm_test 5368 close: close (3)
+  189   93794 [main] shm_test 5368 close: 0 = close (3)
+   55   93849 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   60   93909 [main] shm_test 5368 sig_send: wakeup 0x124
+   64   93973 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+    7   93980 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+  133   94113 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   57   94170 [main] shm_test 5368 open: open (/dev/urandom, 0x0)
+   50   94220 [main] shm_test 5368 normalize_posix_path: src /dev/urandom
+   48   94268 [main] shm_test 5368 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   48   94316 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   48   94364 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   50   94414 [main] shm_test 5368 build_fh_pc: fh 0x61169E30
+   50   94464 [main] shm_test 5368 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   64   94528 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   48   94576 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   48   94624 [main] shm_test 5368 open: 3 = open (/dev/urandom, 0x0)
+   49   94673 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   56   94729 [main] shm_test 5368 sig_send: wakeup 0x124
+   61   94790 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+   55   94845 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+   80   94925 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   64   94989 [main] shm_test 5368 readv: readv (3, 0x22CB50, 1) blocking, sigcatchers 0
+   48   95037 [main] shm_test 5368 readv: no need to call ready_for_read
+  854   95891 [main] shm_test 5368 readv: 4 = readv (3, 0x22CB50, 1), errno 0
+   64   95955 [main] shm_test 5368 close: close (3)
+  182   96137 [main] shm_test 5368 close: 0 = close (3)
+   66   96203 [main] shm_test 5368 stat64: entering
+   64   96267 [main] shm_test 5368 normalize_posix_path: src /tmp
+   49   96316 [main] shm_test 5368 normalize_posix_path: /tmp = normalize_posix_path (/tmp)
+   57   96373 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp)
+   50   96423 [main] shm_test 5368 set_flags: flags: binary (0x2)
+   51   96474 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /tmp, dst C:\cygwin\tmp, flags 0xA, rc 0
+  161   96635 [main] shm_test 5368 symlink_info::check: not a symlink
+   63   96698 [main] shm_test 5368 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp, 0x22C420) (0xA)
+   53   96751 [main] shm_test 5368 path_conv::check: this->path(C:\cygwin\tmp), has_acls(1)
+   56   96807 [main] shm_test 5368 build_fh_pc: fh 0x61169E30
+   51   96858 [main] shm_test 5368 stat_worker: (/tmp, 0x22CB90, 0, 0x61169E30), file_attributes 16
+   79   96937 [main] shm_test 5368 fhandler_base::open: (C:\cygwin\tmp, 0x110000)
+  184   97121 [main] shm_test 5368 fhandler_base::set_flags: flags 0x110000, supplied_bin 0x10000
+   65   97186 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   47   97233 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   48   97281 [main] shm_test 5368 fhandler_base::open: 0 = NtCreateFile (0x124, 20080, C:\cygwin\tmp, io, NULL, 0, 7, 1, 4000, NULL, 0)
+   53   97334 [main] shm_test 5368 fhandler_base::open: 1 = fhandler_base::open (C:\cygwin\tmp, 0x110000)
+   57   97391 [main] shm_test 5368 fhandler_base::open_fs: 1 = fhandler_disk_file::open (C:\cygwin\tmp, 0x10000)
+  644   98035 [main] shm_test 5368 get_file_attribute: file: C:\cygwin\tmp
+  162   98197 [main] shm_test 5368 cygpsid::debug_print: get_sids_info: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+   64   98261 [main] shm_test 5368 cygpsid::debug_print: get_sids_info: group SID = S-1-5-32-544
+   59   98320 [main] shm_test 5368 get_info_from_sd: ACL 43FF, uid 1000, gid 544
+   94   98414 [main] shm_test 5368 fhandler_base::fstat_helper: 0 = fstat (, 0x22CB90) st_atime=4AB1573F st_size=28672, st_mode=0x43FF, st_ino=844424930194647, sizeof=96
+   55   98469 [main] shm_test 5368 fhandler_base::close: closing '/tmp' handle 0x124
+   86   98555 [main] shm_test 5368 stat_worker: 0 = (/tmp, 0x22CB90)
+   62   98617 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   57   98674 [main] shm_test 5368 sig_send: wakeup 0x124
+   67   98741 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+   66   98807 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+   88   98895 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   65   98960 [main] shm_test 5368 open: open (/tmp/mpich_test_shar_C75GOs, 0x10A02)
+   49   99009 [main] shm_test 5368 normalize_posix_path: src /tmp/mpich_test_shar_C75GOs
+   48   99057 [main] shm_test 5368 normalize_posix_path: /tmp/mpich_test_shar_C75GOs = normalize_posix_path (/tmp/mpich_test_shar_C75GOs)
+   49   99106 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp/mpich_test_shar_C75GOs)
+   56   99162 [main] shm_test 5368 set_flags: flags: binary (0x2)
+   49   99211 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /tmp/mpich_test_shar_C75GOs, dst C:\cygwin\tmp\mpich_test_shar_C75GOs, flags 0xA, rc 0
+  112   99323 [main] shm_test 5368 symlink_info::check: GetFileAttributes (C:\cygwin\tmp\mpich_test_shar_C75GOs) failed
+   64   99387 [main] shm_test 5368 geterrno_from_win_error: windows error 2 == errno 2
+  122   99509 [main] shm_test 5368 symlink_info::check: GetFileAttributes (C:\cygwin\tmp\mpich_test_shar_C75GOs.lnk) failed
+   63   99572 [main] shm_test 5368 geterrno_from_win_error: windows error 2 == errno 2
+   48   99620 [main] shm_test 5368 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp\mpich_test_shar_C75GOs, 0x22C420) (0xA)
+   49   99669 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp)
+   48   99717 [main] shm_test 5368 set_flags: flags: binary (0x2)
+   47   99764 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /tmp, dst C:\cygwin\tmp, flags 0xA, rc 0
+  122   99886 [main] shm_test 5368 symlink_info::check: not a symlink
+   62   99948 [main] shm_test 5368 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp, 0x22C420) (0xA)
+   52  100000 [main] shm_test 5368 path_conv::check: this->path(C:\cygwin\tmp\mpich_test_shar_C75GOs), has_acls(1)
+   59  100059 [main] shm_test 5368 build_fh_pc: fh 0x61169E30
+   53  100112 [main] shm_test 5368 fhandler_base::open: (C:\cygwin\tmp\mpich_test_shar_C75GOs, 0x110A02)
+  107  100219 [main] shm_test 5368 alloc_sd: uid 1000, gid 544, attribute 180
+   57  100276 [main] shm_test 5368 cygpsid::debug_print: alloc_sd: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+   65  100341 [main] shm_test 5368 cygpsid::debug_print: alloc_sd: group SID = S-1-5-32-544
+   77  100418 [main] shm_test 5368 alloc_sd: ACL-Size: 88
+  191  100609 [main] shm_test 5368 alloc_sd: Created SD-Size: 152
+  643  101252 [main] shm_test 5368 fhandler_base::set_flags: flags 0x110A02, supplied_bin 0x10000
+   79  101331 [main] shm_test 5368 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   67  101398 [main] shm_test 5368 fhandler_base::set_flags: filemode set to binary
+   66  101464 [main] shm_test 5368 fhandler_base::open: 0 = NtCreateFile (0x124, C0100000, C:\cygwin\tmp\mpich_test_shar_C75GOs, io, NULL, 80, 7, 2, 4420, NULL, 0)
+   70  101534 [main] shm_test 5368 fhandler_base::open: 1 = fhandler_base::open (C:\cygwin\tmp\mpich_test_shar_C75GOs, 0x110A02)
+  122  101656 [main] shm_test 5368 fhandler_base::open_fs: 1 = fhandler_disk_file::open (C:\cygwin\tmp\mpich_test_shar_C75GOs, 0x10A02)
+   67  101723 [main] shm_test 5368 open: 3 = open (/tmp/mpich_test_shar_C75GOs, 0x10A02)
+  100  101823 [main] shm_test 5368 get_file_attribute: file: C:\cygwin\home\Andy\mpich2-1.1.1p1\shm_test.log
+  142  101965 [main] shm_test 5368 cygpsid::debug_print: get_sids_info: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+   68  102033 [main] shm_test 5368 cygpsid::debug_print: get_sids_info: group SID = S-1-5-32-544
+   69  102102 [main] shm_test 5368 get_info_from_sd: ACL 1A4, uid 1000, gid 544
+  119  102221 [main] shm_test 5368 fhandler_base::fstat_helper: 0 = fstat (, 0x22CAF0) st_atime=4AB11FB1 st_size=47920, st_mode=0x81A4, st_ino=14073748835826771, sizeof=96
+   70  102291 [main] shm_test 5368 fstat64: 0 = fstat (1, 0x22CAF0)
+  141  102432 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   71  102503 [main] shm_test 5368 sig_send: wakeup 0x174
+   73  102576 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x174
+   94  102670 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x174
+   77  102747 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+130299  233046 [main] shm_test 5368 nanosleep: nanosleep (10005)
+10015722 10248768 [main] shm_test 5368 nanosleep: 0 = nanosleep (10005, 0)
+  171 10248939 [main] shm_test 5368 fhandler_base::lseek: lseek (/tmp/mpich_test_shar_C75GOs, 99, 0)
+  192 10249131 [main] shm_test 5368 fhandler_base::lseek: setting file pointer to 0 (high), 99 (low)
+  145 10249276 [main] shm_test 5368 lseek64: 99 = lseek (3, 99, 0)
+  569 10249845 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+  178 10250023 [main] shm_test 5368 sig_send: wakeup 0x17C
+  550 10250573 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x17C
+    8 10250581 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x17C
+18401 10268982 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+  685 10269667 [main] shm_test 5368 nanosleep: nanosleep (10005)
+10010742 20280409 [main] shm_test 5368 nanosleep: 0 = nanosleep (10005, 0)
+  131 20280540 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   67 20280607 [main] shm_test 5368 sig_send: wakeup 0x17C
+   58 20280665 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x17C
+   66 20280731 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x17C
+   73 20280804 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   55 20280859 [main] shm_test 5368 writev: writev (3, 0x22CC10, 1)
+   64 20280923 [main] shm_test 5368 fhandler_base::write: binary write
+  231 20281154 [main] shm_test 5368 writev: 1 = write (3, 0x22CC10, 1), errno 0
+   65 20281219 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   53 20281272 [main] shm_test 5368 sig_send: wakeup 0x17C
+   52 20281324 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x17C
+   64 20281388 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x17C
+   69 20281457 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   56 20281513 [main] shm_test 5368 nanosleep: nanosleep (10005)
+10013965 30295478 [main] shm_test 5368 nanosleep: 0 = nanosleep (10005, 0)
+  172 30295650 [main] shm_test 5368 mmap64: addr 0, len 100, prot 3, flags 1, fd 3, off 0
+  281 30295931 [main] shm_test 5368 MapViewNT: 7FFA0000 = NtMapViewOfSection (h:180, addr:7FFA0000, len:100, off:0, protect:4, type:0)
+  101 30296032 [main] shm_test 5368 get_file_attribute: file: C:\cygwin\tmp\mpich_test_shar_C75GOs
+  127 30296159 [main] shm_test 5368 cygpsid::debug_print: get_sids_info: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+   54 30296213 [main] shm_test 5368 cygpsid::debug_print: get_sids_info: group SID = S-1-5-32-544
+   52 30296265 [main] shm_test 5368 get_info_from_sd: ACL 180, uid 1000, gid 544
+   88 30296353 [main] shm_test 5368 fhandler_base::fstat_helper: 0 = fstat (, 0x22C820) st_atime=4AB15750 st_size=100, st_mode=0x8180, st_ino=468092886269931303, sizeof=96
+   53 30296406 [main] shm_test 5368 fstat64: 0 = fstat (3, 0x22C820)
+   83 30296489 [main] shm_test 5368 MapViewNT: 7FFA1000 = NtMapViewOfSection (h:184, addr:7FFA1000, len:61440, off:0, protect:40, type:0)
+  112 30296601 [main] shm_test 5368 mmap64: 0x7FFA0000 = mmap() 
+   63 30296664 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   53 30296717 [main] shm_test 5368 sig_send: wakeup 0x188
+   57 30296774 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x188
+   63 30296837 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x188
+   72 30296909 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   56 30296965 [main] shm_test 5368 nanosleep: nanosleep (10005)
+10013758 40310723 [main] shm_test 5368 nanosleep: 0 = nanosleep (10005, 0)
+  154 40310877 [main] shm_test 5368 close: close (3)
+   78 40310955 [main] shm_test 5368 fhandler_base::close: closing '/tmp/mpich_test_shar_C75GOs' handle 0x124
+ 2273 40313228 [main] shm_test 5368 close: 0 = close (3)
+   85 40313313 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   57 40313370 [main] shm_test 5368 sig_send: wakeup 0x124
+   49 40313419 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+   63 40313482 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+   49 40313531 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   63 40313594 [main] shm_test 5368 nanosleep: nanosleep (10005)
+10012341 50325935 [main] shm_test 5368 nanosleep: 0 = nanosleep (10005, 0)
+  142 50326077 [main] shm_test 5368 normalize_posix_path: src /tmp/mpich_test_shar_C75GOs
+   59 50326136 [main] shm_test 5368 normalize_posix_path: /tmp/mpich_test_shar_C75GOs = normalize_posix_path (/tmp/mpich_test_shar_C75GOs)
+   51 50326187 [main] shm_test 5368 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp/mpich_test_shar_C75GOs)
+   51 50326238 [main] shm_test 5368 set_flags: flags: binary (0x2)
+   50 50326288 [main] shm_test 5368 mount_info::conv_to_win32_path: src_path /tmp/mpich_test_shar_C75GOs, dst C:\cygwin\tmp\mpich_test_shar_C75GOs, flags 0xA, rc 0
+  164 50326452 [main] shm_test 5368 symlink_info::check: not a symlink
+   59 50326511 [main] shm_test 5368 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp\mpich_test_shar_C75GOs, 0x22C600) (0xA)
+   54 50326565 [main] shm_test 5368 path_conv::check: this->path(C:\cygwin\tmp\mpich_test_shar_C75GOs), has_acls(1)
+   49 50326614 [main] shm_test 5368 unlink: _unlink (C:\cygwin\tmp\mpich_test_shar_C75GOs)
+  541 50327155 [main] shm_test 5368 seterrno_from_win_error: /ext/build/netrel/src/cygwin-1.5.25-15/winsup/cygwin/syscalls.cc:269 windows error 5
+   64 50327219 [main] shm_test 5368 geterrno_from_win_error: windows error 5 == errno 13
+   48 50327267 [main] shm_test 5368 __set_errno: void seterrno_from_win_error(const char*, int, DWORD):310 val 13
+   50 50327317 [main] shm_test 5368 unlink: -1 = unlink (/tmp/mpich_test_shar_C75GOs)
+   53 50327370 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   53 50327423 [main] shm_test 5368 sig_send: wakeup 0x124
+   58 50327481 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+   65 50327546 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+   73 50327619 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   57 50327676 [main] shm_test 5368 nanosleep: nanosleep (10005)
+10013393 60341069 [main] shm_test 5368 nanosleep: 0 = nanosleep (10005, 0)
+  307 60341376 [main] shm_test 5368 close: close (3)
+   51 60341427 [main] shm_test 5368 __set_errno: cygheap_fdget::cygheap_fdget(int, bool, bool):394 val 9
+   49 60341476 [main] shm_test 5368 close: -1 = close (3)
+  525 60342001 [main] shm_test 5368 close: close (0)
+  136 60342137 [main] shm_test 5368 init_cygheap::manage_console_count: fhandler_console::close: console_count 0, amount -1, ctty /dev/console, avoid_freeing_console 0
+   64 60342201 [main] shm_test 5368 close: 0 = close (0)
+  311 60342512 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -34, its_me 1
+   55 60342567 [main] shm_test 5368 sig_send: wakeup 0x124
+   58 60342625 [main] shm_test 5368 sig_send: Waiting for pack.wakeup 0x124
+   64 60342689 [sig] shm_test 5368 wait_sig: signalling pack.wakeup 0x124
+   74 60342763 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -34
+   92 60342855 [main] shm_test 5368 fhandler_base::write: binary write
+here 1
+here 2
+here 3
+here 4
+here 5
+here 6
+Error unlinking file in tmp...(Permission denied)
+  152 60343007 [main] shm_test 5368 close: close (1)
+   50 60343057 [main] shm_test 5368 fhandler_base::close: closing '/home/Andy/mpich2-1.1.1p1/shm_test.log' handle 0x264
+   51 60343108 [main] shm_test 5368 close: 0 = close (1)
+  382 60343490 [main] shm_test 5368 close: close (2)
+   50 60343540 [main] shm_test 5368 fhandler_base::close: closing '/home/Andy/mpich2-1.1.1p1/shm_test.log' handle 0x258
+   50 60343590 [main] shm_test 5368 close: 0 = close (2)
+  197 60343787 [main] shm_test 5368 do_exit: do_exit (65280), exit_state 0
+   49 60343836 [main] shm_test 5368 void: 0x0 = signal (20, 0x1)
+   48 60343884 [main] shm_test 5368 void: 0x0 = signal (1, 0x1)
+   49 60343933 [main] shm_test 5368 void: 0x0 = signal (2, 0x1)
+   50 60343983 [main] shm_test 5368 void: 0x0 = signal (3, 0x1)
+  102 60344085 [main] shm_test 5368 sigproc_terminate: entering
+   50 60344135 [main] shm_test 5368 sig_send: sendsig 0x114, pid 5368, signal -42, its_me 1
+   61 60344196 [main] shm_test 5368 sig_send: Not waiting for sigcomplete.  its_me 1 signal -42
+   49 60344245 [main] shm_test 5368 sig_send: returning 0x0 from sending signal -42
+   50 60344295 [main] shm_test 5368 proc_terminate: nprocs 0
+   48 60344343 [main] shm_test 5368 proc_terminate: leaving
+   66 60344409 [sig] shm_test 5368 wait_sig: saw __SIGEXIT
+   71 60344480 [sig] shm_test 5368 wait_sig: signal thread exiting
+  255 60344735 [main] shm_test 5368 __to_clock_t: dwHighDateTime 0, dwLowDateTime 468003
+   69 60344804 [main] shm_test 5368 __to_clock_t: total 00000000 0000002E
+   61 60344865 [main] shm_test 5368 __to_clock_t: dwHighDateTime 0, dwLowDateTime 1872012
+   58 60344923 [main] shm_test 5368 __to_clock_t: total 00000000 000000BB
+  350 60345273 [main] shm_test 5368 pinfo::exit: Calling ExitProcess n 0xFF00, exitcode 0xFF

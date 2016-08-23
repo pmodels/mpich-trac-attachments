@@ -1,0 +1,468 @@
+Beginning make
+make all-local
+make[1]: Entering directory `/home/eric/soft/science/mpich2-1.0.7'
+make[2]: Entering directory `/home/eric/soft/science/mpich2-1.0.7'
+make clean && cd test && make clean
+make[3]: Entering directory `/home/eric/soft/science/mpich2-1.0.7'
+make cleanlibs
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7'
+rm -f lib/libmpich.a lib/libpmpich.a
+rm -f lib/libmpichcxx.a 
+rm -f lib/libfmpich.a lib/libmpichf90.a
+rm -f lib/libmpich.so* 
+rm -f lib/libpmpich.so*
+rm -f lib/libmpichcxx.so* 
+rm -f lib/libfmpich.so* 
+rm -f lib/libmpich.*.so* 
+rm -f lib/libpmpich.*.so*
+rm -f lib/libmpichcxx.*.so* 
+rm -f lib/libfmpich.*.so* 
+rm -f lib/libmpich.la* lib/libpmpich.la*
+rm -f lib/libmpichcxx.la* 
+rm -f lib/libfmpich.la* 
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7'
+for dir in src  examples - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src'
+for dir in mpid mpi util nameserv binding env pkgconfig mpe2 pmi pm - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid'
+for dir in ch3 common - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3'
+for dir in channels src util ; do \
+		(cd $dir && make clean ; ) ; done
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels'
+for dir in sock - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[8]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock'
+(cd ../../../common/sock && make clean )
+make[9]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock'
+for dir in poll - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[10]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[10]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[9]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock'
+(cd src && make clean )
+make[9]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[9]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[8]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock'
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels'
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/src'
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/src'
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/util'
+for dir in  sock - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[8]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock'
+make[8]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock'
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/util'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common'
+(cd datatype && make clean )
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/datatype'
+(cd dataloop && make clean )
+make[8]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/datatype/dataloop'
+make[8]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/datatype/dataloop'
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/datatype'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi'
+for dir in attr coll comm datatype errhan group init misc pt2pt rma spawn timer topo romio  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/attr'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/attr'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/coll'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/coll'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/comm'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/comm'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/datatype'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/datatype'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/errhan'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/errhan'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/group'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/group'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/init'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/init'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/misc'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/misc'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/pt2pt'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/pt2pt'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/rma'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/rma'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/spawn'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/spawn'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/timer'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/timer'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/topo'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/topo'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/romio'
+ 
+cleaning directory mpi-io
+ 
+cleaning directory adio/common
+ 
+cleaning directory mpi-io/glue/mpich2
+ 
+cleaning directory adio/ad_testfs
+ 
+cleaning directory adio/ad_ufs
+ 
+cleaning directory adio/ad_nfs
+ 
+cleaning directory test
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/romio/test'
+rm -f .P* PI* *.o 
+rm -f simple perf async coll_test coll_perf misc file_info excl large_array atomicity noncontig i_noncontig noncontig_coll split_coll shared_fp large_file psimple error status noncontig_coll2 aggregation1 aggregation2 async-multiple ordered_fp fcoll_test fperf fmisc pfcoll_test 
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/romio/test'
+ 
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi/romio'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpi'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/util'
+for dir in mem info msgs instrm thread dbg param osserv  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/util/mem'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/util/mem'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/util/info'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/util/info'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/util/msgs'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/util/msgs'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/util/instrm'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/util/instrm'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/util/thread'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/util/thread'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/util/dbg'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/util/dbg'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/util/param'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/util/param'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/util/osserv'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/util/osserv'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/util'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/nameserv'
+for dir in mpd - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/nameserv/mpd'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/nameserv/mpd'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/nameserv'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/binding'
+for dir in  f77 f90 cxx - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/binding/f77'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/binding/f77'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/binding/f90'
+rm -f *.mod
+rm -f mpimod.pcl mpimod.pc
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/binding/f90'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/binding/cxx'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/binding/cxx'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/binding'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/env'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/env'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/pkgconfig'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/pkgconfig'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpe2'
+rm -f /home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpe2/lib/lib*
+rm -f /home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpe2/lib/*.jar
+rm -f /home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpe2/lib/*.o
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpe2'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/pmi'
+for dir in simple - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/pmi/simple'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/pmi/simple'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/pmi'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/pm'
+for dir in mpd  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/pm/mpd'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/pm/mpd'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/pm'
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src'
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/examples'
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/examples'
+make[3]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7'
+make[3]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test'
+for dir in mpi mpid util basic commands ; do \
+		(cd $dir && make clean ; ) ; done
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi'
+rm -f summary.xml
+for dir in util attr basic datatype coll comm errhan group info init pt2pt rma spawn topo io  f77 f90 cxx threads errors manual perf - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/util'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/util'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/attr'
+rm -f summary.xml
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/attr'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/basic'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/basic'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/datatype'
+rm -f summary.xml
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/datatype'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/coll'
+rm -f summary.xml
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/coll'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/comm'
+rm -f summary.xml
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/comm'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errhan'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errhan'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/group'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/group'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/info'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/info'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/init'
+rm -f summary.xml
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/init'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/pt2pt'
+rm -f summary.xml
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/pt2pt'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/rma'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/rma'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/spawn'
+rm -f summary.xml
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/spawn'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/topo'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/topo'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/io'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/io'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77'
+for dir in util attr datatype coll pt2pt info init comm topo rma spawn io ext ; do \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/util'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/util'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/attr'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/attr'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/datatype'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/datatype'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/coll'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/coll'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/pt2pt'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/pt2pt'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/info'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/info'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/init'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/init'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/comm'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/comm'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/topo'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/topo'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/rma'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/rma'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/spawn'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/spawn'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/io'
+rm -f .iotest.txt.*
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/io'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/ext'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77/ext'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f77'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90'
+for dir in util timer attr coll datatype pt2pt info comm rma spawn topo io ext init misc f90types ; do \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/util'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/util'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/timer'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/timer'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/attr'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/attr'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/coll'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/coll'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/datatype'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/datatype'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/pt2pt'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/pt2pt'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/info'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/info'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/comm'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/comm'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/rma'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/rma'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/spawn'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/spawn'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/topo'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/topo'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/io'
+rm -f .iotest.txt.*
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/io'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/ext'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/ext'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/init'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/init'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/misc'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/misc'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/f90types'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90/f90types'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/f90'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx'
+for dir in util attr pt2pt init info comm coll datatype io rma spawn ; do \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/util'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/util'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/attr'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/attr'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/pt2pt'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/pt2pt'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/init'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/init'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/info'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/info'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/comm'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/comm'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/coll'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/coll'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/datatype'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/datatype'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/io'
+rm -f .iotest.txt.*
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/io'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/rma'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/rma'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/spawn'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx/spawn'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/cxx'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/threads'
+rm -f summary.xml
+(cd util && make clean )
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/threads/util'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/threads/util'
+(cd pt2pt && make clean )
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/threads/pt2pt'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/threads/pt2pt'
+(cd comm && make clean )
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/threads/comm'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/threads/comm'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/threads'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors'
+for dir in coll comm group pt2pt rma spawn topo io  f77 f90 cxx - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ; ) ; done
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/coll'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/coll'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/comm'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/comm'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/group'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/group'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/pt2pt'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/pt2pt'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/rma'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/rma'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/spawn'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/spawn'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/topo'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/topo'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/io'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/io'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/f77'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/f77'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/f90'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/f90'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/cxx'
+(cd io && make clean )
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/cxx/io'
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/cxx/io'
+(cd errhan && make clean )
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/cxx/errhan'
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/cxx/errhan'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors/cxx'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/errors'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/manual'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/manual'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/perf'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi/perf'
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpi'
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpid'
+(cd ch3 && make clean )
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/mpid/ch3'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpid/ch3'
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/mpid'
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/util'
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/util'
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/basic'
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/basic'
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/test/commands'
+rm -f err.txt out.log out.txt stdintest stdintest2 sdtiotest a.out
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test/commands'
+make[3]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/test'
+rm -f lib/newconfig
+make[2]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7'
+make[1]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7'
+make[1]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src'
+make[2]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid'
+make[3]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3'
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels'
+make[5]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock'
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll'
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -I.. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c sock.c
+ar cr ../../../../../lib/libmpich.a sock.o
+ranlib ../../../../../lib/libmpich.a
+date > .libstamp0
+make[8]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll'
+gcc -fpic -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -I.. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c sock.c -o _ssock.o
+ar cr ../../../../../lib/libmpich.la sock.lo
+date > .libstamp1
+make[8]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[8]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll'
+ar cr libmpich2sock.la sock.lo
+make[8]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/common/sock'
+make[6]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_finalize.c
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_init.c
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_isend.c
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_isendv.c
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_istartmsg.c
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_istartmsgv.c
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_progress.c
+ar cr ../../../../../../lib/libmpich.a ch3_finalize.o ch3_init.o ch3_isend.o ch3_isendv.o ch3_istartmsg.o ch3_istartmsgv.o ch3_progress.o
+ranlib ../../../../../../lib/libmpich.a
+date > .libstamp0
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+gcc -fpic -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_finalize.c -o _sch3_finalize.o
+gcc -fpic -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_init.c -o _sch3_init.o
+gcc -fpic -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_isend.c -o _sch3_isend.o
+gcc -fpic -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_isendv.c -o _sch3_isendv.o
+gcc -fpic -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_istartmsg.c -o _sch3_istartmsg.o
+gcc -fpic -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_istartmsgv.c -o _sch3_istartmsgv.o
+gcc -fpic -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src -I../../../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3_progress.c -o _sch3_progress.o
+ar cr ../../../../../../lib/libmpich.la ch3_finalize.lo ch3_init.lo ch3_isend.lo ch3_isendv.lo ch3_istartmsg.lo ch3_istartmsgv.lo ch3_progress.lo
+date > .libstamp1
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[7]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+ar cr libmpich2-ch3-sock.la ch3_finalize.lo ch3_init.lo ch3_isend.lo ch3_isendv.lo ch3_istartmsg.lo ch3_istartmsgv.lo ch3_progress.lo
+make[7]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[6]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/src'
+make[5]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock'
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/channels'
+make[4]: Entering directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/src'
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/src -I../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3u_buffer.c
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/src -I../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3u_comm_spawn_multiple.c
+gcc -DHAVE_CONFIG_H -I. -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/src -I../../../include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/include -O2 -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/util/sock  -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/datatype -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -I/home/u3/germaneau/soft/science/mpich2-1.0.7/src/mpid/common/sock/poll -c ch3u_handle_connection.c
+ch3u_handle_connection.c: In function 'MPIDI_CH3U_VC_SendClose':
+ch3u_handle_connection.c:187: error: 'MPIU_CALL_MPIDI_CH3' undeclared (first use in this function)
+ch3u_handle_connection.c:187: error: (Each undeclared identifier is reported only once
+ch3u_handle_connection.c:187: error: for each function it appears in.)
+ch3u_handle_connection.c: In function 'MPIDI_CH3_PktHandler_Close':
+ch3u_handle_connection.c:222: error: 'MPIU_CALL_MPIDI_CH3' undeclared (first use in this function)
+make[4]: *** [ch3u_handle_connection.o] Error 1
+make[4]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3/src'
+make[3]: *** [all-redirect] Error 2
+make[3]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid/ch3'
+make[2]: *** [all-redirect] Error 1
+make[2]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src/mpid'
+make[1]: *** [all-redirect] Error 2
+make[1]: Leaving directory `/home/eric/soft/science/mpich2-1.0.7/src'
+make: *** [all-redirect] Error 2

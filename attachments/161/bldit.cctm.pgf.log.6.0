@@ -1,0 +1,727 @@
+   Model archive path: /home/root/AQM/CMAQ4.6/models
+         library path: /home/root/AQM/CMAQ4.6/lib
+set Project = /home/root/AQM/CMAQ4.6/models/CCTM
+set GlobInc = /home/root/AQM/CMAQ4.6/models/include/release
+set Base = /home/root/AQM/CMAQ4.6/TEST/scripts/cctm
+set APPL = e3a
+set CFG = cfg.e3a
+set MODEL = CCTM_e3a
+set Opt = verbose
+set ParOpt
+set Revision = release
+set ModDriver = ( module ctm_yamo release ; )
+if ( 1 ) then
+set ModPar = ( module par release ; )
+else
+set ModInit = ( module init_yamo release ; )
+set ModAdjc = ( // yamo option does not need denrate )
+set ModCpl = ( module gencoor release ; )
+set ModHadv = ( module hyamo release ; )
+set ModVadv = ( module vyamo release ; )
+set ModHdiff = ( module multiscale release ; )
+set ModVdiff = ( module acm2 release ; )
+set ModPhot = ( module phot release ; )
+set ModPing = ( module ping_noop release ; )
+set ModChem = ( module ebi_cb05 release ; )
+set ModAero = ( module aero4 release ; )
+set ModAdepv = ( module aero_depv2 release ; )
+set ModCloud = ( module cloud_acm release ; )
+set ModPa = ( module pa release ; )
+set ModUtil = ( module util release ; )
+set Mechanism = cb05_ae4_aq
+set Tracer = trac0
+set PABase = /home/root/AQM/CMAQ4.6/models/include/release
+set PAOpt = pa_noop
+set Bld = /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/BLD_e3a
+set MODLOC = /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/MOD_DIR
+if ( -d /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/MOD_DIR ) /bin/rm -Rf /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/MOD_DIR
+/bin/rm -Rf /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/MOD_DIR
+mkdir -p /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/MOD_DIR
+set FC = /share/apps/pgi/linux86-64/6.0/bin/pgf90
+set FP = /share/apps/pgi/linux86-64/6.0/bin/pgf90
+set MPICH = /share/apps/mpich2-install
+set FSTD = -Mfixed -Mextend
+set F_FLAGS = -Mfixed -Mextend -O2 -module /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/MOD_DIR -I.
+set CPP_FLAGS = 
+set C_FLAGS = -v -O2 -I/share/apps/mpich2-install/include
+set LINK_FLAGS = -Bstatic
+set Blder = /home/root/AQM/CMAQ4.6/lib/build/Linux/m3bld
+set STENEX = /home/root/AQM/CMAQ4.6/lib/stenex/Linux
+set IOAPI = /home/root/AQM/CMAQ4.6/lib/ioapi_3/Linux2_x86pg -lioapi
+set ICL_IOAPI = /home/root/AQM/CMAQ4.6/lib/ioapi_3/ioapi/fixed_src
+set NETCDF = /home/root/AQM/CMAQ4.6/lib/netCDF/Linux -lnetcdf
+if ( ! -e /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/BLD_e3a ) then
+if ( ! -d /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/BLD_e3a ) then
+endif
+cd /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/BLD_e3a
+if ( 1 ) then
+set Mpich = /share/apps/mpich2-install
+set seL = se_snl
+cp -p /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_comm_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_data_copy_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_gather_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_global_max_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_global_min_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_global_sum_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_init_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_modules.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_slice_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_term_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/noop_util_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_bndy_copy_info_ext.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_bndy_copy_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_comm_info_ext.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_comm_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_data_copy_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_data_recv_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_data_send_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_disp_info_ext.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_domain_info_ext.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_gather_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_global_max_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_global_min_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_global_sum_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_init_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_internal_util_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_modules.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_ori_ext.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_pe_info_ext.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_reconfig_grid_info_ext.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_reconfig_grid_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_slice_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_subgrid_info_ext.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_term_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/se_util_module.mod /home/root/AQM/CMAQ4.6/lib/stenex/Linux/swap_sandia.mod /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/MOD_DIR
+set LIB2 = -L/home/root/AQM/CMAQ4.6/lib/pario/Linux -lpario
+set LIB3 =
+set LIB4 = -L/share/apps/mpich2-install/lib -lmpich
+set Str1 = ( // Parallel / Include message passing definitions )
+set Str2 = ( include SUBST_MPICH /share/apps/mpich2-install/include/mpif.h ; )
+else
+set LIB1 = -L/home/root/AQM/CMAQ4.6/lib/stenex/Linux -lse_snl
+set LIB5 = -L/home/root/AQM/CMAQ4.6/lib/ioapi_3/Linux2_x86pg -lioapi
+set LIB6 = -L/home/root/AQM/CMAQ4.6/lib/netCDF/Linux -lnetcdf
+set LIBS = -L/home/root/AQM/CMAQ4.6/lib/stenex/Linux -lse_snl -L/home/root/AQM/CMAQ4.6/lib/pario/Linux -lpario  -L/share/apps/mpich2-install/lib -lmpich -L/home/root/AQM/CMAQ4.6/lib/ioapi_3/Linux2_x86pg -lioapi -L/home/root/AQM/CMAQ4.6/lib/netCDF/Linux -lnetcdf
+set ICL_PAR = /home/root/AQM/CMAQ4.6/models/include/release
+set ICL_CONST = /home/root/AQM/CMAQ4.6/models/include/release
+set ICL_FILES = /home/root/AQM/CMAQ4.6/models/include/release
+set ICL_EMCTL = /home/root/AQM/CMAQ4.6/models/include/release
+set ICL_MECH = /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq
+set ICL_TRAC = /home/root/AQM/CMAQ4.6/models/include/release/trac0
+set ICL_PA = /home/root/AQM/CMAQ4.6/models/include/release/pa_noop
+if ( 0 ) then
+set CV =
+endif
+if ( 1 ) then
+set PAR = ( -Dparallel -Dcluster -DINTERPB=PINTERPB -DM3ERR=PM3ERR -DM3EXIT=PM3EXIT -DM3WARN=PM3WARN -DSHUT3=PSHUT3 -DWRITE3=PWRITE3 )
+set Popt = SE
+else
+set STX1 = ( -DSUBST_MODULES=SE_MODULES -DSUBST_BARRIER=SE_BARRIER )
+set STX2 = ( -DSUBST_GLOBAL_MAX=SE_GLOBAL_MAX -DSUBST_GLOBAL_MIN=SE_GLOBAL_MIN -DSUBST_GLOBAL_MIN_DATA=SE_GLOBAL_MIN_DATA -DSUBST_GLOBAL_TO_LOCAL_COORD=SE_GLOBAL_TO_LOCAL_COORD -DSUBST_GLOBAL_SUM=SE_GLOBAL_SUM -DSUBST_GLOBAL_LOGICAL=SE_GLOBAL_LOGICAL -DSUBST_LOOP_INDEX=SE_LOOP_INDEX -DSUBST_SUBGRID_INDEX=SE_SUBGRID_INDEX )
+set STX3 = ( -DSUBST_HI_LO_BND_PE=SE_HI_LO_BND_PE -DSUBST_SUM_CHK=SE_SUM_CHK -DSUBST_INIT_ARRAY=SE_INIT_ARRAY -DSUBST_COMM=SE_COMM -DSUBST_MY_REGION=SE_MY_REGION -DSUBST_SLICE=SE_SLICE -DSUBST_GATHER=SE_GATHER -DSUBST_DATA_COPY=SE_DATA_COPY -DSUBST_IN_SYN=SE_IN_SYN )
+setenv CVSROOT /home/root/AQM/CMAQ4.6/models/CCTM
+set Cfile = cfg.e3a.bld
+set quote = "
+echo
+echo model       CCTM_e3a;
+echo
+echo FPP         /share/apps/pgi/linux86-64/6.0/bin/pgf90;
+echo
+set text = "  -Dparallel -Dcluster -DINTERPB=PINTERPB -DM3ERR=PM3ERR -DM3EXIT=PM3EXIT -DM3WARN=PM3WARN -DSHUT3=PSHUT3 -DWRITE3=PWRITE3 -DSUBST_MODULES=SE_MODULES -DSUBST_BARRIER=SE_BARRIER -DSUBST_GLOBAL_MAX=SE_GLOBAL_MAX -DSUBST_GLOBAL_MIN=SE_GLOBAL_MIN -DSUBST_GLOBAL_MIN_DATA=SE_GLOBAL_MIN_DATA -DSUBST_GLOBAL_TO_LOCAL_COORD=SE_GLOBAL_TO_LOCAL_COORD -DSUBST_GLOBAL_SUM=SE_GLOBAL_SUM -DSUBST_GLOBAL_LOGICAL=SE_GLOBAL_LOGICAL -DSUBST_LOOP_INDEX=SE_LOOP_INDEX -DSUBST_SUBGRID_INDEX=SE_SUBGRID_INDEX -DSUBST_HI_LO_BND_PE=SE_HI_LO_BND_PE -DSUBST_SUM_CHK=SE_SUM_CHK -DSUBST_INIT_ARRAY=SE_INIT_ARRAY -DSUBST_COMM=SE_COMM -DSUBST_MY_REGION=SE_MY_REGION -DSUBST_SLICE=SE_SLICE -DSUBST_GATHER=SE_GATHER -DSUBST_DATA_COPY=SE_DATA_COPY -DSUBST_IN_SYN=SE_IN_SYN";
+echo cpp_flags   "  -Dparallel -Dcluster -DINTERPB=PINTERPB -DM3ERR=PM3ERR -DM3EXIT=PM3EXIT -DM3WARN=PM3WARN -DSHUT3=PSHUT3 -DWRITE3=PWRITE3 -DSUBST_MODULES=SE_MODULES -DSUBST_BARRIER=SE_BARRIER -DSUBST_GLOBAL_MAX=SE_GLOBAL_MAX -DSUBST_GLOBAL_MIN=SE_GLOBAL_MIN -DSUBST_GLOBAL_MIN_DATA=SE_GLOBAL_MIN_DATA -DSUBST_GLOBAL_TO_LOCAL_COORD=SE_GLOBAL_TO_LOCAL_COORD -DSUBST_GLOBAL_SUM=SE_GLOBAL_SUM -DSUBST_GLOBAL_LOGICAL=SE_GLOBAL_LOGICAL -DSUBST_LOOP_INDEX=SE_LOOP_INDEX -DSUBST_SUBGRID_INDEX=SE_SUBGRID_INDEX -DSUBST_HI_LO_BND_PE=SE_HI_LO_BND_PE -DSUBST_SUM_CHK=SE_SUM_CHK -DSUBST_INIT_ARRAY=SE_INIT_ARRAY -DSUBST_COMM=SE_COMM -DSUBST_MY_REGION=SE_MY_REGION -DSUBST_SLICE=SE_SLICE -DSUBST_GATHER=SE_GATHER -DSUBST_DATA_COPY=SE_DATA_COPY -DSUBST_IN_SYN=SE_IN_SYN";
+echo
+echo f_compiler  /share/apps/pgi/linux86-64/6.0/bin/pgf90;
+echo
+echo f_flags     "-Mfixed -Mextend -O2 -module /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/MOD_DIR -I.";
+echo
+echo c_flags     "-v -O2 -I/share/apps/mpich2-install/include";
+echo
+echo link_flags  "-Bstatic";
+echo
+echo libraries   "-L/home/root/AQM/CMAQ4.6/lib/stenex/Linux -lse_snl -L/home/root/AQM/CMAQ4.6/lib/pario/Linux -lpario  -L/share/apps/mpich2-install/lib -lmpich -L/home/root/AQM/CMAQ4.6/lib/ioapi_3/Linux2_x86pg -lioapi -L/home/root/AQM/CMAQ4.6/lib/netCDF/Linux -lnetcdf";
+echo
+echo global      verbose;
+echo
+set text=// mechanism and tracer:
+echo // mechanism and tracer: cb05_ae4_aq, trac0
+echo // project archive: /home/root/AQM/CMAQ4.6/models/CCTM
+echo
+echo include SUBST_PE_COMM    /home/root/AQM/CMAQ4.6/models/include/release/PE_COMM.EXT;
+echo include SUBST_CONST      /home/root/AQM/CMAQ4.6/models/include/release/CONST.EXT;
+echo include SUBST_FILES_ID   /home/root/AQM/CMAQ4.6/models/include/release/FILES_CTM.EXT;
+echo include SUBST_EMPR_VD    /home/root/AQM/CMAQ4.6/models/include/release/EMISPRM.vdif.EXT;
+echo include SUBST_EMPR_CH    /home/root/AQM/CMAQ4.6/models/include/release/EMISPRM.chem.EXT;
+echo include SUBST_IOPARMS    /home/root/AQM/CMAQ4.6/lib/ioapi_3/ioapi/fixed_src/PARMS3.EXT;
+echo include SUBST_IOFDESC    /home/root/AQM/CMAQ4.6/lib/ioapi_3/ioapi/fixed_src/FDESC3.EXT;
+echo include SUBST_IODECL     /home/root/AQM/CMAQ4.6/lib/ioapi_3/ioapi/fixed_src/IODECL3.EXT;
+echo include SUBST_RXCMMN     /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/RXCM.EXT;
+echo include SUBST_RXDATA     /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/RXDT.EXT;
+echo include SUBST_GC_SPC     /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_SPC.EXT;
+echo include SUBST_GC_EMIS    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_EMIS.EXT;
+echo include SUBST_GC_ICBC    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_ICBC.EXT;
+echo include SUBST_GC_DIFF    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_DIFF.EXT;
+echo include SUBST_GC_DDEP    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_DDEP.EXT;
+echo include SUBST_GC_DEPV    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_DEPV.EXT;
+echo include SUBST_GC_ADV     /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_ADV.EXT;
+echo include SUBST_GC_CONC    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_CONC.EXT;
+echo include SUBST_GC_G2AE    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_G2AE.EXT;
+echo include SUBST_GC_G2AQ    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_G2AQ.EXT;
+echo include SUBST_GC_SCAV    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_SCAV.EXT;
+echo include SUBST_GC_WDEP    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/GC_WDEP.EXT;
+echo include SUBST_AE_SPC     /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_SPC.EXT;
+echo include SUBST_AE_EMIS    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_EMIS.EXT;
+echo include SUBST_AE_ICBC    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_ICBC.EXT;
+echo include SUBST_AE_DIFF    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_DIFF.EXT;
+echo include SUBST_AE_DDEP    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_DDEP.EXT;
+echo include SUBST_AE_DEPV    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_DEPV.EXT;
+echo include SUBST_AE_ADV     /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_ADV.EXT;
+echo include SUBST_AE_CONC    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_CONC.EXT;
+echo include SUBST_AE_A2AQ    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_A2AQ.EXT;
+echo include SUBST_AE_SCAV    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_SCAV.EXT;
+echo include SUBST_AE_WDEP    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/AE_WDEP.EXT;
+echo include SUBST_NR_SPC     /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_SPC.EXT;
+echo include SUBST_NR_EMIS    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_EMIS.EXT;
+echo include SUBST_NR_ICBC    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_ICBC.EXT;
+echo include SUBST_NR_DIFF    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_DIFF.EXT;
+echo include SUBST_NR_DDEP    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_DDEP.EXT;
+echo include SUBST_NR_DEPV    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_DEPV.EXT;
+echo include SUBST_NR_ADV     /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_ADV.EXT;
+echo include SUBST_NR_N2AE    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_N2AE.EXT;
+echo include SUBST_NR_CONC    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_CONC.EXT;
+echo include SUBST_NR_N2AQ    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_N2AQ.EXT;
+echo include SUBST_NR_SCAV    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_SCAV.EXT;
+echo include SUBST_NR_WDEP    /home/root/AQM/CMAQ4.6/models/include/release/cb05_ae4_aq/NR_WDEP.EXT;
+echo include SUBST_TR_SPC     /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_SPC.EXT;
+echo include SUBST_TR_EMIS    /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_EMIS.EXT;
+echo include SUBST_TR_ICBC    /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_ICBC.EXT;
+echo include SUBST_TR_DIFF    /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_DIFF.EXT;
+echo include SUBST_TR_DDEP    /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_DDEP.EXT;
+echo include SUBST_TR_DEPV    /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_DEPV.EXT;
+echo include SUBST_TR_ADV     /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_ADV.EXT;
+echo include SUBST_TR_T2AQ    /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_T2AQ.EXT;
+echo include SUBST_TR_SCAV    /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_SCAV.EXT;
+echo include SUBST_TR_WDEP    /home/root/AQM/CMAQ4.6/models/include/release/trac0/TR_WDEP.EXT;
+echo
+set text = // Process Analysis / Integrated Reaction Rates processing
+echo // Process Analysis / Integrated Reaction Rates processing
+echo include SUBST_PACTL_ID    /home/root/AQM/CMAQ4.6/models/include/release/pa_noop/PA_CTL.EXT;
+echo include SUBST_PACMN_ID    /home/root/AQM/CMAQ4.6/models/include/release/pa_noop/PA_CMN.EXT;
+echo include SUBST_PADAT_ID    /home/root/AQM/CMAQ4.6/models/include/release/pa_noop/PA_DAT.EXT;
+echo
+echo // Parallel / Include message passing definitions
+echo include SUBST_MPICH /share/apps/mpich2-install/include/mpif.h ;
+echo
+set text = ctm and ctm_yamo
+echo // options are ctm and ctm_yamo
+echo module ctm_yamo release ;
+echo
+echo module par release ;
+echo
+set text = init and init_yamo
+echo // options are init and init_yamo
+echo module init_yamo release ;
+echo
+set text = denrate and adjcon_noop
+echo // options are denrate and adjcon_noop
+echo // yamo option does not need denrate
+echo
+echo module gencoor release ;
+echo
+set text = hppm, hyamo and hadv_noop
+echo // options are hppm, hyamo and hadv_noop
+echo module hyamo release ;
+echo
+set text = vppm, vyamo and vadv_noop
+echo // options are vppm, vyamo and vadv_noop
+echo module vyamo release ;
+echo
+set text = multi_scale and hdiff_noop
+echo // options are multi_scale and hdiff_noop
+echo module multiscale release ;
+echo
+set text = eddy, acm2 and vdiff_noop
+echo // options are eddy, acm2 and vdiff_noop
+echo module acm2 release ;
+echo
+set text = phot and phot_noop
+echo // options are phot and phot_noop
+echo module phot release ;
+echo
+set text = ping_smvgear_aero3, ping_smvgear_aero4 and ping_noop
+echo // options are ping_smvgear_aero3, ping_smvgear_aero4 and ping_noop
+echo module ping_noop release ;
+echo
+set text = ros3, smvgear, ebi_cb4, ebi_cb05, ebi_saprc99 and chem_noop
+echo // options are ros3, smvgear, ebi_cb4, ebi_cb05, ebi_saprc99 and chem_noop
+echo module ebi_cb05 release ;
+echo
+set text = aero3, aero4 and aero_noop
+echo // options are aero3, aero4 and aero_noop
+echo module aero4 release ;
+echo
+set text = aero_depv2 and aero_depv_noop
+echo // options are aero_depv2 and aero_depv_noop
+echo module aero_depv2 release ;
+echo
+set text = cloud_radm, cloud_acm and cloud_noop
+echo // options are cloud_radm, cloud_acm and cloud_noop
+echo module cloud_acm release ;
+echo
+set text = pa and pa_noop, which requires the
+echo // options are pa and pa_noop, which requires the replacement of the three
+set text = // global include files with their pa_noop counterparts
+echo // global include files with their pa_noop counterparts
+echo module pa release ;
+echo
+echo module util release ;
+echo
+if ( 0 ) then
+if ( 0 ) then
+set NoMake
+/home/root/AQM/CMAQ4.6/lib/build/Linux/m3bld cfg.e3a.bld
+Linux plume 2.6.18-92.1.10.el5 #1 SMP Wed Jul 23 03:56:11 EDT 2008 x86_64 x86_64 x86_64 GNU/Linux
+Thu Sep 25 08:29:24 PDT 2008
+cvs export: Updating ctm_yamo
+cvs export: Updating par
+cvs export: Updating init_yamo
+cvs export: Updating gencoor
+cvs export: Updating hyamo
+cvs export: Updating vyamo
+cvs export: Updating multiscale
+cvs export: Updating acm2
+cvs export: Updating phot
+cvs export: Updating ping_noop
+cvs export: Updating ebi_cb05
+cvs export: Updating aero4
+cvs export: Updating aero_depv2
+cvs export: Updating cloud_acm
+cvs export: Updating pa
+cvs export: Updating util
+/share/apps/mpich2-install/lib/libmpich.a(ch3u_getinterfaces.o): In function `MPIDU_CH3U_GetSockInterfaceAddr':
+ch3u_getinterfaces.c:(.text+0x7c): warning: Using 'gethostbyname' in statically linked applications requires at runtime the shared libraries from the glibc version used for linking
+/share/apps/mpich2-install/lib/libmpich.a(barrier.o): In function `MPI_Barrier':
+barrier.c:(.text+0x42f): undefined reference to `pthread_getspecific'
+barrier.c:(.text+0x44f): undefined reference to `pthread_mutex_unlock'
+barrier.c:(.text+0x45f): undefined reference to `pthread_getspecific'
+barrier.c:(.text+0x481): undefined reference to `pthread_mutex_lock'
+barrier.c:(.text+0x592): undefined reference to `pthread_setspecific'
+barrier.c:(.text+0x5d7): undefined reference to `pthread_setspecific'
+barrier.c:(.text+0x5e7): undefined reference to `pthread_getspecific'
+barrier.c:(.text+0x613): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(bcast.o): In function `MPI_Bcast':
+bcast.c:(.text+0x1057): undefined reference to `pthread_getspecific'
+bcast.c:(.text+0x1077): undefined reference to `pthread_mutex_unlock'
+bcast.c:(.text+0x1087): undefined reference to `pthread_getspecific'
+bcast.c:(.text+0x10a9): undefined reference to `pthread_mutex_lock'
+bcast.c:(.text+0x130c): undefined reference to `pthread_setspecific'
+bcast.c:(.text+0x136f): undefined reference to `pthread_setspecific'
+bcast.c:(.text+0x14b1): undefined reference to `pthread_getspecific'
+bcast.c:(.text+0x14dd): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(helper_fns.o): In function `MPIR_Localcopy':
+helper_fns.c:(.text+0x747): undefined reference to `pthread_getspecific'
+helper_fns.c:(.text+0x773): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(commutil.o): In function `MPIR_Get_contextid':
+commutil.c:(.text+0x2fc): undefined reference to `pthread_mutex_unlock'
+commutil.c:(.text+0x30b): undefined reference to `pthread_mutex_lock'
+commutil.c:(.text+0x33c): undefined reference to `pthread_mutex_unlock'
+commutil.c:(.text+0x34b): undefined reference to `pthread_mutex_lock'
+commutil.c:(.text+0x4ce): undefined reference to `pthread_getspecific'
+commutil.c:(.text+0x4fa): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(commutil.o): In function `MPIR_Get_intercomm_contextid':
+commutil.c:(.text+0x73d): undefined reference to `pthread_getspecific'
+commutil.c:(.text+0x769): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `MPIR_Err_print_stack':
+errutil.c:(.text+0x215): undefined reference to `pthread_mutex_unlock'
+errutil.c:(.text+0x221): undefined reference to `pthread_mutex_lock'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `MPIR_Err_combine_codes':
+errutil.c:(.text+0x374): undefined reference to `pthread_mutex_unlock'
+errutil.c:(.text+0x380): undefined reference to `pthread_mutex_lock'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `checkForUserErrcode':
+errutil.c:(.text+0x3b7): undefined reference to `pthread_mutex_unlock'
+errutil.c:(.text+0x419): undefined reference to `pthread_mutex_lock'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `MPIR_Err_get_string':
+errutil.c:(.text+0x5b5): undefined reference to `pthread_mutex_unlock'
+errutil.c:(.text+0x61d): undefined reference to `pthread_mutex_lock'
+errutil.c:(.text+0xb2b): undefined reference to `pthread_mutex_unlock'
+errutil.c:(.text+0xb3a): undefined reference to `pthread_mutex_lock'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `MPIR_Err_create_code_valist':
+errutil.c:(.text+0x101a): undefined reference to `pthread_mutex_unlock'
+errutil.c:(.text+0x106b): undefined reference to `pthread_mutex_lock'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `MPIR_Err_init':
+errutil.c:(.text+0x1f5c): undefined reference to `pthread_mutex_init'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `MPIR_Nest_decr_export':
+errutil.c:(.text+0x1fdc): undefined reference to `pthread_getspecific'
+errutil.c:(.text+0x2004): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `MPIR_Nest_incr_export':
+errutil.c:(.text+0x202c): undefined reference to `pthread_getspecific'
+errutil.c:(.text+0x2054): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `MPIR_Err_return_comm':
+errutil.c:(.text+0x221f): undefined reference to `pthread_getspecific'
+errutil.c:(.text+0x224b): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(errutil.o): In function `MPIR_Err_return_win':
+errutil.c:(.text+0x234b): undefined reference to `pthread_getspecific'
+errutil.c:(.text+0x2373): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(initthread.o): In function `MPIR_Init_thread':
+initthread.c:(.text+0x38): undefined reference to `pthread_self'
+initthread.c:(.text+0x32e): undefined reference to `pthread_getspecific'
+initthread.c:(.text+0x354): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(initthread.o): In function `MPI_Init_thread':
+initthread.c:(.text+0x3eb): undefined reference to `pthread_mutex_init'
+initthread.c:(.text+0x3fa): undefined reference to `pthread_key_create'
+initthread.c:(.text+0x462): undefined reference to `pthread_mutex_unlock'
+initthread.c:(.text+0x4d9): undefined reference to `pthread_key_delete'
+initthread.c:(.text+0x4e3): undefined reference to `pthread_mutex_destroy'
+initthread.c:(.text+0x517): undefined reference to `pthread_getspecific'
+initthread.c:(.text+0x543): undefined reference to `pthread_setspecific'
+initthread.c:(.text+0x556): undefined reference to `pthread_mutex_lock'
+initthread.c:(.text+0x567): undefined reference to `pthread_getspecific'
+initthread.c:(.text+0x593): undefined reference to `pthread_setspecific'
+initthread.c:(.text+0x5a6): undefined reference to `pthread_mutex_unlock'
+initthread.c:(.text+0x5bf): undefined reference to `pthread_getspecific'
+initthread.c:(.text+0x5dc): undefined reference to `pthread_setspecific'
+initthread.c:(.text+0x5ec): undefined reference to `pthread_getspecific'
+initthread.c:(.text+0x618): undefined reference to `pthread_setspecific'
+initthread.c:(.text+0x63d): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(finalize.o): In function `MPI_Finalize':
+finalize.c:(.text+0x19c): undefined reference to `pthread_getspecific'
+finalize.c:(.text+0x1c7): undefined reference to `pthread_getspecific'
+finalize.c:(.text+0x1e8): undefined reference to `pthread_setspecific'
+finalize.c:(.text+0x1f3): undefined reference to `pthread_key_delete'
+finalize.c:(.text+0x1fd): undefined reference to `pthread_mutex_destroy'
+finalize.c:(.text+0x27a): undefined reference to `pthread_getspecific'
+finalize.c:(.text+0x29a): undefined reference to `pthread_mutex_unlock'
+finalize.c:(.text+0x2aa): undefined reference to `pthread_getspecific'
+finalize.c:(.text+0x2c8): undefined reference to `pthread_mutex_lock'
+finalize.c:(.text+0x2d7): undefined reference to `pthread_mutex_unlock'
+finalize.c:(.text+0x2fc): undefined reference to `pthread_setspecific'
+finalize.c:(.text+0x321): undefined reference to `pthread_setspecific'
+finalize.c:(.text+0x343): undefined reference to `pthread_setspecific'
+finalize.c:(.text+0x368): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(ch3_progress.o): In function `MPIDI_CH3I_Progress_finalize':
+ch3_progress.c:(.text+0x124): undefined reference to `pthread_cond_destroy'
+/share/apps/mpich2-install/lib/libmpich.a(ch3_progress.o): In function `MPIDI_CH3I_Progress_init':
+ch3_progress.c:(.text+0x1f8): undefined reference to `pthread_cond_init'
+/share/apps/mpich2-install/lib/libmpich.a(ch3_progress.o): In function `MPIDI_CH3I_Progress':
+ch3_progress.c:(.text+0xfcb): undefined reference to `pthread_cond_wait'
+ch3_progress.c:(.text+0x10f5): undefined reference to `pthread_cond_broadcast'
+/share/apps/mpich2-install/lib/libmpich.a(ch3u_handle_recv_pkt.o): In function `MPIDI_CH3_PktHandler_Accumulate':
+ch3u_handle_recv_pkt.c:(.text+0x1e87): undefined reference to `pthread_getspecific'
+ch3u_handle_recv_pkt.c:(.text+0x1eb3): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(ch3u_handle_recv_req.o): In function `MPIDI_CH3_ReqHandler_AccumRespDerivedDTComplete':
+ch3u_handle_recv_req.c:(.text+0x10c9): undefined reference to `pthread_getspecific'
+ch3u_handle_recv_req.c:(.text+0x10f5): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(ch3u_handle_recv_req.o): In function `MPIDI_CH3_ReqHandler_PutAccumRespComplete':
+ch3u_handle_recv_req.c:(.text+0x1647): undefined reference to `pthread_getspecific'
+ch3u_handle_recv_req.c:(.text+0x1673): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(mpid_finalize.o): In function `MPID_Finalize':
+mpid_finalize.c:(.text+0xeb): undefined reference to `pthread_getspecific'
+mpid_finalize.c:(.text+0x117): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(mpid_type_debug.o): In function `MPIDI_Datatype_printf':
+mpid_type_debug.c:(.text+0x7da): undefined reference to `pthread_getspecific'
+mpid_type_debug.c:(.text+0x802): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(allreduce.o): In function `MPIR_Allreduce_inter':
+allreduce.c:(.text+0x1ce): undefined reference to `pthread_getspecific'
+allreduce.c:(.text+0x1fe): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(allreduce.o): In function `MPIR_Allreduce':
+allreduce.c:(.text+0x54c): undefined reference to `pthread_getspecific'
+allreduce.c:(.text+0x57c): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(allreduce.o): In function `MPI_Allreduce':
+allreduce.c:(.text+0x13c7): undefined reference to `pthread_getspecific'
+allreduce.c:(.text+0x13e9): undefined reference to `pthread_mutex_unlock'
+allreduce.c:(.text+0x13f9): undefined reference to `pthread_getspecific'
+allreduce.c:(.text+0x1419): undefined reference to `pthread_mutex_lock'
+allreduce.c:(.text+0x1593): undefined reference to `pthread_setspecific'
+allreduce.c:(.text+0x15eb): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(op_create.o): In function `MPI_Op_create':
+op_create.c:(.text+0xa7): undefined reference to `pthread_getspecific'
+op_create.c:(.text+0xc3): undefined reference to `pthread_mutex_unlock'
+op_create.c:(.text+0xd7): undefined reference to `pthread_getspecific'
+op_create.c:(.text+0xf7): undefined reference to `pthread_mutex_lock'
+op_create.c:(.text+0x19b): undefined reference to `pthread_setspecific'
+op_create.c:(.text+0x1c0): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(reduce.o): In function `MPIR_Reduce':
+reduce.c:(.text+0x466): undefined reference to `pthread_getspecific'
+reduce.c:(.text+0x49c): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(reduce.o): In function `MPIR_Reduce_inter':
+reduce.c:(.text+0x1513): undefined reference to `pthread_getspecific'
+reduce.c:(.text+0x1543): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(reduce.o): In function `MPI_Reduce':
+reduce.c:(.text+0x197a): undefined reference to `pthread_getspecific'
+reduce.c:(.text+0x199a): undefined reference to `pthread_mutex_unlock'
+reduce.c:(.text+0x19aa): undefined reference to `pthread_getspecific'
+reduce.c:(.text+0x19cc): undefined reference to `pthread_mutex_lock'
+reduce.c:(.text+0x1fe3): undefined reference to `pthread_setspecific'
+reduce.c:(.text+0x203f): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(gather.o): In function `MPI_Gather':
+gather.c:(.text+0x1177): undefined reference to `pthread_getspecific'
+gather.c:(.text+0x1199): undefined reference to `pthread_mutex_unlock'
+gather.c:(.text+0x11a9): undefined reference to `pthread_getspecific'
+gather.c:(.text+0x11cb): undefined reference to `pthread_mutex_lock'
+gather.c:(.text+0x1658): undefined reference to `pthread_setspecific'
+gather.c:(.text+0x16a1): undefined reference to `pthread_setspecific'
+gather.c:(.text+0x19f7): undefined reference to `pthread_getspecific'
+gather.c:(.text+0x1a23): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opsum.o): In function `MPIR_SUM':
+opsum.c:(.text+0x580): undefined reference to `pthread_getspecific'
+opsum.c:(.text+0x5ac): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opmax.o): In function `MPIR_MAXF':
+opmax.c:(.text+0x50f): undefined reference to `pthread_getspecific'
+opmax.c:(.text+0x53b): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opmin.o): In function `MPIR_MINF':
+opmin.c:(.text+0x50f): undefined reference to `pthread_getspecific'
+opmin.c:(.text+0x53b): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opband.o): In function `MPIR_BAND':
+opband.c:(.text+0x364): undefined reference to `pthread_getspecific'
+opband.c:(.text+0x390): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opbor.o): In function `MPIR_BOR':
+opbor.c:(.text+0x364): undefined reference to `pthread_getspecific'
+opbor.c:(.text+0x390): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opbxor.o): In function `MPIR_BXOR':
+opbxor.c:(.text+0x364): undefined reference to `pthread_getspecific'
+opbxor.c:(.text+0x390): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opland.o): In function `MPIR_LAND':
+opland.c:(.text+0x5ba): undefined reference to `pthread_getspecific'
+opland.c:(.text+0x5e6): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(oplor.o): In function `MPIR_LOR':
+oplor.c:(.text+0x5c6): undefined reference to `pthread_getspecific'
+oplor.c:(.text+0x5f2): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(oplxor.o): In function `MPIR_LXOR':
+oplxor.c:(.text+0x62e): undefined reference to `pthread_getspecific'
+oplxor.c:(.text+0x65a): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opprod.o): In function `MPIR_PROD':
+opprod.c:(.text+0x5d3): undefined reference to `pthread_getspecific'
+opprod.c:(.text+0x5ff): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opminloc.o): In function `MPIR_MINLOC':
+opminloc.c:(.text+0x347): undefined reference to `pthread_getspecific'
+opminloc.c:(.text+0x373): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(opmaxloc.o): In function `MPIR_MAXLOC':
+opmaxloc.c:(.text+0x354): undefined reference to `pthread_getspecific'
+opmaxloc.c:(.text+0x380): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(comm_create.o): In function `MPI_Comm_create':
+comm_create.c:(.text+0x4fe): undefined reference to `pthread_getspecific'
+comm_create.c:(.text+0x51e): undefined reference to `pthread_mutex_unlock'
+comm_create.c:(.text+0x52e): undefined reference to `pthread_getspecific'
+comm_create.c:(.text+0x55d): undefined reference to `pthread_getspecific'
+comm_create.c:(.text+0x593): undefined reference to `pthread_setspecific'
+comm_create.c:(.text+0x68a): undefined reference to `pthread_mutex_lock'
+comm_create.c:(.text+0x6c8): undefined reference to `pthread_setspecific'
+comm_create.c:(.text+0x725): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(comm_dup.o): In function `MPI_Comm_dup':
+comm_dup.c:(.text+0x18c): undefined reference to `pthread_getspecific'
+comm_dup.c:(.text+0x1ac): undefined reference to `pthread_mutex_unlock'
+comm_dup.c:(.text+0x1c7): undefined reference to `pthread_getspecific'
+comm_dup.c:(.text+0x1e7): undefined reference to `pthread_mutex_lock'
+comm_dup.c:(.text+0x2ef): undefined reference to `pthread_setspecific'
+comm_dup.c:(.text+0x334): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(comm_free.o): In function `MPI_Comm_free':
+comm_free.c:(.text+0x177): undefined reference to `pthread_getspecific'
+comm_free.c:(.text+0x197): undefined reference to `pthread_mutex_unlock'
+comm_free.c:(.text+0x1ad): undefined reference to `pthread_getspecific'
+comm_free.c:(.text+0x1cd): undefined reference to `pthread_mutex_lock'
+comm_free.c:(.text+0x2aa): undefined reference to `pthread_setspecific'
+comm_free.c:(.text+0x328): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(comm_group.o): In function `MPI_Comm_group':
+comm_group.c:(.text+0x19b): undefined reference to `pthread_getspecific'
+comm_group.c:(.text+0x1bb): undefined reference to `pthread_mutex_unlock'
+comm_group.c:(.text+0x1cb): undefined reference to `pthread_getspecific'
+comm_group.c:(.text+0x1eb): undefined reference to `pthread_mutex_lock'
+comm_group.c:(.text+0x2b8): undefined reference to `pthread_setspecific'
+comm_group.c:(.text+0x2fd): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(type_indexed.o): In function `MPI_Type_indexed':
+type_indexed.c:(.text+0x257): undefined reference to `pthread_getspecific'
+type_indexed.c:(.text+0x273): undefined reference to `pthread_mutex_unlock'
+type_indexed.c:(.text+0x280): undefined reference to `pthread_getspecific'
+type_indexed.c:(.text+0x2a0): undefined reference to `pthread_mutex_lock'
+type_indexed.c:(.text+0x58d): undefined reference to `pthread_setspecific'
+type_indexed.c:(.text+0x5e0): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(type_free.o): In function `MPI_Type_free':
+type_free.c:(.text+0x1a7): undefined reference to `pthread_getspecific'
+type_free.c:(.text+0x1c7): undefined reference to `pthread_mutex_unlock'
+type_free.c:(.text+0x267): undefined reference to `pthread_getspecific'
+type_free.c:(.text+0x287): undefined reference to `pthread_mutex_lock'
+type_free.c:(.text+0x33e): undefined reference to `pthread_setspecific'
+type_free.c:(.text+0x363): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(type_create_struct.o): In function `MPI_Type_create_struct':
+type_create_struct.c:(.text+0x37e): undefined reference to `pthread_getspecific'
+type_create_struct.c:(.text+0x39e): undefined reference to `pthread_mutex_unlock'
+type_create_struct.c:(.text+0x40e): undefined reference to `pthread_getspecific'
+type_create_struct.c:(.text+0x42e): undefined reference to `pthread_mutex_lock'
+type_create_struct.c:(.text+0x551): undefined reference to `pthread_setspecific'
+type_create_struct.c:(.text+0x599): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(group_excl.o): In function `MPI_Group_excl':
+group_excl.c:(.text+0x28c): undefined reference to `pthread_getspecific'
+group_excl.c:(.text+0x2ac): undefined reference to `pthread_mutex_unlock'
+group_excl.c:(.text+0x2bc): undefined reference to `pthread_getspecific'
+group_excl.c:(.text+0x2dc): undefined reference to `pthread_mutex_lock'
+group_excl.c:(.text+0x3a2): undefined reference to `pthread_setspecific'
+group_excl.c:(.text+0x3fa): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(group_incl.o): In function `MPI_Group_incl':
+group_incl.c:(.text+0x1b7): undefined reference to `pthread_getspecific'
+group_incl.c:(.text+0x1d7): undefined reference to `pthread_mutex_unlock'
+group_incl.c:(.text+0x1e7): undefined reference to `pthread_getspecific'
+group_incl.c:(.text+0x207): undefined reference to `pthread_mutex_lock'
+group_incl.c:(.text+0x2bf): undefined reference to `pthread_setspecific'
+group_incl.c:(.text+0x38f): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(init.o): In function `MPI_Init':
+init.c:(.text+0x26): undefined reference to `pthread_mutex_init'
+init.c:(.text+0x3a): undefined reference to `pthread_key_create'
+init.c:(.text+0x9e): undefined reference to `pthread_mutex_unlock'
+init.c:(.text+0x118): undefined reference to `pthread_key_delete'
+init.c:(.text+0x122): undefined reference to `pthread_mutex_destroy'
+init.c:(.text+0x148): undefined reference to `pthread_getspecific'
+init.c:(.text+0x174): undefined reference to `pthread_setspecific'
+init.c:(.text+0x186): undefined reference to `pthread_mutex_lock'
+init.c:(.text+0x197): undefined reference to `pthread_getspecific'
+init.c:(.text+0x1c3): undefined reference to `pthread_setspecific'
+init.c:(.text+0x1d6): undefined reference to `pthread_mutex_unlock'
+init.c:(.text+0x1ef): undefined reference to `pthread_getspecific'
+init.c:(.text+0x20c): undefined reference to `pthread_setspecific'
+init.c:(.text+0x21c): undefined reference to `pthread_getspecific'
+init.c:(.text+0x248): undefined reference to `pthread_setspecific'
+init.c:(.text+0x26d): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(irecv.o): In function `MPI_Irecv':
+irecv.c:(.text+0x317): undefined reference to `pthread_getspecific'
+irecv.c:(.text+0x337): undefined reference to `pthread_mutex_unlock'
+irecv.c:(.text+0x347): undefined reference to `pthread_getspecific'
+irecv.c:(.text+0x369): undefined reference to `pthread_mutex_lock'
+irecv.c:(.text+0x630): undefined reference to `pthread_setspecific'
+irecv.c:(.text+0x675): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(recv.o): In function `MPI_Recv':
+recv.c:(.text+0x428): undefined reference to `pthread_getspecific'
+recv.c:(.text+0x448): undefined reference to `pthread_mutex_unlock'
+recv.c:(.text+0x458): undefined reference to `pthread_getspecific'
+recv.c:(.text+0x47a): undefined reference to `pthread_mutex_lock'
+recv.c:(.text+0x5c1): undefined reference to `pthread_setspecific'
+recv.c:(.text+0x634): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(send.o): In function `MPI_Send':
+send.c:(.text+0x2f9): undefined reference to `pthread_getspecific'
+send.c:(.text+0x319): undefined reference to `pthread_mutex_unlock'
+send.c:(.text+0x329): undefined reference to `pthread_getspecific'
+send.c:(.text+0x34b): undefined reference to `pthread_mutex_lock'
+send.c:(.text+0x670): undefined reference to `pthread_setspecific'
+send.c:(.text+0x6b5): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(wait.o): In function `MPI_Wait':
+wait.c:(.text+0x1aa): undefined reference to `pthread_getspecific'
+wait.c:(.text+0x1c6): undefined reference to `pthread_mutex_unlock'
+wait.c:(.text+0x207): undefined reference to `pthread_getspecific'
+wait.c:(.text+0x227): undefined reference to `pthread_mutex_lock'
+wait.c:(.text+0x2be): undefined reference to `pthread_setspecific'
+wait.c:(.text+0x2e3): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(mpir_request.o): In function `MPIR_Request_get_error':
+mpir_request.c:(.text+0x43f): undefined reference to `pthread_getspecific'
+mpir_request.c:(.text+0x461): undefined reference to `pthread_setspecific'
+mpir_request.c:(.text+0x57b): undefined reference to `pthread_getspecific'
+mpir_request.c:(.text+0x5a7): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(mpir_request.o): In function `MPIR_Request_complete':
+mpir_request.c:(.text+0x854): undefined reference to `pthread_getspecific'
+mpir_request.c:(.text+0x880): undefined reference to `pthread_setspecific'
+mpir_request.c:(.text+0x923): undefined reference to `pthread_getspecific'
+mpir_request.c:(.text+0x94f): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(mpidtime.o): In function `MPID_Wtick':
+mpidtime.c:(.text+0x195): undefined reference to `pthread_getspecific'
+mpidtime.c:(.text+0x1b1): undefined reference to `pthread_mutex_unlock'
+mpidtime.c:(.text+0x1be): undefined reference to `pthread_getspecific'
+mpidtime.c:(.text+0x1da): undefined reference to `pthread_mutex_lock'
+mpidtime.c:(.text+0x234): undefined reference to `pthread_setspecific'
+mpidtime.c:(.text+0x256): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(sock.o): In function `MPIDU_Sock_wait':
+sock.c:(.text+0x141e): undefined reference to `pthread_mutex_unlock'
+sock.c:(.text+0x143a): undefined reference to `pthread_mutex_lock'
+/share/apps/mpich2-install/lib/libmpich.a(ch3u_comm_spawn_multiple.o): In function `MPIDI_Comm_spawn_multiple':
+ch3u_comm_spawn_multiple.c:(.text+0x2e6): undefined reference to `pthread_getspecific'
+ch3u_comm_spawn_multiple.c:(.text+0x316): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(info_get.o): In function `MPI_Info_get':
+info_get.c:(.text+0x228): undefined reference to `pthread_getspecific'
+info_get.c:(.text+0x248): undefined reference to `pthread_mutex_unlock'
+info_get.c:(.text+0x258): undefined reference to `pthread_getspecific'
+info_get.c:(.text+0x278): undefined reference to `pthread_mutex_lock'
+info_get.c:(.text+0x328): undefined reference to `pthread_setspecific'
+info_get.c:(.text+0x399): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(info_getn.o): In function `MPI_Info_get_nkeys':
+info_getn.c:(.text+0x188): undefined reference to `pthread_getspecific'
+info_getn.c:(.text+0x1a8): undefined reference to `pthread_mutex_unlock'
+info_getn.c:(.text+0x1b8): undefined reference to `pthread_getspecific'
+info_getn.c:(.text+0x1d8): undefined reference to `pthread_mutex_lock'
+info_getn.c:(.text+0x26c): undefined reference to `pthread_setspecific'
+info_getn.c:(.text+0x291): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(info_getnth.o): In function `MPI_Info_get_nthkey':
+info_getnth.c:(.text+0x1a7): undefined reference to `pthread_getspecific'
+info_getnth.c:(.text+0x1c7): undefined reference to `pthread_mutex_unlock'
+info_getnth.c:(.text+0x1d7): undefined reference to `pthread_getspecific'
+info_getnth.c:(.text+0x1f7): undefined reference to `pthread_mutex_lock'
+info_getnth.c:(.text+0x2a5): undefined reference to `pthread_setspecific'
+info_getnth.c:(.text+0x301): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(info_getvallen.o): In function `MPI_Info_get_valuelen':
+info_getvallen.c:(.text+0x217): undefined reference to `pthread_getspecific'
+info_getvallen.c:(.text+0x237): undefined reference to `pthread_mutex_unlock'
+info_getvallen.c:(.text+0x247): undefined reference to `pthread_getspecific'
+info_getvallen.c:(.text+0x267): undefined reference to `pthread_mutex_lock'
+info_getvallen.c:(.text+0x317): undefined reference to `pthread_setspecific'
+info_getvallen.c:(.text+0x388): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(type_vector.o): In function `MPI_Type_vector':
+type_vector.c:(.text+0x25c): undefined reference to `pthread_getspecific'
+type_vector.c:(.text+0x27c): undefined reference to `pthread_mutex_unlock'
+type_vector.c:(.text+0x2ac): undefined reference to `pthread_getspecific'
+type_vector.c:(.text+0x2cc): undefined reference to `pthread_mutex_lock'
+type_vector.c:(.text+0x442): undefined reference to `pthread_setspecific'
+type_vector.c:(.text+0x467): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(type_struct.o): In function `MPI_Type_struct':
+type_struct.c:(.text+0xf7): undefined reference to `pthread_getspecific'
+type_struct.c:(.text+0x113): undefined reference to `pthread_mutex_unlock'
+type_struct.c:(.text+0x423): undefined reference to `pthread_getspecific'
+type_struct.c:(.text+0x443): undefined reference to `pthread_mutex_lock'
+type_struct.c:(.text+0x566): undefined reference to `pthread_setspecific'
+type_struct.c:(.text+0x595): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(type_contiguous.o): In function `MPI_Type_contiguous':
+type_contiguous.c:(.text+0x1f7): undefined reference to `pthread_getspecific'
+type_contiguous.c:(.text+0x217): undefined reference to `pthread_mutex_unlock'
+type_contiguous.c:(.text+0x297): undefined reference to `pthread_getspecific'
+type_contiguous.c:(.text+0x2b7): undefined reference to `pthread_mutex_lock'
+type_contiguous.c:(.text+0x389): undefined reference to `pthread_setspecific'
+type_contiguous.c:(.text+0x3d8): undefined reference to `pthread_setspecific'
+/share/apps/mpich2-install/lib/libmpich.a(type_hvector.o): In function `MPI_Type_hvector':
+type_hvector.c:(.text+0x22c): undefined reference to `pthread_getspecific'
+type_hvector.c:(.text+0x24c): undefined reference to `pthread_mutex_unlock'
+type_hvector.c:(.text+0x287): undefined reference to `pthread_getspecific'
+type_hvector.c:(.text+0x2a7): undefined reference to `pthread_mutex_lock'
+type_hvector.c:(.text+0x44c): undefined reference to `pthread_setspecific'
+type_hvector.c:(.text+0x489): undefined reference to `pthread_setspecific'
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/libgcc_eh.a(unwind-dw2-fde-glibc.o): In function `__deregister_frame_info_bases':
+(.text+0x10bc): undefined reference to `pthread_mutex_lock'
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/libgcc_eh.a(unwind-dw2-fde-glibc.o): In function `__deregister_frame_info_bases':
+(.text+0x10cd): undefined reference to `pthread_mutex_unlock'
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/libgcc_eh.a(unwind-dw2-fde-glibc.o): In function `__register_frame_info_table_bases':
+(.text+0x117f): undefined reference to `pthread_mutex_lock'
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/libgcc_eh.a(unwind-dw2-fde-glibc.o): In function `__register_frame_info_bases':
+(.text+0x1238): undefined reference to `pthread_mutex_lock'
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/libgcc_eh.a(unwind-dw2-fde-glibc.o): In function `_Unwind_Find_FDE':
+(.text+0x14b6): undefined reference to `pthread_mutex_unlock'
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/libgcc_eh.a(unwind-dw2-fde-glibc.o): In function `_Unwind_Find_FDE':
+(.text+0x14c7): undefined reference to `pthread_mutex_lock'
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/libgcc_eh.a(unwind-dw2-fde-glibc.o): In function `__register_frame_info_table_bases':
+(.text+0x119e): undefined reference to `pthread_mutex_unlock'
+/usr/lib/gcc/x86_64-redhat-linux/4.1.2/libgcc_eh.a(unwind-dw2-fde-glibc.o): In function `__register_frame_info_bases':
+(.text+0x1257): undefined reference to `pthread_mutex_unlock'
+In build_main (build) Version 2.80 April 2002
+Architecture Build Information:
+Build Date:
+
+Default Fortran Compiler: /share/apps/pgi/linux86-64/6.0/bin/pgf90
+Default C Compiler: cc
+Default C++ Compiler: C++
+
+Files used for this build date:
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d ctm_yamo  ctm_yamo 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d par  par 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d init_yamo  init_yamo 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d gencoor  gencoor 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d hyamo  hyamo 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d vyamo  vyamo 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d multiscale  multiscale 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d acm2  acm2 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d phot  phot 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d ping_noop  ping_noop 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d ebi_cb05  ebi_cb05 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d aero4  aero4 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d aero_depv2  aero_depv2 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d cloud_acm  cloud_acm 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d pa  pa 
+
+ CVS command = cvs -d $CVSROOT -r export -r HEAD -d util  util 
+/share/apps/pgi/linux86-64/6.0/bin/pgf90 -Bstatic VGRD_DEFN.o CGRID_SPCS.o HGRD_DEFN.o GRID_CONF.o PCGRID_DEFN.o STD_CONC.o AVG_CONC.o WVEL_DEFN.o AERO_EMIS.o hrdata_mod.o AERO_INFO_AE4.o SOA_NEWT.o PAGRD_DEFN.o advstep.o driver.o hcontvel.o sciproc.o wr_aconc.o wr_cgrid.o wr_conc.o distr_env.o par_init.o par_term.o diffmsg.o flcheck.o grdcheck.o initscen.o load_cgrid.o opconc.o setup_logdev.o couple.o ppmv_msmr.o advbc_map.o hadvyppm.o hppm.o rdbcon.o x_ppm.o x_yamo.o y_ppm.o y_yamo.o zfdbc.o zadvyamo.o deform.o hcdiff3d.o hdiff.o rho_j.o conv_cgrid.o eddyx.o matrix.o opddep.o opemis.o opmet.o opssemis.o rddepv.o rdemis.o rdmet.o ssemis.o tri.o vdiff_map.o vdiffacm2.o phot.o ping_noop.o hrcalcks.o hrdriver.o hrg1.o hrg2.o hrg3.o hrg4.o hrinit.o hrprodloss.o hrrates.o hrsolver.o aero_driver.o aero_subs.o isocom.o isofwd.o isorev.o opdiam.o opvis.o aero_depv.o acmcld.o aq_map.o aqchem.o cldproc_acm.o convcld_acm.o getalpha.o hlconst.o indexn.o rescld.o scavwdep.o set_aeconcmin.o pa_init.o pa_irr.o pa_irr_ctl.o pa_mkhdr.o pa_output.o pa_update.o cksummer.o findex.o get_envlist.o lstepf.o subhdomain.o subhfile.o  -L/home/root/AQM/CMAQ4.6/lib/stenex/Linux -lse_snl -L/home/root/AQM/CMAQ4.6/lib/pario/Linux -lpario  -L/share/apps/mpich2-install/lib -lmpich -L/home/root/AQM/CMAQ4.6/lib/ioapi_3/Linux2_x86pg -lioapi -L/home/root/AQM/CMAQ4.6/lib/netCDF/Linux -lnetcdf -o CCTM_e3a
+
+endif
+if ( 0 != 0 ) then
+if ( -e /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/cfg.e3a ) then
+echo    >>> previous cfg.e3a exists, re-naming to cfg.e3a.old <<<
+   >>> previous cfg.e3a exists, re-naming to cfg.e3a.old <<<
+unalias mv
+mv /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/cfg.e3a /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/cfg.e3a.old
+endif
+cp cfg.e3a.bld /home/root/AQM/CMAQ4.6/TEST/scripts/cctm/cfg.e3a
+if ( ( verbose != no_compile ) && ( verbose != no_link ) && ( verbose != parse_only ) && ( verbose != show_only ) && 1 ) then
+mv CCTM_e3a /home/root/AQM/CMAQ4.6/TEST/scripts/cctm
+mv: cannot stat `CCTM_e3a': No such file or directory
+endif
+exit

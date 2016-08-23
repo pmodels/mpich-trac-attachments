@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #577: 64 bit systems</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; You will need Intel fortran compiler which can create 64-bit executables (The compiler itself does not have to be 64-bit) if you need to compile fortran MPI programs using MPICH2. You need to install Visual Studio (The compiler allows you to create 32-bit &amp; 64-bit code) compiler if you want to compile C MPI programs using MPICH2.<BR>
+<BR>
+(PS: Intel Visual Fortran compiler also comes with a Visual Studio plugin. After installing the plugin you can compile your fortran programs from within visual studio IDE.)<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Thursday, May 07, 2009 6:57 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #577: 64 bit systems<BR>
+<BR>
+--------------------------------------------+---------------------------<BR>
+--------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Nikos Pelekasis&quot; &lt;pel@uth.gr&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+--------------------------------------------+---------------------------<BR>
+--------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;I want to install mpich2 to my laptop where I have installed vista windows&nbsp; on a 64 bit intel processor (centrino). Do I also need to install the 64&nbsp; bit&nbsp; version of intel fortran and the 64 bit version of Visual studio?<BR>
+<BR>
+&nbsp;Sincerely,<BR>
+<BR>
+&nbsp;Dr. Nikos Pelekasis<BR>
+&nbsp;Associate Professor of Computational Fluid Dynamics&nbsp; Dept. Mechanical Engineering, University of Thessaly&nbsp; Pedion Areos, Volos 38334<BR>
+&nbsp;Tel: ++30-24210-74102,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fax: ++30-24210-74050<BR>
+&nbsp;Internet: <A HREF="http://www.mie.uth.gr/Pelekasis">http://www.mie.uth.gr/Pelekasis</A><BR>
+<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/577">https://trac.mcs.anl.gov/projects/mpich2/ticket/577</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

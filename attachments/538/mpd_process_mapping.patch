@@ -1,0 +1,221 @@
+commit 454c26e66f5e65bd63698529e5ec0a2781d6c28c
+Author: Dave Goodell <goodell@mcs.anl.gov>
+Date:   Tue May 19 18:01:55 2009 -0500
+
+    Add "process_mapping" PMI key to MPD (ticket #538).
+    
+    Once combined with Darius' pending changes to read the new key, this
+    change should greatly reduce the MPI_Init time when using hierarchical
+    collectives.
+    
+    No reviewer.
+
+diff --git a/src/pm/mpd/mpd.py b/src/pm/mpd/mpd.py
+index cd40a9b..c687cb1 100755
+--- a/src/pm/mpd/mpd.py
++++ b/src/pm/mpd/mpd.py
+@@ -630,6 +630,8 @@ class MPD(object):
+             msg['first_loop'] = 1
+             msg['ringsize'] = 0
+             msg['ring_ncpus'] = 0
++            # maps rank => hostname
++            msg['process_mapping'] = {}
+             if msg.has_key('try_1st_locally'):
+                 self.do_mpdrun(msg)
+             else:
+@@ -797,6 +799,8 @@ class MPD(object):
+             msg['gdba'] = ''
+             msg['totalview'] = 0
+             msg['ifhns'] = {}
++            # maps rank => hostname
++            msg['process_mapping'] = {}
+             self.spawnQ.append(msg)
+         elif msg['cmd'] == 'publish_name':
+             self.pmi_published_names[msg['service']] = msg['port']
+@@ -826,6 +830,43 @@ class MPD(object):
+             msgToSend = { 'cmd' : 'invalid_request' }
+             sock.send_dict_msg(msgToSend)
+ 
++    def calculate_process_mapping(self,mapping_dict):
++        ranks = list(mapping_dict.keys())
++        ranks.sort()
++        host_to_ranks = {}
++        for rank in ranks:
++            host = mapping_dict[rank]
++            if not host_to_ranks.has_key(host):
++                host_to_ranks[host] = set([])
++            host_to_ranks[host].add(rank)
++
++        # we only handle two cases for now:
++        # 1. block regular
++        # 2. round-robin regular
++        # we do handle a "remainder node" that might not be full
++        delta = -1
++        max_ranks_per_host = 0
++        for host in host_to_ranks.keys():
++            last_rank = -1
++            if len(host_to_ranks[host]) > max_ranks_per_host:
++                max_ranks_per_host = len(host_to_ranks[host])
++            ranks = list(host_to_ranks[host])
++            ranks.sort()
++            for rank in ranks:
++                if last_rank != -1:
++                    if delta == -1:
++                        delta = rank - last_rank
++                    elif (rank - last_rank) != delta:
++                        # we have detected an irregular case, bail
++                        return ''
++                last_rank = rank
++        if delta == 1:
++            return '(block,(%d,%d))' % (max_ranks_per_host,len(host_to_ranks.keys()))
++        else:
++            # either we are truly block regular or there is only one process per
++            # node (delta == -1), either way results in the same mapping spec
++            return '(block,(1,1))'
++
+     def handle_lhs_input(self,sock):
+         msg = self.ring.lhsSock.recv_dict_msg()
+         if not msg:    # lost lhs; don't worry
+@@ -841,6 +882,9 @@ class MPD(object):
+                     self.currRingSize = msg['ringsize']
+                     self.currRingNCPUs = msg['ring_ncpus']
+                 if msg['nstarted'] == msg['nprocs']:
++                    # we have started all processes in the job, tell the
++                    # requester this and stop forwarding the mpdrun/spawn
++                    # message around the loop
+                     if msg['cmd'] == 'spawn':
+                         self.spawnInProgress = 0
+                     if self.conSock:
+@@ -848,6 +892,17 @@ class MPD(object):
+                                       'ringsize' : self.currRingSize,
+                                       'ring_ncpus' : self.currRingNCPUs}
+                         self.conSock.send_dict_msg(msgToSend)
++                    # Tell all MPDs in the ring the final process mapping.  In
++                    # turn, they will inform all of their child mpdmans.
++                    # Only do this in the case of a regular mpdrun.  The spawn
++                    # case it too complicated to handle this way right now.
++                    if msg['cmd'] == 'mpdrun':
++                        process_mapping_str = self.calculate_process_mapping(msg['process_mapping'])
++                        msgToSend = { 'cmd' : 'process_mapping',
++                                      'jobid' : msg['jobid'],
++                                      'mpdid_mpdrun_start' : self.myId,
++                                      'process_mapping' : process_mapping_str }
++                        self.ring.rhsSock.send_dict_msg(msgToSend)
+                     return
+                 if not msg['first_loop']  and  msg['nstarted_on_this_loop'] == 0:
+                     if msg.has_key('jobid'):
+@@ -872,6 +927,17 @@ class MPD(object):
+                 msg['first_loop'] = 0
+                 msg['nstarted_on_this_loop'] = 0
+             self.do_mpdrun(msg)
++        elif msg['cmd'] == 'process_mapping':
++            # message transmission terminates once the message has made it all
++            # the way around the loop once
++            if msg['mpdid_mpdrun_start'] != self.myId:
++                self.ring.rhsSock.send_dict_msg(msg) # forward it on around
++
++            # send to all mpdman's for the jobid embedded in the msg
++            jobid = msg['jobid']
++            for manPid in self.activeJobs[jobid]:
++                manSock = self.activeJobs[jobid][manPid]['socktoman']
++                manSock.send_dict_msg(msg)
+         elif msg['cmd'] == 'mpdtrace_info':
+             if msg['dest'] == self.myId:
+                 if self.conSock:
+@@ -1174,6 +1240,7 @@ class MPD(object):
+                     self.logFile.truncate(self.parmdb['MPD_LOGFILE_TRUNC_SZ'])
+             except:
+                 pass
++
+         if msg.has_key('jobid'):
+             jobid = msg['jobid']
+         else:
+@@ -1192,6 +1259,11 @@ class MPD(object):
+                     (lorank,hirank) = ranks
+                     for rank in range(lorank,hirank+1):
+                         self.run_one_cli(rank,msg)
++                        # we use myHost under the assumption that there is only
++                        # one mpd per user on a given host.  The ifhn only
++                        # affects how the MPDs communicate with each other, not
++                        # which host they are on
++                        msg['process_mapping'][rank] = self.myHost
+                         msg['nstarted'] += 1
+                         msg['nstarted_on_this_loop'] += 1
+                     del msg['hosts'][ranks]
+@@ -1204,6 +1276,7 @@ class MPD(object):
+                     hostSpecPool = msg['host_spec_pool']
+                     if self.myIfhn in hostSpecPool  or  self.myHost in hostSpecPool:
+                         self.run_one_cli(lorank,msg)
++                        msg['process_mapping'][lorank] = self.myHost
+                         msg['nstarted'] += 1
+                         msg['nstarted_on_this_loop'] += 1
+                         del msg['hosts'][ranks]
+@@ -1219,11 +1292,14 @@ class MPD(object):
+                     if hosts[ranks] == '_any_':
+                         (lorank,hirank) = ranks
+                         self.run_one_cli(lorank,msg)
++                        msg['process_mapping'][lorank] = self.myHost
+                         msg['nstarted'] += 1
+                         msg['nstarted_on_this_loop'] += 1
+                         del msg['hosts'][ranks]
+                         if lorank < hirank:
+                             msg['hosts'][(lorank+1,hirank)] = '_any_'
++                        # self.activeJobs maps:
++                        # { jobid => { mpdman_pid => {...} } }
+                         procsHereForJob = len(self.activeJobs[jobid].keys())
+                         if procsHereForJob >= self.parmdb['MPD_NCPUS']:
+                             break  # out of for loop
+diff --git a/src/pm/mpd/mpdlib.py b/src/pm/mpd/mpdlib.py
+index d313b05..8ea8a05 100644
+--- a/src/pm/mpd/mpdlib.py
++++ b/src/pm/mpd/mpdlib.py
+@@ -479,7 +479,11 @@ class MPDSock(object):
+                 while 1:
+                     try:
+ 		        mpd_signum = 0
+-                        (readyToRecv,unused1,unused2) = select.select([self.sock],[],[],timeout)
++                        if timeout == -1:
++                            # use -1 to indicate indefinite timeout
++                            (readyToRecv,unused1,unused2) = select.select([self.sock],[],[])
++                        else:
++                            (readyToRecv,unused1,unused2) = select.select([self.sock],[],[],timeout)
+                         break;
+                     except os.error, errinfo:
+                         if errinfo[0] == EINTR:
+diff --git a/src/pm/mpd/mpdman.py b/src/pm/mpd/mpdman.py
+index a215f45..a560fb1 100644
+--- a/src/pm/mpd/mpdman.py
++++ b/src/pm/mpd/mpdman.py
+@@ -373,6 +373,7 @@ class MPDMan(object):
+                       'spawner_manpid' : int(os.environ['MPDMAN_SPAWNER_MANPID']),
+                       'spawner_mpd' : os.environ['MPDMAN_SPAWNER_MPD'] }
+         self.mpdSock.send_dict_msg(msgToSend)
++
+         if not self.subproc:
+             self.streamHandler.set_handler(self.fd_read_cli_stdout,
+                                            self.handle_cli_stdout_input)
+@@ -424,6 +425,24 @@ class MPDMan(object):
+             # rshipSock.close()
+             self.waitPids.append(rshipPid)
+ 
++        if not self.spawned:
++            # receive the final process mapping from our MPD overlords
++            msg = self.mpdSock.recv_dict_msg(timeout=-1)
++
++            # a few defensive checks now to make sure that the various parts of the
++            # code are all on the same page
++            if not msg.has_key('cmd') or msg['cmd'] != 'process_mapping':
++                mpd_print(1,'expected cmd="process_mapping", got cmd="%s" instead' % (msg.get('cmd','**not_present**')))
++                sys.exit(-1)
++            if msg['jobid'] != self.jobid:
++                mpd_print(1,'expected jobid="%s", got jobid="%s" instead' % (self.jobid,msg['jobid']))
++                sys.exit(-1)
++            if not msg.has_key('process_mapping'):
++                mpd_print(1,'expected msg to contain a process_mapping key')
++                sys.exit(-1)
++            self.KVSs[self.default_kvsname]['process_mapping'] = msg['process_mapping']
++
++
+         self.tvReady = 0
+         self.pmiBarrierInRecvd = 0
+         self.holdingPMIBarrierLoop1 = 0

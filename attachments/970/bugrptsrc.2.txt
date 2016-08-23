@@ -1,0 +1,49 @@
+
+-------------- execution log -------------------
+eiki@liveinjapan:~/bonkura$ uname -a
+Linux liveinjapan 2.6.28-11-generic #42-Ubuntu SMP Fri Apr 17 01:57:59 UTC 2009 i686 GNU/Linux
+
+eiki@liveinjapan:~/bonkura$ pwd
+/home/eiki/bonkura
+
+eiki@liveinjapan:~/bonkura$ cat tmp.c 
+#include <stdio.h>
+#include <unistd.h>
+#include <mpi.h>
+
+int Mproc, Nproc;
+
+void mpi_init(int argc, char **argv, int *nproc, int *mproc) {
+int pid;
+char hn[100];
+
+pid=getpid();
+gethostname(hn, 100);
+printf("before Init, hn %s pid %d argc %d\n", hn, pid, argc);
+	MPI_Init(&argc, &argv);
+printf("after  Init, hn %s pid %d\n", hn, pid);
+	MPI_Comm_size(MPI_COMM_WORLD, nproc);
+	MPI_Comm_rank(MPI_COMM_WORLD, mproc);
+printf("after  sz/rnk, hn %s pid %d np %d mp %d\n", hn, pid, *nproc, *mproc);
+	MPI_Finalize();
+}
+
+int main(int argc, char** argv) { mpi_init(argc, argv, &Nproc, &Mproc); }
+
+eiki@liveinjapan:~/bonkura$ mpiexec -host liveinjapan -n 1 /home/eiki/bonkura/a.out : -host carat24 -n 1 /home/eiki/bonkura/a.out  # success, 2 processes
+before Init, hn liveinjapan pid 27162 argc 1
+before Init, hn carat24 pid 32362 argc 1
+after  Init, hn liveinjapan pid 27162
+after  sz/rnk, hn liveinjapan pid 27162 np 2 mp 0
+after  Init, hn carat24 pid 32362
+after  sz/rnk, hn carat24 pid 32362 np 2 mp 1
+
+eiki@liveinjapan:~/bonkura$ mpiexec -host liveinjapan -n 1 /home/eiki/bonkura/a.out : -host carat24 -n 2 /home/eiki/bonkura/a.out  # failure, 3 processes
+before Init, hn liveinjapan pid 27165 argc 1
+before Init, hn carat24 pid 32366 argc 1
+before Init, hn carat24 pid 32365 argc 1
+rank 2 in job 2  liveinjapan_55651   caused collective abort of all ranks
+  exit status of rank 2: killed by signal 9 
+------------------- end log ----------------------
+
+

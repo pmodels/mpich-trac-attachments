@@ -1,0 +1,38 @@
+From e5e33bc6d44db32c10e9ff9d12116cb74c467edb Mon Sep 17 00:00:00 2001
+From: Dave Goodell <goodell@mcs.anl.gov>
+Date: Fri, 7 Dec 2012 13:24:29 -0600
+Subject: [PATCH] AC_FC_FREEFORM: current xlf wants `-qfree=f90`
+
+Previously `-qfree` alone was good enough.  The problem affects MPICH at
+the least:
+
+http://trac.mpich.org/projects/mpich/ticket/1492
+---
+ lib/autoconf/fortran.m4 | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/lib/autoconf/fortran.m4 b/lib/autoconf/fortran.m4
+index 3803595..4ae22e2 100644
+--- a/lib/autoconf/fortran.m4
++++ b/lib/autoconf/fortran.m4
+@@ -1350,7 +1350,7 @@ AC_LANG_POP([Fortran])dnl
+ #        -ffree-form: GNU g77, gfortran, g95
+ #         -FR, -free: Intel compiler (icc, ecc, ifort)
+ #              -free: Compaq compiler (fort), Sun compiler (f95)
+-#             -qfree: IBM compiler (xlf)
++# -qfree=f90, -qfree: IBM compiler (xlf)
+ # -Mfree, -Mfreeform: Portland Group compiler
+ #          -freeform: SGI compiler
+ #        -8, -f free: Absoft Fortran
+@@ -1366,7 +1366,7 @@ AC_CACHE_CHECK([for Fortran flag needed to accept free-form source],
+ 	       [ac_cv_fc_freeform],
+ [ac_cv_fc_freeform=unknown
+ ac_fc_freeform_FCFLAGS_save=$FCFLAGS
+-for ac_flag in none -ffree-form -FR -free -qfree -Mfree -Mfreeform \
++for ac_flag in none -ffree-form -FR -free -qfree=f90 -qfree -Mfree -Mfreeform \
+ 	       -freeform "-f free" -8 +source=free -nfix --nfix -Free
+ do
+   test "x$ac_flag" != xnone && FCFLAGS="$ac_fc_freeform_FCFLAGS_save $ac_flag"
+-- 
+1.8.0.1
+

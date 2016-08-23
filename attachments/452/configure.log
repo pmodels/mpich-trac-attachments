@@ -1,0 +1,1175 @@
+Configure in /tmp/eta/mpich2-1.0 creating cache ./config.cache
+Configuring MPICH2 version 1.0 with -prefix=/home/eta/mpich2-install
+sourcing /home/eta/libraries/mpich2-1.0/src/pm/mpd/setup_pm
+checking for gcc... gcc
+checking whether the C compiler (gcc  ) works... yes
+checking whether the C compiler (gcc  ) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking for g77... no
+checking for f77... f77
+checking whether the Fortran 77 compiler (f77  ) works... yes
+checking whether the Fortran 77 compiler (f77  ) is a cross-compiler... no
+checking whether we are using GNU Fortran 77... no
+checking for f95... f95
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (f95  ) works... yes
+checking whether the Fortran 90 compiler (f95  ) is a cross-compiler... no
+checking whether Fortran 90 works with Fortran 77... no
+checking how to run the C preprocessor... gcc -E
+checking for ar... ar
+checking for ranlib... ranlib
+checking for ranlib... (cached) ranlib
+checking whether global variables handled properly... yes
+checking for a BSD compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking whether install breaks libraries... no
+checking whether mkdir -p works... yes
+checking for perl... /usr/bin/perl
+checking for strerror... yes
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make echos directory changes... yes using --no-print-directory
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for type of weak symbol support... pragma weak
+checking whether __attribute__ ((weak)) allowed... yes
+checking for working const... yes
+checking for volatile... yes
+checking for restrict... __restrict
+checking for inline... inline
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+Using gcc to determine dependencies
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for C struct alignment... four
+checking for alignment restrictions on pointers... int or better
+checking size of char... 1
+checking size of short... 2
+checking size of int... 4
+checking size of long... 4
+checking size of long long... 8
+checking size of float... 4
+checking size of double... 8
+checking size of long double... 12
+checking size of wchar_t... 0
+checking for stddef.h... yes
+checking for sizeof wchar_t... 4
+checking size of void *... 4
+checking for size of float int... 8
+checking for size of double int... 12
+checking for size of long int... 8
+checking for size of short int... 6
+checking for size of 2 int... 8
+checking for size of long double int... 16
+checking for sys/bitypes.h... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking if char * pointers use give byte addresses... yes
+checking for size of MPI_BSEND_OVERHEAD... 59
+checking for size of MPI_Status... 20
+checking for gcc __asm__ and pentium cmpxchgl instruction... yes
+checking for gcc __asm__ and AMD x86_64 cmpxchgq instruction... no
+checking for gcc __asm__ and IA64 xchg4 instruction... no
+checking for ANSI C header files... yes
+checking for stdlib.h... yes
+checking for stdarg.h... yes
+checking for sys/types.h... yes
+checking for inttypes.h... yes
+checking for limits.h... yes
+checking for stddef.h... (cached) yes
+checking for errno.h... yes
+checking for sys/socket.h... yes
+checking for sys/uio.h... yes
+checking for setitimer... yes
+checking for alarm... yes
+checking for vsnprintf... yes
+checking for vsprintf... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for va_copy... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+sourcing /home/eta/libraries/mpich2-1.0/src/mpid/ch3/setup_device
+RUNNING SETUP_DEVICE FOR THE CH3 DEVICE
+sourcing /home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/setup_channel
+RUNNING SETUP_CHANNEL FOR THE SOCK CHANNEL
+sourcing /home/eta/libraries/mpich2-1.0/src/mpid/common/sock/setup
+RUNNING SETUP FOR THE SOCK INTERFACE
+configuring in src/mpi/timer
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/mpi/timer/configure  -prefix=/home/eta/mpich2-install --cache-file=../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpi/timer
+RUNNING CONFIGURE FOR TIMER
+checking for gcc... gcc
+checking whether the C compiler (gcc  ) works... yes
+checking whether the C compiler (gcc  ) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/time.h... yes
+checking for unistd.h... yes
+checking for clock_gettime... no
+checking for clock_getres... no
+checking for gethrtime... no
+checking for gettimeofday... yes
+updating cache /dev/null
+creating ./config.status
+creating Makefile
+creating mpichtimer.h
+creating timerconf.h
+configuring in src/mpid/ch3
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/mpid/ch3/configure  -prefix=/home/eta/mpich2-install --cache-file=../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpid/ch3
+RUNNING CONFIGURE FOR CH3 DEVICE
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make echos directory changes... yes using --no-print-directory
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking how to run the C preprocessor... gcc -E
+checking for assert.h... yes
+checking for limits.h... yes
+checking for string.h... yes
+checking for sys/types.h... yes
+checking for sys/uio.h... yes
+checking for unistd.h... yes
+checking for gethostname... yes
+updating cache 3419conf.cache
+creating ./config.status
+creating Makefile
+creating src/Makefile
+creating channels/Makefile
+creating localdefs
+creating include/mpidi_ch3_conf.h
+configuring in channels/sock
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/configure  -prefix=/home/eta/mpich2-install -enable-cache --cache-file=../../3419conf.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock
+loading cache ../../3419conf.cache
+RUNNING CONFIGURE FOR THE SOCK CHANNEL
+checking for make... (cached) make
+checking whether clock skew breaks make... (cached) no
+checking whether make echos directory changes... (cached) yes using --no-print-directory
+checking whether make supports include... (cached) yes
+checking whether make allows comments in actions... (cached) yes
+checking for virtual path format... (cached) VPATH
+checking whether make sets CFLAGS... (cached) no
+checking for net/if.h... yes
+checking how to run the C preprocessor... gcc -E
+checking for netdb.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/socket.h... yes
+checking for sys/sockio.h... no
+checking for sys/types.h... (cached) yes
+checking for errno.h... yes
+checking for netinet/in.h... yes
+updating cache ../../3419conf.cache
+creating ./config.status
+creating Makefile
+creating src/Makefile
+creating localdefs
+creating include/mpidi_ch3i_sock_conf.h
+configuring in src/mpid/common/sock
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/mpid/common/sock/configure  -prefix=/home/eta/mpich2-install --cache-file=../../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpid/common/sock
+RUNNING CONFIGURE FOR THE SOCK INTERFACE
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make echos directory changes... yes using --no-print-directory
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+updating cache 4153conf.cache
+creating ./config.status
+creating Makefile
+creating localdefs
+creating mpidu_sock_conf.h
+configuring in poll
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll/configure  -prefix=/home/eta/mpich2-install -enable-cache --cache-file=../4153conf.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll
+loading cache ../4153conf.cache
+RUNNING CONFIGURE FOR THE POLL IMPLEMENTATION OF SOCK
+checking for make... (cached) make
+checking whether clock skew breaks make... (cached) no
+checking whether make echos directory changes... (cached) yes using --no-print-directory
+checking whether make supports include... (cached) yes
+checking whether make allows comments in actions... (cached) yes
+checking for virtual path format... (cached) VPATH
+checking whether make sets CFLAGS... (cached) no
+checking for inline... inline
+checking for poll... yes
+checking how to run the C preprocessor... gcc -E
+checking for assert.h... yes
+checking for errno.h... yes
+checking for fcntl.h... yes
+checking for limits.h... yes
+checking for netdb.h... yes
+checking for netinet/in.h... yes
+checking for netinet/tcp.h... yes
+checking for poll.h... yes
+checking for stdlib.h... yes
+checking for sys/param.h... yes
+checking for sys/poll.h... yes
+checking for sys/types.h... yes
+checking for sys/uio.h... yes
+checking for unistd.h... yes
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+checking whether socklen_t is defined... yes
+updating cache ../4153conf.cache
+creating ./config.status
+creating Makefile
+creating localdefs
+creating mpidu_socki_conf.h
+configuring in src/mpi/romio
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/mpi/romio/configure  -prefix=/home/eta/mpich2-install --cache-file=../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpi/romio
+loading cache ../../.././config.cache
+Configuring ROMIO Version 1.2.6
+Configuring with args -prefix=/home/eta/mpich2-install --cache-file=../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpi/romio
+configure: warning: Unknown architecture ... proceeding anyway
+ROMIO home directory is /home/eta/libraries/mpich2-1.0/src/mpi/romio
+checking for gcc... gcc
+checking whether the C compiler (gcc  ) works... yes
+checking whether the C compiler (gcc  ) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking whether the Fortran 77 compiler (f77 -g ) works... yes
+checking whether the Fortran 77 compiler (f77 -g ) is a cross-compiler... no
+checking whether we are using GNU Fortran 77... no
+checking for memalign... yes
+checking Fortran external names
+Fortran externals have a trailing underscore and are lowercase
+checking for inline... inline
+checking how to run the C preprocessor... gcc -E
+checking for unistd.h... yes
+checking size of int... 4
+checking size of void*... 4
+checking for int large enough for pointers... yes
+checking size of long long... 8
+checking for Fortran 90 KIND parameter for 8-byte integers... unavailable
+Overriding Array test for MPICH2
+checking for weak symbol support... pragma weak
+checking that weak symbols are visible to other files... yes
+checking whether struct flock compatible with MPI_Offset... yes
+checking configured file systems... testfs ufs nfs
+configure: warning: File locks may not work with NFS.  See the Installation and
+users manual for instructions on testing and if necessary fixing this
+checking for library containing pthread_create... -lpthread
+checking for library containing aio_write... -lrt
+checking whether aio routines can be used... yes
+checking for obsolete two-argument aio_write... no
+checking for signal.h... yes
+checking if aio.h exists and can be compiled... yes
+checking for aio_fildes member of aiocb structure... yes
+checking for aio_whence member of aiocb structure... no
+checking for aio_handle member of aiocb structure... no
+checking for aio_reqprio member of aiocb structure... yes
+checking for aio_sigevent member of aiocb structure... yes
+checking for sys/vfs.h... yes
+checking for sys/param.h... yes
+checking for sys/mount.h... yes
+checking for sys/statvfs.h... yes
+checking whether struct statfs properly defined... yes
+checking for f_fstypename member of statfs structure... no
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... (cached) yes
+checking for stat... yes
+checking for st_fstype member of stat structure... no
+checking for sys/types.h... (cached) yes
+checking for sys/statvfs.h... (cached) yes
+checking for sys/vfs.h... (cached) yes
+checking for statvfs... yes
+checking for f_basetype member of statvfs structure... no
+checking for unistd.h... (cached) yes
+checking for large file defines... yes
+checking whether off64_t is an scalar type... yes
+checking for strerror()... yes
+checking for doctext... no
+setting CC to /tmp/eta/mpich2-1.0/bin/mpicc
+setting F77 to f77
+setting TEST_CC to /tmp/eta/mpich2-1.0/bin/mpicc
+setting TEST_F77 to /tmp/eta/mpich2-1.0/bin/mpif77
+setting CFLAGS to  -O -DFORTRANUNDERSCORE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_ROMIOCONF_H
+setting USER_CFLAGS to 
+setting USER_FFLAGS to 
+updating cache ../../.././config.cache
+creating ./config.status
+creating Makefile
+creating localdefs
+creating mpi-io/Makefile
+creating mpi2-other/info/Makefile
+creating mpi2-other/array/Makefile
+creating adio/common/Makefile
+creating test/Makefile
+creating test/misc.c
+creating test/large_file.c
+creating test/runtests
+creating util/romioinstall
+creating include/mpio.h
+creating include/mpiof.h
+creating adio/ad_nfs/Makefile
+creating adio/ad_ufs/Makefile
+creating adio/ad_xfs/Makefile
+creating adio/ad_sfs/Makefile
+creating adio/ad_pfs/Makefile
+creating adio/ad_testfs/Makefile
+creating adio/ad_pvfs/Makefile
+creating adio/ad_pvfs2/Makefile
+creating mpi-io/fortran/Makefile
+creating mpi2-other/info/fortran/Makefile
+creating mpi2-other/array/fortran/Makefile
+creating test/fmisc.f
+creating test/fcoll_test.f
+creating test/pfcoll_test.f
+creating test/fperf.f
+creating mpi-io/glue/mpich2/Makefile
+creating mpi-io/glue/mpich1/Makefile
+creating adio/include/romioconf.h
+configuring in src/pmi/simple
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/pmi/simple/configure  -prefix=/home/eta/mpich2-install --cache-file=../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/pmi/simple
+RUNNING CONFIGURE FOR THE SIMPLE PMI
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make echos directory changes... yes using --no-print-directory
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking how to run the C preprocessor... gcc -E
+checking for unistd.h... yes
+checking for string.h... yes
+checking for stdlib.h... yes
+checking for sys/socket.h... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for sys/param.h... yes
+checking for sys/socket.h... (cached) yes
+checking for netinet/in.h... yes
+checking for netinet/tcp.h... yes
+checking for sys/un.h... yes
+checking for netdb.h... yes
+checking for socket... yes
+checking for setsockopt... yes
+checking for gethostbyname... yes
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+updating cache /dev/null
+creating ./config.status
+creating Makefile
+creating localdefs
+creating pmiconf.h
+configuring in src/pm/mpd
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/pm/mpd/configure  -prefix=/home/eta/mpich2-install --cache-file=../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/pm/mpd
+loading cache ../../.././config.cache
+Configuring with args -prefix=/home/eta/mpich2-install --cache-file=../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/pm/mpd
+checking for Cygwin environment... no
+checking for mingw32 environment... no
+checking for executable suffix... no
+checking for object suffix... o
+checking for gcc... (cached) gcc
+checking whether the C compiler (gcc  ) works... yes
+checking whether the C compiler (gcc  ) is a cross-compiler... no
+checking whether we are using GNU C... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking whether make sets ${MAKE}... yes
+checking whether ln -s works... yes
+checking for a BSD compatible install... /usr/bin/install -c
+checking whether install /usr/bin/install -c works... yes
+Using INSTALL=/usr/bin/install -c
+checking for python2.3... no
+checking for python2... python2
+checking for python2.2... no
+checking for python... python
+checking that python2 is a valid python version... yes
+checking that the cPickle module is available for python2... yes
+checking that the xml minidom module is available for python2... yes
+checking that the xml minidom module works... yes
+checking for library containing socket... none required
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for fcntl.h... yes
+checking for strings.h... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... yes
+checking for putenv... yes
+checking for socket... yes
+updating cache ../../.././config.cache
+creating ./config.status
+creating Makefile
+creating mpdconf.h
+configuring in src/mpe2
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/mpe2/configure  -prefix=/home/eta/mpich2-install --cache-file=../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2
+Configuring MPE Profiling Libraries with '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+This MPE build is part of the MPICH2 build
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking whether MPI_CC has been set ... /tmp/eta/mpich2-1.0/bin/mpicc 
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether f77 accepts -g... yes
+checking whether MPI_F77 has been set ... /tmp/eta/mpich2-1.0/bin/mpif77 
+checking how to get verbose linking output from f77... -v
+checking for Fortran libraries of f77...  -L/home/eta/pgi/linux86/7.0-2/lib -L/usr/lib -L/usr/lib/gcc/i386-redhat-linux/4.3.2 -lpgftnrtl -lpgsse1 -lpgsse2 -lnspgc -lpgc -lrt -lpthread -lm
+checking whether C can link with  -L/home/eta/pgi/linux86/7.0-2/lib -L/usr/lib -L/usr/lib/gcc/i386-redhat-linux/4.3.2 -lpgftnrtl -lpgsse1 -lpgsse2 -lnspgc -lpgc -lrt -lpthread -lm... no
+checking which libraries can be used...  -lpgftnrtl -lpgsse1 -lpgsse2 -lnspgc -lrt -lpthread -lm
+checking for Fortran 77 name mangling... 
+configure: WARNING: Cannot determine Fortran naming scheme
+checking for Fortran 77 flag for library directories... -L
+checking for include directory flag for Fortran... -I
+checking how to run the C preprocessor... gcc -E
+checking whether ln -s works... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/mpeinstall
+config.status: creating mpe_conf.h
+config.status: executing default-1 commands
+configure: configuring in src/misc
+configure: running /bin/sh '/home/eta/libraries/mpich2-1.0/src/mpe2/src/misc/configure' --prefix=/home/eta/mpich2-install  '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' --cache-file=../../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/misc
+Configuring MPE Miscellaneous Library with '--prefix=/home/eta/mpich2-install' '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' '--cache-file=../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/misc'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for dbx... no
+checking for gdb... /usr/bin/gdb
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sysinfo... yes
+checking for uname... yes
+checking for gethostbyname... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking sys/systeminfo.h usability... no
+checking sys/systeminfo.h presence... no
+checking for sys/systeminfo.h... no
+checking for sighandler_t... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/dbxerr.c
+config.status: creating mpe_misc_conf.h
+configure: configuring in src/logging
+configure: running /bin/sh '/home/eta/libraries/mpich2-1.0/src/mpe2/src/logging/configure' --prefix=/home/eta/mpich2-install  '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' --cache-file=../../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/logging
+Configuring MPE Logging Library with '--prefix=/home/eta/mpich2-install' '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' '--cache-file=../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/logging'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking whether byte ordering is bigendian... no
+checking for mkstemp... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking for large file support in 32-bit OS ... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for O_BINARY for open() ... no
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating mpe_logging_conf.h
+configure: configuring in src/wrappers
+configure: running /bin/sh '/home/eta/libraries/mpich2-1.0/src/mpe2/src/wrappers/configure' --prefix=/home/eta/mpich2-install  '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' --cache-file=../../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/wrappers
+Configuring MPE wrapper Library For MPI with '--prefix=/home/eta/mpich2-install' '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' '--cache-file=../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/wrappers'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for stdarg is correct... yes
+checking if compiler accepts prototypes ... yes
+checking for the value of MPI_STATUS_SIZE ... 5
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating mpe_wrappers_conf.h
+configure: configuring in src/graphics
+configure: running /bin/sh '/home/eta/libraries/mpich2-1.0/src/mpe2/src/graphics/configure' --prefix=/home/eta/mpich2-install  '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' --cache-file=../../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/graphics
+Configuring MPE X Graphics Library with '--prefix=/home/eta/mpich2-install' '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' '--cache-file=../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/graphics'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for X... libraries , headers 
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for long pointers... no
+checking for system... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating contrib/life/Makefile
+config.status: creating contrib/mandel/Makefile
+config.status: creating contrib/mastermind/Makefile
+config.status: creating contrib/test/Makefile
+config.status: creating mpe_graphics_conf.h
+configure: configuring in src/slog2sdk
+configure: running /bin/sh '/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk/configure' --prefix=/home/eta/mpich2-install  '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' --cache-file=../../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk
+Configuring SLOG2SDK with '--prefix=/home/eta/mpich2-install' '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' '--cache-file=../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking if CLASSPATH is set... no, good to go
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for java in user's PATH... found /usr/bin/java
+checking if /usr/bin/java works... yes
+checking if /usr/bin/java runs simple jar file... yes
+checking if /usr/bin/java runs simple Swing class... yes
+checking if /usr/bin/java runs simple Swing jar file... yes
+checking for Java version... java full version "1.6.0_0-b14", i.e. Java 2 SDK
+checking for cygpath... no
+creating /tmp/eta/mpich2-1.0/src/mpe2/src/slog2sdk/lib from source
+creating directory /tmp/eta/mpich2-1.0/src/mpe2/src/slog2sdk/bin
+creating /tmp/eta/mpich2-1.0/src/mpe2/src/slog2sdk/doc from source
+creating /tmp/eta/mpich2-1.0/src/mpe2/src/slog2sdk/logfiles from source
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/install-package
+config.status: creating bin/clogprint
+config.status: creating bin/clogTOslog2
+config.status: creating bin/clog2print
+config.status: creating bin/clog2TOslog2
+config.status: creating bin/slog2navigator
+config.status: creating bin/slog2print
+config.status: creating bin/logconvertor
+config.status: creating bin/jumpshot
+configure: configuring in trace_sample
+configure: running /bin/sh '/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk/trace_sample/configure' --prefix=/home/eta/mpich2-install  '--prefix=/home/eta/mpich2-install' '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' '--cache-file=../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk' --cache-file=../../../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk/trace_sample
+Configuring TRACE_SAMPLE implementation with '--prefix=/home/eta/mpich2-install' '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' '--cache-file=../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk' '--cache-file=../../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk/trace_sample'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking whether byte ordering is bigendian... no
+checking for void*... yes
+checking size of void*... 4
+checking for int... yes
+checking size of int... 4
+checking for long... yes
+checking size of long... 4
+checking for long long... yes
+checking size of long long... 8
+checking for __int64... no
+checking size of __int64... 0
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for sed... sed
+checking for a sed that does not truncate output... /bin/sed
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking how to run the C++ preprocessor... g++ -E
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether f77 accepts -g... yes
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for objdir... .libs
+checking for ar... ar
+checking for ranlib... ranlib
+checking for strip... strip
+checking if gcc static flag  works... yes
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC
+checking if gcc PIC flag -fPIC works... yes
+checking if gcc supports -c -o file.o... yes
+checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by g++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC
+checking if g++ PIC flag -fPIC works... yes
+checking if g++ supports -c -o file.o... yes
+checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+appending configuration tag "F77" to libtool
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for f77 option to produce PIC... -fPIC
+checking if f77 PIC flag -fPIC works... no
+checking if f77 supports -c -o file.o... no
+checking whether the f77 linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... f77-Error-Unknown switch: -print-search-dirs
+GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for malloc in -lefence... yes
+checking for strstr... yes
+checking target system type... i686-pc-linux-gnu
+checking for javah in user's PATH... found /usr/bin/javah
+checking if /usr/bin/javah works... unknown!
+checking if /usr exists... yes
+checking for <jni.h> include flag... no
+checking for working javah in user's PATH... not found
+checking for javah in known locations... not found
+configure: WARNING:  Invalid JNI include dir, exit! 
+configure: configuring in trace_rlog
+configure: running /bin/sh '/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk/trace_rlog/configure' --prefix=/home/eta/mpich2-install  '--prefix=/home/eta/mpich2-install' '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' '--cache-file=../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk' --cache-file=../../../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk/trace_rlog
+Configuring TRACE_RLOG implementation with '--prefix=/home/eta/mpich2-install' '-prefix=/home/eta/mpich2-install' '--cache-file=../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2' 'CC=gcc' 'CFLAGS=' 'CPPFLAGS= -I/home/eta/libraries/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/binding/f77 -I/tmp/eta/mpich2-1.0/src/mpid/ch3/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/include -I/tmp/eta/mpich2-1.0/src/mpid/common/datatype -I/home/eta/libraries/mpich2-1.0/src/mpid/common/datatype -I/tmp/eta/mpich2-1.0/src/mpid/common/locks -I/home/eta/libraries/mpich2-1.0/src/mpid/common/locks -I/tmp/eta/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/home/eta/libraries/mpich2-1.0/src/mpid/ch3/channels/sock/include -I/tmp/eta/mpich2-1.0/src/mpid/common/sock -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock -I/tmp/eta/mpich2-1.0/src/mpid/common/sock/poll -I/home/eta/libraries/mpich2-1.0/src/mpid/common/sock/poll' 'CPP=gcc -E' 'F77=f77' 'FFLAGS=-g' 'MPI_CC=/tmp/eta/mpich2-1.0/bin/mpicc' 'MPI_F77=/tmp/eta/mpich2-1.0/bin/mpif77' '--cache-file=../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk' '--cache-file=../../../../.././config.cache' '--srcdir=/home/eta/libraries/mpich2-1.0/src/mpe2/src/slog2sdk/trace_rlog'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking for an ANSI C-conforming const... yes
+checking whether byte ordering is bigendian... no
+checking for void*... yes
+checking size of void*... 4
+checking for int... yes
+checking size of int... 4
+checking for long... yes
+checking size of long... 4
+checking for long long... yes
+checking size of long long... 8
+checking for __int64... no
+checking size of __int64... 0
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for sed... sed
+checking for a sed that does not truncate output... /bin/sed
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking how to run the C++ preprocessor... g++ -E
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether f77 accepts -g... yes
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for objdir... .libs
+checking for ar... ar
+checking for ranlib... ranlib
+checking for strip... strip
+checking if gcc static flag  works... yes
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC
+checking if gcc PIC flag -fPIC works... yes
+checking if gcc supports -c -o file.o... yes
+checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by g++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC
+checking if g++ PIC flag -fPIC works... yes
+checking if g++ supports -c -o file.o... yes
+checking whether the g++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+appending configuration tag "F77" to libtool
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for f77 option to produce PIC... -fPIC
+checking if f77 PIC flag -fPIC works... no
+checking if f77 supports -c -o file.o... no
+checking whether the f77 linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... f77-Error-Unknown switch: -print-search-dirs
+GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for malloc in -lefence... yes
+checking for strstr... yes
+checking target system type... i686-pc-linux-gnu
+checking for javah in user's PATH... found /usr/bin/javah
+checking if /usr/bin/javah works... unknown!
+checking if /usr exists... yes
+checking for <jni.h> include flag... no
+checking for working javah in user's PATH... not found
+checking for javah in known locations... not found
+configure: WARNING:  Invalid JNI include dir, exit! 
+configure: WARNING: SLOG2SDK: No sub-package has been configured
+MPE2:  "src/misc" "src/logging" "src/wrappers" "src/graphics" "src/slog2sdk" have been configured
+configuring in src/binding/f77
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/binding/f77/configure  -prefix=/home/eta/mpich2-install --cache-file=../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/binding/f77
+checking for cc... gcc
+checking whether the C compiler (gcc  ) works... yes
+checking whether the C compiler (gcc  ) is a cross-compiler... no
+checking whether the C compiler sets its return status correctly... yes
+checking whether we are using GNU C... yes
+checking for working const... yes
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking whether the Fortran 77 compiler (f77 -g ) works... yes
+checking whether the Fortran 77 compiler (f77 -g ) is a cross-compiler... no
+checking whether we are using GNU Fortran 77... no
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make echos directory changes... yes using --no-print-directory
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for ar... /usr/bin/ar
+checking for a BSD compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking whether mkdir -p works... yes
+checking for ranlib... ranlib
+checking for f95... f95
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (f95  ) works... yes
+checking whether the Fortran 90 compiler (f95  ) is a cross-compiler... no
+checking host system type... i686-pc-linux-gnu
+checking for Fortran 77 libraries...  -L/home/eta/pgi/linux86/7.0-2/lib -L/usr/lib -L/usr/lib/gcc/i386-redhat-linux/4.3.2 -lpgftnrtl -lpgsse1 -lpgsse2 -lnspgc -lpgc -lrt -lpthread -lm
+checking whether C can link with  -L/home/eta/pgi/linux86/7.0-2/lib -L/usr/lib -L/usr/lib/gcc/i386-redhat-linux/4.3.2 -lpgftnrtl -lpgsse1 -lpgsse2 -lnspgc -lpgc -lrt -lpthread -lm... no
+checking for which libraries can be used...  -lpgftnrtl -lpgsse1 -lpgsse2 -lnspgc -lrt -lpthread -lm
+checking for linker for Fortran main programs... Use Fortran to link programs
+checking for Fortran 77 name mangling... 
+configure: warning: Cannot determine Fortran naming scheme
+checking for which Fortran libraries are needed to link C with Fortran...  -L/home/eta/pgi/linux86/7.0-2/lib -L/usr/lib -L/usr/lib/gcc/i386-redhat-linux/4.3.2   -lpgftnrtl -lpgsse1 -lpgsse2 -lnspgc -lrt -lpthread -lm
+checking whether Fortran accepts ! for comments... yes
+checking whether Fortran supports new-style character declarations... no
+checking for include directory flag for Fortran... -I
+checking for Fortran 77 flag for library directories... -L
+checking whether Fortran has pointer declaration... yes
+checking for size of Fortran type integer... 4
+checking for size of Fortran type real... 4
+checking for size of Fortran type double precision... 8
+checking whether integer*1 is supported... yes
+checking whether integer*2 is supported... yes
+checking whether integer*4 is supported... yes
+checking whether integer*8 is supported... yes
+checking whether integer*16 is supported... yes
+checking whether real*4 is supported... yes
+checking whether real*8 is supported... yes
+checking whether real*16 is supported... yes
+checking for ANSI C header files... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking size of char... 1
+checking size of short... 2
+checking size of int... 4
+checking size of long... 4
+checking size of long long... 8
+checking size of float... 4
+checking size of double... 8
+checking size of long double... 12
+checking size of void*... 4
+checking for C type matching Fortran integer... int
+checking whether C compiler allows unaligned doubles... yes
+checking for type of weak symbol support... pragma weak
+checking whether __attribute__ ((weak)) allowed... yes
+checking for multiple weak symbol support... yes
+checking for values of Fortran logicals... True is -1 and False is 0
+checking whether Fortran compiler processes .F files with C preprocessor... yes
+checking for Fortran 90 integer kind for 4-byte integers... 4
+checking for Fortran 90 integer kind for 8-byte integers... 8
+checking whether using gcc and g77 together... no
+updating cache /dev/null
+creating ./config.status
+creating Makefile
+creating mpif.h
+creating mpif77.conf
+creating mpif77
+creating setbotf.f
+creating mpi_fortconf.h
+configuring in src/binding/cxx
+running /bin/sh /home/eta/libraries/mpich2-1.0/src/binding/cxx/configure  -prefix=/home/eta/mpich2-install --cache-file=../../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/src/binding/cxx
+checking for c++... c++
+checking whether the C++ compiler (c++  ) works... yes
+checking whether the C++ compiler (c++  ) is a cross-compiler... no
+checking whether we are using GNU C++... yes
+checking whether c++ accepts -g... yes
+checking for ar... /usr/bin/ar
+checking for ranlib... ranlib
+checking for a BSD compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking whether mkdir -p works... yes
+checking whether the compiler supports exceptions... yes
+checking whether the compiler recognizes bool as a built-in type... yes
+checking whether the compiler implements namespaces... yes
+updating cache /dev/null
+creating ./config.status
+creating Makefile
+creating mpicxx
+creating mpicxx.h
+creating mpicxx.conf
+creating cov2html
+creating mpicxxconf.h
+checking the sizeof MPI_Offset... 8
+checking for doctext... no
+updating cache ./config.cache
+creating ./config.status
+creating Makefile
+creating src/Makefile
+creating src/include/Makefile
+creating src/binding/Makefile
+creating src/env/mpicc
+creating src/env/mpicc.conf
+creating src/env/mpich2version
+creating src/env/Makefile
+creating src/mpi/Makefile
+creating src/mpi/attr/Makefile
+creating src/mpi/coll/Makefile
+creating src/mpi/comm/Makefile
+creating src/mpi/datatype/Makefile
+creating src/mpi/debugger/Makefile
+creating src/mpi/errhan/Makefile
+creating src/mpi/group/Makefile
+creating src/mpi/init/Makefile
+creating src/mpi/io/Makefile
+creating src/mpi/misc/Makefile
+creating src/mpi/pt2pt/Makefile
+creating src/mpi/rma/Makefile
+creating src/mpi/spawn/Makefile
+creating src/mpi/topo/Makefile
+creating src/mpid/Makefile
+creating src/mpid/common/Makefile
+creating src/mpid/common/datatype/Makefile
+creating src/mpid/common/locks/Makefile
+creating src/pm/Makefile
+creating src/pmi/Makefile
+creating src/nameserv/Makefile
+creating src/nameserv/file/Makefile
+creating src/nameserv/mpd/Makefile
+creating src/util/Makefile
+creating src/util/info/Makefile
+creating src/util/instrm/Makefile
+creating src/util/mem/Makefile
+creating src/util/msgs/Makefile
+creating src/util/param/Makefile
+creating src/util/thread/Makefile
+creating src/util/dbg/Makefile
+creating src/include/mpi.h
+creating test/Makefile
+creating test/runtests
+creating test/util/Makefile
+creating test/mpid/Makefile
+creating test/mpid/ch3/Makefile
+creating examples/Makefile
+creating examples/f77/Makefile
+creating examples/f90/Makefile
+creating examples/cxx/Makefile
+creating examples/mpiexec/Makefile
+creating src/util/logging/Makefile
+creating src/util/logging/common/Makefile
+creating src/util/timing/Makefile
+creating doc/Makefile
+creating doc/mansrc/Makefile
+creating doc/mansrc/createhtmlindex
+creating doc/refman/Makefile
+creating doc/adi3/Makefile
+creating doc/installguide/Makefile
+creating doc/userguide/Makefile
+creating doc/logging/Makefile
+creating doc/smpd/Makefile
+creating src/include/mpichconf.h
+configuring in test/mpi
+running /bin/sh /home/eta/libraries/mpich2-1.0/test/mpi/configure  -prefix=/home/eta/mpich2-install --cache-file=../.././config.cache --srcdir=/home/eta/libraries/mpich2-1.0/test/mpi
+RUNNING CONFIGURE FOR MPI TESTS
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make echos directory changes... yes using --no-print-directory
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking whether long double is supported... yes
+checking whether long long available... yes
+checking how to run the C preprocessor... gcc -E
+checking for unistd.h... yes
+checking for stdarg.h... yes
+checking for string.h... yes
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for memory.h... yes
+Configuring tests for MPICH2
+checking whether integer*4 is supported... yes
+checking whether integer*8 is supported... yes
+checking whether integer*16 is supported... yes
+checking for Fortran 77 name mangling... 
+configure: warning: Cannot determine Fortran naming scheme
+checking whether <iostream> available... yes
+checking whether the compiler implements namespaces... yes
+checking whether the compiler implements the namespace std... yes
+checking for perl... /usr/bin/perl
+updating cache /dev/null
+creating ./config.status
+creating maint/testmerge
+creating Makefile
+creating basic/Makefile
+creating attr/Makefile
+creating util/Makefile
+creating coll/Makefile
+creating comm/Makefile
+creating datatype/Makefile
+creating errhan/Makefile
+creating group/Makefile
+creating info/Makefile
+creating init/Makefile
+creating pt2pt/Makefile
+creating rma/Makefile
+creating spawn/Makefile
+creating topo/Makefile
+creating io/Makefile
+creating f77/Makefile
+creating f77/attr/Makefile
+creating f77/attr/attraints.h
+creating f77/datatype/Makefile
+creating f77/datatype/typeaints.h
+creating f77/util/Makefile
+creating f77/coll/Makefile
+creating f77/comm/Makefile
+creating f77/topo/Makefile
+creating f77/init/Makefile
+creating f77/rma/addsize.h
+creating f77/pt2pt/Makefile
+creating f77/info/Makefile
+creating f77/spawn/Makefile
+creating f77/rma/Makefile
+creating f77/ext/Makefile
+creating f77/io/Makefile
+creating f77/io/iooffset.h
+creating f77/io/iodisp.h
+creating cxx/Makefile
+creating cxx/util/Makefile
+creating cxx/attr/Makefile
+creating cxx/comm/Makefile
+creating cxx/coll/Makefile
+creating cxx/info/Makefile
+creating cxx/datatype/Makefile
+creating cxx/io/Makefile
+creating cxx/init/Makefile
+creating cxx/rma/Makefile
+creating cxx/spawn/Makefile
+creating testlist
+creating include/mpitestconf.h
+Configuration completed.

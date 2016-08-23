@@ -1,0 +1,15 @@
+<table cellspacing="0" cellpadding="0" border="0" ><tr><td valign="top" style="font: inherit;"><DIV>Hi,</DIV>
+<DIV>&nbsp;&nbsp; I am bored by many letters that forwarded by the forum. Could u please tell me how I can remove my email address from the mail list.</DIV>
+<DIV>&nbsp;&nbsp; I dont' want to receive so many letters that my mail box is unorderly.</DIV>
+<DIV>&nbsp;&nbsp; could u please tell me which website I can post my question other than sending email and don't&nbsp; be borthered other people's mail.</DIV>
+<DIV>&nbsp; Thanks a lot!!!</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><BR><BR>--- <B>09年6月29日，周一, mpich2 <I>&lt;mpich2-maint@mcs.anl.gov&gt;</I></B> 写道：<BR></DIV>
+<BLOCKQUOTE style="PADDING-LEFT: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: rgb(16,16,255) 2px solid"><BR>发件人: mpich2 &lt;mpich2-maint@mcs.anl.gov&gt;<BR>主题: Re: [mpich2-maint] #688: how to install mpif90 command<BR>收件人: <BR>日期: 2009年6月29日,周一,下午9:39<BR><BR>
+<DIV class=plainMail>---------------------------------------------+------------------------------<BR>Reporter:&nbsp; 雪媛 聂 &lt;<A href="http://cn.mc159.mail.yahoo.com/mc/compose?to=nie_xueyuan@yahoo.com.cn" ymailto="mailto:nie_xueyuan@yahoo.com.cn">nie_xueyuan@yahoo.com.cn</A>&gt;&nbsp; |&nbsp; &nbsp; &nbsp; &nbsp; Owner:&nbsp; &nbsp;&nbsp;&nbsp;<BR>&nbsp; &nbsp;&nbsp;&nbsp;Type:&nbsp; bug&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;Status:&nbsp; new<BR>Priority:&nbsp; major&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |&nbsp; &nbsp; Milestone:&nbsp; &nbsp;&nbsp;&nbsp;<BR>Component:&nbsp; mpich2&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Resolution:&nbsp; &nbsp;&nbsp;&nbsp;<BR>Keywords:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;|&nbsp; <BR>---------------------------------------------+------------------------------<BR><BR><BR>Comment (by goodell):<BR><BR>The configure step has probably determined that you don't have a working<BR>f90 compiler (or possibly a non-working f77 compiler, which is needed to<BR>get f90 in most cases).&nbsp; Make sure that you have a working f77 and f90<BR>compiler installed (such as gfortran), then pass the following arguments<BR>to the configure step in addition to any arguments you were passing<BR>before:<BR><BR>{{{<BR>--enable-f90 --enable-f77 F77=gfortran F90=gfortran<BR>}}}<BR><BR>If this doesn't solve your problem, please send us the config.log, c.txt,<BR>and m.txt files as described in steps 4 and 5 of the README file.<BR><BR>-Dave<BR><BR>-- <BR>Ticket URL: &lt;<A href="https://trac.mcs.anl.gov/projects/mpich2/ticket/688#comment:2"
+ target=_blank>https://trac.mcs.anl.gov/projects/mpich2/ticket/688#comment:2</A>&gt;<BR></DIV></BLOCKQUOTE></td></tr></table><br>
+
+
+      <hr size=1><a href="http://cn.rd.yahoo.com/mail_cn/tagline/card/*http://card.mail.cn.yahoo.com/">  好玩贺卡等你发，邮箱贺卡全新上线！</a>

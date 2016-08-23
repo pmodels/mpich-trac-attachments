@@ -1,0 +1,1373 @@
+diff -rupN mpi/attr/keyval_double_free.c mpi_new/attr/keyval_double_free.c
+--- mpi/attr/keyval_double_free.c	2009-03-15 17:54:46.000000000 -0500
++++ mpi_new/attr/keyval_double_free.c	2009-05-05 13:32:20.000000000 -0500
+@@ -7,6 +7,7 @@
+ #include <mpi.h>
+ #include <stdlib.h>
+ #include <stdio.h>
++#include "mpitest.h"
+ 
+ /* tests multiple invocations of Keyval_free on the same keyval */
+ 
+@@ -20,7 +21,9 @@ int main (int argc, char **argv)
+     MPI_Comm duped;
+     int keyval = MPI_KEYVAL_INVALID;
+     int keyval_copy = MPI_KEYVAL_INVALID;
+-    MPI_Init(&argc, &argv);
++    int errs=0;
++
++    MTest_Init( &argc, &argv );
+     MPI_Comm_dup(MPI_COMM_SELF, &duped);
+ 
+     MPI_Keyval_create(MPI_NULL_COPY_FN, delete_fn,  &keyval, NULL);
+@@ -32,7 +35,7 @@ int main (int argc, char **argv)
+     MPI_Comm_free(&duped);         /* first MPI_Keyval_free */
+     MPI_Keyval_free(&keyval);      /* second MPI_Keyval_free */
+     MPI_Keyval_free(&keyval_copy); /* third MPI_Keyval_free */
+-    printf(" No Errors\n");
++    MTest_Finalize( errs );
+     MPI_Finalize();                /* fourth MPI_Keyval_free */
+     return 0;
+ }
+diff -rupN mpi/coll/allred.c mpi_new/coll/allred.c
+--- mpi/coll/allred.c	2009-02-25 15:48:05.000000000 -0600
++++ mpi_new/coll/allred.c	2009-05-05 13:37:51.000000000 -0500
+@@ -8,9 +8,10 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include "mpi.h"
++#include "mpitest.h"
+ 
+ int count, size, rank;
+-int cerrcnt, gerrcnt;
++int cerrcnt;
+ 
+ struct int_test { int a; int b; };
+ struct long_test { long a; int b; };
+@@ -280,7 +281,7 @@ struct double_test { double a; int b; };
+ 
+ int main( int argc, char **argv )
+ {
+-    MPI_Init(&argc, &argv);
++    MTest_Init( &argc, &argv );
+ 
+     MPI_Comm_size(MPI_COMM_WORLD, &size);
+     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+@@ -329,15 +330,7 @@ int main( int argc, char **argv )
+     minloc_test(struct float_test, MPI_FLOAT_INT);
+     minloc_test(struct double_test, MPI_DOUBLE_INT);
+ 
+-    MPI_Allreduce(&cerrcnt, &gerrcnt, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD);
+-    if (rank == 0) {
+-        if (gerrcnt)
+-            printf(" Found %d errors\n", gerrcnt);
+-        else
+-            printf(" No Errors\n");
+-        fflush(stdout);
+-    }
+-
++    MTest_Finalize( cerrcnt );
+     MPI_Finalize();
+     return 0;
+ }
+diff -rupN mpi/coll/coll4.c mpi_new/coll/coll4.c
+--- mpi/coll/coll4.c	2008-09-14 20:28:41.000000000 -0500
++++ mpi_new/coll/coll4.c	2009-05-05 13:53:01.000000000 -0500
+@@ -5,6 +5,7 @@
+  */
+ #include "mpi.h"
+ #include <stdio.h>
++#include "mpitest.h"
+ 
+ #define MAX_PROCESSES 10
+ 
+@@ -13,11 +14,11 @@ int main( int argc, char **argv )
+     int              rank, size, i,j;
+     int              table[MAX_PROCESSES][MAX_PROCESSES];
+     int              row[MAX_PROCESSES];
+-    int              errors=0, toterrs = 0;
++    int              errors=0;
+     int              participants;
+     MPI_Comm         comm;
+ 
+-    MPI_Init( &argc, &argv );
++    MTest_Init( &argc, &argv );
+     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+     MPI_Comm_size( MPI_COMM_WORLD, &size );
+ 
+@@ -49,18 +50,11 @@ int main( int argc, char **argv )
+ 	/* Now see if our row looks right */
+ 	for (i=0; i<MAX_PROCESSES; i++) 
+ 	    if ( row[i] != i+rank ) errors++;
+-
+-	MPI_Allreduce( &errors, &toterrs, 1, MPI_INT, MPI_SUM, comm );
+     } 
+     
+     MPI_Comm_free( &comm );
+ 
++    MTest_Finalize( errors );
+     MPI_Finalize();
+-    if (errors)
+-      printf( "[%d] done with ERRORS(%d)!\n", rank, errors );
+-    else {
+-	if (rank == 0 && toterrs == 0) 
+-	    printf( " No Errors\n");
+-    }
+     return errors;
+ }
+diff -rupN mpi/coll/redscat2.c mpi_new/coll/redscat2.c
+--- mpi/coll/redscat2.c	2009-02-18 17:05:16.000000000 -0600
++++ mpi_new/coll/redscat2.c	2009-05-05 13:52:34.000000000 -0500
+@@ -15,6 +15,7 @@
+ #include "mpi.h"
+ #include <stdio.h>
+ #include <stdlib.h>
++#include "mpitest.h"
+ 
+ int err = 0;
+ 
+@@ -66,7 +67,6 @@ void nc_sum(void *a, void *b, int *count
+ 
+ int main( int argc, char **argv )
+ {
+-    int      toterr;
+     int      *sendbuf, *recvcounts;
+     int      block_size;
+     int      *recvbuf;
+@@ -74,7 +74,7 @@ int main( int argc, char **argv )
+     MPI_Comm comm;
+     MPI_Op left_op, right_op, nc_sum_op;
+ 
+-    MPI_Init( &argc, &argv );
++    MTest_Init( &argc, &argv );
+     comm = MPI_COMM_WORLD;
+ 
+     MPI_Comm_size( comm, &size );
+@@ -114,20 +114,12 @@ int main( int argc, char **argv )
+         free(sendbuf);
+     }
+ 
+-    MPI_Allreduce( &err, &toterr, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+-    if (rank == 0) {
+-        if (toterr == 0) {
+-            printf( " No Errors\n" );
+-        }
+-        else {
+-            printf( "found %d errors\n", toterr );
+-        }
+-    }
+-
+     MPI_Op_free(&left_op);
+     MPI_Op_free(&right_op);
+     MPI_Op_free(&nc_sum_op);
++
++    MTest_Finalize( err );
+     MPI_Finalize( );
+ 
+-    return toterr;
++    return err;
+ }
+diff -rupN mpi/comm/ic1.c mpi_new/comm/ic1.c
+--- mpi/comm/ic1.c	2008-11-06 15:29:57.000000000 -0600
++++ mpi_new/comm/ic1.c	2009-05-05 13:59:23.000000000 -0500
+@@ -9,14 +9,15 @@
+  */
+ #include "mpi.h"
+ #include <stdio.h>
++#include "mpitest.h"
+ 
+ int main( int argc, char *argv[] )
+ {
+     MPI_Comm intercomm;
+-    int      remote_rank, rank, size, errs = 0, toterr;
++    int      remote_rank, rank, size, errs = 0;
+     volatile int trigger;
+ 
+-    MPI_Init( &argc, &argv );
++    MTest_Init( &argc, &argv );
+ 
+     trigger = 1;
+ /*    while (trigger) ; */
+@@ -55,16 +56,7 @@ int main( int argc, char *argv[] )
+     /* The next test should create an intercomm with groups of different
+        sizes FIXME */
+ 
+-    MPI_Allreduce( &errs, &toterr, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+-    if (rank == 0) {
+-	if (toterr == 0) {
+-	    printf( " No Errors\n" );
+-	}
+-	else {
+-	    printf (" Found %d errors\n", toterr );
+-	}
+-    }
+-    
++    MTest_Finalize( errs );
+     MPI_Finalize();
+     
+     return 0;
+diff -rupN mpi/datatype/darray-pack.c mpi_new/datatype/darray-pack.c
+--- mpi/datatype/darray-pack.c	2008-11-25 15:35:49.000000000 -0600
++++ mpi_new/datatype/darray-pack.c	2009-05-05 14:10:32.000000000 -0500
+@@ -7,6 +7,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include "mpitest.h"
+ 
+ /* 
+    The default behavior of the test routines should be to briefly indicate
+@@ -30,9 +31,8 @@ static int pack_and_unpack(char *typebuf
+ int main(int argc, char **argv)
+ {
+     int err, errs = 0;
+-    int toterrs, rank;
+ 
+-    MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
++    MTest_Init( &argc, &argv );
+     parse_args(argc, argv);
+ 
+     /* To improve reporting of problems about operations, we
+@@ -54,16 +54,8 @@ int main(int argc, char **argv)
+     /* Allow the use of more than one process - some MPI implementations
+        (including IBM's) check that the number of processes given to 
+        Type_create_darray is no larger than MPI_COMM_WORLD */
+-    MPI_Reduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD );
+-    MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+-    if (rank == 0) {
+-	if (toterrs) {
+-	    fprintf(stderr, "Found %d errors\n", toterrs);
+-	}
+-	else {
+-	    printf(" No Errors\n");
+-	}
+-    }
++
++    MTest_Finalize( errs );
+     MPI_Finalize();
+     return 0;
+ }
+diff -rupN mpi/datatype/lbub.c mpi_new/datatype/lbub.c
+--- mpi/datatype/lbub.c	2008-11-12 19:02:34.000000000 -0600
++++ mpi_new/datatype/lbub.c	2009-05-05 14:15:17.000000000 -0500
+@@ -39,7 +39,7 @@ int main(int argc, char **argv)
+ {
+     int err, errs = 0;
+ 
+-    MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
++    MTest_Init( &argc, &argv );
+     parse_args(argc, argv);
+ 
+     /* To improve reporting of problems about operations, we
+@@ -87,13 +87,7 @@ int main(int argc, char **argv)
+     if (err && verbose) fprintf(stderr, "found %d errors in negstrided negextent vector test\n", err);
+     errs += err;
+ 
+-    /* print message and exit */
+-    if (errs) {
+-	fprintf(stderr, "Found %d errors\n", errs);
+-    }
+-    else {
+-	printf(" No Errors\n");
+-    }
++    MTest_Finalize( errs );
+     MPI_Finalize();
+     return 0;
+ }
+diff -rupN mpi/datatype/simple-pack-external.c mpi_new/datatype/simple-pack-external.c
+--- mpi/datatype/simple-pack-external.c	2009-03-04 14:46:33.000000000 -0600
++++ mpi_new/datatype/simple-pack-external.c	2009-05-05 14:22:06.000000000 -0500
+@@ -8,6 +8,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include "mpitest.h"
+ 
+ static int verbose = 0;
+ 
+@@ -24,7 +25,7 @@ int main(int argc, char **argv)
+ {
+     int err, errs = 0;
+ 
+-    MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
++    MTest_Init(&argc, &argv);
+     parse_args(argc, argv);
+ 
+     /* To improve reporting of problems about operations, we
+@@ -52,13 +53,7 @@ int main(int argc, char **argv)
+ 				"%d errors in struct of basics test.\n", err);
+     errs += err;
+ 
+-    /* print message and exit */
+-    if (errs) {
+-	fprintf(stderr, "Found %d errors\n", errs);
+-    }
+-    else {
+-	printf(" No Errors\n");
+-    }
++    MTest_Finalize( errs );
+     MPI_Finalize();
+     return 0;
+ }
+diff -rupN mpi/datatype/struct-derived-zeros.c mpi_new/datatype/struct-derived-zeros.c
+--- mpi/datatype/struct-derived-zeros.c	2009-03-05 14:38:38.000000000 -0600
++++ mpi_new/datatype/struct-derived-zeros.c	2009-05-05 14:25:34.000000000 -0500
+@@ -8,14 +8,16 @@
+ #include <stdio.h>
+ 
+ #include <mpi.h>
++#include "mpitest.h"
+ 
+ int main(int argc, char *argv[])
+ {
+     MPI_Datatype mystruct, vecs[3];
+     MPI_Aint stride = 5, displs[3];
+     int i=0, blockcount[3];
++    int errs=0;
+ 
+-    MPI_Init(&argc, &argv);
++    MTest_Init( &argc, &argv );
+ 
+     for(i = 0; i < 3; i++)
+     {
+@@ -51,10 +53,9 @@ int main(int argc, char *argv[])
+     {
+         MPI_Type_free(&vecs[i]);
+     }
+-    printf(" No Errors\n");
+ 
++    MTest_Finalize( errs );
+     MPI_Finalize();
+ 
+     return 0;
+ }
+-
+diff -rupN mpi/datatype/struct-no-real-types.c mpi_new/datatype/struct-no-real-types.c
+--- mpi/datatype/struct-no-real-types.c	2008-11-12 19:02:34.000000000 -0600
++++ mpi_new/datatype/struct-no-real-types.c	2009-05-05 14:28:17.000000000 -0500
+@@ -6,6 +6,7 @@
+ #include "mpi.h"
+ #include <stdio.h>
+ #include <stdlib.h>
++#include "mpitest.h"
+ #include "mpitestconf.h"
+ #ifdef HAVE_STRING_H
+ #include <string.h>
+@@ -29,7 +30,7 @@ int main(int argc, char **argv)
+ {
+     int err, errs = 0;
+ 
+-    MPI_Init(&argc, &argv); /* MPI-1.2 doesn't allow for MPI_Init(0,0) */
++    MTest_Init(&argc, &argv);
+     parse_args(argc, argv);
+ 
+     /* To improve reporting of problems about operations, we
+@@ -42,13 +43,7 @@ int main(int argc, char **argv)
+ 				err);
+     errs += err;
+ 
+-    /* print message and exit */
+-    if (errs) {
+-	fprintf(stderr, "Found %d errors\n", errs);
+-    }
+-    else {
+-	printf(" No Errors\n");
+-    }
++    MTest_Finalize( errs );
+     MPI_Finalize();
+     return 0;
+ }
+diff -rupN mpi/datatype/triangular-pack.c mpi_new/datatype/triangular-pack.c
+--- mpi/datatype/triangular-pack.c	2008-10-27 15:11:30.000000000 -0500
++++ mpi_new/datatype/triangular-pack.c	2009-05-05 14:30:40.000000000 -0500
+@@ -7,6 +7,7 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include "mpi.h"
++#include "mpitest.h"
+ 
+ int main(int argc, char *argv[]);
+ 
+@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
+     }
+ 	
+     /* Initialize MPI */
+-    MPI_Init(&argc, &argv);
++    MTest_Init( &argc, &argv );
+   
+     parse_args(argc, argv);
+ 
+@@ -79,13 +80,7 @@ int main(int argc, char *argv[])
+ 	}
+     }
+ 
+-    /* print message and exit */
+-    if (errs) {
+-	printf( "Found %d errors\n", errs);
+-    }
+-    else {
+-	printf(" No Errors\n");
+-    }
++    MTest_Finalize( errs );
+     MPI_Finalize();
+     return 0;
+ }
+diff -rupN mpi/errors/coll/bcastlength.c mpi_new/errors/coll/bcastlength.c
+--- mpi/errors/coll/bcastlength.c	2007-11-02 17:50:19.000000000 -0500
++++ mpi_new/errors/coll/bcastlength.c	2009-05-04 10:31:44.000000000 -0500
+@@ -5,6 +5,7 @@
+  */
+ #include <stdio.h>
+ #include "mpi.h"
++#include "mpitest.h"
+ 
+ /* Very simple test that Bcast handled mismatched lengths (while not a 
+    common user error, we've seen it several times, so good handling of 
+@@ -20,7 +21,7 @@ int main( int argc, char *argv[] )
+     char      str[MPI_MAX_ERROR_STRING+1];
+     int       slen;
+ 
+-    MPI_Init( &argc, &argv );
++    MTest_Init( &argc, &argv );
+     
+     MPI_Errhandler_set( MPI_COMM_WORLD, MPI_ERRORS_RETURN );
+     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+@@ -73,15 +74,7 @@ int main( int argc, char *argv[] )
+ 
+     MPI_Errhandler_set( MPI_COMM_WORLD, MPI_ERRORS_ARE_FATAL );
+ 
+-    MPI_Allreduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+-    if (rank == 0) {
+-	if (toterrs == 0) {
+-	    printf( " No Errors\n" );
+-	}
+-	else {
+-	    printf( " Found %d errors\n", toterrs );
+-	}
+-    }
++    MTest_Finalize( errs );
+     MPI_Finalize( );
+     return 0;
+ }
+diff -rupN mpi/errors/coll/rerr.c mpi_new/errors/coll/rerr.c
+--- mpi/errors/coll/rerr.c	2007-11-02 17:50:19.000000000 -0500
++++ mpi_new/errors/coll/rerr.c	2009-05-04 15:01:03.000000000 -0500
+@@ -5,6 +5,7 @@
+  */
+ #include <stdio.h>
+ #include "mpi.h"
++#include "mpitest.h"
+ 
+ /* Very simple test that Allreduce detects invalid (datatype,operation)
+    pair */
+@@ -13,12 +14,11 @@ int verbose = 0;
+ 
+ int main( int argc, char *argv[] )
+ {
+-    int a, b, ierr, errs=0, toterrs;
+-    int rank;
++    int a, b, ierr, errs=0;
+     char      str[MPI_MAX_ERROR_STRING+1];
+     int       slen;
+ 
+-    MPI_Init( &argc, &argv );
++    MTest_Init( &argc, &argv );
+     
+     MPI_Errhandler_set( MPI_COMM_WORLD, MPI_ERRORS_RETURN );
+     
+@@ -36,16 +36,7 @@ int main( int argc, char *argv[] )
+ 
+     MPI_Errhandler_set( MPI_COMM_WORLD, MPI_ERRORS_ARE_FATAL );
+ 
+-    MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+-    MPI_Allreduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+-    if (rank == 0) {
+-	if (toterrs == 0) {
+-	    printf( " No Errors\n" );
+-	}
+-	else {
+-	    printf( " Found %d errors\n", toterrs );
+-	}
+-    }
++    MTest_Finalize( errs );
+     MPI_Finalize( );
+     return 0;
+ }
+diff -rupN mpi/errors/comm/manysplit.c mpi_new/errors/comm/manysplit.c
+--- mpi/errors/comm/manysplit.c	2008-05-05 12:59:14.000000000 -0500
++++ mpi_new/errors/comm/manysplit.c	2009-05-04 10:53:27.000000000 -0500
+@@ -6,6 +6,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <mpi.h>
++#include "mpitest.h"
+ 
+ /* Test that comm_split fails gracefully when the number of communicators
+    is exhausted.  Original version submitted by Paul Sack.
+@@ -18,9 +19,10 @@ int main(int argc, char* argv[])
+ {
+   int i, rank;
+   int rc, maxcomm;
++  int errs = 0;
+   MPI_Comm comm[MAX_COMMS];
+ 
+-  MPI_Init (&argc, &argv);
++  MTest_Init( &argc, &argv );
+   MPI_Comm_rank ( MPI_COMM_WORLD, &rank );
+   MPI_Errhandler_set( MPI_COMM_WORLD, MPI_ERRORS_RETURN );
+ 
+@@ -46,9 +48,7 @@ int main(int argc, char* argv[])
+     MPI_Comm_free( &comm[i] );
+   }
+   /* If we complete, there are no errors */
+-  if (rank == 0) {
+-      printf( " No Errors\n" );
+-  }
++  MTest_Finalize( errs );
+   MPI_Finalize();
+   return 0;
+ }
+diff -rupN mpi/errors/cxx/errhan/errgetx.cxx mpi_new/errors/cxx/errhan/errgetx.cxx
+--- mpi/errors/cxx/errhan/errgetx.cxx	2008-10-22 12:55:14.000000000 -0500
++++ mpi_new/errors/cxx/errhan/errgetx.cxx	2009-05-04 14:39:05.000000000 -0500
+@@ -14,6 +14,7 @@
+ 
+ #include <mpi.h>
+ #include <iostream>
++#include "mpitestcxx.h"
+ 
+ /* #define VERBOSE */
+ 
+@@ -63,7 +64,7 @@ int main( int argc, char *argv[] )
+     MPI::Win win = MPI::WIN_NULL;
+     MPI::File file = MPI::FILE_NULL;
+ 
+-    MPI::Init();
++    MTest_Init( );
+ 
+     const unsigned int rank = MPI::COMM_WORLD.Get_rank();
+ 
+@@ -78,12 +79,7 @@ int main( int argc, char *argv[] )
+         errs += testRetrieveErrhandler(file);
+     }
+ 
+-    if (errs == 0) {
+-        std::cout << " No Errors" << std::endl;
+-    }
+-    else {
+-        std::cout << " Found " << errs << " errors" << std::endl;
+-    }
++    MTest_Finalize( errs );
+ 
+     win.Free();
+     file.Close();
+diff -rupN mpi/errors/cxx/errhan/errsetx.cxx mpi_new/errors/cxx/errhan/errsetx.cxx
+--- mpi/errors/cxx/errhan/errsetx.cxx	2007-11-02 17:50:19.000000000 -0500
++++ mpi_new/errors/cxx/errhan/errsetx.cxx	2009-05-04 14:52:51.000000000 -0500
+@@ -23,8 +23,6 @@ using namespace std;
+ #endif
+ #include "mpitestcxx.h"
+ 
+-static int verbose = 0;
+-
+ static int ncalls = 0;
+ void efn( MPI::Comm &comm, int *code, ... )
+ {
+@@ -34,13 +32,11 @@ void efn( MPI::Comm &comm, int *code, ..
+ int main( int argc, char *argv[] )
+ {
+     MPI::Errhandler eh;
+-    char *filename;
+     int size;
+     bool foundMsg;
+-    int errs = 0, toterrs, rank;
+-    int sawErr;
++    int errs = 0;
+ 
+-    MPI::Init();
++    MTest_Init( );
+ 
+     size = MPI::COMM_WORLD.Get_size();
+ 
+@@ -51,7 +47,6 @@ int main( int argc, char *argv[] )
+ 
+     eh = MPI::Comm::Create_errhandler( efn );
+     MPI::COMM_WORLD.Set_errhandler( eh );
+-    sawErr = 0;
+     try {
+ 	foundMsg = MPI::COMM_WORLD.Iprobe( size, 0 );
+     } catch (MPI::Exception ex) {
+@@ -61,7 +56,6 @@ int main( int argc, char *argv[] )
+ 	    errs++;
+ 	    cout << "Unexpected error from Iprobe" << endl;
+ 	}
+-	sawErr = 1;
+     }
+     if (ncalls != 1) {
+ 	errs++;
+@@ -69,16 +63,8 @@ int main( int argc, char *argv[] )
+     }
+ 
+     // Find out how many errors we saw
+-    MPI::COMM_WORLD.Allreduce( &errs, &toterrs, 1, MPI::INT, MPI::SUM );
+-    if (MPI::COMM_WORLD.Get_rank() == 0) {
+-	if (toterrs == 0) {
+-	    cout << " No Errors" << endl;
+-	}
+-	else {
+-	    cout << " Saw " << toterrs << " errors" << endl;
+-	}
+-    }
+ 
++    MTest_Finalize( errs );
+     MPI::Finalize();
+ 
+     return 0;
+diff -rupN mpi/errors/cxx/errhan/throwtest.cxx mpi_new/errors/cxx/errhan/throwtest.cxx
+--- mpi/errors/cxx/errhan/throwtest.cxx	2008-10-16 14:50:06.000000000 -0500
++++ mpi_new/errors/cxx/errhan/throwtest.cxx	2009-05-04 14:44:40.000000000 -0500
+@@ -15,6 +15,7 @@
+ 
+ #include <mpi.h>
+ #include <iostream>
++#include "mpitestcxx.h"
+ 
+ /* #define VERBOSE */
+ 
+@@ -60,7 +61,7 @@ int main( int argc, char *argv[] )
+     MPI::Win win = MPI::WIN_NULL;
+     MPI::File file = MPI::FILE_NULL;
+ 
+-    MPI::Init();
++    MTest_Init( );
+ 
+     const unsigned int rank = MPI::COMM_WORLD.Get_rank();
+     const unsigned int size = MPI::COMM_WORLD.Get_size();
+@@ -159,12 +160,7 @@ int main( int argc, char *argv[] )
+         }
+     }
+ 
+-    if (errs == 0) {
+-        std::cout << " No Errors" << std::endl;
+-    }
+-    else {
+-        std::cout << " Found " << errs << " errors" << std::endl;
+-    }
++    MTest_Finalize( errs );
+ 
+     win.Free();
+     file.Close();
+diff -rupN mpi/errors/group/gerr.c mpi_new/errors/group/gerr.c
+--- mpi/errors/group/gerr.c	2007-11-02 17:50:19.000000000 -0500
++++ mpi_new/errors/group/gerr.c	2009-05-04 11:11:31.000000000 -0500
+@@ -6,6 +6,7 @@
+  */
+ #include "mpi.h"
+ #include <stdio.h>
++#include "mpitest.h"
+ 
+ /*
+  * Test whether invalid handles to group routines are detected 
+@@ -15,14 +16,14 @@ int verbose = 0;
+ 
+ int main( int argc, char *argv[] )
+ {
+-    int errs = 0, toterrs;
++    int errs = 0;
+     int rc;
+-    int ranks[2], rank;
++    int ranks[2];
+     MPI_Group ng;
+     char      str[MPI_MAX_ERROR_STRING+1];
+     int       slen;
+ 
+-    MPI_Init( &argc, &argv );
++    MTest_Init( &argc, &argv );
+     /* Set errors return */
+     MPI_Comm_set_errhandler( MPI_COMM_WORLD, MPI_ERRORS_RETURN );
+ 
+@@ -40,17 +41,7 @@ int main( int argc, char *argv[] )
+ 	}
+     }
+ 
+-    MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+-    MPI_Allreduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+-    if (rank == 0) {
+-	if (toterrs == 0) {
+-	    printf( " No Errors\n" );
+-	}
+-	else {
+-	    printf( " Found %d errors\n", toterrs );
+-	}
+-    }
+-
++    MTest_Finalize( errs );
+     MPI_Finalize( );
+     return 0;
+ }
+diff -rupN mpi/errors/io/fileerrret.c mpi_new/errors/io/fileerrret.c
+--- mpi/errors/io/fileerrret.c	2007-11-02 17:50:19.000000000 -0500
++++ mpi_new/errors/io/fileerrret.c	2009-05-04 11:21:10.000000000 -0500
+@@ -28,9 +28,9 @@ int main( int argc, char *argv[] )
+     MPI_File fh;
+     MPI_Errhandler eh;
+     char filename[10];
+-    int errs = 0, toterrs, rank, rc;
++    int errs = 0, rc;
+ 
+-    MPI_Init( &argc, &argv );
++    MTest_Init( &argc, &argv );
+ 
+     /* Test that the default error handler is errors return for files */
+     strncpy( filename, "t1", sizeof(filename) );
+@@ -50,6 +50,7 @@ int main( int argc, char *argv[] )
+     rc = MPI_File_open(MPI_COMM_WORLD, filename, 
+ 		       MPI_MODE_RDWR, MPI_INFO_NULL, &fh );
+     if (rc) {
++        errs++;
+ 	printf( "Returned error from open (should have called error handler instead)\n");
+     }
+     if (ncalls != 1) {
+@@ -58,17 +59,8 @@ int main( int argc, char *argv[] )
+     }
+     
+     /* Find out how many errors we saw */
+-    MPI_Allreduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, MPI_COMM_WORLD );
+-    MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+-    if (rank == 0) {
+-	if (toterrs == 0) {
+-	    printf( " No Errors\n" );
+-	}
+-	else {
+-	    printf( " Saw %d errors\n", toterrs );
+-	}
+-    }
+ 
++    MTest_Finalize( errs );
+     MPI_Finalize();
+ 
+     return 0;
+diff -rupN mpi/errors/pt2pt/truncmsg2.c mpi_new/errors/pt2pt/truncmsg2.c
+--- mpi/errors/pt2pt/truncmsg2.c	2008-07-24 15:14:27.000000000 -0500
++++ mpi_new/errors/pt2pt/truncmsg2.c	2009-05-04 11:53:28.000000000 -0500
+@@ -15,6 +15,7 @@
+ #include <string.h>
+ 
+ #include <mpi.h>
++#include "mpitest.h"
+ 
+ #define BUFSIZE 128
+ 
+@@ -59,7 +60,7 @@ main (int argc, char *argv[])
+     int contig_indexed_inner_type = MPI_INT;
+     int contig_indexed_type;
+ 
+-    ret = MPI_Init(&argc, &argv);
++    MTest_Init( &argc, &argv );
+     ret = MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
+     ret = MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
+ 
+@@ -119,9 +120,6 @@ main (int argc, char *argv[])
+ 	    printf( "MPI_Recv succeeded with non-matching datatype signature\n" );
+ 	    errs++;
+ 	}
+-	else {
+-	    printf( " No Errors\n" );
+-	}
+     }
+ 
+     MPI_Barrier(MPI_COMM_WORLD);
+@@ -132,6 +130,7 @@ main (int argc, char *argv[])
+     MPI_Free_mem(src);
+     MPI_Free_mem(sendrec);
+ 
++    MTest_Finalize( errs );
+     MPI_Finalize( );
+ 
+     return 0;
+diff -rupN mpi/errors/spawn/badport.c mpi_new/errors/spawn/badport.c
+--- mpi/errors/spawn/badport.c	2008-10-22 12:55:14.000000000 -0500
++++ mpi_new/errors/spawn/badport.c	2009-05-04 14:08:14.000000000 -0500
+@@ -5,6 +5,7 @@
+  */
+ #include "mpi.h"
+ #include <stdio.h>
++#include "mpitest.h"
+ 
+ /* Set verbose to 1 to see the error message */
+ static int verbose = 0;
+@@ -14,7 +15,7 @@ int main( int argc, char *argv[] )
+     int ierr, errs=0;
+     MPI_Comm newcomm = MPI_COMM_NULL;
+ 
+-    MPI_Init( &argc, &argv );
++    MTest_Init( &argc, &argv );
+ 
+     MPI_Comm_set_errhandler( MPI_COMM_WORLD, MPI_ERRORS_RETURN );
+     ierr = MPI_Comm_connect( "myhost:27", MPI_INFO_NULL, 0, 
+@@ -39,12 +40,7 @@ int main( int argc, char *argv[] )
+     }
+     fflush(stdout);
+ 
+-    if (errs) {
+-	printf( " Found %d errors\n", errs );
+-    }
+-    else
+-	printf( " No Errors\n" );
+-
++    MTest_Finalize( errs );
+     MPI_Finalize();
+ 
+     return 0;
+diff -rupN mpi/errors/topo/testlist mpi_new/errors/topo/testlist
+--- mpi/errors/topo/testlist	2007-11-02 17:50:19.000000000 -0500
++++ mpi_new/errors/topo/testlist	2009-05-04 09:55:47.000000000 -0500
+@@ -1 +1 @@
+-cartsmall 4
+\ No newline at end of file
++cartsmall 4
+diff -rupN mpi/f77/datatype/typenamef.f mpi_new/f77/datatype/typenamef.f
+--- mpi/f77/datatype/typenamef.f	2008-11-18 15:06:38.000000000 -0600
++++ mpi_new/f77/datatype/typenamef.f	2009-05-05 15:13:17.000000000 -0500
+@@ -13,7 +13,7 @@ C
+ 
+       errs = 0
+ 
+-      call MPI_Init(ierr)
++      call mtest_init( ierr )
+ C
+ C Check each Fortran datatype, including the size-specific ones
+ C See the C version (typename.c) for the relevant MPI sections
+@@ -199,11 +199,6 @@ C     &              name(1:namelen)
+ C          endif
+ C      endif
+ 
+-      if (errs .gt. 0) then
+-          print *, ' Found ', errs, ' errors'
+-      else
+-          print *, ' No Errors'
+-      endif
+-
++      call mtest_finalize( errs )
+       call MPI_Finalize( ierr )
+       end
+diff -rupN mpi/f77/ext/c2fmult.c mpi_new/f77/ext/c2fmult.c
+--- mpi/f77/ext/c2fmult.c	2007-11-02 17:50:19.000000000 -0500
++++ mpi_new/f77/ext/c2fmult.c	2009-05-05 16:04:36.000000000 -0500
+@@ -14,18 +14,17 @@
+ */
+ #include "mpi.h"
+ #include <stdio.h>
++#include "mpitest.h"
+ 
+ int main( int argc, char *argv[] )
+ {
+     MPI_Fint handleA, handleB;
+     int      rc;
+     int      errs = 0;
+-    int      rank;
+     int      buf[1];
+     MPI_Request cRequest;
+ 
+-    MPI_Init( &argc, &argv );
+-    MPI_Comm_rank( MPI_COMM_WORLD, &rank );
++    MTest_Init( &argc, &argv );
+ 
+     /* Request */
+     rc = MPI_Irecv( buf, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &cRequest );
+@@ -44,15 +43,7 @@ int main( int argc, char *argv[] )
+     MPI_Cancel( &cRequest );
+     MPI_Request_free( &cRequest );
+ 
+-    if (rank == 0) {
+-	if (errs) {
+-	    fprintf(stderr, "Found %d errors\n", errs);
+-	}
+-	else {
+-	    printf(" No Errors\n");
+-	}
+-    }
+-    
++    MTest_Finalize( errs );
+     MPI_Finalize();
+     
+     return 0;
+diff -rupN mpi/f77/ext/ctypesinf.f mpi_new/f77/ext/ctypesinf.f
+--- mpi/f77/ext/ctypesinf.f	2008-10-28 11:12:51.000000000 -0500
++++ mpi_new/f77/ext/ctypesinf.f	2009-05-05 15:18:05.000000000 -0500
+@@ -1,10 +1,10 @@
+       program main
+       include 'mpif.h'
+       integer ierr
+-      integer errs, toterrs, wrank
++      integer errs, wrank
+       integer f2ctype
+ C
+-      call mpi_init( ierr )
++      call mtest_init( ierr )
+       call mpi_comm_rank( MPI_COMM_WORLD, wrank, ierr )
+ C
+       errs = 0
+@@ -38,16 +38,7 @@ C
+ C
+ C Summarize the errors
+ C
+-      call mpi_allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM,
+-     $     MPI_COMM_WORLD, ierr )
+-      if (wrank .eq. 0) then
+-         if (toterrs .eq. 0) then
+-            print *, ' No Errors'
+-         else
+-            print *, ' Found ', toterrs, ' errors'
+-         endif
+-      endif
+-
++      call mtest_finalize( errs )
+       call mpi_finalize( ierr )
+ 
+       end 
+diff -rupN mpi/f77/io/miscfilef.f mpi_new/f77/io/miscfilef.f
+--- mpi/f77/io/miscfilef.f	2008-11-18 15:06:38.000000000 -0600
++++ mpi_new/f77/io/miscfilef.f	2009-05-05 15:25:07.000000000 -0500
+@@ -13,7 +13,7 @@ C iodisp.h declares disp as an MPI_Offse
+       include 'iodisp.h'
+       integer rank, size
+       integer fh, i, group, worldgroup, result
+-      integer ierr, errs, toterrs
++      integer ierr, errs
+       integer BUFSIZE
+       parameter (BUFSIZE=1024)
+       integer buf(BUFSIZE)
+@@ -25,7 +25,7 @@ C iodisp.h declares disp as an MPI_Offse
+       integer integer_size, type_size
+ C      
+       errs = 0
+-      call mpi_init( ierr )
++      call mtest_init( ierr )
+       call mpi_comm_rank( MPI_COMM_WORLD, rank, ierr )
+       call mpi_comm_size( MPI_COMM_WORLD, size, ierr )
+ C
+@@ -202,19 +202,9 @@ C Make sure we use the expected position
+       if (rank .eq. 0) then
+          call MPI_File_delete(filename, MPI_INFO_NULL, ierr )
+       endif
+-C
+-C Get error summary
+-      call MPI_Allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM,         &
+-     &     MPI_COMM_WORLD, ierr )
+-      if (rank .eq. 0) then
+-         if( toterrs .gt. 0) then
+-            print *, "Found ", toterrs, " errors"
+-         else 
+-            print *, " No Errors"
+-         endif
+-      endif
+ 
+       call mpi_type_free( newtype, ierr )
+ 
++      call mtest_finalize( errs )
+       call mpi_finalize( ierr )
+       end
+diff -rupN mpi/f90/datatype/createf90.f90 mpi_new/f90/datatype/createf90.f90
+--- mpi/f90/datatype/createf90.f90	2008-10-22 12:55:14.000000000 -0500
++++ mpi_new/f90/datatype/createf90.f90	2009-05-05 15:37:02.000000000 -0500
+@@ -7,7 +7,6 @@
+         integer ierr
+         integer errs
+         integer nints, nadds, ndtypes, combiner
+-        integer rank
+         integer nparms(2), dummy(1)
+         integer (kind=MPI_ADDRESS_KIND) adummy(1)
+         integer ntype1, nsize, ntype2, ntype3, i
+@@ -15,7 +14,7 @@
+ !       Test the Type_create_f90_xxx routines
+ !
+         errs = 0
+-        call mpi_init( ierr )
++        call mtest_init( ierr )
+ 
+ ! integers with upto 9 are 4 bytes integers; r of 4 are 2 byte,
+ ! and r of 2 is 1 byte
+@@ -63,15 +62,7 @@
+            call mpi_type_create_f90_integer( 8, ntype3, ierr )
+         enddo
+ 
+-        call mpi_comm_rank( MPI_COMM_WORLD, rank, ierr )
+-        if (rank .eq. 0) then
+-           if (errs .eq. 0) then
+-              print *, " No Errors"
+-           else
+-              print *, " Found ", errs, " Errors"
+-           endif
+-        endif
+-
++        call mtest_finalize( errs )
+         call mpi_finalize( ierr )
+         
+         end
+diff -rupN mpi/f90/datatype/indtype.f90 mpi_new/f90/datatype/indtype.f90
+--- mpi/f90/datatype/indtype.f90	2007-11-02 17:50:19.000000000 -0500
++++ mpi_new/f90/datatype/indtype.f90	2009-05-05 16:19:16.000000000 -0500
+@@ -17,9 +17,13 @@
+       logical verbose
+ 
+       verbose = .false. 
+-      call mpi_init ( ierr )
++      call mtest_init ( ierr )
+       call mpi_comm_size( MPI_COMM_WORLD, size, ierr )
+       call mpi_comm_rank( MPI_COMM_WORLD, rank, ierr )
++      if (size .lt. 2) then
++         print *, "Must have at least 2 processes"
++         call MPI_Abort( 1, MPI_COMM_WORLD, ierr )
++      endif
+ 
+       errs = 0
+       allocate(sndbuf(7,100))
+@@ -103,16 +107,10 @@
+               endif
+            enddo
+         enddo
+-
+-!
+-         if (errs .eq. 0) then
+-            print*,' No Errors'
+-         else
+-            print*,'**',errs,' errors found.'
+-         endif
+       endif
+-
++!
+       call mpi_type_free( type, ierr )
++      call mtest_finalize( errs )
+       call mpi_finalize( ierr )
+ 
+       end
+diff -rupN mpi/f90/datatype/sizeof.f90 mpi_new/f90/datatype/sizeof.f90
+--- mpi/f90/datatype/sizeof.f90	2007-11-02 17:50:19.000000000 -0500
++++ mpi_new/f90/datatype/sizeof.f90	2009-05-05 16:21:59.000000000 -0500
+@@ -21,7 +21,7 @@
+ 
+       verbose = .false.
+       errs = 0
+-      call mpi_init ( ierr )
++      call mtest_init ( ierr )
+       call mpi_comm_rank( MPI_COMM_WORLD, rank, ierr )
+ 
+ !
+@@ -73,15 +73,7 @@
+               size
+       endif
+ 
+-      if (rank .eq. 0) then
+-         if (errs == 0) then
+-            print*,' No Errors'
+-         else
+-            print*,'**',errs,' errors found.'
+-         endif
+-      endif
+-
++      call mtest_finalize( errs )
+       call mpi_finalize( ierr )
+ 
+       end
+-      
+diff -rupN mpi/f90/datatype/typenamef90.f90 mpi_new/f90/datatype/typenamef90.f90
+--- mpi/f90/datatype/typenamef90.f90	2009-03-18 11:24:08.000000000 -0500
++++ mpi_new/f90/datatype/typenamef90.f90	2009-05-05 15:39:32.000000000 -0500
+@@ -13,7 +13,7 @@
+ 
+       errs = 0
+ 
+-      call MPI_Init(ierr)
++      call mtest_init( ierr )
+ !
+ ! Check each Fortran datatype, including the size-specific ones
+ ! See the C version (typename.c) for the relevant MPI sections
+@@ -199,11 +199,6 @@
+ !          endif
+ !      endif
+ 
+-      if (errs .gt. 0) then
+-          print *, ' Found ', errs, ' errors'
+-      else
+-          print *, ' No Errors'
+-      endif
+-
++      call mtest_finalize( errs )
+       call MPI_Finalize( ierr )
+       end
+diff -rupN mpi/f90/ext/c2f90mult.c mpi_new/f90/ext/c2f90mult.c
+--- mpi/f90/ext/c2f90mult.c	2009-03-18 11:24:08.000000000 -0500
++++ mpi_new/f90/ext/c2f90mult.c	2009-05-05 16:13:51.000000000 -0500
+@@ -15,18 +15,17 @@
+ */
+ #include "mpi.h"
+ #include <stdio.h>
++#include "mpitest.h"
+ 
+ int main( int argc, char *argv[] )
+ {
+     MPI_Fint handleA, handleB;
+     int      rc;
+     int      errs = 0;
+-    int      rank;
+     int      buf[1];
+     MPI_Request cRequest;
+ 
+-    MPI_Init( &argc, &argv );
+-    MPI_Comm_rank( MPI_COMM_WORLD, &rank );
++    MTest_Init( &argc, &argv );
+ 
+     /* Request */
+     rc = MPI_Irecv( buf, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &cRequest );
+@@ -45,15 +44,7 @@ int main( int argc, char *argv[] )
+     MPI_Cancel( &cRequest );
+     MPI_Request_free( &cRequest );
+ 
+-    if (rank == 0) {
+-	if (errs) {
+-	    fprintf(stderr, "Found %d errors\n", errs);
+-	}
+-	else {
+-	    printf(" No Errors\n");
+-	}
+-    }
+-    
++    MTest_Finalize( errs );
+     MPI_Finalize();
+     
+     return 0;
+diff -rupN mpi/f90/ext/ctypesinf90.f90 mpi_new/f90/ext/ctypesinf90.f90
+--- mpi/f90/ext/ctypesinf90.f90	2009-03-18 11:24:08.000000000 -0500
++++ mpi_new/f90/ext/ctypesinf90.f90	2009-05-05 15:45:13.000000000 -0500
+@@ -2,11 +2,10 @@
+       program main
+       use mpi
+       integer ierr
+-      integer errs, toterrs, wrank
++      integer errs
+       integer f2ctype
+ !
+-      call mpi_init( ierr )
+-      call mpi_comm_rank( MPI_COMM_WORLD, wrank, ierr )
++      call mtest_init( ierr )
+ !
+       errs = 0
+ !
+@@ -39,16 +38,7 @@
+ !
+ ! Summarize the errors
+ !
+-      call mpi_allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM, &
+-      &     MPI_COMM_WORLD, ierr )
+-      if (wrank .eq. 0) then
+-         if (toterrs .eq. 0) then
+-            print *, ' No Errors'
+-         else
+-            print *, ' Found ', toterrs, ' errors'
+-         endif
+-      endif
+-
++      call mtest_finalize( errs )
+       call mpi_finalize( ierr )
+ 
+       end 
+diff -rupN mpi/f90/f90types/createf90types.c mpi_new/f90/f90types/createf90types.c
+--- mpi/f90/f90types/createf90types.c	2008-11-16 11:03:23.000000000 -0600
++++ mpi_new/f90/f90types/createf90types.c	2009-05-05 14:38:27.000000000 -0500
+@@ -7,6 +7,7 @@
+ #include "mpi.h"
+ #include <stdio.h>
+ #include <stdlib.h>
++#include "mpitest.h"
+ 
+ static char MTEST_Descrip[] = "Test the routines to access the Fortran 90 datatypes from C";
+ 
+@@ -90,7 +91,7 @@ int main( int argc, char *argv[] )
+     int i, nLoop = 1;
+     MPI_Datatype newtype;
+ 
+-    MPI_Init(0,0);
++    MTest_Init(0,0);
+ 
+     if (argc > 1) {
+ 	nLoop = atoi( argv[1] );
+@@ -142,13 +143,7 @@ int main( int argc, char *argv[] )
+ 			   err, newtype );
+     }
+ 
+-    if (errs == 0) {
+-	printf( " No Errors\n" );
+-    }
+-    else {
+-	printf( " Found %d errors\n", errs );
+-    }
+-
++    MTest_Finalize( errs );
+     MPI_Finalize();
+     return 0;
+ }
+diff -rupN mpi/f90/io/miscfilef90.f90 mpi_new/f90/io/miscfilef90.f90
+--- mpi/f90/io/miscfilef90.f90	2009-03-18 11:24:08.000000000 -0500
++++ mpi_new/f90/io/miscfilef90.f90	2009-05-05 15:49:57.000000000 -0500
+@@ -15,7 +15,7 @@
+ 
+       integer rank, size
+       integer fh, i, group, worldgroup, result
+-      integer ierr, errs, toterrs
++      integer ierr, errs
+       integer BUFSIZE
+       parameter (BUFSIZE=1024)
+       integer buf(BUFSIZE)
+@@ -27,7 +27,7 @@
+       integer integer_size, type_size
+ !      
+       errs = 0
+-      call mpi_init( ierr )
++      call mtest_init( ierr )
+       call mpi_comm_rank( MPI_COMM_WORLD, rank, ierr )
+       call mpi_comm_size( MPI_COMM_WORLD, size, ierr )
+ !
+@@ -204,19 +204,9 @@
+       if (rank .eq. 0) then
+          call MPI_File_delete(filename, MPI_INFO_NULL, ierr )
+       endif
+-!
+-! Get error summary
+-      call MPI_Allreduce( errs, toterrs, 1, MPI_INTEGER, MPI_SUM,         &
+-      &     MPI_COMM_WORLD, ierr )
+-      if (rank .eq. 0) then
+-         if( toterrs .gt. 0) then
+-            print *, "Found ", toterrs, " errors"
+-         else 
+-            print *, " No Errors"
+-         endif
+-      endif
+ 
+       call mpi_type_free( newtype, ierr )
+ 
++      call mtest_finalize( errs )
+       call mpi_finalize( ierr )
+       end
+diff -rupN mpi/info/infomany.c mpi_new/info/infomany.c
+--- mpi/info/infomany.c	2008-11-10 08:32:44.000000000 -0600
++++ mpi_new/info/infomany.c	2009-05-05 14:52:49.000000000 -0500
+@@ -7,6 +7,7 @@
+ #include "mpi.h"
+ #include <stdio.h>
+ #include <stdlib.h>
++#include "mpitest.h"
+ #include "mpitestconf.h"
+ #ifdef HAVE_STRING_H
+ #include <string.h>
+@@ -19,14 +20,14 @@
+ #define info_list 16
+ /* #define DBG  */
+ 
+-int main( int arg, char *argv[] )
++int main( int argc, char *argv[] )
+ {
+     MPI_Info infos[MAX_INFOS];
+     char key[64], value[64];
+     int  errs = 0;
+     int  i, j;
+ 
+-    MPI_Init( 0, 0 );
++    MTest_Init( &argc, &argv );
+     
+     for (i=0; i<MAX_INFOS; i++) {
+ 	MPI_Info_create( &infos[i] );
+@@ -97,13 +98,8 @@ int main( int arg, char *argv[] )
+     for (i=0; i<MAX_INFOS; i++) {
+ 	MPI_Info_free( &infos[i] );
+     }
+-    if (errs) {
+-	printf( " Found %d errors\n", errs );
+-    }
+-    else {
+-	printf( " No Errors\n" );
+-    }
+     
++    MTest_Finalize( errs );
+     MPI_Finalize( );
+     return 0;
+ }
+diff -rupN mpi/info/infomany2.c mpi_new/info/infomany2.c
+--- mpi/info/infomany2.c	2008-11-10 08:32:44.000000000 -0600
++++ mpi_new/info/infomany2.c	2009-05-05 14:50:17.000000000 -0500
+@@ -8,6 +8,7 @@
+ #include "mpi.h"
+ #include <stdio.h>
+ #include <stdlib.h>
++#include "mpitest.h"
+ #include "mpitestconf.h"
+ #ifdef HAVE_STRING_H
+ #include <string.h>
+@@ -26,14 +27,14 @@
+ #define DBGPRINTF(a)
+ #endif
+ 
+-int main( int arg, char *argv[] )
++int main( int argc, char *argv[] )
+ {
+     MPI_Info infos[MAX_INFOS];
+     char key[64], value[64];
+     int  errs = 0;
+     int  i, j;
+ 
+-    MPI_Init( 0, 0 );
++    MTest_Init( &argc, &argv );
+ 
+     /* We create max_info items, then delete the middle third of them,
+        then recreate them, then check them, then 
+@@ -125,13 +126,8 @@ int main( int arg, char *argv[] )
+     for (i=0; i<MAX_INFOS; i++) {
+ 	MPI_Info_free( &infos[i] );
+     }
+-    if (errs) {
+-	printf( " Found %d errors\n", errs );
+-    }
+-    else {
+-	printf( " No Errors\n" );
+-    }
+     
++    MTest_Finalize( errs );
+     MPI_Finalize( );
+     return 0;
+ }
+diff -rupN mpi/pt2pt/cancelrecv.c mpi_new/pt2pt/cancelrecv.c
+--- mpi/pt2pt/cancelrecv.c	2008-11-08 10:39:08.000000000 -0600
++++ mpi_new/pt2pt/cancelrecv.c	2009-05-05 15:00:08.000000000 -0500
+@@ -14,11 +14,11 @@ int main( int argc, char *argv[] )
+     MPI_Request r[3];
+     MPI_Status  s[3];
+     int *buf0, *buf1, *buf2;
+-    int rank, size, src, dest, flag, errs = 0, toterrs;
++    int rank, size, src, dest, flag, errs = 0;
+     int n0, n1, n2;
+     MPI_Comm comm;
+ 
+-    MPI_Init( &argc, &argv );
++    MTest_Init( &argc, &argv );
+ 
+     MPI_Comm_size( MPI_COMM_WORLD, &size );
+     if (size < 2) {
+@@ -131,17 +131,7 @@ int main( int argc, char *argv[] )
+ 	MPI_Barrier( comm );
+     }
+ 
+-    MPI_Reduce( &errs, &toterrs, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD );
+-    if (rank == 0) {
+-	if (toterrs) { 
+-	    printf( " Found %d errors\n", toterrs );
+-	}
+-	else {
+-	    printf( " No Errors\n" );
+-	}
+-	fflush(stdout);
+-    }
+-
++    MTest_Finalize( errs );
+     MPI_Finalize();
+ 
+     return 0;

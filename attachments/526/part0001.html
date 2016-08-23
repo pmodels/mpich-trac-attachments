@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-9">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>Using mpich2 with python and pypar on windows</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>Hi,<BR>
+&nbsp;Thank you for reporting the problem. We will look into it (I can recreate it with &quot;Cygwin python + mpiexec&quot; - we have to see why SMPD is not forwarding the stdout/stdins correctly) and update you on our progress.<BR>
+&nbsp;However you can run python scripts using mpiexec (mpiexec -n 2 python helloworld.py). Do you really need the python command prompt (why not use python scripts ?)?<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+&gt; -----Original Message-----<BR>
+&gt; From: mpich-discuss-bounces@mcs.anl.gov<BR>
+&gt; [<A HREF="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] On Behalf Of Tunc<BR>
+&gt; Bahcecioglu<BR>
+&gt; Sent: Friday, April 17, 2009 9:48 AM<BR>
+&gt; To: mpich-discuss<BR>
+&gt; Subject: [mpich-discuss] using mpich2 with python and pypar<BR>
+&gt;<BR>
+&gt; Hi all,<BR>
+&gt;<BR>
+&gt; I'm trying to use python with mpi and I successfully<BR>
+&gt; installed the pypar module and it works fine when I start<BR>
+&gt; python from explorer (of course for 1 process!).<BR>
+&gt;<BR>
+&gt; But when I try to spawn processes with wmpiexec or mpiexec<BR>
+&gt; like &quot;mpiexec -n 2 python.exe&quot; I get a blank screen and<BR>
+&gt; nothing happens.<BR>
+&gt; &gt;From the task manager I can see two python.exe running.<BR>
+&gt; I use 32 bit vista and the latest versions of python and mpich2<BR>
+&gt;<BR>
+&gt; I can use mpich2 and python successfully other than this circumstance.<BR>
+&gt;<BR>
+&gt; I'll appreciate any ideas on this problem or any other ways<BR>
+&gt; to use python with mpi on windows.<BR>
+&gt; Thanks.<BR>
+&gt;<BR>
+&gt; Tunç Bahçecioğlu.<BR>
+&gt; </FONT>
+</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,1598 @@
+Configuring MPICH2 version 1.0.8 with  '--with-pvfs=/root/pvfs-install'
+Running on system: Linux WANGDI 2.6.27-11-generic #1 SMP Thu Jan 29 19:24:39 UTC 2009 i686 GNU/Linux
+Executing mpich2prereq in /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpid/ch3 with 
+Executing mpich2prereq in /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpid/ch3/channels/sock
+sourcing /home/gxwangdi/Downloads/mpich2-1.0.8/src/pm/mpd/mpich2prereq
+sourcing /home/gxwangdi/Downloads/mpich2-1.0.8/src/pm/mpd/setup_pm
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether C compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for type of weak symbol support... pragma weak
+checking whether __attribute__ ((weak)) allowed... yes
+checking for multiple weak symbol support... yes
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking for c++... c++
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether the C++ compiler c++ can build an executable... yes
+checking whether C++ compiler works with string... yes
+checking whether the compiler supports exceptions... yes
+checking whether the compiler recognizes bool as a built-in type... yes
+checking whether the compiler implements namespaces... yes
+checking whether <iostream> available... yes
+checking whether the compiler implements the namespace std... yes
+checking whether <math> available... no
+checking for GNU g++ version... 4 . 3
+checking whether C++ compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for perl... /usr/bin/perl
+checking for ar... ar
+checking for ranlib... ranlib
+checking for etags... etags
+checking for etags argument to specify language... --langmap=c:+.i
+checking for killall... killall
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking whether install breaks libraries... no
+checking whether mkdir -p works... yes
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for bash... /bin/bash
+checking whether /bin/bash supports arrays... yes
+checking for doctext... false
+checking for location of doctext style files... unavailable
+checking for an ANSI C-conforming const... yes
+checking for volatile... yes
+checking for restrict... __restrict
+checking for inline... inline
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking whether byte ordering is bigendian... no
+checking whether C compiler allows unaligned doubles... yes
+checking whether gcc supports __func__... yes
+Using gcc to determine dependencies
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for max C struct integer alignment... four
+checking for max C struct floating point alignment... four
+checking for max C struct alignment of structs with doubles... four
+checking for max C struct floating point alignment with long doubles... four
+checking if alignment of structs with doubles is based on position... no
+checking if alignment of structs with long long ints is based on position... no
+checking if double alignment breaks rules, find actual alignment... no
+checking for alignment restrictions on pointers... int or better
+checking size of char... 1
+checking size of unsigned char... 1
+checking size of short... 2
+checking size of unsigned short... 2
+checking size of int... 4
+checking size of unsigned int... 4
+checking size of long... 4
+checking size of unsigned long... 4
+checking size of long long... 8
+checking size of unsigned long long... 8
+checking size of float... 4
+checking size of double... 8
+checking size of long double... 12
+checking size of wchar_t... 4
+checking size of void *... 4
+checking for size of float int... 8
+checking for size of double int... 12
+checking for size of long int... 8
+checking for size of short int... 6
+checking for size of 2 int... 8
+checking for size of long double int... 16
+checking for sys/bitypes.h... yes
+checking for inttypes.h... (cached) yes
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking size of bool... 1
+checking how to run the C++ preprocessor... c++ -E
+checking for complex... yes
+checking size of Complex... 8
+checking size of DoubleComplex... 16
+checking size of LongDoubleComplex... 24
+checking if char * pointers use byte addresses... yes
+checking for alignment restrictions on ... no
+checking for alignment restrictions on int32_t... no
+checking for size of MPI_BSEND_OVERHEAD... 59
+checking for gcc __asm__ and pentium cmpxchgl instruction... yes
+checking for gcc __asm__ and AMD x86_64 cmpxchgq instruction... no
+checking for gcc __asm__ and IA64 xchg4 instruction... no
+checking for ANSI C header files... (cached) no
+checking for stdlib.h... (cached) yes
+checking for stdarg.h... yes
+checking for sys/types.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for limits.h... yes
+checking for stddef.h... yes
+checking for errno.h... yes
+checking for sys/socket.h... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for endian.h... yes
+checking for assert.h... yes
+checking for sys/uio.h... yes
+checking for size_t... yes
+checking for setitimer... yes
+checking for alarm... yes
+checking for vsnprintf... yes
+checking for vsprintf... yes
+checking whether vsnprintf needs a declaration... no
+checking for strerror... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for va_copy... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for clock_gettime... no
+checking for clock_getres... no
+checking for gethrtime... no
+checking for gettimeofday... yes
+sourcing /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpid/ch3/setup_device
+RUNNING SETUP_DEVICE FOR THE CH3 DEVICE
+sourcing /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpid/ch3/channels/sock/setup_channel
+RUNNING SETUP_CHANNEL FOR THE SOCK CHANNEL
+sourcing /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpid/common/sock/setup
+RUNNING SETUP FOR THE SOCK INTERFACE
+checking for pthread.h... yes
+checking for pthread_yield... no
+checking for library containing pthread_key_create... -lpthread
+checking for pthread_cleanup_push... no
+checking whether pthread_cleanup_push is available (may be a macro in pthread.h)... no
+checking for sched_yield... yes
+checking for yield... no
+checking for usleep... yes
+checking for sleep... yes
+checking for select... yes
+RUNNING CONFIGURE FOR CH3 DEVICE
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for assert.h... yes
+checking for limits.h... yes
+checking for string.h... yes
+checking for sys/types.h... yes
+checking for sys/uio.h... yes
+checking for uuid/uuid.h... yes
+checking for time.h... yes
+checking for ctype.h... yes
+checking for unistd.h... yes
+checking for arpa/inet.h... yes
+checking for sys/socket.h... yes
+checking for net/if.h... yes
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... (cached) yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... (cached) yes
+checking for pid_t... yes
+checking for inet_pton... yes
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for CFUUIDCreate... no
+checking for uuid_generate... no
+checking for time... yes
+checking for library containing uuid_generate... -luuid
+checking whether CPP accepts variable length argument lists... yes
+checking whether byte ordering is bigendian... no
+checking whether we can use struct ifconf... yes
+checking size of int... 4
+checking size of long... 4
+checking size of long long... 8
+checking size of void *... 4
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating util/Makefile
+config.status: creating util/shm/Makefile
+config.status: creating util/shmbase/Makefile
+config.status: creating channels/Makefile
+config.status: creating localdefs
+config.status: creating include/mpid_thread.h
+config.status: creating include/mpidi_ch3_conf.h
+config.status: include/mpidi_ch3_conf.h is unchanged
+config.status: executing default-1 commands
+copying ./../common/thread/mpid_thread_mpe.c to src/mpid_thread.c
+=== configuring in util/sock (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpid/ch3/util/sock)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread ' --cache-file=/dev/null --srcdir=.
+RUNNING CONFIGURE FOR CH3 UTIL SOCK ROUTINES
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for ar... ar
+checking for ranlib... ranlib
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for assert.h... yes
+checking for limits.h... yes
+checking for string.h... yes
+checking for sys/types.h... yes
+checking for sys/uio.h... yes
+checking for time.h... yes
+checking for ctype.h... yes
+checking for unistd.h... yes
+checking for arpa/inet.h... yes
+checking for sys/socket.h... yes
+checking for net/if.h... yes
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... (cached) yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... (cached) yes
+checking for pid_t... yes
+checking for inet_pton... yes
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking whether CPP accepts variable length argument lists... yes
+checking whether byte ordering is bigendian... no
+checking whether we can use struct ifconf... yes
+checking size of int... 4
+checking size of long... 4
+checking size of long long... 8
+checking size of void *... 4
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating ch3usockconf.h
+config.status: ch3usockconf.h is unchanged
+config.status: executing default-1 commands
+Updating dependency directories .deps
+=== configuring in channels/sock (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpid/ch3/channels/sock)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread ' --cache-file=/dev/null --srcdir=.
+RUNNING CONFIGURE FOR THE SOCK CHANNEL
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking for ranlib... ranlib
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether install breaks libraries... no
+checking whether mkdir -p works... yes
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for ar... ar
+checking for ranlib... ranlib
+checking for net/if.h... yes
+checking how to run the C preprocessor... gcc -E
+checking for netdb.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/socket.h... yes
+checking for sys/sockio.h... no
+checking for sys/types.h... yes
+checking for errno.h... yes
+checking for netinet/in.h... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating localdefs
+config.status: creating include/mpidi_ch3i_sock_conf.h
+config.status: include/mpidi_ch3i_sock_conf.h is unchanged
+config.status: executing default-1 commands
+Updating dependency directories .deps
+RUNNING CONFIGURE FOR THE SOCK INTERFACE
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for strerror... yes
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for ar... ar
+checking for ranlib... ranlib
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating mpidu_sock_conf.h
+config.status: mpidu_sock_conf.h is unchanged
+=== configuring in poll (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpid/common/sock/poll)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread    ' --cache-file=/dev/null --srcdir=.
+RUNNING CONFIGURE FOR THE POLL IMPLEMENTATION OF SOCK
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for inline... inline
+checking for poll... yes
+checking how to run the C preprocessor... gcc -E
+checking for assert.h... yes
+checking for errno.h... yes
+checking for fcntl.h... yes
+checking for limits.h... yes
+checking for netdb.h... yes
+checking for netinet/in.h... yes
+checking for netinet/tcp.h... yes
+checking for poll.h... yes
+checking for stdlib.h... yes
+checking for sys/param.h... yes
+checking for sys/poll.h... yes
+checking for sys/types.h... yes
+checking for sys/uio.h... yes
+checking for unistd.h... yes
+checking if struct poll is defined... yes
+checking if a simple program using poll() can be compiled... yes
+checking whether bit fields work in ip.h... yes
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+checking whether socklen_t is defined (in sys/socket.h if present)... yes
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating mpidu_socki_conf.h
+config.status: mpidu_socki_conf.h is unchanged
+config.status: executing default-1 commands
+Updating dependency directories .deps
+RUNNING CONFIGURE FOR LOCKS
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for ar... ar
+checking for ranlib... ranlib
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for yield... no
+checking for sched_yield... yes
+checking for usleep... yes
+checking for sleep... yes
+checking for select... yes
+checking for mutex_init... no
+checking for compare_and_swap... no
+checking for pthread_mutexattr_init... yes
+checking for pthread_mutexattr_setpshared... yes
+checking how to run the C preprocessor... gcc -E
+checking for pthread.h... yes
+checking for sched.h... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating mpid_locksconf.h
+config.status: mpid_locksconf.h is unchanged
+Configuring with args --prefix=NONE --with-pvfs=/root/pvfs-install
+checking for architecture... LINUX
+ROMIO home directory is /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpi/romio
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking how to run the C preprocessor... gcc -E
+checking for memalign... yes
+checking Fortran external names
+checking for inline... inline
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking size of int... 4
+checking size of void *... 4
+checking for int large enough for pointers... yes
+checking size of long long... 8
+Overriding Array test for MPICH2
+checking for weak symbol support... pragma weak
+checking that weak symbols are visible to other files... yes
+checking that the compiler correctly implements weak symbols... yes
+checking whether struct flock compatible with MPI_Offset... yes
+checking for pvfs2-config... /root/pvfs-install/bin/pvfs2-config
+checking configured file systems... testfs ufs nfs
+checking for library containing aio_write... -lrt
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking if aio.h exists and can be compiled... yes
+checking if sys/aio.h exists and can be compiled... no
+checking whether aio routines can be used... yes
+checking for obsolete two-argument aio_write... no
+checking for obsolete two-argument aio_suspend... no
+checking for aio_fildes member of aiocb structure... yes
+checking for aio_whence member of aiocb structure... no
+checking for aio_handle member of aiocb structure... no
+checking for aio_reqprio member of aiocb structure... yes
+checking for aio_sigevent member of aiocb structure... yes
+checking sys/vfs.h usability... yes
+checking sys/vfs.h presence... yes
+checking for sys/vfs.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/mount.h usability... yes
+checking sys/mount.h presence... yes
+checking for sys/mount.h... yes
+checking sys/statvfs.h usability... yes
+checking sys/statvfs.h presence... yes
+checking for sys/statvfs.h... yes
+checking whether struct statfs properly defined... yes
+checking for f_fstypename member of statfs structure... no
+checking for sys/stat.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for stat... yes
+checking for st_fstype member of stat structure... no
+checking for sys/types.h... (cached) yes
+checking for sys/statvfs.h... (cached) yes
+checking for sys/vfs.h... (cached) yes
+checking for statvfs... yes
+checking for f_basetype member of statvfs structure... no
+checking for unistd.h... (cached) yes
+checking for large file defines... yes
+checking whether off64_t is an scalar type... yes
+checking for strerror... yes
+checking for doctext... false
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for lstat... yes
+checking whether lstat needs a declaration... yes
+checking for readlink... yes
+checking whether readlink needs a declaration... no
+checking for fsync... yes
+checking whether fsync needs a declaration... no
+checking for ftruncate... yes
+checking whether ftruncate needs a declaration... no
+checking for unistd.h... (cached) yes
+checking for large file defines... yes
+setting SYSDEP_INC to 
+checking for restrict... __restrict
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+setting CC to gcc
+setting F77 to :
+setting TEST_CC to /home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc
+setting TEST_F77 to /home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77
+setting CFLAGS to  -O2  -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_ROMIOCONF_H -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+setting USER_CFLAGS to 
+setting USER_FFLAGS to 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating mpi-io/Makefile
+config.status: creating mpi2-other/info/Makefile
+config.status: creating mpi2-other/array/Makefile
+config.status: creating adio/common/Makefile
+config.status: creating test/Makefile
+config.status: creating test/misc.c
+config.status: creating test/large_file.c
+config.status: creating test/runtests
+config.status: creating util/romioinstall
+config.status: creating include/mpio.h
+config.status: creating include/mpiof.h
+config.status: creating adio/ad_nfs/Makefile
+config.status: creating adio/ad_ufs/Makefile
+config.status: creating adio/ad_bgl/Makefile
+config.status: creating adio/ad_bglockless/Makefile
+config.status: creating adio/ad_panfs/Makefile
+config.status: creating adio/ad_xfs/Makefile
+config.status: creating adio/ad_sfs/Makefile
+config.status: creating adio/ad_pfs/Makefile
+config.status: creating adio/ad_testfs/Makefile
+config.status: creating adio/ad_pvfs/Makefile
+config.status: creating adio/ad_pvfs2/Makefile
+config.status: creating adio/ad_gridftp/Makefile
+config.status: creating adio/ad_lustre/Makefile
+config.status: creating mpi-io/fortran/Makefile
+config.status: creating mpi2-other/info/fortran/Makefile
+config.status: creating mpi2-other/array/fortran/Makefile
+config.status: creating test/fmisc.f
+config.status: creating test/fcoll_test.f
+config.status: creating test/pfcoll_test.f
+config.status: creating test/fperf.f
+config.status: creating mpi-io/glue/mpich2/Makefile
+config.status: creating mpi-io/glue/mpich1/Makefile
+config.status: creating mpi-io/glue/default/Makefile
+config.status: creating common/dataloop/Makefile
+config.status: creating adio/include/romioconf.h
+config.status: executing default-1 commands
+RUNNING CONFIGURE FOR THE SIMPLE PMI
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for unistd.h... yes
+checking for string.h... yes
+checking for stdlib.h... yes
+checking for sys/socket.h... yes
+checking for strings.h... yes
+checking for assert.h... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for sys/types.h... yes
+checking for sys/param.h... yes
+checking for sys/socket.h... (cached) yes
+checking for netinet/in.h... yes
+checking for netinet/tcp.h... yes
+checking for sys/un.h... yes
+checking for netdb.h... yes
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+checking for socket... yes
+checking for setsockopt... yes
+checking for gethostbyname... yes
+checking whether socklen_t is defined (in sys/socket.h if present)... yes
+checking whether struct hostent contains h_addr_list... yes
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating pmiconf.h
+config.status: pmiconf.h is unchanged
+Configuring with args /usr/local/share/config.site /usr/local/etc/config.site
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether make sets $(MAKE)... yes
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install /usr/bin/install -c works... yes
+Using INSTALL=/usr/bin/install -c
+checking for totalview... no
+checking for python2.5... python2.5
+checking for python2.4... no
+checking for python2.3... no
+checking for python2.2... no
+checking for python2... no
+checking for python... python
+checking that python2.5 is a valid python version... yes
+checking that the cPickle module is available for python2.5... yes
+checking for library containing socket... none required
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for strings.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for putenv... yes
+checking for socket... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating mpdconf.h
+Configuring MPE Profiling System with  '--prefix=NONE' '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= '
+checking for current directory name... /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+This MPE build is part of the MPICH2 build
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether MPI_CC has been set ... /home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc 
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking whether MPI_F77 has been set ... /home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77 
+checking how to run the C preprocessor... gcc -E
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking for ranlib... ranlib
+checking whether install breaks libraries... no
+checking for leftover Makefiles in subpackages ...  "src/misc" "src/callstack" "src/logging" "src/wrappers" "src/graphics" "src/collchk" "src/slog2sdk" cleaned 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/mpetestlink
+config.status: creating sbin/mpetestexec
+config.status: creating sbin/mpetestexeclog
+config.status: creating sbin/mpeinstall
+config.status: creating sbin/mpecheckinstall
+config.status: creating sbin/mpecheckbuild
+config.status: creating etc/mpe_help.conf
+config.status: creating etc/mpe_f77env.conf
+config.status: creating mpe_conf.h
+config.status: executing default-1 commands
+=== configuring in src/misc (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/misc)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' --cache-file=/dev/null --srcdir=.
+Configuring MPE Miscellaneous Library with  '--disable-option-checking' '--prefix=/usr/local' '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/misc
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for dbx... no
+checking for gdb... /usr/bin/gdb
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sysinfo... yes
+checking for uname... yes
+checking for gethostbyname... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking sys/systeminfo.h usability... no
+checking sys/systeminfo.h presence... no
+checking for sys/systeminfo.h... no
+checking for sys/types.h... (cached) yes
+checking for sighandler_t... no
+checking for kill... yes
+checking whether kill needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/dbxerr.c
+config.status: creating mpe_misc_conf.h
+=== configuring in src/callstack (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/callstack)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' --cache-file=/dev/null --srcdir=.
+Configuring MPE CallStack Library with  '--disable-option-checking' '--prefix=/usr/local' '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/callstack
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking whether <execinfo.h> defines backtrace_symbols_fd() ... yes
+checking if <execinfo.h> links with -Wl,--export-dynamic ... yes
+checking for fdopen... yes
+checking whether fdopen needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating include/mpe_callstack.h
+config.status: creating etc/mpe_callstack_ldflags.conf
+config.status: creating mpe_callstack_conf.h
+=== configuring in src/logging (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/logging)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' --cache-file=/dev/null --srcdir=.
+Configuring MPE Logging Library and Tools with  '--disable-option-checking' '--prefix=/usr/local' '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/logging
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking whether byte ordering is bigendian... no
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/bitypes.h usability... yes
+checking sys/bitypes.h presence... yes
+checking for sys/bitypes.h... yes
+checking for sys/stat.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for header that defines C99 integer types, intXX_t ... <stdint.h> 
+checking for inttypes.h... (cached) yes
+checking whether <inttypes.h> defines the PRIdXX macros ... yes
+checking if <stdint.h> can be behind system headers ... yes
+checking size of void *... 4
+checking for address-sized integer ... CLOG_int32_t
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for mkstemp... yes
+checking whether mkstemp needs a declaration... no
+checking for srand48... yes
+checking whether srand48 needs a declaration... no
+checking for lrand48... yes
+checking whether lrand48 needs a declaration... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for O_LARGEFILE for open() ... needs _LARGEFILE64_SOURCE 
+checking for O_BINARY for open() ... no
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_mutex_lock in -lpthread... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating include/clog_inttypes.h
+config.status: creating include/mpi_null.h
+config.status: creating include/mpe_log_thread.h
+config.status: creating etc/mpe_log.conf
+config.status: creating etc/mpe_nolog.conf
+config.status: creating etc/mpe_log_postlib.conf
+config.status: creating mpe_logging_conf.h
+=== configuring in src/wrappers (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/wrappers)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' --cache-file=/dev/null --srcdir=.
+Configuring MPE Wrapper Libraries For MPI with  '--disable-option-checking' '--prefix=/usr/local' '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/wrappers
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdarg is correct... yes
+checking if compiler accepts prototypes ... yes
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for safe PMPI invocations ... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating etc/mpe_f77env.conf
+config.status: creating etc/mpe_mpilog.conf
+config.status: creating etc/mpe_mpitrace.conf
+config.status: creating mpe_wrappers_conf.h
+=== configuring in src/graphics (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/graphics)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' --cache-file=/dev/null --srcdir=.
+Configuring MPE X Graphics Library with  '--disable-option-checking' '--prefix=/usr/local' '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/graphics
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for X... libraries , headers 
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking size of void *... 4
+checking for long pointer... no
+checking for system... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating contrib/life/Makefile
+config.status: creating contrib/mandel/Makefile
+config.status: creating contrib/mastermind/Makefile
+config.status: creating contrib/test/Makefile
+config.status: creating etc/mpe_mpianim.conf
+config.status: creating etc/mpe_graphics.conf
+config.status: creating mpe_graphics_conf.h
+=== configuring in src/collchk (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/collchk)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' --cache-file=/dev/null --srcdir=.
+Configuring MPE Collective and Datatype Checking Library with  '--disable-option-checking' '--prefix=/usr/local' '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/collchk
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for working alloca.h... yes
+checking for alloca... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating etc/mpe_mpicheck.conf
+config.status: creating mpe_collchk_conf.h
+=== configuring in src/slog2sdk (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/slog2sdk)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' --cache-file=/dev/null --srcdir=.
+checking for current directory name... /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/slog2sdk
+Configuring SLOG2SDK with  '--disable-option-checking' '--prefix=/usr/local' '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' '--cache-file=/dev/null' '--srcdir=.'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking if CLASSPATH is set... no, good to go
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for java in user's PATH... found /usr/lib/jvm/java-6-sun-1.6.0.10/bin/java
+checking if /usr/lib/jvm/java-6-sun-1.6.0.10/bin/java runs simple java class... yes
+checking if /usr/lib/jvm/java-6-sun-1.6.0.10/bin/java runs simple jar file... yes
+checking if /usr/lib/jvm/java-6-sun-1.6.0.10/bin/java runs non-GUI tool... yes
+checking if /usr/lib/jvm/java-6-sun-1.6.0.10/bin/java runs simple Swing class... yes
+checking if /usr/lib/jvm/java-6-sun-1.6.0.10/bin/java runs simple Swing jar file... yes
+checking for Java version... java full version "1.6.0_10-b33", i.e. Java 2 SDK
+checking for cygpath... no
+creating sample logfiles from source
+checking for leftover Makefiles in subpackages ... none 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/install-package
+config.status: creating bin/slog2print
+config.status: creating bin/slog2navigator
+config.status: creating bin/slog2filter
+config.status: creating bin/slog2updater
+config.status: creating bin/logconvertor
+config.status: creating bin/jumpshot
+config.status: creating bin/clogprint
+config.status: creating bin/clogTOslog2
+config.status: creating bin/clog2print
+config.status: creating bin/clog2TOslog2
+=== configuring in trace_rlog (/home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/slog2sdk/trace_rlog)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' --cache-file=/dev/null --srcdir=.
+checking for current directory name... /home/gxwangdi/Downloads/mpich2-1.0.8/src/mpe2/src/slog2sdk/trace_rlog
+Configuring TRACE_RLOG implementation with  '--disable-option-checking' '--prefix=/usr/local' '--with-pvfs=/root/pvfs-install' 'MPI_CC=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpicc' 'MPI_F77=/home/gxwangdi/Downloads/mpich2-1.0.8/bin/mpif77' 'CC=gcc' 'CFLAGS= -O2' 'LIBS=-lpthread        -lrt   ' 'F77=' 'FFLAGS= ' '--cache-file=/dev/null' '--srcdir=.'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking for an ANSI C-conforming const... yes
+checking size of void *... 4
+checking size of int... 4
+checking size of long... 4
+checking size of long long... 8
+checking size of __int64... 0
+checking whether byte ordering is bigendian... no
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for sed... sed
+checking for a sed that does not truncate output... sed
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for /usr/bin/ld option to reload object files... -r
+checking how to recognize dependent libraries... pass_all
+checking for ar... ar
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for malloc in -lefence... no
+checking for strstr... yes
+checking target system type... i686-pc-linux-gnu
+checking for javah in user's PATH... found /usr/lib/jvm/java-6-sun-1.6.0.10/bin/javah
+checking if /usr/lib/jvm/java-6-sun-1.6.0.10 exists... yes
+checking for <jni.h> include flag... found -I/usr/lib/jvm/java-6-sun-1.6.0.10/include -I/usr/lib/jvm/java-6-sun-1.6.0.10/include/linux
+checking for <jni.h> usability... yes
+checking for cygpath... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking for ranlib... (cached) ranlib
+checking whether install breaks libraries... no
+creating sample logfiles from source
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating sbin/install-package
+config.status: creating bin/traceprint
+config.status: creating bin/traceTOslog2
+config.status: creating trace_impl.h
+config.status: executing libtool commands
+SLOG2SDK:  "trace_rlog" have been configured
+MPE2:  "src/misc" "src/callstack" "src/logging" "src/wrappers" "src/graphics" "src/collchk" "src/slog2sdk" have been configured
+checking the sizeof MPI_Offset... 8
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/include/Makefile
+config.status: creating src/include/mpich2info.h
+config.status: creating mpich2-doxygen
+config.status: creating src/include/mpichtimer.h
+config.status: creating src/binding/Makefile
+config.status: creating src/binding/cxx/Makefile
+config.status: creating src/binding/cxx/mpicxx.h
+config.status: creating src/binding/f77/Makefile
+config.status: creating src/binding/f77/mpif.h
+config.status: creating src/binding/f77/setbotf.f
+config.status: creating src/binding/f90/Makefile
+config.status: creating src/binding/f90/mpi_sizeofs.f90
+config.status: creating src/pkgconfig/mpich2-ch3.pc
+config.status: creating src/pkgconfig/Makefile
+config.status: creating src/env/mpixxx_opts.conf
+config.status: creating src/env/mpicc
+config.status: creating src/env/mpicc.conf
+config.status: creating src/env/mpicc.bash
+config.status: creating src/env/mpicxx
+config.status: creating src/env/mpicxx.conf
+config.status: creating src/env/mpicxx.bash
+config.status: creating src/env/mpif77
+config.status: creating src/env/mpif77.conf
+config.status: creating src/env/mpif77.bash
+config.status: creating src/env/mpif90
+config.status: creating src/env/mpif90.conf
+config.status: creating src/env/mpif90.bash
+config.status: creating src/env/parkill
+config.status: creating src/env/Makefile
+config.status: creating src/util/createshlib
+config.status: creating src/mpi/Makefile
+config.status: creating src/mpi/attr/Makefile
+config.status: creating src/mpi/coll/Makefile
+config.status: creating src/mpi/comm/Makefile
+config.status: creating src/mpi/datatype/Makefile
+config.status: creating src/mpi/debugger/Makefile
+config.status: creating src/mpi/errhan/Makefile
+config.status: creating src/mpi/group/Makefile
+config.status: creating src/mpi/init/Makefile
+config.status: creating src/mpi/misc/Makefile
+config.status: creating src/mpi/pt2pt/Makefile
+config.status: creating src/mpi/rma/Makefile
+config.status: creating src/mpi/spawn/Makefile
+config.status: creating src/mpi/timer/Makefile
+config.status: creating src/mpi/topo/Makefile
+config.status: creating src/mpid/Makefile
+config.status: creating src/mpid/common/Makefile
+config.status: creating src/mpid/common/datatype/Makefile
+config.status: creating src/mpid/common/datatype/dataloop/Makefile
+config.status: creating src/pm/Makefile
+config.status: creating src/pmi/Makefile
+config.status: creating src/nameserv/Makefile
+config.status: creating src/nameserv/file/Makefile
+config.status: creating src/nameserv/mpd/Makefile
+config.status: creating src/nameserv/pmi/Makefile
+config.status: creating src/nameserv/test/Makefile
+config.status: creating src/util/Makefile
+config.status: creating src/util/info/Makefile
+config.status: creating src/util/instrm/Makefile
+config.status: creating src/util/thread/Makefile
+config.status: creating src/util/thread/mpe_thread.h
+config.status: creating src/util/mem/Makefile
+config.status: creating src/util/msgs/Makefile
+config.status: creating src/util/param/Makefile
+config.status: creating src/util/dbg/Makefile
+config.status: creating src/util/dbg/getfuncstack
+config.status: creating src/util/osserv/Makefile
+config.status: creating src/include/mpi.h
+config.status: creating test/Makefile
+config.status: creating test/util/Makefile
+config.status: creating test/basic/Makefile
+config.status: creating test/commands/Makefile
+config.status: creating test/commands/cmdtests
+config.status: creating test/mpid/Makefile
+config.status: creating test/mpid/ch3/Makefile
+config.status: creating test/util/timer/Makefile
+config.status: creating examples/Makefile
+config.status: creating examples/f77/Makefile
+config.status: creating examples/f90/Makefile
+config.status: creating examples/cxx/Makefile
+config.status: creating src/util/logging/Makefile
+config.status: creating src/util/logging/common/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/mansrc/Makefile
+config.status: creating doc/mansrc/createhtmlindex
+config.status: creating doc/refman/Makefile
+config.status: creating doc/installguide/Makefile
+config.status: creating doc/userguide/Makefile
+config.status: creating doc/logging/Makefile
+config.status: creating doc/design/Makefile
+config.status: creating doc/smpd/Makefile
+config.status: creating doc/windev/Makefile
+config.status: creating src/include/mpichconf.h
+config.status: src/include/mpichconf.h is unchanged
+config.status: executing default-1 commands
+config.status: executing default-2 commands
+config.status: executing default-3 commands
+config.status: executing default-4 commands
+copying ./src/util/thread/mpe_thread_posix.c to src/util/thread/mpe_thread.c
+moving mpe_thread.h to src/include
+config.status: executing default-5 commands
+config.status: executing default-6 commands
+config.status: executing default-7 commands
+config.status: executing default-8 commands
+config.status: executing default-9 commands
+Updating dependency directories .deps
+config.status: executing default-10 commands
+config.status: executing default-11 commands
+config.status: executing default-12 commands
+config.status: executing default-13 commands
+config.status: executing default-14 commands
+=== configuring in test/mpi (/home/gxwangdi/Downloads/mpich2-1.0.8/test/mpi)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/usr/local'  '--with-pvfs=/root/pvfs-install' --cache-file=/dev/null --srcdir=.
+RUNNING CONFIGURE FOR MPI TESTS
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for an ANSI C-conforming const... yes
+checking for restrict... __restrict
+checking how to run the C preprocessor... gcc -E
+checking for unistd.h... yes
+checking for stdarg.h... yes
+checking for string.h... yes
+checking for stdlib.h... yes
+checking for memory.h... yes
+Configuring tests for MPICH2
+checking whether struct hostent contains h_addr_list... yes
+checking whether <iostream> available... yes
+checking whether the compiler implements namespaces... yes
+checking whether the compiler implements the namespace std... yes
+checking for perl... /usr/bin/perl
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating maint/testmerge
+config.status: creating runtests
+config.status: creating Makefile
+config.status: creating basic/Makefile
+config.status: creating attr/Makefile
+config.status: creating util/Makefile
+config.status: creating coll/Makefile
+config.status: creating comm/Makefile
+config.status: creating datatype/Makefile
+config.status: creating errhan/Makefile
+config.status: creating group/Makefile
+config.status: creating info/Makefile
+config.status: creating init/Makefile
+config.status: creating pt2pt/Makefile
+config.status: creating rma/Makefile
+config.status: creating spawn/Makefile
+config.status: creating topo/Makefile
+config.status: creating io/Makefile
+config.status: creating f77/Makefile
+config.status: creating f77/attr/Makefile
+config.status: creating f77/attr/attraints.h
+config.status: creating f77/pt2pt/attr1aints.h
+config.status: creating f77/ext/add1size.h
+config.status: creating f77/datatype/Makefile
+config.status: creating f77/datatype/typeaints.h
+config.status: creating f77/util/Makefile
+config.status: creating f77/coll/Makefile
+config.status: creating f77/comm/Makefile
+config.status: creating f77/topo/Makefile
+config.status: creating f77/init/Makefile
+config.status: creating f77/rma/addsize.h
+config.status: creating f77/pt2pt/Makefile
+config.status: creating f77/info/Makefile
+config.status: creating f77/spawn/Makefile
+config.status: creating f77/spawn/type1aint.h
+config.status: creating f77/rma/Makefile
+config.status: creating f77/ext/Makefile
+config.status: creating f77/ext/testlist
+config.status: creating f77/io/Makefile
+config.status: creating f77/io/iooffset.h
+config.status: creating f77/io/iodisp.h
+config.status: creating f77/io/ioaint.h
+config.status: creating f90/Makefile
+config.status: creating f90/attr/Makefile
+config.status: creating f90/datatype/Makefile
+config.status: creating f90/f90types/Makefile
+config.status: creating f90/util/Makefile
+config.status: creating f90/coll/Makefile
+config.status: creating f90/comm/Makefile
+config.status: creating f90/topo/Makefile
+config.status: creating f90/init/Makefile
+config.status: creating f90/pt2pt/Makefile
+config.status: creating f90/rma/Makefile
+config.status: creating f90/info/Makefile
+config.status: creating f90/spawn/Makefile
+config.status: creating f90/timer/Makefile
+config.status: creating f90/ext/Makefile
+config.status: creating f90/ext/testlist
+config.status: creating f90/io/Makefile
+config.status: creating f90/misc/Makefile
+config.status: creating cxx/Makefile
+config.status: creating cxx/util/Makefile
+config.status: creating cxx/attr/Makefile
+config.status: creating cxx/pt2pt/Makefile
+config.status: creating cxx/comm/Makefile
+config.status: creating cxx/coll/Makefile
+config.status: creating cxx/info/Makefile
+config.status: creating cxx/datatype/Makefile
+config.status: creating cxx/io/Makefile
+config.status: creating cxx/init/Makefile
+config.status: creating cxx/rma/Makefile
+config.status: creating cxx/spawn/Makefile
+config.status: creating threads/Makefile
+config.status: creating threads/pt2pt/Makefile
+config.status: creating threads/util/Makefile
+config.status: creating threads/comm/Makefile
+config.status: creating threads/spawn/Makefile
+config.status: creating errors/Makefile
+config.status: creating errors/attr/Makefile
+config.status: creating errors/coll/Makefile
+config.status: creating errors/comm/Makefile
+config.status: creating errors/group/Makefile
+config.status: creating errors/pt2pt/Makefile
+config.status: creating errors/rma/Makefile
+config.status: creating errors/spawn/Makefile
+config.status: creating errors/topo/Makefile
+config.status: creating errors/io/Makefile
+config.status: creating errors/cxx/Makefile
+config.status: creating errors/cxx/errhan/Makefile
+config.status: creating errors/cxx/io/Makefile
+config.status: creating errors/f77/Makefile
+config.status: creating errors/f90/Makefile
+config.status: creating manual/Makefile
+config.status: creating manual/manyconnect
+config.status: creating perf/Makefile
+config.status: creating testlist
+config.status: creating cxx/testlist
+config.status: creating f77/testlist
+config.status: creating f90/testlist
+config.status: creating errors/testlist
+config.status: creating errors/cxx/testlist
+config.status: creating include/mpitestconf.h
+config.status: include/mpitestconf.h is unchanged
+config.status: executing default-1 commands
+config.status: executing default-2 commands
+config.status: executing default-3 commands
+Configuration completed.

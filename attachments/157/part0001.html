@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v = 
+"urn:schemas-microsoft-com:vml" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>RE: [MPICH2 Req #4127] smpd and singleton init</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16705" name=GENERATOR><!--[if !mso]>
+<STYLE>v\:* {
+	BEHAVIOR: url(#default#VML)
+}
+o\:* {
+	BEHAVIOR: url(#default#VML)
+}
+w\:* {
+	BEHAVIOR: url(#default#VML)
+}
+.shape {
+	BEHAVIOR: url(#default#VML)
+}
+</STYLE>
+<![endif]-->
+<STYLE>@font-face {
+	font-family: Tahoma;
+}
+@page Section1 {size: 595.3pt 841.9pt; margin: 72.0pt 89.85pt 72.0pt 89.85pt; }
+P.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Times New Roman"
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Times New Roman"
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Times New Roman"
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: blue; TEXT-DECORATION: underline
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: blue; TEXT-DECORATION: underline
+}
+P {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0cm; MARGIN-RIGHT: 0cm; FONT-FAMILY: "Times New Roman"; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+CODE {
+	FONT-FAMILY: "Courier New"
+}
+SPAN.EmailStyle19 {
+	mso-style-type: personal
+}
+SPAN.EmailStyle20 {
+	COLOR: navy; FONT-FAMILY: Arial; mso-style-type: personal-reply
+}
+DIV.Section1 {
+	page: Section1
+}
+</STYLE>
+</HEAD>
+<BODY lang=EN-GB vLink=blue link=blue>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=079270820-18092008>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=079270820-18092008>&nbsp;A fix (removing PM dependency for 
+MPI_Comm_connect()/MPI_Comm_accept() with SMPD) will be included in the upcoming 
+1.0.8 release of MPICH2.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=079270820-18092008>&nbsp;We will let you know of the release (in couple of 
+days) and then you can provide feedback after running your 
+tests.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=079270820-18092008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=079270820-18092008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=079270820-18092008>Jayesh</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna 
+[mailto:krishna@zimbra.mcs.anl.gov] <BR><B>Sent:</B> Thursday, July 31, 2008 
+4:44 PM<BR><B>To:</B> 'Edric Ellis'<BR><B>Cc:</B> 
+'mpich2-maint@mcs.anl.gov'<BR><B>Subject:</B> RE: [MPICH2 Req #4127] smpd and 
+singleton init<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=935033821-31072008>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=935033821-31072008>&nbsp;As you mentioned, the current code (smpd)&nbsp;in 
+trunk requires PM support for MPI_Comm_connect()/MPI_Comm_accept() (hence the 
+requirement that mpiexec should be in the PATH).</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=935033821-31072008>&nbsp;We should be able to remove this dependency but I 
+need to run some more tests before I can confirm that. I am on vacation till 
+Monday so I will run the tests on Monday and get back to 
+you.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=935033821-31072008>&nbsp;Have a nice weekend,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=935033821-31072008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=935033821-31072008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=935033821-31072008>Jayesh</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Edric Ellis 
+[mailto:Edric.Ellis@mathworks.co.uk] <BR><B>Sent:</B> Monday, July 28, 2008 7:38 
+AM<BR><B>To:</B> Jayesh Krishna<BR><B>Cc:</B> 
+mpich2-maint@mcs.anl.gov<BR><B>Subject:</B> RE: [MPICH2 Req #4127] smpd and 
+singleton init<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV class=Section1>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial">Hi 
+Jayesh,<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial">Actually, I now seem to 
+be able to get things communicating once the processes have mpiexec on their 
+$PATH, and smpd is running. I&#8217;m not sure quite what I fixed 
+though.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial">In any case, it would 
+be much better for us to be able to restore the behaviour as per 1.0.3 where the 
+smpd process wasn&#8217;t needed for connect/accept.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial">Cheers,<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial">Edric.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face=Arial color=navy size=2><SPAN 
+style="FONT-SIZE: 10pt; COLOR: navy; FONT-FAMILY: Arial"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: blue 1.5pt solid; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+<DIV>
+<DIV class=MsoNormal style="TEXT-ALIGN: center" align=center><FONT 
+face="Times New Roman" size=3><SPAN lang=EN-US style="FONT-SIZE: 12pt">
+<HR tabIndex=-1 align=center width="100%" SIZE=2>
+</SPAN></FONT></DIV>
+<P class=MsoNormal><B><FONT face=Tahoma size=2><SPAN lang=EN-US 
+style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; FONT-FAMILY: Tahoma">From:</SPAN></FONT></B><FONT 
+face=Tahoma size=2><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Tahoma"> Edric Ellis <BR><B><SPAN 
+style="FONT-WEIGHT: bold">Sent:</SPAN></B> Monday, July 28, 2008 11:42 
+AM<BR><B><SPAN style="FONT-WEIGHT: bold">To:</SPAN></B> 'Jayesh 
+Krishna'<BR><B><SPAN style="FONT-WEIGHT: bold">Cc:</SPAN></B> 
+mpich2-maint@mcs.anl.gov<BR><B><SPAN 
+style="FONT-WEIGHT: bold">Subject:</SPAN></B> RE: [MPICH2 Req #4127] smpd and 
+singleton init</SPAN></FONT><SPAN lang=EN-US><o:p></o:p></SPAN></P></DIV>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<DIV>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt">Hi Jayesh,<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt">I&#8217;ve just been looking at the latest MPICH2 from SVN, 
+and what I find is that&nbsp;I can now get past the call to MPI_Init() without 
+running smpd, but as soon as I try to perform the MPI_Comm_connect / 
+MPI_Comm_accept phase, the &#8220;connect&#8221; process reports an error because it can&#8217;t 
+execv mpiexec. Is that expected? <o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt">I&#8217;ve tried adding the path to mpiexec to $PATH, and that 
+doesn&#8217;t help - even running &#8220;smpd &#8211;d&#8221; shows that the processes are talking to 
+smpd, but they then both get stuck in a poll()&#8230;<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt">Cheers,<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt">Edric.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+style="FONT-SIZE: 12pt"><o:p>&nbsp;</o:p></SPAN></FONT></P></DIV>
+<BLOCKQUOTE 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 4pt; PADDING-BOTTOM: 0cm; MARGIN: 5pt 0cm 5pt 3.75pt; BORDER-LEFT: black 1.5pt solid; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">
+  <P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+  style="FONT-SIZE: 12pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+  <DIV class=MsoNormal style="TEXT-ALIGN: center" align=center><FONT 
+  face="Times New Roman" size=3><SPAN lang=EN-US style="FONT-SIZE: 12pt">
+  <HR tabIndex=-1 align=center width="100%" SIZE=2>
+  </SPAN></FONT></DIV>
+  <P class=MsoNormal style="MARGIN-BOTTOM: 12pt"><B><FONT face=Tahoma 
+  size=2><SPAN lang=EN-US 
+  style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; FONT-FAMILY: Tahoma">From:</SPAN></FONT></B><FONT 
+  face=Tahoma size=2><SPAN lang=EN-US 
+  style="FONT-SIZE: 10pt; FONT-FAMILY: Tahoma"> Jayesh Krishna 
+  [mailto:jayesh@mcs.anl.gov] <BR><B><SPAN 
+  style="FONT-WEIGHT: bold">Sent:</SPAN></B> Friday, June 06, 2008 3:14 
+  PM<BR><B><SPAN style="FONT-WEIGHT: bold">To:</SPAN></B> Edric 
+  Ellis<BR><B><SPAN style="FONT-WEIGHT: bold">Cc:</SPAN></B> 
+  mpich2-maint@mcs.anl.gov<BR><B><SPAN 
+  style="FONT-WEIGHT: bold">Subject:</SPAN></B> RE: [MPICH2 Req #4127] smpd and 
+  singleton init</SPAN></FONT><SPAN lang=EN-US><o:p></o:p></SPAN></P>
+  <P class=MsoNormal><FONT face=Arial color=blue size=2><SPAN 
+  style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Arial">Hi,</SPAN></FONT><o:p></o:p></P>
+  <P class=MsoNormal><FONT face=Arial color=blue size=2><SPAN 
+  style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Arial">&nbsp;Just to add to 
+  my prev email,&nbsp;currently&nbsp;the singleton init client fails 
+  when&nbsp;smpd is not running on the system (We will be fixing the 
+  code&nbsp;so that the&nbsp;singleton init client fails only when the PM is not 
+  running and the client requires the PM (external PM)&nbsp;services to proceed. 
+  We expect this to be fixed in our next release.)</SPAN></FONT><o:p></o:p></P>
+  <P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+  style="FONT-SIZE: 12pt">&nbsp;<o:p></o:p></SPAN></FONT></P>
+  <P class=MsoNormal><FONT face=Arial color=blue size=2><SPAN 
+  style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Arial">Regards,</SPAN></FONT><o:p></o:p></P>
+  <P class=MsoNormal><FONT face=Arial color=blue size=2><SPAN 
+  style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: Arial">Jayesh</SPAN></FONT><o:p></o:p></P>
+  <P class=MsoNormal><FONT face="Times New Roman" size=3><SPAN 
+  style="FONT-SIZE: 12pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+  <DIV class=MsoNormal style="TEXT-ALIGN: center" align=center><FONT 
+  face="Times New Roman" size=3><SPAN lang=EN-US style="FONT-SIZE: 12pt">
+  <HR tabIndex=-1 align=center width="100%" SIZE=2>
+  </SPAN></FONT></DIV>
+  <P class=MsoNormal style="MARGIN-BOTTOM: 12pt"><B><FONT face=Tahoma 
+  size=2><SPAN lang=EN-US 
+  style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; FONT-FAMILY: Tahoma">From:</SPAN></FONT></B><FONT 
+  face=Tahoma size=2><SPAN lang=EN-US 
+  style="FONT-SIZE: 10pt; FONT-FAMILY: Tahoma"> Jayesh Krishna 
+  [mailto:jayesh@mcs.anl.gov] <BR><B><SPAN 
+  style="FONT-WEIGHT: bold">Sent:</SPAN></B> Friday, June 06, 2008 9:08 
+  AM<BR><B><SPAN style="FONT-WEIGHT: bold">To:</SPAN></B> 'Edric 
+  Ellis'<BR><B><SPAN style="FONT-WEIGHT: bold">Cc:</SPAN></B> 
+  mpich2-maint@mcs.anl.gov<BR><B><SPAN 
+  style="FONT-WEIGHT: bold">Subject:</SPAN></B> RE: [MPICH2 Req #4127] smpd and 
+  singleton init</SPAN></FONT><SPAN lang=EN-US><o:p></o:p></SPAN></P>
+  <P style="MARGIN-BOTTOM: 12pt"><FONT face="Times New Roman" size=2><SPAN 
+  style="FONT-SIZE: 10pt"><!-- Converted from text/plain format -->&nbsp;Hi,<BR>&nbsp; 
+  Yes we have changed the way singleton init client works with SMPD. Now when a 
+  singleton init client is run it tries to connect to the process manager 
+  (without this change the process has no support from the PM and calls like 
+  MPI_Comm_spawn() won't work).<BR>&nbsp; Is there any reason why you don't want 
+  smpd to be running on these machines ?<BR><BR>(PS: We didn't have time to fix 
+  the connect/accept problem in smpd for 1.0.7 release. We will be looking into 
+  fixing the bug in the next release.)<BR>Regards,<BR>Jayesh<BR>-----Original 
+  Message-----<BR>From: Edric Ellis [<A 
+  href="mailto:Edric.Ellis@mathworks.co.uk">mailto:Edric.Ellis@mathworks.co.uk</A>]<BR>Sent: 
+  Friday, June 06, 2008 8:20 AM<BR>To: mpich2-maint@mcs.anl.gov<BR>Cc: 
+  mpich2-maint@mcs.anl.gov<BR>Subject: [MPICH2 Req #4127] smpd and singleton 
+  init<BR><BR>Hi mpich2-maint,<BR><BR>I'm looking at upgrading MATLAB from using 
+  MPICH2-1.0.3 to MPICH2-1.0.7, and I notice a change in the way in which 
+  singleton init works for the smpd process manager (we use the smpd build on 
+  UNIX and Windows).<BR><BR>In 1.0.3, what we do is the following:<BR><BR>1. 
+  Launch our application under some other services of our own 2. Inside our 
+  application, call "MPI_Init( 0, 0 )"<BR>3. Use MPI_Comm_connect/accept to glue 
+  things together<BR><BR>When I substitute 1.0.7, MPI_Init fails because smpd 
+  isn't running.<BR><BR>Is there a way to get 1.0.7 to behave as per 1.0.3 - 
+  i.e. without any reliance on the smpd process?<BR><BR>As a separate question: 
+  what is the status of the connect/accept stall problems under smpd? I believe 
+  that this was fixed in 1.0.6 for 
+  mpd.<BR><BR>Cheers,<BR><BR>Edric.</SPAN></FONT><o:p></o:p></P></BLOCKQUOTE></DIV></DIV></BODY></HTML>

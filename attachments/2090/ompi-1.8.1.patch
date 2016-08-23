@@ -1,0 +1,1565 @@
+diff -rupN mpe2-1.3.0//src/collchk/src/allgather.c mpe2-1.3.0-patched//src/collchk/src/allgather.c
+--- mpe2-1.3.0//src/collchk/src/allgather.c	2014-05-06 15:02:09.482145154 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/allgather.c	2014-05-06 14:14:53.526155638 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Allgather( void* sbuff, int scnt, MPI_Datatype stype,
++int MPI_Allgather( const void* sbuff, int scnt, MPI_Datatype stype,
+                    void* rbuff, int rcnt, MPI_Datatype rtype,
+                    MPI_Comm comm )
+ {
+diff -rupN mpe2-1.3.0//src/collchk/src/allgatherv.c mpe2-1.3.0-patched//src/collchk/src/allgatherv.c
+--- mpe2-1.3.0//src/collchk/src/allgatherv.c	2014-05-06 15:02:09.663196740 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/allgatherv.c	2014-05-06 14:37:28.354222527 +0100
+@@ -4,8 +4,8 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Allgatherv( void* sbuff, int scnt, MPI_Datatype stype,
+-                    void* rbuff, int *rcnts, int *displs, MPI_Datatype rtype,
++int MPI_Allgatherv( const void* sbuff, int scnt, MPI_Datatype stype,
++                    void* rbuff, const int *rcnts, const int *displs, MPI_Datatype rtype,
+                     MPI_Comm comm )
+ {
+     char            call[COLLCHK_SM_STRLEN];
+diff -rupN mpe2-1.3.0//src/collchk/src/allreduce.c mpe2-1.3.0-patched//src/collchk/src/allreduce.c
+--- mpe2-1.3.0//src/collchk/src/allreduce.c	2014-05-06 15:02:09.130145031 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/allreduce.c	2014-05-06 14:37:46.726232413 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Allreduce( void* sbuff, void* rbuff, int cnt, 
++int MPI_Allreduce( const void* sbuff, void* rbuff, int cnt, 
+                    MPI_Datatype dt, MPI_Op op, MPI_Comm comm)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/alltoall.c mpe2-1.3.0-patched//src/collchk/src/alltoall.c
+--- mpe2-1.3.0//src/collchk/src/alltoall.c	2014-05-06 15:02:08.870166188 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/alltoall.c	2014-05-06 14:37:58.418145132 +0100
+@@ -6,7 +6,7 @@
+ 
+ #define BUFFS_NOT_SHARED 0
+ 
+-int MPI_Alltoall( void* sbuff, int scnt, MPI_Datatype stype,
++int MPI_Alltoall( const void* sbuff, int scnt, MPI_Datatype stype,
+                   void* rbuff, int rcnt, MPI_Datatype rtype,
+                   MPI_Comm comm)
+ {
+diff -rupN mpe2-1.3.0//src/collchk/src/alltoallv.c mpe2-1.3.0-patched//src/collchk/src/alltoallv.c
+--- mpe2-1.3.0//src/collchk/src/alltoallv.c	2014-05-06 15:02:08.806207264 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/alltoallv.c	2014-05-06 14:38:15.943155733 +0100
+@@ -4,8 +4,8 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Alltoallv(void* sbuff, int *scnts, int *sdispls, MPI_Datatype stype,
+-                  void* rbuff, int *rcnts, int *rdispls, MPI_Datatype rtype,
++int MPI_Alltoallv(const void* sbuff, const int *scnts, const int *sdispls, MPI_Datatype stype,
++                  void* rbuff, const int *rcnts, const int *rdispls, MPI_Datatype rtype,
+                   MPI_Comm comm)
+ {
+     int             g2g = 1, rank;
+diff -rupN mpe2-1.3.0//src/collchk/src/alltoallw.c mpe2-1.3.0-patched//src/collchk/src/alltoallw.c
+--- mpe2-1.3.0//src/collchk/src/alltoallw.c	2014-05-06 15:02:08.575208109 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/alltoallw.c	2014-05-06 14:42:29.246155606 +0100
+@@ -5,8 +5,8 @@
+ #include "collchk.h" 
+ 
+ 
+-int MPI_Alltoallw(void* sbuff, int *scnts, int *sdispls, MPI_Datatype *stypes,
+-                  void* rbuff, int *rcnts, int *rdispls, MPI_Datatype *rtypes,
++int MPI_Alltoallw(const void* sbuff, const int *scnts, const int *sdispls, const MPI_Datatype *stypes,
++                  void* rbuff, const int *rcnts, const int *rdispls, const MPI_Datatype *rtypes,
+                   MPI_Comm comm)
+ {
+     int              g2g = 1, r;
+diff -rupN mpe2-1.3.0//src/collchk/src/cart_create.c mpe2-1.3.0-patched//src/collchk/src/cart_create.c
+--- mpe2-1.3.0//src/collchk/src/cart_create.c	2014-05-06 15:02:09.554165879 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/cart_create.c	2014-05-06 14:38:31.267542754 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Cart_create(MPI_Comm comm_old, int ndims, int *dims, int *periods,
++int MPI_Cart_create(MPI_Comm comm_old, int ndims, const int *dims, const int *periods,
+                     int reorder, MPI_Comm *comm_cart)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/cart_map.c mpe2-1.3.0-patched//src/collchk/src/cart_map.c
+--- mpe2-1.3.0//src/collchk/src/cart_map.c	2014-05-06 15:02:08.658155517 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/cart_map.c	2014-05-06 14:38:46.990166016 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Cart_map(MPI_Comm comm, int ndims, int *dims, int *periods,
++int MPI_Cart_map(MPI_Comm comm, int ndims, const int *dims, const int *periods,
+                  int *newrank)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/comm_accept.c mpe2-1.3.0-patched//src/collchk/src/comm_accept.c
+--- mpe2-1.3.0//src/collchk/src/comm_accept.c	2014-05-06 15:02:09.874176505 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/comm_accept.c	2014-05-06 14:45:00.703196970 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Comm_accept(char *portname, MPI_Info info, int root,
++int MPI_Comm_accept(const char *portname, MPI_Info info, int root,
+                     MPI_Comm comm, MPI_Comm *newcomm)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/comm_connect.c mpe2-1.3.0-patched//src/collchk/src/comm_connect.c
+--- mpe2-1.3.0//src/collchk/src/comm_connect.c	2014-05-06 15:02:09.098197151 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/comm_connect.c	2014-05-06 14:45:08.970155613 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Comm_connect(char *portname, MPI_Info info, int root,
++int MPI_Comm_connect(const char *portname, MPI_Info info, int root,
+                      MPI_Comm comm, MPI_Comm *newcomm)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/comm_spawn.c mpe2-1.3.0-patched//src/collchk/src/comm_spawn.c
+--- mpe2-1.3.0//src/collchk/src/comm_spawn.c	2014-05-06 15:02:09.014155730 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/comm_spawn.c	2014-05-06 14:45:37.331176310 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Comm_spawn(char *command, char **argv, int maxprocs, MPI_Info info,
++int MPI_Comm_spawn(const char *command, char **argv, int maxprocs, MPI_Info info,
+                    int root, MPI_Comm comm, MPI_Comm *intercomm,
+                    int *array_of_errcodes)
+ {
+diff -rupN mpe2-1.3.0//src/collchk/src/comm_spawn_multiple.c mpe2-1.3.0-patched//src/collchk/src/comm_spawn_multiple.c
+--- mpe2-1.3.0//src/collchk/src/comm_spawn_multiple.c	2014-05-06 15:02:09.395155767 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/comm_spawn_multiple.c	2014-05-06 14:46:13.202145202 +0100
+@@ -5,8 +5,8 @@
+ #include "collchk.h" 
+ 
+ int MPI_Comm_spawn_multiple(int count, char **array_of_commands,
+-                            char ***array_of_argv, int *array_of_maxprocs,
+-                            MPI_Info *array_of_info, int root, MPI_Comm comm, 
++                            char ***array_of_argv, const int *array_of_maxprocs,
++                            const MPI_Info *array_of_info, int root, MPI_Comm comm, 
+                             MPI_Comm *intercomm, int *array_of_errcodes)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/exscan.c mpe2-1.3.0-patched//src/collchk/src/exscan.c
+--- mpe2-1.3.0//src/collchk/src/exscan.c	2014-05-06 15:02:09.894186620 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/exscan.c	2014-05-06 14:41:34.427165988 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Exscan(void* sbuff, void* rbuff, int cnt, 
++int MPI_Exscan(const void* sbuff, void* rbuff, int cnt, 
+                MPI_Datatype dt, MPI_Op op, MPI_Comm comm)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/file_open.c mpe2-1.3.0-patched//src/collchk/src/file_open.c
+--- mpe2-1.3.0//src/collchk/src/file_open.c	2014-05-06 15:02:09.771166028 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_open.c	2014-05-06 14:42:40.451201554 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_open(MPI_Comm comm, char *filename, int amode,
++int MPI_File_open(MPI_Comm comm, const char *filename, int amode,
+                   MPI_Info info, MPI_File *fh)
+ {
+     int g2g = 1,i;
+diff -rupN mpe2-1.3.0//src/collchk/src/file_set_view.c mpe2-1.3.0-patched//src/collchk/src/file_set_view.c
+--- mpe2-1.3.0//src/collchk/src/file_set_view.c	2014-05-06 15:02:09.858186444 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_set_view.c	2014-05-06 14:42:57.758171159 +0100
+@@ -5,7 +5,7 @@
+ #include "collchk.h" 
+ 
+ int MPI_File_set_view(MPI_File fh, MPI_Offset disp, MPI_Datatype etype, 
+-                      MPI_Datatype filetype, char *datarep, MPI_Info info)
++                      MPI_Datatype filetype, const char *datarep, MPI_Info info)
+ {
+     int g2g = 1;
+     char call[COLLCHK_SM_STRLEN];
+diff -rupN mpe2-1.3.0//src/collchk/src/file_write_all_begin.c mpe2-1.3.0-patched//src/collchk/src/file_write_all_begin.c
+--- mpe2-1.3.0//src/collchk/src/file_write_all_begin.c	2014-05-06 15:02:09.502166070 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_write_all_begin.c	2014-05-06 14:43:11.399160832 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_write_all_begin(MPI_File fh, void *buff, int cnt,
++int MPI_File_write_all_begin(MPI_File fh, const void *buff, int cnt,
+                              MPI_Datatype dtype)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/file_write_all.c mpe2-1.3.0-patched//src/collchk/src/file_write_all.c
+--- mpe2-1.3.0//src/collchk/src/file_write_all.c	2014-05-06 15:02:09.691155825 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_write_all.c	2014-05-06 14:43:21.798145312 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_write_all(MPI_File fh, void *buff, int cnt,
++int MPI_File_write_all(MPI_File fh, const void *buff, int cnt,
+                        MPI_Datatype dtype, MPI_Status *st)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/file_write_all_end.c mpe2-1.3.0-patched//src/collchk/src/file_write_all_end.c
+--- mpe2-1.3.0//src/collchk/src/file_write_all_end.c	2014-05-06 15:02:08.986165880 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_write_all_end.c	2014-05-06 14:43:35.383165904 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_write_all_end(MPI_File fh, void *buff, MPI_Status *st)
++int MPI_File_write_all_end(MPI_File fh, const void *buff, MPI_Status *st)
+ {
+     int g2g = 1;
+     char call[COLLCHK_SM_STRLEN];
+diff -rupN mpe2-1.3.0//src/collchk/src/file_write_at_all_begin.c mpe2-1.3.0-patched//src/collchk/src/file_write_at_all_begin.c
+--- mpe2-1.3.0//src/collchk/src/file_write_at_all_begin.c	2014-05-06 15:02:08.886197156 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_write_at_all_begin.c	2014-05-06 14:43:48.986145074 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_write_at_all_begin(MPI_File fh, MPI_Offset offset, void *buff,
++int MPI_File_write_at_all_begin(MPI_File fh, MPI_Offset offset, const void *buff,
+                                 int cnt, MPI_Datatype dtype)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/file_write_at_all.c mpe2-1.3.0-patched//src/collchk/src/file_write_at_all.c
+--- mpe2-1.3.0//src/collchk/src/file_write_at_all.c	2014-05-06 15:02:09.371144914 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_write_at_all.c	2014-05-06 14:44:18.042155507 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_write_at_all(MPI_File fh, MPI_Offset offset, void *buff, int cnt, 
++int MPI_File_write_at_all(MPI_File fh, MPI_Offset offset, const void *buff, int cnt, 
+                           MPI_Datatype dtype, MPI_Status *st)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/file_write_at_all_end.c mpe2-1.3.0-patched//src/collchk/src/file_write_at_all_end.c
+--- mpe2-1.3.0//src/collchk/src/file_write_at_all_end.c	2014-05-06 15:02:09.058211784 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_write_at_all_end.c	2014-05-06 14:44:23.442217971 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_write_at_all_end(MPI_File fh, void *buff, MPI_Status *st)
++int MPI_File_write_at_all_end(MPI_File fh, const void *buff, MPI_Status *st)
+ {
+     int g2g = 1;
+     char call[COLLCHK_SM_STRLEN];
+diff -rupN mpe2-1.3.0//src/collchk/src/file_write_ordered_begin.c mpe2-1.3.0-patched//src/collchk/src/file_write_ordered_begin.c
+--- mpe2-1.3.0//src/collchk/src/file_write_ordered_begin.c	2014-05-06 15:02:08.587196728 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_write_ordered_begin.c	2014-05-06 14:44:32.354145108 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_write_ordered_begin(MPI_File fh, void *buff, int cnt, 
++int MPI_File_write_ordered_begin(MPI_File fh, const void *buff, int cnt, 
+                                  MPI_Datatype dtype)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/file_write_ordered.c mpe2-1.3.0-patched//src/collchk/src/file_write_ordered.c
+--- mpe2-1.3.0//src/collchk/src/file_write_ordered.c	2014-05-06 15:02:08.798217494 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_write_ordered.c	2014-05-06 14:44:38.358145314 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_write_ordered(MPI_File fh, void *buff, int cnt,
++int MPI_File_write_ordered(MPI_File fh, const void *buff, int cnt,
+                            MPI_Datatype dtype, MPI_Status *st)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/file_write_ordered_end.c mpe2-1.3.0-patched//src/collchk/src/file_write_ordered_end.c
+--- mpe2-1.3.0//src/collchk/src/file_write_ordered_end.c	2014-05-06 15:02:09.671155728 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/file_write_ordered_end.c	2014-05-06 14:44:43.610225609 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_File_write_ordered_end(MPI_File fh, void *buff, MPI_Status *st)
++int MPI_File_write_ordered_end(MPI_File fh, const void *buff, MPI_Status *st)
+ {
+     int g2g = 1;
+     char call[COLLCHK_SM_STRLEN];
+diff -rupN mpe2-1.3.0//src/collchk/src/gather.c mpe2-1.3.0-patched//src/collchk/src/gather.c
+--- mpe2-1.3.0//src/collchk/src/gather.c	2014-05-06 15:02:10.306176345 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/gather.c	2014-05-06 14:39:12.930155397 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Gather(void* sbuff, int scnt, MPI_Datatype stype, 
++int MPI_Gather(const void* sbuff, int scnt, MPI_Datatype stype, 
+                void* rbuff, int rcnt, MPI_Datatype rtype,
+                int root, MPI_Comm comm)
+ {
+diff -rupN mpe2-1.3.0//src/collchk/src/gatherv.c mpe2-1.3.0-patched//src/collchk/src/gatherv.c
+--- mpe2-1.3.0//src/collchk/src/gatherv.c	2014-05-06 15:02:08.506189510 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/gatherv.c	2014-05-06 14:39:35.270145118 +0100
+@@ -4,8 +4,8 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Gatherv(void *sbuff, int scnt, MPI_Datatype stype,
+-                void *rbuff, int *rcnts, int *displs, MPI_Datatype rtype,
++int MPI_Gatherv(const void *sbuff, int scnt, MPI_Datatype stype,
++                void *rbuff, const int *rcnts, const int *displs, MPI_Datatype rtype,
+                 int root, MPI_Comm comm)
+ {
+     int             g2g = 1, rank;
+diff -rupN mpe2-1.3.0//src/collchk/src/graph_create.c mpe2-1.3.0-patched//src/collchk/src/graph_create.c
+--- mpe2-1.3.0//src/collchk/src/graph_create.c	2014-05-06 15:02:09.226198188 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/graph_create.c	2014-05-06 14:39:48.763145510 +0100
+@@ -4,8 +4,8 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Graph_create(MPI_Comm comm_old, int nnodes, int *index,
+-                     int *edges, int reorder, MPI_Comm *comm_graph)
++int MPI_Graph_create(MPI_Comm comm_old, int nnodes, const int *index,
++                     const int *edges, int reorder, MPI_Comm *comm_graph)
+ {
+     int g2g = 1;
+     char call[COLLCHK_SM_STRLEN];
+diff -rupN mpe2-1.3.0//src/collchk/src/graph_map.c mpe2-1.3.0-patched//src/collchk/src/graph_map.c
+--- mpe2-1.3.0//src/collchk/src/graph_map.c	2014-05-06 15:02:09.886144997 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/graph_map.c	2014-05-06 14:40:00.158145031 +0100
+@@ -5,7 +5,7 @@
+ #include "collchk.h" 
+ 
+ int MPI_Graph_map(MPI_Comm comm, int nnodes,
+-                  int *index, int *edges, int *newrank)
++                  const int *index, const int *edges, int *newrank)
+ {
+     int g2g = 1;
+     char call[COLLCHK_SM_STRLEN];
+diff -rupN mpe2-1.3.0//src/collchk/src/reduce.c mpe2-1.3.0-patched//src/collchk/src/reduce.c
+--- mpe2-1.3.0//src/collchk/src/reduce.c	2014-05-06 15:02:08.878196878 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/reduce.c	2014-05-06 14:40:13.646145106 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Reduce(void* sbuff, void* rbuff, int cnt, MPI_Datatype dt, 
++int MPI_Reduce(const void* sbuff, void* rbuff, int cnt, MPI_Datatype dt, 
+                MPI_Op op, int root, MPI_Comm comm)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/reduce_scatter.c mpe2-1.3.0-patched//src/collchk/src/reduce_scatter.c
+--- mpe2-1.3.0//src/collchk/src/reduce_scatter.c	2014-05-06 15:02:09.030165874 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/reduce_scatter.c	2014-05-06 14:40:42.706176451 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Reduce_scatter(void* sbuff, void* rbuff, int* rcnts, 
++int MPI_Reduce_scatter(const void* sbuff, void* rbuff, const int* rcnts, 
+                        MPI_Datatype dt, MPI_Op op, MPI_Comm comm)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/scan.c mpe2-1.3.0-patched//src/collchk/src/scan.c
+--- mpe2-1.3.0//src/collchk/src/scan.c	2014-05-06 15:02:10.130145202 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/scan.c	2014-05-06 14:40:52.206139314 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Scan(void* sbuff, void* rbuff, int cnt, 
++int MPI_Scan(const void* sbuff, void* rbuff, int cnt, 
+              MPI_Datatype dt, MPI_Op op, MPI_Comm comm)
+ {
+     int g2g = 1;
+diff -rupN mpe2-1.3.0//src/collchk/src/scatter.c mpe2-1.3.0-patched//src/collchk/src/scatter.c
+--- mpe2-1.3.0//src/collchk/src/scatter.c	2014-05-06 15:02:09.902197097 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/scatter.c	2014-05-06 14:41:08.206145074 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Scatter(void* sbuff, int scnt, MPI_Datatype stype,
++int MPI_Scatter(const void* sbuff, int scnt, MPI_Datatype stype,
+                 void* rbuff, int rcnt, MPI_Datatype rtype,
+                 int root, MPI_Comm comm)
+ {
+diff -rupN mpe2-1.3.0//src/collchk/src/scatterv.c mpe2-1.3.0-patched//src/collchk/src/scatterv.c
+--- mpe2-1.3.0//src/collchk/src/scatterv.c	2014-05-06 15:02:09.379155719 +0100
++++ mpe2-1.3.0-patched//src/collchk/src/scatterv.c	2014-05-06 14:41:24.495228300 +0100
+@@ -4,7 +4,7 @@
+ */
+ #include "collchk.h" 
+ 
+-int MPI_Scatterv(void *sbuff, int *scnts, int* displs, MPI_Datatype stype,
++int MPI_Scatterv(const void *sbuff, const int *scnts, const int* displs, MPI_Datatype stype,
+                  void *rbuff, int rcnt, MPI_Datatype rtype,
+                  int root, MPI_Comm comm)
+ {
+diff -rupN mpe2-1.3.0//src/wrappers/src/log_mpi_core.c mpe2-1.3.0-patched//src/wrappers/src/log_mpi_core.c
+--- mpe2-1.3.0//src/wrappers/src/log_mpi_core.c	2014-05-06 15:02:12.258155584 +0100
++++ mpe2-1.3.0-patched//src/wrappers/src/log_mpi_core.c	2014-05-06 13:44:07.654196989 +0100
+@@ -1547,7 +1547,7 @@ void MPE_Init_internal_logging( void )
+ 
+ 
+ int   MPI_Allgather( sendbuf, sendcount, sendtype, recvbuf, recvcount, recvtype, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcount;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+@@ -1586,12 +1586,12 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Allgatherv( sendbuf, sendcount, sendtype, recvbuf, recvcounts, displs, recvtype, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcount;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+-int * recvcounts;
+-int * displs;
++const int * recvcounts;
++const int * displs;
+ MPI_Datatype recvtype;
+ MPI_Comm comm;
+ {
+@@ -1627,7 +1627,7 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Allreduce( sendbuf, recvbuf, count, datatype, op, comm )
+-void * sendbuf;
++const void * sendbuf;
+ void * recvbuf;
+ int count;
+ MPI_Datatype datatype;
+@@ -1666,7 +1666,7 @@ MPI_Comm comm;
+ }
+ 
+ int  MPI_Alltoall( sendbuf, sendcnt, sendtype, recvbuf, recvcnt, recvtype, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcnt;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+@@ -1720,13 +1720,13 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Alltoallv( sendbuf, sendcnts, sdispls, sendtype, recvbuf, recvcnts, rdispls, recvtype, comm )
+-void * sendbuf;
+-int * sendcnts;
+-int * sdispls;
++const void * sendbuf;
++const int * sendcnts;
++const int * sdispls;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+-int * recvcnts;
+-int * rdispls;
++const int * recvcnts;
++const int * rdispls;
+ MPI_Datatype recvtype;
+ MPI_Comm comm;
+ {
+@@ -1852,7 +1852,7 @@ MPI_Comm comm;
+ }
+ 
+ int MPI_Gather( sendbuf, sendcnt, sendtype, recvbuf, recvcount, recvtype, root, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcnt;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+@@ -1893,12 +1893,12 @@ MPI_Comm comm;
+ }
+ 
+ int MPI_Gatherv( sendbuf, sendcnt, sendtype, recvbuf, recvcnts, displs, recvtype, root, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcnt;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+-int * recvcnts;
+-int * displs;
++const int * recvcnts;
++const int * displs;
+ MPI_Datatype recvtype;
+ int root;
+ MPI_Comm comm;
+@@ -2006,9 +2006,9 @@ MPI_Op * op;
+ }
+ 
+ int   MPI_Reduce_scatter( sendbuf, recvbuf, recvcnts, datatype, op, comm )
+-void * sendbuf;
++const void * sendbuf;
+ void * recvbuf;
+-int * recvcnts;
++const int * recvcnts;
+ MPI_Datatype datatype;
+ MPI_Op op;
+ MPI_Comm comm;
+@@ -2046,7 +2046,7 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Reduce( sendbuf, recvbuf, count, datatype, op, root, comm )
+-void * sendbuf;
++const void * sendbuf;
+ void * recvbuf;
+ int count;
+ MPI_Datatype datatype;
+@@ -2086,7 +2086,7 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Scan( sendbuf, recvbuf, count, datatype, op, comm )
+-void * sendbuf;
++const void * sendbuf;
+ void * recvbuf;
+ int count;
+ MPI_Datatype datatype;
+@@ -2125,7 +2125,7 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Scatter( sendbuf, sendcnt, sendtype, recvbuf, recvcnt, recvtype, root, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcnt;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+@@ -2168,9 +2168,9 @@ MPI_Comm comm;
+ 
+ int   MPI_Scatterv( sendbuf, sendcnts, displs, sendtype,
+                     recvbuf, recvcnt, recvtype, root, comm )
+-void * sendbuf;
+-int * sendcnts;
+-int * displs;
++const void * sendbuf;
++const int * sendcnts;
++const int * displs;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+ int recvcnt;
+@@ -2794,7 +2794,7 @@ MPI_Group * group_out;
+ int   MPI_Group_excl( group, n, ranks, newgroup )
+ MPI_Group group;
+ int n;
+-int * ranks;
++const int * ranks;
+ MPI_Group * newgroup;
+ {
+   int   returnVal;
+@@ -2865,7 +2865,7 @@ MPI_Group * group;
+ int   MPI_Group_incl( group, n, ranks, group_out )
+ MPI_Group group;
+ int n;
+-int * ranks;
++const int * ranks;
+ MPI_Group * group_out;
+ {
+   int   returnVal;
+@@ -3082,7 +3082,7 @@ int * size;
+ int   MPI_Group_translate_ranks( group_a, n, ranks_a, group_b, ranks_b )
+ MPI_Group group_a;
+ int n;
+-int * ranks_a;
++const int * ranks_a;
+ MPI_Group group_b;
+ int * ranks_b;
+ {
+@@ -4040,7 +4040,7 @@ MPI_Aint * address;
+ }
+ 
+ int  MPI_Bsend( buf, count, datatype, dest, tag, comm )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -4083,7 +4083,7 @@ MPI_Comm comm;
+ }
+ 
+ int  MPI_Bsend_init( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -4314,7 +4314,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Send_init( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -4357,7 +4357,7 @@ MPI_Request * request;
+ }
+ 
+ int   MPI_Get_elements( status, datatype, elements )
+-MPI_Status * status;
++const MPI_Status * status;
+ MPI_Datatype datatype;
+ int * elements;
+ {
+@@ -4393,7 +4393,7 @@ int * elements;
+ }
+ 
+ int  MPI_Get_count( status, datatype, count )
+-MPI_Status * status;
++const MPI_Status * status;
+ MPI_Datatype datatype;
+ int * count;
+ {
+@@ -4429,7 +4429,7 @@ int * count;
+ }
+ 
+ int  MPI_Ibsend( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -4569,7 +4569,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Irsend( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -4611,7 +4611,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Isend( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -4657,7 +4657,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Issend( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -4703,7 +4703,7 @@ MPI_Request * request;
+ }
+ 
+ int   MPI_Pack( inbuf, incount, type, outbuf, outcount, position, comm )
+-void * inbuf;
++const void * inbuf;
+ int incount;
+ MPI_Datatype type;
+ void * outbuf;
+@@ -4895,7 +4895,7 @@ MPI_Status * status;
+ }
+ 
+ int  MPI_Rsend( buf, count, datatype, dest, tag, comm )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -4938,7 +4938,7 @@ MPI_Comm comm;
+ }
+ 
+ int  MPI_Rsend_init( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -4981,7 +4981,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Send( buf, count, datatype, dest, tag, comm )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -5026,7 +5026,7 @@ MPI_Comm comm;
+ int  MPI_Sendrecv( sendbuf, sendcount, sendtype, dest, sendtag, 
+                    recvbuf, recvcount, recvtype, source, recvtag,
+                    comm, status )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcount;
+ MPI_Datatype sendtype;
+ int dest;
+@@ -5163,7 +5163,7 @@ MPI_Status * status;
+ }
+ 
+ int  MPI_Ssend( buf, count, datatype, dest, tag, comm )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -5205,7 +5205,7 @@ MPI_Comm comm;
+ }
+ 
+ int  MPI_Ssend_init( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -5506,7 +5506,7 @@ MPI_Status * status;
+ }
+ 
+ int  MPI_Test_cancelled( status, flag )
+-MPI_Status * status;
++const MPI_Status * status;
+ int * flag;
+ {
+   int  returnVal;
+@@ -5840,8 +5840,8 @@ MPI_Datatype * newtype;
+ 
+ int  MPI_Type_indexed( count, blocklens, indices, old_type, newtype )
+ int count;
+-int * blocklens;
+-int * indices;
++const int * blocklens;
++const int * indices;
+ MPI_Datatype old_type;
+ MPI_Datatype * newtype;
+ {
+@@ -6058,7 +6058,7 @@ MPI_Datatype * newtype;
+ }
+ 
+ int   MPI_Unpack( inbuf, insize, position, outbuf, outcount, type, comm )
+-void * inbuf;
++const void * inbuf;
+ int insize;
+ int * position;
+ void * outbuf;
+@@ -6408,8 +6408,8 @@ int * coords;
+ int   MPI_Cart_create( comm_old, ndims, dims, periods, reorder, comm_cart )
+ MPI_Comm comm_old;
+ int ndims;
+-int * dims;
+-int * periods;
++const int * dims;
++const int * periods;
+ int reorder;
+ MPI_Comm * comm_cart;
+ {
+@@ -6489,8 +6489,8 @@ int * coords;
+ int   MPI_Cart_map( comm_old, ndims, dims, periods, newrank )
+ MPI_Comm comm_old;
+ int ndims;
+-int * dims;
+-int * periods;
++const int * dims;
++const int * periods;
+ int * newrank;
+ {
+   int   returnVal;
+@@ -6526,7 +6526,7 @@ int * newrank;
+ 
+ int   MPI_Cart_rank( comm, coords, rank )
+ MPI_Comm comm;
+-int * coords;
++const int * coords;
+ int * rank;
+ {
+   int   returnVal;
+@@ -6600,7 +6600,7 @@ int * dest;
+ 
+ int   MPI_Cart_sub( comm, remain_dims, comm_new )
+ MPI_Comm comm;
+-int * remain_dims;
++const int * remain_dims;
+ MPI_Comm * comm_new;
+ {
+   int   returnVal;
+@@ -6711,8 +6711,8 @@ int * dims;
+ int   MPI_Graph_create( comm_old, nnodes, index, edges, reorder, comm_graph )
+ MPI_Comm comm_old;
+ int nnodes;
+-int * index;
+-int * edges;
++const int * index;
++const int * edges;
+ int reorder;
+ MPI_Comm * comm_graph;
+ {
+@@ -6792,8 +6792,8 @@ int * edges;
+ int   MPI_Graph_map( comm_old, nnodes, index, edges, newrank )
+ MPI_Comm comm_old;
+ int nnodes;
+-int * index;
+-int * edges;
++const int * index;
++const int * edges;
+ int * newrank;
+ {
+   int   returnVal;
+diff -rupN mpe2-1.3.0//src/wrappers/src/log_mpi_io.c mpe2-1.3.0-patched//src/wrappers/src/log_mpi_io.c
+--- mpe2-1.3.0//src/wrappers/src/log_mpi_io.c	2014-05-06 15:02:12.363177535 +0100
++++ mpe2-1.3.0-patched//src/wrappers/src/log_mpi_io.c	2014-05-06 14:12:58.310135350 +0100
+@@ -333,7 +333,7 @@ void MPE_Init_mpi_io( void )
+ }
+ 
+ 
+-int MPI_File_open( MPI_Comm  comm,char * filename,int  amode,MPI_Info  info,MPI_File * fh  )
++int MPI_File_open( MPI_Comm  comm,const char * filename,int  amode,MPI_Info  info,MPI_File * fh  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -399,7 +399,7 @@ int MPI_File_close( MPI_File * fh  )
+   return returnVal;
+ }
+ 
+-int MPI_File_delete( char * filename,MPI_Info  info  )
++int MPI_File_delete( const char * filename,MPI_Info  info  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -663,7 +663,7 @@ int MPI_File_get_info( MPI_File  fh,MPI_
+   return returnVal;
+ }
+ 
+-int MPI_File_set_view( MPI_File  fh,MPI_Offset  disp,MPI_Datatype  etype,MPI_Datatype  filetype,char * datarep,MPI_Info  info  )
++int MPI_File_set_view( MPI_File  fh,MPI_Offset  disp,MPI_Datatype  etype,MPI_Datatype  filetype,const char * datarep,MPI_Info  info  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -795,7 +795,7 @@ int MPI_File_read_at_all( MPI_File  fh,M
+   return returnVal;
+ }
+ 
+-int MPI_File_write_at( MPI_File  fh,MPI_Offset  offset,void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
++int MPI_File_write_at( MPI_File  fh,MPI_Offset  offset,const void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -828,7 +828,7 @@ int MPI_File_write_at( MPI_File  fh,MPI_
+   return returnVal;
+ }
+ 
+-int MPI_File_write_at_all( MPI_File  fh,MPI_Offset  offset,void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
++int MPI_File_write_at_all( MPI_File  fh,MPI_Offset  offset,const void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -894,7 +894,7 @@ int MPI_File_iread_at( MPI_File  fh,MPI_
+   return returnVal;
+ }
+ 
+-int MPI_File_iwrite_at( MPI_File  fh,MPI_Offset  offset,void * buf,int  count,MPI_Datatype  datatype,MPIO_Request * request  )
++int MPI_File_iwrite_at( MPI_File  fh,MPI_Offset  offset,const void * buf,int  count,MPI_Datatype  datatype,MPIO_Request * request  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -993,7 +993,7 @@ int MPI_File_read_all( MPI_File  fh,void
+   return returnVal;
+ }
+ 
+-int MPI_File_write( MPI_File  fh,void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
++int MPI_File_write( MPI_File  fh, const void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1026,7 +1026,7 @@ int MPI_File_write( MPI_File  fh,void *
+   return returnVal;
+ }
+ 
+-int MPI_File_write_all( MPI_File  fh,void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
++int MPI_File_write_all( MPI_File  fh, const void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1092,7 +1092,7 @@ int MPI_File_iread( MPI_File  fh,void *
+   return returnVal;
+ }
+ 
+-int MPI_File_iwrite( MPI_File  fh,void * buf,int  count,MPI_Datatype  datatype,MPIO_Request * request  )
++int MPI_File_iwrite( MPI_File  fh, const void * buf,int  count,MPI_Datatype  datatype,MPIO_Request * request  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1257,7 +1257,7 @@ int MPI_File_read_shared( MPI_File  fh,v
+   return returnVal;
+ }
+ 
+-int MPI_File_write_shared( MPI_File  fh,void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
++int MPI_File_write_shared( MPI_File  fh, const void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1323,7 +1323,7 @@ int MPI_File_iread_shared( MPI_File  fh,
+   return returnVal;
+ }
+ 
+-int MPI_File_iwrite_shared( MPI_File  fh,void * buf,int  count,MPI_Datatype  datatype,MPIO_Request * request  )
++int MPI_File_iwrite_shared( MPI_File  fh, const void * buf,int  count,MPI_Datatype  datatype,MPIO_Request * request  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1389,7 +1389,7 @@ int MPI_File_read_ordered( MPI_File  fh,
+   return returnVal;
+ }
+ 
+-int MPI_File_write_ordered( MPI_File  fh,void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
++int MPI_File_write_ordered( MPI_File  fh,const void * buf,int  count,MPI_Datatype  datatype,MPI_Status * status  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1554,7 +1554,7 @@ int MPI_File_read_at_all_end( MPI_File
+   return returnVal;
+ }
+ 
+-int MPI_File_write_at_all_begin( MPI_File  fh,MPI_Offset  offset,void * buf,int  count,MPI_Datatype  datatype  )
++int MPI_File_write_at_all_begin( MPI_File  fh,MPI_Offset  offset,const void * buf,int  count,MPI_Datatype  datatype  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1587,7 +1587,7 @@ int MPI_File_write_at_all_begin( MPI_Fil
+   return returnVal;
+ }
+ 
+-int MPI_File_write_at_all_end( MPI_File  fh,void * buf,MPI_Status * status  )
++int MPI_File_write_at_all_end( MPI_File  fh, const void * buf,MPI_Status * status  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1686,7 +1686,7 @@ int MPI_File_read_all_end( MPI_File  fh,
+   return returnVal;
+ }
+ 
+-int MPI_File_write_all_begin( MPI_File  fh,void * buf,int  count,MPI_Datatype  datatype  )
++int MPI_File_write_all_begin( MPI_File  fh,const void * buf,int  count,MPI_Datatype  datatype  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1719,7 +1719,7 @@ int MPI_File_write_all_begin( MPI_File
+   return returnVal;
+ }
+ 
+-int MPI_File_write_all_end( MPI_File  fh,void * buf,MPI_Status * status  )
++int MPI_File_write_all_end( MPI_File  fh, const void * buf,MPI_Status * status  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1818,7 +1818,7 @@ int MPI_File_read_ordered_end( MPI_File
+   return returnVal;
+ }
+ 
+-int MPI_File_write_ordered_begin( MPI_File  fh,void * buf,int  count,MPI_Datatype  datatype  )
++int MPI_File_write_ordered_begin( MPI_File  fh,const void * buf,int  count,MPI_Datatype  datatype  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+@@ -1851,7 +1851,7 @@ int MPI_File_write_ordered_begin( MPI_Fi
+   return returnVal;
+ }
+ 
+-int MPI_File_write_ordered_end( MPI_File  fh,void * buf,MPI_Status * status  )
++int MPI_File_write_ordered_end( MPI_File  fh, const void * buf,MPI_Status * status  )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+diff -rupN mpe2-1.3.0//src/wrappers/src/log_mpi_rma.c mpe2-1.3.0-patched//src/wrappers/src/log_mpi_rma.c
+--- mpe2-1.3.0//src/wrappers/src/log_mpi_rma.c	2014-05-06 15:02:11.799176205 +0100
++++ mpe2-1.3.0-patched//src/wrappers/src/log_mpi_rma.c	2014-05-06 14:03:02.835145145 +0100
+@@ -122,7 +122,7 @@ void MPE_Init_mpi_rma( void )
+   state->color = "maroon";
+ }
+ 
+-int MPI_Accumulate( void *origin_addr, int origin_count,
++int MPI_Accumulate( const void *origin_addr, int origin_count,
+                     MPI_Datatype origin_datatype, int target_rank,
+                     MPI_Aint target_disp, int target_count,
+                     MPI_Datatype target_datatype, MPI_Op op, MPI_Win win )
+@@ -266,7 +266,7 @@ int MPI_Get( void *origin_addr, int orig
+   return returnVal;
+ }
+ 
+-int MPI_Put( void *origin_addr, int origin_count,
++int MPI_Put( const void *origin_addr, int origin_count,
+              MPI_Datatype origin_datatype, int target_rank,
+              MPI_Aint target_disp, int target_count,
+              MPI_Datatype target_datatype, MPI_Win win )
+@@ -572,7 +572,7 @@ int MPI_Win_post( MPI_Group group, int a
+   return returnVal;
+ }
+ 
+-int MPI_Win_set_name( MPI_Win win, char *win_name )
++int MPI_Win_set_name( MPI_Win win, const char *win_name )
+ {
+   int returnVal;
+   MPE_LOG_STATE_DECL
+diff -rupN mpe2-1.3.0//src/wrappers/src/log_mpi_spawn.c mpe2-1.3.0-patched//src/wrappers/src/log_mpi_spawn.c
+--- mpe2-1.3.0//src/wrappers/src/log_mpi_spawn.c	2014-05-06 15:02:11.763176345 +0100
++++ mpe2-1.3.0-patched//src/wrappers/src/log_mpi_spawn.c	2014-05-06 14:13:53.831176141 +0100
+@@ -98,7 +98,7 @@ void MPE_Init_mpi_spawn( void )
+     state->color = "purple";
+ }
+ 
+-int MPI_Comm_spawn( char *command, char *argv[], int maxprocs,
++int MPI_Comm_spawn( const char *command, char *argv[], int maxprocs,
+                     MPI_Info info, int root, MPI_Comm comm,
+                     MPI_Comm *intercomm, int array_of_errcodes[] )
+ {
+@@ -133,8 +133,8 @@ int MPI_Comm_spawn( char *command, char
+ }
+ 
+ int MPI_Comm_spawn_multiple( int count, char *array_of_commands[],
+-                             char* *array_of_argv[], int array_of_maxprocs[],
+-                             MPI_Info array_of_info[], int root, MPI_Comm comm,
++                             char* *array_of_argv[], const int array_of_maxprocs[],
++                             const MPI_Info array_of_info[], int root, MPI_Comm comm,
+                              MPI_Comm *intercomm, int array_of_errcodes[] )
+ {
+     int   returnVal;
+@@ -200,7 +200,7 @@ int MPI_Comm_get_parent( MPI_Comm *paren
+     return returnVal;
+ }
+ 
+-int MPI_Comm_accept( char *port_name, MPI_Info info, int root,
++int MPI_Comm_accept( const char *port_name, MPI_Info info, int root,
+                      MPI_Comm comm, MPI_Comm *newcomm )
+ {
+     int   returnVal;
+@@ -232,7 +232,7 @@ int MPI_Comm_accept( char *port_name, MP
+     return returnVal;
+ }
+ 
+-int MPI_Comm_connect( char *port_name, MPI_Info info, int root,
++int MPI_Comm_connect( const char *port_name, MPI_Info info, int root,
+                       MPI_Comm comm, MPI_Comm *newcomm )
+ {
+     int   returnVal;
+@@ -328,7 +328,7 @@ int MPI_Comm_join( int fd, MPI_Comm *int
+     return returnVal;
+ }
+ 
+-int MPI_Comm_set_name( MPI_Comm comm, char *comm_name )
++int MPI_Comm_set_name( MPI_Comm comm, const char *comm_name )
+ {
+     int   returnVal;
+     MPE_LOG_STATE_DECL
+@@ -412,7 +412,7 @@ int MPI_Open_port( MPI_Info info, char *
+     return returnVal;
+ }
+ 
+-int MPI_Close_port( char *port_name )
++int MPI_Close_port( const char *port_name )
+ {
+     int  returnVal;
+     MPE_LOG_STATE_DECL
+@@ -441,7 +441,7 @@ int MPI_Close_port( char *port_name )
+ }
+ 
+ #if defined( HAVE_MPI_NAMING )
+-int MPI_Lookup_name( char *service_name, MPI_Info info, char *port_name )
++int MPI_Lookup_name( const char *service_name, MPI_Info info, char *port_name )
+ {
+     int  returnVal;
+     MPE_LOG_STATE_DECL
+@@ -469,7 +469,7 @@ int MPI_Lookup_name( char *service_name,
+     return returnVal;
+ }
+ 
+-int MPI_Publish_name( char *service_name, MPI_Info info, char *port_name )
++int MPI_Publish_name( const char *service_name, MPI_Info info, const char *port_name )
+ {
+     int  returnVal;
+     MPE_LOG_STATE_DECL
+@@ -497,7 +497,7 @@ int MPI_Publish_name( char *service_name
+     return returnVal;
+ }
+ 
+-int MPI_Unpublish_name( char *service_name, MPI_Info info, char *port_name )
++int MPI_Unpublish_name( const char *service_name, MPI_Info info, const char *port_name )
+ {
+     int  returnVal;
+     MPE_LOG_STATE_DECL
+diff -rupN mpe2-1.3.0//src/wrappers/src/mpe_prof.c mpe2-1.3.0-patched//src/wrappers/src/mpe_prof.c
+--- mpe2-1.3.0//src/wrappers/src/mpe_prof.c	2014-05-06 15:02:12.298166082 +0100
++++ mpe2-1.3.0-patched//src/wrappers/src/mpe_prof.c	2014-05-06 14:35:52.483155850 +0100
+@@ -123,7 +123,7 @@ char ***argv;
+     MPI_Send - prototyping replacement for MPI_Send
+ */
+ int MPI_Send( buf, count, datatype, dest, tag, comm )
+-void *buf;
++const void *buf;
+ int count, dest, tag;
+ MPI_Datatype datatype;
+ MPI_Comm comm;
+@@ -188,7 +188,8 @@ MPI_Comm comm;
+     MPI_Reduce - prototyping replacement for MPI_Reduce
+ */
+ int MPI_Reduce( sendbuf, recvbuf, count, datatype, op, root, comm )
+-void *sendbuf, *recvbuf;
++const void *sendbuf;
++void *recvbuf;
+ int count, root;
+ MPI_Op op;
+ MPI_Datatype datatype;
+@@ -208,7 +209,7 @@ MPI_Comm comm;
+    MPI_Allreduce
+  */
+ int MPI_Allreduce ( sendbuf, recvbuf, count, datatype, op, comm )
+-void             *sendbuf;
++const void       *sendbuf;
+ void             *recvbuf;
+ int               count;
+ MPI_Datatype      datatype;
+@@ -246,7 +247,7 @@ MPI_Comm comm;
+     MPI_Isend - prototyping replacement for MPI_Isend
+ */
+ int MPI_Isend( buf, count, datatype, dest, tag, comm, request )
+-void *buf;
++const void *buf;
+ int count, dest, tag;
+ MPI_Datatype datatype;
+ MPI_Comm comm;
+@@ -345,7 +346,8 @@ MPI_Status *statuses;
+ int MPI_Sendrecv( sendbuf, sendcount, sendtype, dest,   sendtag,
+ 	      recvbuf, recvcount, recvtype, source, recvtag,
+ 	      comm, status )
+-void *sendbuf, *recvbuf;
++const void *sendbuf;
++void *recvbuf;
+ int sendcount, dest, sendtag, source, recvtag, recvcount;
+ MPI_Datatype sendtype, recvtype;
+ MPI_Comm comm;
+@@ -385,7 +387,7 @@ MPI_Status *status;
+     MPI_Ssend - prototyping replacement for MPI_Ssend
+ */
+ int MPI_Ssend( buf, count, datatype, dest, tag, comm )
+-void *buf;
++const void *buf;
+ int count, dest, tag;
+ MPI_Datatype datatype;
+ MPI_Comm comm;
+@@ -404,7 +406,7 @@ MPI_Comm comm;
+     MPI_Issend - prototyping replacement for MPI_Issend
+ */
+ int MPI_Issend( buf, count, datatype, dest, tag, comm, request )
+-void *buf;
++const void *buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+diff -rupN mpe2-1.3.0//src/wrappers/src/trace_mpi_core.c mpe2-1.3.0-patched//src/wrappers/src/trace_mpi_core.c
+--- mpe2-1.3.0//src/wrappers/src/trace_mpi_core.c	2014-05-06 15:02:12.326186230 +0100
++++ mpe2-1.3.0-patched//src/wrappers/src/trace_mpi_core.c	2014-05-06 14:33:06.610124810 +0100
+@@ -31,7 +31,7 @@ if ( (MPE_Trace_hasBeenInit) && (!MPE_Tr
+ 
+ 
+ int   MPI_Allgather( sendbuf, sendcount, sendtype, recvbuf, recvcount, recvtype, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcount;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+@@ -58,12 +58,12 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Allgatherv( sendbuf, sendcount, sendtype, recvbuf, recvcounts, displs, recvtype, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcount;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+-int * recvcounts;
+-int * displs;
++const int * recvcounts;
++const int * displs;
+ MPI_Datatype recvtype;
+ MPI_Comm comm;
+ {
+@@ -86,7 +86,7 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Allreduce( sendbuf, recvbuf, count, datatype, op, comm )
+-void * sendbuf;
++const void * sendbuf;
+ void * recvbuf;
+ int count;
+ MPI_Datatype datatype;
+@@ -111,7 +111,7 @@ MPI_Comm comm;
+ }
+ 
+ int  MPI_Alltoall( sendbuf, sendcount, sendtype, recvbuf, recvcnt, recvtype, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcount;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+@@ -138,13 +138,13 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Alltoallv( sendbuf, sendcnts, sdispls, sendtype, recvbuf, recvcnts, rdispls, recvtype, comm )
+-void * sendbuf;
+-int * sendcnts;
+-int * sdispls;
++const void * sendbuf;
++const int * sendcnts;
++const int * sdispls;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+-int * recvcnts;
+-int * rdispls;
++const int * recvcnts;
++const int * rdispls;
+ MPI_Datatype recvtype;
+ MPI_Comm comm;
+ {
+@@ -211,7 +211,7 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Gather( sendbuf, sendcnt, sendtype, recvbuf, recvcount, recvtype, root, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcnt;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+@@ -239,12 +239,12 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Gatherv( sendbuf, sendcnt, sendtype, recvbuf, recvcnts, displs, recvtype, root, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcnt;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+-int * recvcnts;
+-int * displs;
++const int * recvcnts;
++const int * displs;
+ MPI_Datatype recvtype;
+ int root;
+ MPI_Comm comm;
+@@ -310,9 +310,9 @@ MPI_Op * op;
+ }
+ 
+ int   MPI_Reduce_scatter( sendbuf, recvbuf, recvcnts, datatype, op, comm )
+-void * sendbuf;
++const void * sendbuf;
+ void * recvbuf;
+-int * recvcnts;
++const int * recvcnts;
+ MPI_Datatype datatype;
+ MPI_Op op;
+ MPI_Comm comm;
+@@ -336,7 +336,7 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Reduce( sendbuf, recvbuf, count, datatype, op, root, comm )
+-void * sendbuf;
++const void * sendbuf;
+ void * recvbuf;
+ int count;
+ MPI_Datatype datatype;
+@@ -362,7 +362,7 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Scan( sendbuf, recvbuf, count, datatype, op, comm )
+-void * sendbuf;
++const void * sendbuf;
+ void * recvbuf;
+ int count;
+ MPI_Datatype datatype;
+@@ -387,7 +387,7 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Scatter( sendbuf, sendcnt, sendtype, recvbuf, recvcnt, recvtype, root, comm )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcnt;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+@@ -415,9 +415,9 @@ MPI_Comm comm;
+ }
+ 
+ int   MPI_Scatterv( sendbuf, sendcnts, displs, sendtype, recvbuf, recvcnt, recvtype, root, comm )
+-void * sendbuf;
+-int * sendcnts;
+-int * displs;
++const void * sendbuf;
++const int * sendcnts;
++const int * displs;
+ MPI_Datatype sendtype;
+ void * recvbuf;
+ int recvcnt;
+@@ -790,7 +790,7 @@ MPI_Group * group_out;
+ int   MPI_Group_excl( group, n, ranks, newgroup )
+ MPI_Group group;
+ int n;
+-int * ranks;
++const int * ranks;
+ MPI_Group * newgroup;
+ {
+   int   returnVal;
+@@ -833,7 +833,7 @@ MPI_Group * group;
+ int   MPI_Group_incl( group, n, ranks, group_out )
+ MPI_Group group;
+ int n;
+-int * ranks;
++const int * ranks;
+ MPI_Group * group_out;
+ {
+   int   returnVal;
+@@ -966,7 +966,7 @@ int * size;
+ int   MPI_Group_translate_ranks( group_a, n, ranks_a, group_b, ranks_b )
+ MPI_Group group_a;
+ int n;
+-int * ranks_a;
++const int * ranks_a;
+ MPI_Group group_b;
+ int * ranks_b;
+ {
+@@ -1396,7 +1396,7 @@ MPI_Aint * address;
+ }
+ 
+ int  MPI_Bsend( buf, count, datatype, dest, tag, comm )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1424,7 +1424,7 @@ MPI_Comm comm;
+ }
+ 
+ int  MPI_Bsend_init( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1565,7 +1565,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Send_init( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1593,7 +1593,7 @@ MPI_Request * request;
+ }
+ 
+ int   MPI_Get_elements( status, datatype, elements )
+-MPI_Status * status;
++const MPI_Status * status;
+ MPI_Datatype datatype;
+ int * elements;
+ {
+@@ -1615,7 +1615,7 @@ int * elements;
+ }
+ 
+ int  MPI_Get_count( status, datatype, count )
+-MPI_Status * status;
++const MPI_Status * status;
+ MPI_Datatype datatype;
+ int * count;
+ {
+@@ -1637,7 +1637,7 @@ int * count;
+ }
+ 
+ int  MPI_Ibsend( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1718,7 +1718,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Irsend( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1746,7 +1746,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Isend( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1775,7 +1775,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Issend( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1804,7 +1804,7 @@ MPI_Request * request;
+ }
+ 
+ int   MPI_Pack( inbuf, incount, type, outbuf, outcount, position, comm )
+-void * inbuf;
++const void * inbuf;
+ int incount;
+ MPI_Datatype type;
+ void * outbuf;
+@@ -1914,7 +1914,7 @@ MPI_Status * status;
+ }
+ 
+ int  MPI_Rsend( buf, count, datatype, dest, tag, comm )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1942,7 +1942,7 @@ MPI_Comm comm;
+ }
+ 
+ int  MPI_Rsend_init( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1971,7 +1971,7 @@ MPI_Request * request;
+ }
+ 
+ int  MPI_Send( buf, count, datatype, dest, tag, comm )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -1999,7 +1999,7 @@ MPI_Comm comm;
+ }
+ 
+ int  MPI_Sendrecv( sendbuf, sendcount, sendtype, dest, sendtag, recvbuf, recvcount, recvtype, source, recvtag, comm, status )
+-void * sendbuf;
++const void * sendbuf;
+ int sendcount;
+ MPI_Datatype sendtype;
+ int dest;
+@@ -2065,7 +2065,7 @@ MPI_Status * status;
+ }
+ 
+ int  MPI_Ssend( buf, count, datatype, dest, tag, comm )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -2093,7 +2093,7 @@ MPI_Comm comm;
+ }
+ 
+ int  MPI_Ssend_init( buf, count, datatype, dest, tag, comm, request )
+-void * buf;
++const void * buf;
+ int count;
+ MPI_Datatype datatype;
+ int dest;
+@@ -2233,7 +2233,7 @@ MPI_Status * status;
+ }
+ 
+ int  MPI_Test_cancelled( status, flag )
+-MPI_Status * status;
++const MPI_Status * status;
+ int * flag;
+ {
+   int  returnVal;
+@@ -2413,8 +2413,8 @@ MPI_Datatype * newtype;
+ 
+ int  MPI_Type_indexed( count, blocklens, indices, old_type, newtype )
+ int count;
+-int * blocklens;
+-int * indices;
++const int * blocklens;
++const int * indices;
+ MPI_Datatype old_type;
+ MPI_Datatype * newtype;
+ {
+@@ -2549,7 +2549,7 @@ MPI_Datatype * newtype;
+ }
+ 
+ int   MPI_Unpack( inbuf, insize, position, outbuf, outcount, type, comm )
+-void * inbuf;
++const void * inbuf;
+ int insize;
+ int * position;
+ void * outbuf;
+@@ -2692,8 +2692,8 @@ int * coords;
+ int   MPI_Cart_create( comm_old, ndims, dims, periods, reorder, comm_cart )
+ MPI_Comm comm_old;
+ int ndims;
+-int * dims;
+-int * periods;
++const int * dims;
++const int * periods;
+ int reorder;
+ MPI_Comm * comm_cart;
+ {
+@@ -2742,8 +2742,8 @@ int * coords;
+ int   MPI_Cart_map( comm_old, ndims, dims, periods, newrank )
+ MPI_Comm comm_old;
+ int ndims;
+-int * dims;
+-int * periods;
++const int * dims;
++const int * periods;
+ int * newrank;
+ {
+   int   returnVal;
+@@ -2765,7 +2765,7 @@ int * newrank;
+ 
+ int   MPI_Cart_rank( comm, coords, rank )
+ MPI_Comm comm;
+-int * coords;
++const int * coords;
+ int * rank;
+ {
+   int   returnVal;
+@@ -2811,7 +2811,7 @@ int * dest;
+ 
+ int   MPI_Cart_sub( comm, remain_dims, comm_new )
+ MPI_Comm comm;
+-int * remain_dims;
++const int * remain_dims;
+ MPI_Comm * comm_new;
+ {
+   int   returnVal;
+@@ -2877,8 +2877,8 @@ int * dims;
+ int   MPI_Graph_create( comm_old, nnodes, index, edges, reorder, comm_graph )
+ MPI_Comm comm_old;
+ int nnodes;
+-int * index;
+-int * edges;
++const int * index;
++const int * edges;
+ int reorder;
+ MPI_Comm * comm_graph;
+ {
+@@ -2927,8 +2927,8 @@ int * edges;
+ int   MPI_Graph_map( comm_old, nnodes, index, edges, newrank )
+ MPI_Comm comm_old;
+ int nnodes;
+-int * index;
+-int * edges;
++const int * index;
++const int * edges;
+ int * newrank;
+ {
+   int   returnVal;

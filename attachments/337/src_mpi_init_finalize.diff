@@ -1,0 +1,13 @@
+Index: src/mpi/init/finalize.c
+===================================================================
+--- src/mpi/init/finalize.c	(revision 3711)
++++ src/mpi/init/finalize.c	(working copy)
+@@ -38,7 +38,7 @@
+     int  priority;           /* priority is used to control the order
+ 				in which the callbacks are invoked */
+ } Finalize_func_t;
+-#define MAX_FINALIZE_FUNC 16
++#define MAX_FINALIZE_FUNC 32
+ static Finalize_func_t fstack[MAX_FINALIZE_FUNC];
+ static int fstack_sp = 0;
+ static int fstack_max_priority = 0;

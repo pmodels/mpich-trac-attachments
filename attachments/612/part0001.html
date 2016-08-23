@@ -1,0 +1,5 @@
+<p>Hi,<br>i have a cluster with 2 eth netwoks.one is for manage the cluster,the other is for computing.so i need to start the mpd with the computing eth networks.<br>for example,i have two computer,named:c0101,c0102<br>/etc/hosts:<br>
+          192.168.1.1   c0101<br>          192.168.1.2   c0102<br>          10.10.1.1       g0101<br>          10.10.1.2       g0102<br>/root/.rhosts:<br>          c0101<br>          c0102<br>          g0101<br>          g0102<br>
+/root/hosts:<br>          c0101:8<br>          c0102:8<br>/root/ghosts:<br>          g0101:8<br>          g0102:8<br>i can start mpd with mpdboot:mpdboot -n 2 -f /root/hosts -r rsh,but i can not start a job with:mpiexec -machinefile /root/ghosts -np 16 /root/cpi.</p>
+
+<p>when i want to start mpd with:mpdboot -n 2 -f /root/ghosts -r rsh,report: invalid machine names.but i really need to start my job with computing eth network,so what do i need to write in /root/ghosts?<br></p>

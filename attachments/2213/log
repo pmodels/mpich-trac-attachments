@@ -1,0 +1,203 @@
+host: hgk-mobil.as.go.dlr.de
+
+==================================================================================================
+mpiexec options:
+----------------
+  Base path: /home/tomcat/fran_jb/PETSc/petsc-3.5.2/arch-linux2-c-debug/bin/
+  Launcher: (null)
+  Debug level: 1
+  Enable X: -1
+
+  Global environment:
+  -------------------
+    KONSOLE_DBUS_WINDOW=/Windows/3
+    PETSC_DIR=/home/tomcat/fran_jb/PETSc/petsc-3.5.2
+    MODULESHOME=/usr/share/Modules/3.2.10
+    JAVA_BINDIR=/usr/lib64/jvm/jre/bin
+    LESS_ADVANCED_PREPROCESSOR=no
+    JRE_HOME=/usr/lib64/jvm/jre
+    XCURSOR_THEME=Oxygen_White
+    GTK_MODULES=canberra-gtk-module
+    XKEYSYMDB=/usr/X11R6/lib/X11/XKeysymDB
+    JAVA_HOME=/usr/lib64/jvm/jre
+    MAIL=/var/spool/mail/fran_jb
+    VENDOR=unknown
+    MACHTYPE=x86_64
+    CSHRCREAD=true
+    XDG_DATA_DIRS=/usr/share:/usr/local/share:/usr/share:/etc/opt/kde3/share:/opt/kde3/share:/opt/mpich/share:/opt/quest/share:/usr/share/gnome/help
+    XDG_SESSION_ID=1
+    PAGER=less
+    KDE_SESSION_UID=85819
+    AUDIODRIVER=pulseaudio
+    NNTPSERVER=news
+    PATH=/usr/lib64/mpi/gcc/openmpi/bin:/home/tomcat/fran_jb/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/usr/X11R6/bin:/usr/bin/X11:/opt/kde3/bin:/usr/lib/mit/bin:/home/tomcat/fran_jb/tecplot-9.2/bin:/home/tomcat/fran_jb/bin:/home/tomcat/fran_jb/staroffice7:.:/home/tomcat/fran_jb/tecplot-9.2/bin:/home/tomcat/fran_jb/bin:/home/tomcat/fran_jb/staroffice7:.
+    XAUTHLOCALHOSTNAME=hgk-mobil.as.go.dlr.de
+    WINDOWMANAGER=/usr/bin/startkde
+    STAROFFICE7=/home/tomcat/fran_jb/staroffice7
+    KDE_FULL_SESSION=true
+    DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-g8mcQJkrxH,guid=2779a6f2e5c73991e0cea82454907cf2
+    SDK_HOME=/usr/lib64/jvm/java-gcj
+    XDG_VTNR=7
+    LOADEDMODULES=
+    SSH_ASKPASS=/usr/lib/ssh/ssh-askpass
+    QT_PLUGIN_PATH=/home/tomcat/fran_jb/.kde4/lib64/kde4/plugins/:/usr/lib64/kde4/plugins/
+    HOSTNAME=hgk-mobil.as.go.dlr.de
+    CVS_RSH=ssh
+    LANGUAGE=
+    TMPDIR=/tmp
+    G_BROKEN_FILENAMES=1
+    GS_LIB=/home/tomcat/fran_jb/.fonts
+    SHELL_SESSION_ID=74f95abf296c4000994b67bf7d948159
+    SDL_AUDIODRIVER=pulse
+    CPU=x86_64
+    DESKTOP_SESSION=default
+    GTK_IM_MODULE=cedilla
+    LANG=en_US.UTF-8
+    HOST=hgk-mobil.as.go.dlr.de
+    TLMHOST=lizserv
+    JAVA_ROOT=/usr/lib64/jvm/jre
+    PYTHONSTARTUP=/etc/pythonstart
+    LESSKEY=/etc/lesskey.bin
+    XNLSPATH=/usr/share/X11/nls
+    SSH_AGENT_PID=2409
+    SESSION_MANAGER=local/hgk-mobil.as.go.dlr.de:@/tmp/.ICE-unix/2497,unix/hgk-mobil.as.go.dlr.de:/tmp/.ICE-unix/2497
+    KONSOLE_DBUS_SERVICE=:1.59
+    INPUTRC=/home/tomcat/fran_jb/.inputrc
+    LOGNAME=fran_jb
+    PWD=/home/tomcat/fran_jb/PETSc/petsc-3.5.2/src/vec/vec/examples/tutorials
+    COLORTERM=1
+    XSESSION_IS_UP=yes
+    MORE=-sl
+    LESSOPEN=lessopen.sh %s
+    SSH_AUTH_SOCK=/tmp/ssh-I3eCxGXKPip4/agent.2404
+    ALSA_CONFIG_PATH=/etc/alsa-pulse.conf
+    KONSOLE_PROFILE_NAME=Shell
+    WINDOWPATH=7
+    XDM_MANAGED=method=classic
+    HOME=/home/tomcat/fran_jb
+    GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/tomcat/fran_jb/.gtkrc-2.0
+    MODULE_VERSION=3.2.10
+    FROM_HEADER=
+    XDG_SEAT=seat0
+    USE_FAM=
+    MAIN_DIR=/home/tomcat/fran_jb
+    XMODIFIERS=@im=local
+    QT_IM_MODULE=xim
+    WINDOWID=58720403
+    KDE_SESSION_VERSION=4
+    SHLVL=3
+    QT_SYSTEM_DIR=/usr/share/desktop-data
+    COLORFGBG=15;0
+    MANPATH=/usr/lib64/mpi/gcc/openmpi/man:/usr/local/man:/usr/share/man:/opt/kde3/share/man:/opt/mpich/man:/opt/quest/man
+    G_FILENAME_ENCODING=@locale,UTF-8,ISO-8859-15,CP1252
+    KONSOLE_DBUS_SESSION=/Sessions/3
+    CSHEDIT=emacs
+    XDG_CURRENT_DESKTOP=KDE
+    XDG_CONFIG_DIRS=/etc/xdg
+    _=/usr/lib64/kde4/libexec/start_kdeinit_wrapper
+    DM_CONTROL=/var/run/xdmctl
+    TEC90HOME=/home/tomcat/fran_jb/tecplot-9.2
+    MODULEPATH=/usr/share/modules:/usr/share/Modules/$MODULE_VERSION/modulefiles:/usr/share/modules/modulefiles
+    SHELL=/bin/tcsh
+    MINICOM=-c on
+    XDG_RUNTIME_DIR=/run/user/85819
+    GROUP=dlr_fran_jb_p
+    XDG_SESSION_COOKIE=a101a70076324be7995d68b67cb57aa7-1418755314.194658-1080513241
+    OSTYPE=linux
+    QEMU_AUDIO_DRV=pa
+    PROFILEHOME=
+    LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/usr/X11R6/lib:/usr/i386-slackware-linux/lib:/opt/kde/lib:/usr/lib/qt/lib:/home/tomcat/fran_jb/lib:/home/tomcat/fran_jb/lib32:/home/tomcat/fran_jb/NETCDF/V4.2/local/lib
+    JDK_HOME=/usr/lib64/jvm/java-gcj
+    HOSTTYPE=x86_64-linux
+    TERM=xterm
+    LESSCLOSE=lessclose.sh %s %s
+    LESS=-M -I -R
+    MODULE_VERSION_STACK=3.2.10
+    QT_IM_SWITCHER=imsw-multi
+    USER=fran_jb
+    LS_COLORS=no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.xz=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:
+    LS_OPTIONS=-N --color=tty -T 0
+    GPG_TTY=/dev/pts/3
+
+  Hydra internal environment:
+  ---------------------------
+    GFORTRAN_UNBUFFERED_PRECONNECTED=y
+
+
+    Proxy information:
+    *********************
+      [1] proxy: hgk-mobil.as.go.dlr.de (1 cores)
+      Exec list: ./ex1 (2 processes); 
+
+
+==================================================================================================
+
+[mpiexec@hgk-mobil.as.go.dlr.de] Timeout set to -1 (-1 means infinite)
+[mpiexec@hgk-mobil.as.go.dlr.de] Got a control port string of hgk-mobil.as.go.dlr.de:53838
+
+Proxy launch args: /home/tomcat/fran_jb/PETSc/petsc-3.5.2/arch-linux2-c-debug/bin/hydra_pmi_proxy --control-port hgk-mobil.as.go.dlr.de:53838 --debug --rmk user --launcher ssh --demux poll --pgid 0 --retries 10 --usize -2 --proxy-id 
+
+Arguments being passed to proxy 0:
+--version 3.1 --iface-ip-env-name MPIR_CVAR_CH3_INTERFACE_HOSTNAME --hostname hgk-mobil.as.go.dlr.de --global-core-map 0,1,1 --pmi-id-map 0,0 --global-process-count 2 --auto-cleanup 1 --pmi-kvsname kvs_19238_0 --pmi-process-mapping (vector,(0,1,1)) --ckpoint-num -1 --global-inherited-env 108 'KONSOLE_DBUS_WINDOW=/Windows/3' 'PETSC_DIR=/home/tomcat/fran_jb/PETSc/petsc-3.5.2' 'MODULESHOME=/usr/share/Modules/3.2.10' 'JAVA_BINDIR=/usr/lib64/jvm/jre/bin' 'LESS_ADVANCED_PREPROCESSOR=no' 'JRE_HOME=/usr/lib64/jvm/jre' 'XCURSOR_THEME=Oxygen_White' 'GTK_MODULES=canberra-gtk-module' 'XKEYSYMDB=/usr/X11R6/lib/X11/XKeysymDB' 'JAVA_HOME=/usr/lib64/jvm/jre' 'MAIL=/var/spool/mail/fran_jb' 'VENDOR=unknown' 'MACHTYPE=x86_64' 'CSHRCREAD=true' 'XDG_DATA_DIRS=/usr/share:/usr/local/share:/usr/share:/etc/opt/kde3/share:/opt/kde3/share:/opt/mpich/share:/opt/quest/share:/usr/share/gnome/help' 'XDG_SESSION_ID=1' 'PAGER=less' 'KDE_SESSION_UID=85819' 'AUDIODRIVER=pulseaudio' 'NNTPSERVER=news' 'PATH=/usr/lib64/mpi/gcc/openmpi/bin:/home/tomcat/fran_jb/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/usr/X11R6/bin:/usr/bin/X11:/opt/kde3/bin:/usr/lib/mit/bin:/home/tomcat/fran_jb/tecplot-9.2/bin:/home/tomcat/fran_jb/bin:/home/tomcat/fran_jb/staroffice7:.:/home/tomcat/fran_jb/tecplot-9.2/bin:/home/tomcat/fran_jb/bin:/home/tomcat/fran_jb/staroffice7:.' 'XAUTHLOCALHOSTNAME=hgk-mobil.as.go.dlr.de' 'WINDOWMANAGER=/usr/bin/startkde' 'STAROFFICE7=/home/tomcat/fran_jb/staroffice7' 'KDE_FULL_SESSION=true' 'DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-g8mcQJkrxH,guid=2779a6f2e5c73991e0cea82454907cf2' 'SDK_HOME=/usr/lib64/jvm/java-gcj' 'XDG_VTNR=7' 'LOADEDMODULES=' 'SSH_ASKPASS=/usr/lib/ssh/ssh-askpass' 'QT_PLUGIN_PATH=/home/tomcat/fran_jb/.kde4/lib64/kde4/plugins/:/usr/lib64/kde4/plugins/' 'HOSTNAME=hgk-mobil.as.go.dlr.de' 'CVS_RSH=ssh' 'LANGUAGE=' 'TMPDIR=/tmp' 'G_BROKEN_FILENAMES=1' 'GS_LIB=/home/tomcat/fran_jb/.fonts' 'SHELL_SESSION_ID=74f95abf296c4000994b67bf7d948159' 'SDL_AUDIODRIVER=pulse' 'CPU=x86_64' 'DESKTOP_SESSION=default' 'GTK_IM_MODULE=cedilla' 'LANG=en_US.UTF-8' 'HOST=hgk-mobil.as.go.dlr.de' 'TLMHOST=lizserv' 'JAVA_ROOT=/usr/lib64/jvm/jre' 'PYTHONSTARTUP=/etc/pythonstart' 'LESSKEY=/etc/lesskey.bin' 'XNLSPATH=/usr/share/X11/nls' 'SSH_AGENT_PID=2409' 'SESSION_MANAGER=local/hgk-mobil.as.go.dlr.de:@/tmp/.ICE-unix/2497,unix/hgk-mobil.as.go.dlr.de:/tmp/.ICE-unix/2497' 'KONSOLE_DBUS_SERVICE=:1.59' 'INPUTRC=/home/tomcat/fran_jb/.inputrc' 'LOGNAME=fran_jb' 'PWD=/home/tomcat/fran_jb/PETSc/petsc-3.5.2/src/vec/vec/examples/tutorials' 'COLORTERM=1' 'XSESSION_IS_UP=yes' 'MORE=-sl' 'LESSOPEN=lessopen.sh %s' 'SSH_AUTH_SOCK=/tmp/ssh-I3eCxGXKPip4/agent.2404' 'ALSA_CONFIG_PATH=/etc/alsa-pulse.conf' 'KONSOLE_PROFILE_NAME=Shell' 'WINDOWPATH=7' 'XDM_MANAGED=method=classic' 'HOME=/home/tomcat/fran_jb' 'GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/tomcat/fran_jb/.gtkrc-2.0' 'MODULE_VERSION=3.2.10' 'FROM_HEADER=' 'XDG_SEAT=seat0' 'USE_FAM=' 'MAIN_DIR=/home/tomcat/fran_jb' 'XMODIFIERS=@im=local' 'QT_IM_MODULE=xim' 'WINDOWID=58720403' 'KDE_SESSION_VERSION=4' 'SHLVL=3' 'QT_SYSTEM_DIR=/usr/share/desktop-data' 'COLORFGBG=15;0' 'MANPATH=/usr/lib64/mpi/gcc/openmpi/man:/usr/local/man:/usr/share/man:/opt/kde3/share/man:/opt/mpich/man:/opt/quest/man' 'G_FILENAME_ENCODING=@locale,UTF-8,ISO-8859-15,CP1252' 'KONSOLE_DBUS_SESSION=/Sessions/3' 'CSHEDIT=emacs' 'XDG_CURRENT_DESKTOP=KDE' 'XDG_CONFIG_DIRS=/etc/xdg' '_=/usr/lib64/kde4/libexec/start_kdeinit_wrapper' 'DM_CONTROL=/var/run/xdmctl' 'TEC90HOME=/home/tomcat/fran_jb/tecplot-9.2' 'MODULEPATH=/usr/share/modules:/usr/share/Modules/$MODULE_VERSION/modulefiles:/usr/share/modules/modulefiles' 'SHELL=/bin/tcsh' 'MINICOM=-c on' 'XDG_RUNTIME_DIR=/run/user/85819' 'GROUP=dlr_fran_jb_p' 'XDG_SESSION_COOKIE=a101a70076324be7995d68b67cb57aa7-1418755314.194658-1080513241' 'OSTYPE=linux' 'QEMU_AUDIO_DRV=pa' 'PROFILEHOME=' 'LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/usr/X11R6/lib:/usr/i386-slackware-linux/lib:/opt/kde/lib:/usr/lib/qt/lib:/home/tomcat/fran_jb/lib:/home/tomcat/fran_jb/lib32:/home/tomcat/fran_jb/NETCDF/V4.2/local/lib' 'JDK_HOME=/usr/lib64/jvm/java-gcj' 'HOSTTYPE=x86_64-linux' 'TERM=xterm' 'LESSCLOSE=lessclose.sh %s %s' 'LESS=-M -I -R' 'MODULE_VERSION_STACK=3.2.10' 'QT_IM_SWITCHER=imsw-multi' 'USER=fran_jb' 'LS_COLORS=no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.xz=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:' 'LS_OPTIONS=-N --color=tty -T 0' 'GPG_TTY=/dev/pts/3' --global-user-env 0 --global-system-env 1 'GFORTRAN_UNBUFFERED_PRECONNECTED=y' --proxy-core-count 1 --exec --exec-appnum 0 --exec-proc-count 2 --exec-local-env 0 --exec-wdir /home/tomcat/fran_jb/PETSc/petsc-3.5.2/src/vec/vec/examples/tutorials --exec-args 1 ./ex1 
+
+[mpiexec@hgk-mobil.as.go.dlr.de] Launch arguments: /home/tomcat/fran_jb/PETSc/petsc-3.5.2/arch-linux2-c-debug/bin/hydra_pmi_proxy --control-port hgk-mobil.as.go.dlr.de:53838 --debug --rmk user --launcher ssh --demux poll --pgid 0 --retries 10 --usize -2 --proxy-id 0 
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 0): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 0): get_maxes
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 0): get_appnum
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=appnum appnum=0
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 0): get_my_kvsname
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=my_kvsname kvsname=kvs_19238_0
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 0): get_my_kvsname
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=my_kvsname kvsname=kvs_19238_0
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 0): get
+kvsname=kvs_19238_0 key=PMI_process_mapping 
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 6): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 6): get_maxes
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 6): get_appnum
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=appnum appnum=0
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 6): get_my_kvsname
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=my_kvsname kvsname=kvs_19238_0
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 6): get_my_kvsname
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=my_kvsname kvsname=kvs_19238_0
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 6): get
+kvsname=kvs_19238_0 key=PMI_process_mapping 
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 0): put
+kvsname=kvs_19238_0 key=P0-businesscard value=port#44192$description#hgk-mobil.as.go.dlr.de$ 
+[proxy:0:0@hgk-mobil.as.go.dlr.de] cached command: P0-businesscard=port#44192$description#hgk-mobil.as.go.dlr.de$
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=put_result rc=0 msg=success
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 0): barrier_in
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 6): put
+kvsname=kvs_19238_0 key=P1-businesscard value=port#37606$description#hgk-mobil.as.go.dlr.de$ 
+[proxy:0:0@hgk-mobil.as.go.dlr.de] cached command: P1-businesscard=port#37606$description#hgk-mobil.as.go.dlr.de$
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=put_result rc=0 msg=success
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 6): barrier_in
+
+[proxy:0:0@hgk-mobil.as.go.dlr.de] flushing 2 put command(s) out
+[proxy:0:0@hgk-mobil.as.go.dlr.de] forwarding command (cmd=put P0-businesscard=port#44192$description#hgk-mobil.as.go.dlr.de$ P1-businesscard=port#37606$description#hgk-mobil.as.go.dlr.de$) upstream
+[proxy:0:0@hgk-mobil.as.go.dlr.de] forwarding command (cmd=barrier_in) upstream
+[mpiexec@hgk-mobil.as.go.dlr.de] [pgid: 0] got PMI command: cmd=put P0-businesscard=port#44192$description#hgk-mobil.as.go.dlr.de$ P1-businesscard=port#37606$description#hgk-mobil.as.go.dlr.de$
+[mpiexec@hgk-mobil.as.go.dlr.de] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@hgk-mobil.as.go.dlr.de] PMI response to fd 6 pid 6: cmd=keyval_cache P0-businesscard=port#44192$description#hgk-mobil.as.go.dlr.de$ P1-businesscard=port#37606$description#hgk-mobil.as.go.dlr.de$ 
+[mpiexec@hgk-mobil.as.go.dlr.de] PMI response to fd 6 pid 6: cmd=barrier_out
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=barrier_out
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=barrier_out
+[proxy:0:0@hgk-mobil.as.go.dlr.de] got pmi command (from 0): get
+kvsname=kvs_19238_0 key=P1-businesscard 
+[proxy:0:0@hgk-mobil.as.go.dlr.de] PMI response: cmd=get_result rc=0 msg=success value=port#37606$description#hgk-mobil.as.go.dlr.de$

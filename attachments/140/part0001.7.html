@@ -1,0 +1,17 @@
+<html>
+<head>
+<style>
+.hmmessage P
+{
+margin:0px;
+padding:0px
+}
+body.hmmessage
+{
+FONT-SIZE: 10pt;
+FONT-FAMILY:Tahoma
+}
+</style>
+</head>
+<body class='hmmessage'><BR>Hi,<BR>I swear&nbsp; (or at least promise) this is the last time and I apologize for bothering you again with my questions.<BR>I think that I am not far from the solution of my problem... I have read the documentation you have&nbsp; suggested me <BR>and I have noticed I was forgotting the MPI_INTERCOMM_MERGE in the slave programm...<BR>now I do <BR>call MPI_INTERCOMM_MERGE(parentcomm,.true.,slaveintracomm,ierr) and the first time<BR>the master spawn the slave everything is ok and also the&nbsp; merge is successfull...<BR>but now when I call the second MPI_COMM_SPAWN() with slaveintracomm and slavecomm2 I see<BR>that the slave is created (I see it with task manager) but the process is in stand by inthe slave and I am not able to <BR>go on..&nbsp; How can I unlock the process? Have I to spawn the new process also from the former spawned slave, i.e., as the master and the old slave related by the same intracommunicator, have they to partecipate both in the spawning of&nbsp; new processes???<BR>&nbsp;<BR>&nbsp;<BR>question number 2:<BR>when I attemp to launch a large number of processes I have got a STACK memory error...is there a manner to modifiy the<BR>&nbsp;treshold of number of processes that can be managed at once??? Launching some inputs I see the RAM is not occupied at all but the processor crashes!<BR>I really appreciated a lot your help!<BR>&nbsp;<BR>MLDB<BR><br /><hr />Foto, blog, amici. crea il tuo spazio online! <a href='http://home.services.spaces.live.com/' target='_new'>C'è Spaces!</a></body>
+</html>

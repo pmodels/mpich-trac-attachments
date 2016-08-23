@@ -1,0 +1,41 @@
+       gcc -I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/ch3/include
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/ch3/include
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/common/datatype
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/common/datatype
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/common/locks
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/common/locks
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/ch3/channels/sock/include
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/ch3/channels/sock/include
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/common/sock
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/common/sock
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/common/sock/poll
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpid/common/sock/poll  -O2  -DFORTRANDOUBLEUNDERSCORE
+-DXFS_MEMALIGN=128 -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_ROMIOCONF_H
+-D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I.
+-I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpi/romio/adio/ad_xfs/../include -I../include
+-I../../include  -I/nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8/src/mpi/romio/adio/ad_xfs/../../../../include
+-I../../../../include -c ad_xfs_done.c
+ad_xfs_done.c: In function `ADIOI_XFS_ReadDone':
+ad_xfs_done.c:21: error: invalid type argument of `->'
+ad_xfs_done.c:22: error: invalid type argument of `->'
+ad_xfs_done.c:28: error: invalid type argument of `->'
+ad_xfs_done.c:29: error: invalid type argument of `->'
+ad_xfs_done.c:30: error: invalid type argument of `->'
+ad_xfs_done.c:47: error: invalid type argument of `->'
+ad_xfs_done.c:48: error: invalid type argument of `->'
+ad_xfs_done.c:48: error: invalid type argument of `->'
+ad_xfs_done.c:54: error: invalid type argument of `->'
+ad_xfs_done.c:56: error: invalid type argument of `->'
+ad_xfs_done.c:57: error: invalid type argument of `->'
+ad_xfs_done.c:57: error: invalid type argument of `->'
+ad_xfs_done.c:58: error: `ADIOI_Req_node' undeclared (first use in this function)
+ad_xfs_done.c:58: error: (Each undeclared identifier is reported only once
+ad_xfs_done.c:58: error: for each function it appears in.)
+ad_xfs_done.c:58: error: parse error before ')' token
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+minerw on scotty in /nns/REFERENCE/CFD_TOOLS/mpich2-1.0.8 [58 ] %

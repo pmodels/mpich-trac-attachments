@@ -1,0 +1,273 @@
+<table cellspacing="0" cellpadding="0" border="0" ><tr><td valign="top" style="font: inherit;"><DIV>Hi</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Thank you for your interest and helpful advice. </DIV>
+<DIV>I tried the software with several codes, no strange behaviour in all.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>I tried my concerned code again but with larger number of processes and it gives the following execn times </DIV>
+<DIV>&nbsp;</DIV>
+<DIV>
+<TABLE dir=rtl style="WIDTH: 288pt; BORDER-COLLAPSE: collapse" cellSpacing=0 cellPadding=0 width=384 border=0 x:str>
+<COLGROUP>
+<COL style="WIDTH: 48pt" span=6 width=64>
+<TBODY>
+<TR style="HEIGHT: 12.75pt" height=17>
+<TD dir=ltr style="BORDER-RIGHT: #ece9d8; BORDER-TOP: #ece9d8; BORDER-LEFT: #ece9d8; WIDTH: 48pt; BORDER-BOTTOM: #ece9d8; HEIGHT: 12.75pt; BACKGROUND-COLOR: transparent" align=right width=64 height=17 x:num="3.0093333333333336"><FONT size=2>3.009333</FONT></TD>
+<TD dir=ltr style="BORDER-RIGHT: #ece9d8; BORDER-TOP: #ece9d8; BORDER-LEFT: #ece9d8; WIDTH: 48pt; BORDER-BOTTOM: #ece9d8; BACKGROUND-COLOR: transparent" align=right width=64 x:num="1.2943333333333333"><FONT size=2>1.294333</FONT></TD>
+<TD dir=ltr style="BORDER-RIGHT: #ece9d8; BORDER-TOP: #ece9d8; BORDER-LEFT: #ece9d8; WIDTH: 48pt; BORDER-BOTTOM: #ece9d8; BACKGROUND-COLOR: transparent" align=right width=64 x:num="0.45266666666666672"><FONT size=2>0.452667</FONT></TD>
+<TD dir=ltr style="BORDER-RIGHT: #ece9d8; BORDER-TOP: #ece9d8; BORDER-LEFT: #ece9d8; WIDTH: 48pt; BORDER-BOTTOM: #ece9d8; BACKGROUND-COLOR: transparent" align=right width=64 x:num="0.38633333333333336"><FONT size=2>0.386333</FONT></TD>
+<TD dir=ltr style="BORDER-RIGHT: #ece9d8; BORDER-TOP: #ece9d8; BORDER-LEFT: #ece9d8; WIDTH: 48pt; BORDER-BOTTOM: #ece9d8; BACKGROUND-COLOR: transparent" align=right width=64 x:num="0.45966666666666667"><FONT size=2>0.459667</FONT></TD>
+<TD dir=ltr style="BORDER-RIGHT: #ece9d8; BORDER-TOP: #ece9d8; BORDER-LEFT: #ece9d8; WIDTH: 48pt; BORDER-BOTTOM: #ece9d8; BACKGROUND-COLOR: transparent" align=right width=64 x:num="0.51866666666666672"><FONT size=2>0.518667</FONT></TD></TR></TBODY></TABLE></DIV>
+<DIV>&nbsp;for no. of processes 2,4,8,16,32,64 the execution time bahaviour is as we expect for 2,32,64. But I still ask about the behaviour in the other cases</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Alaa<BR><BR>&nbsp;--- On <B>Fri, 1/9/09, mpich2 <I>&lt;mpich2-maint@mcs.anl.gov&gt;</I></B> wrote:<BR></DIV>
+<BLOCKQUOTE style="PADDING-LEFT: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: rgb(16,16,255) 2px solid">From: mpich2 &lt;mpich2-maint@mcs.anl.gov&gt;<BR>Subject: Re: [mpich2-maint] #346: execution time!!!!!<BR>To: <BR>Date: Friday, January 9, 2009, 7:03 PM<BR><BR><PRE>-----------------------------------------------+----------------------------
+ Reporter:  alaa nashar &lt;nashar_al@yahoo.com&gt;  |        Owner:     
+     Type:  bug                                |       Status:  new
+ Priority:  major                              |    Milestone:     
+Component:  mpich2                             |   Resolution:     
+ Keywords:                                     |  
+-----------------------------------------------+----------------------------
+
+
+Comment (by Jayesh Krishna):
+
+ {{{
+
+ Hi,
+  Looks like the amount of memory (RAM) in your machine is low. I would
+ recommend that you download some utility like "Process Explorer"
+ (http://technet.microsoft.com/en-us/sysinternals/bb896653.aspx) and view
+ the OS statistics (page faults, working set, ...) to make sense of the
+ timings.
+   Let us know what you find out.
+
+ Regards,
+ Jayesh
+
+   _____
+
+ From: alaa nashar [mailto:nashar_al@yahoo.com]
+ Sent: Friday, January 09, 2009 10:12 AM
+ To: Jayesh Krishna
+ Subject: RE: [mpich2-maint] #346: execution time!!!!!
+
+
+
+
+ Hi
+
+ the required information
+
+    System
+               Microsoft Wndows Xp Professional version 2002 service pack 2
+
+    Computer
+                   Intel[R]
+       Pentium 4 CPU 1.60GHz
+       256 MB of RAM
+                                                         thanks
+
+
+
+
+ --- On Fri, 1/9/09, Jayesh Krishna &lt;jayesh@mcs.anl.gov&gt; wrote:
+
+
+ From: Jayesh Krishna &lt;jayesh@mcs.anl.gov&gt;
+ Subject: RE: [mpich2-maint] #346: execution time!!!!!
+ To: nashar_al@yahoo.com
+ Cc: mpich2-maint@mcs.anl.gov
+ Date: Friday, January 9, 2009, 5:32 PM
+
+
+ Hi,
+  Can you send us information regarding the machine you are running your
+ code (Control panel --&gt; System --&gt; General) ?
+
+ Regards,
+ Jayesh
+
+   _____
+
+ From: alaa nashar [mailto:nashar_al@yahoo.com]
+ Sent: Friday, January 09, 2009 12:34 AM
+ To: Jayesh Krishna
+ Subject: RE: [mpich2-maint] #346: execution time!!!!!
+
+
+
+ Hi
+
+ For my problem,
+   1- I have no logical processor
+   2- the recorded execn times are avaaged
+   3- only my code is running
+   4- All other MPI codes don't suffer from this bahaviour.
+
+ Do you think that this behaviour is due to using of MPI_reduce in the
+ concerned code?
+
+ Thank you
+                                                       Alaa
+ --- On Thu, 1/8/09, Jayesh Krishna &lt;jayesh@mcs.anl.gov&gt; wrote:
+
+
+ From: Jayesh Krishna &lt;jayesh@mcs.anl.gov&gt;
+ Subject: RE: [mpich2-maint] #346: execution time!!!!!
+ To: nashar_al@yahoo.com
+ Cc: mpich2-maint@mcs.anl.gov
+ Date: Thursday, January 8, 2009, 5:30 PM
+
+
+  Hi,
+   I just tried running the code on a uni-proc machine and got around 22-23
+ seconds for 2/4/8/16/32/64 procs - no speedup as expected.
+   Are you running on a machine with more than one "logical"
+processor ?
+ How many times did you run your code for each case (no of proc) to obtain
+ the timing below (You should run your code multiple times and take an
+ average of the times or use some statistical methods to obtain a good
+ estimate of the execution time) ? Do you have any other processes/programs
+ using CPU while you are running/timing your code (Make sure that you have
+ only your code running on the machine to get comparable execn times) ?
+
+ Regards,
+ Jayesh
+
+ -----Original Message-----
+ From: mpich2-bugs-bounces@mcs.anl.gov
+ [mailto:mpich2-bugs-bounces@mcs.anl.gov] On Behalf Of mpich2
+ Sent: Thursday, January 08, 2009 7:35 AM
+ To: undisclosed-recipients:
+ Subject: [mpich2-maint] #346: execution time!!!!!
+
+ -----------------------------------------------+------------------------
+ -----------------------------------------------+----
+  Reporter:  alaa nashar &lt;nashar_al@yahoo.com&gt;  |        Type:  bug
+    Status:  new                                |    Priority:  major
+ Milestone:                                     |   Component:  mpich2
+ -----------------------------------------------+------------------------
+ -----------------------------------------------+----
+
+
+  {{{
+
+  Dear All
+
+  I use MPICH2 under windows Xp. When the attatched MPI-FORTRAN progarm is
+ exeuted  on a single processor machine, the following execution times are
+ recorded
+
+
+          No. of processes                Execution time
+                2                                      30.09
+                4                                      25.38
+                8                                      23.35
+              16                                      22.38
+              32                                      20.11
+              64                                      16.51
+
+  As I know, if we have only one processor, the execution time will
+ increase  as an  extra process added. please give me an illustration for
+ the execution  times  recorded. Best wishes.
+                                                           Alaa El-Nashar
+
+
+  --- On Fri, 12/19/08, mpich2 &lt;mpich2-maint@mcs.anl.gov&gt; wrote:
+
+  From: mpich2 &lt;mpich2-maint@mcs.anl.gov&gt;
+  Subject: Re: [mpich2-maint] #333: a problem
+  To:
+  Date: Friday, December 19, 2008, 4:32 PM
+
+
+ -----------------------------------------------+--------------------------
+ --
+   Reporter:  alaa nashar &lt;nashar_al@yahoo.com&gt;  |        Owner:
+       Type:  bug                                |       Status:  new
+   Priority:  major                              |    Milestone:
+  Component:  mpich2                             |   Resolution:
+   Keywords:                                     |
+
+ -----------------------------------------------+--------------------------
+ --
+
+
+  Comment (by Jayesh Krishna):
+
+   {{{
+
+    Hi,
+     The support for profiling fortran programs (generating clog files) is
+   currently broken in MPICH2 on windows.
+     I will look into this and let you know about our schedule to fix this
+   issue.
+
+   Regards,
+   Jayesh
+
+   -----Original Message-----
+   From: mpich2-bugs-bounces@mcs.anl.gov
+   [mailto:mpich2-bugs-bounces@mcs.anl.gov] On Behalf Of mpich2
+   Sent: Friday, December 19, 2008 4:26 AM
+   To: undisclosed-recipients:
+   Subject: [mpich2-maint] #333: a problem
+
+   -----------------------------------------------+------------------------
+   -----------------------------------------------+----
+    Reporter:  alaa nashar &lt;nashar_al@yahoo.com&gt;  |        Type:  bug
+      Status:  new                                |    Priority:  major
+   Milestone:                                     |   Component:  mpich2
+   -----------------------------------------------+------------------------
+   -----------------------------------------------+----
+
+
+    {{{
+
+    Dear all
+
+    I have installed MPICH2 on my PC running Windows Xp and Digital Visual
+   Fortran  6.0.
+    All thinga are OK but I cant generate clog file after running wmpiexec.
+     If  (include 'mpe_logf.h') is added to the source.f, many errors 
+are
+   reported  durnig link operation. The considered souce file and the
+   generated errors  are  attatched. Please tell me how can I solve this
+   problem. Thank you
+
+
+  Alaa
+    El-
+    nashar
+
+
+    }}}
+
+
+   --
+   Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/333&gt;
+   }}}
+
+  --
+  Ticket URL:
+  &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/333#comment:&gt;
+
+
+
+  }}}
+
+
+ --
+ Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/346&gt;
+
+
+
+
+ }}}
+
+-- 
+Ticket URL:
+&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/346#comment:&gt;
+</PRE></BLOCKQUOTE></td></tr></table><br>
+
+      

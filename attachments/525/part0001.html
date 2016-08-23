@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16825" name=GENERATOR></HEAD>
+<BODY>
+<DIV dir=ltr align=left>&nbsp;</DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> mpich2-dev-bounces@mcs.anl.gov 
+[mailto:mpich2-dev-bounces@mcs.anl.gov] <B>On Behalf Of </B>Bob 
+Cernohous<BR><B>Sent:</B> Monday, April 13, 2009 9:18 AM<BR><B>To:</B> 
+mpich2-dev@mcs.anl.gov<BR><B>Subject:</B> [mpich2-dev] (1.1b1) Fortran 
+attributes<BR></FONT><BR></DIV>
+<DIV></DIV><BR><FONT face=sans-serif size=2>We have a problem with fortran 
+attributes in the beta. &nbsp;I believe it passes the address of a void* with 
+MPIR_ATTR_INT. &nbsp;So when casting back, shouldn't it be using a pointer sized 
+integer (MPIR_Pint) not MPI_Aint? &nbsp;This fixes BG/P.</FONT> <BR><BR><FONT 
+face=sans-serif size=2>---</FONT> <BR><FONT face=sans-serif 
+size=2>&nbsp;mpich2/src/mpi/attr/comm_get_attr.c | &nbsp; &nbsp;2 +-</FONT> 
+<BR><FONT face=sans-serif size=2>&nbsp;1 files changed, 1 insertions(+), 1 
+deletions(-)</FONT> <BR><BR><FONT face=sans-serif size=2>diff --git 
+a/mpich2/src/mpi/attr/comm_get_attr.c 
+b/mpich2/src/mpi/attr/comm_get_attr.c</FONT> <BR><FONT face=sans-serif 
+size=2>index 8e996e3..b3253c6 100644</FONT> <BR><FONT face=sans-serif size=2>--- 
+a/mpich2/src/mpi/attr/comm_get_attr.c</FONT> <BR><FONT face=sans-serif 
+size=2>+++ b/mpich2/src/mpi/attr/comm_get_attr.c</FONT> <BR><FONT 
+face=sans-serif size=2>@@ -264,7 +264,7 @@ int MPIR_CommGetAttr( MPI_Comm comm, 
+int comm_keyval, void *attribute_val,</FONT> <BR><FONT face=sans-serif 
+size=2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; if (outAttrType == MPIR_ATTR_AINT)</FONT> <BR><FONT face=sans-serif 
+size=2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*(MPI_Aint*)attr_val_p = 
+*(MPI_Aint*)*(void **)attr_val_p;</FONT> <BR><FONT face=sans-serif size=2>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else if 
+(outAttrType == MPIR_ATTR_INT)</FONT> <BR><FONT face=sans-serif size=2>- &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*(MPI_Aint*)attr_val_p = *(int *)*(void 
+**)attr_val_p;</FONT> <BR><FONT face=sans-serif size=2>+ &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp;*(MPIR_Pint*)attr_val_p = *(int *)*(void 
+**)attr_val_p;</FONT> <BR><FONT face=sans-serif size=2>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</FONT> <BR><FONT face=sans-serif 
+size=2>&nbsp; &nbsp; &nbsp;}</FONT> <BR><FONT face=sans-serif size=2>&nbsp; 
+&nbsp; &nbsp;else {</FONT> <BR><FONT face=sans-serif size=2>-- </FONT><BR><FONT 
+face=sans-serif size=2>1.5.3.7</FONT> <BR><BR><FONT face=sans-serif 
+size=2>-------------</FONT> <BR><FONT face=sans-serif size=2><BR>Bob Cernohous: 
+&nbsp;(T/L 553) 507-253-6093<BR><BR>BobC@us.ibm.com<BR>IBM Rochester, Building 
+030-2(C335), Department 61L<BR>3605 Hwy 52 North, Rochester, &nbsp;MN 
+55901-7829<BR><BR>&gt; Chaos reigns within.<BR>&gt; Reflect, repent, and 
+reboot.<BR>&gt; Order shall return.<BR></FONT></BODY></HTML>

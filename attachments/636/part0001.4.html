@@ -1,0 +1,14 @@
+2009/6/8 mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov" target="_blank">mpich2-maint@mcs.anl.gov</a>&gt;</span><br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+
+
+Hi,<br>
+  I wanted to have a sample code that you could not compile with &quot;static<br>
+ multithreaded runtime lib (/MT)&quot; .<br>
+<br>
+ Regards,<br>
+ Jayesh<br>
+</blockquote><div><br></div><div><div>Hi,</div><div><br></div><div>As I said before: &quot;Unfortunately .NET (/clr) and multithreaded static lib (/MT) are incompatible, you cannot even compile the project.&quot;</div><div>
+
+<br></div><div>Visual Studio says: &quot;Command line error D8016: &#39;/MT&#39; and &#39;/clr&#39; command-line options are incompatible&quot;. So the only way to compile a .NET project is to use the _dynamic_ runtime libraries. MPI works just fine with the static runtime libraries, but my issues were with MPI in combination with .NET.</div>
+
+<div><br></div><div>Best regards, Tamas</div></div>

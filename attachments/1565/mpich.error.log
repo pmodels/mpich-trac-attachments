@@ -1,0 +1,150 @@
+
+barry-smiths-macbook-pro:tutorials barrysmith$ petscmpiexec -n 2 -v ./ex1 -info
+host: internal.address.see.rfc1918.mc.net
+
+==================================================================================================
+mpiexec options:
+----------------
+  Base path: /Users/barrysmith/Src/petsc-dev/arch-crash/bin/
+  Launcher: (null)
+  Debug level: 1
+  Enable X: -1
+
+  Global environment:
+  -------------------
+    TERM_PROGRAM=Apple_Terminal
+    MATLABPATH=/Users/barrysmith/Src/EFRC-code/pathlib/examples/Matlab/m-files:/Users/barrysmith/Src/EFRC-code/pathlib/examples/Matlab/:/Users/barrysmith/Src/EFRC-code/pathlib_petsc:/Users/barrysmith/Src/petsc-dev/bin/matlab:/Users/barrysmith/Src/petsc-dev/bin/matlab/classes:
+    TERM=xterm-color
+    SHELL=/bin/bash
+    CLICOLOR=
+    PETSC_ARCH=arch-crash
+    TMPDIR=/var/folders/M4/M4PTePd3FM4rLBeN0lPCkE+++TI/-Tmp-/
+    Apple_PubSub_Socket_Render=/tmp/launch-rgSGEs/Render
+    TERM_PROGRAM_VERSION=273.1
+    OLDPWD=/Users/barrysmith/Src/petsc-dev
+    USER=barrysmith
+    COMMAND_MODE=unix2003
+    SSH_AUTH_SOCK=/tmp/launch-HRqiyh/Listeners
+    __CF_USER_TEXT_ENCODING=0x1F5:0:0
+    EFRC_DIR=/Users/barrysmith/Src/EFRC-code
+    PATH=/Users/barrysmith/Src/petsc-dev/bin:/usr/local/cuda/bin:/Users/barrysmith/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:/usr/local/cuda/bin:/Users/barrysmith/bin:/usr/texbin:/bin:/usr/X11R6/bin:/opt/local/bin
+    DATAFILESPATH=/Users/barrysmith/Datafiles
+    PWD=/Users/barrysmith/Src/petsc-dev/src/vec/vec/examples/tutorials
+    LANG=en_US.UTF-8
+    SHLVL=2
+    HOME=/Users/barrysmith
+    PATH_LICENSE_STRING=2640088036&Todd_Munson&Argonne_National_Laboratory&&USR&&14_12_2001&1000&COMP&GEN&0_0_0&0_0_0&0&0_0
+    DYLD_LIBRARY_PATH=
+    LOGNAME=barrysmith
+    PETSC_OPTIONS=-malloc -malloc_debug -malloc_dump
+    PETSC_DIR=/Users/barrysmith/Src/petsc-dev
+    _=/Users/barrysmith/Src/petsc-dev/bin/petscmpiexec
+    HOSTTYPE=intel-mac
+    VENDOR=apple
+    OSTYPE=darwin
+    MACHTYPE=x86_64
+    GROUP=staff
+    HOST=internal.address.see.rfc1918.mc.net
+    REMOTEHOST=
+
+  Hydra internal environment:
+  ---------------------------
+    GFORTRAN_UNBUFFERED_PRECONNECTED=y
+
+
+    Proxy information:
+    *********************
+      [1] proxy: internal.address.see.rfc1918.mc.net (1 cores)
+      Exec list: ./ex1 (2 processes); 
+
+
+==================================================================================================
+
+[mpiexec@internal.address.see.rfc1918.mc.net] Timeout set to -1 (-1 means infinite)
+[mpiexec@internal.address.see.rfc1918.mc.net] Got a control port string of internal.address.see.rfc1918.mc.net:62112
+
+Proxy launch args: /Users/barrysmith/Src/petsc-dev/arch-crash/bin/hydra_pmi_proxy --control-port internal.address.see.rfc1918.mc.net:62112 --debug --rmk user --launcher ssh --demux poll --pgid 0 --retries 10 --proxy-id 
+
+[mpiexec@internal.address.see.rfc1918.mc.net] PMI FD: (null); PMI PORT: (null); PMI ID/RANK: -1
+Arguments being passed to proxy 0:
+--version 1.4.1p1 --iface-ip-env-name MPICH_INTERFACE_HOSTNAME --hostname internal.address.see.rfc1918.mc.net --global-core-map 0,1,0 --filler-process-map 0,1,0 --global-process-count 2 --auto-cleanup 1 --pmi-rank -1 --pmi-kvsname kvs_57654_0 --pmi-process-mapping (vector,(0,1,1)) --ckpoint-num -1 --global-inherited-env 34 'TERM_PROGRAM=Apple_Terminal' 'MATLABPATH=/Users/barrysmith/Src/EFRC-code/pathlib/examples/Matlab/m-files:/Users/barrysmith/Src/EFRC-code/pathlib/examples/Matlab/:/Users/barrysmith/Src/EFRC-code/pathlib_petsc:/Users/barrysmith/Src/petsc-dev/bin/matlab:/Users/barrysmith/Src/petsc-dev/bin/matlab/classes:' 'TERM=xterm-color' 'SHELL=/bin/bash' 'CLICOLOR=' 'PETSC_ARCH=arch-crash' 'TMPDIR=/var/folders/M4/M4PTePd3FM4rLBeN0lPCkE+++TI/-Tmp-/' 'Apple_PubSub_Socket_Render=/tmp/launch-rgSGEs/Render' 'TERM_PROGRAM_VERSION=273.1' 'OLDPWD=/Users/barrysmith/Src/petsc-dev' 'USER=barrysmith' 'COMMAND_MODE=unix2003' 'SSH_AUTH_SOCK=/tmp/launch-HRqiyh/Listeners' '__CF_USER_TEXT
+ _ENCODING=0x1F5:0:0' 'EFRC_DIR=/Users/barrysmith/Src/EFRC-code' 'PATH=/Users/barrysmith/Src/petsc-dev/bin:/usr/local/cuda/bin:/Users/barrysmith/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:/usr/local/cuda/bin:/Users/barrysmith/bin:/usr/texbin:/bin:/usr/X11R6/bin:/opt/local/bin' 'DATAFILESPATH=/Users/barrysmith/Datafiles' 'PWD=/Users/barrysmith/Src/petsc-dev/src/vec/vec/examples/tutorials' 'LANG=en_US.UTF-8' 'SHLVL=2' 'HOME=/Users/barrysmith' 'PATH_LICENSE_STRING=2640088036&Todd_Munson&Argonne_National_Laboratory&&USR&&14_12_2001&1000&COMP&GEN&0_0_0&0_0_0&0&0_0' 'DYLD_LIBRARY_PATH=' 'LOGNAME=barrysmith' 'PETSC_OPTIONS=-malloc -malloc_debug -malloc_dump' 'PETSC_DIR=/Users/barrysmith/Src/petsc-dev' '_=/Users/barrysmith/Src/petsc-dev/bin/petscmpiexec' 'HOSTTYPE=intel-mac' 'VENDOR=apple' 'OSTYPE=darwin' 'MACHTYPE=x86_64' 'GROUP=staff' 'HOST=internal.address.see.rfc1918.mc.net' 'REMOTEHOST=' --global-user-env 0 --global-
+ system-env 1 'GFORTRAN_UNBUFFERED_PRECONNECTED=y' --proxy-core-count 1 --exec --exec-appnum 0 --exec-proc-count 2 --exec-local-env 0 --exec-wdir /Users/barrysmith/Src/petsc-dev/src/vec/vec/examples/tutorials --exec-args 2 ./ex1 -info 
+
+[mpiexec@internal.address.see.rfc1918.mc.net] Launch arguments: /Users/barrysmith/Src/petsc-dev/arch-crash/bin/hydra_pmi_proxy --control-port internal.address.see.rfc1918.mc.net:62112 --debug --rmk user --launcher ssh --demux poll --pgid 0 --retries 10 --proxy-id 0 
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 0): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 7): init
+pmi_version=1 pmi_subversion=1 
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=response_to_init pmi_version=1 pmi_subversion=1 rc=0
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 0): get_maxes
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 0): get_appnum
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=appnum appnum=0
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 7): get_maxes
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=maxes kvsname_max=256 keylen_max=64 vallen_max=1024
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 0): get_my_kvsname
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=my_kvsname kvsname=kvs_57654_0
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 7): get_appnum
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=appnum appnum=0
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 0): get_my_kvsname
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=my_kvsname kvsname=kvs_57654_0
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 7): get_my_kvsname
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=my_kvsname kvsname=kvs_57654_0
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 0): get
+kvsname=kvs_57654_0 key=PMI_process_mapping 
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 7): get_my_kvsname
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=my_kvsname kvsname=kvs_57654_0
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 7): get
+kvsname=kvs_57654_0 key=PMI_process_mapping 
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=get_result rc=0 msg=success value=(vector,(0,1,1))
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 0): put
+kvsname=kvs_57654_0 key=P0-businesscard value=port#62113$description#internal.address.see.rfc1918.mc.net$ifname#192.168.0.1$ 
+[proxy:0:0@internal.address.see.rfc1918.mc.net] we don't understand this command put; forwarding upstream
+[mpiexec@internal.address.see.rfc1918.mc.net] [pgid: 0] got PMI command: cmd=put kvsname=kvs_57654_0 key=P0-businesscard value=port#62113$description#internal.address.see.rfc1918.mc.net$ifname#192.168.0.1$
+[mpiexec@internal.address.see.rfc1918.mc.net] PMI response to fd 7 pid 0: cmd=put_result rc=0 msg=success
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 7): put
+kvsname=kvs_57654_0 key=P1-businesscard value=port#62114$description#internal.address.see.rfc1918.mc.net$ifname#192.168.0.1$ 
+[proxy:0:0@internal.address.see.rfc1918.mc.net] we don't understand this command put; forwarding upstream
+[mpiexec@internal.address.see.rfc1918.mc.net] [pgid: 0] got PMI command: cmd=put kvsname=kvs_57654_0 key=P1-businesscard value=port#62114$description#internal.address.see.rfc1918.mc.net$ifname#192.168.0.1$
+[mpiexec@internal.address.see.rfc1918.mc.net] PMI response to fd 7 pid 7: cmd=put_result rc=0 msg=success
+[proxy:0:0@internal.address.see.rfc1918.mc.net] we don't understand the response put_result; forwarding downstream
+[proxy:0:0@internal.address.see.rfc1918.mc.net] we don't understand the response put_result; forwarding downstream
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 7): barrier_in
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 0): barrier_in
+
+[proxy:0:0@internal.address.see.rfc1918.mc.net] forwarding command (cmd=barrier_in) upstream
+[mpiexec@internal.address.see.rfc1918.mc.net] [pgid: 0] got PMI command: cmd=barrier_in
+[mpiexec@internal.address.see.rfc1918.mc.net] PMI response to fd 7 pid 0: cmd=barrier_out
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=barrier_out
+[proxy:0:0@internal.address.see.rfc1918.mc.net] PMI response: cmd=barrier_out
+[proxy:0:0@internal.address.see.rfc1918.mc.net] got pmi command (from 0): get
+kvsname=kvs_57654_0 key=P1-businesscard 
+[proxy:0:0@internal.address.see.rfc1918.mc.net] forwarding command (cmd=get kvsname=kvs_57654_0 key=P1-businesscard) upstream
+[mpiexec@internal.address.see.rfc1918.mc.net] [pgid: 0] got PMI command: cmd=get kvsname=kvs_57654_0 key=P1-businesscard
+[mpiexec@internal.address.see.rfc1918.mc.net] PMI response to fd 7 pid 0: cmd=get_result rc=0 msg=success value=port#62114$description#internal.address.see.rfc1918.mc.net$ifname#192.168.0.1$
+[proxy:0:0@internal.address.see.rfc1918.mc.net] we don't understand the response get_result; forwarding downstream
+INTERNAL ERROR: Invalid error class (66) encountered while returning from
+MPI_Bcast.  Please file a bug report.
+[0]PETSC ERROR: PetscOptionsInsertFile() line 465 in /Users/barrysmith/Src/petsc-dev/src/sys/objects/options.c
+[0]PETSC ERROR: PetscOptionsInsert() line 621 in /Users/barrysmith/Src/petsc-dev/src/sys/objects/options.c
+[0]PETSC ERROR: PetscInitialize() line 744 in /Users/barrysmith/Src/petsc-dev/src/sys/objects/pinit.c
+[0]PETSC ERROR: main() line 30 in src/vec/vec/examples/tutorials/ex1.c
+application called MPI_Abort(MPI_COMM_WORLD, 469931533) - process 0
+[cli_0]: aborting job:
+application called MPI_Abort(MPI_COMM_WORLD, 469931533) - process 0
+barry-smiths-macbook-pro:tutorials barrysmith$ 
+
+
+

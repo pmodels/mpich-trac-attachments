@@ -1,0 +1,37 @@
+#!/bin/csh
+
+# set path
+# start with Sun Studio compilers to preempt C compilers in other directories
+
+set path = ( /ws/ompi-tools/SUNWspro/SOS12-ML/bin ) # compilers
+set path = ( $path                       /usr/bin )
+set path = ( $path                           /bin )
+
+set MPICH = mpich2-1.1.0a1
+
+gunzip $MPICH.tar.gz
+tar xf $MPICH.tar
+
+cd $MPICH
+set INSTALLDIR = `pwd`/myinstall
+
+./configure                             \
+  --prefix=$INSTALLDIR                  \
+  --enable-error-checking=no            \
+  --enable-g=none                       \
+  --enable-f77                          \
+  --enable-f90                          \
+  --enable-threads=single               \
+  --enable-timing=no                    \
+  --enable-fast=none                    \
+  CC=cc                                 \
+  F77=f90                               \
+  F90=f90                               \
+  CXX=CC                                \
+  CFLAGS="-fast -xarch=native -m64"     \
+  FFLAGS="-fast -xarch=native -m64"     \
+  F90FLAGS="-fast -xarch=native -m64"   \
+  CXXFLAGS="-fast -xarch=native -m64"
+
+make
+

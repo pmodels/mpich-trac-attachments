@@ -1,0 +1,24 @@
+configure:cc conftest.c -o conftest
+configure: failed program was:
+
+#define MPE_USE_EXTENSIONS 1
+#include "confdefs.h"
+int f(double a){return 0;}
+int main() { exit(0); }
+int t() {  }
+conftest.c: In function 'main':
+conftest.c:3: warning: incompatible implicit declaration of built-in function 'exit'
+/usr/bin/ld: crt1.o: No such file: No such file or directory
+collect2: ld returned 1 exit status
+configure:gcc conftest.c -o conftest
+configure: failed program was:
+
+#define MPE_USE_EXTENSIONS 1
+#include "confdefs.h"
+
+int main() { exit(0); }
+int t() { return 0; }
+conftest.c: In function 'main':
+conftest.c:3: warning: incompatible implicit declaration of built-in function 'exit'
+/usr/bin/ld: crt1.o: No such file: No such file or directory
+collect2: ld returned 1 exit status

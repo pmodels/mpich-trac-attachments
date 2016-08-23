@@ -1,0 +1,67 @@
+From 4ba9c3cef18ff8bd2bf0205009568e6398bc9dfa Mon Sep 17 00:00:00 2001
+From: Justin Bronder <jsbronder@gmail.com>
+Date: Tue, 7 Jun 2011 20:58:42 -0400
+Subject: [PATCH] pkgconfig:  fix variable usage
+
+Without using {} we end up with:
+    -I\$includedir
+rather then the expected:
+    -I/some/path
+---
+ src/packaging/pkgconfig/mpich2-c.pc.in   |    4 ++--
+ src/packaging/pkgconfig/mpich2-cxx.pc.in |    4 ++--
+ src/packaging/pkgconfig/mpich2-f77.pc.in |    4 ++--
+ src/packaging/pkgconfig/mpich2-f90.pc.in |    4 ++--
+ 4 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/src/packaging/pkgconfig/mpich2-c.pc.in b/src/packaging/pkgconfig/mpich2-c.pc.in
+index b071fc6..394630b 100644
+--- a/src/packaging/pkgconfig/mpich2-c.pc.in
++++ b/src/packaging/pkgconfig/mpich2-c.pc.in
+@@ -14,5 +14,5 @@ Name: mpich2
+ Description: MPICH2 is an implementation of the Message-Passing Interface (MPI). The goals of MPICH2 are to provide an MPI implementation for important platforms, including clusters, SMPs, and massively parallel processors. It also provides a vehicle for MPI implementation research and for developing new and better parallel programming environments.
+ Version: @MPICH2_VERSION@
+ Requires:
+-Libs: @WRAPPER_LDFLAGS@ -L$libdir -l$plib -l@MPILIBNAME@ @WRAPPER_LIBS@
+-Cflags: @WRAPPER_CPPFLAGS@ @WRAPPER_CFLAGS@ -I$includedir
++Libs: @WRAPPER_LDFLAGS@ -L${libdir} -l${plib} -l@MPILIBNAME@ @WRAPPER_LIBS@
++Cflags: @WRAPPER_CPPFLAGS@ @WRAPPER_CFLAGS@ -I${includedir}
+diff --git a/src/packaging/pkgconfig/mpich2-cxx.pc.in b/src/packaging/pkgconfig/mpich2-cxx.pc.in
+index d21f9e6..936ade6 100644
+--- a/src/packaging/pkgconfig/mpich2-cxx.pc.in
++++ b/src/packaging/pkgconfig/mpich2-cxx.pc.in
+@@ -14,5 +14,5 @@ Name: mpich2
+ Description: MPICH2 is an implementation of the Message-Passing Interface (MPI). The goals of MPICH2 are to provide an MPI implementation for important platforms, including clusters, SMPs, and massively parallel processors. It also provides a vehicle for MPI implementation research and for developing new and better parallel programming environments.
+ Version: @MPICH2_VERSION@
+ Requires:
+-Libs: @WRAPPER_LDFLAGS@ -L$libdir -l$plib -l@MPILIBNAME@ @WRAPPER_LIBS@
+-Cxxflags: @WRAPPER_CPPFLAGS@ @WRAPPER_CXXFLAGS@ -I$includedir
++Libs: @WRAPPER_LDFLAGS@ -L${libdir} -l${plib} -l@MPILIBNAME@ @WRAPPER_LIBS@
++Cxxflags: @WRAPPER_CPPFLAGS@ @WRAPPER_CXXFLAGS@ -I${includedir}
+diff --git a/src/packaging/pkgconfig/mpich2-f77.pc.in b/src/packaging/pkgconfig/mpich2-f77.pc.in
+index 1b48bf6..291462e 100644
+--- a/src/packaging/pkgconfig/mpich2-f77.pc.in
++++ b/src/packaging/pkgconfig/mpich2-f77.pc.in
+@@ -14,5 +14,5 @@ Name: mpich2
+ Description: MPICH2 is an implementation of the Message-Passing Interface (MPI). The goals of MPICH2 are to provide an MPI implementation for important platforms, including clusters, SMPs, and massively parallel processors. It also provides a vehicle for MPI implementation research and for developing new and better parallel programming environments.
+ Version: @MPICH2_VERSION@
+ Requires:
+-Libs: @WRAPPER_LDFLAGS@ -L$libdir -l$plib -l@MPILIBNAME@ @WRAPPER_LIBS@
+-Fflags: @WRAPPER_FFLAGS@ -I$includedir
++Libs: @WRAPPER_LDFLAGS@ -L${libdir} -l${plib} -l@MPILIBNAME@ @WRAPPER_LIBS@
++Fflags: @WRAPPER_FFLAGS@ -I${includedir}
+diff --git a/src/packaging/pkgconfig/mpich2-f90.pc.in b/src/packaging/pkgconfig/mpich2-f90.pc.in
+index ebb8499..ca15e18 100644
+--- a/src/packaging/pkgconfig/mpich2-f90.pc.in
++++ b/src/packaging/pkgconfig/mpich2-f90.pc.in
+@@ -14,5 +14,5 @@ Name: mpich2
+ Description: MPICH2 is an implementation of the Message-Passing Interface (MPI). The goals of MPICH2 are to provide an MPI implementation for important platforms, including clusters, SMPs, and massively parallel processors. It also provides a vehicle for MPI implementation research and for developing new and better parallel programming environments.
+ Version: @MPICH2_VERSION@
+ Requires:
+-Libs: @WRAPPER_LDFLAGS@ -L$libdir -l$plib -l@MPILIBNAME@ @WRAPPER_LIBS@
+-Fcflags: @WRAPPER_FCFLAGS@ -I$includedir
++Libs: @WRAPPER_LDFLAGS@ -L${libdir} -l${plib} -l@MPILIBNAME@ @WRAPPER_LIBS@
++Fcflags: @WRAPPER_FCFLAGS@ -I${includedir}
+-- 
+1.7.3.4
+

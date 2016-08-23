@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #226: MPICH2 Cygwin install failes</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Looks like your configure failed. What is the shell that you are using (echo $0) ? Does the problem happen with the default shell (bash) or tcsh ?<BR>
+<BR>
+=========== configure.log ============<BR>
+...<BR>
+180 &nbsp;&nbsp;&nbsp; ./configure: line 25562: test: 8<BR>
+181 &nbsp;&nbsp;&nbsp; : integer expression expected<BR>
+182 &nbsp;&nbsp;&nbsp; expr: non-numeric argument<BR>
+183 &nbsp;&nbsp;&nbsp; ./configure: line 25596: test: : integer expression expected<BR>
+184 &nbsp;&nbsp;&nbsp; ./configure: line 25603: test: -gt: unary operator expected<BR>
+185 &nbsp;&nbsp;&nbsp; ./configure: line 25617: test: -lt: unary operator expected<BR>
+186 &nbsp;&nbsp;&nbsp; expr: non-numeric argument<BR>
+187 &nbsp;&nbsp;&nbsp; ./configure: line 25648: test: -ge: unary operator expected<BR>
+188 &nbsp;&nbsp;&nbsp; expr: syntax error<BR>
+189 &nbsp;&nbsp;&nbsp; expr: syntax error<BR>
+...<BR>
+=========== configure.log ============<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Wednesday, October 22, 2008 5:01 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #226: MPICH2 Cygwin install failes<BR>
+<BR>
+--------------------------------------------+---------------------------<BR>
+--------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; Rolf Maier &lt;maier@ucalgary.ca&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+--------------------------------------------+---------------------------<BR>
+--------------------------------------------+----<BR>
+<BR>
+<BR>
+Comment (by Rolf Maier):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Hi,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I downloaded and configured mpich2-1.0.8rc1.tar.gz, and compiled&nbsp; as far&nbsp; as I&nbsp; could. I get the same error, for the same locations in the same file:<BR>
+<BR>
+&nbsp;gcc ... -c mpid_type_debug.c<BR>
+&nbsp;mpid_type_debug.c: In function `MPIDU_Datatype_builtin_to_string':<BR>
+&nbsp;mpid_type_debug.c:364: error: parse error before ')' token&nbsp; ...<BR>
+&nbsp;mpid_type_debug.c:374: error: parse error before ')' token<BR>
+<BR>
+&nbsp;I have again attached the script files.<BR>
+&nbsp;Thanks for your help,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rolf<BR>
+<BR>
+&nbsp;mpich2 wrote:<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------+-------------------------------<BR>
+&nbsp;&gt;&nbsp; Reporter:&nbsp; Rolf Maier &lt;maier@ucalgary.ca&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;&gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp;&gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp;&gt;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------+-------------------------------<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; Comment (by Jayesh Krishna):<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; Hi,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp; Can you try out 1.0.8rc1<BR>
+&nbsp;&gt;<BR>
+&nbsp;(<A HREF="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=dow">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=dow</A><BR>
+&nbsp;&gt;&nbsp; nloads) ? If you still get an error please provide us with the output&nbsp; of&nbsp; &gt;&nbsp; make.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Regards,<BR>
+&nbsp;&gt;&nbsp; Jayesh<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; -----Original Message-----<BR>
+&nbsp;&gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-">mailto:owner-</A>&nbsp; mpich2-bugs@mcs.anl.gov]&nbsp; &gt;&nbsp; On Behalf Of mpich2&nbsp; &gt;&nbsp; Sent: Wednesday, October 22, 2008 3:59 PM&nbsp; &gt;&nbsp; To: undisclosed-recipients:<BR>
+&nbsp;&gt;&nbsp; Subject: [mpich2-maint] #226: MPICH2 Cygwin install failes&nbsp; &gt;&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------+---------------------------<BR>
+&nbsp;&gt;&nbsp; --------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp;&nbsp; Reporter:&nbsp; Rolf Maier &lt;maier@ucalgary.ca&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp;&gt;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp;&gt;<BR>
+&nbsp;--------------------------------------------+---------------------------<BR>
+&nbsp;&gt;&nbsp; --------------------------------------------+----<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; Hello,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I tried to install MPICH2 (mpich2-1.0.7, the current stable<BR>
+&nbsp;&gt;&nbsp;&nbsp; version) on<BR>
+&nbsp;&gt;&nbsp;&nbsp; Cygwin:<BR>
+&nbsp;&gt;&nbsp;&nbsp; $ uname -a<BR>
+&nbsp;&gt;&nbsp;&nbsp; CYGWIN_NT-5.1 rolf 1.5.24(0.156/4/2) 2007-01-31 10:57 i686 Cygwin<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; which I did successfully about 3 years ago (with different versions),<BR>
+&nbsp;but<BR>
+&nbsp;&gt;&nbsp; this&nbsp; time I got a build error.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; The problem seems to be that at the end of mpid_type_debug.c it tries<BR>
+&nbsp;to<BR>
+&nbsp;&gt;&nbsp; apply a&nbsp; cast MPI_DataType to nothing. I have added cleaned up&nbsp; typescripts&nbsp; &gt;&nbsp; of the&nbsp; configure and build step.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; Any hint/workaround would be appreciated.<BR>
+&nbsp;&gt;&nbsp;&nbsp; Thanks for making all this work available,<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rolf<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp;&nbsp; PS I am not using mpich2-1.0.7-win32-ia32.msi because I don't have all<BR>
+&nbsp;&gt;&nbsp; the&nbsp; Windows developer stuff.<BR>
+&nbsp;&gt;&nbsp;&nbsp; }}}<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; --<BR>
+&nbsp;&gt;&nbsp; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/226">https://trac.mcs.anl.gov/projects/mpich2/ticket/226</A>&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; }}}<BR>
+&nbsp;&gt;<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/226#comment:&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

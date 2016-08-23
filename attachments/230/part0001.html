@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7653.38">
+<TITLE>Compiling mpich2 with </TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>I am trying to compile mpich2-1.0.7 with gfortran as the fortran90 compiler<BR>
+I use the command:<BR>
+./configure --prefix=/home/dokland/mpich2-install --enable-mpi-f90 --enable-mpi-f77 | &amp; tee configure.lo<BR>
+which ends with<BR>
+configure: error: Unable to determine Fortran integer kinds for MPI types.<BR>
+I have set the flag<BR>
+setenv F90FLAGS &quot;-i4&quot;<BR>
+as instructed with respect to the g95 compiler. Indeed, I can get it to work with the g95 compiler, but then mpif90 does not compile my program.<BR>
+gfortran version is GNU Fortran (GCC) 4.2.5 20081006 (prerelease)<BR>
+The configure logs are attached.<BR>
+Suggestions would be very welcome.<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

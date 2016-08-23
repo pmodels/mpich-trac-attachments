@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich-discuss] closesocket failed error when running an MinGWcompiled executable.</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; This is a bug in the current state machine of SMPD. This should not affect the execution of your MPI program (This error occurs when the process manager tries to cleanup connections after the MPI program finishes execution).<BR>
+<BR>
+(PS: You can go ahead with your program development and ignore the closesocket() errors for now. We will fix this bug soon.)<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich-discuss-bounces@mcs.anl.gov [<A HREF="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] On Behalf Of Dmitri Chubarov<BR>
+Sent: Tuesday, November 11, 2008 1:23 AM<BR>
+To: someindianbloke@gmail.com<BR>
+Cc: mpich-discuss@mcs.anl.gov<BR>
+Subject: Re: [mpich-discuss] closesocket failed error when running an MinGWcompiled executable.<BR>
+<BR>
+Hi,<BR>
+<BR>
+Error 10093 is a winsock error code for &quot;Successful WSAStartup not yet performed&quot;. Do check if you get the same error on other machines to rule out network misconfiguration in your Windows installation.<BR>
+<BR>
+On Tue, Nov 11, 2008 at 7:02 AM, Chiraj &lt;someindianbloke@gmail.com&gt; wrote:<BR>
+&gt; Hi,<BR>
+&gt;<BR>
+&gt; I have compiled a C executable using the MPICH2 Windows libraries and<BR>
+&gt; MinGW. I have tried running the executable using &quot;mpiexec -localroot<BR>
+&gt; -localonly 2 main.exe 0.xml&quot;, but I get the following error:<BR>
+&gt;<BR>
+&gt; closesocket failed, sock 1284, error 10093<BR>
+&gt;<BR>
+&gt; Could some please tell me what this means I am doing wrong? I have<BR>
+&gt; tried searching everywhere on what this error means. I have registered<BR>
+&gt; my user credentials using wmpiregister and checked if I have started<BR>
+&gt; smpd as a windows service. I am running Windows Xp Professional SP3 on<BR>
+&gt; an Intel Pentium 4 base system.<BR>
+&gt;<BR>
+&gt; Chiraj<BR>
+&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

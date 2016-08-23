@@ -1,0 +1,383 @@
+You have autoconf version 2.62.
+Building Fortran 77 interface
+Replacing sendf.c
+Replacing recvf.c
+Replacing get_countf.c
+Replacing bsendf.c
+Replacing ssendf.c
+Replacing rsendf.c
+Replacing bufattachf.c
+Replacing bufdetachf.c
+Replacing isendf.c
+Replacing ibsendf.c
+Replacing issendf.c
+Replacing irsendf.c
+Replacing irecvf.c
+Replacing waitf.c
+Replacing testf.c
+Replacing request_freef.c
+Replacing waitanyf.c
+Replacing testanyf.c
+Replacing waitallf.c
+Replacing testallf.c
+Replacing waitsomef.c
+Replacing testsomef.c
+Replacing iprobef.c
+Replacing probef.c
+Replacing cancelf.c
+Replacing testcancelf.c
+Replacing send_initf.c
+Replacing bsend_initf.c
+Replacing ssend_initf.c
+Replacing rsend_initf.c
+Replacing recv_initf.c
+Replacing startf.c
+Replacing startallf.c
+Replacing sendrecvf.c
+Replacing sndrcvrplf.c
+Replacing typecontigf.c
+Replacing type_vectorf.c
+Replacing type_hvectorf.c
+Replacing type_indexedf.c
+Replacing type_hindexedf.c
+Replacing type_structf.c
+Replacing type_extentf.c
+Replacing type_sizef.c
+Replacing type_lbf.c
+Replacing type_ubf.c
+Replacing type_commitf.c
+Replacing type_freef.c
+Replacing get_elementsf.c
+Replacing packf.c
+Replacing unpackf.c
+Replacing pack_sizef.c
+Replacing barrierf.c
+Replacing bcastf.c
+Replacing gatherf.c
+Replacing gathervf.c
+Replacing scatterf.c
+Replacing scattervf.c
+Replacing allgatherf.c
+Replacing allgathervf.c
+Replacing alltoallf.c
+Replacing alltoallvf.c
+Replacing reducef.c
+Replacing op_createf.c
+Replacing op_freef.c
+Replacing allreducef.c
+Replacing redscatf.c
+Replacing scanf.c
+Replacing group_sizef.c
+Replacing group_rankf.c
+Replacing grouptranksf.c
+Replacing group_comparef.c
+Replacing comm_groupf.c
+Replacing group_unionf.c
+Replacing groupinterf.c
+Replacing groupdifff.c
+Replacing group_inclf.c
+Replacing group_exclf.c
+Replacing grouprinclf.c
+Replacing grouprexclf.c
+Replacing group_freef.c
+Replacing comm_sizef.c
+Replacing comm_rankf.c
+Replacing comm_comparef.c
+Replacing comm_dupf.c
+Replacing comm_createf.c
+Replacing comm_splitf.c
+Replacing comm_freef.c
+Replacing commtesticf.c
+Replacing commrsizef.c
+Replacing commrgroupf.c
+Replacing iccreatef.c
+Replacing icmergef.c
+Replacing keyval_freef.c
+Replacing attr_putf.c
+Replacing attr_getf.c
+Replacing attr_deletef.c
+Replacing topo_testf.c
+Replacing cart_createf.c
+Replacing dims_createf.c
+Replacing graph_createf.c
+Replacing graphdims_getf.c
+Replacing graph_getf.c
+Replacing cartdim_getf.c
+Replacing cart_getf.c
+Replacing cart_rankf.c
+Replacing cart_coordsf.c
+Replacing grfnbcountf.c
+Replacing grfnbrsf.c
+Replacing cart_shiftf.c
+Replacing cart_subf.c
+Replacing cart_mapf.c
+Replacing graph_mapf.c
+Replacing getpnamef.c
+Replacing get_versionf.c
+Replacing errhcreatef.c
+Replacing errhsetf.c
+Replacing errhgetf.c
+Replacing errhfreef.c
+Replacing error_stringf.c
+Replacing error_classf.c
+Replacing finalizef.c
+Replacing initializedf.c
+Replacing abortf.c
+Replacing close_portf.c
+Replacing comm_acceptf.c
+Replacing comm_connectf.c
+Replacing commdiscf.c
+Replacing commparentf.c
+Replacing comm_joinf.c
+Replacing comm_spawnf.c
+Replacing spawnmultf.c
+Replacing lookup_namef.c
+Replacing open_portf.c
+Replacing publish_namef.c
+Replacing unpubnamef.c
+Replacing accumulatef.c
+Replacing getf.c
+Replacing putf.c
+Replacing win_completef.c
+Replacing win_createf.c
+Replacing win_fencef.c
+Replacing win_freef.c
+Replacing win_get_groupf.c
+Replacing win_lockf.c
+Replacing win_postf.c
+Replacing win_startf.c
+Replacing win_testf.c
+Replacing win_unlockf.c
+Replacing win_waitf.c
+Replacing alltoallwf.c
+Replacing exscanf.c
+Replacing adderrclassf.c
+Replacing adderrcodef.c
+Replacing adderrstringf.c
+Replacing commcallerrf.c
+Replacing commnewkeyf.c
+Replacing commdelattrf.c
+Replacing commfreekeyf.c
+Replacing comm_get_attrf.c
+Replacing commgetnamf.c
+Replacing comm_set_attrf.c
+Replacing comm_set_namef.c
+Replacing filecallerrf.c
+Replacing greqcompletef.c
+Replacing greqstartf.c
+Replacing isthrmainf.c
+Replacing query_threadf.c
+Replacing statgetclf.c
+Replacing statsetelf.c
+Replacing typenewkeyf.c
+Replacing typedelattrf.c
+Replacing type_dupf.c
+Replacing typefreekeyf.c
+Replacing type_get_attrf.c
+Replacing typegetcntsf.c
+Replacing typegetenvf.c
+Replacing typegnamef.c
+Replacing typesetattrf.c
+Replacing typesetnamef.c
+Replacing type_match_sizef.c
+Replacing wincallerrf.c
+Replacing winnewkeyf.c
+Replacing windelattrf.c
+Replacing winfreekeyf.c
+Replacing win_get_attrf.c
+Replacing win_get_namef.c
+Replacing win_set_attrf.c
+Replacing win_set_namef.c
+Replacing alloc_memf.c
+Replacing commcreerrf.c
+Replacing commgeterrf.c
+Replacing commseterrf.c
+Replacing filecreerrf.c
+Replacing filegeterrf.c
+Replacing fileseterrf.c
+Replacing finalizedf.c
+Replacing free_memf.c
+Replacing info_createf.c
+Replacing info_deletef.c
+Replacing info_dupf.c
+Replacing info_freef.c
+Replacing info_getf.c
+Replacing infognkf.c
+Replacing infognthkf.c
+Replacing infovallenf.c
+Replacing info_setf.c
+Replacing pack_externalf.c
+Replacing packesizef.c
+Replacing reqgetstatf.c
+Replacing typedarrayf.c
+Replacing typechindf.c
+Replacing typechvecf.c
+Replacing typecindbf.c
+Replacing typecresizef.c
+Replacing typecstructf.c
+Replacing typecsubarrf.c
+Replacing typegetextentf.c
+Replacing typegtextf.c
+Replacing unpackextf.c
+Replacing wincreerrf.c
+Replacing wingeterrf.c
+Replacing winseterrf.c
+Replacing file_openf.c
+Replacing file_closef.c
+Replacing file_deletef.c
+Replacing file_set_sizef.c
+Replacing file_preallocatef.c
+Replacing file_get_sizef.c
+Replacing file_get_groupf.c
+Replacing file_get_amodef.c
+Replacing file_set_infof.c
+Replacing file_get_infof.c
+Replacing file_set_viewf.c
+Replacing file_get_viewf.c
+Replacing file_read_atf.c
+Replacing file_read_at_allf.c
+Replacing file_write_atf.c
+Replacing file_write_at_allf.c
+Replacing file_iread_atf.c
+Replacing file_iwrite_atf.c
+Replacing file_readf.c
+Replacing file_read_allf.c
+Replacing file_writef.c
+Replacing file_write_allf.c
+Replacing file_ireadf.c
+Replacing file_iwritef.c
+Replacing file_seekf.c
+Replacing file_get_positionf.c
+Replacing file_get_byte_offsetf.c
+Replacing file_read_sharedf.c
+Replacing file_write_sharedf.c
+Replacing file_iread_sharedf.c
+Replacing file_iwrite_sharedf.c
+Replacing file_read_orderedf.c
+Replacing file_write_orderedf.c
+Replacing file_seek_sharedf.c
+Replacing file_get_position_sharedf.c
+Replacing file_read_at_all_beginf.c
+Replacing file_read_at_all_endf.c
+Replacing file_write_at_all_beginf.c
+Replacing file_write_at_all_endf.c
+Replacing file_read_all_beginf.c
+Replacing file_read_all_endf.c
+Replacing file_write_all_beginf.c
+Replacing file_write_all_endf.c
+Replacing file_read_ordered_beginf.c
+Replacing file_read_ordered_endf.c
+Replacing file_write_ordered_beginf.c
+Replacing file_write_ordered_endf.c
+Replacing file_get_type_extentf.c
+Replacing register_datarepf.c
+Replacing file_set_atomicityf.c
+Replacing file_get_atomicityf.c
+Replacing file_syncf.c
+Replacing initf.c
+Replacing initthreadf.c
+Replacing pcontrolf.c
+Replacing addressf.c
+Replacing getaddressf.c
+Replacing wtimef.c
+Replacing wtickf.c
+Replacing keyval_createf.c
+Replacing dup_fnf.c
+Replacing null_del_fnf.c
+Replacing null_copy_fnf.c
+Replacing dup_comm_fnf.c
+Replacing null_comm_del_fnf.c
+Replacing null_comm_copy_fnf.c
+Replacing dup_win_fnf.c
+Replacing null_win_del_fnf.c
+Replacing null_win_copy_fnf.c
+Replacing dup_type_fnf.c
+Replacing null_type_del_fnf.c
+Replacing null_type_copy_fnf.c
+Building Fortran 90 interface
+Replacing typef90intf.c
+Replacing typef90realf.c
+Replacing typef90cmplxf.c
+Building C++ interface
+Extracting the error messages...
+There are unused error message texts in src/mpi/errhan/errnames.txt
+See the file unusederr.txt for the complete list
+checking for perl... /opt/csw/bin/perl
+configure: creating ./config.status
+config.status: creating simplemake
+config.status: creating checkbuilds
+config.status: creating getcoverage
+config.status: creating genstates
+config.status: creating clmake
+config.status: creating f77tof90
+config.status: creating extractstrings
+config.status: creating extractstates
+config.status: creating extractfixme
+config.status: creating createcoverage
+config.status: executing default-1 commands
+Creating the enumeration of logging states into src/include/mpiallstates.h
+Create or update the Fortran 90 tests derived from the Fortran 77 tests
+Replacing test/mpi/f90/attr/Makefile.sm
+Replacing test/mpi/f90/attr/testlist
+Replacing test/mpi/f90/ext/ctypesf90romc.c
+libdir{${MPILIBNAME}} = ROOTDIR/lib
+Replacing /Makefile.in
+Replacing src/Makefile.in
+Shell variable MPID_THREAD_OUTPUT_FILES will not be added to the list
+of known autoconf files for src/mpid/ch3.
+Replacing src/mpid/ch3/channels/shm/Makefile.in
+Replacing src/mpid/ch3/channels/sock/Makefile.in
+Replacing src/mpid/ch3/channels/ssm/Makefile.in
+Replacing src/mpid/ch3/channels/nemesis/Makefile.in
+Replacing src/mpid/ch3/channels/nemesis/nemesis/Makefile.in
+Sourcefile src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_net_array.c does not exist.
+simplemake is assuming that this file will be created by the configure step
+in the build directory
+Replacing src/mpid/ch3/channels/nemesis/nemesis/src/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/elan/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/gm/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/mx/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/ib/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/none/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/psm/Makefile.in
+Warning: header file mpidconf.h.in or mpidconf.h.in.in not found in src/mpid/globus/
+Replacing src/mpid/globus/Makefile.in
+Shell variable MPID_THREAD_OUTPUT_FILES will not be added to the list
+of known autoconf files for src/mpid/dcmfd.
+Replacing src/mpid/dcmfd/Makefile.in
+Skipping generation of rule for qdemo because Makefile.sm already contains one
+Replacing src/mpi/debugger/Makefile.in
+Sourcefile src/util/thread/mpe_thread.c does not exist.
+simplemake is assuming that this file will be created by the configure step
+in the build directory
+Warning: source file mpe_thread.c or mpe_thread.c.in not found in src/util/thread/
+Replacing src/util/thread/Makefile.in
+Replacing src/binding/f77/Makefile.in
+Replacing src/binding/cxx/Makefile.in
+Replacing last config dir with ../../..
+Replacing src/binding/f90/Makefile.in
+Replacing src/env/Makefile.in
+Creating src/packaging/Makefile.in
+Creating src/packaging/pkgconfig/Makefile.in
+Creating src/packaging/envmods/Makefile.in
+Replacing src/pmi/Makefile.in
+Replacing src/pm/smpd/Makefile.in
+Replacing src/pm/gforker/Makefile.in
+Replacing src/pm/remshell/Makefile.in
+Replacing src/pm/hydra/launcher/mpiexec/Makefile.in
+Replacing test/mpi/coll/Makefile.in
+Replacing test/mpi/rma/Makefile.in
+Replacing test/mpi/spawn/Makefile.in
+Warning: source file checksizes.c or checksizes.c.in not found in test/mpi/f77/init/
+Replacing test/mpi/f90/attr/Makefile.in
+Warning: source file ctypesfromc.c or ctypesfromc.c.in not found in test/mpi/f90/ext/
+Warning: source file checksizes.c or checksizes.c.in not found in test/mpi/f90/init/
+Replacing test/mpi/f90/f90types/Makefile.in
+Replacing test/mpi/perf/Makefile.in
+Rebuilding all configure script because of changes in confdb
+Found ./test/mpi/configure.in; executing make configure target
+(cd . && autoheader -I ../../confdb && \
+autoconf -I ../../confdb )
+

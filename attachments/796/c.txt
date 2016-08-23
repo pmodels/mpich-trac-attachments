@@ -1,0 +1,13 @@
+Configuring MPICH2 version 1.1.1p1 with  '--prefix=/home/honwai/mpich2-install' '--enable-g=dbg,mem,log' '--enable-sharedlibs=gcc' 'CC=cl' 'FFLAGS=/w /Qopenmp  /F6000000 /I:"C:\Program Files\VNI\imsl\fnl600\IA32\include\dll" /fpe:3 /nologo' 'F90=ifort' 'F90FLAGS=/w /Qopenmp  /F6000000 /I:"C:\Program Files\VNI\imsl\fnl600\IA32\include\dll" /fpe:3 /nologo'
+Running on system: CYGWIN_NT-5.1 SPMS-B3N-PC2-LY 1.5.25(0.156/4/2) 2008-06-12 19:34 i686 Cygwin
+Executing mpich2prereq in /home/honwai/libraries/mpich2-1.1.1p1/src/mpid/ch3 with 
+Executing mpich2prereq in /home/honwai/libraries/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis
+sourcing /home/honwai/libraries/mpich2-1.1.1p1/src/pm/mpd/mpich2prereq
+sourcing /home/honwai/libraries/mpich2-1.1.1p1/src/pm/hydra/mpich2prereq
+sourcing /home/honwai/libraries/mpich2-1.1.1p1/src/pm/gforker/mpich2prereq
+sourcing /home/honwai/libraries/mpich2-1.1.1p1/src/pm/mpd/setup_pm
+checking for gcc... cl
+checking for C compiler default output file name... 
+configure: error: in `/tmp/honwai/mpich2-1.1.1p1':
+configure: error: C compiler cannot create executables
+See `config.log' for more details.

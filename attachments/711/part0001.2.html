@@ -1,0 +1,57 @@
+In the near-term, I don&#39;t think that multiple AR commands in different directories should be a problem.  For example, this is the all-redirect target from the mpid/dmcfd/src Makefile.in:<div><br></div><div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">all-redirect:</font></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">	</font></span><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">${MAKE} all-local</font></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">	</font></span><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">@(cd impl &amp;&amp; ${MAKE} all )</font></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">	</font></span><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">@(cd misc &amp;&amp; ${MAKE} all )</font></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">	</font></span><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">@(cd pt2pt &amp;&amp; ${MAKE} all )</font></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">	</font></span><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">@(cd persistent &amp;&amp; ${MAKE} all )</font></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">	</font></span><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">@(cd onesided &amp;&amp; ${MAKE} all )</font></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">	</font></span><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">@(cd comm &amp;&amp; ${MAKE} all )</font></div>
+<div><span class="Apple-tab-span" style="white-space:pre"><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">	</font></span><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">@(cd coll &amp;&amp; ${MAKE} all )</font></div>
+<div><br></div><div>Regardless of the level of parallelism, make will execute each of those commands serially.  I don&#39;t think that you should ever have make in two different directories, unless there are other places that look different.</div>
+<div><br></div><div><br></div><div>I&#39;m not in a hurry, and I&#39;m glad to hear that it is being worked on.</div><div>Joe Ratterman</div><div><a href="mailto:jratt@us.ibm.com">jratt@us.ibm.com</a></div><div><br></div>
+<br><div class="gmail_quote">On Fri, Jul 10, 2009 at 10:51 AM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+----------------------------------------------+-----------------------------<br>
+ Reporter:  Joe Ratterman &lt;<a href="mailto:jratt0@gmail.com">jratt0@gmail.com</a>&gt;  |        Owner:  goodell<br>
+     Type:  bug                               |       Status:  assigned<br>
+ Priority:  minor                             |    Milestone:  mpich2-1.1.2<br>
+Component:  mpich2                            |   Resolution:<br>
+ Keywords:                                    |<br>
+----------------------------------------------+-----------------------------<br>
+<br>
+Changes (by goodell):<br>
+<br>
+  * owner:  =&gt; goodell<br>
+  * priority:  major =&gt; minor<br>
+  * status:  new =&gt; assigned<br>
+  * milestone:  =&gt; mpich2-1.1.2<br>
+<br>
+Comment:<br>
+<br>
+ Hi Joe,<br>
+<br>
+ We have an intern this summer here at ANL working on getting parallel<br>
+ builds working.  He&#39;s had pretty good success so far, although there are<br>
+ still a number of issues that we just need to slog through.  If you can<br>
+ just hold out for about another month we should be able to deliver a<br>
+ parallel-make-safe build system to you with little or no work on your end.<br>
+<br>
+ By the way, the double-target rules might be one problem, although they<br>
+ are probably a minor problem in the scheme of things.  The single greatest<br>
+ problem that must be overcome in order to get parallel builds working is<br>
+ that the AR (and RANLIB) step can&#39;t be run concurrently on the same<br>
+ archives because ar doesn&#39;t inherently do anything to prevent one instance<br>
+ from stomping on another (such as file locking).  However, the whole<br>
+ MPICH2 build is setup to perform archiving in each subdir, which leads to<br>
+ concurrent ARs when using parallel make.<br>
+<br>
+ To deal with this the AR step must happen all at one time after all<br>
+ compilation or the ARs must somehow be synchronized to avoid stepping on<br>
+ each other.  We&#39;ve elected for the former solution since it will likely<br>
+ result in the greatest performance gains and best portability for builds<br>
+ on wonky file systems like NFS.<br>
+<br>
+ -Dave<br>
+<font color="#888888"><br>
+--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/711#comment:2" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/711#comment:2</a>&gt;<br>
+</font></blockquote></div><br></div>

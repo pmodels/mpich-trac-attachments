@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #214: mpich2 installation problems</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Looks like you are running the configure command from the windows user temp folder. Can you copy MPICH2 src tar file to /home/Jonas, untar the file and run configure ?<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Tuesday, October 14, 2008 12:47 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #214: mpich2 installation problems<BR>
+<BR>
+----------------------------------------------------------+-------------<BR>
+----------------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; Jonas Mehlich &lt;jonas.mehlich@rwth-aachen.de&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+----------------------------------------------------------+-------------<BR>
+----------------------------------------------------------+----<BR>
+<BR>
+<BR>
+Comment (by Jonas Mehlich):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Hi,<BR>
+<BR>
+&nbsp;yes, the compilation works (and the program as well).<BR>
+&nbsp;I'm using bash.<BR>
+<BR>
+&nbsp;Regards,<BR>
+&nbsp;Jonas<BR>
+<BR>
+<BR>
+&nbsp;Jayesh Krishna schrieb:<BR>
+&nbsp;&gt; Hi,<BR>
+&nbsp;&gt;&nbsp; Can you compile the sample program below?<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; =============== sample program ============&nbsp; &gt; #include &lt;sys/types.h&gt;&nbsp; &gt; #include &lt;stdio.h&gt;&nbsp; &gt;&nbsp; &gt; int main(){<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp; printf(&quot;Hello world\n&quot;);<BR>
+&nbsp;&gt; }<BR>
+&nbsp;&gt; =============== sample program ============&nbsp; &gt;&nbsp; &gt;&nbsp; Which unix shell are you using (type &quot;echo $0&quot; at the command prompt)?<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; Regards,<BR>
+&nbsp;&gt; Jayesh<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; -----Original Message-----<BR>
+&nbsp;&gt; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp;&gt; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2&nbsp; &gt; Sent: Tuesday, October 14, 2008 12:04 PM&nbsp; &gt; To: undisclosed-recipients:<BR>
+&nbsp;&gt; Subject: Re: [mpich2-maint] #214: mpich2 installation problems&nbsp; &gt;&nbsp; &gt; ----------------------------------------------------------+-------------<BR>
+&nbsp;&gt; ----------------------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp; Reporter:&nbsp; Jonas Mehlich &lt;jonas.mehlich@rwth-aachen.de&gt;&nbsp; |&nbsp; &gt; Owner:<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt; Status:&nbsp; new<BR>
+&nbsp;&gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt; Milestone:<BR>
+&nbsp;&gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt; Resolution:<BR>
+&nbsp;&gt;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt; ----------------------------------------------------------+-------------<BR>
+&nbsp;&gt; ----------------------------------------------------------+----<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; Comment (by Jonas Mehlich):<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Hi,<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; sorry, here it is.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Regards,<BR>
+&nbsp;&gt;&nbsp; Jonas<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Jayesh Krishna schrieb:<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; Hi,<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp;&nbsp; Can you also send us the config.log ?<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; &gt; Regards,<BR>
+&nbsp;&gt;&nbsp; &gt; Jayesh<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; &gt; -----Original Message-----<BR>
+&nbsp;&gt;&nbsp; &gt; From: owner-mpich2-bugs@mcs.anl.gov&nbsp; &gt;&nbsp; &gt; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2&nbsp; &gt; Sent:<BR>
+&nbsp;&gt; Tuesday, October 14, 2008 11:31 AM&nbsp; &gt; To: undisclosed-recipients:<BR>
+&nbsp;&gt;&nbsp; &gt; Subject: [mpich2-maint] #214: mpich2 installation problems&nbsp; &gt;&nbsp; &gt;&nbsp; &gt; ----------------------------------------------------------+-------------<BR>
+&nbsp;&gt;&nbsp; &gt; ----------------------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; Reporter:&nbsp; Jonas Mehlich &lt;jonas.mehlich@rwth-aachen.de&gt;&nbsp; |&nbsp; &gt; Type:<BR>
+&nbsp;bug<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;&nbsp; &gt; Priority:&nbsp; major<BR>
+&nbsp;&gt;&nbsp; &gt; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;&nbsp; &gt; Component:&nbsp; mpich2<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;----------------------------------------------------------+-------------<BR>
+&nbsp;&gt;&nbsp; &gt; ----------------------------------------------------------+----<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; {{{<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; Hello,<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; I cannot install mpich2. I already have a problem while executing&nbsp; &gt; the&nbsp; &gt; configure.<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; My os is Windows XP and I want to install mpich2 on cygwin. I&nbsp; &gt; already&nbsp; &gt; did it before but I reinstalled my computer and now it&nbsp; &gt; doesn't work. I&nbsp; &gt; also already had the same problem but I could solve&nbsp; &gt; it by using the&nbsp; &gt; simple cygwin bash (it didn't work when I used the&nbsp; &gt; xterm).<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; Do you know what the problem might be? The configuring just stops&nbsp; &gt; at&nbsp; &gt; &quot;checking for ANSI C header files...&quot;<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; Thanks,<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; Jonas<BR>
+&nbsp;&gt;&nbsp; &gt;&nbsp; }}}<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; &gt; --<BR>
+&nbsp;&gt;&nbsp; &gt; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/214">https://trac.mcs.anl.gov/projects/mpich2/ticket/214</A>&gt;<BR>
+&nbsp;&gt;&nbsp; &gt;<BR>
+&nbsp;&gt;&nbsp; }}}<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; --<BR>
+&nbsp;&gt; Ticket URL:<BR>
+&nbsp;&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/214#comment:&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/214#comment:&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

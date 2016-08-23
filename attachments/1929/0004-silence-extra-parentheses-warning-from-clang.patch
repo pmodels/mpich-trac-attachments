@@ -1,0 +1,25 @@
+From 1449dad44d78c42e1e26c659292d9328c7254ca6 Mon Sep 17 00:00:00 2001
+From: Jeff Hammond <jhammond@alcf.anl.gov>
+Date: Sat, 17 Aug 2013 20:12:53 -0500
+Subject: [PATCH 4/4] silence extra parentheses warning from clang
+
+---
+ src/mpid/ch3/channels/nemesis/src/ch3_win_fns.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/mpid/ch3/channels/nemesis/src/ch3_win_fns.c b/src/mpid/ch3/channels/nemesis/src/ch3_win_fns.c
+index 9d9c5ab3..7318baa4 100644
+--- a/src/mpid/ch3/channels/nemesis/src/ch3_win_fns.c
++++ b/src/mpid/ch3/channels/nemesis/src/ch3_win_fns.c
+@@ -73,7 +73,7 @@ static int MPIDI_CH3I_Win_allocate_shm(MPI_Aint size, int disp_unit, MPID_Info *
+         char alloc_shared_nctg_value[MPI_MAX_INFO_VAL+1];
+         MPIR_Info_get_impl(info, "alloc_shared_noncontig", MPI_MAX_INFO_VAL,
+                            alloc_shared_nctg_value, &alloc_shared_nctg_flag);
+-        if ((alloc_shared_nctg_flag == 1)) {
++        if (alloc_shared_nctg_flag == 1) {
+             if (!strncmp(alloc_shared_nctg_value, "true", strlen("true")))
+                 (*win_ptr)->info_args.alloc_shared_noncontig = 1;
+             if (!strncmp(alloc_shared_nctg_value, "false", strlen("false")))
+-- 
+1.8.3.4
+

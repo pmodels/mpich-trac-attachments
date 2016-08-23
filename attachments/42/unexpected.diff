@@ -1,0 +1,138 @@
+Index: src/mpid/ch3/include/mpidpre.h
+===================================================================
+--- src/mpid/ch3/include/mpidpre.h	(revision 3252)
++++ src/mpid/ch3/include/mpidpre.h	(working copy)
+@@ -66,7 +66,7 @@
+ typedef struct MPIDI_Message_match
+ {
+     int32_t tag;
+-    int32_t rank;
++    int16_t rank;
+     MPIR_Context_id_t context_id;
+ }
+ MPIDI_Message_match;
+Index: src/mpid/ch3/src/ch3u_recvq.c
+===================================================================
+--- src/mpid/ch3/src/ch3u_recvq.c	(revision 3252)
++++ src/mpid/ch3/src/ch3u_recvq.c	(working copy)
+@@ -68,65 +68,71 @@
+ {
+     MPID_Request * rreq;
+     int found = 0;
++    MPIDI_Message_match match, mask;
+     MPIDI_STATE_DECL(MPID_STATE_MPIDI_CH3U_RECVQ_FU);
+ 
+     MPIDI_FUNC_ENTER(MPID_STATE_MPIDI_CH3U_RECVQ_FU);
+ 
+-    if (tag != MPI_ANY_TAG && source != MPI_ANY_SOURCE)
+-    {
+-	rreq = recvq_unexpected_head;
+-	/* FIXME: If the match data fits in an int64_t, we should try
+-	   to use a single test here */
+-	while(rreq != NULL)
+-	{
+-	    if (rreq->dev.match.context_id == context_id && 
+-		rreq->dev.match.rank == source && rreq->dev.match.tag == tag)
+-	    {
+-		break;
+-	    }
+-	    
+-	    rreq = rreq->dev.next;
+-	}
++    rreq = recvq_unexpected_head;
++
++    match.context_id = context_id;
++    mask.context_id = ~0;
++
++    if (tag == MPI_ANY_TAG) {
++	match.tag = 0;
++	mask.tag = 0;
+     }
+-    else
+-    {
+-	MPIDI_Message_match match;
+-	MPIDI_Message_match mask;
++    else {
++	match.tag = tag;
++	mask.tag = ~0;
++    }
+ 
+-	match.context_id = context_id;
+-	mask.context_id = ~0;
+-	if (tag == MPI_ANY_TAG)
+-	{
+-	    match.tag = 0;
+-	    mask.tag = 0;
++    if (source == MPI_ANY_SOURCE) {
++	match.rank = 0;
++	mask.rank = 0;
++    }
++    else {
++	match.rank = source;
++	mask.rank = ~0;
++    }
++	
++    if (tag != MPI_ANY_TAG && source != MPI_ANY_SOURCE) {
++	/* If the MPIDI_Message_match structure fits into a pointer
++	 * size, we can directly work on it */
++	if (sizeof(MPIDI_Message_match) == SIZEOF_VOID_P) {
++	    while (rreq != NULL) {
++		if (*(MPIR_Upint *) &rreq->dev.match == *(MPIR_Upint *) &match)
++		    break;
++		rreq = rreq->dev.next;
++	    }
+ 	}
+-	else
+-	{
+-	    match.tag = tag;
+-	    mask.tag = ~0;
++	else {
++	    while(rreq != NULL) {
++		if (rreq->dev.match.context_id == context_id && 
++		    rreq->dev.match.rank == source && rreq->dev.match.tag == tag)
++		    break;
++		rreq = rreq->dev.next;
++	    }
+ 	}
+-	if (source == MPI_ANY_SOURCE)
+-	{
+-	    match.rank = 0;
+-	    mask.rank = 0;
++    }
++    else {
++	/* If the MPIDI_Message_match structure fits into a pointer
++	 * size, we can directly work on it */
++	if (sizeof(MPIDI_Message_match) == SIZEOF_VOID_P) {
++	    while (rreq != NULL) {
++		if (((*(MPIR_Upint *) &rreq->dev.match) & *(MPIR_Upint *) &mask) == *(MPIR_Upint *) &match)
++		    break;
++		rreq = rreq->dev.next;
++	    }
+ 	}
+-	else
+-	{
+-	    match.rank = source;
+-	    mask.rank = ~0;
+-	}
+-	
+-	rreq = recvq_unexpected_head;
+-	while (rreq != NULL)
+-	{
+-	    if (rreq->dev.match.context_id == match.context_id && 
+-		(rreq->dev.match.rank & mask.rank) == match.rank &&
+-		(rreq->dev.match.tag & mask.tag) == match.tag)
+-	    {
+-		break;
++	else {
++	    while (rreq != NULL) {
++		if (rreq->dev.match.context_id == match.context_id && 
++		    (rreq->dev.match.rank & mask.rank) == match.rank &&
++		    (rreq->dev.match.tag & mask.tag) == match.tag)
++		    break;
++		rreq = rreq->dev.next;
+ 	    }
+-	    
+-	    rreq = rreq->dev.next;
+ 	}
+     }
+ 

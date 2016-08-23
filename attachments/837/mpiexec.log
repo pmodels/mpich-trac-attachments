@@ -1,0 +1,1429 @@
+0: **********************************************
+0: Program name: C:\cygwin\home\Andy\mpich2-1.1.1p1\examples\hellow.exe (pid 5652, ppid 1)
+0: App version:  1005.25, api: 0.156
+0: DLL version:  1005.25, api: 0.156
+0: DLL build:    2008-06-12 19:34
+0: OS version:   Windows NT-6.0
+0: Heap size:    402653184
+0: Date/Time:    2009-09-15 10:55:13
+0: **********************************************
+0:    42     330 [main] hellow 5652 set_myself: myself->dwProcessId 5652
+0:    37     367 [main] hellow 5652 time: 1253033713 = time (0)
+0:   777    1144 [main] hellow 5652 environ_init: GetEnvironmentStrings returned 0x2F6B58 - "=C:=C:\cygwin\bin"
+0:    73    1217 [main] hellow 5652 environ_init: 0xE40238: !C:=C:\cygwin\bin
+0:    68    1285 [main] hellow 5652 environ_init: 0xE40250: ALLUSERSPROFILE=C:\ProgramData
+0:    68    1353 [main] hellow 5652 environ_init: 0xE40278: APPDATA=C:\Users\Andy\AppData\Roaming
+0:    69    1422 [main] hellow 5652 environ_init: 0xE402A8: CLASSPATH=.;C:\Program Files\Java\jre1.6.0_05\lib\ext\QTJava.zip
+0:    69    1491 [main] hellow 5652 environ_init: 0xE402F0: COMMONPROGRAMFILES=C:\Program Files\Common Files
+0:    68    1559 [main] hellow 5652 environ_init: 0xE40328: COMPUTERNAME=ANDY-LAPTOP
+0:    69    1628 [main] hellow 5652 environ_init: 0xE40348: COMSPEC=C:\Windows\system32\cmd.exe
+0:    68    1696 [main] hellow 5652 environ_init: 0xE40370: CVS_RSH=/bin/ssh
+0:    70    1766 [main] hellow 5652 parse_options: ntsec (called func)
+0:    68    1834 [main] hellow 5652 parse_options: server 1
+0:    68    1902 [main] hellow 5652 parse_options: returning
+0:    35    1937 [main] hellow 5652 environ_init: 0xE40388: CYGWIN=ntsec server
+0:    70    2007 [main] hellow 5652 environ_init: 0xE403C0: FP_NO_HOST_CHECK=NO
+0:    74    2081 [main] hellow 5652 getwinenv: can't set native for HOME= since no environ yet
+0:    70    2151 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy, no-keep-rel, no-add-slash)
+0:    37    2188 [main] hellow 5652 normalize_win32_path: C:\cygwin\home\Andy = normalize_win32_path (C:\cygwin\home\Andy)
+0:    41    2229 [main] hellow 5652 mount_info::conv_to_posix_path: /home/Andy = conv_to_posix_path (C:\cygwin\home\Andy)
+0:   100    2329 [main] hellow 5652 win_env::add_cache: posix /home/Andy
+0:    36    2365 [main] hellow 5652 win_env::add_cache: native HOME=C:\cygwin\home\Andy
+0:    37    2402 [main] hellow 5652 posify: env var converted to HOME=/home/Andy
+0:    70    2472 [main] hellow 5652 environ_init: 0xE403F8: HOME=/home/Andy
+0:    69    2541 [main] hellow 5652 environ_init: 0xE403D8: HOMEDRIVE=C:
+0:    69    2610 [main] hellow 5652 environ_init: 0xE40538: HOMEPATH=\Users\Andy
+0:    69    2679 [main] hellow 5652 environ_init: 0xE40558: HOSTNAME=Andy-laptop
+0:    69    2748 [main] hellow 5652 environ_init: 0xE40578: IDL_DLM_PATH=C:\Program Files\NCAR\VAPOR\bin
+0:    68    2816 [main] hellow 5652 environ_init: 0xE405B0: INFOPATH=/usr/local/info:/usr/share/info:/usr/info:
+0:    69    2885 [main] hellow 5652 environ_init: 0xE405E8: JASPERINC=/usr/include
+0:    70    2955 [main] hellow 5652 environ_init: 0xE40608: JASPERLIB=/usr/lib
+0:    68    3023 [main] hellow 5652 environ_init: 0xE40620: KMP_STACKSIZE=640000000
+0:    69    3092 [main] hellow 5652 environ_init: 0xE40640: LOCALAPPDATA=C:\Users\Andy\AppData\Local
+0:    68    3160 [main] hellow 5652 environ_init: 0xE40670: LOGONSERVER=\\ANDY-LAPTOP
+0:    69    3229 [main] hellow 5652 environ_init: 0xE40690: MAKE_MODE=unix
+0:    68    3297 [main] hellow 5652 environ_init: 0xE406A8: MANPATH=/usr/local/man:/usr/share/man:/usr/man::/usr/ssl/man:/usr/share/qt3/doc/man
+0:    69    3366 [main] hellow 5652 environ_init: 0xE40700: MPICH_INTERFACE_HOSTNAME=10.84.48.66
+0:    69    3435 [main] hellow 5652 environ_init: 0xE40730: MPICH_INTERFACE_HOSTNAME_R0=10.84.48.66
+0:    69    3504 [main] hellow 5652 environ_init: 0xE40760: MP_STACK_SIZE=640000000
+0:    68    3572 [main] hellow 5652 environ_init: 0xE40780: NETCDF=/usr/local/
+0:    70    3642 [main] hellow 5652 environ_init: 0xE40798: NUMBER_OF_PROCESSORS=2
+0:    70    3712 [main] hellow 5652 environ_init: 0xE407B8: OLDPWD=/home/Andy/mpich2-1.1.1p1
+0:    69    3781 [main] hellow 5652 environ_init: 0xE407E0: OMP_DYNAMIC=FALSE
+0:    68    3849 [main] hellow 5652 environ_init: 0xE407F8: OMP_NUM_THREADS=2
+0:    68    3917 [main] hellow 5652 environ_init: 0xE40810: OS=Windows_NT
+0:    64    3981 [main] hellow 5652 getwinenv: can't set native for PATH= since no environ yet
+0:    39    4020 [main] hellow 5652 normalize_posix_path: src .
+0:    38    4058 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\examples, no-keep-rel, no-add-slash)
+0:    39    4097 [main] hellow 5652 normalize_win32_path: C:\cygwin\home\Andy\mpich2-1.1.1p1\examples = normalize_win32_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\examples)
+0:    38    4135 [main] hellow 5652 mount_info::conv_to_posix_path: /home/Andy/mpich2-1.1.1p1/examples = conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\examples)
+0:    37    4172 [main] hellow 5652 cwdstuff::get: posix /home/Andy/mpich2-1.1.1p1/examples
+0:    38    4210 [main] hellow 5652 cwdstuff::get: (/home/Andy/mpich2-1.1.1p1/examples) = cwdstuff::get (0x22C860, 260, 1, 0), errno 0
+0:    34    4244 [main] hellow 5652 normalize_posix_path: /home/Andy/mpich2-1.1.1p1/examples/ = normalize_posix_path (.)
+0:    36    4280 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/home/Andy/mpich2-1.1.1p1/examples)
+0:    41    4321 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    35    4356 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /home/Andy/mpich2-1.1.1p1/examples, dst C:\cygwin\home\Andy\mpich2-1.1.1p1\examples, flags 0xA, rc 0
+0:    96    4452 [main] hellow 5652 symlink_info::check: not a symlink
+0:    45    4497 [main] hellow 5652 symlink_info::check: 0 = symlink.check (C:\cygwin\home\Andy\mpich2-1.1.1p1\examples, 0x22C520) (0xA)
+0:   574    5071 [main] hellow 5652 set_privilege: 1 = set_privilege ((token 124) SeChangeNotifyPrivilege, 1)
+0:   149    5220 [main] hellow 5652 path_conv::check: this->path(C:\cygwin\home\Andy\mpich2-1.1.1p1\examples), has_acls(1)
+0:    53    5273 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy, keep-rel, no-add-slash)
+0:    22    5295 [main] hellow 5652 normalize_win32_path: C:\cygwin\home\Andy = normalize_win32_path (C:\cygwin\home\Andy)
+0:   102    5397 [main] hellow 5652 mount_info::conv_to_posix_path: /home/Andy = conv_to_posix_path (C:\cygwin\home\Andy)
+0:    34    5431 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\bin, keep-rel, no-add-slash)
+0:    55    5486 [main] hellow 5652 normalize_win32_path: C:\cygwin\home\Andy\bin = normalize_win32_path (C:\cygwin\home\Andy\bin)
+0:    24    5510 [main] hellow 5652 mount_info::conv_to_posix_path: /home/Andy/bin = conv_to_posix_path (C:\cygwin\home\Andy\bin)
+0:    23    5533 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\local\bin, keep-rel, no-add-slash)
+0:    22    5555 [main] hellow 5652 normalize_win32_path: C:\cygwin\usr\local\bin = normalize_win32_path (C:\cygwin\usr\local\bin)
+0:    23    5578 [main] hellow 5652 mount_info::conv_to_posix_path: /usr/local/bin = conv_to_posix_path (C:\cygwin\usr\local\bin)
+0:    21    5599 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\bin, keep-rel, no-add-slash)
+0:    24    5623 [main] hellow 5652 normalize_win32_path: C:\cygwin\bin = normalize_win32_path (C:\cygwin\bin)
+0:    22    5645 [main] hellow 5652 mount_info::conv_to_posix_path: /usr/bin = conv_to_posix_path (C:\cygwin\bin)
+0:    21    5666 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\bin, keep-rel, no-add-slash)
+0:    22    5688 [main] hellow 5652 normalize_win32_path: C:\cygwin\bin = normalize_win32_path (C:\cygwin\bin)
+0:    22    5710 [main] hellow 5652 mount_info::conv_to_posix_path: /usr/bin = conv_to_posix_path (C:\cygwin\bin)
+0:    22    5732 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\X11R6\bin, keep-rel, no-add-slash)
+0:    22    5754 [main] hellow 5652 normalize_win32_path: C:\cygwin\usr\X11R6\bin = normalize_win32_path (C:\cygwin\usr\X11R6\bin)
+0:    23    5777 [main] hellow 5652 mount_info::conv_to_posix_path: /usr/X11R6/bin = conv_to_posix_path (C:\cygwin\usr\X11R6\bin)
+0:    22    5799 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows\system32, keep-rel, no-add-slash)
+0:    24    5823 [main] hellow 5652 normalize_win32_path: c:\Windows\system32 = normalize_win32_path (c:\Windows\system32)
+0:   101    5924 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Windows/system32 = conv_to_posix_path (c:\Windows\system32)
+0:    34    5958 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows, keep-rel, no-add-slash)
+0:    32    5990 [main] hellow 5652 normalize_win32_path: c:\Windows = normalize_win32_path (c:\Windows)
+0:    31    6021 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Windows = conv_to_posix_path (c:\Windows)
+0:    31    6052 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows\System32\Wbem, keep-rel, no-add-slash)
+0:    31    6083 [main] hellow 5652 normalize_win32_path: c:\Windows\System32\Wbem = normalize_win32_path (c:\Windows\System32\Wbem)
+0:    31    6114 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Windows/System32/Wbem = conv_to_posix_path (c:\Windows\System32\Wbem)
+0:    32    6146 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\, keep-rel, add-slash)
+0:    31    6177 [main] hellow 5652 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+0:    32    6209 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+0:    32    6241 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\, keep-rel, add-slash)
+0:    32    6273 [main] hellow 5652 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+0:    32    6305 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+0:    33    6338 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\, keep-rel, add-slash)
+0:    33    6371 [main] hellow 5652 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\)
+0:    33    6404 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\)
+0:    32    6436 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\QuickTime\QTSystem\, keep-rel, add-slash)
+0:    32    6468 [main] hellow 5652 normalize_win32_path: c:\Program Files\QuickTime\QTSystem\ = normalize_win32_path (c:\Program Files\QuickTime\QTSystem\)
+0:    32    6500 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/QuickTime/QTSystem/ = conv_to_posix_path (c:\Program Files\QuickTime\QTSystem\)
+0:    33    6533 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\NCAR\VAPOR\bin, keep-rel, no-add-slash)
+0:    32    6565 [main] hellow 5652 normalize_win32_path: c:\Program Files\NCAR\VAPOR\bin = normalize_win32_path (c:\Program Files\NCAR\VAPOR\bin)
+0:    35    6600 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/NCAR/VAPOR/bin = conv_to_posix_path (c:\Program Files\NCAR\VAPOR\bin)
+0:    23    6623 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\SSH Communications Security\SSH Secure Shell, keep-rel, no-add-slash)
+0:    24    6647 [main] hellow 5652 normalize_win32_path: c:\Program Files\SSH Communications Security\SSH Secure Shell = normalize_win32_path (c:\Program Files\SSH Communications Security\SSH Secure Shell)
+0:    23    6670 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell = conv_to_posix_path (c:\Program Files\SSH Communications Security\SSH Secure Shell)
+0:    26    6696 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\lib\lapack, keep-rel, no-add-slash)
+0:    22    6718 [main] hellow 5652 normalize_win32_path: C:\cygwin\lib\lapack = normalize_win32_path (C:\cygwin\lib\lapack)
+0:    22    6740 [main] hellow 5652 mount_info::conv_to_posix_path: /usr/lib/lapack = conv_to_posix_path (C:\cygwin\lib\lapack)
+0:    22    6762 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\local\mpich2\bin, keep-rel, no-add-slash)
+0:    23    6785 [main] hellow 5652 normalize_win32_path: C:\cygwin\usr\local\mpich2\bin = normalize_win32_path (C:\cygwin\usr\local\mpich2\bin)
+0:    22    6807 [main] hellow 5652 mount_info::conv_to_posix_path: /usr/local/mpich2/bin = conv_to_posix_path (C:\cygwin\usr\local\mpich2\bin)
+0:    65    6872 [main] hellow 5652 win_env::add_cache: posix /home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+0:    31    6903 [main] hellow 5652 win_env::add_cache: native PATH=C:\cygwin\home\Andy;C:\cygwin\home\Andy\bin;C:\cygwin\usr\local\bin;C:\cygwin\bin;C:\cygwin\bin;C:\cygwin\usr\X11R6\bin;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Program Files\Common Files\Roxio Shared\DLLShared\;c:\Program Files\Common Files\Roxio Shared\DLLShared\;c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\;c:\Program Files\QuickTime\QTSystem\;c:\Program Files\NCAR\VAPOR\bin;c:\Program Files\SSH Communications Security\SSH Secure Shell;C:\cygwin\lib\lapack;C:\cygwin\usr\local\mpich2\bin
+0:    29    6932 [main] hellow 5652 posify: env var converted to PATH=/home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+0:    46    6978 [main] hellow 5652 environ_init: 0xE40A40: PATH=/home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+0:    49    7027 [main] hellow 5652 environ_init: 0xE40828: PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+0:    40    7067 [main] hellow 5652 environ_init: 0xE40870: PMI_DEBUG=0
+0:    40    7107 [main] hellow 5652 environ_init: 0xE40880: PMI_PORT=10.84.48.66:49193
+0:    39    7146 [main] hellow 5652 environ_init: 0xE408A0: PMI_RANK=0
+0:    39    7185 [main] hellow 5652 environ_init: 0xE408B0: PMI_SIZE=2
+0:    40    7225 [main] hellow 5652 environ_init: 0xE408C0: PMI_SPAWNED=0
+0:    38    7263 [main] hellow 5652 environ_init: 0xE408D8: PMI_TOTALVIEW=0
+0:    40    7303 [main] hellow 5652 environ_init: 0xE408F0: PRINTER=Microsoft XPS Document Writer
+0:    39    7342 [main] hellow 5652 environ_init: 0xE40920: PROCESSOR_ARCHITECTURE=x86
+0:    40    7382 [main] hellow 5652 environ_init: 0xE40940: PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 10, GenuineIntel
+0:    53    7435 [main] hellow 5652 environ_init: 0xE40990: PROCESSOR_LEVEL=6
+0:    55    7490 [main] hellow 5652 environ_init: 0xE409A8: PROCESSOR_REVISION=0f0a
+0:    41    7531 [main] hellow 5652 environ_init: 0xE409C8: PROGRAMDATA=C:\ProgramData
+0:    39    7570 [main] hellow 5652 environ_init: 0xE409E8: PROGRAMFILES=C:\Program Files
+0:    40    7610 [main] hellow 5652 environ_init: 0xE40A10: PROMPT=$P$G
+0:    39    7649 [main] hellow 5652 environ_init: 0xE413E8: PS1=\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ 
+0:    59    7708 [main] hellow 5652 environ_init: 0xE40A20: PUBLIC=C:\Users\Public
+0:    42    7750 [main] hellow 5652 environ_init: 0xE41430: PWD=/home/Andy/mpich2-1.1.1p1/examples
+0:    40    7790 [main] hellow 5652 environ_init: 0xE41460: QMAKESPEC=/usr/lib/qt3/mkspecs/cygwin-g++
+0:    38    7828 [main] hellow 5652 environ_init: 0xE41490: QTDIR=/usr/lib/qt3
+0:    40    7868 [main] hellow 5652 environ_init: 0xE414A8: QTJAVA=C:\Program Files\Java\jre1.6.0_05\lib\ext\QTJava.zip
+0:    40    7908 [main] hellow 5652 environ_init: 0xE414E8: ROXIOCENTRAL=C:\Program Files\Common Files\Roxio Shared\9.0\Roxio Central33\
+0:    40    7948 [main] hellow 5652 environ_init: 0xE41540: SHLVL=1
+0:    38    7986 [main] hellow 5652 environ_init: 0xE41550: SYSTEMDRIVE=C:
+0:    39    8025 [main] hellow 5652 environ_init: 0xE41568: SYSTEMROOT=C:\Windows
+0:    39    8064 [main] hellow 5652 getwinenv: can't set native for TEMP= since no environ yet
+0:    39    8103 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Users\Andy\AppData\Local\Temp, no-keep-rel, no-add-slash)
+0:    22    8125 [main] hellow 5652 normalize_win31: **********************************************
+2_path: c:\Users\Andy\AppData\Local\Temp = normalize_win32_path (c:\Users\Andy\AppData\Local\Temp)
+0:    23    8148 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Users/Andy/AppData/Local/Temp = conv_to_posix_path (c:\Users\Andy\AppData\Local\Temp)
+0:    59    8207 [main] hellow 5652 win_env::add_cache: posix /cygdrive/c/Users/Andy/AppData/Local/Temp
+0:    24    8231 [main] hellow 5652 win_env::add_cache: native TEMP=c:\Users\Andy\AppData\Local\Temp
+0:    38    8269 [main] hellow 5652 posify: env var converted to TEMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+0:    41    8310 [main] hellow 5652 environ_init: 0xE415B8: TEMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+0:    40    8350 [main] hellow 5652 environ_init: 0xE41588: TERM=cygwin
+0:    39    8389 [main] hellow 5652 environ_init: 0xE41598: TEXDOCVIEW_DVI=cygstart %s
+0:   316    8705 [main] hellow 5652 environ_init: 0xE41728: TEXDOCVIEW_HTML=cygstart %s
+0:    42    8747 [main] hellow 5652 environ_init: 0xE41748: TEXDOCVIEW_PDF=cygstart %s
+0:    39    8786 [mai1: Program name: C:\cygwin\home\Andy\mpich2-1.1.1p1\examples\hellow.exe (pid 3716, ppid 1)
+n] hellow 5652 environ_init: 0xE41768: TEXDOCVIEW_PS=cygstart %s
+0:    39    8825 [main] hellow 5652 environ_init: 0xE41788: TEXDOCVIEW_TXT=cygstart %s
+0:    39    8864 [main] hellow 5652 getwinenv: can't set native for TMP= since no environ yet
+0:    40    8904 [main] hellow 5652 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Users\Andy\AppData\Local\Temp, no-keep-rel, no-add-slash)
+0:    22    8926 [main] hellow 5652 normalize_win32_path: c:\Users\Andy\AppData\Local\Temp = normalize_win32_path (c:\Users\Andy\AppData\Local\Temp)
+0:    22    8948 [main] hellow 5652 mount_info::conv_to_posix_path: /cygdrive/c/Users/Andy/AppData/Local/Temp = conv_to_posix_path (c:\Users\Andy\AppData\Local\Temp)
+0:    58    9006 [main] hellow 5652 win_env::add_cache: posix /cygdrive/c/Users/Andy/AppData/Local/Temp
+0:    21    9027 [main] hellow 5652 win_env::add_cache: native TMP=c:\Users\Andy\AppData\Local\Temp
+0:   147    9174 [main] hellow 5652 posify: env var converted to TMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+0:    43    9217 1: App version:  1005.25, api: 0.156
+[main] hellow 5652 environ_init: 0xE417D8: TMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+0:    39    9256 [main] hellow 5652 environ_init: 0xE417A8: USER=Andy
+0:    39    9295 [main] hellow 5652 environ_init: 0xE417B8: USERDOMAIN=Andy-laptop
+0:    40    9335 [main] hellow 5652 environ_init: 0xE41948: USERNAME=Andy
+0:    39    9374 [main] hellow 5652 environ_init: 0xE41960: USERPROFILE=C:\Users\Andy
+0:    39    9413 [main] hellow 5652 environ_init: 0xE41980: VAPOR_HOME=C:\Program Files\NCAR\VAPOR
+0:    40    9453 [main] hellow 5652 environ_init: 0xE419B0: VAPOR_SHARE=C:\Program Files\NCAR\VAPOR\share
+0:    39    9492 [main] hellow 5652 environ_init: 0xE419E8: WINDIR=C:\Windows
+0:    40    9532 [main] hellow 5652 environ_init: 0xE41A00: WRF_MACH=i686
+0:    39    9571 [main] hellow 5652 environ_init: 0xE41A18: WRF_OS=Linux
+0:    39    9610 [main] hellow 5652 environ_init: 0xE41A30: _=/usr/local/mpich2/bin/mpiexec
+0:    32    9642 [main] hellow 5652 pinfo_init: Set nice to 0
+0:    25    9667 [main] hellow 5652 pinfo_init: pid 5652, pgid1: DLL version:  1005.25, api: 0.156
+ 5652
+0:   586   10253 [main] hellow 5652 set_privilege: 0 = set_privilege ((token 104) SeRestorePrivilege, 1)
+0:  2743   12996 [main] hellow 5652 set_privilege: 0 = set_privilege ((token 104) SeBackupPrivilege, 1)
+0:   170   13166 [main] hellow 5652 set_privilege: 1 = set_privilege ((token 104) SeChangeNotifyPrivilege, 1)
+0:   278   13444 [main] hellow 5652 dtable::extend: size 32, fds 0x611696D0
+0:   113   13557 [main] hellow 5652 normalize_posix_path: src /etc/passwd
+0:   123   13680 [main] hellow 5652 normalize_posix_path: /etc/passwd = normalize_posix_path (/etc/passwd)
+0:    62   13742 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/etc/passwd)
+0:    41   13783 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    66   13849 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /etc/passwd, dst C:\cygwin\etc\passwd, flags 0xA, rc 0
+0:   163   14012 [main] hellow 5652 symlink_info::check: not a symlink
+0:    27   14039 [main] hellow 5652 symlink_info::check: 0 = symlink.check (C:\cygwin\etc\pas1: DLL build:    2008-06-12 19:34
+swd, 0x22C5E0) (0xA)
+0:    79   14118 [main] hellow 5652 path_conv::check: this->path(C:\cygwin\etc\passwd), has_acls(1)
+0:   303   14421 [main] hellow 5652 etc::test_file_change: FindFirstFile succeeded
+0:  1530   15951 [main] hellow 5652 pwdgrp::load: /etc/passwd curr_lines 10
+0:   187   16138 [main] hellow 5652 pwdgrp::load: /etc/passwd load succeeded
+0:    58   16196 [main] hellow 5652 normalize_posix_path: src /etc/group
+0:    25   16221 [main] hellow 5652 normalize_posix_path: /etc/group = normalize_posix_path (/etc/group)
+0:    25   16246 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/etc/group)
+0:    27   16273 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    24   16297 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /etc/group, dst C:\cygwin\etc\group, flags 0xA, rc 0
+0:    82   16379 [main] hellow 5652 symlink_info::check: not a symlink
+0:   276   16655 [main] hellow 5652 symlink_info::check: 0 = symlink.check (C:\cygwin\etc\group, 0x22C5B0) (0xA)
+0:   139   16794 [main] hellow 51: OS version:   Windows NT-6.0
+652 path_conv::check: this->path(C:\cygwin\etc\group), has_acls(1)
+0:   877   17671 [main] hellow 5652 etc::test_file_change: FindFirstFile succeeded
+0:  1068   18739 [main] hellow 5652 pwdgrp::load: /etc/group curr_lines 11
+0:   126   18865 [main] hellow 5652 pwdgrp::load: /etc/group load succeeded
+0:   109   18974 [main] hellow 5652 cygheap_user::ontherange: what 2, pw 0xE41F00
+0:    27   19001 [main] hellow 5652 cygheap_user::ontherange: HOME is already in the environment /home/Andy
+0:   100   19101 [main] hellow 5652 wait_for_sigthread: wait_sig_inited 0x58
+0:  7093   26194 [sig] hellow 5652 wait_sig: entering ReadFile loop, my_readsig 0x130, my_sendsig 0x138
+0:   132   26326 [main] hellow 5652 wait_for_sigthread: process/signal handling enabled, state 0x41
+0:  1116   27442 [main] hellow 5652 build_argv: argv[0] = 'hellow.exe'
+0:    23   27465 [main] hellow 5652 build_argv: argc 1
+0:  1941   29406 [main] hellow 5652 handle_to_fn: nt name '\Device\NamedPipe\cygwin-0x148C-0x1'
+0:  2012   31418 [main] hellow 5652 handle_to_fn: pipe1: Heap size:    402653184
+
+0:   167   31585 [main] hellow 5652 handle_to_fn: derived path '\Device\NamedPipe\cygwin-0x148C-0x1', posix '/Device/NamedPipe/cygwin-0x148C-0x1ahÎ"'
+0:    29   31614 [main] hellow 5652 build_fh_pc: fh 0x61169818
+0:   344   31958 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    51   32009 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:   121   32130 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    25   32155 [main] hellow 5652 fhandler_base::init: created new fhandler_base for handle 0x200, bin 1
+0:  1373   33528 [main] hellow 5652 handle_to_fn: nt name '\Device\NamedPipe\cygwin-0x148C-0x2'
+0:   790   34318 [main] hellow 5652 handle_to_fn: pipe
+0:   563   34881 [main] hellow 5652 handle_to_fn: derived path '\Device\NamedPipe\cygwin-0x148C-0x2', posix '/Device/NamedPipe/cygwin-0x148C-0x2ahÎ"'
+0:   143   35024 [main] hellow 5652 build_fh_pc: fh 0x61169A20
+0:    26   35050 [main] hellow 5652 fhandler_base::set_flags: flags 0x10001, suppli1: Date/Time:    2009-09-15 10:55:13
+ed_bin 0x0
+0:    23   35073 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    21   35094 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    21   35115 [main] hellow 5652 fhandler_base::init: created new fhandler_base for handle 0x20C, bin 1
+0:  1112   36227 [main] hellow 5652 handle_to_fn: nt name '\Device\NamedPipe\cygwin-0x148C-0x3'
+0:  1918   38145 [main] hellow 5652 handle_to_fn: pipe
+0:    65   38210 [main] hellow 5652 handle_to_fn: derived path '\Device\NamedPipe\cygwin-0x148C-0x3', posix '/Device/NamedPipe/cygwin-0x148C-0x3ahÎ"'
+0:    28   38238 [main] hellow 5652 build_fh_pc: fh 0x61169C28
+0:    24   38262 [main] hellow 5652 fhandler_base::set_flags: flags 0x10001, supplied_bin 0x0
+0:   294   38556 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    26   38582 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    22   38604 [main] hellow 5652 fhandler_base::init: created new fhandler_base for handle 0x21C, b1: **********************************************
+in 1
+0:   578   39182 [main] hellow 5652 fhandler_console::need_invisible: invisible_console 0
+0:   145   39327 [main] hellow 5652 open_shared: name (null), n 0, shared 0x60020000 (wanted 0x60020000), h 0x134
+0:   165   39492 [main] hellow 5652 _pinfo::set_ctty: old no ctty
+0:    26   39518 [main] hellow 5652 _pinfo::set_ctty: attaching ctty /dev/console sid 5652, pid 5652, pgid 5652, tty->pgid 0, tty->sid 5652
+1:   170    1041 [main] hellow 3716 set_myself: myself->dwProcessId 3716
+1:    30    1071 [main] hellow 3716 time: 1253033713 = time (0)
+1:  2449    3520 [main] hellow 3716 environ_init: GetEnvironmentStrings returned 0x5C6B58 - "=C:=C:\cygwin\bin"
+0: 152659  192177 [main] hellow 5652 dll_crt0_1: user_data->main 0x401100
+0:    44  192221 [main] hellow 5652 __set_errno: void dll_crt0_1(void*):946 val 0
+0:  1215  193436 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    27  193463 [main] hellow 5652 sig_send: wakeup 0x19C
+0:    26  193489 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x19C
+0:  1639  195128 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x19C
+0:   957  196085 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:   331  196416 [main] hellow 5652 __dup_ent: duping hostent "10.84.48.66", 0x22C110
+0:  1956  198372 [main] hellow 5652 __dup_ent: duped hostent "10.84.48.66", 0xE42920
+0:    35  198407 [main] hellow 5652 cygwin_gethostbyname: h_name 10.84.48.66
+0:    25  198432 [main] hellow 5652 cygwin_socket: socket (2, 1, 0)
+1:    61    3581 [main] hellow 3716 environ_init: 0x1040238: !C:=C:\cygwin\bin
+1:   150    3731 [main] hellow 3716 environ_init: 0x1040250: ALLUSERSPROFILE=C:\ProgramData
+1:   180    3911 [main] hellow 3716 environ_init: 0x1040278: APPDATA=C:\Users\Andy\AppData\Roaming
+0: 49034  247466 [main] hellow 5652 wsock_init: res 0
+0:   180  247646 [main] hellow 5652 wsock_init: wVersion 514
+0:   238  247884 [main] hellow 5652 wsock_init: wHighVersion 514
+0:   210  248094 [main] hellow 5652 wsock_init: szDescription WinSock 2.0
+0:   149  248243 [main] hellow 5652 wsock_init: szSystemStatus Running
+0:   156  248399 [main] hellow 5652 wsock_init: iMaxSockets 0
+0:   178  248577 [main] hellow 5652 wsock_init: iMaxUdpDg 0
+0:   163  248740 [main] hellow 5652 wsock_init: lpVendorInfo 0
+1:   187    4098 [main] hellow 3716 environ_init: 0x10402A8: CLASSPATH=.;C:\Program Files\Java\jre1.6.0_05\lib\ext\QTJava.zip
+0:  6056  254796 [main] hellow 5652 fdsock: reset socket inheritance
+0:    53  254849 [main] hellow 5652 build_fh_pc: fh 0x61169E30
+0:    24  254873 [main] hellow 5652 fhandler_base::set_flags: flags 0x10002, supplied_bin 0x0
+0:    22  254895 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    22  254917 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    21  254938 [main] hellow 5652 fdsock: fd 3, name '', soc 0x1B0
+0:    22  254960 [main] hellow 5652 cygwin_socket: 3 = socket (2, 1, 0)
+0:    57  255017 [main] hellow 5652 cygwin_setsockopt: setsockopt optval=1
+0:    23  255040 [main] hellow 5652 cygwin_setsockopt: 0 = setsockopt (3, 6, 1, 0x22CB68, 4)
+0:    24  255064 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    26  255090 [main] hellow 5652 sig_send: wakeup 0x1B8
+0:    26  255116 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1B8
+0:    28  255144 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1B8
+0:    33  255177 [main] hellow 561:    43    4141 [main] hellow 3716 environ_init: 0x10402F0: COMMONPROGRAMFILES=C:\Program Files\Common Files
+52 sig_send: returning 0x0 from sending signal -34
+0:    33  255210 [main] hellow 5652 fhandler_socket::ioctl: socket is now nonblocking
+0:    26  255236 [main] hellow 5652 fhandler_socket::ioctl: 0 = ioctl_socket (8004667E, 22C11C)
+1:   167    4308 [main] hellow 3716 environ_init: 0x1040328: COMPUTERNAME=ANDY-LAPTOP
+1:    41    4349 [main] hellow 3716 environ_init: 0x1040348: COMSPEC=C:\Windows\system32\cmd.exe
+1:   174    4523 [main] hellow 3716 environ_init: 0x1040370: CVS_RSH=/bin/ssh
+1:    77    4600 [main] hellow 3716 parse_options: ntsec (called func)
+1:   209    4809 [main] hellow 3716 parse_options: server 1
+1:    80    4889 [main] hellow 3716 parse_options: returning
+1:    90    4979 [main] hellow 3716 environ_init: 0x1040388: CYGWIN=ntsec server
+1:   227    5206 [main] hellow 3716 environ_init: 0x10403C0: FP_NO_HOST_CHECK=NO
+1:   235    5441 [main] hellow 3716 getwinenv: can't set native for HOME= since no environ yet
+1:   839    6280 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy, no-keep-rel, no-add-slash)
+1:    42    6322 [main] hellow 3716 normalize_win32_path: C:\cygwin\home\Andy = normalize_win32_path (C:\cygwin\home\Andy)
+1:    31    6353 [main] hellow 3716 mount_info::conv_to_posix_path: /home/Andy = conv_to_posix_path (C:\cygwin\home\Andy)
+1:   738    7091 [main] hellow 3716 win_env::add_cache: posix /home/Andy
+1:    26    7117 [main] hellow 3716 win_env::add_cache: native HOME=C:\cygwin\home\Andy
+1:    21    7138 [main] hellow 3716 posify: env var converted to HOME=/home/Andy
+1:   620    7758 [main] hellow 3716 environ_init: 0x10403F8: HOME=/home/Andy
+1:    44    7802 [main] hellow 3716 environ_init: 0x10403D8: HOMEDRIVE=C:
+1:   695    8497 [main] hellow 3716 environ_init: 0x1040538: HOMEPATH=\Users\Andy
+1:    43    8540 [main] hellow 3716 environ_init: 0x1040558: HOSTNAME=Andy-laptop
+1:   552    9092 [main] hellow 3716 environ_init: 0x1040578: IDL_DLM_PATH=C:\Program Files\NCAR\VAPOR\bin
+1:   117    9209 [main] hellow 3716 environ_init: 0x10405B0: INFOPATH=/usr/local/info:/usr/share/info:/usr/info:
+1:    73    9282 [main] hellow 3716 environ_init: 0x10405E8: JASPERINC=/usr/include
+1:   136    9418 [main] hellow 3716 environ_init: 0x1040608: JASPERLIB=/usr/lib
+1:  3399   12817 [main] hellow 3716 environ_init: 0x1040620: KMP_STACKSIZE=640000000
+1:   220   13037 [main] hellow 3716 environ_init: 0x1040640: LOCALAPPDATA=C:\Users\Andy\AppData\Local
+1:   531   13568 [main] hellow 3716 environ_init: 0x1040670: LOGONSERVER=\\ANDY-LAPTOP
+1:    44   13612 [main] hellow 3716 environ_init: 0x1040690: MAKE_MODE=unix
+1:    41   13653 [main] hellow 3716 environ_init: 0x10406A8: MANPATH=/usr/local/man:/usr/share/man:/usr/man::/usr/ssl/man:/usr/share/qt3/doc/man
+1:    63   13716 [main] hellow 3716 environ_init: 0x1040700: MPICH_INTERFACE_HOSTNAME=10.84.48.66
+1:    41   13757 [main] hellow 3716 environ_init: 0x1040730: MPICH_INTERFACE_HOSTNAME_R1=10.84.48.66
+1:   883   14640 [main] hellow 3716 environ_init: 0x1040760: MP_STACK_SIZE=640000000
+1:    54   14694 [main] hellow 3716 environ_init: 0x1040780: NETCDF=/usr/local/
+1:   572   15266 [main] hellow 3716 environ_init: 0x1040798: NUMBER_OF_PROCESSORS=2
+1:   332   15598 [main] hellow 3716 environ_init: 0x10407B8: OLDPWD=/home/Andy/mpich2-1.1.1p1
+1:    44   15642 [main] hellow 3716 environ_init: 0x10407E0: OMP_DYNAMIC=FALSE
+1:    41   15683 [main] hellow 3716 environ_init: 0x10407F8: OMP_NUM_THREADS=2
+1:    41   15724 [main] hellow 3716 environ_init: 0x1040810: OS=Windows_NT
+1:    42   15766 [main] hellow 3716 getwinenv: can't set native for PATH= since no environ yet
+1:    32   15798 [main] hellow 3716 normalize_posix_path: src .
+1:    29   15827 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\examples, no-keep-rel, no-add-slash)
+1:    31   15858 [main] hellow 3716 normalize_win32_path: C:\cygwin\home\Andy\mpich2-1.1.1p1\examples = normalize_win32_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\examples)
+1:    41   15899 [main] hellow 3716 mount_info::conv_to_posix_path: /home/Andy/mpich2-1.1.1p1/examples = conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\examples)
+1:    24   15923 [main] hellow 3716 cwdstuff::get: posix /home/Andy/mpich2-1.1.1p1/examples
+1:    74   15997 [main] hellow 3716 cwdstuff::get: (/home/Andy/mpich2-1.1.1p1/examples) = cwdstuff::get (0x22C860, 260, 1, 0), errno 0
+1:   804   16801 [main] hellow 3716 normalize_posix_path: /home/Andy/mpich2-1.1.1p1/examples/ = normalize_posix_path (.)
+1:   108   16909 [main] hellow 3716 mount_info::conv_to_win32_path: conv_to_win32_path (/home/Andy/mpich2-1.1.1p1/examples)
+1:    33   16942 [main] hellow 3716 set_flags: flags: binary (0x2)
+1:    23   16965 [main] hellow 3716 mount_info::conv_to_win32_path: src_path /home/Andy/mpich2-1.1.1p1/examples, dst C:\cygwin\home\Andy\mpich2-1.1.1p1\examples, flags 0xA, rc 0
+1:   141   17106 [main] hellow 3716 symlink_info::check: not a symlink
+1:    25   17131 [main] hellow 3716 symlink_info::check: 0 = symlink.check (C:\cygwin\home\Andy\mpich2-1.1.1p1\examples, 0x22C520) (0xA)
+1:  2953   20084 [main] hellow 3716 set_privilege: 1 = set_privilege ((token 11C) SeChangeNotifyPrivilege, 1)
+1:  1174   21258 [main] hellow 3716 path_conv::check: this->path(C:\cygwin\home\Andy\mpich2-1.1.1p1\examples), has_acls(1)
+1:   155   21413 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy, keep-rel, no-add-slash)
+1:    24   21437 [main] hellow 3716 normalize_win32_path: C:\cygwin\home\Andy = normalize_win32_path (C:\cygwin\home\Andy)
+1:   612   22049 [main] hellow 3716 mount_info::conv_to_posix_path: /home/Andy = conv_to_posix_path (C:\cygwin\home\Andy)
+1:    32   22081 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\bin, keep-rel, no-add-slash)
+1:    23   22104 [main] hellow 3716 normalize_win32_path: C:\cygwin\home\Andy\bin = normalize_win32_path (C:\cygwin\home\Andy\bin)
+1:    45   22149 [main] hellow 3716 mount_info::conv_to_posix_path: /home/Andy/bin = conv_to_posix_path (C:\cygwin\home\Andy\bin)
+1:   531   22680 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\local\bin, keep-rel, no-add-slash)
+1:    47   22727 [main] hellow 3716 normalize_win32_path: C:\cygwin\usr\local\bin = normalize_win32_path (C:\cygwin\usr\local\bin)
+1:   838   23565 [main] hellow 3716 mount_info::conv_to_posix_path: /usr/local/bin = conv_to_posix_path (C:\cygwin\usr\local\bin)
+1:   106   23671 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\bin, keep-rel, no-add-slash)
+1:    24   23695 [main] hellow 3716 normalize_win32_path: C:\cygwin\bin = normalize_win32_path (C:\cygwin\bin)
+1:    22   23717 [main] hellow 3716 mount_info::conv_to_posix_path: /usr/bin = conv_to_posix_path (C:\cygwin\bin)
+1:    23   23740 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\bin, keep-rel, no-add-slash)
+1:    22   23762 [main] hellow 3716 normalize_win32_path: C:\cygwin\bin = normalize_win32_path (C:\cygwin\bin)
+1:    22   23784 [main] hellow 3716 mount_info::conv_to_posix_path: /usr/bin = conv_to_posix_path (C:\cygwin\bin)
+1:    22   23806 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\X11R6\bin, keep-rel, no-add-slash)
+1:    22   23828 [main] hellow 3716 normalize_win32_path: C:\cygwin\usr\X11R6\bin = normalize_win32_path (C:\cygwin\usr\X11R6\bin)
+1:    22   23850 [main] hellow 3716 mount_info::conv_to_posix_path: /usr/X11R6/bin = conv_to_posix_path (C:\cygwin\usr\X11R6\bin)
+1:    22   23872 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows\system32, keep-rel, no-add-slash)
+1:    22   23894 [main] hellow 3716 normalize_win32_path: c:\Windows\system32 = normalize_win32_path (c:\Windows\system32)
+1:    23   23917 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Windows/system32 = conv_to_posix_path (c:\Windows\system32)
+1:    22   23939 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows, keep-rel, no-add-slash)
+1:    22   23961 [main] hellow 3716 normalize_win32_path: c:\Windows = normalize_win32_path (c:\Windows)
+1:    22   23983 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Windows = conv_to_posix_path (c:\Windows)
+1:    39   24022 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows\System32\Wbem, keep-rel, no-add-slash)
+1:    22   24044 [main] hellow 3716 normalize_win32_path: c:\Windows\System32\Wbem = normalize_win32_path (c:\Windows\System32\Wbem)
+1:    22   24066 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Windows/System32/Wbem = conv_to_posix_path (c:\Windows\System32\Wbem)
+1:    72   24138 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\, keep-rel, add-slash)
+1:    26   24164 [main] hellow 3716 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+1:    54   24218 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+1:  2608   26826 [sig] hellow 3716 wait_sig: entering ReadFile loop, my_readsig 0x0, my_sendsig 0x0
+1: -2313   24513 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\, keep-rel, add-slash)
+1:  9546   34059 [main] hellow 3716 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+1:  5336   39395 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+1:  1277   40672 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\, keep-rel, add-slash)
+1:  3246   43918 [main] hellow 3716 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\)
+1:   800   44718 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\)
+1:   134   44852 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\QuickTime\QTSystem\, keep-rel, add-slash)
+1:   201   45053 [main] hellow 3716 normalize_win32_path: c:\Program Files\QuickTime\QTSystem\ = normalize_win32_path (c:\Program Files\QuickTime\QTSystem\)
+1:    26   45079 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/QuickTime/QTSystem/ = conv_to_posix_path (c:\Program Files\QuickTime\QTSystem\)
+1:    34   45113 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\NCAR\VAPOR\bin, keep-rel, no-add-slash)
+1:    28   45141 [main] hellow 3716 normalize_win32_path: c:\Program Files\NCAR\VAPOR\bin = normalize_win32_path (c:\Program Files\NCAR\VAPOR\bin)
+1:  1018   46159 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/NCAR/VAPOR/bin = conv_to_posix_path (c:\Program Files\NCAR\VAPOR\bin)
+1:   223   46382 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\SSH Communications Security\SSH Secure Shell, keep-rel, no-add-slash)
+1:    25   46407 [main] hellow 3716 normalize_win32_path: c:\Program Files\SSH Communications Security\SSH Secure Shell = normalize_win32_path (c:\Program Files\SSH Communications Security\SSH Secure Shell)
+1:    24   46431 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell = conv_to_posix_path (c:\Program Files\SSH Communications Security\SSH Secure Shell)
+1:    24   46455 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\lib\lapack, keep-rel, no-add-slash)
+1:    22   46477 [main] hellow 3716 normalize_win32_path: C:\cygwin\lib\lapack = normalize_win32_path (C:\cygwin\lib\lapack)
+1:    23   46500 [main] hellow 3716 mount_info::conv_to_posix_path: /usr/lib/lapack = conv_to_posix_path (C:\cygwin\lib\lapack)
+1:    23   46523 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\local\mpich2\bin, keep-rel, no-add-slash)
+1:    22   46545 [main] hellow 3716 normalize_win32_path: C:\cygwin\usr\local\mpich2\bin = normalize_win32_path (C:\cygwin\usr\local\mpich2\bin)
+1:    22   46567 [main] hellow 3716 mount_info::conv_to_posix_path: /usr/local/mpich2/bin = conv_to_posix_path (C:\cygwin\usr\local\mpich2\bin)
+1:    71   46638 [main] hellow 3716 win_env::add_cache: posix /home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+1:    30   46668 [main] hellow 3716 win_env::add_cache: native PATH=C:\cygwin\home\Andy;C:\cygwin\home\Andy\bin;C:\cygwin\usr\local\bin;C:\cygwin\bin;C:\cygwin\bin;C:\cygwin\usr\X11R6\bin;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Program Files\Common Files\Roxio Shared\DLLShared\;c:\Program Files\Common Files\Roxio Shared\DLLShared\;c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\;c:\Program Files\QuickTime\QTSystem\;c:\Program Files\NCAR\VAPOR\bin;c:\Program Files\SSH Communications Security\SSH Secure Shell;C:\cygwin\lib\lapack;C:\cygwin\usr\local\mpich2\bin
+1:    28   46696 [main] hellow 3716 posify: env var converted to PATH=/home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+1:    69   46765 [main] hellow 3716 environ_init: 0x1040A40: PATH=/home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+1:    50   46815 [main] hellow 3716 environ_init: 0x1040828: PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+1:   296   47111 [main] hellow 3716 environ_init: 0x1040870: PMI_DEBUG=0
+1:    43   47154 [main] hellow 3716 environ_init: 0x1040880: PMI_PORT=10.84.48.66:49190
+1:    41   47195 [main] hellow 3716 environ_init: 0x10408A0: PMI_RANK=1
+1:    40   47235 [main] hellow 3716 environ_init: 0x10408B0: PMI_SIZE=2
+1:    41   47276 [main] hellow 3716 environ_init: 0x10408C0: PMI_SPAWNED=0
+1:    40   47316 [main] hellow 3716 environ_init: 0x10408D8: PMI_TOTALVIEW=0
+1:    41   47357 [main] hellow 3716 environ_init: 0x10408F0: PRINTER=Microsoft XPS Document Writer
+1:    41   47398 [main] hellow 3716 environ_init: 0x1040920: PROCESSOR_ARCHITECTURE=x86
+1:    42   47440 [main] hellow 3716 environ_init: 0x1040940: PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 10, GenuineIntel
+1:    41   47481 [main] hellow 3716 environ_init: 0x1040990: PROCESSOR_LEVEL=6
+1:    42   47523 [main] hellow 3716 environ_init: 0x10409A8: PROCESSOR_REVISION=0f0a
+1:    67   47590 [main] hellow 3716 environ_init: 0x10409C8: PROGRAMDATA=C:\ProgramData
+1:    40   47630 [main] hellow 3716 environ_init: 0x10409E8: PROGRAMFILES=C:\Program Files
+1:   781   48411 [main] hellow 3716 environ_init: 0x1040A10: PROMPT=$P$G
+1:   372   48783 [main] hellow 3716 environ_init: 0x10413E8: PS1=\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ 
+1:    43   48826 [main] hellow 3716 environ_init: 0x1040A20: PUBLIC=C:\Users\Public
+1:    41   48867 [main] hellow 3716 environ_init: 0x1041430: PWD=/home/Andy/mpich2-1.1.1p1/examples
+1:    40   48907 [main] hellow 3716 environ_init: 0x1041460: QMAKESPEC=/usr/lib/qt3/mkspecs/cygwin-g++
+1:    41   48948 [main] hellow 3716 environ_init: 0x1041490: QTDIR=/usr/lib/qt3
+1:    55   49003 [main] hellow 3716 environ_init: 0x10414A8: QTJAVA=C:\Program Files\Java\jre1.6.0_05\lib\ext\QTJava.zip
+1:    40   49043 [main] hellow 3716 environ_init: 0x10414E8: ROXIOCENTRAL=C:\Program Files\Common Files\Roxio Shared\9.0\Roxio Central33\
+1:  1049   50092 [main] hellow 3716 environ_init: 0x1041540: SHLVL=1
+1:  3540   53632 [main] hellow 3716 environ_init: 0x1041550: SYSTEMDRIVE=C:
+1:  2958   56590 [main] hellow 3716 environ_init: 0x1041568: SYSTEMROOT=C:\Windows
+1:  7318   63908 [main] hellow 3716 getwinenv: can't set native for TEMP= since no environ yet
+1:  2411   66319 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Users\Andy\AppData\Local\Temp, no-keep-rel, no-add-slash)
+1:  1095   67414 [main] hellow 3716 normalize_win32_path: c:\Users\Andy\AppData\Local\Temp = normalize_win32_path (c:\Users\Andy\AppData\Local\Temp)
+1:   113   67527 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Users/Andy/AppData/Local/Temp = conv_to_posix_path (c:\Users\Andy\AppData\Local\Temp)
+1:    65   67592 [main] hellow 3716 win_env::add_cache: posix /cygdrive/c/Users/Andy/AppData/Local/Temp
+1:    23   67615 [main] hellow 3716 win_env::add_cache: native TEMP=c:\Users\Andy\AppData\Local\Temp
+1:    21   67636 [main] hellow 3716 posify: env var converted to TEMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+1:    41   67677 [main] hellow 3716 environ_init: 0x10415B8: TEMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+1:    42   67719 [main] hellow 3716 environ_init: 0x1041588: TERM=cygwin
+1:    41   67760 [main] hellow 3716 environ_init: 0x1041598: TEXDOCVIEW_DVI=cygstart %s
+1:    40   67800 [main] hellow 3716 environ_init: 0x1041728: TEXDOCVIEW_HTML=cygstart %s
+1:    40   67840 [main] hellow 3716 environ_init: 0x1041748: TEXDOCVIEW_PDF=cygstart %s
+1:    42   67882 [main] hellow 3716 environ_init: 0x1041768: TEXDOCVIEW_PS=cygstart %s
+1:    40   67922 [main] hellow 3716 environ_init: 0x1041788: TEXDOCVIEW_TXT=cygstart %s
+1:    63   67985 [main] hellow 3716 getwinenv: can't set native for TMP= since no environ yet
+1:    40   68025 [main] hellow 3716 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Users\Andy\AppData\Local\Temp, no-keep-rel, no-add-slash)
+1:   360   68385 [main] hellow 3716 normalize_win32_path: c:\Users\Andy\AppData\Local\Temp = normalize_win32_path (c:\Users\Andy\AppData\Local\Temp)
+1:    54   68439 [main] hellow 3716 mount_info::conv_to_posix_path: /cygdrive/c/Users/Andy/AppData/Local/Temp = conv_to_posix_path (c:\Users\Andy\AppData\Local\Temp)
+1:    63   68502 [main] hellow 3716 win_env::add_cache: posix /cygdrive/c/Users/Andy/AppData/Local/Temp
+1:    23   68525 [main] hellow 3716 win_env::add_cache: native TMP=c:\Users\Andy\AppData\Local\Temp
+1:    21   68546 [main] hellow 3716 posify: env var converted to TMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+1:    41   68587 [main] hellow 3716 environ_init: 0x10417D8: TMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+1:    41   68628 [main] hellow 3716 environ_init: 0x10417A8: USER=Andy
+1:    40   68668 [main] hellow 3716 environ_init: 0x10417B8: USERDOMAIN=Andy-laptop
+1:    40   68708 [main] hellow 3716 environ_init: 0x1041948: USERNAME=Andy
+1:    40   68748 [main] hellow 3716 environ_init: 0x1041960: USERPROFILE=C:\Users\Andy
+1:    40   68788 [main] hellow 3716 environ_init: 0x1041980: VAPOR_HOME=C:\Program Files\NCAR\VAPOR
+1:    80   68868 [main] hellow 3716 environ_init: 0x10419B0: VAPOR_SHARE=C:\Program Files\NCAR\VAPOR\share
+1:    43   68911 [main] hellow 3716 environ_init: 0x10419E8: WINDIR=C:\Windows
+1:   662   69573 [main] hellow 3716 environ_init: 0x1041A00: WRF_MACH=i686
+1:   647   70220 [main] hellow 3716 environ_init: 0x1041A18: WRF_OS=Linux
+1:   651   70871 [main] hellow 3716 environ_init: 0x1041A30: _=/usr/local/mpich2/bin/mpiexec
+1:   621   71492 [main] hellow 3716 pinfo_init: Set nice to 0
+1:   633   72125 [main] hellow 3716 pinfo_init: pid 3716, pgid 3716
+1:   981   73106 [main] hellow 3716 set_privilege: 0 = set_privilege ((token FC) SeRestorePrivilege, 1)
+1:  4917   78023 [main] hellow 3716 set_privilege: 0 = set_privilege ((token FC) SeBackupPrivilege, 1)
+1:   370   78393 [main] hellow 3716 set_privilege: 1 = set_privilege ((token FC) SeChangeNotifyPrivilege, 1)
+1:   875   79268 [main] hellow 3716 dtable::extend: size 32, fds 0x611696D0
+1:   146   79414 [main] hellow 3716 normalize_posix_path: src /etc/passwd
+1:  1518   80932 [main] hellow 3716 normalize_posix_path: /etc/passwd = normalize_posix_path (/etc/passwd)
+1:  1470   82402 [main] hellow 3716 mount_info::conv_to_win32_path: conv_to_win32_path (/etc/passwd)
+1:   782   83184 [main] hellow 3716 set_flags: flags: binary (0x2)
+1:    29   83213 [main] hellow 3716 mount_info::conv_to_win32_path: src_path /etc/passwd, dst C:\cygwin\etc\passwd, flags 0xA, rc 0
+1:   123   83336 [main] hellow 3716 symlink_info::check: not a symlink
+1:    26   83362 [main] hellow 3716 symlink_info::check: 0 = symlink.check (C:\cygwin\etc\passwd, 0x22C5E0) (0xA)
+1:    25   83387 [main] hellow 3716 path_conv::check: this->path(C:\cygwin\etc\passwd), has_acls(1)
+1:   160   83547 [main] hellow 3716 etc::test_file_change: FindFirstFile succeeded
+1:  1944   85491 [main] hellow 3716 pwdgrp::load: /etc/passwd curr_lines 10
+1:   477   85968 [main] hellow 3716 pwdgrp::load: /etc/passwd load succeeded
+1:   102   86070 [main] hellow 3716 normalize_posix_path: src /etc/group
+1:   555   86625 [main] hellow 3716 normalize_posix_path: /etc/group = normalize_posix_path (/etc/group)
+1:   165   86790 [main] hellow 3716 mount_info::conv_to_win32_path: conv_to_win32_path (/etc/group)
+1:    54   86844 [main] hellow 3716 set_flags: flags: binary (0x2)
+1:    38   86882 [main] hellow 3716 mount_info::conv_to_win32_path: src_path /etc/group, dst C:\cygwin\etc\group, flags 0xA, rc 0
+1:  1365   88247 [main] hellow 3716 symlink_info::check: not a symlink
+1:    80   88327 [main] hellow 3716 symlink_info::check: 0 = symlink.check (C:\cygwin\etc\group, 0x22C5B0) (0xA)
+1:    46   88373 [main] hellow 3716 path_conv::check: this->path(C:\cygwin\etc\group), has_acls(1)
+1:   126   88499 [main] hellow 3716 etc::test_file_change: FindFirstFile succeeded
+1:   325   88824 [main] hellow 3716 pwdgrp::load: /etc/group curr_lines 11
+1:    23   88847 [main] hellow 3716 pwdgrp::load: /etc/group load succeeded
+1:    32   88879 [main] hellow 3716 cygheap_user::ontherange: what 2, pw 0x1041F00
+1:   300   89179 [main] hellow 3716 cygheap_user::ontherange: HOME is already in the environment /home/Andy
+1:   157   89336 [main] hellow 3716 wait_for_sigthread: wait_sig_inited 0x50
+1:    29   89365 [main] hellow 3716 wait_for_sigthread: process/signal handling enabled, state 0x41
+1:    81   89446 [main] hellow 3716 build_argv: argv[0] = 'hellow.exe'
+1:    22   89468 [main] hellow 3716 build_argv: argc 1
+1:  2480   91948 [main] hellow 3716 handle_to_fn: nt name '\Device\NamedPipe\cygwin-0x14B0-0x1'
+1:  4651   96599 [main] hellow 3716 handle_to_fn: pipe
+1:   250   96849 [main] hellow 3716 handle_to_fn: derived path '\Device\NamedPipe\cygwin-0x14B0-0x1', posix '/Device/NamedPipe/cygwin-0x14B0-0x1ahÎ"'
+1:    82   96931 [main] hellow 3716 build_fh_pc: fh 0x61169818
+1:  1318   98249 [main] hellow 3716 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+1:  4397  102646 [main] hellow 3716 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+1:  2541  105187 [main] hellow 3716 fhandler_base::set_flags: filemode set to binary
+1:  3275  108462 [main] hellow 3716 fhandler_base::init: created new fhandler_base for handle 0x1F4, bin 1
+1:  4015  112477 [main] hellow 3716 handle_to_fn: nt name '\Device\NamedPipe\cygwin-0x14B0-0x2'
+1:   882  113359 [main] hellow 3716 handle_to_fn: pipe
+1:    31  113390 [main] hellow 3716 handle_to_fn: derived path '\Device\NamedPipe\cygwin-0x14B0-0x2', posix '/Device/NamedPipe/cygwin-0x14B0-0x2ahÎ"'
+1:    56  113446 [main] hellow 3716 build_fh_pc: fh 0x61169A20
+1:    85  113531 [main] hellow 3716 fhandler_base::set_flags: flags 0x10001, supplied_bin 0x0
+1:   546  114077 [main] hellow 3716 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+1:    22  114099 [main] hellow 3716 fhandler_base::set_flags: filemode set to binary
+1:    21  114120 [main] hellow 3716 fhandler_base::init: created new fhandler_base for handle 0x200, bin 1
+1:  9738  123858 [main] hellow 3716 handle_to_fn: nt name '\Device\NamedPipe\cygwin-0x14B0-0x3'
+1:  2952  126810 [main] hellow 3716 handle_to_fn: pipe
+1:   591  127401 [main] hellow 3716 handle_to_fn: derived path '\Device\NamedPipe\cygwin-0x14B0-0x3', posix '/Device/NamedPipe/cygwin-0x14B0-0x3ahÎ"'
+1:    44  127445 [main] hellow 3716 build_fh_pc: fh 0x61169C28
+1:    37  127482 [main] hellow 3716 fhandler_base::set_flags: flags 0x10001, supplied_bin 0x0
+1:    31  127513 [main] hellow 3716 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+1:    31  127544 [main] hellow 3716 fhandler_base::set_flags: filemode set to binary
+1:    31  127575 [main] hellow 3716 fhandler_base::init: created new fhandler_base for handle 0x210, bin 1
+1:   455  128030 [main] hellow 3716 fhandler_console::need_invisible: invisible_console 0
+1:    86  128116 [main] hellow 3716 open_shared: name (null), n 0, shared 0x60020000 (wanted 0x60020000), h 0x130
+1:    42  128158 [main] hellow 3716 _pinfo::set_ctty: old no ctty
+1:    34  128192 [main] hellow 3716 _pinfo::set_ctty: attaching ctty /dev/console sid 3716, pid 3716, pgid 3716, tty->pgid 0, tty->sid 3716
+1: 66234  194426 [main] hellow 3716 dll_crt0_1: user_data->main 0x401100
+1:    47  194473 [main] hellow 3716 __set_errno: void dll_crt0_1(void*):946 val 0
+1:  4875  199348 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:   961  200309 [main] hellow 3716 sig_send: wakeup 0x194
+1:   784  201093 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x194
+1:  1358  202451 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x194
+1:  2424  204875 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:  1064  205939 [main] hellow 3716 __dup_ent: duping hostent "10.84.48.66", 0x22C110
+1:   145  206084 [main] hellow 3716 __dup_ent: duped hostent "10.84.48.66", 0x1042920
+1:    24  206108 [main] hellow 3716 cygwin_gethostbyname: h_name 10.84.48.66
+1:    23  206131 [main] hellow 3716 cygwin_socket: socket (2, 1, 0)
+1: 51847  257978 [main] hellow 3716 wsock_init: res 0
+1:   381  258359 [main] hellow 3716 wsock_init: wVersion 514
+1:   232  258591 [main] hellow 3716 wsock_init: wHighVersion 514
+1:   952  259543 [main] hellow 3716 wsock_init: szDescription WinSock 2.0
+1:  3295  262838 [main] hellow 3716 wsock_init: szSystemStatus Running
+1:  1370  264208 [main] hellow 3716 wsock_init: iMaxSockets 0
+1:  3265  267473 [main] hellow 3716 wsock_init: iMaxUdpDg 0
+1:    81  267554 [main] hellow 3716 wsock_init: lpVendorInfo 0
+1: 15021  282575 [main] hellow 3716 fdsock: reset socket inheritance
+1:   726  283301 [main] hellow 3716 build_fh_pc: fh 0x61169E30
+1:    46  283347 [main] hellow 3716 fhandler_base::set_flags: flags 0x10002, supplied_bin 0x0
+1:    34  283381 [main] hellow 3716 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+1:    32  283413 [main] hellow 3716 fhandler_base::set_flags: filemode set to binary
+1:    31  283444 [main] hellow 3716 fdsock: fd 3, name '', soc 0x1A8
+1:    32  283476 [main] hellow 3716 cygwin_socket: 3 = socket (2, 1, 0)
+1:    73  283549 [main] hellow 3716 cygwin_setsockopt: setsockopt optval=1
+1:    34  283583 [main] hellow 3716 cygwin_setsockopt: 0 = setsockopt (3, 6, 1, 0x22CB68, 4)
+1:    34  283617 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    34  283651 [main] hellow 3716 sig_send: wakeup 0x1B0
+1:   145  283796 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1B0
+1:   150  283946 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1B0
+1:    31  283977 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    37  284014 [main] hellow 3716 fhandler_socket::ioctl: socket is now nonblocking
+1:    26  284040 [main] hellow 3716 fhandler_socket::ioctl: 0 = ioctl_socket (8004667E, 22C11C)
+0: 4677776 4933012 [main] hellow 5652 __set_errno: void __set_winsock_errno(const char*, int):234 val 119
+0:    67 4933079 [main] hellow 5652 __set_winsock_errno: connect:788 - winsock error 10036 -> errno 119
+0:    65 4933144 [main] hellow 5652 cygwin_select: 4, 0x0, 0x22C0D0, 0x22C0B0, 0x0
+0:    71 4933215 [main] hellow 5652 dtable::select_write:  fd 3
+0:    31 4933246 [main] hellow 5652 dtable::select_except:  fd 3
+0:    30 4933276 [main] hellow 5652 cygwin_select: to NULL, ms FFFFFFFF
+0:    32 4933308 [main] hellow 5652 cygwin_select: sel.always_ready 0
+0:    68 4933376 [main] hellow 5652 start_thread_socket: Handle 0x1B0
+0:    31 4933407 [main] hellow 5652 start_thread_socket: Added to writefds
+0:    30 4933437 [main] hellow 5652 start_thread_socket: Added to exceptfds
+0:   455 4933892 [main] hellow 5652 start_thread_socket: opened new socket 0x1C8
+0:    37 4933929 [main] hellow 5652 start_thread_socket: exitsock 0x1C8
+0:    31 4933960 [main] hellow 5652 start_thread_socket: stuff_start 0x22C034
+0:   369 4934329 [select_socket] hellow 5652 cygthread::stub: thread 'select_socket', id 0x10EC, stack_ptr 0x1AFFCDA0
+0:    41 4934370 [select_socket] hellow 5652 thread_socket: stuff_start 0xE45A6C
+0:   113 4934483 [select_socket] hellow 5652 thread_socket: Win32 select returned 1
+0:    34 4934517 [select_socket] hellow 5652 thread_socket: s 0xE42A28, testing fd 3 ()
+0:    33 4934550 [select_socket] hellow 5652 thread_socket: write_ready
+0: 11110 4945660 [main] hellow 5652 select_stuff::wait: m 2, ms 4294967295
+0:    50 4945710 [main] hellow 5652 select_stuff::wait: woke up.  wait_ret 1.  verifying
+0:    30 4945740 [main] hellow 5652 select_stuff::wait: gotone 1
+0:    29 4945769 [main] hellow 5652 select_stuff::wait: returning 0
+0:    29 4945798 [main] hellow 5652 select_stuff::cleanup: calling cleanup routines
+0:    28 4945826 [main] hellow 5652 socket_cleanup: si 0xE42A58 si->thread 0x61106F30
+0:    99 4945925 [main] hellow 5652 socket_cleanup: sent a byte to exitsock 0x1C8, res 1
+0:    58 4945983 [main] hellow 5652 socket_cleanup: reading a byte from exitsock 0x1C8
+0:    40 4946023 [main] hellow 5652 socket_cleanup: recv returned 1
+0:    54 4946077 [main] hellow 5652 socket_cleanup: returning
+0:    32 4946109 [main] hellow 5652 peek_socket: considering handle 0x1B0
+0:    30 4946139 [main] hellow 5652 peek_socket: adding except fd_set , fd 3
+0:    39 4946178 [main] hellow 5652 peek_socket: WINSOCK_SELECT returned 0
+0:    29 4946207 [main] hellow 5652 set_bits: me 0xE42A28, testing fd 3 ()
+0:    29 4946236 [main] hellow 5652 set_bits: ready 1
+0:    27 4946263 [main] hellow 5652 select_stuff::poll: returning 1
+0:    28 4946291 [main] hellow 5652 select_stuff::cleanup: calling cleanup routines
+0:    28 4946319 [main] hellow 5652 select_stuff::~select_stuff: deleting select records
+0:    64 4946383 [main] hellow 5652 fhandler_socket::ioctl: socket is now blocking
+0:    29 4946412 [main] hellow 5652 fhandler_socket::ioctl: 0 = ioctl_socket (8004667E, 22C110)
+0:    29 4946441 [main] hellow 5652 cygwin_connect: 0 = connect (3, 0x22CB58, 16)
+0:    52 4946493 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    33 4946526 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    33 4946559 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:   427 4946986 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:   897 4947883 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    49 4947932 [main] hellow 5652 writev: writev (3, 0x22B1A0, 1)
+0:    89 4948021 [main] hellow 5652 writev: 40 = write (3, 0x22B1A0, 1), errno 119
+0:    41 4948062 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    38 4948100 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    42 4948142 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:  1215 4949357 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:   478 4949835 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    36 4949871 [main] hellow 5652 readv: readv (3, 0x22B1B0, 1) blocking, sigcatchers 0
+0:    31 4949902 [main] hellow 5652 readv: no need to call ready_for_read
+0:  2160 4952062 [main] hellow 5652 readv: 57 = readv (3, 0x22B1B0, 1), errno 119
+0:    53 4952115 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    34 4952149 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    35 4952184 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:  1130 4953314 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:  2160 4955474 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:   450 4955924 [main] hellow 5652 writev: writev (3, 0x22A970, 1)
+0:   369 4956293 [main] hellow 5652 writev: 14 = write (3, 0x22A970, 1), errno 119
+0:    37 4956330 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    32 4956362 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    32 4956394 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:  2769 4959163 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:  1732 4960895 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    55 4960950 [main] hellow 5652 readv: readv (3, 0x22A980, 1) blocking, sigcatchers 0
+0:    31 4960981 [main] hellow 5652 readv: no need to call ready_for_read
+0:    54 4961035 [main] hellow 5652 readv: 59 = readv (3, 0x22A980, 1), errno 119
+0:    41 4961076 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    33 4961109 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    33 4961142 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:   100 4961242 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:   654 4961896 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    41 4961937 [main] hellow 5652 writev: writev (3, 0x22BEF0, 1)
+0:   130 4962067 [main] hellow 5652 writev: 15 = write (3, 0x22BEF0, 1), errno 119
+0:    35 4962102 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    33 4962135 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    33 4962168 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:   488 4962656 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:   605 4963261 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    51 4963312 [main] hellow 5652 readv: readv (3, 0x22BF00, 1) blocking, sigcatchers 0
+0:    31 4963343 [main] hellow 5652 readv: no need to call ready_for_read
+0:  7183 4970526 [main] hellow 5652 readv: 20 = readv (3, 0x22BF00, 1), errno 119
+0:   105 4970631 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    36 4970667 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    36 4970703 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:   144 4970847 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:   862 4971709 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    34 4971743 [main] hellow 5652 writev: writev (3, 0x22C2F0, 1)
+0:    97 4971840 [main] hellow 5652 writev: 19 = write (3, 0x22C2F0, 1), errno 119
+0:    35 4971875 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    33 4971908 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:   124 4972032 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:   -10 4972022 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:   197 4972219 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    37 4972256 [main] hellow 5652 readv: readv (3, 0x22C300, 1) blocking, sigcatchers 0
+0:    36 4972292 [main] hellow 5652 readv: no need to call ready_for_read
+0: 14132 4986424 [main] hellow 5652 readv: 49 = readv (3, 0x22C300, 1), errno 119
+0:   149 4986573 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    33 4986606 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    34 4986640 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:    61 4986701 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:   659 4987360 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    50 4987410 [main] hellow 5652 writev: writev (3, 0x22C2B0, 1)
+0:    76 4987486 [main] hellow 5652 writev: 19 = write (3, 0x22C2B0, 1), errno 119
+0:    41 4987527 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    39 4987566 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    43 4987609 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:    69 4987678 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:   185 4987863 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    40 4987903 [main] hellow 5652 readv: readv (3, 0x22C2C0, 1) blocking, sigcatchers 0
+0:    37 4987940 [main] hellow 5652 readv: no need to call ready_for_read
+0:  1059 4988999 [main] hellow 5652 readv: 49 = readv (3, 0x22C2C0, 1), errno 119
+0:   160 4989159 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    29 4989188 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    28 4989216 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:   114 4989330 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:    44 4989374 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    29 4989403 [main] hellow 5652 writev: writev (3, 0x22BE20, 1)
+0:   106 4989509 [main] hellow 5652 writev: 62 = write (3, 0x22BE20, 1), errno 119
+0:    57 4989566 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    28 4989594 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    27 4989621 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:    32 4989653 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:    39 4989692 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    27 4989719 [main] hellow 5652 readv: readv (3, 0x22BE30, 1) blocking, sigcatchers 0
+0:    24 4989743 [main] hellow 5652 readv: no need to call ready_for_read
+0:  2489 4992232 [main] hellow 5652 readv: 43 = readv (3, 0x22BE30, 1), errno 119
+0:   172 4992404 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    26 4992430 [main] hellow 5652 sig_send: wakeup 0x1EC
+0:    28 4992458 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x1EC
+0:    47 4992505 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x1EC
+0:   850 4993355 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0: 62180 5055535 [main] hellow 5652 cygwin_gethostname: name Andy-laptop
+0:   360 5055895 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    29 5055924 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    29 5055953 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    33 5055986 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   362 5056348 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    37 5056385 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    32 5056417 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    29 5056446 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    32 5056478 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    36 5056514 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    38 5056552 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    35 5056587 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    41 5056628 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:   247 5056875 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    39 5056914 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    30 5056944 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    33 5056977 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    64 5057041 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:  1354 5058395 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:  2164 5060559 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    54 5060613 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    35 5060648 [main] hellow 5652 readv: no need to call ready_for_read
+0: 21011 5081659 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 119
+0:    65 5081724 [main] hellow 5652 close: close (4)
+0:    41 5081765 [main] hellow 5652 close: 0 = close (4)
+0:    31 5081796 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    34 5081830 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    35 5081865 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    38 5081903 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    45 5081948 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:   101 5082049 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    33 5082082 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    29 5082111 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    30 5082141 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    29 5082170 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    32 5082202 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    30 5082232 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    29 5082261 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    29 5082290 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    29 5082319 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    32 5082351 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    31 5082382 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    33 5082415 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    59 5082474 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    41 5082515 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    30 5082545 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    29 5082574 [main] hellow 5652 readv: no need to call ready_for_read
+0:   578 5083152 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 119
+0:    45 5083197 [main] hellow 5652 close: close (4)
+0:    80 5083277 [main] hellow 5652 close: 0 = close (4)
+0:    37 5083314 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    39 5083353 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    53 5083406 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    45 5083451 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    52 5083503 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    38 5083541 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    39 5083580 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    36 5083616 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    36 5083652 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    36 5083688 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    37 5083725 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    36 5083761 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    37 5083798 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    35 5083833 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    35 5083868 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    37 5083905 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    42 5083947 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    56 5084003 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    36 5084039 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    42 5084081 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    35 5084116 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    42 5084158 [main] hellow 5652 readv: no need to call ready_for_read
+0:   522 5084680 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 119
+0:    41 5084721 [main] hellow 5652 close: close (4)
+0:    80 5084801 [main] hellow 5652 close: 0 = close (4)
+0:    36 5084837 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    38 5084875 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    43 5084918 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    41 5084959 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    37 5084996 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    45 5085041 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    43 5085084 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    33 5085117 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    30 5085147 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    29 5085176 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    30 5085206 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    29 5085235 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    29 5085264 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    28 5085292 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    28 5085320 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    29 5085349 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    31 5085380 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    32 5085412 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    35 5085447 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    44 5085491 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    32 5085523 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    44 5085567 [main] hellow 5652 readv: no need to call ready_for_read
+0:   888 5086455 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 119
+0:    36 5086491 [main] hellow 5652 close: close (4)
+0:    73 5086564 [main] hellow 5652 close: 0 = close (4)
+0:    30 5086594 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    32 5086626 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    48 5086674 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    35 5086709 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    41 5086750 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    30 5086780 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    29 5086809 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    44 5086853 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    32 5086885 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    36 5086921 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    47 5086968 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    30 5086998 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    29 5087027 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    30 5087057 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    29 5087086 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    29 5087115 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    31 5087146 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    33 5087179 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    35 5087214 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    39 5087253 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    30 5087283 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    31 5087314 [main] hellow 5652 readv: no need to call ready_for_read
+0:   504 5087818 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 119
+0:    37 5087855 [main] hellow 5652 close: close (4)
+0:    72 5087927 [main] hellow 5652 close: 0 = close (4)
+0:    31 5087958 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    31 5087989 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    33 5088022 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    35 5088057 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    40 5088097 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    30 5088127 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    29 5088156 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    38 5088194 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    37 5088231 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    30 5088261 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    30 5088291 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    29 5088320 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    30 5088350 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    28 5088378 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    29 5088407 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    29 5088436 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    32 5088468 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    32 5088500 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    33 5088533 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    39 5088572 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    30 5088602 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    36 5088638 [main] hellow 5652 readv: no need to call ready_for_read
+0:   522 5089160 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 119
+0:    42 5089202 [main] hellow 5652 close: close (4)
+0:    79 5089281 [main] hellow 5652 close: 0 = close (4)
+0:    44 5089325 [main] hellow 5652 stat64: entering
+0:    41 5089366 [main] hellow 5652 normalize_posix_path: src /dev/shm
+0:    35 5089401 [main] hellow 5652 normalize_posix_path: /dev/shm = normalize_posix_path (/dev/shm)
+0:    35 5089436 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/shm)
+0:    39 5089475 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    68 5089543 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/shm, dst C:\cygwin\dev\shm, flags 0xA, rc 0
+0:   131 5089674 [main] hellow 5652 symlink_info::check: GetFileAttributes (C:\cygwin\dev\shm) failed
+0:    36 5089710 [main] hellow 5652 geterrno_from_win_error: windows error 2 == errno 2
+0:    77 5089787 [main] hellow 5652 symlink_info::check: GetFileAttributes (C:\cygwin\dev\shm.exe) failed
+0:    33 5089820 [main] hellow 5652 geterrno_from_win_error: windows error 2 == errno 2
+0:    71 5089891 [main] hellow 5652 symlink_info::check: GetFileAttributes (C:\cygwin\dev\shm.lnk) failed
+0:   120 5090011 [main] hellow 5652 geterrno_from_win_error: windows error 2 == errno 2
+0:   105 5090116 [main] hellow 5652 symlink_info::check: GetFileAttributes (C:\cygwin\dev\shm.exe.lnk) failed
+0:    38 5090154 [main] hellow 5652 geterrno_from_win_error: windows error 2 == errno 2
+0:    45 5090199 [main] hellow 5652 symlink_info::check: 0 = symlink.check (C:\cygwin\dev\shm, 0x22C150) (0xA)
+0:    31 5090230 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev)
+0:    31 5090261 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    29 5090290 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev, dst C:\cygwin\dev, flags 0xA, rc 0
+0:   183 5090473 [main] hellow 5652 symlink_info::check: not a symlink
+0:    36 5090509 [main] hellow 5652 symlink_info::check: 0 = symlink.check (C:\cygwin\dev, 0x22C150) (0xA)
+0:    32 5090541 [main] hellow 5652 path_conv::check: this->path(C:\cygwin\dev\shm), has_acls(1)
+0:    37 5090578 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    30 5090608 [main] hellow 5652 __set_errno: int stat_worker(const char*, __stat64*, int):1091 val 2
+0:    51 5090659 [main] hellow 5652 stat_worker: -1 = (/dev/shm, 0x22C8C0)
+0:    33 5090692 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    34 5090726 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    34 5090760 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    36 5090796 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    42 5090838 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    30 5090868 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    30 5090898 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    29 5090927 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    31 5090958 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    29 5090987 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    31 5091018 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    28 5091046 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    36 5091082 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    54 5091136 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    31 5091167 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    30 5091197 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    32 5091229 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    32 5091261 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    35 5091296 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    40 5091336 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    31 5091367 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    29 5091396 [main] hellow 5652 readv: no need to call ready_for_read
+0:   586 5091982 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 2
+0:    51 5092033 [main] hellow 5652 close: close (4)
+0:   111 5092144 [main] hellow 5652 close: 0 = close (4)
+0:    42 5092186 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    34 5092220 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    34 5092254 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    36 5092290 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    40 5092330 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    33 5092363 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    30 5092393 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    29 5092422 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    28 5092450 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    29 5092479 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    31 5092510 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    28 5092538 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    30 5092568 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    51 5092619 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    58 5092677 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    32 5092709 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    32 5092741 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    33 5092774 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    35 5092809 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    39 5092848 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    30 5092878 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    29 5092907 [main] hellow 5652 readv: no need to call ready_for_read
+0:  1017 5093924 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 2
+0:    75 5093999 [main] hellow 5652 close: close (4)
+0:   685 5094684 [main] hellow 5652 close: 0 = close (4)
+0:   123 5094807 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    36 5094843 [main] hellow 5652 sig_send: wakeup 0x27C
+0:   208 5095051 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:   589 5095640 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:  1210 5096850 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    69 5096919 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    35 5096954 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    32 5096986 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    31 5097017 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:   119 5097136 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:   107 5097243 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:   111 5097354 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    32 5097386 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    29 5097415 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    29 5097444 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    30 5097474 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    32 5097506 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    33 5097539 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:   273 5097812 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   822 5098634 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    53 5098687 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    38 5098725 [main] hellow 5652 readv: no need to call ready_for_read
+0:  3295 5102020 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 2
+0:    58 5102078 [main] hellow 5652 close: close (4)
+0:    82 5102160 [main] hellow 5652 close: 0 = close (4)
+0:    86 5102246 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:   519 5102765 [main] hellow 5652 sig_send: wakeup 0x27C
+0:  1113 5103878 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   559 5104437 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    98 5104535 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    37 5104572 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    37 5104609 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    35 5104644 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    36 5104680 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    37 5104717 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    38 5104755 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    37 5104792 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    36 5104828 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    35 5104863 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    87 5104950 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    36 5104986 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    38 5105024 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    42 5105066 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   178 5105244 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    42 5105286 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    37 5105323 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:   535 5105858 [main] hellow 5652 readv: no need to call ready_for_read
+0:  1712 5107570 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 2
+0:    66 5107636 [main] hellow 5652 close: close (4)
+0:   104 5107740 [main] hellow 5652 close: 0 = close (4)
+0:    40 5107780 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    48 5107828 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    49 5107877 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   191 5108068 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    73 5108141 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    32 5108173 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    31 5108204 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    29 5108233 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    30 5108263 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    30 5108293 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    31 5108324 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    30 5108354 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    29 5108383 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    28 5108411 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    29 5108440 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    30 5108470 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:   918 5109388 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    47 5109435 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:  1629 5111064 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   598 5111662 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    67 5111729 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:   198 5111927 [main] hellow 5652 readv: no need to call ready_for_read
+0:  1310 5113237 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 2
+0:    55 5113292 [main] hellow 5652 close: close (4)
+0:    77 5113369 [main] hellow 5652 close: 0 = close (4)
+0:    31 5113400 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    33 5113433 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    34 5113467 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    90 5113557 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   136 5113693 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    36 5113729 [main] hellow 5652 open: open (/dev/urandom, 0x0)
+0:    32 5113761 [main] hellow 5652 normalize_posix_path: src /dev/urandom
+0:    29 5113790 [main] hellow 5652 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+0:    29 5113819 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+0:    31 5113850 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+0:    32 5113882 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    30 5113912 [main] hellow 5652 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+0:    29 5113941 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    29 5113970 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    28 5113998 [main] hellow 5652 open: 4 = open (/dev/urandom, 0x0)
+0:    30 5114028 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:   119 5114147 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    94 5114241 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   -16 5114225 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    98 5114323 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    30 5114353 [main] hellow 5652 readv: readv (4, 0x22C880, 1) blocking, sigcatchers 0
+0:    30 5114383 [main] hellow 5652 readv: no need to call ready_for_read
+0:   534 5114917 [main] hellow 5652 readv: 4 = readv (4, 0x22C880, 1), errno 2
+0:   139 5115056 [main] hellow 5652 close: close (4)
+0:   135 5115191 [main] hellow 5652 close: 0 = close (4)
+0:    41 5115232 [main] hellow 5652 stat64: entering
+0:    31 5115263 [main] hellow 5652 normalize_posix_path: src /tmp
+0:    28 5115291 [main] hellow 5652 normalize_posix_path: /tmp = normalize_posix_path (/tmp)
+0:    29 5115320 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp)
+0:    31 5115351 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    30 5115381 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /tmp, dst C:\cygwin\tmp, flags 0xA, rc 0
+0:   106 5115487 [main] hellow 5652 symlink_info::check: not a symlink
+0:    34 5115521 [main] hellow 5652 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp, 0x22C150) (0xA)
+0:    32 5115553 [main] hellow 5652 path_conv::check: this->path(C:\cygwin\tmp), has_acls(1)
+0:    31 5115584 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    30 5115614 [main] hellow 5652 stat_worker: (/tmp, 0x22C8C0, 0, 0x6116A240), file_attributes 16
+0:   103 5115717 [main] hellow 5652 fhandler_base::open: (C:\cygwin\tmp, 0x110000)
+0:   187 5115904 [main] hellow 5652 fhandler_base::set_flags: flags 0x110000, supplied_bin 0x10000
+0:    42 5115946 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    37 5115983 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    35 5116018 [main] hellow 5652 fhandler_base::open: 0 = NtCreateFile (0x27C, 20080, C:\cygwin\tmp, io, NULL, 0, 7, 1, 4000, NULL, 0)
+0:    36 5116054 [main] hellow 5652 fhandler_base::open: 1 = fhandler_base::open (C:\cygwin\tmp, 0x110000)
+0:    36 5116090 [main] hellow 5652 fhandler_base::open_fs: 1 = fhandler_disk_file::open (C:\cygwin\tmp, 0x10000)
+0:  1628 5117718 [main] hellow 5652 get_file_attribute: file: C:\cygwin\tmp
+0:   132 5117850 [main] hellow 5652 cygpsid::debug_print: get_sids_info: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+0:   146 5117996 [main] hellow 5652 cygpsid::debug_print: get_sids_info: group SID = S-1-5-32-545
+0:    46 5118042 [main] hellow 5652 get_info_from_sd: ACL 43FF, uid 1000, gid 545
+0:    58 5118100 [main] hellow 5652 fhandler_base::fstat_helper: 0 = fstat (, 0x22C8C0) st_atime=4AAFC6DA st_size=16384, st_mode=0x43FF, st_ino=844424930194647, sizeof=96
+0:    33 5118133 [main] hellow 5652 fhandler_base::close: closing '/tmp' handle 0x27C
+0:    59 5118192 [main] hellow 5652 stat_worker: 0 = (/tmp, 0x22C8C0)
+0:    33 5118225 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    33 5118258 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    33 5118291 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    15 5118306 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   194 5118500 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    30 5118530 [main] hellow 5652 open: open (/tmp/mpich_shar_tmpz3b9zA, 0x10A02)
+0:    31 5118561 [main] hellow 5652 normalize_posix_path: src /tmp/mpich_shar_tmpz3b9zA
+0:    30 5118591 [main] hellow 5652 normalize_posix_path: /tmp/mpich_shar_tmpz3b9zA = normalize_posix_path (/tmp/mpich_shar_tmpz3b9zA)
+0:    29 5118620 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp/mpich_shar_tmpz3b9zA)
+0:    31 5118651 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    29 5118680 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /tmp/mpich_shar_tmpz3b9zA, dst C:\cygwin\tmp\mpich_shar_tmpz3b9zA, flags 0xA, rc 0
+0:    96 5118776 [main] hellow 5652 symlink_info::check: GetFileAttributes (C:\cygwin\tmp\mpich_shar_tmpz3b9zA) failed
+0:    72 5118848 [main] hellow 5652 geterrno_from_win_error: windows error 2 == errno 2
+0:    64 5118912 [main] hellow 5652 symlink_info::check: GetFileAttributes (C:\cygwin\tmp\mpich_shar_tmpz3b9zA.lnk) failed
+0:    33 5118945 [main] hellow 5652 geterrno_from_win_error: windows error 2 == errno 2
+0:    30 5118975 [main] hellow 5652 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x22C150) (0xA)
+0:    30 5119005 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp)
+0:    30 5119035 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    29 5119064 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /tmp, dst C:\cygwin\tmp, flags 0xA, rc 0
+0:    77 5119141 [main] hellow 5652 symlink_info::check: not a symlink
+0:    32 5119173 [main] hellow 5652 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp, 0x22C150) (0xA)
+0:    31 5119204 [main] hellow 5652 path_conv::check: this->path(C:\cygwin\tmp\mpich_shar_tmpz3b9zA), has_acls(1)
+0:    51 5119255 [main] hellow 5652 build_fh_pc: fh 0x6116A240
+0:    33 5119288 [main] hellow 5652 fhandler_base::open: (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x110A02)
+0:    77 5119365 [main] hellow 5652 alloc_sd: uid 1000, gid 544, attribute 180
+0:    42 5119407 [main] hellow 5652 cygpsid::debug_print: alloc_sd: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+0:    37 5119444 [main] hellow 5652 cygpsid::debug_print: alloc_sd: group SID = S-1-5-32-544
+0:    50 5119494 [main] hellow 5652 alloc_sd: ACL-Size: 88
+0:   106 5119600 [main] hellow 5652 alloc_sd: Created SD-Size: 152
+0:   496 5120096 [main] hellow 5652 fhandler_base::set_flags: flags 0x110A02, supplied_bin 0x10000
+0:    44 5120140 [main] hellow 5652 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+0:    30 5120170 [main] hellow 5652 fhandler_base::set_flags: filemode set to binary
+0:    30 5120200 [main] hellow 5652 fhandler_base::open: 0 = NtCreateFile (0x27C, C0100000, C:\cygwin\tmp\mpich_shar_tmpz3b9zA, io, NULL, 80, 7, 2, 4420, NULL, 0)
+0:    31 5120231 [main] hellow 5652 fhandler_base::open: 1 = fhandler_base::open (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x110A02)
+0:    56 5120287 [main] hellow 5652 fhandler_base::open_fs: 1 = fhandler_disk_file::open (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x10A02)
+0:    29 5120316 [main] hellow 5652 open: 4 = open (/tmp/mpich_shar_tmpz3b9zA, 0x10A02)
+0:    32 5120348 [main] hellow 5652 fhandler_base::lseek: lseek (/tmp/mpich_shar_tmpz3b9zA, 16911175, 0)
+0:    29 5120377 [main] hellow 5652 fhandler_base::lseek: setting file pointer to 0 (high), 16911175 (low)
+0:    41 5120418 [main] hellow 5652 lseek64: 16911175 = lseek (4, 16911175, 0)
+0:    40 5120458 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    33 5120491 [main] hellow 5652 sig_send: wakeup 0x280
+0:    34 5120525 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x280
+0:    36 5120561 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x280
+0:    40 5120601 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    31 5120632 [main] hellow 5652 writev: writev (4, 0x22C940, 1)
+0:    84 5120716 [main] hellow 5652 fhandler_base::write: 1 = DeviceIoControl(0x27C, FSCTL_SET_SPARSE)
+0:    33 5120749 [main] hellow 5652 fhandler_base::write: binary write
+0:   170 5120919 [main] hellow 5652 writev: 1 = write (4, 0x22C940, 1), errno 2
+0:   110 5121029 [main] hellow 5652 mmap64: addr 0, len 16911176, prot 3, flags 1, fd 4, off 0
+0:   605 5121634 [main] hellow 5652 MapViewNT: 7E6C0000 = NtMapViewOfSection (h:288, addr:0, len:16911176, off:0, protect:4, type:0)
+0:    59 5121693 [main] hellow 5652 get_file_attribute: file: C:\cygwin\tmp\mpich_shar_tmpz3b9zA
+0:    75 5121768 [main] hellow 5652 cygpsid::debug_print: get_sids_info: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+0:    32 5121800 [main] hellow 5652 cygpsid::debug_print: get_sids_info: group SID = S-1-5-32-544
+0:    31 5121831 [main] hellow 5652 get_info_from_sd: ACL 180, uid 1000, gid 544
+0:    60 5121891 [main] hellow 5652 fhandler_base::fstat_helper: 0 = fstat (, 0x22C550) st_atime=4AAFC6F6 st_size=16911176, st_mode=0x8180, st_ino=119345390125656814, sizeof=96
+0:    42 5121933 [main] hellow 5652 fstat64: 0 = fstat (4, 0x22C550)
+0:    40 5121973 [main] hellow 5652 mmap64: 0x7E6C0000 = mmap() 
+0:    30 5122003 [main] hellow 5652 close: close (4)
+0:    29 5122032 [main] hellow 5652 fhandler_base::close: closing '/tmp/mpich_shar_tmpz3b9zA' handle 0x27C
+0:  4049 5126081 [main] hellow 5652 close: 0 = close (4)
+0:   102 5126183 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    41 5126224 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    37 5126261 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:   973 5127234 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   917 5128151 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    49 5128200 [main] hellow 5652 writev: writev (3, 0x22BD30, 1)
+0:    90 5128290 [main] hellow 5652 writev: 96 = write (3, 0x22BD30, 1), errno 2
+0:    42 5128332 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    39 5128371 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    43 5128414 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   163 5128577 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:   129 5128706 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:   647 5129353 [main] hellow 5652 readv: readv (3, 0x22BD40, 1) blocking, sigcatchers 0
+0:   173 5129526 [main] hellow 5652 readv: no need to call ready_for_read
+0:  2309 5131835 [main] hellow 5652 readv: 20 = readv (3, 0x22BD40, 1), errno 2
+0:    72 5131907 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    42 5131949 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    43 5131992 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    85 5132077 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    37 5132114 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    33 5132147 [main] hellow 5652 writev: writev (3, 0x22C160, 1)
+0:   102 5132249 [main] hellow 5652 writev: 15 = write (3, 0x22C160, 1), errno 2
+0:    35 5132284 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    35 5132319 [main] hellow 5652 sig_send: wakeup 0x27C
+0:  1028 5133347 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:    83 5133430 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:    91 5133521 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:    40 5133561 [main] hellow 5652 readv: readv (3, 0x22C170, 1) blocking, sigcatchers 0
+0:    38 5133599 [main] hellow 5652 readv: no need to call ready_for_read
+1: 9038467 9322507 [main] hellow 3716 __set_errno: void __set_winsock_errno(const char*, int):234 val 119
+1:    62 9322569 [main] hellow 3716 __set_winsock_errno: connect:788 - winsock error 10036 -> errno 119
+1:    37 9322606 [main] hellow 3716 cygwin_select: 4, 0x0, 0x22C0D0, 0x22C0B0, 0x0
+1:    85 9322691 [main] hellow 3716 dtable::select_write:  fd 3
+1:    33 9322724 [main] hellow 3716 dtable::select_except:  fd 3
+1:    31 9322755 [main] hellow 3716 cygwin_select: to NULL, ms FFFFFFFF
+1:    30 9322785 [main] hellow 3716 cygwin_select: sel.always_ready 0
+1:    68 9322853 [main] hellow 3716 start_thread_socket: Handle 0x1A8
+1:    31 9322884 [main] hellow 3716 start_thread_socket: Added to writefds
+1:    30 9322914 [main] hellow 3716 start_thread_socket: Added to exceptfds
+1:   455 9323369 [main] hellow 3716 start_thread_socket: opened new socket 0x1C0
+1:    36 9323405 [main] hellow 3716 start_thread_socket: exitsock 0x1C0
+1:    31 9323436 [main] hellow 3716 start_thread_socket: stuff_start 0x22C034
+1: 31998 9355434 [select_socket] hellow 3716 cygthread::stub: thread 'select_socket', id 0xCC4, stack_ptr 0x1B1FCDA0
+1:    77 9355511 [select_socket] hellow 3716 thread_socket: stuff_start 0x1045A6C
+0: 4317889 9451488 [main] hellow 5652 readv: 16 = readv (3, 0x22C170, 1), errno 2
+1:   120 9355631 [select_socket] hellow 3716 thread_socket: Win32 select returned 1
+1:    35 9355666 [select_socket] hellow 3716 thread_socket: s 0x1042A28, testing fd 3 ()
+1:    34 9355700 [select_socket] hellow 3716 thread_socket: write_ready
+1:  9335 9365035 [main] hellow 3716 select_stuff::wait: m 2, ms 4294967295
+1:    51 9365086 [main] hellow 3716 select_stuff::wait: woke up.  wait_ret 1.  verifying
+1:    35 9365121 [main] hellow 3716 select_stuff::wait: gotone 1
+1:    33 9365154 [main] hellow 3716 select_stuff::wait: returning 0
+1:    33 9365187 [main] hellow 3716 select_stuff::cleanup: calling cleanup routines
+1:    33 9365220 [main] hellow 3716 socket_cleanup: si 0x1042A58 si->thread 0x61106F30
+1:    80 9365300 [main] hellow 3716 socket_cleanup: sent a byte to exitsock 0x1C0, res 1
+1:    72 9365372 [main] hellow 3716 socket_cleanup: reading a byte from exitsock 0x1C0
+1:    46 9365418 [main] hellow 3716 socket_cleanup: recv returned 1
+1:    64 9365482 [main] hellow 3716 socket_cleanup: returning
+1:    37 9365519 [main] hellow 3716 peek_socket: considering handle 0x1A8
+1:    34 9365553 [main] hellow 3716 peek_socket: adding except fd_set , fd 3
+1:    43 9365596 [main] hellow 3716 peek_socket: WINSOCK_SELECT returned 0
+1:    33 9365629 [main] hellow 3716 set_bits: me 0x1042A28, testing fd 3 ()
+0: 75979 9527467 [main] hellow 5652 normalize_posix_path: src /tmp/mpich_shar_tmpz3b9zA
+0:   745 9528212 [main] hellow 5652 normalize_posix_path: /tmp/mpich_shar_tmpz3b9zA = normalize_posix_path (/tmp/mpich_shar_tmpz3b9zA)
+0:   917 9529129 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp/mpich_shar_tmpz3b9zA)
+0:    44 9529173 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    33 9529206 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /tmp/mpich_shar_tmpz3b9zA, dst C:\cygwin\tmp\mpich_shar_tmpz3b9zA, flags 0xA, rc 0
+0:   141 9529347 [main] hellow 5652 symlink_info::check: not a symlink
+0:    34 9529381 [main] hellow 5652 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x22C3B0) (0xA)
+0:    34 9529415 [main] hellow 5652 path_conv::check: this->path(C:\cygwin\tmp\mpich_shar_tmpz3b9zA), has_acls(1)
+0:    31 9529446 [main] hellow 5652 unlink: _unlink (C:\cygwin\tmp\mpich_shar_tmpz3b9zA)
+0:  1605 9531051 [main] hellow 5652 seterrno_from_win_error: /ext/build/netrel1:    34 9365663 [main] hellow 3716 set_bits: ready 1
+/src/cygwin-1.5.25-15/winsup/cygwin/syscalls.cc:269 windows error 5
+0:    47 9531098 [main] hellow 5652 geterrno_from_win_error: windows error 5 == errno 13
+0:    84 9531182 [main] hellow 5652 __set_errno: void seterrno_from_win_error(const char*, int, DWORD):310 val 13
+0:   216 9531398 [main] hellow 5652 unlink: -1 = unlink (/tmp/mpich_shar_tmpz3b9zA)
+0:   616 9532014 [main] hellow 5652 normalize_posix_path: src /tmp/mpich_shar_tmpz3b9zA
+0:    98 9532112 [main] hellow 5652 normalize_posix_path: /tmp/mpich_shar_tmpz3b9zA = normalize_posix_path (/tmp/mpich_shar_tmpz3b9zA)
+0:    33 9532145 [main] hellow 5652 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp/mpich_shar_tmpz3b9zA)
+0:    32 9532177 [main] hellow 5652 set_flags: flags: binary (0x2)
+0:    29 9532206 [main] hellow 5652 mount_info::conv_to_win32_path: src_path /tmp/mpich_shar_tmpz3b9zA, dst C:\cygwin\tmp\mpich_shar_tmpz3b9zA, flags 0xA, rc 0
+0:   104 9532310 [main] hellow 5652 symlink_info::check: not a symlink
+0:    34 9532344 [main] hellow 5652 symlink_info::che1:    32 9365695 [main] hellow 3716 select_stuff::poll: returning 1
+ck: 0 = symlink.check (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x22C3B0) (0xA)
+0:    31 9532375 [main] hellow 5652 path_conv::check: this->path(C:\cygwin\tmp\mpich_shar_tmpz3b9zA), has_acls(1)
+0:    30 9532405 [main] hellow 5652 unlink: _unlink (C:\cygwin\tmp\mpich_shar_tmpz3b9zA)
+0:  2130 9534535 [main] hellow 5652 seterrno_from_win_error: /ext/build/netrel/src/cygwin-1.5.25-15/winsup/cygwin/syscalls.cc:269 windows error 5
+0:   138 9534673 [main] hellow 5652 geterrno_from_win_error: windows error 5 == errno 13
+0:   228 9534901 [main] hellow 5652 __set_errno: void seterrno_from_win_error(const char*, int, DWORD):310 val 13
+0:    33 9534934 [main] hellow 5652 unlink: -1 = unlink (/tmp/mpich_shar_tmpz3b9zA)
+0:  1458 9536392 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    43 9536435 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    35 9536470 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:   593 9537063 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   262 9537325 [main] hellow 5651:    32 9365727 [main] hellow 3716 select_stuff::cleanup: calling cleanup routines
+2 sig_send: returning 0x0 from sending signal -34
+0:    65 9537390 [main] hellow 5652 fhandler_base::write: binary write
+0:    61 9537451 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -34, its_me 1
+0:    31 9537482 [main] hellow 5652 sig_send: wakeup 0x27C
+0:    33 9537515 [main] hellow 5652 sig_send: Waiting for pack.wakeup 0x27C
+0:   180 9537695 [sig] hellow 5652 wait_sig: signalling pack.wakeup 0x27C
+0:   153 9537848 [main] hellow 5652 sig_send: returning 0x0 from sending signal -34
+0:   998 9538846 [main] hellow 5652 fhandler_base::write: binary write
+0:   628 9539474 [main] hellow 5652 close: close (0)
+0:    40 9539514 [main] hellow 5652 fhandler_base::close: closing '/Device/NamedPipe/cygwin-0x148C-0x1ahÎ"' handle 0x200
+0:    35 9539549 [main] hellow 5652 close: 0 = close (0)
+0:   325 9539874 [main] hellow 5652 close: close (1)
+0:    30 9539904 [main] hellow 5652 fhandler_base::close: closing '/Device/NamedPipe/cygwin-0x148C-0x2ahÎ"' handle 0x20C
+0:    31 9539935 [main] hellow 5652 close: 0 = close (1)
+0:  3085 95430: Fatal error in MPI_Init: Other MPI error, error stack:
+0: MPIR_Init_thread(394).....: Initialization failed
+0: MPID_Init(118)............: channel initialization failed
+0: MPIDI_CH3_Init(43)........: 
+0: MPID_nem_init_ckpt(213)...: 
+0: MPIDI_CH3I_Seg_commit(388): 
+0: MPIU_SHMW_Seg_detach(744).: unable to remove shared memory - unlink Permission denied
+rank 0 in job 1  Andy-laptop_49167   caused collective abort of all ranks
+  exit status of rank 0: killed by signal 9 
+1:    33 9365760 [main] hellow 3716 select_stuff::~select_stuff: deleting select records
+020 [main] hellow 5652 close: close (2)
+0:    40 9543060 [main] hellow 5652 fhandler_base::close: closing '/Device/NamedPipe/cygwin-0x148C-0x3ahÎ"' handle 0x21C
+0:    36 9543096 [main] hellow 5652 close: 0 = close (2)
+0:   309 9543405 [main] hellow 5652 do_exit: do_exit (256), exit_state 0
+0:    31 9543436 [main] hellow 5652 void: 0x0 = signal (20, 0x1)
+0:    30 9543466 [main] hellow 5652 void: 0x0 = signal (1, 0x1)
+0:    30 9543496 [main] hellow 5652 void: 0x0 = signal (2, 0x1)
+0:    28 9543524 [main] hellow 5652 void: 0x0 = signal (3, 0x1)
+0:   197 9543721 [main] hellow 5652 fhandler_socket::close: 0 = fhandler_socket::close()
+0:   191 9543912 [main] hellow 5652 sigproc_terminate: entering
+0:    31 9543943 [main] hellow 5652 sig_send: sendsig 0x138, pid 5652, signal -42, its_me 1
+0:    36 9543979 [main] hellow 5652 sig_send: Not waiting for sigcomplete.  its_me 1 signal -42
+0:    29 9544008 [main] hellow 5652 sig_send: returning 0x0 from sending signal -42
+0:    29 9544037 [main] hellow 5652 proc_terminate: nprocs 0
+0:    29 9544066 [1:    73 9365833 [main] hellow 3716 fhandler_socket::ioctl: socket is now blocking
+main] hellow 5652 proc_terminate: leaving
+0:   416 9544482 [main] hellow 5652 __to_clock_t: dwHighDateTime 0, dwLowDateTime 780005
+0:    39 9544521 [main] hellow 5652 __to_clock_t: total 00000000 0000004E
+0:    30 9544551 [main] hellow 5652 __to_clock_t: dwHighDateTime 0, dwLowDateTime 1092007
+0:    30 9544581 [main] hellow 5652 __to_clock_t: total 00000000 0000006D
+0:   215 9544796 [main] hellow 5652 pinfo::exit: Calling ExitProcess n 0x100, exitcode 0x1
+1:    34 9365867 [main] hellow 3716 fhandler_socket::ioctl: 0 = ioctl_socket (8004667E, 22C110)
+1:    34 9365901 [main] hellow 3716 cygwin_connect: 0 = connect (3, 0x22CB58, 16)
+1:    54 9365955 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    38 9365993 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    38 9366031 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:    44 9366075 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:    38 9366113 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    35 9366148 [main] hellow 3716 writev: writev (3, 0x22B1A0, 1)
+1:    77 9366225 [main] hellow 3716 writev: 40 = write (3, 0x22B1A0, 1), errno 119
+1:    40 9366265 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    38 9366303 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    37 9366340 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:     5 9366345 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:    66 9366411 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    35 9366446 [main] hellow 3716 readv: readv (3, 0x22B1B0, 1) blocking, sigcatchers 0
+1:    34 9366480 [main] hellow 3716 readv: no need to call ready_for_read
+1:  6949 9373429 [main] hellow 3716 readv: 57 = readv (3, 0x22B1B0, 1), errno 119
+1:   121 9373550 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    87 9373637 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    44 9373681 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:   105 9373786 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:   492 9374278 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    41 9374319 [main] hellow 3716 writev: writev (3, 0x22A970, 1)
+1:   531 9374850 [main] hellow 3716 writev: 14 = write (3, 0x22A970, 1), errno 119
+1:    45 9374895 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    39 9374934 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:   302 9375236 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:    72 9375308 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:    39 9375347 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    38 9375385 [main] hellow 3716 readv: readv (3, 0x22A980, 1) blocking, sigcatchers 0
+1:    36 9375421 [main] hellow 3716 readv: no need to call ready_for_read
+1:   846 9376267 [main] hellow 3716 readv: 59 = readv (3, 0x22A980, 1), errno 119
+1:    36 9376303 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    28 9376331 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    28 9376359 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:     2 9376361 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:    96 9376457 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    27 9376484 [main] hellow 3716 writev: writev (3, 0x22BEF0, 1)
+1:    50 9376534 [main] hellow 3716 writev: 15 = write (3, 0x22BEF0, 1), errno 119
+1:    55 9376589 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    25 9376614 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    27 9376641 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:   751 9377392 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:    58 9377450 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    28 9377478 [main] hellow 3716 readv: readv (3, 0x22BF00, 1) blocking, sigcatchers 0
+1:    26 9377504 [main] hellow 3716 readv: no need to call ready_for_read
+1:  2663 9380167 [main] hellow 3716 readv: 20 = readv (3, 0x22BF00, 1), errno 119
+1:    78 9380245 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    27 9380272 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    26 9380298 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:    48 9380346 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:    41 9380387 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    27 9380414 [main] hellow 3716 writev: writev (3, 0x22C2F0, 1)
+1:    52 9380466 [main] hellow 3716 writev: 19 = write (3, 0x22C2F0, 1), errno 119
+1:    38 9380504 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    27 9380531 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    38 9380569 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:    76 9380645 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:   158 9380803 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    58 9380861 [main] hellow 3716 readv: readv (3, 0x22C300, 1) blocking, sigcatchers 0
+1:    58 9380919 [main] hellow 3716 readv: no need to call ready_for_read
+1:  2506 9383425 [main] hellow 3716 readv: 49 = readv (3, 0x22C300, 1), errno 119
+1:   135 9383560 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    34 9383594 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    33 9383627 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:    31 9383658 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:    43 9383701 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    71 9383772 [main] hellow 3716 writev: writev (3, 0x22C2B0, 1)
+1:    62 9383834 [main] hellow 3716 writev: 19 = write (3, 0x22C2B0, 1), errno 119
+1:    39 9383873 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    29 9383902 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    29 9383931 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:     5 9383936 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:   190 9384126 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    30 9384156 [main] hellow 3716 readv: readv (3, 0x22C2C0, 1) blocking, sigcatchers 0
+1:    27 9384183 [main] hellow 3716 readv: no need to call ready_for_read
+1:   807 9384990 [main] hellow 3716 readv: 49 = readv (3, 0x22C2C0, 1), errno 119
+1:    95 9385085 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    29 9385114 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    29 9385143 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:     5 9385148 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:   122 9385270 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    31 9385301 [main] hellow 3716 writev: writev (3, 0x22BE20, 1)
+1:    52 9385353 [main] hellow 3716 writev: 62 = write (3, 0x22BE20, 1), errno 119
+1:    37 9385390 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    31 9385421 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    26 9385447 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:    27 9385474 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:   125 9385599 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    28 9385627 [main] hellow 3716 readv: readv (3, 0x22BE30, 1) blocking, sigcatchers 0
+1:    24 9385651 [main] hellow 3716 readv: no need to call ready_for_read
+1:  2241 9387892 [main] hellow 3716 readv: 43 = readv (3, 0x22BE30, 1), errno 119
+1:   144 9388036 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    29 9388065 [main] hellow 3716 sig_send: wakeup 0x1E4
+1:    28 9388093 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x1E4
+1:   254 9388347 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x1E4
+1:  1235 9389582 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1: 30439 9420021 [main] hellow 3716 cygwin_gethostname: name Andy-laptop
+1:   415 9420436 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    46 9420482 [main] hellow 3716 sig_send: wakeup 0x274
+1:    44 9420526 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x274
+1:    37 9420563 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x274
+1:    48 9420611 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    34 9420645 [main] hellow 3716 writev: writev (3, 0x22C160, 1)
+1:   140 9420785 [main] hellow 3716 writev: 15 = write (3, 0x22C160, 1), errno 119
+1:    41 9420826 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    39 9420865 [main] hellow 3716 sig_send: wakeup 0x274
+1:    44 9420909 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x274
+1:    50 9420959 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x274
+1:    34 9420993 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    36 9421029 [main] hellow 3716 readv: readv (3, 0x22C170, 1) blocking, sigcatchers 0
+1:    37 9421066 [main] hellow 3716 readv: no need to call ready_for_read
+1: 33324 9454390 [main] hellow 3716 readv: 16 = readv (3, 0x22C170, 1), errno 119
+1:   158 9454548 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    36 9454584 [main] hellow 3716 sig_send: wakeup 0x274
+1:    49 9454633 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x274
+1:   106 9454739 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x274
+1:    46 9454785 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    32 9454817 [main] hellow 3716 writev: writev (3, 0x22BD30, 1)
+1:    77 9454894 [main] hellow 3716 writev: 64 = write (3, 0x22BD30, 1), errno 119
+1:   126 9455020 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:   591 9455611 [main] hellow 3716 sig_send: wakeup 0x274
+1:    35 9455646 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x274
+1:   373 9456019 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x274
+1:  1698 9457717 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:   494 9458211 [main] hellow 3716 readv: readv (3, 0x22BD40, 1) blocking, sigcatchers 0
+1:   183 9458394 [main] hellow 3716 readv: no need to call ready_for_read
+1: 33772 9492166 [main] hellow 3716 readv: 52 = readv (3, 0x22BD40, 1), errno 119
+1:   223 9492389 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    34 9492423 [main] hellow 3716 sig_send: wakeup 0x274
+1:    34 9492457 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x274
+1:   111 9492568 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x274
+1:   287 9492855 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    74 9492929 [main] hellow 3716 open: open (/tmp/mpich_shar_tmpz3b9zA, 0x2)
+1:   617 9493546 [main] hellow 3716 normalize_posix_path: src /tmp/mpich_shar_tmpz3b9zA
+1:    39 9493585 [main] hellow 3716 normalize_posix_path: /tmp/mpich_shar_tmpz3b9zA = normalize_posix_path (/tmp/mpich_shar_tmpz3b9zA)
+1:    31 9493616 [main] hellow 3716 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp/mpich_shar_tmpz3b9zA)
+1:    31 9493647 [main] hellow 3716 set_flags: flags: binary (0x2)
+1:    30 9493677 [main] hellow 3716 mount_info::conv_to_win32_path: src_path /tmp/mpich_shar_tmpz3b9zA, dst C:\cygwin\tmp\mpich_shar_tmpz3b9zA, flags 0xA, rc 0
+1:   239 9493916 [main] hellow 3716 symlink_info::check: not a symlink
+1:    34 9493950 [main] hellow 3716 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x22C210) (0xA)
+1:  3208 9497158 [main] hellow 3716 path_conv::check: this->path(C:\cygwin\tmp\mpich_shar_tmpz3b9zA), has_acls(1)
+1:   103 9497261 [main] hellow 3716 build_fh_pc: fh 0x6116A240
+1:    70 9497331 [main] hellow 3716 fhandler_base::open: (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x100002)
+1:   382 9497713 [main] hellow 3716 fhandler_base::set_flags: flags 0x100002, supplied_bin 0x10000
+1:    56 9497769 [main] hellow 3716 fhandler_base::set_flags: filemode set to binary
+1:    41 9497810 [main] hellow 3716 fhandler_base::open: 0 = NtCreateFile (0x274, C0100000, C:\cygwin\tmp\mpich_shar_tmpz3b9zA, io, NULL, 0, 7, 1, 4420, NULL, 0)
+1:    34 9497844 [main] hellow 3716 fhandler_base::open: 1 = fhandler_base::open (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x100002)
+1:    42 9497886 [main] hellow 3716 fhandler_base::open_fs: 1 = fhandler_disk_file::open (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x2)
+1:    45 9497931 [main] hellow 3716 open: 4 = open (/tmp/mpich_shar_tmpz3b9zA, 0x2)
+1:    45 9497976 [main] hellow 3716 close: close (4)
+1:  1277 9499253 [main] hellow 3716 fhandler_base::close: closing '/tmp/mpich_shar_tmpz3b9zA' handle 0x274
+1:  1176 9500429 [main] hellow 3716 close: 0 = close (4)
+1:   255 9500684 [main] hellow 3716 sig_send: sendsig 0x128, pid 3716, signal -34, its_me 1
+1:    38 9500722 [main] hellow 3716 sig_send: wakeup 0x274
+1:    45 9500767 [main] hellow 3716 sig_send: Waiting for pack.wakeup 0x274
+1:   135 9500902 [sig] hellow 3716 wait_sig: signalling pack.wakeup 0x274
+1:   772 9501674 [main] hellow 3716 sig_send: returning 0x0 from sending signal -34
+1:    48 9501722 [main] hellow 3716 open: open (/tmp/mpich_shar_tmpz3b9zA, 0x2)
+1:    46 9501768 [main] hellow 3716 normalize_posix_path: src /tmp/mpich_shar_tmpz3b9zA
+1:    41 9501809 [main] hellow 3716 normalize_posix_path: /tmp/mpich_shar_tmpz3b9zA = normalize_posix_path (/tmp/mpich_shar_tmpz3b9zA)
+1:    39 9501848 [main] hellow 3716 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp/mpich_shar_tmpz3b9zA)
+1:    34 9501882 [main] hellow 3716 set_flags: flags: binary (0x2)
+1:  1654 9503536 [main] hellow 3716 mount_info::conv_to_win32_path: src_path /tmp/mpich_shar_tmpz3b9zA, dst C:\cygwin\tmp\mpich_shar_tmpz3b9zA, flags 0xA, rc 0
+1:   525 9504061 [main] hellow 3716 symlink_info::check: not a symlink
+1:    46 9504107 [main] hellow 3716 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x22C210) (0xA)
+1:    74 9504181 [main] hellow 3716 path_conv::check: this->path(C:\cygwin\tmp\mpich_shar_tmpz3b9zA), has_acls(1)
+1:   663 9504844 [main] hellow 3716 build_fh_pc: fh 0x6116A240
+1:    52 9504896 [main] hellow 3716 fhandler_base::open: (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x100002)
+1:  3223 9508119 [main] hellow 3716 fhandler_base::set_flags: flags 0x100002, supplied_bin 0x10000
+1:    75 9508194 [main] hellow 3716 fhandler_base::set_flags: filemode set to binary
+1:    43 9508237 [main] hellow 3716 fhandler_base::open: 0 = NtCreateFile (0x274, C0100000, C:\cygwin\tmp\mpich_shar_tmpz3b9zA, io, NULL, 0, 7, 1, 4420, NULL, 0)
+1:    33 9508270 [main] hellow 3716 fhandler_base::open: 1 = fhandler_base::open (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x100002)
+1:    42 9508312 [main] hellow 3716 fhandler_base::open_fs: 1 = fhandler_disk_file::open (C:\cygwin\tmp\mpich_shar_tmpz3b9zA, 0x2)
+1:    86 9508398 [main] hellow 3716 open: 4 = open (/tmp/mpich_shar_tmpz3b9zA, 0x2)
+1:   970 9509368 [main] hellow 3716 mmap64: addr 0, len 16911176, prot 3, flags 1, fd 4, off 0
+1:   910 9510278 [main] hellow 3716 MapViewNT: 7E6C0000 = NtMapViewOfSection (h:27C, addr:0, len:16911176, off:0, protect:4, type:0)
+1:   104 9510382 [main] hellow 3716 get_file_attribute: file: C:\cygwin\tmp\mpich_shar_tmpz3b9zA
+1:   128 9510510 [main] hellow 3716 cygpsid::debug_print: get_sids_info: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+1:    42 9510552 [main] hellow 3716 cygpsid::debug_print: get_sids_info: group SID = S-1-5-32-544
+1:   202 9510754 [main] hellow 3716 get_info_from_sd: ACL 180, uid 1000, gid 544
+1:   319 9511073 [main] hellow 3716 fhandler_base::fstat_helper: 0 = fstat (, 0x22C550) st_atime=4AAFC6F6 st_size=16911176, st_mode=0x8180, st_ino=119345390125656814, sizeof=96
+1:  2277 9513350 [main] hellow 3716 fstat64: 0 = fstat (4, 0x22C550)
+1:   186 9513536 [main] hellow 3716 mmap64: 0x7E6C0000 = mmap() 
+1:    44 9513580 [main] hellow 3716 close: close (4)
+1:    41 9513621 [main] hellow 3716 fhandler_base::close: closing '/tmp/mpich_shar_tmpz3b9zA' handle 0x274
+1:   126 9513747 [main] hellow 3716 close: 0 = close (4)

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #602: Last night's tests</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>Looks like this was broken in r4564<BR>
+Moving the check for pthread headers and funcs to line 366 (after the check of stdarg, unistd headers) in test/mpi/configure.in seems to work. Since I am not a configure expert I will let Bill decide on the right fix.<BR>
+<BR>
+-jayesh</FONT>
+</P>
+
+</BODY>
+</HTML>

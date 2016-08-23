@@ -1,0 +1,17 @@
+--- Makefile.sm	2011-08-03 01:07:07.000000000 -0400
++++ Makefile.sm.new	2011-08-27 12:32:44.858487265 -0400
+@@ -152,10 +152,10 @@
+ # UNUSED, example for experimentation only
+ #lib${MPILIBNAME}_so_EXPORTS = maint/mpi.def
+ #libf${MPILIBNAME}_so_EXPORTS = maint/fmpi.def
+-lib${MPILIBNAME}_so_LIBS   = -L. @LDFLAGS_DEPS@ @LIB_DEPS@
+-libf${MPILIBNAME}_so_LIBS   = -L. @LDFLAGS_DEPS@ -l$(MPILIBNAME) @LIB_DEPS@
+-lib${MPILIBNAME}f90_so_LIBS = -L. @LDFLAGS_DEPS@ -l$(MPILIBNAME) @LIB_DEPS@
+-lib${MPICXXLIBNAME}_so_LIBS = -L. @LDFLAGS_DEPS@ -l$(MPILIBNAME) @LIB_DEPS@
++lib${MPILIBNAME}_so_LIBS   = -L. @LDFLAGS_DEPS@ -lmpl @LIB_DEPS@
++libf${MPILIBNAME}_so_LIBS   = -L. @LDFLAGS_DEPS@ -l$(MPILIBNAME) -lmpl @LIB_DEPS@
++lib${MPILIBNAME}f90_so_LIBS = -L. @LDFLAGS_DEPS@ -l$(MPILIBNAME) -lmpl @LIB_DEPS@
++lib${MPICXXLIBNAME}_so_LIBS = -L. @LDFLAGS_DEPS@ -l$(MPILIBNAME) -lmpl @LIB_DEPS@
+ # Add CXXFLAGS to the linker incase the user has used the CXXFLAGS to 
+ # change the architecture (e.g., -m64 to force 64-bit)
+ lib${MPICXXLIBNAME}_so_LINKER = @CXX_SHL@ @CXXFLAGS@

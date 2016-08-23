@@ -1,0 +1,523 @@
+**********************************************
+Program name: C:\cygwin\home\Andy\mpich2-1.1.1p1\test_program.exe (pid 6096, ppid 1)
+App version:  1005.25, api: 0.156
+DLL version:  1005.25, api: 0.156
+DLL build:    2008-06-12 19:34
+OS version:   Windows NT-6.0
+Heap size:    402653184
+Date/Time:    2009-09-16 15:25:24
+**********************************************
+   59     532 [main] test_program 6096 set_myself: myself->dwProcessId 6096
+   55     587 [main] test_program 6096 time: 1253136324 = time (0)
+  805    1392 [main] test_program 6096 environ_init: GetEnvironmentStrings returned 0x5669D0 - "=C:=C:\cygwin\bin"
+  153    1545 [main] test_program 6096 environ_init: 0xFE0238: !C:=C:\cygwin\bin
+   77    1622 [main] test_program 6096 environ_init: 0xFE0250: ALLUSERSPROFILE=C:\ProgramData
+   73    1695 [main] test_program 6096 environ_init: 0xFE0278: APPDATA=C:\Users\Andy\AppData\Roaming
+   73    1768 [main] test_program 6096 environ_init: 0xFE02A8: CLASSPATH=.;C:\Program Files\Java\jre1.6.0_05\lib\ext\QTJava.zip
+   74    1842 [main] test_program 6096 environ_init: 0xFE02F0: COMMONPROGRAMFILES=C:\Program Files\Common Files
+   72    1914 [main] test_program 6096 environ_init: 0xFE0328: COMPUTERNAME=ANDY-LAPTOP
+   73    1987 [main] test_program 6096 environ_init: 0xFE0348: COMSPEC=C:\Windows\system32\cmd.exe
+   73    2060 [main] test_program 6096 environ_init: 0xFE0370: CVS_RSH=/bin/ssh
+   75    2135 [main] test_program 6096 parse_options: ntsec (called func)
+   73    2208 [main] test_program 6096 parse_options: server 1
+   73    2281 [main] test_program 6096 parse_options: returning
+   41    2322 [main] test_program 6096 environ_init: 0xFE0388: CYGWIN=ntsec server
+   75    2397 [main] test_program 6096 environ_init: 0xFE03C0: FP_NO_HOST_CHECK=NO
+   76    2473 [main] test_program 6096 getwinenv: can't set native for HOME= since no environ yet
+   75    2548 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy, no-keep-rel, no-add-slash)
+   43    2591 [main] test_program 6096 normalize_win32_path: C:\cygwin\home\Andy = normalize_win32_path (C:\cygwin\home\Andy)
+   45    2636 [main] test_program 6096 mount_info::conv_to_posix_path: /home/Andy = conv_to_posix_path (C:\cygwin\home\Andy)
+   94    2730 [main] test_program 6096 win_env::add_cache: posix /home/Andy
+   40    2770 [main] test_program 6096 win_env::add_cache: native HOME=C:\cygwin\home\Andy
+   42    2812 [main] test_program 6096 posify: env var converted to HOME=/home/Andy
+   74    2886 [main] test_program 6096 environ_init: 0xFE03F8: HOME=/home/Andy
+   73    2959 [main] test_program 6096 environ_init: 0xFE03D8: HOMEDRIVE=C:
+   73    3032 [main] test_program 6096 environ_init: 0xFE0538: HOMEPATH=\Users\Andy
+   73    3105 [main] test_program 6096 environ_init: 0xFE0558: HOSTNAME=Andy-laptop
+   73    3178 [main] test_program 6096 environ_init: 0xFE0578: IDL_DLM_PATH=C:\Program Files\NCAR\VAPOR\bin
+   73    3251 [main] test_program 6096 environ_init: 0xFE05B0: INFOPATH=/usr/local/info:/usr/share/info:/usr/info:
+   73    3324 [main] test_program 6096 environ_init: 0xFE05E8: JASPERINC=/usr/include
+   73    3397 [main] test_program 6096 environ_init: 0xFE0608: JASPERLIB=/usr/lib
+   73    3470 [main] test_program 6096 environ_init: 0xFE0620: LOCALAPPDATA=C:\Users\Andy\AppData\Local
+   72    3542 [main] test_program 6096 environ_init: 0xFE0650: LOGONSERVER=\\ANDY-LAPTOP
+   73    3615 [main] test_program 6096 environ_init: 0xFE0670: MAKE_MODE=unix
+   74    3689 [main] test_program 6096 environ_init: 0xFE0688: MANPATH=/usr/local/man:/usr/share/man:/usr/man::/usr/ssl/man:/usr/share/qt3/doc/man
+   74    3763 [main] test_program 6096 environ_init: 0xFE06E0: MP_STACK_SIZE=640000000
+   73    3836 [main] test_program 6096 environ_init: 0xFE0700: NETCDF=/usr/local/
+   73    3909 [main] test_program 6096 environ_init: 0xFE0718: NUMBER_OF_PROCESSORS=2
+   73    3982 [main] test_program 6096 environ_init: 0xFE0738: OLDPWD=/home/Andy
+  182    4164 [main] test_program 6096 environ_init: 0xFE0750: OMP_DYNAMIC=FALSE
+  103    4267 [main] test_program 6096 environ_init: 0xFE0768: OMP_NUM_THREADS=2
+   66    4333 [main] test_program 6096 environ_init: 0xFE0780: OS=Windows_NT
+   49    4382 [main] test_program 6096 getwinenv: can't set native for PATH= since no environ yet
+   33    4415 [main] test_program 6096 normalize_posix_path: src .
+   31    4446 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1, no-keep-rel, no-add-slash)
+   38    4484 [main] test_program 6096 normalize_win32_path: C:\cygwin\home\Andy\mpich2-1.1.1p1 = normalize_win32_path (C:\cygwin\home\Andy\mpich2-1.1.1p1)
+   29    4513 [main] test_program 6096 mount_info::conv_to_posix_path: /home/Andy/mpich2-1.1.1p1 = conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1)
+   30    4543 [main] test_program 6096 cwdstuff::get: posix /home/Andy/mpich2-1.1.1p1
+   30    4573 [main] test_program 6096 cwdstuff::get: (/home/Andy/mpich2-1.1.1p1) = cwdstuff::get (0x22C860, 260, 1, 0), errno 0
+   29    4602 [main] test_program 6096 normalize_posix_path: /home/Andy/mpich2-1.1.1p1/ = normalize_posix_path (.)
+   28    4630 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/home/Andy/mpich2-1.1.1p1)
+   35    4665 [main] test_program 6096 set_flags: flags: binary (0x2)
+   28    4693 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /home/Andy/mpich2-1.1.1p1, dst C:\cygwin\home\Andy\mpich2-1.1.1p1, flags 0xA, rc 0
+   88    4781 [main] test_program 6096 symlink_info::check: not a symlink
+   57    4838 [main] test_program 6096 symlink_info::check: 0 = symlink.check (C:\cygwin\home\Andy\mpich2-1.1.1p1, 0x22C520) (0xA)
+  600    5438 [main] test_program 6096 set_privilege: 1 = set_privilege ((token 108) SeChangeNotifyPrivilege, 1)
+  143    5581 [main] test_program 6096 path_conv::check: this->path(C:\cygwin\home\Andy\mpich2-1.1.1p1), has_acls(1)
+   88    5669 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy, keep-rel, no-add-slash)
+   39    5708 [main] test_program 6096 normalize_win32_path: C:\cygwin\home\Andy = normalize_win32_path (C:\cygwin\home\Andy)
+   41    5749 [main] test_program 6096 mount_info::conv_to_posix_path: /home/Andy = conv_to_posix_path (C:\cygwin\home\Andy)
+   41    5790 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\bin, keep-rel, no-add-slash)
+   40    5830 [main] test_program 6096 normalize_win32_path: C:\cygwin\home\Andy\bin = normalize_win32_path (C:\cygwin\home\Andy\bin)
+   42    5872 [main] test_program 6096 mount_info::conv_to_posix_path: /home/Andy/bin = conv_to_posix_path (C:\cygwin\home\Andy\bin)
+   40    5912 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\local\bin, keep-rel, no-add-slash)
+   41    5953 [main] test_program 6096 normalize_win32_path: C:\cygwin\usr\local\bin = normalize_win32_path (C:\cygwin\usr\local\bin)
+   41    5994 [main] test_program 6096 mount_info::conv_to_posix_path: /usr/local/bin = conv_to_posix_path (C:\cygwin\usr\local\bin)
+   41    6035 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\bin, keep-rel, no-add-slash)
+   41    6076 [main] test_program 6096 normalize_win32_path: C:\cygwin\bin = normalize_win32_path (C:\cygwin\bin)
+   42    6118 [main] test_program 6096 mount_info::conv_to_posix_path: /usr/bin = conv_to_posix_path (C:\cygwin\bin)
+   41    6159 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\bin, keep-rel, no-add-slash)
+   41    6200 [main] test_program 6096 normalize_win32_path: C:\cygwin\bin = normalize_win32_path (C:\cygwin\bin)
+   41    6241 [main] test_program 6096 mount_info::conv_to_posix_path: /usr/bin = conv_to_posix_path (C:\cygwin\bin)
+   42    6283 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\X11R6\bin, keep-rel, no-add-slash)
+   40    6323 [main] test_program 6096 normalize_win32_path: C:\cygwin\usr\X11R6\bin = normalize_win32_path (C:\cygwin\usr\X11R6\bin)
+   82    6405 [main] test_program 6096 mount_info::conv_to_posix_path: /usr/X11R6/bin = conv_to_posix_path (C:\cygwin\usr\X11R6\bin)
+   44    6449 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows\system32, keep-rel, no-add-slash)
+   41    6490 [main] test_program 6096 normalize_win32_path: c:\Windows\system32 = normalize_win32_path (c:\Windows\system32)
+   42    6532 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Windows/system32 = conv_to_posix_path (c:\Windows\system32)
+   41    6573 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows, keep-rel, no-add-slash)
+   41    6614 [main] test_program 6096 normalize_win32_path: c:\Windows = normalize_win32_path (c:\Windows)
+   42    6656 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Windows = conv_to_posix_path (c:\Windows)
+   41    6697 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Windows\System32\Wbem, keep-rel, no-add-slash)
+   41    6738 [main] test_program 6096 normalize_win32_path: c:\Windows\System32\Wbem = normalize_win32_path (c:\Windows\System32\Wbem)
+   42    6780 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Windows/System32/Wbem = conv_to_posix_path (c:\Windows\System32\Wbem)
+   41    6821 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\, keep-rel, add-slash)
+   41    6862 [main] test_program 6096 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+   41    6903 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+   42    6945 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\, keep-rel, add-slash)
+   40    6985 [main] test_program 6096 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+   42    7027 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\DLLShared\)
+   41    7068 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\, keep-rel, add-slash)
+   41    7109 [main] test_program 6096 normalize_win32_path: c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\ = normalize_win32_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\)
+   42    7151 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/ = conv_to_posix_path (c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\)
+   41    7192 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\QuickTime\QTSystem\, keep-rel, add-slash)
+   41    7233 [main] test_program 6096 normalize_win32_path: c:\Program Files\QuickTime\QTSystem\ = normalize_win32_path (c:\Program Files\QuickTime\QTSystem\)
+   41    7274 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/QuickTime/QTSystem/ = conv_to_posix_path (c:\Program Files\QuickTime\QTSystem\)
+   41    7315 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\NCAR\VAPOR\bin, keep-rel, no-add-slash)
+   41    7356 [main] test_program 6096 normalize_win32_path: c:\Program Files\NCAR\VAPOR\bin = normalize_win32_path (c:\Program Files\NCAR\VAPOR\bin)
+   41    7397 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/NCAR/VAPOR/bin = conv_to_posix_path (c:\Program Files\NCAR\VAPOR\bin)
+   41    7438 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (c:\Program Files\SSH Communications Security\SSH Secure Shell, keep-rel, no-add-slash)
+   43    7481 [main] test_program 6096 normalize_win32_path: c:\Program Files\SSH Communications Security\SSH Secure Shell = normalize_win32_path (c:\Program Files\SSH Communications Security\SSH Secure Shell)
+   43    7524 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell = conv_to_posix_path (c:\Program Files\SSH Communications Security\SSH Secure Shell)
+   42    7566 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\lib\lapack, keep-rel, no-add-slash)
+   41    7607 [main] test_program 6096 normalize_win32_path: C:\cygwin\lib\lapack = normalize_win32_path (C:\cygwin\lib\lapack)
+   42    7649 [main] test_program 6096 mount_info::conv_to_posix_path: /usr/lib/lapack = conv_to_posix_path (C:\cygwin\lib\lapack)
+   40    7689 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\usr\local\mpich2\bin, keep-rel, no-add-slash)
+   41    7730 [main] test_program 6096 normalize_win32_path: C:\cygwin\usr\local\mpich2\bin = normalize_win32_path (C:\cygwin\usr\local\mpich2\bin)
+   42    7772 [main] test_program 6096 mount_info::conv_to_posix_path: /usr/local/mpich2/bin = conv_to_posix_path (C:\cygwin\usr\local\mpich2\bin)
+  105    7877 [main] test_program 6096 win_env::add_cache: posix /home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+   51    7928 [main] test_program 6096 win_env::add_cache: native PATH=C:\cygwin\home\Andy;C:\cygwin\home\Andy\bin;C:\cygwin\usr\local\bin;C:\cygwin\bin;C:\cygwin\bin;C:\cygwin\usr\X11R6\bin;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Program Files\Common Files\Roxio Shared\DLLShared\;c:\Program Files\Common Files\Roxio Shared\DLLShared\;c:\Program Files\Common Files\Roxio Shared\9.0\DLLShared\;c:\Program Files\QuickTime\QTSystem\;c:\Program Files\NCAR\VAPOR\bin;c:\Program Files\SSH Communications Security\SSH Secure Shell;C:\cygwin\lib\lapack;C:\cygwin\usr\local\mpich2\bin
+   45    7973 [main] test_program 6096 posify: env var converted to PATH=/home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+   77    8050 [main] test_program 6096 environ_init: 0xFE09B0: PATH=/home/Andy:/home/Andy/bin:/usr/local/bin:/usr/bin:/usr/bin:/usr/X11R6/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/DLLShared/:/cygdrive/c/Program Files/Common Files/Roxio Shared/9.0/DLLShared/:/cygdrive/c/Program Files/QuickTime/QTSystem/:/cygdrive/c/Program Files/NCAR/VAPOR/bin:/cygdrive/c/Program Files/SSH Communications Security/SSH Secure Shell:/usr/lib/lapack:/usr/local/mpich2/bin
+   71    8121 [main] test_program 6096 environ_init: 0xFE0798: PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+   80    8201 [main] test_program 6096 environ_init: 0xFE07E0: PRINTER=Microsoft XPS Document Writer
+  124    8325 [main] test_program 6096 environ_init: 0xFE0810: PROCESSOR_ARCHITECTURE=x86
+   75    8400 [main] test_program 6096 environ_init: 0xFE0830: PROCESSOR_IDENTIFIER=x86 Family 6 Model 15 Stepping 10, GenuineIntel
+   74    8474 [main] test_program 6096 environ_init: 0xFE0880: PROCESSOR_LEVEL=6
+   74    8548 [main] test_program 6096 environ_init: 0xFE0898: PROCESSOR_REVISION=0f0a
+   74    8622 [main] test_program 6096 environ_init: 0xFE08B8: PROGRAMDATA=C:\ProgramData
+   74    8696 [main] test_program 6096 environ_init: 0xFE08D8: PROGRAMFILES=C:\Program Files
+   74    8770 [main] test_program 6096 environ_init: 0xFE0900: PROMPT=$P$G
+   73    8843 [main] test_program 6096 environ_init: 0xFE0910: PS1=\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ 
+   75    8918 [main] test_program 6096 environ_init: 0xFE0958: PUBLIC=C:\Users\Public
+   74    8992 [main] test_program 6096 environ_init: 0xFE0978: PWD=/home/Andy/mpich2-1.1.1p1
+   74    9066 [main] test_program 6096 environ_init: 0xFE12C8: QMAKESPEC=/usr/lib/qt3/mkspecs/cygwin-g++
+   75    9141 [main] test_program 6096 environ_init: 0xFE12F8: QTDIR=/usr/lib/qt3
+   74    9215 [main] test_program 6096 environ_init: 0xFE1310: QTJAVA=C:\Program Files\Java\jre1.6.0_05\lib\ext\QTJava.zip
+   74    9289 [main] test_program 6096 environ_init: 0xFE1350: ROXIOCENTRAL=C:\Program Files\Common Files\Roxio Shared\9.0\Roxio Central33\
+   74    9363 [main] test_program 6096 environ_init: 0xFE09A0: SHLVL=1
+   75    9438 [main] test_program 6096 environ_init: 0xFE13A8: SYSTEMDRIVE=C:
+   76    9514 [main] test_program 6096 environ_init: 0xFE13C0: SYSTEMROOT=C:\Windows
+   74    9588 [main] test_program 6096 getwinenv: can't set native for TEMP= since no environ yet
+   74    9662 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\Users\Andy\AppData\Local\Temp, no-keep-rel, no-add-slash)
+   41    9703 [main] test_program 6096 normalize_win32_path: C:\Users\Andy\AppData\Local\Temp = normalize_win32_path (C:\Users\Andy\AppData\Local\Temp)
+   42    9745 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Users/Andy/AppData/Local/Temp = conv_to_posix_path (C:\Users\Andy\AppData\Local\Temp)
+  108    9853 [main] test_program 6096 win_env::add_cache: posix /cygdrive/c/Users/Andy/AppData/Local/Temp
+   40    9893 [main] test_program 6096 win_env::add_cache: native TEMP=C:\Users\Andy\AppData\Local\Temp
+   41    9934 [main] test_program 6096 posify: env var converted to TEMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+   74   10008 [main] test_program 6096 environ_init: 0xFE1410: TEMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+   76   10084 [main] test_program 6096 environ_init: 0xFE13E0: TERM=cygwin
+   73   10157 [main] test_program 6096 environ_init: 0xFE13F0: TEXDOCVIEW_DVI=cygstart %s
+   74   10231 [main] test_program 6096 environ_init: 0xFE1580: TEXDOCVIEW_HTML=cygstart %s
+   74   10305 [main] test_program 6096 environ_init: 0xFE15A0: TEXDOCVIEW_PDF=cygstart %s
+   74   10379 [main] test_program 6096 environ_init: 0xFE15C0: TEXDOCVIEW_PS=cygstart %s
+   74   10453 [main] test_program 6096 environ_init: 0xFE15E0: TEXDOCVIEW_TXT=cygstart %s
+   74   10527 [main] test_program 6096 getwinenv: can't set native for TMP= since no environ yet
+   73   10600 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\Users\Andy\AppData\Local\Temp, no-keep-rel, no-add-slash)
+   40   10640 [main] test_program 6096 normalize_win32_path: C:\Users\Andy\AppData\Local\Temp = normalize_win32_path (C:\Users\Andy\AppData\Local\Temp)
+   42   10682 [main] test_program 6096 mount_info::conv_to_posix_path: /cygdrive/c/Users/Andy/AppData/Local/Temp = conv_to_posix_path (C:\Users\Andy\AppData\Local\Temp)
+  108   10790 [main] test_program 6096 win_env::add_cache: posix /cygdrive/c/Users/Andy/AppData/Local/Temp
+   40   10830 [main] test_program 6096 win_env::add_cache: native TMP=C:\Users\Andy\AppData\Local\Temp
+   42   10872 [main] test_program 6096 posify: env var converted to TMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+   77   10949 [main] test_program 6096 environ_init: 0xFE1630: TMP=/cygdrive/c/Users/Andy/AppData/Local/Temp
+   74   11023 [main] test_program 6096 environ_init: 0xFE1600: USER=Andy
+   74   11097 [main] test_program 6096 environ_init: 0xFE1610: USERDOMAIN=Andy-laptop
+   74   11171 [main] test_program 6096 environ_init: 0xFE17A0: USERNAME=Andy
+   74   11245 [main] test_program 6096 environ_init: 0xFE17B8: USERPROFILE=C:\Users\Andy
+   74   11319 [main] test_program 6096 environ_init: 0xFE17D8: VAPOR_HOME=C:\Program Files\NCAR\VAPOR
+   74   11393 [main] test_program 6096 environ_init: 0xFE1808: VAPOR_SHARE=C:\Program Files\NCAR\VAPOR\share
+   74   11467 [main] test_program 6096 environ_init: 0xFE1840: WINDIR=C:\Windows
+   73   11540 [main] test_program 6096 environ_init: 0xFE1858: WRF_MACH=i686
+   73   11613 [main] test_program 6096 environ_init: 0xFE1870: WRF_OS=Linux
+   74   11687 [main] test_program 6096 environ_init: 0xFE1888: _=/usr/bin/strace
+   48   11735 [main] test_program 6096 pinfo_init: Set nice to 0
+   38   11773 [main] test_program 6096 pinfo_init: pid 6096, pgid 6096
+  517   12290 [main] test_program 6096 set_privilege: 0 = set_privilege ((token E8) SeRestorePrivilege, 1)
+  520   12810 [main] test_program 6096 set_privilege: 0 = set_privilege ((token E8) SeBackupPrivilege, 1)
+   50   12860 [main] test_program 6096 set_privilege: 1 = set_privilege ((token E8) SeChangeNotifyPrivilege, 1)
+   89   12949 [main] test_program 6096 dtable::extend: size 32, fds 0x611696D0
+   57   13006 [main] test_program 6096 normalize_posix_path: src /etc/passwd
+   39   13045 [main] test_program 6096 normalize_posix_path: /etc/passwd = normalize_posix_path (/etc/passwd)
+   42   13087 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/etc/passwd)
+   41   13128 [main] test_program 6096 set_flags: flags: binary (0x2)
+   41   13169 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /etc/passwd, dst C:\cygwin\etc\passwd, flags 0xA, rc 0
+   95   13264 [main] test_program 6096 symlink_info::check: not a symlink
+   49   13313 [main] test_program 6096 symlink_info::check: 0 = symlink.check (C:\cygwin\etc\passwd, 0x22C5E0) (0xA)
+   41   13354 [main] test_program 6096 path_conv::check: this->path(C:\cygwin\etc\passwd), has_acls(1)
+  133   13487 [main] test_program 6096 etc::test_file_change: FindFirstFile succeeded
+  379   13866 [main] test_program 6096 pwdgrp::load: /etc/passwd curr_lines 10
+   40   13906 [main] test_program 6096 pwdgrp::load: /etc/passwd load succeeded
+   55   13961 [main] test_program 6096 normalize_posix_path: src /etc/group
+   48   14009 [main] test_program 6096 normalize_posix_path: /etc/group = normalize_posix_path (/etc/group)
+   41   14050 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/etc/group)
+   44   14094 [main] test_program 6096 set_flags: flags: binary (0x2)
+   38   14132 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /etc/group, dst C:\cygwin\etc\group, flags 0xA, rc 0
+   88   14220 [main] test_program 6096 symlink_info::check: not a symlink
+   48   14268 [main] test_program 6096 symlink_info::check: 0 = symlink.check (C:\cygwin\etc\group, 0x22C5B0) (0xA)
+   41   14309 [main] test_program 6096 path_conv::check: this->path(C:\cygwin\etc\group), has_acls(1)
+  118   14427 [main] test_program 6096 etc::test_file_change: FindFirstFile succeeded
+  377   14804 [main] test_program 6096 pwdgrp::load: /etc/group curr_lines 11
+   40   14844 [main] test_program 6096 pwdgrp::load: /etc/group load succeeded
+   46   14890 [main] test_program 6096 cygheap_user::ontherange: what 2, pw 0xFE1D48
+   40   14930 [main] test_program 6096 cygheap_user::ontherange: HOME is already in the environment /home/Andy
+   86   15016 [main] test_program 6096 wait_for_sigthread: wait_sig_inited 0x3C
+ 4895   19911 [sig] test_program 6096 wait_sig: entering ReadFile loop, my_readsig 0x114, my_sendsig 0x11C
+   11   19922 [main] test_program 6096 wait_for_sigthread: process/signal handling enabled, state 0x41
+  208   20130 [main] test_program 6096 build_argv: argv[0] = 'test_program.exe'
+   40   20170 [main] test_program 6096 build_argv: argc 1
+  168   20338 [main] test_program 6096 build_fh_pc: fh 0x61169818
+   72   20410 [main] test_program 6096 open_shared: name (null), n 0, shared 0x60020000 (wanted 0x60020000), h 0x3C
+   54   20464 [main] test_program 6096 _pinfo::set_ctty: old no ctty
+   41   20505 [main] test_program 6096 _pinfo::set_ctty: attaching ctty /dev/console sid 6096, pid 6096, pgid 6096, tty->pgid 0, tty->sid 6096
+12231   32736 [main] test_program 6096 fhandler_base::set_flags: flags 0x10002, supplied_bin 0x0
+   66   32802 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   41   32843 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+  157   33000 [main] test_program 6096 init_cygheap::manage_console_count: fhandler_console::open: console_count 1, amount 1, ctty /dev/console, avoid_freeing_console 0
+  114   33114 [main] test_program 6096 fhandler_console::open: opened conin$ 0x3, conout$ 0xF
+   92   33206 [main] test_program 6096 fhandler_console::output_tcsetattr: 0 = tcsetattr (,6002001C) (ENABLE FLAGS 3) (lflag 107 oflag 9)
+  218   33424 [main] test_program 6096 handle_to_fn: nt name '\Device\HarddiskVolume3\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log'
+  709   34133 [main] test_program 6096 handle_to_fn: current match '\Device\HarddiskVolume3'
+   65   34198 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log, no-keep-rel, no-add-slash)
+   50   34248 [main] test_program 6096 normalize_win32_path: C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log = normalize_win32_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log)
+   42   34290 [main] test_program 6096 mount_info::conv_to_posix_path: /home/Andy/mpich2-1.1.1p1/successful_code.log = conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log)
+   40   34330 [main] test_program 6096 handle_to_fn: derived path 'C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log', posix '/home/Andy/mpich2-1.1.1p1/successful_code.log'
+   41   34371 [main] test_program 6096 normalize_posix_path: src /home/Andy/mpich2-1.1.1p1/successful_code.log
+   40   34411 [main] test_program 6096 normalize_posix_path: /home/Andy/mpich2-1.1.1p1/successful_code.log = normalize_posix_path (/home/Andy/mpich2-1.1.1p1/successful_code.log)
+   42   34453 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/home/Andy/mpich2-1.1.1p1/successful_code.log)
+   42   34495 [main] test_program 6096 set_flags: flags: binary (0x2)
+   40   34535 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /home/Andy/mpich2-1.1.1p1/successful_code.log, dst C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log, flags 0xA, rc 0
+  138   34673 [main] test_program 6096 symlink_info::check: not a symlink
+   49   34722 [main] test_program 6096 symlink_info::check: 0 = symlink.check (C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log, 0x224160) (0xA)
+   44   34766 [main] test_program 6096 path_conv::check: this->path(C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log), has_acls(1)
+   45   34811 [main] test_program 6096 build_fh_pc: fh 0x61169A20
+   42   34853 [main] test_program 6096 fhandler_base::set_flags: flags 0x10001, supplied_bin 0x0
+   39   34892 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   41   34933 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   41   34974 [main] test_program 6096 fhandler_base::init: created new fhandler_base for handle 0x224, bin 1
+  182   35156 [main] test_program 6096 handle_to_fn: nt name '\Device\HarddiskVolume3\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log'
+  666   35822 [main] test_program 6096 handle_to_fn: current match '\Device\HarddiskVolume3'
+   65   35887 [main] test_program 6096 mount_info::conv_to_posix_path: conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log, no-keep-rel, no-add-slash)
+   40   35927 [main] test_program 6096 normalize_win32_path: C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log = normalize_win32_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log)
+   47   35974 [main] test_program 6096 mount_info::conv_to_posix_path: /home/Andy/mpich2-1.1.1p1/successful_code.log = conv_to_posix_path (C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log)
+   43   36017 [main] test_program 6096 handle_to_fn: derived path 'C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log', posix '/home/Andy/mpich2-1.1.1p1/successful_code.log'
+   42   36059 [main] test_program 6096 normalize_posix_path: src /home/Andy/mpich2-1.1.1p1/successful_code.log
+   41   36100 [main] test_program 6096 normalize_posix_path: /home/Andy/mpich2-1.1.1p1/successful_code.log = normalize_posix_path (/home/Andy/mpich2-1.1.1p1/successful_code.log)
+   42   36142 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/home/Andy/mpich2-1.1.1p1/successful_code.log)
+   42   36184 [main] test_program 6096 set_flags: flags: binary (0x2)
+   41   36225 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /home/Andy/mpich2-1.1.1p1/successful_code.log, dst C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log, flags 0xA, rc 0
+  113   36338 [main] test_program 6096 symlink_info::check: not a symlink
+   49   36387 [main] test_program 6096 symlink_info::check: 0 = symlink.check (C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log, 0x224160) (0xA)
+   42   36429 [main] test_program 6096 path_conv::check: this->path(C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log), has_acls(1)
+   43   36472 [main] test_program 6096 build_fh_pc: fh 0x61169C28
+   39   36511 [main] test_program 6096 fhandler_base::set_flags: flags 0x10001, supplied_bin 0x0
+   40   36551 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   41   36592 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   42   36634 [main] test_program 6096 fhandler_base::init: created new fhandler_base for handle 0x260, bin 1
+  107   36741 [main] test_program 6096 fhandler_console::need_invisible: invisible_console 0
+   50   36791 [main] test_program 6096 dll_crt0_1: user_data->main 0x401100
+   41   36832 [main] test_program 6096 __set_errno: void dll_crt0_1(void*):946 val 0
+  146   36978 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   42   37020 [main] test_program 6096 sig_send: wakeup 0x124
+   44   37064 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+   53   37117 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   48   37165 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   38   37203 [main] test_program 6096 open: open (/dev/urandom, 0x0)
+   40   37243 [main] test_program 6096 normalize_posix_path: src /dev/urandom
+   41   37284 [main] test_program 6096 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   41   37325 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   42   37367 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   45   37412 [main] test_program 6096 build_fh_pc: fh 0x61169E30
+   41   37453 [main] test_program 6096 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   37   37490 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   42   37532 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   40   37572 [main] test_program 6096 open: 3 = open (/dev/urandom, 0x0)
+   42   37614 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   43   37657 [main] test_program 6096 sig_send: wakeup 0x124
+   42   37699 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+   51   37750 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+  112   37862 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   45   37907 [main] test_program 6096 readv: readv (3, 0x22CB70, 1) blocking, sigcatchers 0
+   42   37949 [main] test_program 6096 readv: no need to call ready_for_read
+18550   56499 [main] test_program 6096 readv: 4 = readv (3, 0x22CB70, 1), errno 0
+   80   56579 [main] test_program 6096 close: close (3)
+   54   56633 [main] test_program 6096 close: 0 = close (3)
+   44   56677 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   48   56725 [main] test_program 6096 sig_send: wakeup 0x124
+   50   56775 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+   57   56832 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   52   56884 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   43   56927 [main] test_program 6096 open: open (/dev/urandom, 0x0)
+   31   56958 [main] test_program 6096 normalize_posix_path: src /dev/urandom
+   29   56987 [main] test_program 6096 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   29   57016 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   30   57046 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   31   57077 [main] test_program 6096 build_fh_pc: fh 0x61169E30
+   31   57108 [main] test_program 6096 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   36   57144 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   29   57173 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   29   57202 [main] test_program 6096 open: 3 = open (/dev/urandom, 0x0)
+   29   57231 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   31   57262 [main] test_program 6096 sig_send: wakeup 0x124
+   35   57297 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+    4   57301 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   87   57388 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   41   57429 [main] test_program 6096 readv: readv (3, 0x22CB70, 1) blocking, sigcatchers 0
+   30   57459 [main] test_program 6096 readv: no need to call ready_for_read
+  484   57943 [main] test_program 6096 readv: 4 = readv (3, 0x22CB70, 1), errno 0
+   41   57984 [main] test_program 6096 close: close (3)
+  101   58085 [main] test_program 6096 close: 0 = close (3)
+   38   58123 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   31   58154 [main] test_program 6096 sig_send: wakeup 0x124
+   35   58189 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+    4   58193 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   89   58282 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   41   58323 [main] test_program 6096 open: open (/dev/urandom, 0x0)
+   29   58352 [main] test_program 6096 normalize_posix_path: src /dev/urandom
+   28   58380 [main] test_program 6096 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   29   58409 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   29   58438 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   30   58468 [main] test_program 6096 build_fh_pc: fh 0x61169E30
+   29   58497 [main] test_program 6096 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   29   58526 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   29   58555 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   29   58584 [main] test_program 6096 open: 3 = open (/dev/urandom, 0x0)
+   32   58616 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   30   58646 [main] test_program 6096 sig_send: wakeup 0x124
+   31   58677 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+   35   58712 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   53   58765 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   41   58806 [main] test_program 6096 readv: readv (3, 0x22CB70, 1) blocking, sigcatchers 0
+   30   58836 [main] test_program 6096 readv: no need to call ready_for_read
+  465   59301 [main] test_program 6096 readv: 4 = readv (3, 0x22CB70, 1), errno 0
+   41   59342 [main] test_program 6096 close: close (3)
+  101   59443 [main] test_program 6096 close: 0 = close (3)
+   38   59481 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   31   59512 [main] test_program 6096 sig_send: wakeup 0x124
+   31   59543 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+   34   59577 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   55   59632 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   41   59673 [main] test_program 6096 open: open (/dev/urandom, 0x0)
+   29   59702 [main] test_program 6096 normalize_posix_path: src /dev/urandom
+   29   59731 [main] test_program 6096 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   29   59760 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   30   59790 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   29   59819 [main] test_program 6096 build_fh_pc: fh 0x61169E30
+   30   59849 [main] test_program 6096 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   29   59878 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   29   59907 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   29   59936 [main] test_program 6096 open: 3 = open (/dev/urandom, 0x0)
+   29   59965 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   31   59996 [main] test_program 6096 sig_send: wakeup 0x124
+   32   60028 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+   34   60062 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   52   60114 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   41   60155 [main] test_program 6096 readv: readv (3, 0x22CB70, 1) blocking, sigcatchers 0
+   30   60185 [main] test_program 6096 readv: no need to call ready_for_read
+  464   60649 [main] test_program 6096 readv: 4 = readv (3, 0x22CB70, 1), errno 0
+   41   60690 [main] test_program 6096 close: close (3)
+  101   60791 [main] test_program 6096 close: 0 = close (3)
+   39   60830 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   31   60861 [main] test_program 6096 sig_send: wakeup 0x124
+   34   60895 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+    4   60899 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   88   60987 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   42   61029 [main] test_program 6096 open: open (/dev/urandom, 0x0)
+   29   61058 [main] test_program 6096 normalize_posix_path: src /dev/urandom
+   29   61087 [main] test_program 6096 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   29   61116 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   29   61145 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   30   61175 [main] test_program 6096 build_fh_pc: fh 0x61169E30
+   29   61204 [main] test_program 6096 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   29   61233 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   29   61262 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   30   61292 [main] test_program 6096 open: 3 = open (/dev/urandom, 0x0)
+   29   61321 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   33   61354 [main] test_program 6096 sig_send: wakeup 0x124
+   32   61386 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+   34   61420 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   52   61472 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   41   61513 [main] test_program 6096 readv: readv (3, 0x22CB70, 1) blocking, sigcatchers 0
+   30   61543 [main] test_program 6096 readv: no need to call ready_for_read
+  463   62006 [main] test_program 6096 readv: 4 = readv (3, 0x22CB70, 1), errno 0
+   41   62047 [main] test_program 6096 close: close (3)
+  101   62148 [main] test_program 6096 close: 0 = close (3)
+   39   62187 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   30   62217 [main] test_program 6096 sig_send: wakeup 0x124
+   34   62251 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+    5   62256 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   88   62344 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   41   62385 [main] test_program 6096 open: open (/dev/urandom, 0x0)
+   29   62414 [main] test_program 6096 normalize_posix_path: src /dev/urandom
+   29   62443 [main] test_program 6096 normalize_posix_path: /dev/urandom = normalize_posix_path (/dev/urandom)
+   29   62472 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/dev/urandom)
+   29   62501 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /dev/urandom, dst \dev\urandom, flags 0x2, rc 0
+   30   62531 [main] test_program 6096 build_fh_pc: fh 0x61169E30
+   29   62560 [main] test_program 6096 fhandler_base::set_flags: flags 0x10000, supplied_bin 0x0
+   30   62590 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   29   62619 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   29   62648 [main] test_program 6096 open: 3 = open (/dev/urandom, 0x0)
+   29   62677 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   30   62707 [main] test_program 6096 sig_send: wakeup 0x124
+   31   62738 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+   34   62772 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   53   62825 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   41   62866 [main] test_program 6096 readv: readv (3, 0x22CB70, 1) blocking, sigcatchers 0
+   30   62896 [main] test_program 6096 readv: no need to call ready_for_read
+  464   63360 [main] test_program 6096 readv: 4 = readv (3, 0x22CB70, 1), errno 0
+   40   63400 [main] test_program 6096 close: close (3)
+  101   63501 [main] test_program 6096 close: 0 = close (3)
+   43   63544 [main] test_program 6096 stat64: entering
+   39   63583 [main] test_program 6096 normalize_posix_path: src /tmp
+   29   63612 [main] test_program 6096 normalize_posix_path: /tmp = normalize_posix_path (/tmp)
+   37   63649 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp)
+   30   63679 [main] test_program 6096 set_flags: flags: binary (0x2)
+   29   63708 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /tmp, dst C:\cygwin\tmp, flags 0xA, rc 0
+   96   63804 [main] test_program 6096 symlink_info::check: not a symlink
+   40   63844 [main] test_program 6096 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp, 0x22C440) (0xA)
+   31   63875 [main] test_program 6096 path_conv::check: this->path(C:\cygwin\tmp), has_acls(1)
+   30   63905 [main] test_program 6096 build_fh_pc: fh 0x61169E30
+   29   63934 [main] test_program 6096 stat_worker: (/tmp, 0x22CBB0, 0, 0x61169E30), file_attributes 16
+   44   63978 [main] test_program 6096 fhandler_base::open: (C:\cygwin\tmp, 0x110000)
+  111   64089 [main] test_program 6096 fhandler_base::set_flags: flags 0x110000, supplied_bin 0x10000
+   41   64130 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   32   64162 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   29   64191 [main] test_program 6096 fhandler_base::open: 0 = NtCreateFile (0x124, 20080, C:\cygwin\tmp, io, NULL, 0, 7, 1, 4000, NULL, 0)
+   31   64222 [main] test_program 6096 fhandler_base::open: 1 = fhandler_base::open (C:\cygwin\tmp, 0x110000)
+   36   64258 [main] test_program 6096 fhandler_base::open_fs: 1 = fhandler_disk_file::open (C:\cygwin\tmp, 0x10000)
+  372   64630 [main] test_program 6096 get_file_attribute: file: C:\cygwin\tmp
+   91   64721 [main] test_program 6096 cygpsid::debug_print: get_sids_info: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+   40   64761 [main] test_program 6096 cygpsid::debug_print: get_sids_info: group SID = S-1-5-32-544
+   33   64794 [main] test_program 6096 get_info_from_sd: ACL 43FF, uid 1000, gid 544
+   51   64845 [main] test_program 6096 fhandler_base::fstat_helper: 0 = fstat (, 0x22CBB0) st_atime=4AB15750 st_size=28672, st_mode=0x43FF, st_ino=844424930194647, sizeof=96
+   32   64877 [main] test_program 6096 fhandler_base::close: closing '/tmp' handle 0x124
+   57   64934 [main] test_program 6096 stat_worker: 0 = (/tmp, 0x22CBB0)
+   40   64974 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   31   65005 [main] test_program 6096 sig_send: wakeup 0x124
+   34   65039 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+    4   65043 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   82   65125 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   41   65166 [main] test_program 6096 open: open (/tmp/mpich_test_shar_9pVvuQ, 0x10A02)
+   29   65195 [main] test_program 6096 normalize_posix_path: src /tmp/mpich_test_shar_9pVvuQ
+   29   65224 [main] test_program 6096 normalize_posix_path: /tmp/mpich_test_shar_9pVvuQ = normalize_posix_path (/tmp/mpich_test_shar_9pVvuQ)
+   30   65254 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp/mpich_test_shar_9pVvuQ)
+   29   65283 [main] test_program 6096 set_flags: flags: binary (0x2)
+   29   65312 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /tmp/mpich_test_shar_9pVvuQ, dst C:\cygwin\tmp\mpich_test_shar_9pVvuQ, flags 0xA, rc 0
+   64   65376 [main] test_program 6096 symlink_info::check: GetFileAttributes (C:\cygwin\tmp\mpich_test_shar_9pVvuQ) failed
+   40   65416 [main] test_program 6096 geterrno_from_win_error: windows error 2 == errno 2
+   62   65478 [main] test_program 6096 symlink_info::check: GetFileAttributes (C:\cygwin\tmp\mpich_test_shar_9pVvuQ.lnk) failed
+   40   65518 [main] test_program 6096 geterrno_from_win_error: windows error 2 == errno 2
+   29   65547 [main] test_program 6096 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp\mpich_test_shar_9pVvuQ, 0x22C440) (0xA)
+   29   65576 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp)
+   30   65606 [main] test_program 6096 set_flags: flags: binary (0x2)
+   29   65635 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /tmp, dst C:\cygwin\tmp, flags 0xA, rc 0
+   68   65703 [main] test_program 6096 symlink_info::check: not a symlink
+   40   65743 [main] test_program 6096 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp, 0x22C440) (0xA)
+   29   65772 [main] test_program 6096 path_conv::check: this->path(C:\cygwin\tmp\mpich_test_shar_9pVvuQ), has_acls(1)
+   30   65802 [main] test_program 6096 build_fh_pc: fh 0x61169E30
+   30   65832 [main] test_program 6096 fhandler_base::open: (C:\cygwin\tmp\mpich_test_shar_9pVvuQ, 0x110A02)
+   65   65897 [main] test_program 6096 alloc_sd: uid 1000, gid 544, attribute 180
+   32   65929 [main] test_program 6096 cygpsid::debug_print: alloc_sd: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+   30   65959 [main] test_program 6096 cygpsid::debug_print: alloc_sd: group SID = S-1-5-32-544
+   44   66003 [main] test_program 6096 alloc_sd: ACL-Size: 88
+   84   66087 [main] test_program 6096 alloc_sd: Created SD-Size: 152
+  466   66553 [main] test_program 6096 fhandler_base::set_flags: flags 0x110A02, supplied_bin 0x10000
+   47   66600 [main] test_program 6096 fhandler_base::set_flags: O_TEXT/O_BINARY set in flags 0x10000
+   30   66630 [main] test_program 6096 fhandler_base::set_flags: filemode set to binary
+   29   66659 [main] test_program 6096 fhandler_base::open: 0 = NtCreateFile (0x124, C0100000, C:\cygwin\tmp\mpich_test_shar_9pVvuQ, io, NULL, 80, 7, 2, 4420, NULL, 0)
+   32   66691 [main] test_program 6096 fhandler_base::open: 1 = fhandler_base::open (C:\cygwin\tmp\mpich_test_shar_9pVvuQ, 0x110A02)
+   57   66748 [main] test_program 6096 fhandler_base::open_fs: 1 = fhandler_disk_file::open (C:\cygwin\tmp\mpich_test_shar_9pVvuQ, 0x10A02)
+   30   66778 [main] test_program 6096 open: 3 = open (/tmp/mpich_test_shar_9pVvuQ, 0x10A02)
+   35   66813 [main] test_program 6096 normalize_posix_path: src /tmp/mpich_test_shar_9pVvuQ
+   36   66849 [main] test_program 6096 normalize_posix_path: /tmp/mpich_test_shar_9pVvuQ = normalize_posix_path (/tmp/mpich_test_shar_9pVvuQ)
+   30   66879 [main] test_program 6096 mount_info::conv_to_win32_path: conv_to_win32_path (/tmp/mpich_test_shar_9pVvuQ)
+   31   66910 [main] test_program 6096 set_flags: flags: binary (0x2)
+   29   66939 [main] test_program 6096 mount_info::conv_to_win32_path: src_path /tmp/mpich_test_shar_9pVvuQ, dst C:\cygwin\tmp\mpich_test_shar_9pVvuQ, flags 0xA, rc 0
+   84   67023 [main] test_program 6096 symlink_info::check: not a symlink
+   40   67063 [main] test_program 6096 symlink_info::check: 0 = symlink.check (C:\cygwin\tmp\mpich_test_shar_9pVvuQ, 0x22C620) (0xA)
+   30   67093 [main] test_program 6096 path_conv::check: this->path(C:\cygwin\tmp\mpich_test_shar_9pVvuQ), has_acls(1)
+   29   67122 [main] test_program 6096 unlink: _unlink (C:\cygwin\tmp\mpich_test_shar_9pVvuQ)
+  255   67377 [main] test_program 6096 unlink: DeleteFile after CreateFile/CloseHandle succeeded
+   41   67418 [main] test_program 6096 unlink: 0 = unlink (/tmp/mpich_test_shar_9pVvuQ)
+   29   67447 [main] test_program 6096 close: close (3)
+   29   67476 [main] test_program 6096 fhandler_base::close: closing '/tmp/mpich_test_shar_9pVvuQ' handle 0x124
+  119   67595 [main] test_program 6096 close: 0 = close (3)
+   59   67654 [main] test_program 6096 get_file_attribute: file: C:\cygwin\home\Andy\mpich2-1.1.1p1\successful_code.log
+   81   67735 [main] test_program 6096 cygpsid::debug_print: get_sids_info: owner SID = S-1-5-21-3566798434-675056645-1203744135-1000
+   36   67771 [main] test_program 6096 cygpsid::debug_print: get_sids_info: group SID = S-1-5-32-544
+   31   67802 [main] test_program 6096 get_info_from_sd: ACL 1A4, uid 1000, gid 544
+   72   67874 [main] test_program 6096 fhandler_base::fstat_helper: 0 = fstat (, 0x22CB10) st_atime=4AB157C4 st_size=51435, st_mode=0x81A4, st_ino=166070236259397434, sizeof=96
+   50   67924 [main] test_program 6096 fstat64: 0 = fstat (1, 0x22CB10)
+  521   68445 [main] test_program 6096 close: close (0)
+  101   68546 [main] test_program 6096 init_cygheap::manage_console_count: fhandler_console::close: console_count 0, amount -1, ctty /dev/console, avoid_freeing_console 0
+   47   68593 [main] test_program 6096 close: 0 = close (0)
+  226   68819 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -34, its_me 1
+   36   68855 [main] test_program 6096 sig_send: wakeup 0x124
+   38   68893 [main] test_program 6096 sig_send: Waiting for pack.wakeup 0x124
+   34   68927 [sig] test_program 6096 wait_sig: signalling pack.wakeup 0x124
+   52   68979 [main] test_program 6096 sig_send: returning 0x0 from sending signal -34
+   62   69041 [main] test_program 6096 fhandler_base::write: binary write
+S-U-C-C-E-S-S, that's the way you spell success!
+   84   69125 [main] test_program 6096 close: close (1)
+   29   69154 [main] test_program 6096 fhandler_base::close: closing '/home/Andy/mpich2-1.1.1p1/successful_code.log' handle 0x224
+   30   69184 [main] test_program 6096 close: 0 = close (1)
+  212   69396 [main] test_program 6096 close: close (2)
+   33   69429 [main] test_program 6096 fhandler_base::close: closing '/home/Andy/mpich2-1.1.1p1/successful_code.log' handle 0x260
+   30   69459 [main] test_program 6096 close: 0 = close (2)
+  110   69569 [main] test_program 6096 do_exit: do_exit (2560), exit_state 0
+   29   69598 [main] test_program 6096 void: 0x0 = signal (20, 0x1)
+   28   69626 [main] test_program 6096 void: 0x0 = signal (1, 0x1)
+   29   69655 [main] test_program 6096 void: 0x0 = signal (2, 0x1)
+   29   69684 [main] test_program 6096 void: 0x0 = signal (3, 0x1)
+   54   69738 [main] test_program 6096 sigproc_terminate: entering
+   34   69772 [main] test_program 6096 sig_send: sendsig 0x11C, pid 6096, signal -42, its_me 1
+   33   69805 [main] test_program 6096 sig_send: Not waiting for sigcomplete.  its_me 1 signal -42
+   29   69834 [main] test_program 6096 sig_send: returning 0x0 from sending signal -42
+   30   69864 [main] test_program 6096 proc_terminate: nprocs 0
+   29   69893 [main] test_program 6096 proc_terminate: leaving
+  -58   69835 [sig] test_program 6096 wait_sig: saw __SIGEXIT
+  139   69974 [sig] test_program 6096 wait_sig: signal thread exiting
+  249   70223 [main] test_program 6096 __to_clock_t: dwHighDateTime 0, dwLowDateTime 156001
+   44   70267 [main] test_program 6096 __to_clock_t: total 00000000 0000000F
+   41   70308 [main] test_program 6096 __to_clock_t: dwHighDateTime 0, dwLowDateTime 312002
+   39   70347 [main] test_program 6096 __to_clock_t: total 00000000 0000001F
+  254   70601 [main] test_program 6096 pinfo::exit: Calling ExitProcess n 0xA00, exitcode 0xA

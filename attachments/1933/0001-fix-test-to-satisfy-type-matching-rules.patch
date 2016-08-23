@@ -1,0 +1,97 @@
+From 935804beb74edd45c4d293d149aa4c62f25ca10c Mon Sep 17 00:00:00 2001
+From: Jeff Hammond <jhammond@alcf.anl.gov>
+Date: Mon, 19 Aug 2013 13:41:03 -0500
+Subject: [PATCH] fix test to satisfy type matching rules
+
+per MPI-3 section 3.3, MPI_BYTE is the appropriate type to match any
+other type.  MPI_CHAR is not listed as satisfying this property.  these
+tests use MPI_CHAR where MPI_BYTE should be used.  or the tests could
+specify the integer count and use MPI_INT, but that's a more disruptive
+change.
+---
+ test/mpi/pt2pt/bsendpending.c | 20 ++++++++++----------
+ test/mpi/pt2pt/sendrecv3.c    |  8 ++++----
+ 2 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/test/mpi/pt2pt/bsendpending.c b/test/mpi/pt2pt/bsendpending.c
+index cc7cc5ac..c6da9868 100644
+--- a/test/mpi/pt2pt/bsendpending.c
++++ b/test/mpi/pt2pt/bsendpending.c
+@@ -65,13 +65,13 @@ int main( int argc, char *argv[] )
+ 	    }
+ 
+ 	    /* Initiate the bsends */
+-	    MPI_Bsend( msg1, msgsize, MPI_CHAR, dest, 0, comm );
+-	    MPI_Bsend( msg2, msgsize, MPI_CHAR, dest, 0, comm );
+-	    MPI_Bsend( msg3, msgsize, MPI_CHAR, dest, 0, comm );
++	    MPI_Bsend( msg1, msgsize, MPI_BYTE, dest, 0, comm );
++	    MPI_Bsend( msg2, msgsize, MPI_BYTE, dest, 0, comm );
++	    MPI_Bsend( msg3, msgsize, MPI_BYTE, dest, 0, comm );
+ 
+ 	    /* Synchronize with our partner */
+-	    MPI_Sendrecv( 0, 0, MPI_CHAR, dest, 10, 
+-			  0, 0, MPI_CHAR, dest, 10, comm, MPI_STATUS_IGNORE );
++	    MPI_Sendrecv( 0, 0, MPI_BYTE, dest, 10, 
++			  0, 0, MPI_BYTE, dest, 10, comm, MPI_STATUS_IGNORE );
+ 
+ 	    /* Detach the buffers.  There should be pending operations */
+ 	    MPI_Buffer_detach ( &bufp, &outsize );
+@@ -95,17 +95,17 @@ int main( int argc, char *argv[] )
+ 	    }
+ 
+ 	    /* Wait for the synchronize */
+-	    MPI_Sendrecv( 0, 0, MPI_CHAR, source, 10, 
+-			  0, 0, MPI_CHAR, source, 10, comm, MPI_STATUS_IGNORE );
++	    MPI_Sendrecv( 0, 0, MPI_BYTE, source, 10, 
++			  0, 0, MPI_BYTE, source, 10, comm, MPI_STATUS_IGNORE );
+ 
+ 	    /* Wait 2 seconds */
+ 	    tstart = MPI_Wtime();
+ 	    while (MPI_Wtime() - tstart < 2.0) ;
+ 
+ 	    /* Now receive the messages */
+-	    MPI_Recv( msg1, msgsize, MPI_CHAR, source, 0, comm, &status1 );
+-	    MPI_Recv( msg2, msgsize, MPI_CHAR, source, 0, comm, &status2 );
+-	    MPI_Recv( msg3, msgsize, MPI_CHAR, source, 0, comm, &status3 );
++	    MPI_Recv( msg1, msgsize, MPI_BYTE, source, 0, comm, &status1 );
++	    MPI_Recv( msg2, msgsize, MPI_BYTE, source, 0, comm, &status2 );
++	    MPI_Recv( msg3, msgsize, MPI_BYTE, source, 0, comm, &status3 );
+ 
+ 	    /* Check that we have the correct data */
+ 	    for (i=0; i<msgsize; i++) {
+diff --git a/test/mpi/pt2pt/sendrecv3.c b/test/mpi/pt2pt/sendrecv3.c
+index e0c21a7a..f2b9351c 100644
+--- a/test/mpi/pt2pt/sendrecv3.c
++++ b/test/mpi/pt2pt/sendrecv3.c
+@@ -59,11 +59,11 @@ int main( int argc, char *argv[] )
+ 			  MPI_STATUS_IGNORE );
+ 	    /* Try to fill up the outgoing message buffers */
+ 	    for (i=0; i<nmsg; i++) {
+-		MPI_Isend( buf[i], msgSize, MPI_CHAR, partner, testnum, comm,
++		MPI_Isend( buf[i], msgSize, MPI_BYTE, partner, testnum, comm,
+ 			   &r[i] );
+ 	    }
+ 	    for (i=0; i<nmsg; i++) {
+-		MPI_Recv( buf[i], msgSize, MPI_CHAR, partner, testnum, comm,
++		MPI_Recv( buf[i], msgSize, MPI_BYTE, partner, testnum, comm,
+ 			  MPI_STATUS_IGNORE );
+ 	    }
+ 	    MPI_Waitall( nmsg, r, MPI_STATUSES_IGNORE );
+@@ -76,12 +76,12 @@ int main( int argc, char *argv[] )
+ 	    /* Try to fill up the outgoing message buffers */
+ 	    tsend = MPI_Wtime();
+ 	    for (i=0; i<nmsg; i++) {
+-		MPI_Isend( buf[i], msgSize, MPI_CHAR, partner, testnum, comm,
++		MPI_Isend( buf[i], msgSize, MPI_BYTE, partner, testnum, comm,
+ 			   &r[i] );
+ 	    }
+ 	    tsend = MPI_Wtime() - tsend;
+ 	    for (i=0; i<nmsg; i++) {
+-		MPI_Recv( buf[i], msgSize, MPI_CHAR, partner, testnum, comm,
++		MPI_Recv( buf[i], msgSize, MPI_BYTE, partner, testnum, comm,
+ 			  MPI_STATUS_IGNORE );
+ 	    }
+ 	    MPI_Waitall( nmsg, r, MPI_STATUSES_IGNORE );
+-- 
+1.8.3.4
+

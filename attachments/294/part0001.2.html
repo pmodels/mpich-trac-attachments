@@ -1,0 +1,180 @@
+Dear Anthony Chan,<div><br></div><div>The same error is repeated. I removed convert big_endian and set F90FLAGS.</div><div><br></div><div>One think I forgotten to inform you is that it I need to place the malloc.h file in src/include otherwise make fails indicating that the malloc.h not available. Any further suggestion.<br>
+<br><div class="gmail_quote">On Thu, Nov 20, 2008 at 12:37 PM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+---------------------------------------------+------------------------------<br>
+&nbsp;Reporter: &nbsp;&quot;jagan TNAU&quot; &lt;<a href="mailto:jagan@tnau.ac.in">jagan@tnau.ac.in</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp;Owner:<br>
+<div class="Ih2E3d"> &nbsp; &nbsp; Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; Status: &nbsp;new<br>
+&nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Milestone:<br>
+</div><div class="Ih2E3d">Component: &nbsp;mpich2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; Resolution:<br>
+&nbsp;Keywords: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |<br>
+---------------------------------------------+------------------------------<br>
+<br>
+<br>
+Comment (by&nbsp;Anthony Chan):<br>
+<br>
+&nbsp;{{{<br>
+<br>
+</div>&nbsp;Forgot to mention you probably need to set F90FLAGS to the<br>
+&nbsp;same value as FFLAGS (FFLAGS is for F77, F90FLAGS is for F90).<br>
+&nbsp;I don&#39;t think you need to set &quot;-convert big_endian&quot; in FFLAGS<br>
+&nbsp;or F90FLAGS when building MPICH2. &nbsp;You could supply the flag<br>
+&nbsp;with mpif90 when compiling WRF. &nbsp;Also, -O3 should be set as<br>
+&nbsp;part of MPICH2LIB_xFLAGS (see configure --help for details)<br>
+<div class="Ih2E3d"><br>
+&nbsp;A.Chan<br>
+&nbsp;----- &quot;mpich2&quot; &lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt; wrote:<br>
+<br>
+&nbsp;&gt;<br>
+&nbsp;---------------------------------------------+------------------------------<br>
+</div>&nbsp;&gt; &nbsp;Reporter: &nbsp;&quot;jagan TNAU&quot; &lt;<a href="mailto:jagan@tnau.ac.in">jagan@tnau.ac.in</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp;Owner:<br>
+<div class="Ih2E3d">&nbsp;&gt; &nbsp; &nbsp; &nbsp;Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; Status: &nbsp;new<br>
+&nbsp;&gt; &nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Milestone:<br>
+</div><div class="Ih2E3d">&nbsp;&gt; Component: &nbsp;mpich2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; Resolution:<br>
+&nbsp;&gt; &nbsp;Keywords: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |<br>
+&nbsp;&gt;<br>
+&nbsp;---------------------------------------------+------------------------------<br>
+&nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; Comment (by Anthony Chan):<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;{{{<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;Can you try mpich2-1.1.0a2 which was just released few days ago<br>
+&nbsp;&gt; &nbsp;to see if the error is still there ? &nbsp;If the error persists, can<br>
+&nbsp;&gt; &nbsp;you send the configure and make outputs as stated in README or<br>
+&nbsp;&gt; &nbsp;installer&#39;s guide.<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;A.Chan<br>
+&nbsp;&gt; &nbsp;----- &quot;mpich2&quot; &lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt; wrote:<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;---------------------------------------------+------------------------------<br>
+</div><div><div></div><div class="Wj3C7c">&nbsp;&gt; &nbsp;&gt; &nbsp;Reporter: &nbsp;&quot;jagan TNAU&quot; &lt;<a href="mailto:jagan@tnau.ac.in">jagan@tnau.ac.in</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp;Type: &nbsp;bug<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp; &nbsp;Status: &nbsp;new &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Priority: &nbsp;major<br>
+&nbsp;&gt; &nbsp;&gt; Milestone: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; Component:<br>
+&nbsp;&gt; mpich2<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;---------------------------------------------+------------------------------<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;{{{<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;Hello,<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;I have compiled mpich2-1.1.0a1 version in MAC book intel core2<br>
+&nbsp;&gt; duo,<br>
+&nbsp;&gt; &nbsp;&gt; 2.4<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;GHz,<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;MAC OSX 10.5.4 (Leopard), Darwin 9.4.0 using the following env<br>
+&nbsp;&gt; &nbsp;&gt; settings<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;export F77=ifort<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;export F90=ifort<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;export CC=/usr/bin/gcc<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;export CXX=/usr/bin/c++<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;export FFLAGS=&quot;-convert big_endian -i4 -O3 -xT -align all<br>
+&nbsp;&gt; -fno-alias<br>
+&nbsp;&gt; &nbsp;&gt; -m64&quot;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;export CFLAGS=&quot;-arch x86_64 -mmacosx-version-min=10.5 -m64 -O3<br>
+&nbsp;&gt; &nbsp;&gt; -DMACOS<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;-isysroot /Developer/SDKs/MacOSX10.5.sdk&quot;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;CXXFLAGS=&quot;-m64 -O3 -DMACOS -isysroot<br>
+&nbsp;&gt; /Developer/SDKs/MacOSX10.5.sdk&quot;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;./configure --prefix=/usr/local/mpich --enable-f90<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;The make log showed error in Making src/slog2sdk (please see<br>
+&nbsp;&gt; &nbsp;&gt; attached<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;file)<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;and the installation showed the following error<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;/usr/bin/gcc &nbsp;-o .libs/libTraceInput.jnilib -bundle<br>
+&nbsp;&gt; &nbsp;&gt; .libs/trace_input.o<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;.libs/rlogutil.o .libs/logformat_trace_InputLog.o<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;ld: warning in .libs/trace_input.o, file is not of required<br>
+&nbsp;&gt; &nbsp;&gt; architecture<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;ld: warning in .libs/rlogutil.o, file is not of required<br>
+&nbsp;&gt; &nbsp;&gt; architecture<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;ld: warning in .libs/logformat_trace_InputLog.o, file is not of<br>
+&nbsp;&gt; &nbsp;&gt; required<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;architecture<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;nmedit -s .libs/libTraceInput-symbols.expsym<br>
+&nbsp;&gt; &nbsp;&gt; .libs/libTraceInput.jnilib<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;nmedit: symbols names listed in:<br>
+&nbsp;&gt; .libs/libTraceInput-symbols.expsym<br>
+&nbsp;&gt; &nbsp;&gt; not<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;in:<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;/Users/sathya/Desktop/meso/mpich2/src/mpe2/src/slog2sdk/trace_rlog/src/.libs/lib<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;TraceInput.jnilib<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;_Java_logformat_trace_InputLog_close<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;_Java_logformat_trace_InputLog_getNextCategory<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;_Java_logformat_trace_InputLog_getNextComposite<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;_Java_logformat_trace_InputLog_getNextPrimitive<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;_Java_logformat_trace_InputLog_getNextYCoordMap<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;_Java_logformat_trace_InputLog_initIDs<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;_Java_logformat_trace_InputLog_open<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;_Java_logformat_trace_InputLog_peekNextKindIndex<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;make[2]: *** [INSTALL_LIBSO] Error 1<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;The mpirun was requirement for us to run WRF model and looks<br>
+&nbsp;&gt; working<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;perfect. Can you help me to sort out this error issue.<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;With regards<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;Dr.R.Jagannathan<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;Professor and Head<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;Agro Climate Research Centre,<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;Tamil Nadu Agricultural University,<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;Coimbatore - 641 003 India<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;PHONE: Off: 91-422-6611519 Res: 91-422-2453600<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp; &nbsp; &nbsp; &nbsp;Fax: 91-422-2430657 Mob: 91-94438 89891<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;}}}<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; --<br>
+&nbsp;&gt; &nbsp;&gt; Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/294" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/294</a>&gt;<br>
+&nbsp;&gt; &nbsp;}}}<br>
+&nbsp;&gt;<br>
+</div></div>&nbsp;&gt; --<br>
+&nbsp;&gt; Ticket URL:<br>
+&nbsp;&gt; &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/294#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/294#comment</a>:&gt;<br>
+&nbsp;}}}<br>
+<font color="#888888"><br>
+--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/294#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/294#comment</a>:&gt;<br>
+</font></blockquote></div><br><br clear="all"><br>-- <br>Please visit our Agri Weather Bulletin page<br><a href="http://agmet.tnau.ac.in/acrc/index.html">http://agmet.tnau.ac.in/acrc/index.html</a><br><br>With regards<br>
+<br>Dr.R.Jagannathan				<br>Professor and Head				<br>Agro Climate Research Centre,			<br>Tamil Nadu Agricultural University,		<br>Coimbatore - 641 003 India			<br><br>PHONE: Off: 91-422-6611519 Res: 91-422-2453600<br> &nbsp; &nbsp; &nbsp; Fax: 91-422-2430657 Mob: 91-94438 89891<br>
+
+</div>

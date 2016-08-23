@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #313: Re: MPICH2 on Vista</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Did you get an error message while installing MPICH2 on your machine ?<BR>
+&nbsp; Please check whether you have the process manager, smpd, running on your system using the command, &quot;smpd -status&quot;. If your installation was successful the process manager, smpd, should be installed as a service on your system.<BR>
+&nbsp; Windows Vista only allows administrators to install a service on a system. So if &quot;smpd -status&quot; returns an error this is most likely your problem. You can install the process manager manually by opening a command prompt in Vista as an administrator (Click on &quot;Start&quot;--&gt;&quot;Programs&quot; --&gt; &quot;Accessories&quot;, Right-Click on &quot;command prompt&quot; and choose &quot;Run as administrator&quot; ). From within the command prompt type &quot;smpd -install&quot; to install the process manager.<BR>
+&nbsp; Let us know if it works for you.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Monday, December 01, 2008 5:19 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #313: Re: MPICH2 on Vista<BR>
+<BR>
+---------------------------------------------+--------------------------<BR>
+---------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; Anthony Chan &lt;chan@mcs.anl.gov&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+---------------------------------------------+--------------------------<BR>
+---------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+<BR>
+&nbsp;I am not familar with the windows version of MPICH2.<BR>
+&nbsp;Jayesh Krishna is our expert on windows version of mpich2.<BR>
+&nbsp;Based on the error message, my guess is that it is a firewall&nbsp; issue.&nbsp; Try diabling the firewall on vista if you have it running.<BR>
+<BR>
+&nbsp;A.Chan<BR>
+&nbsp;----- &quot;Yuguang Li&quot; &lt;Yuguang.Li@meinhardtgroup.com&gt; wrote:<BR>
+<BR>
+&nbsp;&gt; Dear Anthony,<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; My name is Yuguang Li, a fire engineer based in Sydney Australia.&nbsp; I'm&nbsp; &gt; trying to run parrallel CFD computation with MPICH2 on a 64 bit Vista&nbsp; &gt; platform installed on a quad core machine.&nbsp; The CFD programme I use is&nbsp; &gt; FDS (fire dynamics simulator developed by NIST) which as you probably&nbsp; &gt; know is commonly used in the fire engineering community all over the&nbsp; &gt; world.&nbsp; The programme does not run and give the following message.&nbsp; Do&nbsp; &gt; you think you can assist us by identifying the problem? Many thanks in&nbsp; &gt; advance.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; Microsoft Windows [Version 6.0.6001]<BR>
+&nbsp;&gt; Copyright (c) 2006 Microsoft Corporation.&nbsp; All rights reserved.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; C:\Users\MEINHARDT&gt;cd C:\NIST\FDS5\test\mpi-test&nbsp; &gt;&nbsp; &gt; C:\NIST\FDS5\test\mpi-test&gt;mpiexec -file config.txt&nbsp; &gt; Please specify an authentication passphrase for smpd:<BR>
+&nbsp;&gt; Unable to connect to 'COMP-377:8676',&nbsp; &gt; sock error: generic socket failure, error stack:<BR>
+&nbsp;&gt; MPIDU_Sock_post_connect(1228): unable to connect to COMP-377 on port&nbsp; &gt; 8676, exhausted all endpoints (errno -1)&nbsp; &gt; MPIDU_Sock_post_connect(1275): unable to connect to COMP-377 on port&nbsp; &gt; 8676, No connection could be made because the target machine actively&nbsp; &gt; refused it. (errno 10061)&nbsp; &gt;&nbsp; &gt; C:\NIST\FDS5\test\mpi-test&gt;&nbsp; }}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/313">https://trac.mcs.anl.gov/projects/mpich2/ticket/313</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

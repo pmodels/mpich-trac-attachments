@@ -1,0 +1,1196 @@
+From 77cec3805946f8e89093b06899abd04a9ffe7008 Mon Sep 17 00:00:00 2001
+From: Gilles Gouaillardet <gilles.gouaillardet@iferc.org>
+Date: Wed, 29 Jan 2014 13:11:49 +0900
+Subject: [PATCH 1/3] Use MPI_Count with MPIR_Status_set_bytes. Fixes #2010
+
+Ensure the third argument of MPIR_Status_set_bytes
+has type MPI_Count in order to avoid integer overflow.
+---
+ src/mpi/romio/adio/ad_bg/ad_bg_rdcoll.c            |    4 +-
+ src/mpi/romio/adio/ad_bg/ad_bg_read.c              |   12 +++++-----
+ src/mpi/romio/adio/ad_bg/ad_bg_wrcoll.c            |    4 +-
+ src/mpi/romio/adio/ad_bg/ad_bg_write.c             |   10 ++++----
+ src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c          |    2 +-
+ src/mpi/romio/adio/ad_bgl/ad_bgl_read.c            |   10 ++++----
+ src/mpi/romio/adio/ad_bgl/ad_bgl_wrcoll.c          |    4 +-
+ src/mpi/romio/adio/ad_bgl/ad_bgl_write.c           |   10 ++++----
+ src/mpi/romio/adio/ad_gridftp/ad_gridftp_write.c   |   11 +++++----
+ src/mpi/romio/adio/ad_hfs/ad_hfs_read.c            |    4 +-
+ src/mpi/romio/adio/ad_hfs/ad_hfs_write.c           |    4 +-
+ src/mpi/romio/adio/ad_lustre/ad_lustre_wrcoll.c    |    4 +-
+ src/mpi/romio/adio/ad_ntfs/ad_ntfs_read.c          |    5 ++-
+ src/mpi/romio/adio/ad_ntfs/ad_ntfs_write.c         |    4 +-
+ src/mpi/romio/adio/ad_panfs/ad_panfs_read.c        |    4 +-
+ src/mpi/romio/adio/ad_panfs/ad_panfs_write.c       |    4 +-
+ src/mpi/romio/adio/ad_pfs/ad_pfs_read.c            |    4 +-
+ src/mpi/romio/adio/ad_pfs/ad_pfs_write.c           |    4 +-
+ src/mpi/romio/adio/ad_piofs/ad_piofs_read.c        |    4 +-
+ src/mpi/romio/adio/ad_piofs/ad_piofs_write.c       |   13 ++++++-----
+ src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c          |    7 +++--
+ src/mpi/romio/adio/ad_pvfs/ad_pvfs_write.c         |   22 ++++++++++---------
+ src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_dtype.c    |   12 ++++++----
+ src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_list.c     |    8 +++---
+ src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read.c        |    7 +++--
+ .../adio/ad_pvfs2/ad_pvfs2_read_list_classic.c     |    7 +++--
+ src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_write.c       |    7 +++--
+ .../adio/ad_pvfs2/ad_pvfs2_write_list_classic.c    |    9 ++++---
+ src/mpi/romio/adio/ad_testfs/ad_testfs_read.c      |    5 ++-
+ src/mpi/romio/adio/ad_testfs/ad_testfs_write.c     |    5 ++-
+ src/mpi/romio/adio/ad_xfs/ad_xfs_read.c            |    5 ++-
+ src/mpi/romio/adio/ad_xfs/ad_xfs_write.c           |    3 +-
+ src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_io.c        |    5 ++-
+ src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_read_list.c |    9 ++++---
+ .../romio/adio/ad_zoidfs/ad_zoidfs_write_list.c    |    5 ++-
+ src/mpi/romio/adio/common/ad_io_coll.c             |    6 ++--
+ src/mpi/romio/adio/common/ad_read_coll.c           |    4 +-
+ src/mpi/romio/adio/common/ad_read_str.c            |    2 +-
+ src/mpi/romio/adio/common/ad_read_str_naive.c      |    6 ++--
+ src/mpi/romio/adio/common/ad_write_coll.c          |    4 +-
+ src/mpi/romio/adio/common/ad_write_str_naive.c     |    2 +-
+ 41 files changed, 140 insertions(+), 121 deletions(-)
+
+diff --git a/src/mpi/romio/adio/ad_bg/ad_bg_rdcoll.c b/src/mpi/romio/adio/ad_bg/ad_bg_rdcoll.c
+index 2307dfd..7f68ae7 100644
+--- a/src/mpi/romio/adio/ad_bg/ad_bg_rdcoll.c
++++ b/src/mpi/romio/adio/ad_bg/ad_bg_rdcoll.c
+@@ -122,7 +122,7 @@ void ADIOI_BG_ReadStridedColl(ADIO_File fd, void *buf, int count,
+ #endif
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+-    int bufsize, size;
++    MPI_Count bufsize, size;
+ #endif
+ 
+ #if 0
+@@ -383,7 +383,7 @@ void ADIOI_BG_ReadStridedColl(ADIO_File fd, void *buf, int count,
+     ADIOI_Free(fd_end);
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+-    MPI_Type_size(datatype, &size);
++    MPI_Type_size_x(datatype, &size);
+     bufsize = size * count;
+     MPIR_Status_set_bytes(status, datatype, bufsize);
+ /* This is a temporary way of filling in status. The right way is to 
+diff --git a/src/mpi/romio/adio/ad_bg/ad_bg_read.c b/src/mpi/romio/adio/ad_bg/ad_bg_read.c
+index a16a389..225d459 100644
+--- a/src/mpi/romio/adio/ad_bg/ad_bg_read.c
++++ b/src/mpi/romio/adio/ad_bg/ad_bg_read.c
+@@ -24,7 +24,7 @@ void ADIOI_BG_ReadContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size;
++    MPI_Count err=-1, datatype_size;
+     ADIO_Offset len;
+     static char myname[] = "ADIOI_BG_READCONTIG";
+ #ifdef AGGREGATION_PROFILE
+@@ -40,7 +40,7 @@ void ADIOI_BG_ReadContig(ADIO_File fd, void *buf, int count,
+ 		}
+ #endif
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = (ADIO_Offset)datatype_size * (ADIO_Offset)count;
+     ADIOI_Assert(len == (unsigned int) len); /* read takes an unsigned int parm */
+ 
+@@ -176,11 +176,11 @@ void ADIOI_BG_ReadStrided(ADIO_File fd, void *buf, int count,
+     ADIO_Offset i_offset, new_brd_size, brd_size, size;
+     int i, j, k, err=-1, st_index=0;
+     ADIO_Offset frd_size=0, new_frd_size, st_frd_size;
+-    unsigned num, bufsize; 
++    MPI_Count num, bufsize;
+     int n_etypes_in_filetype;
+     ADIO_Offset n_filetypes, etype_in_filetype, st_n_filetypes, size_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size, partial_read;
++    MPI_Count filetype_size, etype_size, buftype_size, partial_read;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off, req_len, sum;
+@@ -210,7 +210,7 @@ void ADIOI_BG_ReadStrided(ADIO_File fd, void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -220,7 +220,7 @@ void ADIOI_BG_ReadStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_bg/ad_bg_wrcoll.c b/src/mpi/romio/adio/ad_bg/ad_bg_wrcoll.c
+index a25fd04..fd390b3 100644
+--- a/src/mpi/romio/adio/ad_bg/ad_bg_wrcoll.c
++++ b/src/mpi/romio/adio/ad_bg/ad_bg_wrcoll.c
+@@ -401,9 +401,9 @@ void ADIOI_BG_WriteStridedColl(ADIO_File fd, const void *buf, int count,
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+     if (status) {
+-      int bufsize, size;
++      MPI_Count bufsize, size;
+       /* Don't set status if it isn't needed */
+-      MPI_Type_size(datatype, &size);
++      MPI_Type_size_x(datatype, &size);
+       bufsize = size * count;
+       MPIR_Status_set_bytes(status, datatype, bufsize);
+     }
+diff --git a/src/mpi/romio/adio/ad_bg/ad_bg_write.c b/src/mpi/romio/adio/ad_bg/ad_bg_write.c
+index 3465528..85ea670 100644
+--- a/src/mpi/romio/adio/ad_bg/ad_bg_write.c
++++ b/src/mpi/romio/adio/ad_bg/ad_bg_write.c
+@@ -25,7 +25,7 @@ void ADIOI_BG_WriteContig(ADIO_File fd, const void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size;
++    MPI_Count err=-1, datatype_size;
+     ADIO_Offset len;
+     static char myname[] = "ADIOI_BG_WRITECONTIG";
+ #ifdef AGGREGATION_PROFILE
+@@ -41,7 +41,7 @@ void ADIOI_BG_WriteContig(ADIO_File fd, const void *buf, int count,
+ 		}
+ #endif
+ 			  
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = (ADIO_Offset)datatype_size * (ADIO_Offset)count;
+     ADIOI_Assert(len == (unsigned int) len); /* write takes an unsigned int parm */
+ 
+@@ -220,7 +220,7 @@ void ADIOI_BG_WriteStrided(ADIO_File fd, const void *buf, int count,
+     int n_etypes_in_filetype;
+     ADIO_Offset num, size, n_filetypes, etype_in_filetype, st_n_filetypes;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off;
+@@ -251,7 +251,7 @@ void ADIOI_BG_WriteStrided(ADIO_File fd, const void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -261,7 +261,7 @@ void ADIOI_BG_WriteStrided(ADIO_File fd, const void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c b/src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c
+index e3f68ad..f3593f3 100644
+--- a/src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c
++++ b/src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c
+@@ -121,7 +121,7 @@ void ADIOI_BGL_ReadStridedColl(ADIO_File fd, void *buf, int count,
+ #endif
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+-    int bufsize, size;
++    MPI_Count bufsize, size;
+ #endif
+ 
+ #if 0
+diff --git a/src/mpi/romio/adio/ad_bgl/ad_bgl_read.c b/src/mpi/romio/adio/ad_bgl/ad_bgl_read.c
+index 57bedcd..96adf91 100644
+--- a/src/mpi/romio/adio/ad_bgl/ad_bgl_read.c
++++ b/src/mpi/romio/adio/ad_bgl/ad_bgl_read.c
+@@ -21,7 +21,7 @@ void ADIOI_BGL_ReadContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size;
++    MPI_Count err=-1, datatype_size;
+     ADIO_Offset len;
+     static char myname[] = "ADIOI_BGL_READCONTIG";
+ #if BGL_PROFILE
+@@ -34,7 +34,7 @@ void ADIOI_BGL_ReadContig(ADIO_File fd, void *buf, int count,
+ 		}
+ #endif
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = (ADIO_Offset)datatype_size * (ADIO_Offset)count;
+     ADIOI_Assert(len == (unsigned int) len); /* read takes an unsigned int parm */
+ 
+@@ -171,7 +171,7 @@ void ADIOI_BGL_ReadStrided(ADIO_File fd, void *buf, int count,
+     int n_etypes_in_filetype;
+     ADIO_Offset n_filetypes, etype_in_filetype, st_n_filetypes, size_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size, partial_read;
++    MPI_Count filetype_size, etype_size, buftype_size, partial_read;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off, req_len, sum;
+@@ -201,7 +201,7 @@ void ADIOI_BGL_ReadStrided(ADIO_File fd, void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -211,7 +211,7 @@ void ADIOI_BGL_ReadStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_bgl/ad_bgl_wrcoll.c b/src/mpi/romio/adio/ad_bgl/ad_bgl_wrcoll.c
+index e4985e1..3e1bf9e 100644
+--- a/src/mpi/romio/adio/ad_bgl/ad_bgl_wrcoll.c
++++ b/src/mpi/romio/adio/ad_bgl/ad_bgl_wrcoll.c
+@@ -400,9 +400,9 @@ void ADIOI_BGL_WriteStridedColl(ADIO_File fd, void *buf, int count,
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+     if (status) {
+-      int bufsize, size;
++      MPI_Count bufsize, size;
+       /* Don't set status if it isn't needed */
+-      MPI_Type_size(datatype, &size);
++      MPI_Type_size_x(datatype, &size);
+       bufsize = size * count;
+       MPIR_Status_set_bytes(status, datatype, bufsize);
+     }
+diff --git a/src/mpi/romio/adio/ad_bgl/ad_bgl_write.c b/src/mpi/romio/adio/ad_bgl/ad_bgl_write.c
+index 3372e7b..3121035 100644
+--- a/src/mpi/romio/adio/ad_bgl/ad_bgl_write.c
++++ b/src/mpi/romio/adio/ad_bgl/ad_bgl_write.c
+@@ -25,7 +25,7 @@ void ADIOI_BGL_WriteContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size;
++    MPI_Count err=-1, datatype_size;
+     ADIO_Offset len;
+     static char myname[] = "ADIOI_BGL_WRITECONTIG";
+ #ifdef AGGREGATION_PROFILE
+@@ -41,7 +41,7 @@ void ADIOI_BGL_WriteContig(ADIO_File fd, void *buf, int count,
+ 		}
+ #endif
+ 			  
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = (ADIO_Offset)datatype_size * (ADIO_Offset)count;
+     ADIOI_Assert(len == (unsigned int) len); /* write takes an unsigned int parm */
+ 
+@@ -220,7 +220,7 @@ void ADIOI_BGL_WriteStrided(ADIO_File fd, void *buf, int count,
+     int n_etypes_in_filetype;
+     ADIO_Offset num, size, n_filetypes, etype_in_filetype, st_n_filetypes;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off;
+@@ -251,7 +251,7 @@ void ADIOI_BGL_WriteStrided(ADIO_File fd, void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -261,7 +261,7 @@ void ADIOI_BGL_WriteStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_gridftp/ad_gridftp_write.c b/src/mpi/romio/adio/ad_gridftp/ad_gridftp_write.c
+index 347c7c5..0400dae 100644
+--- a/src/mpi/romio/adio/ad_gridftp/ad_gridftp_write.c
++++ b/src/mpi/romio/adio/ad_gridftp/ad_gridftp_write.c
+@@ -112,7 +112,8 @@ void ADIOI_GRIDFTP_WriteContig(ADIO_File fd, void *buf, int count,
+ 			     *error_code)
+ {
+     char myname[]="ADIOI_GRIDFTP_WriteContig";
+-    int myrank, nprocs, datatype_size;
++    int myrank, nprocs;
++    MPI_Count datatype_size;
+     globus_size_t len,bytes_written=0;
+     globus_off_t goff;
+     globus_result_t result;
+@@ -127,7 +128,7 @@ void ADIOI_GRIDFTP_WriteContig(ADIO_File fd, void *buf, int count,
+ 
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+ 
+     if (file_ptr_type != ADIO_EXPLICIT_OFFSET)
+     {
+@@ -219,11 +220,11 @@ void ADIOI_GRIDFTP_WriteDiscontig(ADIO_File fd, void *buf, int count,
+     MPI_Comm_rank(fd->comm,&myrank);
+     MPI_Comm_size(fd->comm,&nprocs);
+     etype_size=fd->etype_size;
+-    MPI_Type_size(fd->filetype,&ftype_size);
++    MPI_Type_size_x(fd->filetype,&ftype_size);
+     MPI_Type_extent(fd->filetype,&ftype_extent);
+     /* This is arguably unnecessary, as this routine assumes that the
+        buffer in memory is contiguous */
+-    MPI_Type_size(datatype,&btype_size);
++    MPI_Type_size_x(datatype,&btype_size);
+     MPI_Type_extent(datatype,&btype_extent);
+     ADIOI_Datatype_iscontig(datatype,&buf_contig);
+     
+@@ -406,7 +407,7 @@ void ADIOI_GRIDFTP_WriteStrided(ADIO_File fd, void *buf, int count,
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+ 
+-    MPI_Type_size(datatype,&btype_size);
++    MPI_Type_size_x(datatype,&btype_size);
+     bufsize=count*btype_size;
+     ADIOI_Datatype_iscontig(fd->filetype,&file_contig);
+     ADIOI_Datatype_iscontig(datatype,&buf_contig);
+diff --git a/src/mpi/romio/adio/ad_hfs/ad_hfs_read.c b/src/mpi/romio/adio/ad_hfs/ad_hfs_read.c
+index ecd6fdf..eac03ab 100644
+--- a/src/mpi/romio/adio/ad_hfs/ad_hfs_read.c
++++ b/src/mpi/romio/adio/ad_hfs/ad_hfs_read.c
+@@ -15,12 +15,12 @@ void ADIOI_HFS_ReadContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    MPI_Count err=-1, datatype_size, len;
+ #ifndef PRINT_ERR_MSG
+     static char myname[] = "ADIOI_HFS_READCONTIG";
+ #endif
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+ #ifdef SPPUX
+diff --git a/src/mpi/romio/adio/ad_hfs/ad_hfs_write.c b/src/mpi/romio/adio/ad_hfs/ad_hfs_write.c
+index e4c476c..4bffa82 100644
+--- a/src/mpi/romio/adio/ad_hfs/ad_hfs_write.c
++++ b/src/mpi/romio/adio/ad_hfs/ad_hfs_write.c
+@@ -15,12 +15,12 @@ void ADIOI_HFS_WriteContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    MPI_Count err=-1, datatype_size, len;
+ #ifndef PRINT_ERR_MSG
+     static char myname[] = "ADIOI_HFS_WRITECONTIG";
+ #endif
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+ #ifdef SPPUX
+diff --git a/src/mpi/romio/adio/ad_lustre/ad_lustre_wrcoll.c b/src/mpi/romio/adio/ad_lustre/ad_lustre_wrcoll.c
+index 019f1a3..89c0999 100644
+--- a/src/mpi/romio/adio/ad_lustre/ad_lustre_wrcoll.c
++++ b/src/mpi/romio/adio/ad_lustre/ad_lustre_wrcoll.c
+@@ -266,9 +266,9 @@ void ADIOI_LUSTRE_WriteStridedColl(ADIO_File fd, void *buf, int count,
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+     if (status) {
+-	int bufsize, size;
++	MPI_Count bufsize, size;
+ 	/* Don't set status if it isn't needed */
+-	MPI_Type_size(datatype, &size);
++	MPI_Type_size_x(datatype, &size);
+ 	bufsize = size * count;
+ 	MPIR_Status_set_bytes(status, datatype, bufsize);
+     }
+diff --git a/src/mpi/romio/adio/ad_ntfs/ad_ntfs_read.c b/src/mpi/romio/adio/ad_ntfs/ad_ntfs_read.c
+index addc530..7c55c1b 100644
+--- a/src/mpi/romio/adio/ad_ntfs/ad_ntfs_read.c
++++ b/src/mpi/romio/adio/ad_ntfs/ad_ntfs_read.c
+@@ -13,7 +13,8 @@ void ADIOI_NTFS_ReadContig(ADIO_File fd, void *buf, int count,
+ {
+     LONG dwTemp;
+     DWORD dwNumRead = 0;
+-    int err=-1, datatype_size, len;
++    int err=-1;
++    MPI_Count datatype_size, len;
+     static char myname[] = "ADIOI_NTFS_ReadContig";
+     OVERLAPPED *pOvl;
+ 
+@@ -23,7 +24,7 @@ void ADIOI_NTFS_ReadContig(ADIO_File fd, void *buf, int count,
+ 	offset = fd->fp_ind;
+     }
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     pOvl = (OVERLAPPED *) ADIOI_Calloc(sizeof(OVERLAPPED), 1);
+diff --git a/src/mpi/romio/adio/ad_ntfs/ad_ntfs_write.c b/src/mpi/romio/adio/ad_ntfs/ad_ntfs_write.c
+index 9bb62ab..389e866 100644
+--- a/src/mpi/romio/adio/ad_ntfs/ad_ntfs_write.c
++++ b/src/mpi/romio/adio/ad_ntfs/ad_ntfs_write.c
+@@ -14,7 +14,7 @@ void ADIOI_NTFS_WriteContig(ADIO_File fd, void *buf, int count,
+     static char myname[] = "ADIOI_NTFS_WriteContig";
+     LONG dwTemp;
+     DWORD dwNumWritten = 0;
+-    int err=-1, datatype_size, len;
++    MPI_Count err=-1, datatype_size, len;
+     OVERLAPPED *pOvl;
+     
+     /* If file pointer type in ADIO_INDIVIDUAL then offset should be
+@@ -23,7 +23,7 @@ void ADIOI_NTFS_WriteContig(ADIO_File fd, void *buf, int count,
+ 	offset = fd->fp_ind;
+     }
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     pOvl = (OVERLAPPED *) ADIOI_Calloc(sizeof(OVERLAPPED), 1);
+diff --git a/src/mpi/romio/adio/ad_panfs/ad_panfs_read.c b/src/mpi/romio/adio/ad_panfs/ad_panfs_read.c
+index 6dfed04..237e492 100644
+--- a/src/mpi/romio/adio/ad_panfs/ad_panfs_read.c
++++ b/src/mpi/romio/adio/ad_panfs/ad_panfs_read.c
+@@ -16,10 +16,10 @@ void ADIOI_PANFS_ReadContig(ADIO_File fd, void *buf, int count,
+ 			  ADIO_Offset offset, ADIO_Status *status,
+ 			  int *error_code)
+ {
+-    int err = -1, datatype_size, len;
++    MPI_Count err = -1, datatype_size, len;
+     static char myname[] = "ADIOI_PANFS_READCONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_INDIVIDUAL) {
+diff --git a/src/mpi/romio/adio/ad_panfs/ad_panfs_write.c b/src/mpi/romio/adio/ad_panfs/ad_panfs_write.c
+index 9cd406c..cdab2e4 100644
+--- a/src/mpi/romio/adio/ad_panfs/ad_panfs_write.c
++++ b/src/mpi/romio/adio/ad_panfs/ad_panfs_write.c
+@@ -16,10 +16,10 @@ void ADIOI_PANFS_WriteContig(ADIO_File fd, void *buf, int count,
+ 			   ADIO_Offset offset, ADIO_Status *status,
+ 			   int *error_code)
+ {
+-    int err = -1, datatype_size, len;
++    MPI_Count err = -1, datatype_size, len;
+     static char myname[] = "ADIOI_PANFS_WRITECONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_INDIVIDUAL) {
+diff --git a/src/mpi/romio/adio/ad_pfs/ad_pfs_read.c b/src/mpi/romio/adio/ad_pfs/ad_pfs_read.c
+index ff8529d..bd3b7e7 100644
+--- a/src/mpi/romio/adio/ad_pfs/ad_pfs_read.c
++++ b/src/mpi/romio/adio/ad_pfs/ad_pfs_read.c
+@@ -11,10 +11,10 @@ void ADIOI_PFS_ReadContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    MPI_Count err=-1, datatype_size, len;
+     static char myname[] = "ADIOI_PFS_READCONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_EXPLICIT_OFFSET) {
+diff --git a/src/mpi/romio/adio/ad_pfs/ad_pfs_write.c b/src/mpi/romio/adio/ad_pfs/ad_pfs_write.c
+index 3dbb336..c64e976 100644
+--- a/src/mpi/romio/adio/ad_pfs/ad_pfs_write.c
++++ b/src/mpi/romio/adio/ad_pfs/ad_pfs_write.c
+@@ -12,10 +12,10 @@ void ADIOI_PFS_WriteContig(ADIO_File fd, void *buf, int count,
+ 			   ADIO_Offset offset, ADIO_Status *status,
+ 			   int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    MPI_Count err=-1, datatype_size, len;
+     static char myname[] = "ADIOI_PFS_WRITECONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_EXPLICIT_OFFSET) {
+diff --git a/src/mpi/romio/adio/ad_piofs/ad_piofs_read.c b/src/mpi/romio/adio/ad_piofs/ad_piofs_read.c
+index 6894665..2785486 100644
+--- a/src/mpi/romio/adio/ad_piofs/ad_piofs_read.c
++++ b/src/mpi/romio/adio/ad_piofs/ad_piofs_read.c
+@@ -11,12 +11,12 @@ void ADIOI_PIOFS_ReadContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    MPI_Count err=-1, datatype_size, len;
+ #ifndef PRINT_ERR_MSG
+     static char myname[] = "ADIOI_PIOFS_READCONTIG";
+ #endif
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_EXPLICIT_OFFSET) {
+diff --git a/src/mpi/romio/adio/ad_piofs/ad_piofs_write.c b/src/mpi/romio/adio/ad_piofs/ad_piofs_write.c
+index 8a00b35..4e1c7f1 100644
+--- a/src/mpi/romio/adio/ad_piofs/ad_piofs_write.c
++++ b/src/mpi/romio/adio/ad_piofs/ad_piofs_write.c
+@@ -12,12 +12,12 @@ void ADIOI_PIOFS_WriteContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    MPI_Count err=-1, datatype_size, len;
+ #ifndef PRINT_ERR_MSG
+     static char myname[] = "ADIOI_PIOFS_WRITECONTIG";
+ #endif
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_EXPLICIT_OFFSET) {
+@@ -71,10 +71,11 @@ void ADIOI_PIOFS_WriteStrided(ADIO_File fd, void *buf, int count,
+     ADIOI_Flatlist_node *flat_buf, *flat_file;
+     struct iovec *iov;
+     int i, j, k, err=-1, bwr_size, fwr_size=0, st_index=0;
+-    int bufsize, num, size, sum, n_etypes_in_filetype, size_in_filetype;
++    int num, size, sum, n_etypes_in_filetype, size_in_filetype;
++    MPI_Count bufsize;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent, indx;
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset off, disp;
+@@ -91,7 +92,7 @@ void ADIOI_PIOFS_WriteStrided(ADIO_File fd, void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -101,7 +102,7 @@ void ADIOI_PIOFS_WriteStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+     
+diff --git a/src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c b/src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c
+index 0a6a75b..57f600f 100644
+--- a/src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c
++++ b/src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c
+@@ -20,7 +20,7 @@ void ADIOI_PVFS_ReadContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    MPI_Count err=-1, datatype_size, len;
+     static char myname[] = "ADIOI_PVFS_READCONTIG";
+ 
+     MPI_Type_size(datatype, &datatype_size);
+@@ -110,10 +110,11 @@ void ADIOI_PVFS_ReadStridedListIO(ADIO_File fd, void *buf, int count,
+ 
+     ADIOI_Flatlist_node *flat_buf, *flat_file;
+     int i, j, k, l, brd_size, frd_size=0, st_index=0;
+-    int bufsize, sum, n_etypes_in_filetype, size_in_filetype;
++    int sum, n_etypes_in_filetype, size_in_filetype;
++    MPI_Count bufsize;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off;
+diff --git a/src/mpi/romio/adio/ad_pvfs/ad_pvfs_write.c b/src/mpi/romio/adio/ad_pvfs/ad_pvfs_write.c
+index e43497e..4e874d9 100644
+--- a/src/mpi/romio/adio/ad_pvfs/ad_pvfs_write.c
++++ b/src/mpi/romio/adio/ad_pvfs/ad_pvfs_write.c
+@@ -20,10 +20,10 @@ void ADIOI_PVFS_WriteContig(ADIO_File fd, void *buf, int count,
+ 			    ADIO_Offset offset, ADIO_Status *status,
+ 			    int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    MPI_Count err=-1, datatype_size, len;
+     static char myname[] = "ADIOI_PVFS_WRITECONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_EXPLICIT_OFFSET) {
+@@ -96,10 +96,11 @@ void ADIOI_PVFS_WriteStrided(ADIO_File fd, void *buf, int count,
+ 
+     ADIOI_Flatlist_node *flat_buf, *flat_file;
+     int i, j, k, err=-1, bwr_size, fwr_size=0, st_index=0;
+-    int bufsize, num, size, sum, n_etypes_in_filetype, size_in_filetype;
++    int num, size, sum, n_etypes_in_filetype, size_in_filetype;
++    MPI_Count bufsize;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent, indx;
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset off, disp;
+@@ -128,7 +129,7 @@ void ADIOI_PVFS_WriteStrided(ADIO_File fd, void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -138,7 +139,7 @@ void ADIOI_PVFS_WriteStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+     
+@@ -469,10 +470,11 @@ void ADIOI_PVFS_WriteStridedListIO(ADIO_File fd, void *buf, int count,
+ 
+     ADIOI_Flatlist_node *flat_buf, *flat_file;
+     int i, j, k, err=-1, bwr_size, fwr_size=0, st_index=0;
+-    int bufsize, size, sum, n_etypes_in_filetype, size_in_filetype;
++    int size, sum, n_etypes_in_filetype, size_in_filetype;
++    MPI_Count bufsize;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent;
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off;
+@@ -515,7 +517,7 @@ void ADIOI_PVFS_WriteStridedListIO(ADIO_File fd, void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -525,7 +527,7 @@ void ADIOI_PVFS_WriteStridedListIO(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+     
+diff --git a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_dtype.c b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_dtype.c
+index e5b38f4..7a76fa5 100644
+--- a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_dtype.c
++++ b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_dtype.c
+@@ -18,13 +18,15 @@ int ADIOI_PVFS2_StridedDtypeIO(ADIO_File fd, void *buf, int count,
+ 			       *error_code,
+ 			       int rw_type)
+ {
+-    int filetype_size = -1, ret = -1, filetype_is_contig = -1;
++    int ret = -1, filetype_is_contig = -1;
++    MPI_Count filetype_size = -1;
+     int num_filetypes = 0, cur_flat_file_reg_off = 0;
+     PVFS_Request tmp_mem_req, mem_req, tmp_file_req, file_req;
+     PVFS_sysresp_io resp_io;
+     ADIO_Offset off = -1, bytes_into_filetype = 0;
+     MPI_Aint filetype_extent = -1;
+-    int etype_size = -1, i = -1;
++    int i = -1;
++    MPI_Count etype_size;
+     PVFS_size pvfs_disp = -1;
+     ADIOI_Flatlist_node *flat_file_p = ADIOI_Flatlist;
+ 
+@@ -47,13 +49,13 @@ int ADIOI_PVFS2_StridedDtypeIO(ADIO_File fd, void *buf, int count,
+ 
+     /* datatype is the memory type 
+      * fd->filetype is the file type */
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if (filetype_size == 0) {
+         *error_code = MPI_SUCCESS;
+         return -1;
+     }
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(fd->etype, &etype_size);
++    MPI_Type_size_x(fd->etype, &etype_size);
+     if (filetype_size == 0) {
+         *error_code = MPI_SUCCESS;
+         return -1;
+@@ -189,7 +191,7 @@ int ADIOI_PVFS2_StridedDtypeIO(ADIO_File fd, void *buf, int count,
+ #endif
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+-    MPIR_Status_set_bytes(status, datatype, (int)resp_io.total_completed);
++    MPIR_Status_set_bytes(status, datatype, resp_io.total_completed);
+     /* This is a temporary way of filling in status. The right way is to
+      * keep track of how much data was actually acccessed by 
+      * ADIOI_BUFFERED operations */
+diff --git a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_list.c b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_list.c
+index 93e1e1e..5ca14dd 100644
+--- a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_list.c
++++ b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_io_list.c
+@@ -42,7 +42,7 @@ int ADIOI_PVFS2_StridedListIO(ADIO_File fd, void *buf, int count,
+     int64_t cur_flat_buf_reg_off = 0;
+     int64_t cur_flat_file_reg_off = 0;
+     ADIOI_Flatlist_node *flat_buf_p, *flat_file_p;
+-    int buftype_size = -1, buftype_extent = -1,
++    MPI_Count buftype_size = -1, buftype_extent = -1,
+         filetype_size = -1, filetype_extent = -1;
+     int buftype_is_contig = -1, filetype_is_contig = -1;
+     
+@@ -62,13 +62,13 @@ int ADIOI_PVFS2_StridedListIO(ADIO_File fd, void *buf, int count,
+         return -1;
+     }
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if (filetype_size == 0) {
+         *error_code = MPI_SUCCESS;
+         return -1;
+     }
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     io_size = buftype_size*count;
+ 
+@@ -327,7 +327,7 @@ int ADIOI_PVFS2_StridedListIO(ADIO_File fd, void *buf, int count,
+ error_state:
+ #ifdef HAVE_STATUS_SET_BYTES
+     /* TODO: why the cast? */
+-    MPIR_Status_set_bytes(status, datatype, (int)total_bytes_accessed);
++    MPIR_Status_set_bytes(status, datatype, total_bytes_accessed);
+ /* This is a temporary way of filling in status. The right way is to
+    keep track of how much data was actually written by ADIOI_BUFFERED_WRITE. */
+ #endif
+diff --git a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read.c b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read.c
+index 3d6899f..007b4dc 100644
+--- a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read.c
++++ b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read.c
+@@ -16,7 +16,8 @@ void ADIOI_PVFS2_ReadContig(ADIO_File fd, void *buf, int count,
+ 			    ADIO_Offset offset, ADIO_Status *status,
+ 			    int *error_code)
+ {
+-    int ret, datatype_size, len;
++    int ret;
++    MPI_Count datatype_size, len;
+     PVFS_Request file_req, mem_req;
+     PVFS_sysresp_io resp_io;
+     ADIOI_PVFS2_fs *pvfs_fs;
+@@ -24,7 +25,7 @@ void ADIOI_PVFS2_ReadContig(ADIO_File fd, void *buf, int count,
+ 
+     pvfs_fs = (ADIOI_PVFS2_fs*)fd->fs_ptr;
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     ret = PVFS_Request_contiguous(len, PVFS_BYTE, &mem_req);
+@@ -82,7 +83,7 @@ void ADIOI_PVFS2_ReadContig(ADIO_File fd, void *buf, int count,
+     fd->fp_sys_posn = offset + (int)resp_io.total_completed;
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+-    MPIR_Status_set_bytes(status, datatype, (int)resp_io.total_completed);
++    MPIR_Status_set_bytes(status, datatype, resp_io.total_completed);
+ #endif
+ 
+     *error_code = MPI_SUCCESS;
+diff --git a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read_list_classic.c b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read_list_classic.c
+index 9c75c2d..1a51381 100644
+--- a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read_list_classic.c
++++ b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read_list_classic.c
+@@ -19,10 +19,11 @@ void ADIOI_PVFS2_OldReadStrided(ADIO_File fd, void *buf, int count,
+     /* offset is in units of etype relative to the filetype. */
+     ADIOI_Flatlist_node *flat_buf, *flat_file;
+     int i, j, k,  brd_size, frd_size=0, st_index=0;
+-    int bufsize, sum, n_etypes_in_filetype, size_in_filetype;
++    int sum, n_etypes_in_filetype, size_in_filetype;
++    MPI_Count bufsize;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset off, disp, start_off, initial_off;
+@@ -68,7 +69,7 @@ void ADIOI_PVFS2_OldReadStrided(ADIO_File fd, void *buf, int count,
+ 	    filetype_is_contig = 1;
+     }
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+diff --git a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_write.c b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_write.c
+index e319092..877f57f 100644
+--- a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_write.c
++++ b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_write.c
+@@ -15,7 +15,8 @@ void ADIOI_PVFS2_WriteContig(ADIO_File fd, void *buf, int count,
+ 			     ADIO_Offset offset, ADIO_Status *status,
+ 			     int *error_code)
+ {
+-    int ret, datatype_size, len;
++    int ret;
++    MPI_Count datatype_size, len;
+     PVFS_Request file_req, mem_req;
+     PVFS_sysresp_io resp_io;
+     ADIOI_PVFS2_fs *pvfs_fs;
+@@ -23,7 +24,7 @@ void ADIOI_PVFS2_WriteContig(ADIO_File fd, void *buf, int count,
+ 
+     pvfs_fs = (ADIOI_PVFS2_fs*)fd->fs_ptr;
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     ret = PVFS_Request_contiguous(len, PVFS_BYTE, &mem_req);
+@@ -95,7 +96,7 @@ void ADIOI_PVFS2_WriteContig(ADIO_File fd, void *buf, int count,
+ 	fd->fp_sys_posn = fd->fp_ind;
+     }
+ #ifdef HAVE_STATUS_SET_BYTES
+-    MPIR_Status_set_bytes(status, datatype, (int)resp_io.total_completed);
++    MPIR_Status_set_bytes(status, datatype, resp_io.total_completed);
+ #endif
+     *error_code = MPI_SUCCESS;
+ fn_exit:
+diff --git a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_write_list_classic.c b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_write_list_classic.c
+index 3b73602..353546f 100644
+--- a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_write_list_classic.c
++++ b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_write_list_classic.c
+@@ -24,10 +24,11 @@ void ADIOI_PVFS2_OldWriteStrided(ADIO_File fd, void *buf, int count,
+ 
+     ADIOI_Flatlist_node *flat_buf, *flat_file;
+     int i, j, k, bwr_size, fwr_size=0, st_index=0;
+-    int bufsize, sum, n_etypes_in_filetype, size_in_filetype;
++    int sum, n_etypes_in_filetype, size_in_filetype;
++    MPI_Count bufsize;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent;
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset off, disp, start_off, initial_off;
+@@ -84,7 +85,7 @@ void ADIOI_PVFS2_OldWriteStrided(ADIO_File fd, void *buf, int count,
+ 	    filetype_is_contig = 1;
+     }
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -94,7 +95,7 @@ void ADIOI_PVFS2_OldWriteStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+     
+diff --git a/src/mpi/romio/adio/ad_testfs/ad_testfs_read.c b/src/mpi/romio/adio/ad_testfs/ad_testfs_read.c
+index 48f5c30..f60a992 100644
+--- a/src/mpi/romio/adio/ad_testfs/ad_testfs_read.c
++++ b/src/mpi/romio/adio/ad_testfs/ad_testfs_read.c
+@@ -12,13 +12,14 @@ void ADIOI_TESTFS_ReadContig(ADIO_File fd, void *buf, int count,
+ 			     ADIO_Offset offset, ADIO_Status *status, int
+ 			     *error_code)
+ {
+-    int myrank, nprocs, datatype_size;
++    int myrank, nprocs;
++    MPI_Count datatype_size;
+ 
+     *error_code = MPI_SUCCESS;
+ 
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     FPRINTF(stdout, "[%d/%d] ADIOI_TESTFS_ReadContig called on %s\n", myrank, 
+ 	    nprocs, fd->filename);
+     if (file_ptr_type != ADIO_EXPLICIT_OFFSET)
+diff --git a/src/mpi/romio/adio/ad_testfs/ad_testfs_write.c b/src/mpi/romio/adio/ad_testfs/ad_testfs_write.c
+index 14a28a8..e1a59ff 100644
+--- a/src/mpi/romio/adio/ad_testfs/ad_testfs_write.c
++++ b/src/mpi/romio/adio/ad_testfs/ad_testfs_write.c
+@@ -12,13 +12,14 @@ void ADIOI_TESTFS_WriteContig(ADIO_File fd, const void *buf, int count,
+ 			      ADIO_Offset offset, ADIO_Status *status, int
+ 			      *error_code)
+ {
+-    int myrank, nprocs, datatype_size;
++    int myrank, nprocs;
++    MPI_Count datatype_size;
+ 
+     *error_code = MPI_SUCCESS;
+ 
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     FPRINTF(stdout, "[%d/%d] ADIOI_TESTFS_WriteContig called on %s\n", myrank, 
+ 	    nprocs, fd->filename);
+     FPRINTF(stdout, "[%d/%d]    writing (buf = %p, loc = %lld, sz = %lld)\n",
+diff --git a/src/mpi/romio/adio/ad_xfs/ad_xfs_read.c b/src/mpi/romio/adio/ad_xfs/ad_xfs_read.c
+index 1fb1274..c3c237c 100644
+--- a/src/mpi/romio/adio/ad_xfs/ad_xfs_read.c
++++ b/src/mpi/romio/adio/ad_xfs/ad_xfs_read.c
+@@ -19,11 +19,12 @@ void ADIOI_XFS_ReadContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, len, diff, size, nbytes;
++    int diff, size, nbytes;
++    MPI_Count err=-1, datatype_size, len;
+     void *newbuf;
+     static char myname[] = "ADIOI_XFS_READCONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     fd->fp_sys_posn = -1; /* set it to null, since we are using pread */
+diff --git a/src/mpi/romio/adio/ad_xfs/ad_xfs_write.c b/src/mpi/romio/adio/ad_xfs/ad_xfs_write.c
+index dc54e7d..b47c8db 100644
+--- a/src/mpi/romio/adio/ad_xfs/ad_xfs_write.c
++++ b/src/mpi/romio/adio/ad_xfs/ad_xfs_write.c
+@@ -20,7 +20,8 @@ void ADIOI_XFS_WriteContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, diff, size;
++    int diff, size;
++    MPI_Count err=-1, datatype_size;
+     ssize_t len;
+     void *newbuf;
+     static char myname[] = "ADIOI_XFS_WRITECONTIG";
+diff --git a/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_io.c b/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_io.c
+index 9f37bee..337c92f 100644
+--- a/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_io.c
++++ b/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_io.c
+@@ -18,7 +18,8 @@ static void ZOIDFS_IOContig(ADIO_File fd, void * buf, int count,
+ 	    ADIO_Offset offset, ADIO_Status *status,
+ 	    int flag, int *error_code)
+ {
+-    int ret, datatype_size;
++    int ret;
++    MPI_Count datatype_size;
+     uint64_t file_len;
+     size_t mem_len;
+     ADIOI_ZOIDFS_object *zoidfs_obj_ptr;
+@@ -27,7 +28,7 @@ static void ZOIDFS_IOContig(ADIO_File fd, void * buf, int count,
+ 
+     zoidfs_obj_ptr = (ADIOI_ZOIDFS_object*)fd->fs_ptr;
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     file_len = mem_len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_INDIVIDUAL) {
+diff --git a/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_read_list.c b/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_read_list.c
+index 72c469c..d48a06c 100644
+--- a/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_read_list.c
++++ b/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_read_list.c
+@@ -21,10 +21,11 @@ void ADIOI_ZOIDFS_ReadStrided(ADIO_File fd, void *buf, int count,
+     /* offset is in units of etype relative to the filetype. */
+     ADIOI_Flatlist_node *flat_buf, *flat_file;
+     int i, j, k,  brd_size, frd_size=0, st_index=0;
+-    int bufsize, sum, n_etypes_in_filetype, size_in_filetype;
++    int sum, n_etypes_in_filetype, size_in_filetype;
++    MPI_Count bufsize;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset off, disp, start_off, initial_off;
+@@ -70,7 +71,7 @@ void ADIOI_ZOIDFS_ReadStrided(ADIO_File fd, void *buf, int count,
+ 	    filetype_is_contig = 1;
+     }
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -80,7 +81,7 @@ void ADIOI_ZOIDFS_ReadStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_write_list.c b/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_write_list.c
+index 1d8da22..0fc4cd0 100644
+--- a/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_write_list.c
++++ b/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_write_list.c
+@@ -26,10 +26,11 @@ void ADIOI_ZOIDFS_WriteStrided(ADIO_File fd, void *buf, int count,
+ 
+     ADIOI_Flatlist_node *flat_buf, *flat_file;
+     int i, j, k, bwr_size, fwr_size=0, st_index=0;
+-    int bufsize, sum, n_etypes_in_filetype, size_in_filetype;
++    int sum, n_etypes_in_filetype, size_in_filetype;
++    MPI_Count bufsize;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent;
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset off, disp, start_off, initial_off;
+diff --git a/src/mpi/romio/adio/common/ad_io_coll.c b/src/mpi/romio/adio/common/ad_io_coll.c
+index 22d6f43..09008c2 100644
+--- a/src/mpi/romio/adio/common/ad_io_coll.c
++++ b/src/mpi/romio/adio/common/ad_io_coll.c
+@@ -58,7 +58,7 @@ void ADIOI_IOStridedColl (ADIO_File fd, void *buf, int count, int rdwr,
+ #ifdef DEBUG2
+     MPI_Aint bufextent;
+ #endif
+-    int size;
++    MPI_Count size;
+     int agg_rank;
+ 
+     ADIO_Offset agg_disp; /* aggregated file offset */
+@@ -195,8 +195,8 @@ void ADIOI_IOStridedColl (ADIO_File fd, void *buf, int count, int rdwr,
+ #ifdef DEBUG2
+     bufextent = extent * count;
+ #endif
+-    MPI_Type_size(datatype, &size);
+-    bufsize = size * count;
++    MPI_Type_size_x(datatype, &size);
++    bufsize = size * (MPI_Count)count;
+ 
+     /* Calculate file realms */
+     if ((fd->hints->cb_pfr != ADIOI_HINT_ENABLE) ||
+diff --git a/src/mpi/romio/adio/common/ad_read_coll.c b/src/mpi/romio/adio/common/ad_read_coll.c
+index 7d8c928..6a2b39a 100644
+--- a/src/mpi/romio/adio/common/ad_read_coll.c
++++ b/src/mpi/romio/adio/common/ad_read_coll.c
+@@ -81,7 +81,7 @@ void ADIOI_GEN_ReadStridedColl(ADIO_File fd, void *buf, int count,
+     int *buf_idx = NULL;
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+-    int bufsize, size;
++    MPI_Count bufsize, size;
+ #endif
+ 
+     if (fd->hints->cb_pfr != ADIOI_HINT_DISABLE) {
+@@ -263,7 +263,7 @@ void ADIOI_GEN_ReadStridedColl(ADIO_File fd, void *buf, int count,
+     ADIOI_Free(fd_end);
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+-    MPI_Type_size(datatype, &size);
++    MPI_Type_size_x(datatype, &size);
+     bufsize = size * count;
+     MPIR_Status_set_bytes(status, datatype, bufsize);
+ /* This is a temporary way of filling in status. The right way is to 
+diff --git a/src/mpi/romio/adio/common/ad_read_str.c b/src/mpi/romio/adio/common/ad_read_str.c
+index 99e32fd..fb5699a 100644
+--- a/src/mpi/romio/adio/common/ad_read_str.c
++++ b/src/mpi/romio/adio/common/ad_read_str.c
+@@ -51,7 +51,7 @@ void ADIOI_GEN_ReadStrided(ADIO_File fd, void *buf, int count,
+     ADIOI_Flatlist_node *flat_buf, *flat_file;
+     ADIO_Offset i_offset, new_brd_size, brd_size, size;
+     int i, j, k, st_index=0;
+-    unsigned num, bufsize; 
++    MPI_Count num, bufsize;
+     int n_etypes_in_filetype;
+     ADIO_Offset n_filetypes, etype_in_filetype, st_n_filetypes, size_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0, new_frd_size, frd_size=0, st_frd_size;
+diff --git a/src/mpi/romio/adio/common/ad_read_str_naive.c b/src/mpi/romio/adio/common/ad_read_str_naive.c
+index 6ff428e..d616bd8 100644
+--- a/src/mpi/romio/adio/common/ad_read_str_naive.c
++++ b/src/mpi/romio/adio/common/ad_read_str_naive.c
+@@ -21,7 +21,7 @@ void ADIOI_GEN_ReadStrided_naive(ADIO_File fd, void *buf, int count,
+     int n_etypes_in_filetype;
+     ADIO_Offset n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    unsigned bufsize, filetype_size, buftype_size, size_in_filetype;
++    MPI_Count bufsize, filetype_size, buftype_size, size_in_filetype;
+     ADIO_Offset etype_size;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+@@ -34,7 +34,7 @@ void ADIOI_GEN_ReadStrided_naive(ADIO_File fd, void *buf, int count,
+     ADIOI_Datatype_iscontig(buftype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, (int*)&filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, buftype, 0);
+@@ -44,7 +44,7 @@ void ADIOI_GEN_ReadStrided_naive(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(buftype,(int*) &buftype_size);
++    MPI_Type_size_x(buftype, &buftype_size);
+     MPI_Type_extent(buftype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/common/ad_write_coll.c b/src/mpi/romio/adio/common/ad_write_coll.c
+index 583fc48..8d07c19 100644
+--- a/src/mpi/romio/adio/common/ad_write_coll.c
++++ b/src/mpi/romio/adio/common/ad_write_coll.c
+@@ -271,9 +271,9 @@ void ADIOI_GEN_WriteStridedColl(ADIO_File fd, const void *buf, int count,
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+     if (status) {
+-      int bufsize, size;
++      MPI_Count bufsize, size;
+       /* Don't set status if it isn't needed */
+-      MPI_Type_size(datatype, &size);
++      MPI_Type_size_x(datatype, &size);
+       bufsize = size * count;
+       MPIR_Status_set_bytes(status, datatype, bufsize);
+     }
+diff --git a/src/mpi/romio/adio/common/ad_write_str_naive.c b/src/mpi/romio/adio/common/ad_write_str_naive.c
+index aa4d4c9..f59c02d 100644
+--- a/src/mpi/romio/adio/common/ad_write_str_naive.c
++++ b/src/mpi/romio/adio/common/ad_write_str_naive.c
+@@ -19,7 +19,7 @@ void ADIOI_GEN_WriteStrided_naive(ADIO_File fd, const void *buf, int count,
+     /* bwr == buffer write; fwr == file write */
+     ADIO_Offset bwr_size, fwr_size=0, sum, size_in_filetype; 
+     int b_index;
+-    unsigned bufsize; 
++    MPI_Count bufsize;
+     ADIO_Offset n_etypes_in_filetype;
+     ADIO_Offset size, n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0, req_len;
+-- 
+1.7.1
+

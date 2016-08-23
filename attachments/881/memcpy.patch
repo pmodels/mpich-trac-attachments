@@ -1,0 +1,13 @@
+Index: src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_memdefs.h
+===================================================================
+--- src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_memdefs.h	(revision 5325)
++++ src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_memdefs.h	(working copy)
+@@ -9,7 +9,7 @@
+ #include <mpichconf.h>
+ #include <mpimem.h>
+ 
+-#if defined(HAVE_GCC_AND_PENTIUM_ASM)
++#if 0
+ #define asm_memcpy(dst, src, n) do {                                                    \
+         const char *_p = (char *)(src);                                                 \
+         char *_q = (char *)(dst);                                                       \

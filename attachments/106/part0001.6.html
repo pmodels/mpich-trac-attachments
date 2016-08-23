@@ -1,0 +1,69 @@
+<div dir="ltr">Dear Rob:<br><br>&nbsp;&nbsp;&nbsp; Thank you for your great help.<br>&nbsp;&nbsp;&nbsp; I have tried with the suggestions you gave to me. This time, configuration goes fine, but I can&#39;t find the three lines showing configuration supports pvfs as you said. And when I do &quot;make&quot;, it aborts at an error as:<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<br>: undefined reference to `_intel_fast_memcpy&#39;<br>/usr/local/lib/libmpich.a(dmpipk.o)(.text+0x2aa): In function `MPIR_UnPack_Hvect<br>: undefined reference to `_intel_fast_memcpy&#39;<br>
+collect2: ld returned 1 exit status<br>make[1]: *** [cpi] Error 1<br>make[1]: Leaving directory `/home-mgt5/yliu/mb/examples&#39;<br>make: *** [all-redirect] Error 2<br><br><br>&nbsp;&nbsp; Can you please tell me whether I failed to include some libraries or it is caused by some other reasons?<br>
+&nbsp;&nbsp; i have attached the config.log and make.log to this email.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yu Liu<br><br><div class="gmail_quote">On Mon, Sep 8, 2008 at 12:28 PM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;"><div class="Ih2E3d">--------------------------------------------------+-------------------------<br>
+
+ &nbsp;Reporter: &nbsp;&quot;Thomas Liu&quot; &lt;<a href="mailto:thomas0810@gmail.com">thomas0810@gmail.com</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; Owner:<br>
+ &nbsp; &nbsp; &nbsp;Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;Status: &nbsp;closed<br>
+ &nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; Component: &nbsp;mpich2<br>
+Resolution: &nbsp;fixed &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Keywords:<br>
+--------------------------------------------------+-------------------------<br>
+<br>
+<br>
+</div>Comment (by Robert Latham):<br>
+<div class="Ih2E3d"><br>
+&nbsp;On Wed, Sep 03, 2008 at 06:24:24PM -0000, mpich2 wrote:<br>
+&nbsp;&gt; Comment (by Thomas Liu):<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;Dear Rob:<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp; &nbsp; &nbsp;Thank you so much for your patient and detailed help.<br>
+&nbsp;&gt; &nbsp; &nbsp; &nbsp;However, the mpich2 still runs without pvfs support. For example,<br>
+&nbsp;&gt; &nbsp;sys_lseek() can not function properly and give the message: the file<br>
+&nbsp;&gt; &nbsp;system<br>
+&nbsp;&gt; &nbsp;is not supported.<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp; &nbsp; &nbsp;I install mpich2 as follows. I have been looking for solutions<br>
+&nbsp;online<br>
+&nbsp;&gt; &nbsp;for weeks but still no breakthrough. Can you please tell me what<br>
+&nbsp;mistakes<br>
+&nbsp;&gt; &nbsp;I<br>
+&nbsp;&gt; &nbsp;have made? I really appreciate your great help.<br>
+<br>
+</div>&nbsp;Hi Thomas Liu. &nbsp;The mistake is mine, it appears. &nbsp;The configure<br>
+&nbsp;argument should be &#39;--with-file-system=pvfs&#39; (not &#39;filesystems&#39;).<br>
+<br>
+&nbsp;You will still have to set your CFLAGS, &nbsp;LDFLAGS, and LIBS to point to<br>
+&nbsp;the PVFS headers and libraries (unless you installed them into<br>
+&nbsp;/usr/local)<br>
+<br>
+&nbsp;Let&#39;s say you installed PVFS into /opt/pvfs-1.6.3 (for example)<br>
+<br>
+&nbsp;% export PVFS_PREFIX=/opt/pvfs-1.6.3<br>
+&nbsp;% export CFLAGS=-I${PVFS_PREFIX}/include<br>
+&nbsp;% export LDFLAGS=-L${PVFS_PREFIX}/lib<br>
+&nbsp;% export LIBS=&quot;-lpvfs&quot;<br>
+&nbsp;% $HOME/mpich2-1.0.5p3/configure --prefix=$HOME/mpich2withcach --with-<br>
+&nbsp;file-system=pvfs<br>
+<br>
+&nbsp;With that, then I think you should at last have PVFS support. &nbsp;Be sure<br>
+&nbsp;to save your configure output and check for lines like<br>
+&nbsp;&quot;checking configured file systems... testfs pvfs&quot;<br>
+&nbsp;and<br>
+&nbsp;&quot;checking for pvfs.h... yes&quot;<br>
+&nbsp;&quot;checking that pvfs.h can be compiled... yes&quot;<br>
+<br>
+&nbsp;Those three lines should tell you that PVFS support was enabled at<br>
+&nbsp;configure time.<br>
+<br>
+&nbsp;==rob<br>
+<br>
+&nbsp;--<br>
+&nbsp;Rob Latham<br>
+&nbsp;Mathematics and Computer Science Division &nbsp; &nbsp;A215 0178 EA2D B059 8CDF<br>
+&nbsp;Argonne National Lab, IL USA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; B29D F333 664A 4280 315B<br>
+<font color="#888888"><br>
+--<br>
+</font><div><div></div><div class="Wj3C7c">Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment</a>:&gt;<br>
+</div></div></blockquote></div><br></div>

@@ -1,0 +1,72 @@
+Index: src/pm/hydra/tools/bootstrap/external/external_init.c
+===================================================================
+--- src/pm/hydra/tools/bootstrap/external/external_init.c	(revision 7255)
++++ src/pm/hydra/tools/bootstrap/external/external_init.c	(working copy)
+@@ -89,3 +89,8 @@
+ {
+     return external_init();
+ }
++
++HYD_status HYDT_bsci_manual_init(void)
++{
++    return external_init();
++}
+Index: src/pm/hydra/tools/bootstrap/external/external_launch.c
+===================================================================
+--- src/pm/hydra/tools/bootstrap/external/external_launch.c	(revision 7255)
++++ src/pm/hydra/tools/bootstrap/external/external_launch.c	(working copy)
+@@ -268,6 +268,12 @@
+             HYDU_print_strlist(targs + offset);
+         }
+ 
++        if (!strcmp(HYDT_bsci_info.bootstrap, "manual")) {
++            printf("HYDRA_MANUAL: ");
++            HYDU_print_strlist(targs + offset);
++            continue;
++        }
++
+         /* The stdin pointer will be some value for process_id 0; for
+          * everyone else, it's a dummy value. We don't just pass it
+          * NULL, as older versions of ssh seem to freak out when no
+Index: src/pm/hydra/configure.in
+===================================================================
+--- src/pm/hydra/configure.in	(revision 7255)
++++ src/pm/hydra/configure.in	(working copy)
+@@ -146,7 +146,7 @@
+ #########################################################################
+ AC_ARG_WITH(hydra-bss, [  --with-hydra-bss=name - Boot-strap Server (ssh,rsh,fork,slurm,ll,lsf,sge,persist)],
+ 		    [ hydra_bss=$withval ],
+-		    [ hydra_bss="ssh,rsh,fork,slurm,ll,lsf,sge,persist" ])
++		    [ hydra_bss="ssh,rsh,fork,slurm,ll,lsf,sge,persist,manual" ])
+ AC_MSG_CHECKING(boot-strap server)
+ AC_MSG_RESULT($hydra_bss)
+ hydra_bss_names="`echo $hydra_bss | sed -e 's/:/ /g' -e 's/,/ /g'`"
+@@ -187,6 +187,10 @@
+ 		hydra_bss_persist=true
+ 		available_bss=`echo $available_bss persist`
+ 		;;
++	manual)
++		hydra_bss_manual=true
++		available_bss=`echo $available_bss manual`
++                ;;
+ 	*)
+ 		;;
+     esac
+@@ -377,7 +381,7 @@
+ 		   have_plpa=yes
+ 		   AC_DEFINE(HAVE_PLPA,1,[Define if plpa is available])
+ 		fi
+-		;;		
++		;;
+ 	hwloc)
+ 		if test "$with_hwloc_prefix" = "embedded" ; then
+ 		   PAC_CONFIG_SUBDIR([tools/bind/hwloc/hwloc],[have_hwloc=yes],[have_hwloc=no])
+@@ -451,7 +455,7 @@
+ 	       AC_DEFINE(HAVE_BLCR,1,[Define if blcr is available])
+ 	       available_ckpointlib=`echo $available_ckpointlib blcr`
+ 	    fi
+-	    ;;		
++	    ;;
+ 	*)
+ 	    ;;
+     esac

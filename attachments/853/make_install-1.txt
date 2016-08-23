@@ -1,0 +1,33 @@
+if [ ! -d /model2/cmaq4.6/lib/mpich2-1.1.1p1 ] ; then mkdir -p /model2/cmaq4.6/lib/mpich2-1.1.1p1 ; fi
+if [ ! -d /model2/cmaq4.6/lib/mpich2-1.1.1p1/share ] ; then mkdir -p /model2/cmaq4.6/lib/mpich2-1.1.1p1/share ; fi
+if [ ! -d /model2/cmaq4.6/lib/mpich2-1.1.1p1/share/doc/ ] ; then mkdir -p /model2/cmaq4.6/lib/mpich2-1.1.1p1/share/doc/ ; fi
+if [ ! -d /model2/cmaq4.6/lib/mpich2-1.1.1p1/share/man ] ; then mkdir -p /model2/cmaq4.6/lib/mpich2-1.1.1p1/share/man ; fi
+if [ ! -d /model2/cmaq4.6/lib/mpich2-1.1.1p1/include ] ; then mkdir -p /model2/cmaq4.6/lib/mpich2-1.1.1p1/include ; fi
+if [ ! -d /model2/cmaq4.6/lib/mpich2-1.1.1p1 ] ; then mkdir -p /model2/cmaq4.6/lib/mpich2-1.1.1p1 ; fi
+if [ ! -d /model2/cmaq4.6/lib/mpich2-1.1.1p1/lib ] ; then mkdir -p /model2/cmaq4.6/lib/mpich2-1.1.1p1/lib ; fi
+make install-local
+make[1]: Entering directory `/model2/cmaq4.6/lib/mpich2-1.1.1p1'
+if [ "no" = "yes" ] ; then \
+    /usr/bin/install -c -m 644 src/mpi/debugger/libtvmpich2.so \
+		/model2/cmaq4.6/lib/mpich2-1.1.1p1/lib/libtvmpich2.so ; fi
+if [ -n " hydra gforker" ] ; then \
+    for pm in  hydra gforker /dev/null ; do \
+	if [ -d src/pm/$pm ] ; then \
+	     (cd src/pm/$pm && make install-alt ) ; fi ; \
+    done ; \
+fi
+make[2]: Entering directory `/model2/cmaq4.6/lib/mpich2-1.1.1p1/src/pm/hydra'
+/usr/bin/install -c  mpiexec /model2/cmaq4.6/lib/mpich2-1.1.1p1/bin/mpiexec.hydra
+/usr/bin/install -c  pmi_proxy /model2/cmaq4.6/lib/mpich2-1.1.1p1/bin/
+make[2]: Leaving directory `/model2/cmaq4.6/lib/mpich2-1.1.1p1/src/pm/hydra'
+make[2]: Entering directory `/model2/cmaq4.6/lib/mpich2-1.1.1p1/src/pm/gforker'
+cd ../util && make
+make[3]: Entering directory `/model2/cmaq4.6/lib/mpich2-1.1.1p1/src/pm/util'
+make[3]: Leaving directory `/model2/cmaq4.6/lib/mpich2-1.1.1p1/src/pm/util'
+/usr/bin/install -c  mpiexec /model2/cmaq4.6/lib/mpich2-1.1.1p1/bin/mpiexec.gforker
+make[2]: Leaving directory `/model2/cmaq4.6/lib/mpich2-1.1.1p1/src/pm/gforker'
+make[1]: Leaving directory `/model2/cmaq4.6/lib/mpich2-1.1.1p1'
+/usr/bin/install -c -m 644 src/include/mpi.h /model2/cmaq4.6/lib/mpich2-1.1.1p1/include/mpi.h
+/usr/bin/install -c -m 644 lib/libmpich.a /model2/cmaq4.6/lib/mpich2-1.1.1p1/lib/libmpich.a
+/usr/bin/install: `lib/libmpich.a' and `/model2/cmaq4.6/lib/mpich2-1.1.1p1/lib/libmpich.a' are the same file
+make: *** [install] Error 1

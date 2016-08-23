@@ -1,0 +1,18 @@
+CFLAGS= -O2 -pipe -ggdb
+LIBS=-L $(HGR)/External/mpich2/1.0.7/lib/$(MAKEFILE_PLATFORM) -lmpich -lrt -lpthread
+INCLUDES=-I $(HGR)/External/mpich2/1.0.7/include
+CC=gcc
+
+all: testmaster testslave
+
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDES) -c $<
+
+testmaster: testmaster.o
+	$(CC) $(CFLAGS) -o testmaster testmaster.o $(LIBS)
+
+testslave: testslave.o
+	$(CC) $(CFLAGS) -o testslave testslave.o $(LIBS)
+
+clean:
+	rm -f *~ *.o testmaster testslave

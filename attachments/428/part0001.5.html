@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>RE: [mpich2-maint] #428: [mpich-discuss] MPI_Win_fence memoryconsumption</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16809" name=GENERATOR></HEAD>
+<BODY>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=798363319-18032009>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=798363319-18032009>&nbsp;The latest pre-release version, 1.1b1, of MPICH2 
+was released today. This version contains the fix for your problem. Please 
+download&nbsp;MPICH2 1.1b1 (<A 
+title=blocked::http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads 
+href="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads</A>)&nbsp;and 
+let us know if it works for you.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=798363319-18032009>&nbsp;Thank you for reporting the 
+bug.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=798363319-18032009></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=798363319-18032009>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=798363319-18032009>Jayesh</SPAN></FONT></DIV></FONT></DIV><FONT face=Arial 
+color=#0000ff size=2></FONT><BR>
+<BLOCKQUOTE dir=ltr 
+style="PADDING-LEFT: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: #0000ff 2px solid; MARGIN-RIGHT: 0px"><FONT 
+  face=Arial color=#0000ff size=2></FONT><BR>
+  <DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+  <HR tabIndex=-1>
+  <FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna 
+  [mailto:krishna@zimbra.mcs.anl.gov] <BR><B>Sent:</B> Thursday, March 05, 2009 
+  3:17 PM<BR><B>To:</B> 'ddkrause@uni-bonn.de'<BR><B>Cc:</B> 
+  'mpich2-maint@mcs.anl.gov'<BR><B>Subject:</B> RE: [mpich2-maint] #428: 
+  [mpich-discuss] MPI_Win_fence memoryconsumption<BR></FONT><BR></DIV>
+  <DIV></DIV><!-- Converted from text/plain format -->
+  <P><FONT size=2>Hi,<BR>&nbsp;Looks like the behaviour you saw is due to a bug 
+  in the MPICH2 code (thank you for reporting the problem). We are working on it 
+  and will update you on our 
+  findings.<BR><BR>Regards,<BR>Jayesh<BR><BR>-----Original Message-----<BR>From: 
+  mpich2-bugs-bounces@mcs.anl.gov [<A 
+  href="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] 
+  On Behalf Of mpich2<BR>Sent: Wednesday, March 04, 2009 5:29 PM<BR>To: 
+  undisclosed-recipients:<BR>Subject: Re: [mpich2-maint] #428: [mpich-discuss] 
+  MPI_Win_fence 
+  memoryconsumption<BR><BR>--------------------------------------------------+---------------------<BR>--------------------------------------------------+----<BR>&nbsp;Reporter:&nbsp; 
+  Dorian Krause &lt;ddkrause@uni-bonn.de&gt;&nbsp; 
+  |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp; 
+  jayesh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; 
+  bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; 
+  new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;Priority:&nbsp; 
+  major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  |&nbsp;&nbsp;&nbsp; Milestone:&nbsp; mpich2-1.1b1<BR>Component:&nbsp; 
+  mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  |&nbsp;&nbsp; 
+  Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  |&nbsp;<BR>--------------------------------------------------+---------------------<BR>--------------------------------------------------+----<BR><BR><BR>Comment 
+  (by Jayesh Krishna):<BR><BR>&nbsp;{{{<BR><BR>&nbsp;We are looking at the code 
+  to see if we missed anything... will keep you&nbsp; 
+  posted...<BR><BR>&nbsp;Regards,<BR>&nbsp;jayesh<BR><BR>&nbsp;&nbsp; 
+  _____<BR><BR>&nbsp;From: mpich-discuss-bounces@mcs.anl.gov&nbsp; [<A 
+  href="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] 
+  On Behalf Of Jayesh Krishna<BR>&nbsp;Sent: Wednesday, March 04, 2009 3:16 
+  PM<BR>&nbsp;To: 'Dorian Krause'<BR>&nbsp;Cc: mpich2-maint@mcs.anl.gov; 
+  mpich-discuss@mcs.anl.gov<BR>&nbsp;Subject: Re: [mpich-discuss] 
+  [mpich2-maint]&nbsp; 
+  #428:MPI_Win_fencememoryconsumption<BR><BR><BR><BR>&nbsp;Hi,<BR><BR>&nbsp;&gt;&gt; 
+  But the memory layout of an array of double3 
+  and...<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Any *tricks* like 
+  the one you tried would make your code&nbsp; 
+  non-portable.<BR><BR>&nbsp;&gt;&gt; Is MPI_Type_create_struct able to infer 
+  from the input data, whether&nbsp; the struct is a contiuguous block 
+  ...<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Looks like MPICH2 does. However I 
+  don't think the standard says&nbsp; anything about this (Don't make any 
+  assumptions which are not in the&nbsp; std)...<BR><BR>&nbsp;&gt;&gt; ...I'm 
+  just sending my array as a MPI_DOUBLE 
+  array...<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I think this is the *right* 
+  approach in your 
+  case.<BR><BR>&nbsp;Regards,<BR>&nbsp;Jayesh<BR><BR>&nbsp;-----Original 
+  Message-----<BR>&nbsp;From: mpich-discuss-bounces@mcs.anl.gov&nbsp; [<A 
+  href="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] 
+  On Behalf Of Dorian Krause<BR>&nbsp;Sent: Wednesday, March 04, 2009 2:52 
+  PM<BR>&nbsp;To: mpich-discuss@mcs.anl.gov<BR>&nbsp;Cc: 
+  mpich2-maint@mcs.anl.gov<BR>&nbsp;Subject: Re: [mpich-discuss] [mpich2-maint] 
+  #428:<BR>&nbsp;MPI_Win_fencememoryconsumption<BR><BR>&nbsp;Hi<BR><BR>&nbsp;(sorry 
+  for sending the message twice ...)<BR><BR>&nbsp;Jayesh Krishna 
+  wrote:<BR>&nbsp;&gt;&nbsp; Hi,<BR>&nbsp;&gt;&nbsp;&nbsp; A contiguous MPI 
+  derived type consisting of 3 MPI_DOUBLEs is not<BR>&nbsp;&gt; equivalent to a 
+  C structure with 3 doubles. Try using an array of 3&nbsp; &gt; doubles 
+  (double[3])<BR><BR>&nbsp;But the memory layout of an array of double3 and an 
+  array of double[3] is&nbsp; the same since all data is aligned to an 8 byte 
+  boundary, so no padding is&nbsp; necessary (I checked it).<BR>&nbsp;But in the 
+  end, MPI gets a void* passed so the actual data layout in the&nbsp; buffer is 
+  irrelevant since it just greps what it thinks is the correct&nbsp; data (if it 
+  isn't (e.g., for padding reasons), this is the users fault).<BR>&nbsp;It this 
+  is the problem I would expect the problems to be on the origin&nbsp; side, not 
+  on the target side?!<BR><BR>&nbsp;&gt; or using an equivalent MPI datatype 
+  (eg:<BR>&nbsp;&gt; MPI_Type_create_struct()).<BR>&nbsp;&gt;<BR><BR>&nbsp;With 
+  MPI_Type_create_struct I don't observe the mentioned problems.<BR><BR>&nbsp;Is 
+  MPI_Type_create_struct able to infer from the input data, whether the&nbsp; 
+  struct is a contiuguous block or data? I read that strided data still&nbsp; 
+  yields a significant drop down of performance so I this wouldn't be a 
+  good&nbsp; alternative if the overhead is too large.<BR><BR>&nbsp;At the 
+  moment I'm just sending my array as a MPI_DOUBLE array of 3x the&nbsp; size. 
+  This works for the moment ...<BR><BR>&nbsp;Thanks + 
+  Regards,<BR>&nbsp;Dorian<BR><BR>&nbsp;&gt;&nbsp;&nbsp; Let us know if it works 
+  for you.<BR>&nbsp;&gt;<BR>&nbsp;&gt; Regards,<BR>&nbsp;&gt; 
+  Jayesh<BR>&nbsp;&gt;<BR>&nbsp;&gt; -----Original Message-----<BR>&nbsp;&gt; 
+  From: mpich-discuss-bounces@mcs.anl.gov&nbsp; &gt; [<A 
+  href="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] 
+  On Behalf Of Rajeev Thakur&nbsp; &gt; Sent: Friday, February 27, 2009 9:07 
+  PM&nbsp; &gt; To: mpich-discuss@mcs.anl.gov&nbsp; &gt; Subject: Re: 
+  [mpich-discuss] MPI_Win_fence memory consumption&nbsp; &gt;&nbsp; &gt; OK, 
+  thanks. We will look into it.<BR>&nbsp;&gt;<BR>&nbsp;&gt; 
+  Rajeev<BR>&nbsp;&gt;<BR>&nbsp;&gt;&gt; -----Original 
+  Message-----<BR>&nbsp;&gt;&gt; From: mpich-discuss-bounces@mcs.anl.gov&nbsp; 
+  &gt;&gt; [<A 
+  href="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] 
+  On Behalf Of Dorian Krause&nbsp; &gt;&gt; Sent: Friday, February 27, 2009 7:44 
+  PM&nbsp; &gt;&gt; To: mpich-discuss@mcs.anl.gov&nbsp; &gt;&gt; Subject: Re: 
+  [mpich-discuss] MPI_Win_fence memory consumption&nbsp; &gt;&gt;&nbsp; &gt;&gt; 
+  Rajeev Thakur wrote:<BR>&nbsp;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt; Does that happen 
+  only with Nemesis or even with 
+  ch3:sock?<BR>&nbsp;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt; The behaviour is the same 
+  with the configure flag&nbsp; &gt;&gt; 
+  --with-device=ch3:sock.<BR>&nbsp;&gt;&gt;<BR>&nbsp;&gt;&gt; 
+  Dorian<BR>&nbsp;&gt;&gt;<BR>&nbsp;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt; 
+  Rajeev<BR>&nbsp;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt;&gt; 
+  -----Original Message-----<BR>&nbsp;&gt;&gt;&gt;&gt; From: 
+  mpich-discuss-bounces@mcs.anl.gov&nbsp; &gt;&gt;&gt;&gt; [<A 
+  href="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] 
+  On Behalf Of&nbsp; &gt;&gt;&gt;&gt;&nbsp; &gt;&gt; Dorian Krause&nbsp; 
+  &gt;&gt;&nbsp; &gt;&gt;&gt;&gt; Sent: Friday, February 27, 2009 7:16 AM&nbsp; 
+  &gt;&gt;&gt;&gt; To: mpich-discuss@mcs.anl.gov&nbsp; &gt;&gt;&gt;&gt; Subject: 
+  [mpich-discuss] MPI_Win_fence memory consumption&nbsp; &gt;&gt;&gt;&gt;&nbsp; 
+  &gt;&gt;&gt;&gt; Hi List,&nbsp; &gt;&gt;&gt;&gt;&nbsp; &gt;&gt;&gt;&gt; the 
+  attached test program uses&nbsp; &gt;&gt;&gt;&gt;&nbsp; &gt;&gt; 
+  MPI_Accumulate/MPI_Win_fence for one&nbsp; &gt;&gt;&nbsp; &gt;&gt;&gt;&gt; 
+  sided communication with derived datatype.<BR>&nbsp;&gt;&gt;&gt;&gt; The 
+  program runs fine with mpich2-1.1a2 except for my debugging&nbsp; 
+  &gt;&gt;&gt;&gt; version of MPICH2 compiled with&nbsp; &gt;&gt;&gt;&gt;&nbsp; 
+  &gt;&gt;&gt;&gt; ./configure --with-device=ch3:nemesis 
+  --enable-g=dbg,mem,meminit&nbsp; &gt;&gt;&gt;&gt;&nbsp; &gt;&gt;&gt;&gt; In 
+  this case the MPI_Win_fence on the target side comuses&nbsp; 
+  &gt;&gt;&gt;&gt;&nbsp; &gt;&gt; about 90%&nbsp; &gt;&gt;&nbsp; 
+  &gt;&gt;&gt;&gt; of main memory (e.g. &gt; 3 GB). As the behaviour is 
+  completely&nbsp; &gt;&gt;&gt;&gt; different for predefined datatypes, I 
+  suspect that the memory&nbsp; &gt;&gt;&gt;&gt; consumption is related to the 
+  construction of the derived&nbsp; &gt;&gt;&gt;&gt;&nbsp; &gt;&gt; datatype 
+  on&nbsp; &gt;&gt;&nbsp; &gt;&gt;&gt;&gt; the target 
+  side.<BR>&nbsp;&gt;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt;&gt; Is there a 
+  workaround for this?<BR>&nbsp;&gt;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt;&gt; 
+  Thanks + Best regards,<BR>&nbsp;&gt;&gt;&gt;&gt; 
+  Dorian<BR>&nbsp;&gt;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;&gt;&gt;<BR>&nbsp;&gt;&gt;<BR>&nbsp;&gt;<BR>&nbsp;&gt;<BR>&nbsp;&gt;<BR><BR><BR><BR>&nbsp;}}}<BR><BR>--<BR>Ticket 
+  URL: 
+  &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/428#comment:&gt;<BR></FONT></P></BLOCKQUOTE></BODY></HTML>

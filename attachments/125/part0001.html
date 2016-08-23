@@ -1,0 +1,25 @@
+<DIV>Recently I met a problem when installing MPICH2-1.0.7. On 2 nodes(which named node0 and node1) I installed it seperately and it appeared that I've done it successfully. On node0's&nbsp;/root/mpd.hosts, I wrote as blow:</DIV>
+<DIV>"</DIV>
+<DIV>node0</DIV>
+<DIV>node1</DIV>
+<DIV>"</DIV>
+<DIV>The same&nbsp;as node1's /root/mpd.hosts.</DIV>
+<DIV>I can run #mpd&amp; on node0. But when I run #mpdboot -n 2 -f mpd.hosts, it returns:</DIV>
+<DIV>"mpdboot_node0 (handle_mpd_output 401): failed to connect to mpd on node1</DIV>
+<DIV>"</DIV>
+<DIV>The same situation appeares on node1.</DIV>
+<DIV>And then I use mpdcheck to check the problem. The result is:</DIV>
+<DIV>On node0:</DIV>
+<DIV>"</DIV>
+<DIV>#mpdcheck -s</DIV>
+<DIV>server listening at INADDR_ANY on: node0 33053</DIV>
+<DIV>"</DIV>
+<DIV>On node1:</DIV>
+<DIV>"</DIV>
+<DIV>[root@node1 ~]# mpdcheck -c node0 33053<BR>Traceback (most recent call last):<BR>&nbsp; File "/usr/MPICH-install/bin/mpdcheck", line 103, in ?<BR>&nbsp;&nbsp;&nbsp; sock.connect((argv[argidx+1],int(argv[argidx+2])))&nbsp; # note double parens<BR>&nbsp; File "&lt;string&gt;", line 1, in connect<BR>socket.error: (111, 'Connection refused')</DIV>
+<DIV>"</DIV>
+<DIV>I can make sure that the iptables is off both on node1 and node0. Besides, node0 and node1 can ssh each other.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>I wonder if you have any suggestions. Thanks for your kindness.</DIV><br><!-- footer --><br> 
+<hr>
+<font style="font-size:12px;line-height:15px;">200万入主万科中粮紫苑155平米8重空间大宅 </font><a style="font-size:12px;line-height:15px; color:blue; text-decoration:underline;" href="http://popme.163.com/link/003984_0902_149.html">周周送好礼</a>

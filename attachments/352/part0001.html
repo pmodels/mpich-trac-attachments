@@ -1,0 +1,50 @@
+Here I send you a little test program:<br><br>- the manager.cpp file contains the manager part that initializes a Petsc Session, prints some informations about the command line options and then executes the &quot;worker program&quot; with MPI_Comm_spawn_multiple. The firts command line option of the master must the executable name of the worker.<br>
+- the worker.cpp file prints informations about the command line options and exit.<br><br>I use MPICH-2 and Petsc 2.3.3 and the gcc 1.4.2 compiler.<br>
+<br><br>To execute the program I type:<br><br>mpiexec -n 2 ./manager ./worker -arg1 1 -arg2 2 -arg3 3 -arg4 4 -arg5 5 -arg6 6 -arg7 7 -arg8 8 -arg9 9 -arg10 10 -arg11 11 -arg12 12 -arg13 13 -arg14 14 -arg15 15 -arg16 16 -arg17 17 -arg18 18 -arg19 19 -arg20 20 -arg21 21 -arg22 22 -arg23 23 -arg24 24 -arg25 25 -arg26 26 -arg27 27 -arg28 28 -arg29 29 -arg30 30 -arg31 31 -arg32 32 -arg33 33 -arg34 34 -arg35 35 -arg36 36<br>
+<br>Stopping at -arg35 35 the program executes.<br><br>Thank you very much!<br>Federico <br><br><br><br><br><br><div class="gmail_quote">2009/1/9 Rajeev Thakur <span dir="ltr">&lt;<a href="mailto:thakur@mcs.anl.gov" target="_blank">thakur@mcs.anl.gov</a>&gt;</span><br>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+
+
+
+
+<div>
+<div dir="ltr" align="left"><span><font color="#0000ff" face="Arial" size="2">Can you send us a small test program that demonstrates the 
+error?</font></span></div>
+<div dir="ltr" align="left"><span><font color="#0000ff" face="Arial" size="2"></font></span>&nbsp;</div>
+<div dir="ltr" align="left"><span><font color="#0000ff" face="Arial" size="2">Rajeev</font></span></div><br>
+<blockquote style="border-left: 2px solid rgb(0, 0, 255); padding-left: 5px; margin-left: 5px; margin-right: 0px;">
+  <div dir="ltr" align="left" lang="en-us">
+  <hr>
+  <font face="Tahoma" size="2"><div><b>From:</b> <a href="mailto:mpich-discuss-bounces@mcs.anl.gov" target="_blank">mpich-discuss-bounces@mcs.anl.gov</a> 
+  [mailto:<a href="mailto:mpich-discuss-bounces@mcs.anl.gov" target="_blank">mpich-discuss-bounces@mcs.anl.gov</a>] <b>On Behalf Of </b>Federico Golfrè 
+  Andreasi<br></div><b>Sent:</b> Thursday, January 08, 2009 3:34 AM<div><br><b>To:</b> 
+  <a href="mailto:mpich-discuss@mcs.anl.gov" target="_blank">mpich-discuss@mcs.anl.gov</a><br></div><b>Subject:</b> Re: [mpich-discuss] array_of_argv 
+  in the MPI_Comm_spawn_multiple<br></font><br></div><div><div></div><div>
+  <div></div>I noticed that problem when the argv has dimension more than about 
+  50 elements and 450 characters.<br><br>Thank you,<br>Federico<br><br><br><br>
+  <div class="gmail_quote">2009/1/7 Rajeev Thakur <span dir="ltr">&lt;<a href="mailto:thakur@mcs.anl.gov" target="_blank">thakur@mcs.anl.gov</a>&gt;</span><br>
+  <blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+    <div>
+    <div dir="ltr" align="left"><span><font color="#0000ff" face="Arial" size="2">How big 
+    is the argv you are passing?</font></span></div>
+    <div dir="ltr" align="left"><span><font color="#0000ff" face="Arial" size="2"></font></span>&nbsp;</div>
+    <div dir="ltr" align="left"><span><font color="#0000ff" face="Arial" size="2">Rajeev</font></span></div><br>
+    <blockquote style="border-left: 2px solid rgb(0, 0, 255); padding-left: 5px; margin-left: 5px; margin-right: 0px;">
+      <div dir="ltr" align="left" lang="en-us">
+      <hr>
+      <font face="Tahoma" size="2"><b>From:</b> <a href="mailto:mpich-discuss-bounces@mcs.anl.gov" target="_blank">mpich-discuss-bounces@mcs.anl.gov</a> [mailto:<a href="mailto:mpich-discuss-bounces@mcs.anl.gov" target="_blank">mpich-discuss-bounces@mcs.anl.gov</a>] <b>On Behalf Of 
+      </b>Federico Golfrè Andreasi<br><b>Sent:</b> Wednesday, January 07, 2009 
+      4:17 AM<br><b>To:</b> <a href="mailto:mpich-discuss@mcs.anl.gov" target="_blank">mpich-discuss@mcs.anl.gov</a><br><b>Subject:</b> 
+      [mpich-discuss] array_of_argv in the 
+      MPI_Comm_spawn_multiple<br></font><br></div>
+      <div>
+      <div></div>
+      <div>
+      <div></div>Hi,<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I&#39;ve 
+      a problem in using the MPI_Comm_spawn_multiple.<br>When I use that 
+      function with a large number of arguments in the array_of_argv 
+      parameter<br>the program execution freezes in the point.<br><br>There is a 
+      maximum length of the argv or a maximum number of elements of argv that 
+      can be used?<br><br>Thank 
+  you!<br>Federico<br></div></div></blockquote></div></blockquote></div><br></div></div></blockquote></div>
+</blockquote></div><br>

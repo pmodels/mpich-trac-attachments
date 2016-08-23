@@ -1,0 +1,75 @@
+
+  CC       src/mpi/coll/lib_libpmpi_la-opmax.losrc/mpi/coll/opsum.c:57:9: error: duplicate case value '201326592'
+        MPIR_OP_TYPE_GROUP(COMPLEX_EXTRA)
+        ^
+./src/include/oputil.h:60:35: note: expanded from macro 'MPIR_OP_TYPE_GROUP'
+#define MPIR_OP_TYPE_GROUP(group) MPIR_OP_TYPE_GROUP_##group
+                                  ^
+<scratch space>:64:1: note: expanded from here
+MPIR_OP_TYPE_GROUP_COMPLEX_EXTRA
+^
+./src/include/oputil.h:347:5: note: expanded from macro 'MPIR_OP_TYPE_GROUP_COMPLEX_EXTRA'
+    MPIR_OP_TYPE_MACRO_HAVE_COMPLEX16(MPI_COMPLEX16, d_complex, mpir_typename_complex16)                                      \
+    ^
+./src/include/oputil.h:106:75: note: expanded from macro 'MPIR_OP_TYPE_MACRO_HAVE_COMPLEX16'
+#  define MPIR_OP_TYPE_MACRO_HAVE_COMPLEX16(mpi_type_,c_type_,type_name_) MPIR_OP_TYPE_MACRO(mpi_type_,c_type_,type_name_)
+                                                                          ^
+src/mpi/coll/opsum.c:44:14: note: expanded from macro 'MPIR_OP_TYPE_MACRO'
+        case (mpi_type_): {                                \
+             ^
+src/mpi/coll/opsum.c:57:9: note: previous case defined here
+./src/include/oputil.h:60:35: note: expanded from macro 'MPIR_OP_TYPE_GROUP'
+#define MPIR_OP_TYPE_GROUP(group) MPIR_OP_TYPE_GROUP_##group
+                                  ^
+<scratch space>:64:1: note: expanded from here
+MPIR_OP_TYPE_GROUP_COMPLEX_EXTRA
+^
+./src/include/oputil.h:346:5: note: expanded from macro 'MPIR_OP_TYPE_GROUP_COMPLEX_EXTRA'
+    MPIR_OP_TYPE_MACRO_HAVE_COMPLEX8(MPI_COMPLEX8, s_complex, mpir_typename_complex8)                                         \
+    ^
+./src/include/oputil.h:105:74: note: expanded from macro 'MPIR_OP_TYPE_MACRO_HAVE_COMPLEX8'
+#  define MPIR_OP_TYPE_MACRO_HAVE_COMPLEX8(mpi_type_,c_type_,type_name_) MPIR_OP_TYPE_MACRO(mpi_type_,c_type_,type_name_)
+                                                                         ^
+src/mpi/coll/opsum.c:44:14: note: expanded from macro 'MPIR_OP_TYPE_MACRO'
+        case (mpi_type_): {                                \
+             ^
+src/mpi/coll/opsum.c:92:9: error: duplicate case value '201326592'
+        MPIR_OP_TYPE_GROUP(COMPLEX_EXTRA)
+        ^
+./src/include/oputil.h:60:35: note: expanded from macro 'MPIR_OP_TYPE_GROUP'
+#define MPIR_OP_TYPE_GROUP(group) MPIR_OP_TYPE_GROUP_##group
+                                  ^
+<scratch space>:83:1: note: expanded from here
+MPIR_OP_TYPE_GROUP_COMPLEX_EXTRA
+^
+./src/include/oputil.h:347:5: note: expanded from macro 'MPIR_OP_TYPE_GROUP_COMPLEX_EXTRA'
+    MPIR_OP_TYPE_MACRO_HAVE_COMPLEX16(MPI_COMPLEX16, d_complex, mpir_typename_complex16)                                      \
+    ^
+./src/include/oputil.h:106:75: note: expanded from macro 'MPIR_OP_TYPE_MACRO_HAVE_COMPLEX16'
+#  define MPIR_OP_TYPE_MACRO_HAVE_COMPLEX16(mpi_type_,c_type_,type_name_) MPIR_OP_TYPE_MACRO(mpi_type_,c_type_,type_name_)
+                                                                          ^
+src/mpi/coll/opsum.c:82:65: note: expanded from macro 'MPIR_OP_TYPE_MACRO'
+#define MPIR_OP_TYPE_MACRO(mpi_type_, c_type_, type_name_) case (mpi_type_):
+                                                                ^
+src/mpi/coll/opsum.c:92:9: note: previous case defined here
+./src/include/oputil.h:60:35: note: expanded from macro 'MPIR_OP_TYPE_GROUP'
+#define MPIR_OP_TYPE_GROUP(group) MPIR_OP_TYPE_GROUP_##group
+                                  ^
+<scratch space>:83:1: note: expanded from here
+MPIR_OP_TYPE_GROUP_COMPLEX_EXTRA
+^
+./src/include/oputil.h:346:5: note: expanded from macro 'MPIR_OP_TYPE_GROUP_COMPLEX_EXTRA'
+    MPIR_OP_TYPE_MACRO_HAVE_COMPLEX8(MPI_COMPLEX8, s_complex, mpir_typename_complex8)                                         \
+    ^
+./src/include/oputil.h:105:74: note: expanded from macro 'MPIR_OP_TYPE_MACRO_HAVE_COMPLEX8'
+#  define MPIR_OP_TYPE_MACRO_HAVE_COMPLEX8(mpi_type_,c_type_,type_name_) MPIR_OP_TYPE_MACRO(mpi_type_,c_type_,type_name_)
+                                                                         ^
+src/mpi/coll/opsum.c:82:65: note: expanded from macro 'MPIR_OP_TYPE_MACRO'
+#define MPIR_OP_TYPE_MACRO(mpi_type_, c_type_, type_name_) case (mpi_type_):
+                                                                ^
+2 errors generated.
+make[2]: *** [src/mpi/coll/lib_libpmpi_la-opsum.lo] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [all-recursive] Error 1
+make: *** [all] Error 2
+

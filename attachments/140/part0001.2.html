@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #140: RE: [MPICH2 Req #4218]</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; As you mentioned in your email to dynamically create MPI processes you can use MPI_COMM_SPAWN (Also look into MPI_INTERCOMM_MERGE()).<BR>
+&nbsp; Let us know if you need further help.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Monday, September 15, 2008 9:50 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #140: RE: [MPICH2 Req #4218]<BR>
+<BR>
+---------------------------------------------------------------------+--<BR>
+---------------------------------------------------------------------+--<BR>
+---------------------------------------------------------------------+--<BR>
+&nbsp;Reporter:&nbsp; Maria Laura De Bellis &lt;maria.laura.debellis@hotmail.it&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+---------------------------------------------------------------------+--<BR>
+---------------------------------------------------------------------+--<BR>
+---------------------------------------------------------------------+--<BR>
+<BR>
+<BR>
+&nbsp;Hi...<BR>
+&nbsp;I am new in MPI programming and I really need help!!<BR>
+&nbsp;I use fortran 77 and MPICH2 with Windows. Is it possible to implement a&nbsp; program with 1 master.exe and several slaves.exe in which the slaves are&nbsp; not generated all&nbsp; at once but can born successively during the computation?<BR>
+&nbsp;I try to explain better: I want to check, during the computation, if a new&nbsp; slave.exe is needed or not....just if it&nbsp; is needed I want to call a new&nbsp; process...<BR>
+&nbsp;Can I use the comand<BR>
+<BR>
+&nbsp;call&nbsp; MPI_COMM_SPAWN<BR>
+<BR>
+&nbsp;to generate 1 process at time&nbsp; or is there a more specific MPI-command???<BR>
+<BR>
+<BR>
+&nbsp;PLEASE HELP ME!!!<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;_________________________________________________________________<BR>
+&nbsp;Stanco della solita finestra? Personalizza la tua Hotmail!<BR>
+&nbsp;<A HREF="http://www.messenger.it/personalizza.html#sfondi">http://www.messenger.it/personalizza.html#sfondi</A><BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/140">https://trac.mcs.anl.gov/projects/mpich2/ticket/140</A>&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

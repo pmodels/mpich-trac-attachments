@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #116: Failure to convert from rlog to slog2 with JumpShot</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Can you bring up Jumpshot and then do the conversion (When you install MPICH2 on windows you should have a shortcut to Jumpshot in the &quot;Program Files&quot; app menu) ?<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Friday, August 29, 2008 5:05 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #116: Failure to convert from rlog to slog2 with JumpShot<BR>
+<BR>
+------------------------------------------------------------+-----------<BR>
+------------------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Bisseling, Georg&quot; &lt;georg.bisseling@intel.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+------------------------------------------------------------+-----------<BR>
+------------------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;Dear maintainers,<BR>
+<BR>
+&nbsp;when using the stable MPICH2 1.0.7 packet for Windows under Windows XP&nbsp; 32Bit&nbsp; using Suns JRE 6 Update 7 I could not load a rlog file into JumpShot.<BR>
+&nbsp;The conversion to the slog2 format failed with the following error shown:<BR>
+<BR>
+&nbsp;Executing C:\Program Files\Java\jre1.6.0_07\bin\java.exe -Xms32m -Xmx64m&nbsp; -Djava.library.path=C:\Program&nbsp; Files\MPICH2-1.0.7\bin;C:\Program&nbsp; Files\MPICH2-1.0.7\bin\..\trace_rlog\lib;C:\Program<BR>
+&nbsp;Files\MPICH2-1.0.7\bin\.\trace_rlog -jar&nbsp; C:\Program Files\MPICH2-1.0.7\bin\traceTOslog2.jar -h ....<BR>
+&nbsp;Output &gt; Usage: java slog2.output.TraceToSlog2 [options] trace_filename.<BR>
+&nbsp;Output &gt;&nbsp; options:<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-h|--h|-help|--help]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display HELP<BR>
+&nbsp;message.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-tc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Check increasing<BR>
+&nbsp;endtime order,<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit when 1st<BR>
+&nbsp;violation occurs.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-tcc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Check increasing<BR>
+&nbsp;endtime order,<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue when<BR>
+&nbsp;violations occur.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-nc number_of_children_per_node]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Default value is<BR>
+&nbsp;2.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-ls max_byte_size_of_leaf_node]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Default value is<BR>
+&nbsp;65536.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-o output_filename_with_slog2_suffix]<BR>
+&nbsp;Output &gt;<BR>
+&nbsp;Output &gt;&nbsp; note: &quot;max_byte_size_of_leaf_node&quot; can be specified with suffix&nbsp; k, K, m or M,<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where k or K stands for kilobyte, m or M stands for<BR>
+&nbsp;megabyte.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.g. 64k means 65536 bytes.<BR>
+&nbsp;Output &gt;<BR>
+&nbsp;Output &gt; Usage: executable_name ASCII_drawable_filename&nbsp; Output &gt; trace.InputLog.open() exits normally!<BR>
+&nbsp;&gt; Ending with exit status 0<BR>
+<BR>
+<BR>
+&nbsp;Best regards<BR>
+&nbsp;--<BR>
+&nbsp;Georg Bisseling<BR>
+&nbsp;Senior Software Engineer<BR>
+&nbsp;Software &amp; Solutions Group<BR>
+<BR>
+&nbsp;Intel GmbH<BR>
+&nbsp;Hermuelheimer Str. 8a<BR>
+&nbsp;50321 Bruehl, Germany<BR>
+&nbsp;Tel: +49-2232-20-9044<BR>
+&nbsp;Fax: +49-2232-20-9029<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/116">https://trac.mcs.anl.gov/projects/mpich2/ticket/116</A>&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

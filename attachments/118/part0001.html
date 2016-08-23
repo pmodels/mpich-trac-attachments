@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.0.6619.12">
+<TITLE>Simple MPICH2 Delegate Bug</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/rtf format -->
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Hi,</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">I have setup 3</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">Win64</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">hosts using</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">&#8220;</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">smpd</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">&#8211;</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">register_spn</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">&#8221;</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial"> with no problem.&nbsp;</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">On the domain controller,</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">I have created a user that is authorized for</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">d</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">elegation and setup all 3 hosts to allow delegation.&nbsp;</FONT></SPAN><SPAN LANG="en-us"> </SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Then, a</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">ssume the following</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">two</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">scenario</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">s:</FONT></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Scenario 1:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">submission host: vm-cce1</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">execution host: vm-cce2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">command: mpiexec</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">&#8211;</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">delegate</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">&#8211;</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">hosts 1 vm-cce2 hostname</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">result: vm-cce2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Scenario 2:</FONT></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">submission host: vm-cce1</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">execution host: vm-cce1</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">command: mpiexec</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">&#8211;</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">delegate</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">&#8211;</FONT></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">hosts 1 vm-cce1 hostname</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">result:</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">op_read error on left context: socket connection closed</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">unable to read the re-connect request, socket connection closed.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Scenario 2 appears to be a bug.&nbsp;</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">Why is it that I can not use delegation when talking to the localhost vm-cce1.&nbsp; This I think</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">is</FONT></SPAN><SPAN LANG="en-us"> <FONT COLOR="#000000" FACE="Arial">a bug.&nbsp; Try it for yourself.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Regards,</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><A NAME=""><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Larry Adams</FONT></SPAN></A></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Senior Systems Engineer</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Platform Computing</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Tele: (586) 510-0007</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Cell: (586) 899-1138</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#000000" FACE="Arial">Skype: TheWitness</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN></P>
+
+</BODY>
+</HTML>

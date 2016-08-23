@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7653.38">
+<TITLE>MPICH2 Compile Error</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/rtf format -->
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Calibri">Hello,</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Calibri">I am trying to compile MPICH2 on a</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">Scientific Linux</FONT></SPAN><SPAN LANG="en-us">&nbsp;<FONT FACE="Calibri"></FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">5.0</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">box</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"> (</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">www.scientificlinux.org</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">)</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">.&nbsp; The configuration seems to be fine, bu</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">t</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">I</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"> get compile error</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">s</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">.&nbsp; I looked around and found that in Makefile.in on Line 50 and 52 it</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">has a hardcoded path to</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">&#8220;</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">${srcdir} &amp;&amp;</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">/sandbox/</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">balaji/trunk/maint/mpich2-1.0.7/maint/simplemake</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">&#8221;</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">.&nbsp; I would think it should be</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">something</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"> like</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">&#8220;</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">${srcdir} &amp;&amp; /maint/simplemake/</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">&#8221;</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">.&nbsp; This is in version 1.0.7.</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">&nbsp; I modified the Makefile, but this error seems to</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">be in other places.</FONT></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Calibri">I downloaded version 1.0.6p1 and</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">it compiled and ran fine.&nbsp; I would like to use the newest version for a</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">system I a</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">m</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"> setting up, so could you</FONT></SPAN><SPAN LANG="en-us"> <FONT FACE="Calibri">look into</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"> this problem and let me know a solution.&nbsp; Thanks</FONT></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT SIZE=2 FACE="Arial">Sean McDon</FONT><FONT SIZE=2 FACE="Arial">ald</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"><BR>
+</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT SIZE=2 FACE="Arial">AFRL/RXQ Network Administrator</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"><BR>
+</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT SIZE=2 FACE="Arial">139 Barnes Dr., Suite 2</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"><BR>
+</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT SIZE=2 FACE="Arial">Tyndall AFB, FL. 32403</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"><BR>
+</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT SIZE=2 FACE="Arial">Duty Phone: (850) 283-6</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT SIZE=2 FACE="Arial">407</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT SIZE=2 FACE="Arial"> - DSN: 523-6</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT SIZE=2 FACE="Arial">407</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><BR>
+</SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT SIZE=2 FACE="Arial">Email: sean.mcdonald@tyndall.af.mil</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"> </FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN></P>
+
+</BODY>
+</HTML>

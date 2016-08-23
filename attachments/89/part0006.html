@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>Re: [mpich-discuss] MPI_Irecv does block</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>It's blocking in waitany. This morning after doing some other work in&nbsp; </FONT>
+
+<BR><FONT SIZE=2>the same program I was actually able to get a message truncated error&nbsp; </FONT>
+
+<BR><FONT SIZE=2>but now, after many runs, I'm back to the same problem. Compiling the&nbsp; </FONT>
+
+<BR><FONT SIZE=2>program with a different MPI implementation returns a truncate error&nbsp; </FONT>
+
+<BR><FONT SIZE=2>as expected. Waitany has 3 requests, only one has a buffer smaller&nbsp; </FONT>
+
+<BR><FONT SIZE=2>than the incoming message (the only request where count &gt; 1).</FONT>
+</P>
+
+<P><FONT SIZE=2>#0&nbsp; 0x900bc40c in poll ()</FONT>
+
+<BR><FONT SIZE=2>#1&nbsp; 0x000bb3e2 in MPIDU_Sock_wait () at /usr/include/c++/4.0.0/ </FONT>
+
+<BR><FONT SIZE=2>iostream:76</FONT>
+
+<BR><FONT SIZE=2>#2&nbsp; 0x0006bb29 in MPIDI_CH3I_Progress () at /usr/include/c++/4.0.0/ </FONT>
+
+<BR><FONT SIZE=2>iostream:76</FONT>
+
+<BR><FONT SIZE=2>#3&nbsp; 0x0002e006 in MPI_Waitany () at /usr/include/c++/4.0.0/iostream:76</FONT>
+
+<BR><FONT SIZE=2>#4&nbsp; 0x001346f7 in MPI::Request::Waitany (v1=3, v2=0xbffff860,&nbsp; </FONT>
+
+<BR><FONT SIZE=2>v4=@0xbffff848) at /Users/rk/Development/MDS/Worker.cpp:965</FONT>
+
+<BR><FONT SIZE=2>#5&nbsp; 0x0000608e in MDS::Worker::run (this=0xbffff8e4) at /Users/rk/ </FONT>
+
+<BR><FONT SIZE=2>Development/MDS/Worker.cpp:54</FONT>
+
+<BR><FONT SIZE=2>#6&nbsp; 0x00003645 in main (argc=2, argv=0xbffff9fc) at /Users/rk/ </FONT>
+
+<BR><FONT SIZE=2>Development/MDS/demo.cpp:61</FONT>
+</P>
+<BR>
+
+<P><FONT SIZE=2>On Aug 12, 2008, at 10:33 AM, Rajeev Thakur wrote:</FONT>
+</P>
+
+<P><FONT SIZE=2>&gt; So is it MPI_Waitany that blocks or MPI_Irecv? Are all the posted&nbsp; </FONT>
+
+<BR><FONT SIZE=2>&gt; Irecvs for</FONT>
+
+<BR><FONT SIZE=2>&gt; the smaller size of 100?</FONT>
+
+<BR><FONT SIZE=2>&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt; Rajeev</FONT>
+
+<BR><FONT SIZE=2>&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; -----Original Message-----</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; From: owner-mpich-discuss@mcs.anl.gov</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; [<A HREF="mailto:owner-mpich-discuss@mcs.anl.gov">mailto:owner-mpich-discuss@mcs.anl.gov</A>] On Behalf Of Robert Kubrick</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; Sent: Monday, August 11, 2008 10:38 PM</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; To: mpich-discuss@mcs.anl.gov</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; Subject: Re: [mpich-discuss] MPI_Irecv does block</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; This is the stack of one of the receiving process. The last</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; MPI call is MPI_Waitany(), as I am using a number of</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; MPI_Irecv() requests.</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; If I change the size of buf in the receiver to handle all the</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; elements sent by the master, the program runs with no problems.</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; Attaching to process 8743.</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; Reading symbols for shared libraries . done Reading symbols</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; for shared libraries ....... done 0x900bc40c in poll ()</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; (gdb) where</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; #0&nbsp; 0x900bc40c in poll ()</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; #1&nbsp; 0x000ba702 in MPIDU_Sock_wait () at /usr/include/c++/4.0.0/</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; iostream:76</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; #2&nbsp; 0x0006b799 in MPIDI_CH3I_Progress () at /usr/include/c++/4.0.0/</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; iostream:76</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; #3&nbsp; 0x0002d49e in MPI_Waitany () at /usr/include/c++/4.0.0/ </FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; iostream:76</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; #4&nbsp; 0x001344cd in MPI::Request::Waitany (v1=3, v2=0xbffff860,</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; v4=@0xbffff848) at /Users/rk/Development/tst/Worker.cpp:965</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; #5&nbsp; 0x000060cc in MDS::Worker::run (this=0xbffff8e8) at /Users/rb/</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; Development/tst/Worker.cpp:57</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; #6&nbsp; 0x00003645 in main (argc=2, argv=0xbffff9fc) at /Users/rb/</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; Development/tst/demo.cpp:61</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; On Aug 11, 2008, at 10:22 PM, Robert Kubrick wrote:</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; I want to send a number of elements through MPI_Send. However the</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; receiving process does not know the maximum number of</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; elements in the</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; array (it might be very large). The code will look something like:</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; MASTER:</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; char buf[500];</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; ...</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; MPI_Send(&amp;buf, 500, SomeDerivedType, 1, ...);</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; ==============</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; WORKER:</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; char buf[100];</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; const int Master = 0;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; MPI_Irecv(&amp;buf, 100, SomeDerivedType, Master, ...);</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; I noticed that here the worker process blocks (despite the</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; MPI_Irecv</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; non-blocking call) because it doesn't have enough room in</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; the buffer</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; to receive all the elements. I know one way to solve the</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; problem is to</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; use MPI_Probe, but is this the expected behavior if the</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt; buffer is too</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt; small? Shouldn't MPI_Irecv return an error to avoid blocking?</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt;</FONT>
+</P>
+
+</BODY>
+</HTML>

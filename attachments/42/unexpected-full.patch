@@ -1,0 +1,1079 @@
+Index: src/mpid/ch3/include/mpidimpl.h
+===================================================================
+--- src/mpid/ch3/include/mpidimpl.h	(revision 3255)
++++ src/mpid/ch3/include/mpidimpl.h	(working copy)
+@@ -282,9 +282,9 @@
+     (sreq_)->status.cancelled	   = FALSE;		        \
+     (sreq_)->dev.state = 0;                                     \
+     (sreq_)->dev.cancel_pending = FALSE;                        \
+-    (sreq_)->dev.match.rank = rank;				\
+-    (sreq_)->dev.match.tag = tag;				\
+-    (sreq_)->dev.match.context_id = comm->context_id + context_offset;	\
++    (sreq_)->dev.match.parts.rank = rank;			\
++    (sreq_)->dev.match.parts.tag = tag;				\
++    (sreq_)->dev.match.parts.context_id = comm->context_id + context_offset;	\
+     (sreq_)->dev.user_buf = (void *) buf;			\
+     (sreq_)->dev.user_count = count;				\
+     (sreq_)->dev.datatype = datatype;				\
+Index: src/mpid/ch3/include/mpidpre.h
+===================================================================
+--- src/mpid/ch3/include/mpidpre.h	(revision 3255)
++++ src/mpid/ch3/include/mpidpre.h	(working copy)
+@@ -50,10 +50,15 @@
+ 
+ #include "mpichconf.h"
+ 
+-/* For the typical communication system for which the ch3 channel is 
+-   appropriate, 16 bits is sufficient for the rank.  By also using 16 bits
+-   for the context, we can reduce the size of the match information, which
+-   is beneficial for slower communication links. 
++/* For the typical communication system for which the ch3 channel is
++   appropriate, 16 bits is sufficient for the rank.  By also using 16
++   bits for the context, we can reduce the size of the match
++   information, which is beneficial for slower communication
++   links. Further, this allows the total structure size to be 64 bits
++   and the search operations can be optimized on 64-bit platforms. We
++   use a union of the actual required structure with a MPIR_Upint, so
++   in this optimized case, the "whole" field can be used for
++   comparisons.
+ 
+    Note that the MPICH2 code (in src/mpi) uses int for rank (and usually for 
+    contextids, though some work is needed there).  
+@@ -63,13 +68,14 @@
+    create (that may make use of dynamically created processes) that the
+    size of the communicator is within range.
+ */
+-typedef struct MPIDI_Message_match
+-{
+-    int32_t tag;
+-    int32_t rank;
+-    MPIR_Context_id_t context_id;
+-}
+-MPIDI_Message_match;
++typedef union {
++    struct {
++	int32_t tag;
++	int16_t rank;
++	MPIR_Context_id_t context_id;
++    } parts;
++    MPIR_Upint whole;
++} MPIDI_Message_match;
+ #define MPIDI_TAG_UB (0x7fffffff)
+ 
+ /* Packet types are defined in mpidpkt.h .  The intent is to remove the
+Index: src/mpid/ch3/src/mpid_startall.c
+===================================================================
+--- src/mpid/ch3/src/mpid_startall.c	(revision 3255)
++++ src/mpid/ch3/src/mpid_startall.c	(working copy)
+@@ -35,9 +35,9 @@
+     (sreq_)->kind = MPID_PREQUEST_SEND;					\
+     (sreq_)->comm = comm;						\
+     MPIR_Comm_add_ref(comm);						\
+-    (sreq_)->dev.match.rank = rank;					\
+-    (sreq_)->dev.match.tag = tag;					\
+-    (sreq_)->dev.match.context_id = comm->context_id + context_offset;	\
++    (sreq_)->dev.match.parts.rank = rank;				\
++    (sreq_)->dev.match.parts.tag = tag;					\
++    (sreq_)->dev.match.parts.context_id = comm->context_id + context_offset;	\
+     (sreq_)->dev.user_buf = (void *) buf;				\
+     (sreq_)->dev.user_count = count;					\
+     (sreq_)->dev.datatype = datatype;					\
+@@ -72,32 +72,32 @@
+ 	{
+ 	    case MPIDI_REQUEST_TYPE_RECV:
+ 	    {
+-		rc = MPID_Irecv(preq->dev.user_buf, preq->dev.user_count, preq->dev.datatype, preq->dev.match.rank,
+-		    preq->dev.match.tag, preq->comm, preq->dev.match.context_id - preq->comm->recvcontext_id,
++		rc = MPID_Irecv(preq->dev.user_buf, preq->dev.user_count, preq->dev.datatype, preq->dev.match.parts.rank,
++		    preq->dev.match.parts.tag, preq->comm, preq->dev.match.parts.context_id - preq->comm->recvcontext_id,
+ 		    &preq->partner_request);
+ 		break;
+ 	    }
+ 	    
+ 	    case MPIDI_REQUEST_TYPE_SEND:
+ 	    {
+-		rc = MPID_Isend(preq->dev.user_buf, preq->dev.user_count, preq->dev.datatype, preq->dev.match.rank,
+-		    preq->dev.match.tag, preq->comm, preq->dev.match.context_id - preq->comm->context_id,
++		rc = MPID_Isend(preq->dev.user_buf, preq->dev.user_count, preq->dev.datatype, preq->dev.match.parts.rank,
++		    preq->dev.match.parts.tag, preq->comm, preq->dev.match.parts.context_id - preq->comm->context_id,
+ 		    &preq->partner_request);
+ 		break;
+ 	    }
+ 		
+ 	    case MPIDI_REQUEST_TYPE_RSEND:
+ 	    {
+-		rc = MPID_Irsend(preq->dev.user_buf, preq->dev.user_count, preq->dev.datatype, preq->dev.match.rank,
+-		    preq->dev.match.tag, preq->comm, preq->dev.match.context_id - preq->comm->context_id,
++		rc = MPID_Irsend(preq->dev.user_buf, preq->dev.user_count, preq->dev.datatype, preq->dev.match.parts.rank,
++		    preq->dev.match.parts.tag, preq->comm, preq->dev.match.parts.context_id - preq->comm->context_id,
+ 		    &preq->partner_request);
+ 		break;
+ 	    }
+ 		
+ 	    case MPIDI_REQUEST_TYPE_SSEND:
+ 	    {
+-		rc = MPID_Issend(preq->dev.user_buf, preq->dev.user_count, preq->dev.datatype, preq->dev.match.rank,
+-		    preq->dev.match.tag, preq->comm, preq->dev.match.context_id - preq->comm->context_id,
++		rc = MPID_Issend(preq->dev.user_buf, preq->dev.user_count, preq->dev.datatype, preq->dev.match.parts.rank,
++		    preq->dev.match.parts.tag, preq->comm, preq->dev.match.parts.context_id - preq->comm->context_id,
+ 		    &preq->partner_request);
+ 		break;
+ 	    }
+@@ -112,8 +112,8 @@
+ 		MPIR_Nest_incr();
+ 		{
+ 		    rc = NMPI_Ibsend(preq->dev.user_buf, preq->dev.user_count,
+-				     preq->dev.datatype, preq->dev.match.rank,
+-				     preq->dev.match.tag, preq->comm->handle, 
++				     preq->dev.datatype, preq->dev.match.parts.rank,
++				     preq->dev.match.parts.tag, preq->comm->handle, 
+ 				     &sreq_handle);
+ 		    if (rc == MPI_SUCCESS)
+ 		    {
+@@ -320,9 +320,9 @@
+     rreq->comm = comm;
+     rreq->cc   = 0;
+     MPIR_Comm_add_ref(comm);
+-    rreq->dev.match.rank = rank;
+-    rreq->dev.match.tag = tag;
+-    rreq->dev.match.context_id = comm->recvcontext_id + context_offset;
++    rreq->dev.match.parts.rank = rank;
++    rreq->dev.match.parts.tag = tag;
++    rreq->dev.match.parts.context_id = comm->recvcontext_id + context_offset;
+     rreq->dev.user_buf = (void *) buf;
+     rreq->dev.user_count = count;
+     rreq->dev.datatype = datatype;
+Index: src/mpid/ch3/src/ch3u_recvq.c
+===================================================================
+--- src/mpid/ch3/src/ch3u_recvq.c	(revision 3255)
++++ src/mpid/ch3/src/ch3u_recvq.c	(working copy)
+@@ -68,65 +68,72 @@
+ {
+     MPID_Request * rreq;
+     int found = 0;
++    MPIDI_Message_match match, mask;
+     MPIDI_STATE_DECL(MPID_STATE_MPIDI_CH3U_RECVQ_FU);
+ 
+     MPIDI_FUNC_ENTER(MPID_STATE_MPIDI_CH3U_RECVQ_FU);
+ 
+-    if (tag != MPI_ANY_TAG && source != MPI_ANY_SOURCE)
+-    {
+-	rreq = recvq_unexpected_head;
+-	/* FIXME: If the match data fits in an int64_t, we should try
+-	   to use a single test here */
+-	while(rreq != NULL)
+-	{
+-	    if (rreq->dev.match.context_id == context_id && 
+-		rreq->dev.match.rank == source && rreq->dev.match.tag == tag)
+-	    {
+-		break;
+-	    }
+-	    
+-	    rreq = rreq->dev.next;
+-	}
++    rreq = recvq_unexpected_head;
++
++    match.parts.context_id = context_id;
++    mask.parts.context_id = ~0;
++
++    if (tag == MPI_ANY_TAG) {
++	match.parts.tag = 0;
++	mask.parts.tag = 0;
+     }
+-    else
+-    {
+-	MPIDI_Message_match match;
+-	MPIDI_Message_match mask;
++    else {
++	match.parts.tag = tag;
++	mask.parts.tag = ~0;
++    }
+ 
+-	match.context_id = context_id;
+-	mask.context_id = ~0;
+-	if (tag == MPI_ANY_TAG)
+-	{
+-	    match.tag = 0;
+-	    mask.tag = 0;
++    if (source == MPI_ANY_SOURCE) {
++	match.parts.rank = 0;
++	mask.parts.rank = 0;
++    }
++    else {
++	match.parts.rank = source;
++	mask.parts.rank = ~0;
++    }
++	
++    if (tag != MPI_ANY_TAG && source != MPI_ANY_SOURCE) {
++	/* If the MPIDI_Message_match structure fits into a pointer
++	 * size, we can directly work on it */
++	if (sizeof(MPIDI_Message_match) == SIZEOF_VOID_P) {
++	    while (rreq != NULL) {
++		if (rreq->dev.match.whole == match.whole)
++		    break;
++		rreq = rreq->dev.next;
++	    }
+ 	}
+-	else
+-	{
+-	    match.tag = tag;
+-	    mask.tag = ~0;
++	else {
++	    while(rreq != NULL) {
++		if (rreq->dev.match.parts.context_id == context_id &&
++		    rreq->dev.match.parts.rank == source &&
++		    rreq->dev.match.parts.tag == tag)
++		    break;
++		rreq = rreq->dev.next;
++	    }
+ 	}
+-	if (source == MPI_ANY_SOURCE)
+-	{
+-	    match.rank = 0;
+-	    mask.rank = 0;
++    }
++    else {
++	/* If the MPIDI_Message_match structure fits into a pointer
++	 * size, we can directly work on it */
++	if (sizeof(MPIDI_Message_match) == SIZEOF_VOID_P) {
++	    while (rreq != NULL) {
++		if ((rreq->dev.match.whole & mask.whole) == match.whole)
++		    break;
++		rreq = rreq->dev.next;
++	    }
+ 	}
+-	else
+-	{
+-	    match.rank = source;
+-	    mask.rank = ~0;
+-	}
+-	
+-	rreq = recvq_unexpected_head;
+-	while (rreq != NULL)
+-	{
+-	    if (rreq->dev.match.context_id == match.context_id && 
+-		(rreq->dev.match.rank & mask.rank) == match.rank &&
+-		(rreq->dev.match.tag & mask.tag) == match.tag)
+-	    {
+-		break;
++	else {
++	    while (rreq != NULL) {
++		if (rreq->dev.match.parts.context_id == match.parts.context_id && 
++		    (rreq->dev.match.parts.rank & mask.parts.rank) == match.parts.rank &&
++		    (rreq->dev.match.parts.tag & mask.parts.tag) == match.parts.tag)
++		    break;
++		rreq = rreq->dev.next;
+ 	    }
+-	    
+-	    rreq = rreq->dev.next;
+ 	}
+     }
+ 
+@@ -177,19 +184,33 @@
+     /* Note that since this routine is used only in the case of send_cancel,
+        there can be only one match if at all. */
+     cur_rreq = recvq_unexpected_head;
+-    while(cur_rreq != NULL) {
+-	if (cur_rreq->dev.sender_req_id == sreq_id && 
+-	    cur_rreq->dev.match.context_id == match->context_id &&
+-	    cur_rreq->dev.match.rank == match->rank && 
+-	    cur_rreq->dev.match.tag == match->tag)
+-	    {
++
++    if (sizeof(MPIDI_Message_match) == SIZEOF_VOID_P) {
++	while (cur_rreq != NULL) {
++	    if (cur_rreq->dev.sender_req_id == sreq_id &&
++		cur_rreq->dev.match.whole == match->whole) {
+ 		matching_prev_rreq = prev_rreq;
+ 		matching_cur_rreq = cur_rreq;
+ 	    }
+-	
+-	prev_rreq = cur_rreq;
+-	cur_rreq = cur_rreq->dev.next;
++
++	    prev_rreq = cur_rreq;
++	    cur_rreq = cur_rreq->dev.next;
++	}
+     }
++    else {
++	while(cur_rreq != NULL) {
++	    if (cur_rreq->dev.sender_req_id == sreq_id &&
++		cur_rreq->dev.match.parts.context_id == match->parts.context_id &&
++		cur_rreq->dev.match.parts.rank == match->parts.rank &&
++		cur_rreq->dev.match.parts.tag == match->parts.tag) {
++		matching_prev_rreq = prev_rreq;
++		matching_cur_rreq = cur_rreq;
++	    }
++
++	    prev_rreq = cur_rreq;
++	    cur_rreq = cur_rreq->dev.next;
++	}
++    }
+     
+     if (matching_cur_rreq != NULL) {
+ 	if (matching_prev_rreq != NULL) {
+@@ -230,6 +251,8 @@
+ {
+     int found;
+     MPID_Request *rreq, *prev_rreq;
++    MPIDI_Message_match match;
++    MPIDI_Message_match mask;
+     MPIDI_STATE_DECL(MPID_STATE_MPIDI_CH3U_RECVQ_FDU_OR_AEP);
+ 
+     MPIDI_FUNC_ENTER(MPID_STATE_MPIDI_CH3U_RECVQ_FDU_OR_AEP);
+@@ -238,94 +261,147 @@
+     rreq = recvq_unexpected_head;
+     if (rreq) {
+ 	prev_rreq = NULL;
++
++	match.parts.context_id = context_id;
++	mask.parts.context_id = ~0;
++	if (tag == MPI_ANY_TAG) {
++	    match.parts.tag = 0;
++	    mask.parts.tag = 0;
++	}
++	else {
++	    match.parts.tag = tag;
++	    mask.parts.tag = ~0;
++	}
++	if (source == MPI_ANY_SOURCE) {
++	    match.parts.rank = 0;
++	    mask.parts.rank = 0;
++	}
++	else {
++	    match.parts.rank = source;
++	    mask.parts.rank = ~0;
++	}
++
+ 	if (tag != MPI_ANY_TAG && source != MPI_ANY_SOURCE) {
+-	    do { 
+-		if (rreq->dev.match.context_id == context_id && 
+-		    rreq->dev.match.rank == source && 
+-		    rreq->dev.match.tag == tag) {
+-		    if (prev_rreq != NULL) {
+-			prev_rreq->dev.next = rreq->dev.next;
++	    if (sizeof(MPIDI_Message_match) == SIZEOF_VOID_P) {
++		do {
++		    if (rreq->dev.match.whole == match.whole) {
++			if (prev_rreq != NULL) {
++			    prev_rreq->dev.next = rreq->dev.next;
++			}
++			else {
++			    recvq_unexpected_head = rreq->dev.next;
++			}
++
++			if (rreq->dev.next == NULL) {
++			    recvq_unexpected_tail = prev_rreq;
++			}
++
++			rreq->comm = comm;
++			MPIR_Comm_add_ref(comm);
++			rreq->dev.user_buf = user_buf;
++			rreq->dev.user_count = user_count;
++			rreq->dev.datatype = datatype;
++			found = TRUE;
++			goto lock_exit;
+ 		    }
+-		    else {
+-			recvq_unexpected_head = rreq->dev.next;
++
++		    prev_rreq = rreq;
++		    rreq      = rreq->dev.next;
++		} while (rreq);
++	    }
++	    else {
++		do { 
++		    if (rreq->dev.match.parts.context_id == context_id &&
++			rreq->dev.match.parts.rank == source &&
++			rreq->dev.match.parts.tag == tag) {
++			if (prev_rreq != NULL) {
++			    prev_rreq->dev.next = rreq->dev.next;
++			}
++			else {
++			    recvq_unexpected_head = rreq->dev.next;
++			}
++			if (rreq->dev.next == NULL) {
++			    recvq_unexpected_tail = prev_rreq;
++			}
++			rreq->comm                 = comm;
++			MPIR_Comm_add_ref(comm);
++			rreq->dev.user_buf         = user_buf;
++			rreq->dev.user_count       = user_count;
++			rreq->dev.datatype         = datatype;
++			found = TRUE;
++			goto lock_exit;
+ 		    }
+-		    if (rreq->dev.next == NULL) {
+-			recvq_unexpected_tail = prev_rreq;
+-		    }
+-                    rreq->comm                 = comm;
+-                    MPIR_Comm_add_ref(comm);
+-                    rreq->dev.user_buf         = user_buf;
+-                    rreq->dev.user_count       = user_count;
+-                    rreq->dev.datatype         = datatype;
+-		    found = TRUE;
+-		    goto lock_exit;
+-		} 
+ 		
+-		prev_rreq = rreq;
+-		rreq      = rreq->dev.next;
+-	    } while (rreq);
++		    prev_rreq = rreq;
++		    rreq      = rreq->dev.next;
++		} while (rreq);
++	    }
+ 	}
+ 	else {
+-	    MPIDI_Message_match match;
+-	    MPIDI_Message_match mask;
+-	    
+-	    match.context_id = context_id;
+-	    mask.context_id = ~0;
+-	    if (tag == MPI_ANY_TAG) {
+-		match.tag = 0;
+-		mask.tag = 0;
++	    if (sizeof(MPIDI_Message_match) == SIZEOF_VOID_P) {
++		do {
++		    if ((rreq->dev.match.whole & mask.whole) == match.whole) {
++			if (prev_rreq != NULL) {
++			    prev_rreq->dev.next = rreq->dev.next;
++			}
++			else {
++			    recvq_unexpected_head = rreq->dev.next;
++			}
++			if (rreq->dev.next == NULL) {
++			    recvq_unexpected_tail = prev_rreq;
++			}
++			rreq->comm                 = comm;
++			MPIR_Comm_add_ref(comm);
++			rreq->dev.user_buf         = user_buf;
++			rreq->dev.user_count       = user_count;
++			rreq->dev.datatype         = datatype;
++			found = TRUE;
++			goto lock_exit;
++		    }
++		
++		    prev_rreq = rreq;
++		    rreq = rreq->dev.next;
++		} while (rreq);
+ 	    }
+ 	    else {
+-		match.tag = tag;
+-		mask.tag = ~0;
+-	    }
+-	    if (source == MPI_ANY_SOURCE) {
+-		match.rank = 0;
+-		mask.rank = 0;
+-	    }
+-	    else {
+-		match.rank = source;
+-		mask.rank = ~0;
+-	    }
+-	    
+-	    do {
+-		if (rreq->dev.match.context_id == match.context_id && 
+-		    (rreq->dev.match.rank & mask.rank) == match.rank &&
+-		    (rreq->dev.match.tag & mask.tag) == match.tag) {
+-		    if (prev_rreq != NULL) {
+-			prev_rreq->dev.next = rreq->dev.next;
++		do {
++		    if (rreq->dev.match.parts.context_id == match.parts.context_id && 
++			(rreq->dev.match.parts.rank & mask.parts.rank) == match.parts.rank &&
++			(rreq->dev.match.parts.tag & mask.parts.tag) == match.parts.tag) {
++			if (prev_rreq != NULL) {
++			    prev_rreq->dev.next = rreq->dev.next;
++			}
++			else {
++			    recvq_unexpected_head = rreq->dev.next;
++			}
++			if (rreq->dev.next == NULL) {
++			    recvq_unexpected_tail = prev_rreq;
++			}
++			rreq->comm                 = comm;
++			MPIR_Comm_add_ref(comm);
++			rreq->dev.user_buf         = user_buf;
++			rreq->dev.user_count       = user_count;
++			rreq->dev.datatype         = datatype;
++			found = TRUE;
++			goto lock_exit;
+ 		    }
+-		    else {
+-			recvq_unexpected_head = rreq->dev.next;
+-		    }
+-		    if (rreq->dev.next == NULL) {
+-			recvq_unexpected_tail = prev_rreq;
+-		    }
+-                    rreq->comm                 = comm;
+-                    MPIR_Comm_add_ref(comm);
+-                    rreq->dev.user_buf         = user_buf;
+-                    rreq->dev.user_count       = user_count;
+-                    rreq->dev.datatype         = datatype;
+-		    found = TRUE;
+-		    goto lock_exit;
+-		}
+ 		
+-		prev_rreq = rreq;
+-		rreq = rreq->dev.next;
+-	    } while (rreq);
++		    prev_rreq = rreq;
++		    rreq = rreq->dev.next;
++		} while (rreq);
++	    }
+ 	}
+     }
+     
+     /* A matching request was not found in the unexpected queue, so we 
+        need to allocate a new request and add it to the posted queue */
+-
+     {
+ 	int mpi_errno=0;
+ 	MPIDI_Request_create_rreq( rreq, mpi_errno, 
+ 				   found = FALSE;goto lock_exit );
+-	rreq->dev.match.tag	   = tag;
+-	rreq->dev.match.rank	   = source;
+-	rreq->dev.match.context_id = context_id;
++	rreq->dev.match.parts.tag	   = tag;
++	rreq->dev.match.parts.rank	   = source;
++	rreq->dev.match.parts.context_id = context_id;
+         rreq->comm                 = comm;
+         MPIR_Comm_add_ref(comm);
+         rreq->dev.user_buf         = user_buf;
+@@ -426,11 +502,11 @@
+ 
+     rreq = recvq_posted_head;
+     while (rreq != NULL) {
+-	if ((rreq->dev.match.context_id == match->context_id) &&
+-	    (rreq->dev.match.rank == match->rank || 
+-	     rreq->dev.match.rank == MPI_ANY_SOURCE) &&
+-	    (rreq->dev.match.tag == match->tag || 
+-	     rreq->dev.match.tag == MPI_ANY_TAG)) {
++	if ((rreq->dev.match.parts.context_id == match->parts.context_id) &&
++	    (rreq->dev.match.parts.rank == match->parts.rank || 
++	     rreq->dev.match.parts.rank == MPI_ANY_SOURCE) &&
++	    (rreq->dev.match.parts.tag == match->parts.tag || 
++	     rreq->dev.match.parts.tag == MPI_ANY_TAG)) {
+ 	    if (prev_rreq != NULL) {
+ 		prev_rreq->dev.next = rreq->dev.next;
+ 	    }
+@@ -535,9 +611,9 @@
+     i = 0;
+     while (rreq != NULL) {
+         fprintf(stream, "..[%d] rreq=%p ctx=%#x rank=%s tag=%s\n", i, rreq,
+-                        rreq->dev.match.context_id,
+-                        rank_val_to_str(rreq->dev.match.rank, rank_buf, sizeof(rank_buf)),
+-                        tag_val_to_str(rreq->dev.match.tag, tag_buf, sizeof(tag_buf)));
++                        rreq->dev.match.parts.context_id,
++                        rank_val_to_str(rreq->dev.match.parts.rank, rank_buf, sizeof(rank_buf)),
++                        tag_val_to_str(rreq->dev.match.parts.tag, tag_buf, sizeof(tag_buf)));
+         ++i;
+         rreq = rreq->dev.next;
+     }
+@@ -547,9 +623,9 @@
+     i = 0;
+     while (rreq != NULL) {
+         fprintf(stream, "..[%d] rreq=%p ctx=%#x rank=%s tag=%s\n", i, rreq,
+-                        rreq->dev.match.context_id,
+-                        rank_val_to_str(rreq->dev.match.rank, rank_buf, sizeof(rank_buf)),
+-                        tag_val_to_str(rreq->dev.match.tag, tag_buf, sizeof(tag_buf)));
++                        rreq->dev.match.parts.context_id,
++                        rank_val_to_str(rreq->dev.match.parts.rank, rank_buf, sizeof(rank_buf)),
++                        tag_val_to_str(rreq->dev.match.parts.tag, tag_buf, sizeof(tag_buf)));
+         fprintf(stream, "..    status.src=%s status.tag=%s\n",
+                         rank_val_to_str(rreq->status.MPI_SOURCE, rank_buf, sizeof(rank_buf)),
+                         tag_val_to_str(rreq->status.MPI_TAG, tag_buf, sizeof(tag_buf)));
+Index: src/mpid/ch3/src/ch3u_eager.c
+===================================================================
+--- src/mpid/ch3/src/ch3u_eager.c	(revision 3255)
++++ src/mpid/ch3/src/ch3u_eager.c	(working copy)
+@@ -101,9 +101,9 @@
+     sreq->dev.OnFinal = 0;
+ 
+     MPIDI_Pkt_init(eager_pkt, reqtype);
+-    eager_pkt->match.rank	= comm->rank;
+-    eager_pkt->match.tag	= tag;
+-    eager_pkt->match.context_id	= comm->context_id + context_offset;
++    eager_pkt->match.parts.rank	= comm->rank;
++    eager_pkt->match.parts.tag	= tag;
++    eager_pkt->match.parts.context_id	= comm->context_id + context_offset;
+     eager_pkt->sender_req_id	= MPI_REQUEST_NULL;
+     eager_pkt->data_sz		= data_sz;
+     
+@@ -157,9 +157,9 @@
+     MPID_IOV iov[2];
+     
+     MPIDI_Pkt_init(eager_pkt, reqtype);
+-    eager_pkt->match.rank	= comm->rank;
+-    eager_pkt->match.tag	= tag;
+-    eager_pkt->match.context_id	= comm->context_id + context_offset;
++    eager_pkt->match.parts.rank	= comm->rank;
++    eager_pkt->match.parts.tag	= tag;
++    eager_pkt->match.parts.context_id	= comm->context_id + context_offset;
+     eager_pkt->sender_req_id	= MPI_REQUEST_NULL;
+     eager_pkt->data_sz		= data_sz;
+     
+@@ -223,9 +223,9 @@
+     
+     /*    printf( "Sending short eager\n"); fflush(stdout); */
+     MPIDI_Pkt_init(eagershort_pkt, reqtype);
+-    eagershort_pkt->match.rank	     = comm->rank;
+-    eagershort_pkt->match.tag	     = tag;
+-    eagershort_pkt->match.context_id = comm->context_id + context_offset;
++    eagershort_pkt->match.parts.rank	     = comm->rank;
++    eagershort_pkt->match.parts.tag	     = tag;
++    eagershort_pkt->match.parts.context_id = comm->context_id + context_offset;
+     eagershort_pkt->data_sz	     = data_sz;
+     
+     MPIU_DBG_MSG_FMT(CH3_OTHER,VERBOSE,(MPIU_DBG_FDEST,
+@@ -297,8 +297,8 @@
+ 	MPIU_ERR_SETANDJUMP(mpi_errno,MPI_ERR_OTHER, "**nomemreq");
+     }
+ 
+-    (rreq)->status.MPI_SOURCE = (eagershort_pkt)->match.rank;
+-    (rreq)->status.MPI_TAG    = (eagershort_pkt)->match.tag;
++    (rreq)->status.MPI_SOURCE = (eagershort_pkt)->match.parts.rank;
++    (rreq)->status.MPI_TAG    = (eagershort_pkt)->match.parts.tag;
+     (rreq)->status.count      = (eagershort_pkt)->data_sz;
+     (rreq)->dev.recv_data_sz  = (eagershort_pkt)->data_sz;
+     MPIDI_Request_set_seqnum((rreq), (eagershort_pkt)->seqnum);
+@@ -495,9 +495,9 @@
+     sreq->dev.OnDataAvail = 0;
+     
+     MPIDI_Pkt_init(eager_pkt, reqtype);
+-    eager_pkt->match.rank	= comm->rank;
+-    eager_pkt->match.tag	= tag;
+-    eager_pkt->match.context_id	= comm->context_id + context_offset;
++    eager_pkt->match.parts.rank	= comm->rank;
++    eager_pkt->match.parts.tag	= tag;
++    eager_pkt->match.parts.context_id	= comm->context_id + context_offset;
+     eager_pkt->sender_req_id	= sreq->handle;
+     eager_pkt->data_sz		= data_sz;
+     
+@@ -538,8 +538,8 @@
+ 
+ #define set_request_info(rreq_, pkt_, msg_type_)		\
+ {								\
+-    (rreq_)->status.MPI_SOURCE = (pkt_)->match.rank;		\
+-    (rreq_)->status.MPI_TAG = (pkt_)->match.tag;		\
++    (rreq_)->status.MPI_SOURCE = (pkt_)->match.parts.rank;	\
++    (rreq_)->status.MPI_TAG = (pkt_)->match.parts.tag;		\
+     (rreq_)->status.count = (pkt_)->data_sz;			\
+     (rreq_)->dev.sender_req_id = (pkt_)->sender_req_id;		\
+     (rreq_)->dev.recv_data_sz = (pkt_)->data_sz;		\
+@@ -696,8 +696,8 @@
+ 				      MPIR_ERR_RECOVERABLE, FCNAME, __LINE__, 
+ 				      MPI_ERR_OTHER, "**rsendnomatch", 
+ 				      "**rsendnomatch %d %d", 
+-				      ready_pkt->match.rank,
+-				      ready_pkt->match.tag);
++				      ready_pkt->match.parts.rank,
++				      ready_pkt->match.parts.tag);
+ 	rreq->status.count = 0;
+ 	if (rreq->dev.recv_data_sz > 0)
+ 	{
+Index: src/mpid/ch3/src/mpid_cancel_send.c
+===================================================================
+--- src/mpid/ch3/src/mpid_cancel_send.c	(revision 3255)
++++ src/mpid/ch3/src/mpid_cancel_send.c	(working copy)
+@@ -45,7 +45,7 @@
+ 	goto fn_exit;
+     }
+ 
+-    MPIDI_Comm_get_vc(sreq->comm, sreq->dev.match.rank, &vc);
++    MPIDI_Comm_get_vc(sreq->comm, sreq->dev.match.parts.rank, &vc);
+ 
+     proto = MPIDI_Request_get_msg_type(sreq);
+ 
+@@ -172,9 +172,9 @@
+ 	}
+ 
+ 	MPIDI_Pkt_init(csr_pkt, MPIDI_CH3_PKT_CANCEL_SEND_REQ);
+-	csr_pkt->match.rank = sreq->comm->rank;
+-	csr_pkt->match.tag = sreq->dev.match.tag;
+-	csr_pkt->match.context_id = sreq->dev.match.context_id;
++	csr_pkt->match.parts.rank = sreq->comm->rank;
++	csr_pkt->match.parts.tag = sreq->dev.match.parts.tag;
++	csr_pkt->match.parts.context_id = sreq->dev.match.parts.context_id;
+ 	csr_pkt->sender_req_id = sreq->handle;
+ 	
+ 	mpi_errno = MPIU_CALL(MPIDI_CH3,iStartMsg(vc, csr_pkt, 
+Index: src/mpid/ch3/src/ch3u_handle_recv_pkt.c
+===================================================================
+--- src/mpid/ch3/src/ch3u_handle_recv_pkt.c	(revision 3255)
++++ src/mpid/ch3/src/ch3u_handle_recv_pkt.c	(working copy)
+@@ -22,8 +22,8 @@
+ 
+ #define set_request_info(rreq_, pkt_, msg_type_)		\
+ {								\
+-    (rreq_)->status.MPI_SOURCE = (pkt_)->match.rank;		\
+-    (rreq_)->status.MPI_TAG = (pkt_)->match.tag;		\
++    (rreq_)->status.MPI_SOURCE = (pkt_)->match.parts.rank;	\
++    (rreq_)->status.MPI_TAG = (pkt_)->match.parts.tag;		\
+     (rreq_)->status.count = (pkt_)->data_sz;			\
+     (rreq_)->dev.sender_req_id = (pkt_)->sender_req_id;		\
+     (rreq_)->dev.recv_data_sz = (pkt_)->data_sz;		\
+Index: src/mpid/ch3/src/mpidi_printf.c
+===================================================================
+--- src/mpid/ch3/src/mpidi_printf.c	(revision 3255)
++++ src/mpid/ch3/src/mpidi_printf.c	(working copy)
+@@ -245,17 +245,17 @@
+     case MPIDI_CH3_PKT_EAGER_SEND:
+ 	MPIU_Snprintf( pktmsg, sizeof(pktmsg), 
+ 		       "EAGER_SEND - (%d,%d,%d,)" MPIDI_MSG_SZ_FMT, 
+-		       pkt->eager_send.match.context_id,
+-		       (int)pkt->eager_send.match.tag, 
+-		       pkt->eager_send.match.rank, 
++		       pkt->eager_send.match.parts.context_id,
++		       (int)pkt->eager_send.match.parts.tag, 
++		       pkt->eager_send.match.parts.rank, 
+ 		       pkt->eager_send.data_sz );
+ 	break;
+     case MPIDI_CH3_PKT_EAGER_SYNC_SEND:
+ 	MPIU_Snprintf( pktmsg, sizeof(pktmsg), 
+ 		       "EAGER_SYNC_SEND - (%d,%d,%d,)" MPIDI_MSG_SZ_FMT " req=%d", 
+-		       pkt->eager_sync_send.match.context_id,
+-		       (int)pkt->eager_sync_send.match.tag, 
+-		       pkt->eager_sync_send.match.rank, 
++		       pkt->eager_sync_send.match.parts.context_id,
++		       (int)pkt->eager_sync_send.match.parts.tag, 
++		       pkt->eager_sync_send.match.parts.rank, 
+ 		       pkt->eager_sync_send.data_sz,
+ 		       pkt->eager_sync_send.sender_req_id );
+ 		break;
+@@ -267,17 +267,17 @@
+     case MPIDI_CH3_PKT_READY_SEND:
+ 	MPIU_Snprintf( pktmsg, sizeof(pktmsg), 
+ 		       "READY_SEND - (%d,%d,%d,)" MPIDI_MSG_SZ_FMT, 
+-		       pkt->ready_send.match.context_id,
+-		       (int)pkt->ready_send.match.tag, 
+-		       pkt->ready_send.match.rank, 
++		       pkt->ready_send.match.parts.context_id,
++		       (int)pkt->ready_send.match.parts.tag, 
++		       pkt->ready_send.match.parts.rank, 
+ 		       pkt->ready_send.data_sz );
+ 	break;
+     case MPIDI_CH3_PKT_RNDV_REQ_TO_SEND:
+ 	MPIU_Snprintf( pktmsg, sizeof(pktmsg), 
+ 		       "RNDV_REQ_TO_SEND - (%d,%d,%d,)" MPIDI_MSG_SZ_FMT " req=%d", 
+-		       pkt->rndv_req_to_send.match.context_id,
+-		       (int)pkt->rndv_req_to_send.match.tag, 
+-		       pkt->rndv_req_to_send.match.rank, 
++		       pkt->rndv_req_to_send.match.parts.context_id,
++		       (int)pkt->rndv_req_to_send.match.parts.tag, 
++		       pkt->rndv_req_to_send.match.parts.rank, 
+ 		       pkt->rndv_req_to_send.data_sz,
+ 		       pkt->rndv_req_to_send.sender_req_id );
+ 	break;
+Index: src/mpid/ch3/src/mpidi_isend_self.c
+===================================================================
+--- src/mpid/ch3/src/mpidi_isend_self.c	(revision 3255)
++++ src/mpid/ch3/src/mpidi_isend_self.c	(working copy)
+@@ -35,9 +35,9 @@
+     MPIDI_Request_set_type(sreq, type);
+     MPIDI_Request_set_msg_type(sreq, MPIDI_REQUEST_SELF_MSG);
+     
+-    match.rank = rank;
+-    match.tag = tag;
+-    match.context_id = comm->context_id + context_offset;
++    match.parts.rank = rank;
++    match.parts.tag = tag;
++    match.parts.context_id = comm->context_id + context_offset;
+     rreq = MPIDI_CH3U_Recvq_FDP_or_AEU(&match, &found);
+     /* --BEGIN ERROR HANDLING-- */
+     if (rreq == NULL)
+Index: src/mpid/ch3/src/mpid_irsend.c
+===================================================================
+--- src/mpid/ch3/src/mpid_irsend.c	(revision 3255)
++++ src/mpid/ch3/src/mpid_irsend.c	(working copy)
+@@ -60,9 +60,9 @@
+     MPIDI_Comm_get_vc(comm, rank, &vc);
+     
+     MPIDI_Pkt_init(ready_pkt, MPIDI_CH3_PKT_READY_SEND);
+-    ready_pkt->match.rank = comm->rank;
+-    ready_pkt->match.tag = tag;
+-    ready_pkt->match.context_id = comm->context_id + context_offset;
++    ready_pkt->match.parts.rank = comm->rank;
++    ready_pkt->match.parts.tag = tag;
++    ready_pkt->match.parts.context_id = comm->context_id + context_offset;
+     ready_pkt->sender_req_id = MPI_REQUEST_NULL;
+     ready_pkt->data_sz = data_sz;
+ 
+Index: src/mpid/ch3/src/mpid_send.c
+===================================================================
+--- src/mpid/ch3/src/mpid_send.c	(revision 3255)
++++ src/mpid/ch3/src/mpid_send.c	(working copy)
+@@ -75,9 +75,9 @@
+ 
+ 	MPIU_DBG_MSG(CH3_OTHER,VERBOSE,"sending zero length message");
+ 	MPIDI_Pkt_init(eager_pkt, MPIDI_CH3_PKT_EAGER_SEND);
+-	eager_pkt->match.rank = comm->rank;
+-	eager_pkt->match.tag = tag;
+-	eager_pkt->match.context_id = comm->context_id + context_offset;
++	eager_pkt->match.parts.rank = comm->rank;
++	eager_pkt->match.parts.tag = tag;
++	eager_pkt->match.parts.context_id = comm->context_id + context_offset;
+ 	eager_pkt->sender_req_id = MPI_REQUEST_NULL;
+ 	eager_pkt->data_sz = 0;
+ 	
+Index: src/mpid/ch3/src/ch3u_eagersync.c
+===================================================================
+--- src/mpid/ch3/src/ch3u_eagersync.c	(revision 3255)
++++ src/mpid/ch3/src/ch3u_eagersync.c	(working copy)
+@@ -44,9 +44,9 @@
+     sreq->dev.OnFinal = 0;
+ 
+     MPIDI_Pkt_init(es_pkt, MPIDI_CH3_PKT_EAGER_SYNC_SEND);
+-    es_pkt->match.rank = comm->rank;
+-    es_pkt->match.tag = tag;
+-    es_pkt->match.context_id = comm->context_id + context_offset;
++    es_pkt->match.parts.rank = comm->rank;
++    es_pkt->match.parts.tag = tag;
++    es_pkt->match.parts.context_id = comm->context_id + context_offset;
+     es_pkt->sender_req_id = sreq->handle;
+     es_pkt->data_sz = data_sz;
+ 
+@@ -125,9 +125,9 @@
+     sreq->dev.OnDataAvail = 0;
+     
+     MPIDI_Pkt_init(es_pkt, MPIDI_CH3_PKT_EAGER_SYNC_SEND);
+-    es_pkt->match.rank = comm->rank;
+-    es_pkt->match.tag = tag;
+-    es_pkt->match.context_id = comm->context_id + context_offset;
++    es_pkt->match.parts.rank = comm->rank;
++    es_pkt->match.parts.tag = tag;
++    es_pkt->match.parts.context_id = comm->context_id + context_offset;
+     es_pkt->sender_req_id = sreq->handle;
+     es_pkt->data_sz = 0;
+     
+@@ -187,8 +187,8 @@
+ 
+ #define set_request_info(rreq_, pkt_, msg_type_)		\
+ {								\
+-    (rreq_)->status.MPI_SOURCE = (pkt_)->match.rank;		\
+-    (rreq_)->status.MPI_TAG = (pkt_)->match.tag;		\
++    (rreq_)->status.MPI_SOURCE = (pkt_)->match.parts.rank;	\
++    (rreq_)->status.MPI_TAG = (pkt_)->match.parts.tag;		\
+     (rreq_)->status.count = (pkt_)->data_sz;			\
+     (rreq_)->dev.sender_req_id = (pkt_)->sender_req_id;		\
+     (rreq_)->dev.recv_data_sz = (pkt_)->data_sz;		\
+Index: src/mpid/ch3/src/mpid_recv.c
+===================================================================
+--- src/mpid/ch3/src/mpid_recv.c	(revision 3255)
++++ src/mpid/ch3/src/mpid_recv.c	(working copy)
+@@ -61,7 +61,7 @@
+ 
+ 	    if (MPIDI_Request_get_sync_send_flag(rreq))
+ 	    {
+-		MPIDI_Comm_get_vc(comm, rreq->dev.match.rank, &vc);
++		MPIDI_Comm_get_vc(comm, rreq->dev.match.parts.rank, &vc);
+ 		mpi_errno = MPIDI_CH3_EagerSyncAck( vc, rreq );
+ 		if (mpi_errno) MPIU_ERR_POP(mpi_errno);
+ 	    }
+@@ -102,7 +102,7 @@
+ 	}
+ 	else if (MPIDI_Request_get_msg_type(rreq) == MPIDI_REQUEST_RNDV_MSG)
+ 	{
+-	    MPIDI_Comm_get_vc(comm, rreq->dev.match.rank, &vc);
++	    MPIDI_Comm_get_vc(comm, rreq->dev.match.parts.rank, &vc);
+ 	    mpi_errno = vc->rndvRecv_fn( vc, rreq );
+ 	    if (mpi_errno) MPIU_ERR_POP(mpi_errno);
+ 	    if (HANDLE_GET_KIND(datatype) != HANDLE_KIND_BUILTIN)
+Index: src/mpid/ch3/src/mpid_isend.c
+===================================================================
+--- src/mpid/ch3/src/mpid_isend.c	(revision 3255)
++++ src/mpid/ch3/src/mpid_isend.c	(working copy)
+@@ -81,9 +81,9 @@
+ 	    
+ 	MPIU_DBG_MSG(CH3_OTHER,VERBOSE,"sending zero length message");
+ 	MPIDI_Pkt_init(eager_pkt, MPIDI_CH3_PKT_EAGER_SEND);
+-	eager_pkt->match.rank = comm->rank;
+-	eager_pkt->match.tag = tag;
+-	eager_pkt->match.context_id = comm->context_id + context_offset;
++	eager_pkt->match.parts.rank = comm->rank;
++	eager_pkt->match.parts.tag = tag;
++	eager_pkt->match.parts.context_id = comm->context_id + context_offset;
+ 	eager_pkt->sender_req_id = sreq->handle;
+ 	eager_pkt->data_sz = 0;
+ 	
+Index: src/mpid/ch3/src/mpid_irecv.c
+===================================================================
+--- src/mpid/ch3/src/mpid_irecv.c	(revision 3255)
++++ src/mpid/ch3/src/mpid_irecv.c	(working copy)
+@@ -67,7 +67,7 @@
+ 	       acknowledgement back to the sender. */
+ 	    if (MPIDI_Request_get_sync_send_flag(rreq))
+ 	    {
+-		MPIDI_Comm_get_vc(comm, rreq->dev.match.rank, &vc);
++		MPIDI_Comm_get_vc(comm, rreq->dev.match.parts.rank, &vc);
+ 		mpi_errno = MPIDI_CH3_EagerSyncAck( vc, rreq );
+ 		if (mpi_errno) MPIU_ERR_POP(mpi_errno);
+ 	    }
+@@ -103,7 +103,7 @@
+ 	}
+ 	else if (MPIDI_Request_get_msg_type(rreq) == MPIDI_REQUEST_RNDV_MSG)
+ 	{
+-	    MPIDI_Comm_get_vc(comm, rreq->dev.match.rank, &vc);
++	    MPIDI_Comm_get_vc(comm, rreq->dev.match.parts.rank, &vc);
+ 	
+ 	    mpi_errno = vc->rndvRecv_fn( vc, rreq );
+ 	    if (mpi_errno) MPIU_ERR_POP( mpi_errno );
+Index: src/mpid/ch3/src/mpid_rsend.c
+===================================================================
+--- src/mpid/ch3/src/mpid_rsend.c	(revision 3255)
++++ src/mpid/ch3/src/mpid_rsend.c	(working copy)
+@@ -62,9 +62,9 @@
+ 	MPIU_DBG_MSG(CH3_OTHER,VERBOSE,"sending zero length message");
+     
+ 	MPIDI_Pkt_init(ready_pkt, MPIDI_CH3_PKT_READY_SEND);
+-	ready_pkt->match.rank = comm->rank;
+-	ready_pkt->match.tag = tag;
+-	ready_pkt->match.context_id = comm->context_id + context_offset;
++	ready_pkt->match.parts.rank = comm->rank;
++	ready_pkt->match.parts.tag = tag;
++	ready_pkt->match.parts.context_id = comm->context_id + context_offset;
+ 	ready_pkt->sender_req_id = MPI_REQUEST_NULL;
+ 	ready_pkt->data_sz = data_sz;
+ 
+Index: src/mpid/ch3/src/ch3u_rndv.c
+===================================================================
+--- src/mpid/ch3/src/ch3u_rndv.c	(revision 3255)
++++ src/mpid/ch3/src/ch3u_rndv.c	(working copy)
+@@ -37,9 +37,9 @@
+     sreq->partner_request = NULL;
+ 	
+     MPIDI_Pkt_init(rts_pkt, MPIDI_CH3_PKT_RNDV_REQ_TO_SEND);
+-    rts_pkt->match.rank	      = comm->rank;
+-    rts_pkt->match.tag	      = tag;
+-    rts_pkt->match.context_id = comm->context_id + context_offset;
++    rts_pkt->match.parts.rank	      = comm->rank;
++    rts_pkt->match.parts.tag	      = tag;
++    rts_pkt->match.parts.context_id = comm->context_id + context_offset;
+     rts_pkt->sender_req_id    = sreq->handle;
+     rts_pkt->data_sz	      = data_sz;
+ 
+@@ -95,8 +95,8 @@
+ 
+ #define set_request_info(rreq_, pkt_, msg_type_)		\
+ {								\
+-    (rreq_)->status.MPI_SOURCE = (pkt_)->match.rank;		\
+-    (rreq_)->status.MPI_TAG = (pkt_)->match.tag;		\
++    (rreq_)->status.MPI_SOURCE = (pkt_)->match.parts.rank;	\
++    (rreq_)->status.MPI_TAG = (pkt_)->match.parts.tag;		\
+     (rreq_)->status.count = (pkt_)->data_sz;			\
+     (rreq_)->dev.sender_req_id = (pkt_)->sender_req_id;		\
+     (rreq_)->dev.recv_data_sz = (pkt_)->data_sz;		\
+Index: src/mpid/ch3/channels/nemesis/nemesis/net_mod/newtcp_module/newtcp_module_utility.c
+===================================================================
+--- src/mpid/ch3/channels/nemesis/nemesis/net_mod/newtcp_module/newtcp_module_utility.c	(revision 3255)
++++ src/mpid/ch3/channels/nemesis/nemesis/net_mod/newtcp_module/newtcp_module_utility.c	(working copy)
+@@ -219,9 +219,9 @@
+     while (sreq)
+     {
+         fprintf(stream, "....[%d] sreq=%p ctx=%#x rank=%d tag=%d\n", i, sreq,
+-                        sreq->dev.match.context_id,
+-                        sreq->dev.match.rank,
+-                        sreq->dev.match.tag);
++                        sreq->dev.match.parts.context_id,
++                        sreq->dev.match.parts.rank,
++                        sreq->dev.match.parts.tag);
+         ++i;
+         sreq = sreq->dev.next;
+     }
+Index: src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_debug.c
+===================================================================
+--- src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_debug.c	(revision 3255)
++++ src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_debug.c	(working copy)
+@@ -66,9 +66,9 @@
+         sreq = MPIDI_CH3I_active_send[CH3_NORMAL_QUEUE];
+         if (sreq) {
+             fprintf(stream, "....    sreq=%p ctx=%#x rank=%d tag=%d\n", sreq,
+-                            sreq->dev.match.context_id,
+-                            sreq->dev.match.rank,
+-                            sreq->dev.match.tag);
++                            sreq->dev.match.parts.context_id,
++                            sreq->dev.match.parts.rank,
++                            sreq->dev.match.parts.tag);
+         }
+ 
+         fprintf(stream, "....CH3_NORMAL_QUEUE queue (head-to-tail)\n");
+@@ -76,9 +76,9 @@
+         i = 0;
+         while (sreq != NULL) {
+             fprintf(stream, "....[%d] sreq=%p ctx=%#x rank=%d tag=%d\n", i, sreq,
+-                            sreq->dev.match.context_id,
+-                            sreq->dev.match.rank,
+-                            sreq->dev.match.tag);
++                            sreq->dev.match.parts.context_id,
++                            sreq->dev.match.parts.rank,
++                            sreq->dev.match.parts.tag);
+             ++i;
+             sreq = sreq->dev.next;
+         }
+Index: src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_lmt.c
+===================================================================
+--- src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_lmt.c	(revision 3255)
++++ src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_lmt.c	(working copy)
+@@ -8,8 +8,8 @@
+ 
+ #define set_request_info(rreq_, pkt_, msg_type_)		\
+ {								\
+-    (rreq_)->status.MPI_SOURCE = (pkt_)->match.rank;		\
+-    (rreq_)->status.MPI_TAG = (pkt_)->match.tag;		\
++    (rreq_)->status.MPI_SOURCE = (pkt_)->match.parts.rank;	\
++    (rreq_)->status.MPI_TAG = (pkt_)->match.parts.tag;		\
+     (rreq_)->status.count = (pkt_)->data_sz;			\
+     (rreq_)->dev.sender_req_id = (pkt_)->sender_req_id;		\
+     (rreq_)->dev.recv_data_sz = (pkt_)->data_sz;		\
+@@ -89,9 +89,9 @@
+     sreq->ch.lmt_tmp_cookie.MPID_IOV_LEN = 0;
+ 	
+     MPIDI_Pkt_init(rts_pkt, MPIDI_NEM_PKT_LMT_RTS);
+-    rts_pkt->match.rank	      = comm->rank;
+-    rts_pkt->match.tag	      = tag;
+-    rts_pkt->match.context_id = comm->context_id + context_offset;
++    rts_pkt->match.parts.rank	      = comm->rank;
++    rts_pkt->match.parts.tag	      = tag;
++    rts_pkt->match.parts.context_id = comm->context_id + context_offset;
+     rts_pkt->sender_req_id    = sreq->handle;
+     rts_pkt->data_sz	      = data_sz;
+ 
+Index: src/mpid/ch3/channels/nemesis/src/ch3_progress.c
+===================================================================
+--- src/mpid/ch3/channels/nemesis/src/ch3_progress.c	(revision 3255)
++++ src/mpid/ch3/channels/nemesis/src/ch3_progress.c	(working copy)
+@@ -727,15 +727,15 @@
+ 
+     MPIDI_FUNC_ENTER(MPID_STATE_MPIDI_CH3I_POSTED_RECV_ENQUEUED);
+     /* don't enqueue for anysource */
+-    if (rreq->dev.match.rank < 0)
++    if (rreq->dev.match.parts.rank < 0)
+ 	goto fn_exit;
+ 
+     /* don't enqueue a fastbox for yourself */
+     MPIU_Assert(rreq->comm != NULL);
+-    if (rreq->dev.match.rank == rreq->comm->rank)
++    if (rreq->dev.match.parts.rank == rreq->comm->rank)
+ 	goto fn_exit;
+     /* don't enqueue non-local processes */
+-    MPIDI_Comm_get_vc(rreq->comm, rreq->dev.match.rank, &vc);
++    MPIDI_Comm_get_vc(rreq->comm, rreq->dev.match.parts.rank, &vc);
+     MPIU_Assert(vc != NULL);
+     if (!((MPIDI_CH3I_VC *)vc->channel_private)->is_local)
+ 	goto fn_exit;
+@@ -767,14 +767,14 @@
+     MPIDI_STATE_DECL(MPID_STATE_MPIDI_CH3I_POSTED_RECV_DEQUEUED);
+ 
+     MPIDI_FUNC_ENTER(MPID_STATE_MPIDI_CH3I_POSTED_RECV_DEQUEUED);
+-    if (rreq->dev.match.rank < 0)
++    if (rreq->dev.match.parts.rank < 0)
+ 	goto fn_exit;
+ 
+-    if (rreq->dev.match.rank == rreq->comm->rank)
++    if (rreq->dev.match.parts.rank == rreq->comm->rank)
+ 	goto fn_exit;
+ 
+     /* don't use MPID_NEM_IS_LOCAL, it doesn't handle dynamic processes */
+-    MPIDI_Comm_get_vc(rreq->comm, rreq->dev.match.rank, &vc);
++    MPIDI_Comm_get_vc(rreq->comm, rreq->dev.match.parts.rank, &vc);
+     MPIU_Assert(vc != NULL);
+     if (!((MPIDI_CH3I_VC *)vc->channel_private)->is_local)
+ 	goto fn_exit;

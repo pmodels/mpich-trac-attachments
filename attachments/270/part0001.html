@@ -1,0 +1,22 @@
+<html><head><style type="text/css"><!-- DIV {margin:0px;} --></style></head><body><div style="font-family:times new roman, new york, times, serif;font-size:12pt"><DIV>Dear, </DIV>
+<DIV>&nbsp;</DIV>
+<DIV>I use Mpich2 to run Quantum Epresso code. I have a error when I try to run execute file pw.x.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&gt;&gt;<FONT style="BACKGROUND-COLOR: #ffff00"> mpiexec -machinefile&nbsp; /home/loc/machinefile -n 8 pw.x -npool 2&nbsp; &lt; input_Graphite_GGA &gt; output_Graphite_GGA2 &amp;</FONT></DIV>
+<DIV><BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 1<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 3[cli_3]: aborting job&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 3<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 7[cli_7]: aborting job&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 7<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 2[cli_2]: aborting job&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 2<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 6[cli_6]: aborting
+ job&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 6<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 5[cli_5]: aborting job&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 5<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 4[cli_4]: aborting job&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :<BR>application called MPI_Abort(MPI_COMM_WORLD, 0) - process 4<BR></DIV>
+<DIV>In the output file, the error is: </DIV>
+<DIV>&nbsp;</DIV>
+<DIV>rank 7 in job 2&nbsp; master_49510&nbsp;&nbsp; caused collective abort of all ranks<BR>&nbsp; exit status of rank 7: return code 0<BR>rank 3 in job 2&nbsp; master_49510&nbsp;&nbsp; caused collective abort of all ranks<BR>&nbsp; exit status of rank 3: return code 0<BR>rank 1 in job 2&nbsp; master_49510&nbsp;&nbsp; caused collective abort of all ranks<BR>&nbsp; exit status of rank 1: return code 0<BR></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>I tried to test mpiexec command whith some another execute file&nbsp;and there was&nbsp;no problem. The pw.x is also ok when it&nbsp;was run alone (serial running). </DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Please give me some suggestion for this error.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Best regards,</DIV>
+<DIV>Duong Dinh Loc.&nbsp;</DIV>
+<DIV>&nbsp;</DIV></div><br>
+
+
+
+      </body></html>

@@ -1,0 +1,278 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<meta name=Generator content="Microsoft Word 11 (filtered medium)">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>RE: [mpich2-maint] #118: Simple MPICH2 Delegate Bug</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+h2
+	{margin-top:.25in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-weight:bold;
+	font-style:italic;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.FilePath, li.FilePath, div.FilePath
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Courier New";
+	color:black;
+	font-weight:bold;}
+p.Typing, li.Typing, div.Typing
+	{margin:0in;
+	margin-bottom:.0001pt;
+	background:#CCFFCC;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+span.EmailStyle20
+	{mso-style-type:personal-reply;
+	font-family:Arial;
+	color:navy;
+	font-weight:normal;
+	font-style:normal;
+	text-decoration:none none;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=blue>
+
+<div class=Section1>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>Jayesh,<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>I can confirm that delegate from vm-cce2
+to vm-cce1 does work. &nbsp;However, the same behavior as experienced on vm-cce1 to
+vm-cce1 is experienced on vm-cce2 to vm-cce2. &nbsp;I am running 1.03 (packaged by
+Ansys CFX) on vm-cce2 and 1.07 (latest) on vm-cce1. &nbsp;I updated to 1.07 on
+vm-cce1 in a hope to resolve this issue and it is not the source of the issue.&nbsp;
+I had experienced it using 1.03 as well.&nbsp; Here is a cut and paste from the
+vm-cce2<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>C:\mpich2x64\bin&gt;mpiexec -delegate
+-hosts 1 vm-cce1 hostname<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>vm-cce1<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>C:\mpich2x64\bin&gt;mpiexec -delegate
+-hosts 1 vm-cce2 hostname<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>op_read error on left context: socket
+connection closed<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>unable to read the re-connect request,
+socket connection closed.<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>mpiexec aborting job...<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>C:\mpich2x64\bin&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>C:\mpich2x64\bin&gt;hostname<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>vm-cce2<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'>C:\mpich2x64\bin&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=3 color=navy face=Arial><span style='font-size:
+12.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<div>
+
+<p><font size=3 color=navy face=Arial><span style='font-size:12.0pt;font-family:
+Arial;color:navy'>Larry Adams</span></font><font color=navy><span
+style='color:navy'> <br>
+</span></font><font color=navy face=Arial><span style='font-family:Arial;
+color:navy'>Senior Systems Engineer</span></font><font color=navy><span
+style='color:navy'> <br>
+</span></font><font color=navy face=Arial><span style='font-family:Arial;
+color:navy'>Platform Computing</span></font><font color=navy><span
+style='color:navy'> <br>
+</span></font><font color=navy face=Arial><span style='font-family:Arial;
+color:navy'>Tele: (586) 510-0007</span></font><font color=navy><span
+style='color:navy'> <br>
+</span></font><font color=navy face=Arial><span style='font-family:Arial;
+color:navy'>Cell: (586) 899-1138</span></font><font color=navy><span
+style='color:navy'> <br>
+</span></font><font color=navy face=Arial><span style='font-family:Arial;
+color:navy'>Skype: TheWitness</span></font><font color=navy><span
+style='color:navy'> </span></font><o:p></o:p></p>
+
+</div>
+
+<div>
+
+<div class=MsoNormal align=center style='text-align:center'><font size=3
+face="Times New Roman"><span style='font-size:12.0pt'>
+
+<hr size=2 width="100%" align=center tabindex=-1>
+
+</span></font></div>
+
+<p class=MsoNormal><b><font size=2 face=Tahoma><span style='font-size:10.0pt;
+font-family:Tahoma;font-weight:bold'>From:</span></font></b><font size=2
+face=Tahoma><span style='font-size:10.0pt;font-family:Tahoma'> Jayesh Krishna
+[mailto:jayesh@mcs.anl.gov] <br>
+<b><span style='font-weight:bold'>Sent:</span></b> Tuesday, September 02, 2008
+10:24 AM<br>
+<b><span style='font-weight:bold'>To:</span></b> Larry Adams<br>
+<b><span style='font-weight:bold'>Cc:</span></b> mpich2-maint@mcs.anl.gov<br>
+<b><span style='font-weight:bold'>Subject:</span></b> RE: [mpich2-maint] #118:
+Simple MPICH2 Delegate Bug</span></font><o:p></o:p></p>
+
+</div>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p style='margin-bottom:12.0pt'><font size=2 face="Times New Roman"><span
+style='font-size:10.0pt'>&nbsp;Hi,<br>
+&nbsp; Can you execute hostname on vm-cce1 (execution host) from vm-cce2
+(submission host) ?<br>
+<br>
+Regards,<br>
+Jayesh<br>
+<br>
+-----Original Message-----<br>
+From: owner-mpich2-bugs@mcs.anl.gov [<a
+href="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</a>]
+On Behalf Of mpich2<br>
+Sent: Friday, August 29, 2008 6:34 PM<br>
+To: undisclosed-recipients:<br>
+Subject: [mpich2-maint] #118: Simple MPICH2 Delegate Bug<br>
+<br>
+-------------------------------------------------+----------------------<br>
+-------------------------------------------------+----<br>
+&nbsp;Reporter:&nbsp; &quot;Larry Adams&quot; &lt;ladams@platform.com&gt;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;<br>
+&nbsp;&nbsp; Status:&nbsp;
+new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp; Priority:&nbsp; major<br>
+Component:&nbsp;
+mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;<br>
+-------------------------------------------------+----------------------<br>
+-------------------------------------------------+----<br>
+<br>
+<br>
+&nbsp;Hi,<br>
+<br>
+&nbsp;I have setup 3 Win64 hosts using &quot;smpd -register_spn&quot; with no
+problem.<br>
+&nbsp;On the domain controller, I have created a user that is authorized
+for&nbsp; delegation and setup all 3 hosts to allow delegation.<br>
+<br>
+&nbsp;Then, assume the following two scenarios:<br>
+<br>
+&nbsp;Scenario 1:<br>
+&nbsp;submission host: vm-cce1<br>
+&nbsp;execution host: vm-cce2<br>
+&nbsp;command: mpiexec -delegate -hosts 1 vm-cce2 hostname<br>
+&nbsp;result: vm-cce2<br>
+<br>
+&nbsp;Scenario 2:<br>
+&nbsp;submission host: vm-cce1<br>
+&nbsp;execution host: vm-cce1<br>
+&nbsp;command: mpiexec -delegate -hosts 1 vm-cce1 hostname<br>
+&nbsp;result: op_read error on left context: socket connection closed&nbsp;
+unable to read the re-connect request, socket connection closed.<br>
+<br>
+&nbsp;Scenario 2 appears to be a bug.&nbsp; Why is it that I can not use
+delegation&nbsp; when talking to the localhost vm-cce1.&nbsp; This I think is a
+bug.&nbsp; Try it&nbsp; for yourself.<br>
+<br>
+&nbsp;Regards,<br>
+<br>
+&nbsp;Larry Adams<br>
+&nbsp;Senior Systems Engineer<br>
+&nbsp;Platform Computing<br>
+&nbsp;Tele: (586) 510-0007<br>
+&nbsp;Cell: (586) 899-1138<br>
+&nbsp;Skype: TheWitness<br>
+<br>
+<br>
+--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/118">https://trac.mcs.anl.gov/projects/mpich2/ticket/118</a>&gt;</span></font><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

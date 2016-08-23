@@ -1,0 +1,78 @@
+--- alloc_org.c	2015-06-16 13:20:30.402577990 +0200
++++ alloc.c	2015-06-16 14:26:58.438649633 +0200
+@@ -344,6 +344,59 @@
+     goto fn_exit;
+ }
+ 
++
++/**
++ * Sort the proxy list, so that the node with the least amount of active processes 
++ * is used as the first node
++ */
++static int compare_function(const void *a,const void *b) {
++    struct HYD_proxy ** node1= (struct HYD_proxy **)a, ** node2 = (struct HYD_proxy **) b;
++    return (*node1)->node->active_processes - (*node2)->node->active_processes;
++}
++
++HYD_status sort_proxy_list(struct HYD_proxy * input, struct HYD_proxy ** new_head) {    
++    HYD_status status = HYD_SUCCESS;
++    
++    struct HYD_proxy *node= NULL, **list = NULL, *tmp = NULL;
++    int num_nodes = 0, i = 0;
++    
++    if (input->next == NULL) {
++        /* Special case: there is only one proxy, so no sorting required */
++        *new_head = input;
++        return status;
++    }
++    
++    for (node = input; node; node = node->next) {
++        num_nodes++;
++    }
++    
++    
++    HYDU_MALLOC(list, struct HYD_proxy **, num_nodes * sizeof(struct HYD_proxy*), status);
++    //list = (struct HYD_proxy **)malloc(num_nodes * sizeof(struct HYD_proxy *));
++    i = 0;
++    for (node = input; node; node = node->next) {
++        list[i] = node;
++        i++;
++    }
++    qsort(list, num_nodes, sizeof(struct HYD_proxy *), compare_function);
++    tmp = list[0];
++    
++    for (i = 1; i < num_nodes; i++) {
++        tmp->next = list[i];
++        tmp = tmp->next;
++    }
++    tmp->next = NULL;
++    *new_head = list[0];
++    
++    HYDU_FREE(list);
++    
++  fn_exit:
++    return status;
++
++  fn_fail:
++    goto fn_exit;
++}
++
+ HYD_status HYDU_create_proxy_list(struct HYD_exec *exec_list, struct HYD_node *node_list,
+                                   struct HYD_pg *pg)
+ {
+@@ -395,10 +448,13 @@
+             last_proxy->next = proxy;
+         last_proxy = proxy;
+ 
+-        if (allocated_procs >= pg->pg_process_count)
+-            break;
++        //if (allocated_procs >= pg->pg_process_count)
++        //    break;
+     }
+ 
++    status =  sort_proxy_list(pg->proxy_list, &pg->proxy_list); 
++    HYDU_ERR_POP(status, "unable to sort the proxy list\n");
++    
+     /* If all proxies have as many filler processes as the number of
+      * cores, we can reduce those filler processes */
+     if (dummy_fillers)

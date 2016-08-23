@@ -1,0 +1,71 @@
+Index: mtest.c
+===================================================================
+--- mtest.c	(revision 10307)
++++ mtest.c	(working copy)
+@@ -1711,3 +1711,66 @@
+ #else 
+ static void MTestRMACleanup( void ) {}
+ #endif
++
++/* ------------------------------------------------------------------------ */
++/* This function determines if it is possible to spawn addition MPI 
++ * processes using MPI_COMM_SPAWN and MPI_COMM_SPAWN_MULTIPLE.
++ *
++ * It sets the can_spawn value to one of the following:
++ * 1  = yes, additional processes can be spawned
++ * 0  = no, MPI_UNIVERSE_SIZE <= the size of MPI_COMM_WORLD
++ * -1 = it is unknown whether or not processes can be spawned
++ *      due to errors in the necessary query functions
++ *
++ */
++int MTestSpawnPossible(int * can_spawn)
++{
++    int    errs = 0;
++
++    void * v    = NULL;
++    int    flag = -1;
++    int    vval = -1;
++
++    rc = MPI_Attr_get( MPI_COMM_WORLD, MPI_UNIVERSE_SIZE, &v, &flag );
++    if (rc!=MPI_SUCCESS) {
++        *can_spawn = -1;
++        fprintf( stderr, "MPI_UNIVERSE_SIZE keyval missing from MPI_COMM_WORLD attributes \n");
++        errs++;
++    }
++    else {
++        /* MPI_UNIVERSE_SIZE need not be set */
++        if (flag) {
++
++            int size = -1;
++            rc = MPI_Comm_size(MPI_COMM_WORLD, &size);
++            if (rc!=MPI_SUCCESS) {
++                *can_spawn = -1;
++                fprintf( stderr, "MPI_Comm_size failed for MPI_COMM_WORLD \n");
++                errs++;
++            }
++
++            vval = *(int *)v;
++            if (vval < size) {
++                *can_spawn = 0;
++                fprintf( stderr, "MPI_UNIVERSE_SIZE (%d) is less than the size of MPI_COMM_WORLD (%d), \n", vval, size );
++                errs++;
++            }
++            else if (vval == size) {
++                *can_spawn = 0;
++                fprintf( stderr, "MPI_UNIVERSE_SIZE (%d) is the same size of MPI_COMM_WORLD (%d)," 
++                                 "no additional processes can be spawned \n", vval, size );
++                errs++;
++            }
++            else {
++                *can_spawn = 1;
++            }
++        }
++        else {
++            *can_spawn = -1;
++            fprintf( stderr, "No attribute associated with key MPI_UNIVERSE_SIZE of MPI_COMM_WORLD \n");
++            errs++;
++        }
++    }
++    return errs;
++}
++/* ------------------------------------------------------------------------ */

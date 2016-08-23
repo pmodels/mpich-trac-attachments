@@ -1,0 +1,8 @@
+if [ "/model2/cmaq4.6/lib/mpich-1.2.7p1" = "/model2/cmaq4.6/lib/mpich-1.2.7p1" ] ; then \
+    ./bin/mpiinstall  ; \
+else \
+    ./bin/mpiinstall -prefix=/model2/cmaq4.6/lib/mpich-1.2.7p1  ; \
+fi
+cp: `/model2/cmaq4.6/lib/mpich-1.2.7p1/bin/tarch' and `/model2/cmaq4.6/lib/mpich-1.2.7p1/bin/tarch' are the same file
+**Error copying file /model2/cmaq4.6/lib/mpich-1.2.7p1/bin/tarch to /model2/cmaq4.6/lib/mpich-1.2.7p1/bin/tarch **
+make: *** [install] Error 1

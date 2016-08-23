@@ -1,0 +1,101 @@
+/usr/bin/make  all-recursive
+make[1]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4'
+Making all in /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl
+make[2]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl'
+Making all in /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa
+make[2]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa'
+Making all in src
+make[3]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src'
+/usr/bin/make  all-am
+make[4]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src'
+make[4]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src'
+make[3]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src'
+Making all in test
+make[3]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/test'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/test'
+make[3]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa'
+make[2]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa'
+Making all in src/mpi/romio
+make[2]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpi/romio'
+make[3]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpi/romio'
+make[3]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpi/romio'
+make[2]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpi/romio'
+Making all in src/pm/hydra
+make[2]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra'
+Making all in ../../mpl
+make[3]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl'
+Making all in tools/topo/hwloc/hwloc
+make[3]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra/tools/topo/hwloc/hwloc'
+Making all in src
+make[4]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra/tools/topo/hwloc/hwloc/src'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra/tools/topo/hwloc/hwloc/src'
+Making all in include
+make[4]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra/tools/topo/hwloc/hwloc/include'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra/tools/topo/hwloc/hwloc/include'
+make[4]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra/tools/topo/hwloc/hwloc'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra/tools/topo/hwloc/hwloc'
+make[3]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra/tools/topo/hwloc/hwloc'
+Making all in .
+make[3]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra'
+make[3]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra'
+make[2]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/pm/hydra'
+Making all in .
+make[2]: Entering directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4'
+/bin/sh ./libtool  --tag=CC   --mode=compile clang -DHAVE_CONFIG_H -I. -I./src/include  -I./src/include -I./src/mpi/datatype -I./src/mpi/spawn -Isrc/util/logging/common -I./src/util/wrappers -I./src/util/wrappers -I./src/binding/cxx -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/binding/fortran/mpif_h -Isrc/binding/fortran/use_mpi  -I./src/mpid/ch3/include -I./src/mpid/ch3/include -I./src/mpid/ch3/util/sock -I./src/mpid/ch3/util/sock  -I./src/mpid/ch3/channels/sock/include -I./src/mpid/ch3/channels/sock/include -I./src/mpid/common/datatype -I./src/mpid/common/datatype -I./src/mpid/common/sched -I./src/mpid/common/sock -I./src/mpid/common/sock -I./src/mpid/common/sock/poll -I./src/mpid/common/sock/poll -I./src/mpid/common/thread   -I./src/pmi/simple -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl/include -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl/include -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src -D_REENTRANT -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpi/romio/include  -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -g3 -O0    -DNDEBUG -DNVALGRIND -O2 -MT src/mpi/pt2pt/lib_libmpi_la-greq_start.lo -MD -MP -MF src/mpi/pt2pt/.deps/lib_libmpi_la-greq_start.Tpo -c -o src/mpi/pt2pt/lib_libmpi_la-greq_start.lo `test -f 'src/mpi/pt2pt/greq_start.c' || echo './'`src/mpi/pt2pt/greq_start.c
+libtool: compile:  clang -DHAVE_CONFIG_H -I. -I./src/include -I./src/include -I./src/mpi/datatype -I./src/mpi/spawn -Isrc/util/logging/common -I./src/util/wrappers -I./src/util/wrappers -I./src/binding/cxx -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/binding/fortran/mpif_h -Isrc/binding/fortran/use_mpi -I./src/mpid/ch3/include -I./src/mpid/ch3/include -I./src/mpid/ch3/util/sock -I./src/mpid/ch3/util/sock -I./src/mpid/ch3/channels/sock/include -I./src/mpid/ch3/channels/sock/include -I./src/mpid/common/datatype -I./src/mpid/common/datatype -I./src/mpid/common/sched -I./src/mpid/common/sock -I./src/mpid/common/sock -I./src/mpid/common/sock/poll -I./src/mpid/common/sock/poll -I./src/mpid/common/thread -I./src/pmi/simple -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl/include -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl/include -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src -D_REENTRANT -I/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpi/romio/include -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -g3 -O0 -DNDEBUG -DNVALGRIND -O2 -MT src/mpi/pt2pt/lib_libmpi_la-greq_start.lo -MD -MP -MF src/mpi/pt2pt/.deps/lib_libmpi_la-greq_start.Tpo -c src/mpi/pt2pt/greq_start.c  -fPIC -DPIC -o src/mpi/pt2pt/.libs/lib_libmpi_la-greq_start.o
+clang: /nfs2/petsc/soft/build/llvm-3.5.1.src/include/llvm/Support/Casting.h:237: typename llvm::cast_retty<X, Y*>::ret_type llvm::cast(Y*) [with X = llvm::GlobalAlias; Y = llvm::GlobalValue; typename llvm::cast_retty<X, Y*>::ret_type = llvm::GlobalAlias*]: Assertion `isa<X>(Val) && "cast<Ty>() argument of incompatible type!"' failed.
+0  clang           0x00000000027020d2 llvm::sys::PrintStackTrace(_IO_FILE*) + 34
+1  clang           0x0000000002701974
+2  libpthread.so.0 0x00002b3708895cb0
+3  libc.so.6       0x00002b370992a0d5 gsignal + 53
+4  libc.so.6       0x00002b370992d83b abort + 379
+5  libc.so.6       0x00002b3709922d9e
+6  libc.so.6       0x00002b3709922e42
+7  clang           0x000000000091a6a4
+8  clang           0x00000000009391b4 clang::CodeGen::CodeGenModule::checkAliases() + 1940
+9  clang           0x000000000093c039 clang::CodeGen::CodeGenModule::Release() + 25
+10 clang           0x00000000008ccb4e
+11 clang           0x0000000000a86c25 clang::ParseAST(clang::Sema&, bool, bool) + 741
+12 clang           0x00000000008cd97b clang::CodeGenAction::ExecuteAction() + 59
+13 clang           0x0000000000727916 clang::FrontendAction::Execute() + 118
+14 clang           0x0000000000701e20 clang::CompilerInstance::ExecuteAction(clang::FrontendAction&) + 320
+15 clang           0x00000000006ea183 clang::ExecuteCompilerInvocation(clang::CompilerInstance*) + 2115
+16 clang           0x00000000006e3558 cc1_main(char const**, char const**, char const*, void*) + 1384
+17 clang           0x00000000006bdd82 main + 1362
+18 libc.so.6       0x00002b370991576d __libc_start_main + 237
+19 clang           0x00000000006e290d
+Stack dump:
+0.	Program arguments: /nfs2/petsc/soft/linux-Ubuntu_12.04-x86_64/clang-3.5.1/bin/clang -cc1 -triple x86_64-unknown-linux-gnu -emit-obj -disable-free -main-file-name greq_start.c -mrelocation-model pic -pic-level 2 -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -target-linker-version 2.22 -momit-leaf-frame-pointer -g -dwarf-column-info -coverage-file /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpi/pt2pt/.libs/lib_libmpi_la-greq_start.o -resource-dir /nfs2/petsc/soft/linux-Ubuntu_12.04-x86_64/clang-3.5.1/bin/../lib/clang/3.5.1 -dependency-file src/mpi/pt2pt/.deps/lib_libmpi_la-greq_start.Tpo -sys-header-deps -MP -MT src/mpi/pt2pt/lib_libmpi_la-greq_start.lo -D HAVE_CONFIG_H -D _REENTRANT -D NDEBUG -D NVALGRIND -D PIC -I . -I ./src/include -I ./src/include -I ./src/mpi/datatype -I ./src/mpi/spawn -I src/util/logging/common -I ./src/util/wrappers -I ./src/util/wrappers -I ./src/binding/cxx -I /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/binding/fortran/mpif_h -I src/binding/fortran/use_mpi -I ./src/mpid/ch3/include -I ./src/mpid/ch3/include -I ./src/mpid/ch3/util/sock -I ./src/mpid/ch3/util/sock -I ./src/mpid/ch3/channels/sock/include -I ./src/mpid/ch3/channels/sock/include -I ./src/mpid/common/datatype -I ./src/mpid/common/datatype -I ./src/mpid/common/sched -I ./src/mpid/common/sock -I ./src/mpid/common/sock -I ./src/mpid/common/sock/poll -I ./src/mpid/common/sock/poll -I ./src/mpid/common/thread -I ./src/pmi/simple -I /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl/include -I /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpl/include -I /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src -I /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/openpa/src -I /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4/src/mpi/romio/include -internal-isystem /usr/local/include -internal-isystem /nfs2/petsc/soft/linux-Ubuntu_12.04-x86_64/clang-3.5.1/bin/../lib/clang/3.5.1/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O2 -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -fconst-strings -fdebug-compilation-dir /sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4 -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -vectorize-loops -vectorize-slp -o src/mpi/pt2pt/.libs/lib_libmpi_la-greq_start.o -x c src/mpi/pt2pt/greq_start.c 
+1.	<eof> parser at end of file
+2.	Per-file LLVM IR generation
+clang: error: unable to execute command: Aborted (core dumped)
+clang: error: clang frontend command failed due to signal (use -v to see invocation)
+clang version 3.5.1 (tags/RELEASE_351/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+clang: note: diagnostic msg: PLEASE submit a bug report to http://llvm.org/bugs/ and include the crash backtrace, preprocessed source, and associated run script.
+clang: note: diagnostic msg: 
+********************
+
+PLEASE ATTACH THE FOLLOWING FILES TO THE BUG REPORT:
+Preprocessed source(s) and associated run script(s) are located at:
+clang: note: diagnostic msg: /tmp/greq_start-46f1a5.c
+clang: note: diagnostic msg: /tmp/greq_start-46f1a5.sh
+clang: note: diagnostic msg: 
+
+********************
+make[2]: *** [src/mpi/pt2pt/lib_libmpi_la-greq_start.lo] Error 1
+make[2]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/sandbox/petsc/petsc.clone-2/arch-linux-cxx-cmplx-pkgs-64idx/externalpackages/mpich-3.1.4'
+make: *** [all] Error 2

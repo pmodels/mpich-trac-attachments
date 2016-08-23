@@ -1,0 +1,16 @@
+Index: src/mpi/pt2pt/mpir_request.c
+===================================================================
+--- src/mpi/pt2pt/mpir_request.c	(revision 3174)
++++ src/mpi/pt2pt/mpir_request.c	(working copy)
+@@ -542,8 +542,10 @@
+ 	{
+ 	    if (request_ptrs[i] != NULL && 
+ 			request_ptrs[i]->kind == MPID_UREQUEST && 
+-			*request_ptrs[i]->cc_ptr != 0) {
++			*request_ptrs[i]->cc_ptr != 0 &&
++			request_ptrs[i]->poll_fn != 0) {
+ 		mpi_error = (request_ptrs[i]->poll_fn)(request_ptrs[i]->grequest_extra_state, &(array_of_statuses[i]));
++		if (mpi_error) break; /* XXX MPIU_ERR_POP(mpi_error) cannot be used here */
+ 	    }
+ 	}
+     }

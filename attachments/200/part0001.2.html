@@ -1,0 +1,32 @@
+<div dir="ltr">Thank you for the quick response!&nbsp; I tried your suggestion of posting irecv&#39;s, but this did not work.&nbsp; I have made a very small program that can recreate the error.&nbsp; I&#39;ve attached it to this email.&nbsp; The error message I get is:<br>
+<br>MPIERROR() called on line=62<br>MPIERROR() called on line=41<br>&nbsp; 2: Unable to allocate memory for MPI_Alloc_mem<br>&nbsp; 2: Unable to allocate memory for MPI_Alloc_mem, error stack:<br>MPI_Irecv(144): MPI_Irecv(buf=0x414010b8, count=1, MPI_DOUBLE, src=MPI_ANY_SOURCE, tag=1, MPI_COMM_WORLD, request=0x41401104) failed<br>
+MPID_Irecv(49): Out of memory<br>application called MPI_Abort(MPI_COMM_WORLD, -1) - process 2[cli_2]: aborting job:<br>application called MPI_Abort(MPI_COMM_WORLD, -1) - process 2<br>MPIERROR() called on line=62<br>&nbsp; 0: Internal MPI error!<br>
+&nbsp; 0: Internal MPI error!, error stack:<br>MPI_Issend(145): MPI_Issend(buf=0x409c00b0, count=1, MPI_DOUBLE, dest=1, tag=1, MPI_COMM_WORLD, request=0x409e00f8) failed<br>(unknown)(): Internal MPI error!<br>application called MPI_Abort(MPI_COMM_WORLD, -1) - process 0[cli_0]: aborting job:<br>
+application called MPI_Abort(MPI_COMM_WORLD, -1) - process 0<br>rank 2 in job 1&nbsp; node40_60604&nbsp;&nbsp; caused collective abort of all ranks<br>&nbsp; exit status of rank 2: killed by signal 9<br><br>As I understand it, my code should wait for an available request object before sending or receiving so I should not be running out of memory as the error says.&nbsp; My sends are Issend&#39;s so these should avoid filling some system buffer, correct?<br>
+<br>Cheers,<br>Shawn<br><br><div class="gmail_quote">On Fri, Oct 10, 2008 at 10:46 AM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+---------------------------------------------------------------+------------<br>
+&nbsp;Reporter: &nbsp;&quot;Shawn Poindexter&quot; &lt;<a href="mailto:sdp@astronomy.ohio-state.edu">sdp@astronomy.ohio-state.edu</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp;Owner:<br>
+<div class="Ih2E3d"> &nbsp; &nbsp; Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; Status: &nbsp;new<br>
+&nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Milestone:<br>
+</div>Component: &nbsp;mpich2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; Resolution:<br>
+&nbsp;Keywords: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |<br>
+---------------------------------------------------------------+------------<br>
+<br>
+<br>
+Comment (by buntinas):<br>
+<br>
+&nbsp;Typically messages about running out of memory when allocating requests<br>
+&nbsp;indicates that you have too many unexpected messages coming in, which<br>
+&nbsp;means one side is sending faster than the other side can receive.<br>
+<br>
+&nbsp;Try pre-posting your receives (i.e. post irecvs before the sender starts<br>
+&nbsp;sending). &nbsp;Remember that processes may be skewed in time, so, e.g., the<br>
+&nbsp;sending process may begin its sending phase before the receiver starts its<br>
+&nbsp;receiving phase. &nbsp;If all else fails, you could add a barrier to<br>
+&nbsp;synchronize the sender and receiver.<br>
+<br>
+&nbsp;-d<br>
+<font color="#888888"><br>
+--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/200#comment:2" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/200#comment:2</a>&gt;<br>
+</font></blockquote></div><br></div>

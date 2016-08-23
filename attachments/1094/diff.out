@@ -1,0 +1,53 @@
+5c5
+<       call mpi_init(ierr)
+---
+>       call mtest_init(ierr)
+24,30c24,38
+<        call checkdtype( MPI_LONG_DOUBLE, "MPI_LONG_DOUBLE", ierr )
+<        call checkdtype2( MPI_LONG_LONG_INT, "MPI_LONG_LONG_INT", 
+<      *      "MPI_LONG_LONG", ierr )
+<        call checkdtype( MPI_UNSIGNED_LONG_LONG, 
+<      *      "MPI_UNSIGNED_LONG_LONG", ierr )
+<        call checkdtype2( MPI_LONG_LONG, "MPI_LONG_LONG", 
+<      *      "MPI_LONG_LONG_INT", ierr )
+---
+>        if (MPI_LONG_DOUBLE .ne. MPI_DATATYPE_NULL) then
+>          call checkdtype( MPI_LONG_DOUBLE, "MPI_LONG_DOUBLE", ierr )
+>        endif
+>        if (MPI_LONG_LONG_INT .ne. MPI_DATATYPE_NULL) then
+>          call checkdtype2( MPI_LONG_LONG_INT, "MPI_LONG_LONG_INT", 
+>      *        "MPI_LONG_LONG", ierr )
+>        endif
+>        if (MPI_UNSIGNED_LONG_LONG .ne. MPI_DATATYPE_NULL) then
+>          call checkdtype( MPI_UNSIGNED_LONG_LONG, 
+>      *        "MPI_UNSIGNED_LONG_LONG", ierr )
+>        endif
+>        if (MPI_LONG_LONG .ne. MPI_DATATYPE_NULL) then
+>          call checkdtype2( MPI_LONG_LONG, "MPI_LONG_LONG", 
+>      *        "MPI_LONG_LONG_INT", ierr )
+>        endif
+39c47,50
+<        call checkdtype( MPI_LONG_DOUBLE_INT, "MPI_LONG_DOUBLE_INT",ierr)
+---
+>        if (MPI_LONG_DOUBLE_INT .ne. MPI_DATATYPE_NULL) then
+>          call checkdtype( MPI_LONG_DOUBLE_INT, "MPI_LONG_DOUBLE_INT",
+>      *        ierr)
+>        endif
+63,64c74,77
+<           call checkdtype( MPI_C_LONG_DOUBLE_COMPLEX, 
+<      *         "MPI_C_LONG_DOUBLE_COMPLEX", ierr )
+---
+>           if (MPI_C_LONG_DOUBLE_COMPLEX .ne. MPI_DATATYPE_NULL) then
+>             call checkdtype( MPI_C_LONG_DOUBLE_COMPLEX, 
+>      *           "MPI_C_LONG_DOUBLE_COMPLEX", ierr )
+>           endif
+70,74c83
+<        if (ierr .eq. 0) then
+<           print *, " No Errors"
+<        else
+<           print *, " Found ", ierr, " errors"
+<        endif
+---
+>        call mtest_finalize( ierr )
+76d84
+<        stop 

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+DRIVER_HOME=/bgsys/drivers/V1R2M0_200_2008-080513P/ppc
+export PATH=${DRIVER_HOME}/gnu-linux/bin:${PATH}
+export MSGLAYER_INCLUDE="-I${DRIVER_HOME}/comm/include"
+export MSGLAYER_LIB="-L${DRIVER_HOME}/comm/lib -ldcmfcoll.cnk -ldcmf.cnk -lpthread -lrt -L${DRIVER_HOME}/runtime/SPI -lSPI.cna"
+# export LIBS="-L${DRIVER_HOME}/gnu-linux/powerpc-bgp-linux/lib"
+
+cd /scratch/chan/mpich2_work/build
+
+~/mpich_work/mpich2/configure --with-device=dcmfd:BGP --with-pmi=no --with-pm=no --with-file-system=bgl --enable-timer-type=device --with-cross=${HOME}/mpich_work/mpich2/src/mpid/dcmfd/cross --host=powerpc-bgp-linux --build=powerpc-pc-linux 2>&1 | tee c.txt && make VERBOSE=1 2>&1 | tee m.txt

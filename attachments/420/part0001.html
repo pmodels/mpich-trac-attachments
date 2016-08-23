@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #420: Mpich2</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+<BR>
+# Do you have a firewall (windows, third-party) running on this machine (Turn off any firewall running on the machine)?<BR>
+# Did you get any errors while installing MPICH2 ?<BR>
+# Can you try running a simple MPI program using MPICH2 on the machine ?<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MPICH2 installation provides you with a pre-compiled sample MPI program, cpi.exe, in the examples directory (&lt;MPICH2-INSTALL-DIR&gt;\examples\cpi.exe). You can run the MPI program with 2 processes on the machine using the mpiexec command (mpiexec -n 2 cpi.exe).<BR>
+<BR>
+&nbsp;Let us know the results.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Wednesday, February 18, 2009 12:55 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #420: Mpich2<BR>
+<BR>
+-----------------------------------------------------------------------------------------+<BR>
+&nbsp;Reporter:&nbsp; &quot;Santibanez, Raymundo (GE Infra, Aviation)&quot; &lt;raymundo.santibanez@ae.ge.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+-----------------------------------------------------------------------------------------+<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+<BR>
+&nbsp;&gt; Hi:<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; I request your help. I am trying to use Ansys distributed in Windows 32,&nbsp; with&nbsp; Ansys 11 and I have an error on 2 machines or computers. Could you please&nbsp; help&nbsp; me?<BR>
+&nbsp;&gt; When I install the Mpich2 program seems that it was installed&nbsp; succesfully, but&nbsp; when I see the configuration it already shows an error. I attach some&nbsp; images of&nbsp; this error.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; The enviromental variables that were added to the computer are:<BR>
+&nbsp;&gt; 1.- In the Path variable name, it was added at the end the C:\Program&nbsp; Files\MPICH2\bin&nbsp; &gt;&nbsp; &gt; 2.- It was added&nbsp; &gt; Variable name:&nbsp; ANSYS_SYSDIR&nbsp; &gt; Variable value:&nbsp; \\*computer name\ansys inc\v110\ansys&nbsp; &gt;&nbsp; &gt; 3.-It was added<BR>
+&nbsp;&gt; Variable name:&nbsp;&nbsp;&nbsp;&nbsp; ANSYS110_DIR<BR>
+&nbsp;&gt; Variable value:&nbsp;&nbsp;&nbsp;&nbsp; C:\program files\ansys inc\v110\ansys<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; 4.-It was added<BR>
+&nbsp;&gt; Variable name:&nbsp;&nbsp;&nbsp;&nbsp; ANSYSLIC_DIR<BR>
+&nbsp;&gt; Variable value:&nbsp;&nbsp;&nbsp;&nbsp; C:\Program Files\Ansys Inc\Shared Files\Licensing<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; I have perform this procedure in others 3 machines and they have no&nbsp; issues. In&nbsp; fact I already ran Ansys Distributed in those machines. But I can not do&nbsp; it in&nbsp; this 2 machines that shows the previous error.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; I am not an expert on this so please try to answer in a manner so I can&nbsp; understand.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; Thanks<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; I look forward for your answer, Please try to answer asap.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt; &gt;&nbsp; &lt;&lt;error.ppt&gt;&gt;<BR>
+&nbsp;Raymundo Santibáñez Santoscoy.<BR>
+&nbsp;GE Infrastructure<BR>
+&nbsp;Queretaro - UNISON<BR>
+&nbsp;Analyst, Product Engineer,<BR>
+<BR>
+&nbsp;T (52-442) 296-2566<BR>
+&nbsp;D 8*879-2566<BR>
+&nbsp;E raymundo.santibanez@ae.ge.com<BR>
+&nbsp;www.ciat.com.mx<BR>
+&nbsp;&lt;file:///C:/Documents%20and%20Settings/nhcuc1t/Application%20Dat<BR>
+&nbsp;a/Microsoft/Signatures/www.ciat.com.mx&gt;<BR>
+<BR>
+&nbsp;Constituyentes 120 pte. 2o. piso<BR>
+&nbsp;Col. Carrizal, 76030 Queretaro, Qro. Mexico.<BR>
+&nbsp;Centro de Ingeniería Avanzada en Turbomáquinas S. de R.L. de C.V.<BR>
+<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/420">https://trac.mcs.anl.gov/projects/mpich2/ticket/420</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

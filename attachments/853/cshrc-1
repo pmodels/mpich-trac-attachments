@@ -1,0 +1,41 @@
+alias ls 'ls -a -s -l -h --color'
+
+setenv PGI_HOME /opt/pgi/linux86-64/8.0
+setenv LM_LICENSE_FILE /opt/pgi/license.dat
+set path = (/opt/pgi/linux86-64/8.0/bin $path)
+set path =(/opt/pgi/linux86-64/8.0/mpi/bin $path)
+
+setenv FC /opt/pgi/linux86-64/8.0-6/bin/pgf90
+setenv F90 /opt/pgi/linux86-64/8.0-6/bin/pgf90
+setenv FFLAGS "-O2 -w"
+setenv F90FLAGS "-O2 -w"
+setenv LDFLAGS "-O2"
+setenv OPTFLAGS "-O2"
+
+setenv CC $PGI_HOME/bin/pgcc
+setenv CXX $PGI_HOME/bin/pgCC
+setenv CPP "$PGI_HOME/bin/pgCC -E"
+setenv CFLAGS "-O2 -Msignextend"
+setenv CXXFLAGS "-O2 -DpgiFortran"
+
+setenv MPICH_HOME /model2/cmaq4.6/lib/mpich-1.2.7p1
+setenv RSHCOMMAND ssh
+setenv MPI_BUFFER_SIZE 2000000000
+setenv LD_LIBRARY_PATH /model2/cmaq4.6/lib/mpich-1.2.7p1/lib/shared
+
+setenv M3HOME /model2/cmaq4.6
+setenv M3MODEL $M3HOME/models
+setenv M3LIB $M3HOME/lib
+setenv M3DATA $M3HOME/data
+setenv WORK $M3HOME/scripts
+
+setenv EDSS_ENV Linux2_x86
+setenv SMK_HOME /model2/smoke2.3
+setenv SMK_SUBSYS $SMK_HOME/subsys
+setenv SMKROOT $SMK_SUBSYS/smoke
+setenv SMKDAT $SMK_HOME/data
+setenv ASSIGNS $SMKROOT/assigns
+
+source $SMK_HOME/scripts/platform
+
+setenv BIN Linux2_x86pg_pgcc

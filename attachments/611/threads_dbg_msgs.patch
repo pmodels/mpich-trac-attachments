@@ -1,0 +1,76 @@
+commit c20d9b91b4b2ec5448c90c5e702703ba9d6147a8
+Author: Dave Goodell <goodell@mcs.anl.gov>
+Date:   Thu May 14 16:07:22 2009 -0500
+
+    Add informative debugging messages for mutex life cycles.
+    
+    No reviewer.
+
+diff --git a/src/util/thread/posix_funcs.i b/src/util/thread/posix_funcs.i
+index c562949..8e2cae6 100644
+--- a/src/util/thread/posix_funcs.i
++++ b/src/util/thread/posix_funcs.i
+@@ -69,6 +69,7 @@
+ 	/* FIXME: convert error to an MPE_THREAD_ERR value */           \
+ 	*(int *)(err_ptr_) = err__;                                     \
+     }                                                                   \
++    MPIU_DBG_MSG_P(THREAD,TYPICAL,"Created MPE_Thread_mutex %p", (mutex_ptr_));    \
+ }
+ #else /* MPICH_DEBUG_MUTEX */
+ #define MPE_Thread_mutex_create(mutex_ptr_, err_ptr_)                   \
+@@ -91,6 +92,7 @@
+ 	/* FIXME: convert error to an MPE_THREAD_ERR value */            \
+ 	*(int *)(err_ptr_) = err__;                                      \
+     }                                                                    \
++    MPIU_DBG_MSG_P(THREAD,TYPICAL,"Created MPE_Thread_mutex %p", (mutex_ptr_));    \
+ }
+ #endif
+ 
+@@ -98,6 +100,7 @@
+ {								\
+     int err__;							\
+ 								\
++    MPIU_DBG_MSG_P(THREAD,TYPICAL,"About to destroy MPE_Thread_mutex %p", (mutex_ptr_));    \
+     err__ = pthread_mutex_destroy(mutex_ptr_);			\
+     if ((err_ptr_) != NULL)					\
+     {								\
+@@ -215,6 +218,7 @@
+     int err__;							\
+     								\
+     err__ = pthread_cond_init((cond_ptr_), NULL);		\
++    MPIU_DBG_MSG_P(THREAD,TYPICAL,"Created MPE_Thread_cond %p", (cond_ptr_));    \
+     if ((err_ptr_) != NULL)					\
+     {								\
+ 	/* FIXME: convert error to an MPE_THREAD_ERR value */	\
+@@ -226,6 +230,7 @@
+ {								\
+     int err__;							\
+     								\
++    MPIU_DBG_MSG_P(THREAD,TYPICAL,"About to destroy MPE_Thread_cond %p", (cond_ptr_));    \
+     err__ = pthread_cond_destroy(cond_ptr_);			\
+     if ((err_ptr_) != NULL)					\
+     {								\
+@@ -241,6 +246,7 @@
+     /* The latest pthread specification says that cond_wait routines    \
+        aren't allowed to return EINTR,	                                \
+        but some of the older implementations still do. */		\
++    MPIU_DBG_MSG_P(THREAD,TYPICAL,"About to cond_wait on MPE_Thread_cond %p", (cond_ptr_));    \
+     do									\
+     {									\
+ 	err__ = pthread_cond_wait((cond_ptr_), (mutex_ptr_));		\
+@@ -258,6 +264,7 @@
+ {								\
+     int err__;							\
+     								\
++    MPIU_DBG_MSG_P(THREAD,TYPICAL,"About to cond_broadcast on MPE_Thread_cond %p", (cond_ptr_));    \
+     err__ = pthread_cond_broadcast(cond_ptr_);			\
+ 								\
+     if ((err_ptr_) != NULL)					\
+@@ -271,6 +278,7 @@
+ {								\
+     int err__;							\
+ 								\
++    MPIU_DBG_MSG_P(THREAD,TYPICAL,"About to cond_signal on MPE_Thread_cond %p", (cond_ptr_));    \
+     err__ = pthread_cond_signal(cond_ptr_);			\
+ 								\
+     if ((err_ptr_) != NULL)					\

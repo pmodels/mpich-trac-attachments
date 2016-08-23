@@ -1,0 +1,30 @@
+Index: src/mpi/comm/comm_split.c
+===================================================================
+--- src/mpi/comm/comm_split.c	(revision 1233)
++++ src/mpi/comm/comm_split.c	(working copy)
+@@ -355,8 +355,7 @@
+ 	    newcomm_ptr->recvcontext_id = remote_context_id;
+ 	    newcomm_ptr->remote_size    = new_remote_size;
+ 	    newcomm_ptr->local_comm     = 0;
+-	    /* FIXME: Do we need to set is_low_group? */
+-	    newcomm_ptr->is_low_group   = 0;
++	    newcomm_ptr->is_low_group   = comm_ptr->is_low_group;
+ 
+ 	}
+ 	else {
+Index: src/mpi/comm/commutil.c
+===================================================================
+--- src/mpi/comm/commutil.c	(revision 1233)
++++ src/mpi/comm/commutil.c	(working copy)
+@@ -692,8 +692,9 @@
+     /* Set the sizes and ranks */
+     newcomm_ptr->rank        = comm_ptr->rank;
+     if (comm_ptr->comm_kind == MPID_INTERCOMM) {
+-	newcomm_ptr->local_size  = comm_ptr->local_size;
+-	newcomm_ptr->remote_size = comm_ptr->remote_size;
++	newcomm_ptr->local_size   = comm_ptr->local_size;
++	newcomm_ptr->remote_size  = comm_ptr->remote_size;
++	newcomm_ptr->is_low_group = comm_ptr->is_low_group;
+     }
+     else {
+ 	newcomm_ptr->local_size  = size;

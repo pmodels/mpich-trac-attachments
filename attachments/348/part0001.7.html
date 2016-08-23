@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7653.38">
+<TITLE>RE: [mpich2-maint] #348: error in installing mpich2</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>This is a request for additional information.&nbsp; I decided to investigate<BR>
+what I would get if I just proceeded ahead, anyway.<BR>
+<BR>
+My efforts have been to get PEGASUS% from NASA AMES complied, with mpi<BR>
+enabled, on the SGI TEZRO (MIPS4).&nbsp; I first got the message that the<BR>
+library had -n32 objects and that it was expecting -n64 objects.&nbsp; I<BR>
+manually went into the Pegasus make file and added -64 to the FLAGS<BR>
+parameter.&nbsp; From that run, I got a complaint that the mpichf90 library<BR>
+was -n32.<BR>
+<BR>
+Is there a way to specify that mpich2 should be build with -n64 objects?<BR>
+<BR>
+Thanks,<BR>
+<BR>
+Wade Miner<BR>
+<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov<BR>
+[<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Wednesday, January 14, 2009 1:08 PM<BR>
+Subject: Re: [mpich2-maint] #348: error in installing mpich2<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |<BR>
+Owner:&nbsp; robl<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+---------------------------------------------------------------+--------<BR>
+----<BR>
+<BR>
+<BR>
+Comment (by Miner, Wade (Newport News)):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Thanks for the clarification.&nbsp; Enclosed (with .gr suffix)<BR>
+<BR>
+&nbsp;Wade Miner<BR>
+<BR>
+<BR>
+&nbsp;-----Original Message-----<BR>
+&nbsp;From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp;[<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&nbsp;Sent: Wednesday, January 14, 2009 12:30 PM<BR>
+&nbsp;Subject: Re: [mpich2-maint] #348: error in installing mpich2<BR>
+<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp;----<BR>
+&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |<BR>
+&nbsp;Owner:&nbsp; robl<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;Status:&nbsp; new<BR>
+&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;Milestone:<BR>
+&nbsp;Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;Resolution:<BR>
+&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp;----<BR>
+<BR>
+<BR>
+&nbsp;Comment (by Anthony Chan):<BR>
+<BR>
+&nbsp; {{{<BR>
+<BR>
+<BR>
+&nbsp; The offending Makefile is<BR>
+<BR>
+/local/temp/mpich_build/mpich2-1.0.8/src/mpe2/src/graphics/src/Makefile<BR>
+&nbsp; not the top-level Makefile that you just sent.<BR>
+<BR>
+&nbsp; ----- &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt; wrote:<BR>
+<BR>
+&nbsp; &gt;<BR>
+<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp;----<BR>
+&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp; Owner:&nbsp; robl<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt; Milestone:<BR>
+&nbsp; &gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt; Resolution:<BR>
+&nbsp; &gt;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;<BR>
+<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp;----<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; Comment (by Miner, Wade (Newport News)):<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; {{{<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; OK<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Wade Miner<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&nbsp; &gt;&nbsp; Sent: Wednesday, January 14, 2009 12:18 PM<BR>
+&nbsp; &gt;&nbsp; Subject: Re: [mpich2-maint] #348: error in installing mpich2<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp; &gt;&nbsp; ----<BR>
+&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp; Owner:&nbsp; robl<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp; &gt;&nbsp; ----<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Comment (by Anthony Chan):<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; It looks as if something in src/mpe2/src/graphics/src/Makefile was<BR>
+&nbsp; &gt;&nbsp;&nbsp; corrupted.<BR>
+&nbsp; &gt;&nbsp;&nbsp; Can you send us the Makefile ?<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; A.Chan<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; ----- &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt; wrote:<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp; &gt;&nbsp; ----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Owner:&nbsp; robl<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp; &gt;&nbsp; ----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Comment (by Miner, Wade (Newport News)):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Some progress, but not there yet.&nbsp; The ending of make listing<BR>
+is<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; **** Making src/graphics ....<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; make<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; /local/temp/mpich_build/mpich2-1.0.8/src/mpe2/lib/lib_nompi.a<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gcc -I.. -I../include<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; -I/local/temp/mpich_build/mpich2-1.0.8/src/mpe2/include<BR>
+&nbsp; &gt; -I../../..<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; -I../../../include&nbsp; PROF_LIBNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = mpe -O2&nbsp; -DMPE_NOMPI<BR>
+&nbsp; &gt; -c<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; mpe_graphics.c<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; gcc: PROF_LIBNAME: No such file or directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; gcc: =: No such file or directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; gcc: mpe: No such file or directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; wmi00 on ITL00029008 in /local/temp/mpich_build/mpich2-1.0.8<BR>
+[38<BR>
+&nbsp; &gt; ] %<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; copies of m.txt and configure.log attached.&nbsp; I did note in the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; configure.log file that it found the 1000 Mhz mips processor to<BR>
+&nbsp; &gt; be<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; unknown, but that doesn't seem to be the source of the problem.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Thanks!<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Wade Miner<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Sent: Friday, January 09, 2009 3:09 PM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Subject: Re: [mpich2-maint] #348: error in installing mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; ----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;<BR>
+|<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Owner:&nbsp; robl<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+|<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+|<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Component:&nbsp; mpich2<BR>
+|<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Keywords:<BR>
+|<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; ----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Comment (by Miner, Wade (Newport News)):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; I think I am going to have to wait until Monday for this.<BR>
+The<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; TEZRO<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; is<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; being transitioned form a cubicle network to the corporate<BR>
+&nbsp; &gt; network<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; and<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; I<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; am until Monday &quot;I am off the air.&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Thanks,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Wade Miner<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;***********************************************************************<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Wade Miner, PhD.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Engineer III<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Northrop Grumman Newport News&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: (757) 688-4666<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Dept. E46, Bldg. 600-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fax: (757) 688-2296<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; 4101 Washington Ave.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e-mail: Wade.Miner@ngc.com<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Newport News, VA 23607<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;***********************************************************************<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Sent: Friday, January 09, 2009 3:04 PM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #348: error in installing mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; ----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;<BR>
+&nbsp; &gt; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Owner:&nbsp; robl<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp; &gt; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Keywords:<BR>
+&nbsp; &gt; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; ----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Comment (by Robert Latham):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; On Fri, Jan 09, 2009 at 08:01:38PM -0000, mpich2 wrote:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; If you don't need any MPI_FILE_* in your code,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; configure mpich2 with --disable-romio.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; that's a little bit overkill, man!<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; ==rob<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Rob Latham<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Mathematics and Computer Science Division&nbsp;&nbsp;&nbsp; A215 0178 EA2D<BR>
+&nbsp; &gt; B059<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; 8CDF<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Argonne National Lab, IL USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B29D F333 664A<BR>
+&nbsp; &gt; 4280<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; 315B<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; --<BR>
+&nbsp; &gt;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;<BR>
+&nbsp; &gt;&nbsp; }}}<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; --<BR>
+&nbsp; &gt; Ticket URL:<BR>
+&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;<BR>
+&nbsp; }}}<BR>
+<BR>
+&nbsp;--<BR>
+&nbsp;Ticket URL:<BR>
+&nbsp;&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL:<BR>
+&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

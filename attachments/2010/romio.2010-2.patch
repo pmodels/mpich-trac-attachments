@@ -1,0 +1,1053 @@
+From de358441c64fbf9cee8ffd276cfc7dab9800d3e7 Mon Sep 17 00:00:00 2001
+From: Gilles Gouaillardet <gilles.gouaillardet@iferc.org>
+Date: Wed, 29 Jan 2014 13:34:41 +0900
+Subject: [PATCH 2/3] Use MPI_Type_size_x. Fixes 2010
+
+Use MPI_Type_size_x instead of MPI_Type_size and make sure the
+second argument has type MPI_Count.
+---
+ src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c          |    2 +-
+ src/mpi/romio/adio/ad_gridftp/ad_gridftp_read.c    |   11 ++++++-----
+ src/mpi/romio/adio/ad_lustre/ad_lustre_rwcontig.c  |    5 +++--
+ src/mpi/romio/adio/ad_lustre/ad_lustre_wrstr.c     |    6 +++---
+ src/mpi/romio/adio/ad_nfs/ad_nfs_iread.c           |    4 ++--
+ src/mpi/romio/adio/ad_nfs/ad_nfs_iwrite.c          |    4 ++--
+ src/mpi/romio/adio/ad_nfs/ad_nfs_read.c            |   12 +++++++-----
+ src/mpi/romio/adio/ad_nfs/ad_nfs_write.c           |   12 +++++++-----
+ src/mpi/romio/adio/ad_ntfs/ad_ntfs_iread.c         |    4 ++--
+ src/mpi/romio/adio/ad_ntfs/ad_ntfs_iwrite.c        |    4 ++--
+ src/mpi/romio/adio/ad_pfs/ad_pfs_iread.c           |    5 +++--
+ src/mpi/romio/adio/ad_pfs/ad_pfs_iwrite.c          |    5 +++--
+ src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c          |    6 +++---
+ src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_aio.c         |    5 +++--
+ .../adio/ad_pvfs2/ad_pvfs2_read_list_classic.c     |    2 +-
+ src/mpi/romio/adio/ad_testfs/ad_testfs_iread.c     |    9 +++++----
+ src/mpi/romio/adio/ad_testfs/ad_testfs_iwrite.c    |    9 +++++----
+ src/mpi/romio/adio/ad_testfs/ad_testfs_seek.c      |    5 +++--
+ src/mpi/romio/adio/ad_xfs/ad_xfs_write.c           |    2 +-
+ .../romio/adio/ad_zoidfs/ad_zoidfs_write_list.c    |    4 ++--
+ src/mpi/romio/adio/common/ad_coll_exch_new.c       |    8 ++++----
+ src/mpi/romio/adio/common/ad_io_coll.c             |   20 ++++++++++----------
+ src/mpi/romio/adio/common/ad_iread.c               |    8 ++++----
+ src/mpi/romio/adio/common/ad_iread_fake.c          |    8 ++++----
+ src/mpi/romio/adio/common/ad_iwrite.c              |    8 ++++----
+ src/mpi/romio/adio/common/ad_iwrite_fake.c         |   10 +++++-----
+ src/mpi/romio/adio/common/ad_seek.c                |    4 ++--
+ src/mpi/romio/adio/common/eof_offset.c             |    4 ++--
+ src/mpi/romio/test-internal/file_realms_test.c     |    4 ++--
+ src/mpi/romio/test/big_extents.c                   |   11 ++++++-----
+ src/mpi/romio/test/coll_perf.c                     |    5 +++--
+ src/mpi/romio/test/coll_test.c                     |    5 +++--
+ src/mpi/romio/test/hindexed.c                      |    5 +++--
+ src/mpi/romio/test/large_array.c                   |    5 +++--
+ src/mpi/romio/test/split_coll.c                    |    5 +++--
+ 35 files changed, 122 insertions(+), 104 deletions(-)
+
+diff --git a/src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c b/src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c
+index f3593f3..a979d0f 100644
+--- a/src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c
++++ b/src/mpi/romio/adio/ad_bgl/ad_bgl_rdcoll.c
+@@ -382,7 +382,7 @@ void ADIOI_BGL_ReadStridedColl(ADIO_File fd, void *buf, int count,
+     ADIOI_Free(fd_end);
+ 
+ #ifdef HAVE_STATUS_SET_BYTES
+-    MPI_Type_size(datatype, &size);
++    MPI_Type_size_x(datatype, &size);
+     bufsize = size * count;
+     MPIR_Status_set_bytes(status, datatype, bufsize);
+ /* This is a temporary way of filling in status. The right way is to 
+diff --git a/src/mpi/romio/adio/ad_gridftp/ad_gridftp_read.c b/src/mpi/romio/adio/ad_gridftp/ad_gridftp_read.c
+index b7f84b9..6a0fc9c 100644
+--- a/src/mpi/romio/adio/ad_gridftp/ad_gridftp_read.c
++++ b/src/mpi/romio/adio/ad_gridftp/ad_gridftp_read.c
+@@ -106,7 +106,8 @@ void ADIOI_GRIDFTP_ReadContig(ADIO_File fd, void *buf, int count,
+ 			     *error_code)
+ {
+     static char myname[]="ADIOI_GRIDFTP_ReadContig";
+-    int myrank, nprocs, datatype_size;
++    int myrank, nprocs;
++    MPI_Count datatype_size;
+     globus_size_t len,bytes_read=0;
+     globus_off_t goff;
+     globus_result_t result;
+@@ -121,7 +122,7 @@ void ADIOI_GRIDFTP_ReadContig(ADIO_File fd, void *buf, int count,
+ 
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+ 
+     if (file_ptr_type != ADIO_EXPLICIT_OFFSET)
+     {
+@@ -219,11 +220,11 @@ void ADIOI_GRIDFTP_ReadDiscontig(ADIO_File fd, void *buf, int count,
+     MPI_Comm_size(fd->comm,&nprocs);
+ 
+     etype_size=fd->etype_size;
+-    MPI_Type_size(fd->filetype,&ftype_size);
++    MPI_Type_size_x(fd->filetype,&ftype_size);
+     MPI_Type_extent(fd->filetype,&ftype_extent);
+     /* This is arguably unnecessary, as this routine assumes that the
+        buffer in memory is contiguous */
+-    MPI_Type_size(datatype,&btype_size);
++    MPI_Type_size_x(datatype,&btype_size);
+     MPI_Type_extent(datatype,&btype_extent);
+     ADIOI_Datatype_iscontig(datatype,&buf_contig);
+     
+@@ -415,7 +416,7 @@ void ADIOI_GRIDFTP_ReadStrided(ADIO_File fd, void *buf, int count,
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+ 
+-    MPI_Type_size(datatype,&btype_size);
++    MPI_Type_size_x(datatype,&btype_size);
+     bufsize=count*btype_size;
+     ADIOI_Datatype_iscontig(fd->filetype,&file_contig);
+     ADIOI_Datatype_iscontig(datatype,&buf_contig);
+diff --git a/src/mpi/romio/adio/ad_lustre/ad_lustre_rwcontig.c b/src/mpi/romio/adio/ad_lustre/ad_lustre_rwcontig.c
+index 4168acf..6869f58 100644
+--- a/src/mpi/romio/adio/ad_lustre/ad_lustre_rwcontig.c
++++ b/src/mpi/romio/adio/ad_lustre/ad_lustre_rwcontig.c
+@@ -120,10 +120,11 @@ static void ADIOI_LUSTRE_IOContig(ADIO_File fd, void *buf, int count,
+ 	           ADIO_Offset offset, ADIO_Status *status, 
+ 		   int io_mode, int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    int err=-1;
++    MPI_Count datatype_size, len;
+     static char myname[] = "ADIOI_LUSTRE_IOCONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_INDIVIDUAL) {
+diff --git a/src/mpi/romio/adio/ad_lustre/ad_lustre_wrstr.c b/src/mpi/romio/adio/ad_lustre/ad_lustre_wrstr.c
+index 684b388..ea140ef 100644
+--- a/src/mpi/romio/adio/ad_lustre/ad_lustre_wrstr.c
++++ b/src/mpi/romio/adio/ad_lustre/ad_lustre_wrstr.c
+@@ -156,7 +156,7 @@ void ADIOI_LUSTRE_WriteStrided(ADIO_File fd, void *buf, int count,
+     int n_etypes_in_filetype;
+     ADIO_Offset num, size, n_filetypes, etype_in_filetype, st_n_filetypes;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent;
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off;
+@@ -186,7 +186,7 @@ void ADIOI_LUSTRE_WriteStrided(ADIO_File fd, void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if (!filetype_size) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -196,7 +196,7 @@ void ADIOI_LUSTRE_WriteStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_nfs/ad_nfs_iread.c b/src/mpi/romio/adio/ad_nfs/ad_nfs_iread.c
+index 21b6040..28d2028 100644
+--- a/src/mpi/romio/adio/ad_nfs/ad_nfs_iread.c
++++ b/src/mpi/romio/adio/ad_nfs/ad_nfs_iread.c
+@@ -13,11 +13,11 @@ void ADIOI_NFS_IreadContig(ADIO_File fd, void *buf, int count,
+ 			   ADIO_Offset offset, ADIO_Request *request,
+ 			   int *error_code)  
+ {
+-    int len, typesize;
++    MPI_Count len, typesize;
+     int aio_errno = 0;
+     static char myname[] = "ADIOI_NFS_IREADCONTIG";
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     len = count * typesize;
+ 
+     if (file_ptr_type == ADIO_INDIVIDUAL) offset = fd->fp_ind;
+diff --git a/src/mpi/romio/adio/ad_nfs/ad_nfs_iwrite.c b/src/mpi/romio/adio/ad_nfs/ad_nfs_iwrite.c
+index 6a92f83..f27b099 100644
+--- a/src/mpi/romio/adio/ad_nfs/ad_nfs_iwrite.c
++++ b/src/mpi/romio/adio/ad_nfs/ad_nfs_iwrite.c
+@@ -20,11 +20,11 @@ void ADIOI_NFS_IwriteContig(ADIO_File fd, void *buf, int count,
+                 MPI_Datatype datatype, int file_ptr_type,
+                 ADIO_Offset offset, ADIO_Request *request, int *error_code)  
+ {
+-    int len, typesize;
++    MPI_Count len, typesize;
+     int aio_errno = 0;
+     static char myname[] = "ADIOI_NFS_IWRITECONTIG";
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     len = count * typesize;
+ 
+     if (file_ptr_type == ADIO_INDIVIDUAL) offset = fd->fp_ind;
+diff --git a/src/mpi/romio/adio/ad_nfs/ad_nfs_read.c b/src/mpi/romio/adio/ad_nfs/ad_nfs_read.c
+index 16f3a4d..18dfde7 100644
+--- a/src/mpi/romio/adio/ad_nfs/ad_nfs_read.c
++++ b/src/mpi/romio/adio/ad_nfs/ad_nfs_read.c
+@@ -12,10 +12,11 @@ void ADIOI_NFS_ReadContig(ADIO_File fd, void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    int err=-1;
++    MPI_Count datatype_size, len;
+     static char myname[] = "ADIOI_NFS_READCONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_EXPLICIT_OFFSET) {
+@@ -171,7 +172,8 @@ void ADIOI_NFS_ReadStrided(ADIO_File fd, void *buf, int count,
+     int bufsize, num, size, sum, n_etypes_in_filetype, size_in_filetype;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size, req_len, partial_read;
++    int req_len, partial_read;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off;
+@@ -185,7 +187,7 @@ void ADIOI_NFS_ReadStrided(ADIO_File fd, void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -195,7 +197,7 @@ void ADIOI_NFS_ReadStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_nfs/ad_nfs_write.c b/src/mpi/romio/adio/ad_nfs/ad_nfs_write.c
+index dda2fea..660e868 100644
+--- a/src/mpi/romio/adio/ad_nfs/ad_nfs_write.c
++++ b/src/mpi/romio/adio/ad_nfs/ad_nfs_write.c
+@@ -12,10 +12,11 @@ void ADIOI_NFS_WriteContig(ADIO_File fd, const void *buf, int count,
+                      MPI_Datatype datatype, int file_ptr_type,
+ 		     ADIO_Offset offset, ADIO_Status *status, int *error_code)
+ {
+-    int err=-1, datatype_size, len;
++    int err=-1;
++    MPI_Count datatype_size, len;
+     static char myname[] = "ADIOI_NFS_WRITECONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_EXPLICIT_OFFSET) {
+@@ -275,7 +276,8 @@ void ADIOI_NFS_WriteStrided(ADIO_File fd, const void *buf, int count,
+     int bufsize, num, size, sum, n_etypes_in_filetype, size_in_filetype;
+     int n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+-    int filetype_size, etype_size, buftype_size, req_len;
++    int req_len;
++    MPI_Count filetype_size, etype_size, buftype_size;
+     MPI_Aint filetype_extent, buftype_extent; 
+     int buf_count, buftype_is_contig, filetype_is_contig;
+     ADIO_Offset userbuf_off;
+@@ -288,7 +290,7 @@ void ADIOI_NFS_WriteStrided(ADIO_File fd, const void *buf, int count,
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -298,7 +300,7 @@ void ADIOI_NFS_WriteStrided(ADIO_File fd, const void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_ntfs/ad_ntfs_iread.c b/src/mpi/romio/adio/ad_ntfs/ad_ntfs_iread.c
+index c186cfd..845401a 100644
+--- a/src/mpi/romio/adio/ad_ntfs/ad_ntfs_iread.c
++++ b/src/mpi/romio/adio/ad_ntfs/ad_ntfs_iread.c
+@@ -10,11 +10,11 @@ void ADIOI_NTFS_IreadContig(ADIO_File fd, void *buf, int count,
+                 MPI_Datatype datatype, int file_ptr_type,
+                 ADIO_Offset offset, ADIO_Request *request, int *error_code)  
+ {
+-    int len, typesize;
++    MPI_Count len, typesize;
+     int err;
+     static char myname[] = "ADIOI_NTFS_IreadContig";
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     len = count * typesize;
+ 
+     if (file_ptr_type == ADIO_INDIVIDUAL)
+diff --git a/src/mpi/romio/adio/ad_ntfs/ad_ntfs_iwrite.c b/src/mpi/romio/adio/ad_ntfs/ad_ntfs_iwrite.c
+index 5956796..40a567e 100644
+--- a/src/mpi/romio/adio/ad_ntfs/ad_ntfs_iwrite.c
++++ b/src/mpi/romio/adio/ad_ntfs/ad_ntfs_iwrite.c
+@@ -171,11 +171,11 @@ void ADIOI_NTFS_IwriteContig(ADIO_File fd, void *buf, int count,
+ 			     ADIO_Offset offset, ADIO_Request *request,
+ 			     int *error_code)  
+ {
+-    int len, typesize;
++    MPI_Count len, typesize;
+     int err;
+     static char myname[] = "ADIOI_NTFS_IwriteContig";
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     len = count * typesize;
+ 
+     if (file_ptr_type == ADIO_INDIVIDUAL)
+diff --git a/src/mpi/romio/adio/ad_pfs/ad_pfs_iread.c b/src/mpi/romio/adio/ad_pfs/ad_pfs_iread.c
+index b0009a9..78b3c59 100644
+--- a/src/mpi/romio/adio/ad_pfs/ad_pfs_iread.c
++++ b/src/mpi/romio/adio/ad_pfs/ad_pfs_iread.c
+@@ -13,7 +13,8 @@ void ADIOI_PFS_IreadContig(ADIO_File fd, void *buf, int count,
+ 			   int *error_code)
+ {
+     long *id_sys;
+-    int len, typesize, err=-1;
++    int err=-1;
++    MPI_Count len, typesize;
+     ADIO_Offset off;
+     static char myname[] = "ADIOI_PFS_IREADCONTIG";
+ 
+@@ -22,7 +23,7 @@ void ADIOI_PFS_IreadContig(ADIO_File fd, void *buf, int count,
+     (*request)->fd = fd;
+     (*request)->datatype = datatype;
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     len = count * typesize;
+ 
+     id_sys = (long *) ADIOI_Malloc(sizeof(long));
+diff --git a/src/mpi/romio/adio/ad_pfs/ad_pfs_iwrite.c b/src/mpi/romio/adio/ad_pfs/ad_pfs_iwrite.c
+index dcae718..5dda2fb 100644
+--- a/src/mpi/romio/adio/ad_pfs/ad_pfs_iwrite.c
++++ b/src/mpi/romio/adio/ad_pfs/ad_pfs_iwrite.c
+@@ -13,7 +13,8 @@ void ADIOI_PFS_IwriteContig(ADIO_File fd, void *buf, int count,
+ {
+     long *id_sys;
+     ADIO_Offset off;
+-    int len, typesize, err;
++    int err;
++    MPI_Count len, typesize;
+     static char myname[] = "ADIOI_PFS_IWRITECONTIG";
+ 
+     *request = ADIOI_Malloc_request();
+@@ -21,7 +22,7 @@ void ADIOI_PFS_IwriteContig(ADIO_File fd, void *buf, int count,
+     (*request)->fd = fd;
+     (*request)->datatype = datatype;
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     len = count * typesize;
+ 
+     id_sys = (long *) ADIOI_Malloc(sizeof(long));
+diff --git a/src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c b/src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c
+index 57f600f..71b558a 100644
+--- a/src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c
++++ b/src/mpi/romio/adio/ad_pvfs/ad_pvfs_read.c
+@@ -23,7 +23,7 @@ void ADIOI_PVFS_ReadContig(ADIO_File fd, void *buf, int count,
+     MPI_Count err=-1, datatype_size, len;
+     static char myname[] = "ADIOI_PVFS_READCONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     if (file_ptr_type == ADIO_EXPLICIT_OFFSET) {
+@@ -149,7 +149,7 @@ void ADIOI_PVFS_ReadStridedListIO(ADIO_File fd, void *buf, int count,
+ 
+     ADIOI_Datatype_iscontig(datatype, &buftype_is_contig);
+     ADIOI_Datatype_iscontig(fd->filetype, &filetype_is_contig);
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -159,7 +159,7 @@ void ADIOI_PVFS_ReadStridedListIO(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_aio.c b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_aio.c
+index e784d74..56d0a9f 100644
+--- a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_aio.c
++++ b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_aio.c
+@@ -47,7 +47,8 @@ void ADIOI_PVFS2_AIO_contig(ADIO_File fd, void *buf, int count,
+ 			    int flag, int *error_code)
+ {
+ 
+-    int ret, datatype_size, len;
++    int ret;
++    MPI_Count datatype_size, len;
+     ADIOI_PVFS2_fs *pvfs_fs;
+     ADIOI_AIO_Request *aio_req;
+     static char myname[] = "ADIOI_PVFS2_AIO_contig";
+@@ -56,7 +57,7 @@ void ADIOI_PVFS2_AIO_contig(ADIO_File fd, void *buf, int count,
+ 
+     aio_req = (ADIOI_AIO_Request*)ADIOI_Calloc(sizeof(ADIOI_AIO_Request), 1);
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     ret = PVFS_Request_contiguous(len, PVFS_BYTE, &(aio_req->mem_req));
+diff --git a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read_list_classic.c b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read_list_classic.c
+index 1a51381..d862ad3 100644
+--- a/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read_list_classic.c
++++ b/src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_read_list_classic.c
+@@ -79,7 +79,7 @@ void ADIOI_PVFS2_OldReadStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+ 
+diff --git a/src/mpi/romio/adio/ad_testfs/ad_testfs_iread.c b/src/mpi/romio/adio/ad_testfs/ad_testfs_iread.c
+index 052b28c..77e8624 100644
+--- a/src/mpi/romio/adio/ad_testfs/ad_testfs_iread.c
++++ b/src/mpi/romio/adio/ad_testfs/ad_testfs_iread.c
+@@ -18,13 +18,14 @@ void ADIOI_TESTFS_IreadContig(ADIO_File fd, void *buf, int count,
+ 			      *error_code)
+ {
+     ADIO_Status status;
+-    int myrank, nprocs, typesize, len;
++    int myrank, nprocs;
++    MPI_Count typesize, len;
+ 
+     *error_code = MPI_SUCCESS;
+ 
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     FPRINTF(stdout, "[%d/%d] ADIOI_TESTFS_IreadContig called on %s\n", 
+ 	    myrank, nprocs, fd->filename);
+     FPRINTF(stdout, "[%d/%d]    calling ADIOI_TESTFS_ReadContig\n", 
+@@ -44,11 +45,11 @@ void ADIOI_TESTFS_IreadStrided(ADIO_File fd, void *buf, int count,
+ {
+     ADIO_Status status;
+     int myrank, nprocs;
+-    int typesize;
++    MPI_Count typesize;
+ 
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     FPRINTF(stdout, "[%d/%d] ADIOI_TESTFS_IreadStrided called on %s\n", 
+ 	    myrank, nprocs, fd->filename);
+     FPRINTF(stdout, "[%d/%d]    calling ADIOI_TESTFS_ReadStrided\n", 
+diff --git a/src/mpi/romio/adio/ad_testfs/ad_testfs_iwrite.c b/src/mpi/romio/adio/ad_testfs/ad_testfs_iwrite.c
+index 7a7261c..e29c9f6 100644
+--- a/src/mpi/romio/adio/ad_testfs/ad_testfs_iwrite.c
++++ b/src/mpi/romio/adio/ad_testfs/ad_testfs_iwrite.c
+@@ -21,11 +21,12 @@ void ADIOI_TESTFS_IwriteContig(ADIO_File fd, const void *buf, int count,
+ 			       *error_code)
+ {
+     ADIO_Status status;
+-    int myrank, nprocs, typesize, len;
++    int myrank, nprocs;
++    MPI_Count typesize, len;
+ 
+     *error_code = MPI_SUCCESS;
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+     FPRINTF(stdout, "[%d/%d] ADIOI_TESTFS_IwriteContig called on %s\n", 
+@@ -47,13 +48,13 @@ void ADIOI_TESTFS_IwriteStrided(ADIO_File fd, const void *buf, int count,
+ {
+     ADIO_Status status;
+     int myrank, nprocs;
+-    int typesize;
++    MPI_Count typesize;
+ 
+     *error_code = MPI_SUCCESS;
+ 
+     MPI_Comm_size(fd->comm, &nprocs);
+     MPI_Comm_rank(fd->comm, &myrank);
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+ 
+     FPRINTF(stdout, "[%d/%d] ADIOI_TESTFS_IwriteStrided called on %s\n", 
+ 	    myrank, nprocs, fd->filename);
+diff --git a/src/mpi/romio/adio/ad_testfs/ad_testfs_seek.c b/src/mpi/romio/adio/ad_testfs/ad_testfs_seek.c
+index a2f6234..df6d30a 100644
+--- a/src/mpi/romio/adio/ad_testfs/ad_testfs_seek.c
++++ b/src/mpi/romio/adio/ad_testfs/ad_testfs_seek.c
+@@ -28,7 +28,8 @@ ADIO_Offset ADIOI_TESTFS_SeekIndividual(ADIO_File fd, ADIO_Offset offset,
+     int i, n_etypes_in_filetype, n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0, sum;
+     int size_in_filetype;
+-    int filetype_size, filetype_is_contig;
++    int filetype_is_contig;
++    MPI_Count filetype_size;
+     MPI_Aint etype_size, filetype_extent;
+ 
+     *error_code = MPI_SUCCESS;
+@@ -47,7 +48,7 @@ ADIO_Offset ADIOI_TESTFS_SeekIndividual(ADIO_File fd, ADIO_Offset offset,
+         while (flat_file->type != fd->filetype) flat_file = flat_file->next;
+ 
+ 	MPI_Type_extent(fd->filetype, &filetype_extent);
+-	MPI_Type_size(fd->filetype, &filetype_size);
++	MPI_Type_size_x(fd->filetype, &filetype_size);
+ 	if ( ! filetype_size ) {
+ 	    *error_code = MPI_SUCCESS; 
+ 	    return 0;
+diff --git a/src/mpi/romio/adio/ad_xfs/ad_xfs_write.c b/src/mpi/romio/adio/ad_xfs/ad_xfs_write.c
+index b47c8db..9ab8276 100644
+--- a/src/mpi/romio/adio/ad_xfs/ad_xfs_write.c
++++ b/src/mpi/romio/adio/ad_xfs/ad_xfs_write.c
+@@ -26,7 +26,7 @@ void ADIOI_XFS_WriteContig(ADIO_File fd, void *buf, int count,
+     void *newbuf;
+     static char myname[] = "ADIOI_XFS_WRITECONTIG";
+ 
+-    MPI_Type_size(datatype, &datatype_size);
++    MPI_Type_size_x(datatype, &datatype_size);
+     len = datatype_size * count;
+ 
+     fd->fp_sys_posn = -1; /* set it to null, since we are using pwrite */
+diff --git a/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_write_list.c b/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_write_list.c
+index 0fc4cd0..8ca0594 100644
+--- a/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_write_list.c
++++ b/src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_write_list.c
+@@ -85,7 +85,7 @@ void ADIOI_ZOIDFS_WriteStrided(ADIO_File fd, void *buf, int count,
+ 	    filetype_is_contig = 1;
+     }
+ 
+-    MPI_Type_size(fd->filetype, &filetype_size);
++    MPI_Type_size_x(fd->filetype, &filetype_size);
+     if ( ! filetype_size ) {
+ #ifdef HAVE_STATUS_SET_BYTES
+ 	MPIR_Status_set_bytes(status, datatype, 0);
+@@ -95,7 +95,7 @@ void ADIOI_ZOIDFS_WriteStrided(ADIO_File fd, void *buf, int count,
+     }
+ 
+     MPI_Type_extent(fd->filetype, &filetype_extent);
+-    MPI_Type_size(datatype, &buftype_size);
++    MPI_Type_size_x(datatype, &buftype_size);
+     MPI_Type_extent(datatype, &buftype_extent);
+     etype_size = fd->etype_size;
+     
+diff --git a/src/mpi/romio/adio/common/ad_coll_exch_new.c b/src/mpi/romio/adio/common/ad_coll_exch_new.c
+index 08fb83a..d121589 100644
+--- a/src/mpi/romio/adio/common/ad_coll_exch_new.c
++++ b/src/mpi/romio/adio/common/ad_coll_exch_new.c
+@@ -62,7 +62,7 @@ void ADIOI_Print_flatlist_node(ADIOI_Flatlist_node *flatlist_node_p)
+  * ADIOI_Flatlist, we can force it to do so with this function. */
+ ADIOI_Flatlist_node * ADIOI_Add_contig_flattened(MPI_Datatype contig_type)
+ {
+-    int contig_type_sz = -1;
++    MPI_Count contig_type_sz = -1;
+     ADIOI_Flatlist_node *flat_node_p = ADIOI_Flatlist;
+     
+     /* Add contig type to the end of the list if it doesn't already
+@@ -76,7 +76,7 @@ ADIOI_Flatlist_node * ADIOI_Add_contig_flattened(MPI_Datatype contig_type)
+     if (flat_node_p->type == contig_type)
+ 	return flat_node_p;
+ 
+-    MPI_Type_size(contig_type, &contig_type_sz);
++    MPI_Type_size_x(contig_type, &contig_type_sz);
+     if ((flat_node_p->next = (ADIOI_Flatlist_node *) ADIOI_Malloc
+ 	 (sizeof(ADIOI_Flatlist_node))) == NULL)
+     {
+@@ -132,7 +132,7 @@ void ADIOI_Exch_file_views(int myrank, int nprocs, int file_ptr_type,
+ 
+     /* parameters for datatypes */
+     ADIOI_Flatlist_node *flat_mem_p = NULL, *flat_file_p = NULL;
+-    int memtype_sz = -1;
++    MPI_Count memtype_sz = -1;
+     int memtype_is_contig = -1;
+     ADIO_Offset filetype_sz = -1;
+ 
+@@ -142,7 +142,7 @@ void ADIOI_Exch_file_views(int myrank, int nprocs, int file_ptr_type,
+     /* The memtype will be freed after the call.  The filetype will be
+      * freed in the close and should have been flattened in the file
+      * view. */
+-    MPI_Type_size(datatype, &memtype_sz);
++    MPI_Type_size_x(datatype, &memtype_sz);
+     MPI_Type_extent(datatype, &memtype_extent);
+     if (memtype_sz == memtype_extent) {
+ 	memtype_is_contig = 1;
+diff --git a/src/mpi/romio/adio/common/ad_io_coll.c b/src/mpi/romio/adio/common/ad_io_coll.c
+index 09008c2..7e980e1 100644
+--- a/src/mpi/romio/adio/common/ad_io_coll.c
++++ b/src/mpi/romio/adio/common/ad_io_coll.c
+@@ -358,7 +358,7 @@ void ADIOI_IOStridedColl (ADIO_File fd, void *buf, int count, int rdwr,
+ #ifdef DEBUG
+ 	    fprintf (stderr, "expecting from [agg](disp,size,cnt)=");
+ 	    for (i=0; i < nprocs; i++) {
+-		MPI_Type_size (agg_comm_dtype_arr[i], &size);
++		MPI_Type_size_x (agg_comm_dtype_arr[i], &size);
+ 		fprintf (stderr, "[%d](%d,%d,%d)", i, alltoallw_disps[i], 
+ 			 size, agg_alltoallw_counts[i]);
+ 		if (i != nprocs - 1)
+@@ -369,7 +369,7 @@ void ADIOI_IOStridedColl (ADIO_File fd, void *buf, int count, int rdwr,
+ 		fprintf (stderr, "sending to [client](disp,size,cnt)=");
+ 		for (i=0; i < nprocs; i++) {
+ 		    if (fd->is_agg)
+-			MPI_Type_size (client_comm_dtype_arr[i], &size);
++			MPI_Type_size_x (client_comm_dtype_arr[i], &size);
+ 		    else
+ 			size = -1;
+ 		    
+@@ -433,7 +433,7 @@ void ADIOI_IOStridedColl (ADIO_File fd, void *buf, int count, int rdwr,
+ #ifdef DEBUG
+ 	    fprintf (stderr, "sending to [agg](disp,size,cnt)=");
+ 	    for (i=0; i < nprocs; i++) {
+-		MPI_Type_size (agg_comm_dtype_arr[i], &size);
++		MPI_Type_size_x (agg_comm_dtype_arr[i], &size);
+ 		fprintf (stderr, "[%d](%d,%d,%d)", i, alltoallw_disps[i], 
+ 			 size, agg_alltoallw_counts[i]);
+ 		if (i != nprocs - 1)
+@@ -443,7 +443,7 @@ void ADIOI_IOStridedColl (ADIO_File fd, void *buf, int count, int rdwr,
+ 	    fprintf (stderr, "expecting from [client](disp,size,cnt)=");
+ 	    for (i=0; i < nprocs; i++) {
+ 		if (fd->is_agg)
+-		    MPI_Type_size (client_comm_dtype_arr[i], &size);
++		    MPI_Type_size_x (client_comm_dtype_arr[i], &size);
+ 		else
+ 		    size = -1;
+ 		
+@@ -700,7 +700,7 @@ void ADIOI_Calc_bounds (ADIO_File fd, int count, MPI_Datatype buftype,
+ 			int file_ptr_type, ADIO_Offset offset,
+ 			ADIO_Offset *st_offset, ADIO_Offset *end_offset)
+ {
+-    int filetype_size, buftype_size, etype_size;
++    MPI_Count filetype_size, buftype_size, etype_size;
+     int sum;
+     MPI_Aint filetype_extent;
+     ADIO_Offset total_io;
+@@ -725,10 +725,10 @@ void ADIOI_Calc_bounds (ADIO_File fd, int count, MPI_Datatype buftype,
+ 
+     ADIOI_Datatype_iscontig (fd->filetype, &filetype_is_contig);
+     
+-    MPI_Type_size (fd->filetype, &filetype_size);
++    MPI_Type_size_x (fd->filetype, &filetype_size);
+     MPI_Type_extent (fd->filetype, &filetype_extent);
+-    MPI_Type_size (fd->etype, &etype_size);
+-    MPI_Type_size (buftype, &buftype_size);
++    MPI_Type_size_x (fd->etype, &etype_size);
++    MPI_Type_size_x (buftype, &buftype_size);
+     
+     total_io = buftype_size * count;
+ 
+@@ -885,7 +885,7 @@ void ADIOI_IOFiletype(ADIO_File fd, void *buf, int count,
+     int f_is_contig, m_is_contig;
+     int user_ds_read, user_ds_write;
+     MPI_Aint f_extent;
+-    int f_size;
++    MPI_Count f_size;
+     int f_ds_percent; /* size/extent */
+ 
+ #ifdef AGGREGATION_PROFILE
+@@ -895,7 +895,7 @@ void ADIOI_IOFiletype(ADIO_File fd, void *buf, int count,
+ 	MPE_Log_event(5008, 0, NULL);
+ #endif
+     MPI_Type_extent(custom_ftype, &f_extent);
+-    MPI_Type_size(custom_ftype, &f_size);
++    MPI_Type_size_x(custom_ftype, &f_size);
+     f_ds_percent = 100 * f_size / f_extent;
+ 
+     /* temporarily store file view information */
+diff --git a/src/mpi/romio/adio/common/ad_iread.c b/src/mpi/romio/adio/common/ad_iread.c
+index 864393a..74c342a 100644
+--- a/src/mpi/romio/adio/common/ad_iread.c
++++ b/src/mpi/romio/adio/common/ad_iread.c
+@@ -40,11 +40,11 @@ void ADIOI_GEN_IreadContig(ADIO_File fd, void *buf, int count,
+ 			   ADIO_Offset offset, MPI_Request *request,
+ 			   int *error_code)  
+ {
+-    int len, typesize;
++    MPI_Count len, typesize;
+     int aio_errno = 0;
+     static char myname[] = "ADIOI_GEN_IREADCONTIG";
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     ADIOI_Assert((count * typesize) == ((ADIO_Offset)(unsigned)count * (ADIO_Offset)typesize));
+     len = count * typesize;
+ 
+@@ -74,7 +74,7 @@ void ADIOI_GEN_IreadStrided(ADIO_File fd, void *buf, int count,
+ 			    int *error_code)
+ {
+     ADIO_Status status;
+-    int typesize;
++    MPI_Count typesize;
+     MPI_Offset nbytes=0;
+ 
+     /* Call the blocking function.  It will create an error code
+@@ -84,7 +84,7 @@ void ADIOI_GEN_IreadStrided(ADIO_File fd, void *buf, int count,
+ 		     offset, &status, error_code);  
+ 
+     if (*error_code == MPI_SUCCESS) {
+-	MPI_Type_size(datatype, &typesize);
++	MPI_Type_size_x(datatype, &typesize);
+ 	nbytes = (MPI_Offset)count*(MPI_Offset)typesize;
+     }
+     MPIO_Completed_request_create(&fd, nbytes, error_code, request);
+diff --git a/src/mpi/romio/adio/common/ad_iread_fake.c b/src/mpi/romio/adio/common/ad_iread_fake.c
+index d6ae07e..b5cbd1d 100644
+--- a/src/mpi/romio/adio/common/ad_iread_fake.c
++++ b/src/mpi/romio/adio/common/ad_iread_fake.c
+@@ -17,10 +17,10 @@ void ADIOI_FAKE_IreadContig(ADIO_File fd, void *buf, int count,
+ 			   int *error_code)  
+ {
+     ADIO_Status status;
+-    int typesize;
++    MPI_Count typesize;
+     MPI_Offset len;
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     len = (MPI_Offset)count * (MPI_Offset)typesize;
+ 
+     /* Call the blocking function.  It will create an error code
+@@ -45,7 +45,7 @@ void ADIOI_FAKE_IreadStrided(ADIO_File fd, void *buf, int count,
+ 			    int *error_code)
+ {
+     ADIO_Status status;
+-    int typesize;
++    MPI_Count typesize;
+     MPI_Offset nbytes=0;
+ 
+     /* Call the blocking function.  It will create an error code
+@@ -54,7 +54,7 @@ void ADIOI_FAKE_IreadStrided(ADIO_File fd, void *buf, int count,
+     ADIO_ReadStrided(fd, buf, count, datatype, file_ptr_type, 
+ 		     offset, &status, error_code);  
+     if (*error_code == MPI_SUCCESS) {
+-	MPI_Type_size(datatype, &typesize);
++	MPI_Type_size_x(datatype, &typesize);
+ 	nbytes = (MPI_Offset)count*(MPI_Offset)typesize;
+     }
+     MPIO_Completed_request_create(&fd, nbytes, error_code, request);
+diff --git a/src/mpi/romio/adio/common/ad_iwrite.c b/src/mpi/romio/adio/common/ad_iwrite.c
+index f263a74..35eb482 100644
+--- a/src/mpi/romio/adio/common/ad_iwrite.c
++++ b/src/mpi/romio/adio/common/ad_iwrite.c
+@@ -49,11 +49,11 @@ void ADIOI_GEN_IwriteContig(ADIO_File fd, const void *buf, int count,
+ 			    ADIO_Offset offset, ADIO_Request *request,
+ 			    int *error_code)
+ {
+-    int len, typesize;
++    MPI_Count len, typesize;
+     int aio_errno = 0;
+     static char myname[] = "ADIOI_GEN_IWRITECONTIG";
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     len = count * typesize;
+     ADIOI_Assert(len == (int)((ADIO_Offset)count * (ADIO_Offset)typesize)); /* the count is an int parm */
+ 
+@@ -186,7 +186,7 @@ void ADIOI_GEN_IwriteStrided(ADIO_File fd, const void *buf, int count,
+ 			     int *error_code)
+ {
+     ADIO_Status status;
+-    int typesize;
++    MPI_Count typesize;
+     MPI_Offset nbytes=0;
+ 
+     /* Call the blocking function.  It will create an error code 
+@@ -196,7 +196,7 @@ void ADIOI_GEN_IwriteStrided(ADIO_File fd, const void *buf, int count,
+ 		      offset, &status, error_code);  
+ 
+     if (*error_code == MPI_SUCCESS) {
+-	MPI_Type_size(datatype, &typesize);
++	MPI_Type_size_x(datatype, &typesize);
+ 	nbytes = (MPI_Offset)count * (MPI_Offset)typesize;
+     }
+     MPIO_Completed_request_create(&fd, nbytes, error_code, request);
+diff --git a/src/mpi/romio/adio/common/ad_iwrite_fake.c b/src/mpi/romio/adio/common/ad_iwrite_fake.c
+index 9f40627..6210942 100644
+--- a/src/mpi/romio/adio/common/ad_iwrite_fake.c
++++ b/src/mpi/romio/adio/common/ad_iwrite_fake.c
+@@ -19,10 +19,10 @@ void ADIOI_FAKE_IwriteContig(ADIO_File fd, const void *buf, int count,
+ {
+     ADIO_Status status;
+     MPI_Offset len;
+-    int typesize;
++    MPI_Count typesize;
+     MPI_Offset nbytes=0;
+ 
+-    MPI_Type_size(datatype, &typesize);
++    MPI_Type_size_x(datatype, &typesize);
+     len = (MPI_Offset)count * (MPI_Offset)typesize;
+ 
+     /* Call the blocking function.  It will create an error code
+@@ -32,7 +32,7 @@ void ADIOI_FAKE_IwriteContig(ADIO_File fd, const void *buf, int count,
+     ADIO_WriteContig(fd, buf, (int)len, MPI_BYTE, file_ptr_type, offset,
+ 		     &status, error_code);  
+     if (*error_code == MPI_SUCCESS) {
+-	MPI_Type_size(datatype, &typesize);
++	MPI_Type_size_x(datatype, &typesize);
+ 	nbytes = (MPI_Offset)count*(MPI_Offset)typesize;
+     }
+     MPIO_Completed_request_create(&fd, nbytes, error_code, request);
+@@ -49,7 +49,7 @@ void ADIOI_FAKE_IwriteStrided(ADIO_File fd, const void *buf, int count,
+ 			     int *error_code)
+ {
+     ADIO_Status status;
+-    int typesize;
++    MPI_Count typesize;
+     MPI_Offset nbytes=0;
+ 
+     /* Call the blocking function.  It will create an error code 
+@@ -58,7 +58,7 @@ void ADIOI_FAKE_IwriteStrided(ADIO_File fd, const void *buf, int count,
+     ADIO_WriteStrided(fd, buf, count, datatype, file_ptr_type, 
+ 		      offset, &status, error_code);  
+     if (*error_code == MPI_SUCCESS) {
+-	MPI_Type_size(datatype, &typesize);
++	MPI_Type_size_x(datatype, &typesize);
+ 	nbytes = (MPI_Offset)count * (MPI_Offset)typesize;
+     }
+     MPIO_Completed_request_create(&fd, nbytes, error_code, request);
+diff --git a/src/mpi/romio/adio/common/ad_seek.c b/src/mpi/romio/adio/common/ad_seek.c
+index 380649b..d8bbe85 100644
+--- a/src/mpi/romio/adio/common/ad_seek.c
++++ b/src/mpi/romio/adio/common/ad_seek.c
+@@ -26,7 +26,7 @@ ADIO_Offset ADIOI_GEN_SeekIndividual(ADIO_File fd, ADIO_Offset offset,
+     ADIO_Offset n_etypes_in_filetype, n_filetypes, etype_in_filetype;
+     ADIO_Offset abs_off_in_filetype=0;
+     ADIO_Offset size_in_filetype, sum;
+-    unsigned filetype_size;
++    MPI_Count filetype_size;
+     int etype_size, filetype_is_contig;
+     MPI_Aint filetype_extent;
+ 
+@@ -41,7 +41,7 @@ ADIO_Offset ADIOI_GEN_SeekIndividual(ADIO_File fd, ADIO_Offset offset,
+         while (flat_file->type != fd->filetype) flat_file = flat_file->next;
+ 
+ 	MPI_Type_extent(fd->filetype, &filetype_extent);
+-	MPI_Type_size(fd->filetype, (int*)&filetype_size);
++	MPI_Type_size_x(fd->filetype, &filetype_size);
+ 	if ( ! filetype_size ) {
+ 	    /* Since offset relative to the filetype size, we can't
+ 	       do compute the offset when that result is zero.
+diff --git a/src/mpi/romio/adio/common/eof_offset.c b/src/mpi/romio/adio/common/eof_offset.c
+index c873ffd..0fb3539 100644
+--- a/src/mpi/romio/adio/common/eof_offset.c
++++ b/src/mpi/romio/adio/common/eof_offset.c
+@@ -13,7 +13,7 @@
+ 
+ void ADIOI_Get_eof_offset(ADIO_File fd, ADIO_Offset *eof_offset)
+ {
+-    unsigned filetype_size;
++    MPI_Count filetype_size;
+     int error_code, filetype_is_contig;
+     ADIO_Offset fsize, disp, sum=0, size_in_file, n_filetypes, rem, etype_size;
+     int flag, i;
+@@ -44,7 +44,7 @@ void ADIOI_Get_eof_offset(ADIO_File fd, ADIO_Offset *eof_offset)
+ 	while (flat_file->type != fd->filetype) 
+ 	    flat_file = flat_file->next;
+ 	
+-	MPI_Type_size(fd->filetype, (int*)&filetype_size);
++	MPI_Type_size_x(fd->filetype, &filetype_size);
+ 	MPI_Type_extent(fd->filetype, &filetype_extent);
+ 
+ 	disp = fd->disp;
+diff --git a/src/mpi/romio/test-internal/file_realms_test.c b/src/mpi/romio/test-internal/file_realms_test.c
+index a4d9dad..b848259 100644
+--- a/src/mpi/romio/test-internal/file_realms_test.c
++++ b/src/mpi/romio/test-internal/file_realms_test.c
+@@ -16,7 +16,7 @@ int main (int argc, char **argv)
+     int rank;
+     int nprocs_for_coll;
+     int lb;
+-    int size, extent;
++    MPI_Count size, extent;
+ 
+     MPI_Init (&argc, &argv);
+     MPI_Comm_rank (MPI_COMM_WORLD, &rank);
+@@ -55,7 +55,7 @@ int main (int argc, char **argv)
+ 	printf ("file_realm_st_offs[%d] = %lld\n", i, fd->file_realm_st_offs[i]);
+     }
+     for (i=0; i < nprocs_for_coll; i++) {
+-	MPI_Type_size (fd->file_realm_types[i], &size);
++	MPI_Type_size_x (fd->file_realm_types[i], &size);
+ 	printf ("file_realm [%d] size = %d\n", i, size);
+     }
+     for (i=0; i < nprocs_for_coll; i++) {
+diff --git a/src/mpi/romio/test/big_extents.c b/src/mpi/romio/test/big_extents.c
+index a7e3b59..a1a9e5f 100644
+--- a/src/mpi/romio/test/big_extents.c
++++ b/src/mpi/romio/test/big_extents.c
+@@ -31,12 +31,12 @@ static void handle_error(int errcode, char *str)
+ static void typestats(MPI_Datatype type) 
+ {
+     MPI_Aint lb, extent;
+-    int size;
++    MPI_Count size;
+ 
+     MPI_Type_get_extent(type, &lb, &extent);
+-    MPI_Type_size(type, &size);
++    MPI_Type_size_x(type, &size);
+ 
+-    printf("dtype %d: lb = %ld extent = %ld size = %d...", 
++    printf("dtype %d: lb = %ld extent = %ld size = %ld...",
+ 	    type, (long)lb, (long)extent, size);
+ 
+ }
+@@ -44,7 +44,8 @@ static void typestats(MPI_Datatype type)
+ static int verify_type(char *filename, MPI_Datatype type, 
+ 	int64_t expected_extent, int do_coll)
+ {
+-    int rank, canary, tsize;
++    int rank, canary;
++    MPI_Count tsize;
+     int compare=-1;
+     int errs=0, toterrs=0;
+     MPI_Status status;
+@@ -57,7 +58,7 @@ static int verify_type(char *filename, MPI_Datatype type,
+     CHECK( MPI_File_set_view(fh, rank*sizeof(int), 
+ 	    MPI_BYTE, type, "native", MPI_INFO_NULL)); 
+ 
+-    MPI_Type_size(type, &tsize);
++    MPI_Type_size_x(type, &tsize);
+ 
+     canary=rank+1000000;
+ 
+diff --git a/src/mpi/romio/test/coll_perf.c b/src/mpi/romio/test/coll_perf.c
+index 491746e..88b1501 100644
+--- a/src/mpi/romio/test/coll_perf.c
++++ b/src/mpi/romio/test/coll_perf.c
+@@ -22,7 +22,8 @@ int main(int argc, char **argv)
+ {
+     MPI_Datatype newtype;
+     int i, ndims, array_of_gsizes[3], array_of_distribs[3];
+-    int order, nprocs, len, *buf, bufcount, mynod;
++    int order, nprocs, len, *buf, mynod;
++    MPI_Count bufcount;
+     int array_of_dargs[3], array_of_psizes[3];
+     MPI_File fh;
+     MPI_Status status;
+@@ -83,7 +84,7 @@ int main(int argc, char **argv)
+ 			   array_of_psizes, order, MPI_INT, &newtype);
+     MPI_Type_commit(&newtype);
+ 
+-    MPI_Type_size(newtype, &bufcount);
++    MPI_Type_size_x(newtype, &bufcount);
+     bufcount = bufcount/sizeof(int);
+     buf = (int *) malloc(bufcount * sizeof(int));
+ 
+diff --git a/src/mpi/romio/test/coll_test.c b/src/mpi/romio/test/coll_test.c
+index cbea6cf..4efc4d2 100644
+--- a/src/mpi/romio/test/coll_test.c
++++ b/src/mpi/romio/test/coll_test.c
+@@ -35,7 +35,8 @@ int main(int argc, char **argv)
+     int i, ndims, array_of_gsizes[3], array_of_distribs[3];
+     int order, nprocs, j, len;
+     int array_of_dargs[3], array_of_psizes[3];
+-    int *readbuf, *writebuf, bufcount, mynod, *tmpbuf, array_size;
++    int *readbuf, *writebuf, mynod, *tmpbuf, array_size;
++    MPI_Count bufcount;
+     char *filename;
+     int errs=0, toterrs;
+     MPI_File fh;
+@@ -100,7 +101,7 @@ int main(int argc, char **argv)
+ 
+ /* initialize writebuf */
+ 
+-    MPI_Type_size(newtype, &bufcount);
++    MPI_Type_size_x(newtype, &bufcount);
+     bufcount = bufcount/sizeof(int);
+     writebuf = (int *) malloc(bufcount * sizeof(int));
+     for (i=0; i<bufcount; i++) writebuf[i] = 1;
+diff --git a/src/mpi/romio/test/hindexed.c b/src/mpi/romio/test/hindexed.c
+index ca9930d..796c825 100644
+--- a/src/mpi/romio/test/hindexed.c
++++ b/src/mpi/romio/test/hindexed.c
+@@ -43,7 +43,8 @@ int main(int argc, char **argv) {
+     char        *buf, *filename;
+     int          rank_dim[2], array_of_sizes[2];
+     int          array_of_subsizes[2];
+-    int          count, *blocklengths, global_array_size, ftype_size;
++    int          count, *blocklengths, global_array_size;
++    MPI_Count    ftype_size;
+     MPI_Aint    *displacements;
+     MPI_File     fh;
+     MPI_Datatype ftype;
+@@ -96,7 +97,7 @@ int main(int argc, char **argv) {
+             displacements[i*2+j] = offset + i*2*array_of_sizes[1] + j * XLEN/2;
+     MPI_Type_create_hindexed(count, blocklengths, displacements, MPI_CHAR, &ftype);
+     MPI_Type_commit(&ftype);
+-    MPI_Type_size(ftype, &ftype_size);
++    MPI_Type_size_x(ftype, &ftype_size);
+ 
+ /* subarray's layout in the global array
+ 
+diff --git a/src/mpi/romio/test/large_array.c b/src/mpi/romio/test/large_array.c
+index 6cb3d4e..617c895 100644
+--- a/src/mpi/romio/test/large_array.c
++++ b/src/mpi/romio/test/large_array.c
+@@ -23,7 +23,8 @@ int main(int argc, char **argv)
+     int i, ndims, array_of_gsizes[3], array_of_distribs[3];
+     int order, nprocs, len, flag, err;
+     int array_of_dargs[3], array_of_psizes[3];
+-    int *readbuf, *writebuf, bufcount, mynod;
++    int *readbuf, *writebuf, mynod;
++    MPI_Count bufcount;
+     char filename[1024];
+     MPI_File fh;
+     MPI_Status status;
+@@ -96,7 +97,7 @@ int main(int argc, char **argv)
+ 
+ /* initialize writebuf */
+ 
+-    MPI_Type_size(newtype, &bufcount);
++    MPI_Type_size_x(newtype, &bufcount);
+     bufcount = bufcount/sizeof(int);
+     writebuf = (int *) malloc(bufcount * sizeof(int));
+     if (!writebuf) fprintf(stderr, "Process %d, not enough memory for writebuf\n", mynod);
+diff --git a/src/mpi/romio/test/split_coll.c b/src/mpi/romio/test/split_coll.c
+index 0d98b05..cc3d039 100644
+--- a/src/mpi/romio/test/split_coll.c
++++ b/src/mpi/romio/test/split_coll.c
+@@ -24,7 +24,8 @@ int main(int argc, char **argv)
+     int i, ndims, array_of_gsizes[3], array_of_distribs[3];
+     int order, nprocs, j, len;
+     int array_of_dargs[3], array_of_psizes[3];
+-    int *readbuf, *writebuf, bufcount, mynod, *tmpbuf, array_size;
++    int *readbuf, *writebuf, mynod, *tmpbuf, array_size;
++    MPI_Count bufcount;
+     int errs=0, toterrs;
+     char *filename;
+     MPI_File fh;
+@@ -87,7 +88,7 @@ int main(int argc, char **argv)
+ 
+ /* initialize writebuf */
+ 
+-    MPI_Type_size(newtype, &bufcount);
++    MPI_Type_size_x(newtype, &bufcount);
+     bufcount = bufcount/sizeof(int);
+     writebuf = (int *) malloc(bufcount * sizeof(int));
+     for (i=0; i<bufcount; i++) writebuf[i] = 1;
+-- 
+1.7.1
+

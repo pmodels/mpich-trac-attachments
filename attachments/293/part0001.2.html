@@ -1,0 +1,358 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:st1="urn:schemas-microsoft-com:office:smarttags" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<meta name=Generator content="Microsoft Word 11 (filtered medium)">
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PersonName"/>
+<!--[if !mso]>
+<style>
+st1\:*{behavior:url(#default#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 77.95pt 1.0in 77.95pt;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:1443181828;
+	mso-list-type:hybrid;
+	mso-list-template-ids:783997546 67698703 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Anthony,<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Unfortunately I cannot upgrade to 1.0.8 because we are trying to
+compare two runs and the previous run used MPICH2 1.0.3 and we are planning to
+keep everything consistent. <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>I have attached the config, make and install log for the 1.0.3 install
+in case you want to look at them.<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>While trying to build the executable, I tried a couple of things. <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><font
+size=2 face="Courier New"><span style='font-size:10.0pt'><span
+style='mso-list:Ignore'>1.<font size=1 face="Times New Roman"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></font></span></span></font><![endif]>I
+tried removing the Bstatic link flag. <o:p></o:p></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><font
+size=2 face="Courier New"><span style='font-size:10.0pt'><span
+style='mso-list:Ignore'>2.<font size=1 face="Times New Roman"><span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></font></span></span></font><![endif]>I
+tried adding the line &#8211;lpthread to the MPICH library path. <o:p></o:p></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>None of these worked. <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Thanks<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Aparna&nbsp; <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>-----Original Message-----<br>
+From: owner-mpich2-bugs@mcs.anl.gov [mailto:owner-mpich2-bugs@mcs.anl.gov] On
+Behalf Of mpich2<br>
+Sent: Tuesday, November 18, 2008 10:43 PM<br>
+Subject: Re: [mpich2-maint] #293: Compiling error with MPI</span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>-------------------------------------------------+--------------------------<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;Reporter:&nbsp; &quot;Vemuri, Aparna&quot; &lt;avemuri@epri.com&gt;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp; <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp; <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp; <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>-------------------------------------------------+--------------------------<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Comment (by Anthony Chan):<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;{{{<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;MPICH2-1.0.3 is very old.&nbsp; The latest stable release is 1.0.8,<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;could you upgrade to the latest.&nbsp; If the problem persists,<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;send us your configure and make outputs as stated in the mpich2's<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;installer's guide in mpich2-1.0.8/doc/installguide<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;A.Chan<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;----- &quot;mpich2&quot; &lt;<st1:PersonName w:st="on">mpich2-maint@mcs.anl.gov</st1:PersonName>&gt;
+wrote:<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;-------------------------------------------------+--------------------------<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; Reporter:&nbsp; &quot;Vemuri, Aparna&quot; &lt;avemuri@epri.com&gt;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp;
+major<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; Component:<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt; mpich2<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;-------------------------------------------------+--------------------------<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; {{{<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; Hi<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; I am trying to compile an executable that uses MPICH2 library
+and I<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt; have<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; been getting the following error:<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; /share/apps/mpich2-1.0.3/lib/libmpich.a(ch3u_connect_sock.o): In<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; function `MPIDI_CH3U_Get_business_card_sock':<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; ch3u_connect_sock.c:(.text+0x9b5): warning: Using
+'gethostbyname' in<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; statically linked applications requires at runtime the shared<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt; libraries<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; from the glibc version used for linking<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; followed by a lot of&nbsp; &quot;undefined reference to .....&quot;&nbsp;
+type of errors.<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt; Is<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; this an MPICH error? I would appreciate any hints for this.<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; Thanks<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; Aparna<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;&nbsp; }}}<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt; --<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;&gt; Ticket URL:
+&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/293&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>&nbsp;}}}<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>-- <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Ticket URL:
+&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/293#comment:&gt;<o:p></o:p></span></font></p>
+
+</div>
+
+</body>
+
+</html>

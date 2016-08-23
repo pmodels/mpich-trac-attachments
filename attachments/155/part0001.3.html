@@ -1,0 +1,146 @@
+
+<br><font size=2 face="sans-serif">Hello,</font>
+<br>
+<br><font size=2 face="sans-serif">Thanks for the quick response. &nbsp;</font>
+<br><font size=2 face="sans-serif">I have the HP MPI installed in C:\Program
+Files (x86)\Hewlett-Packard\HP-MPI</font>
+<br><font size=2 face="sans-serif">and the MPICH2 in C:\Program Files\mpich2x64</font>
+<br>
+<br><font size=2 face="sans-serif">My path statement has &nbsp;C:\Program
+Files\mpich2x64\bin <b>before</b> C:\Program Files (x86)\Hewlett-Packard\HP-MPI\bin</font>
+<br><font size=2 face="sans-serif">Here is my path statement:</font>
+<br>
+<br><font size=2 face="sans-serif">%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;C:\Program
+Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files\Microsoft
+Compute Cluster Pack\Bin\;\\fml-ace\fluent.inc\ntbin\win64;c:\phoenics\d_utils\d_windf;c:\phoenics\d_utils;C:\Program
+Files (x86)\Microsoft Visual Studio 8\VC\Bin;C:\Program Files (x86)\Intel\Compiler\Fortran\10.1.021\em64t;C:\Program
+Files (x86)\Microsoft Visual Studio 8\Common7\IDE;%IFORT_COMPILER10%\EM64T\Lib;C:\Program
+Files (x86)\Intel\Compiler\Fortran\10.1.021\em64t\bin;C:\Program Files\mpich2x64\bin;C:\Program
+files\MPICH2\bin;C:\Program Files (x86)\Hewlett-Packard\HP-MPI\bin</font>
+<br>
+<br><font size=2 face="sans-serif">The phoenics manual says to use MPIRUN
+&nbsp;but I only see this command in the HP MPI\bin &nbsp;directory. &nbsp;</font>
+<br><font size=2 face="sans-serif">I guess I am confused as to what version
+of MPI should the cluster be running and does it matter if more than one
+version is installed.</font>
+<br>
+<br><font size=2 face="sans-serif">Here is a command window of what happens
+when we run runpart.bat which is a Phoenics job.</font>
+<br><font size=2 face="sans-serif">Runpart.bat contains these commands:</font>
+<br><font size=2 face="sans-serif">rem &quot;&lt;html&gt;&lt;body&gt;&lt;pre&gt;&lt;strong&gt;&quot;</font>
+<br><font size=2 face="sans-serif">@echo off</font>
+<br><font size=2 face="sans-serif">if defined phoenics (set pho=%phoenics%)
+else set pho=\phoenics</font>
+<br><font size=2 face="sans-serif">if %1!==! goto default</font>
+<br><font size=2 face="sans-serif">mpiexec -np %1 &quot;%pho%\d_earth\d_windf\earexe.exe&quot;</font>
+<br><font size=2 face="sans-serif">goto end</font>
+<br><font size=2 face="sans-serif">:default</font>
+<br><font size=2 face="sans-serif">mpiexec -np 2 &quot;%pho%\d_earth\d_windf\earexe.exe&quot;</font>
+<br><font size=2 face="sans-serif">:end</font>
+<br><font size=2 face="sans-serif">rem &quot;&lt;/strong&gt;&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;</font>
+<br>
+<br><img src=cid:_1_0875D1CC0875CF780070CD25852574C8>
+<br>
+<br>
+<p><font size=1 color=#000080 face="Arial"><i>Renae A. Baldovski<br>
+United States Steel Corporation<br>
+Research &amp; Technology Center<br>
+MS W1<br>
+800 E. Waterfront Drive<br>
+Munhall, PA 15120<br>
+Phone: 412-433-7171<br>
+FAX: 412-433-7170<br>
+Email: </i></font><a href=mailto:rbaldovski@uss.com><font size=1 color=#000080 face="Arial"><i><u>rbaldovski@uss.com</u></i></font></a>
+<br>
+<br>
+<br>
+<table width=100%>
+<tr valign=top>
+<td width=40%><font size=1 face="sans-serif"><b>&quot;Jayesh Krishna&quot;
+&lt;jayesh@mcs.anl.gov&gt;</b> </font>
+<p><font size=1 face="sans-serif">09/18/2008 02:10 PM</font>
+<td width=59%>
+<table width=100%>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">To</font></div>
+<td><font size=1 face="sans-serif">&lt;rbaldovski@uss.com&gt;</font>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">cc</font></div>
+<td><font size=1 face="sans-serif">&lt;mpich2-maint@mcs.anl.gov&gt;</font>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">Subject</font></div>
+<td><font size=1 face="sans-serif">RE: [mpich2-maint] #155: MPICH2 Assistance</font></table>
+<br>
+<table>
+<tr valign=top>
+<td>
+<td></table>
+<br></table>
+<br>
+<br>
+<br><font size=2><br>
+Hi,<br>
+ Can you run mpiexec from the command prompt ? Do you have &lt;MPICH2-INSTALL-DIR&gt;\bin
+in your PATH ?<br>
+ Let us know what you find out.<br>
+<br>
+(PS: The Compute cluster server comes with Microsoft's MPI installed. Make
+sure that the PATH variable has MPICH2 dirs before MSMPI dirs. Check &quot;Program
+Files&quot; --&gt; &quot;Control Panel&quot; --&gt; &quot;System&quot;
+- see the &quot;Advanced Tab&quot; for setting the environment variables)<br>
+<br>
+Regards,<br>
+Jayesh<br>
+<br>
+<br>
+<br>
+&gt;&gt;&gt;I am running an HP Cluster 64-bit Windows 2003 Compute Cluster
+Edition.&amp;nbsp; Installed MPICH2 but having problems with third-party
+CFD software<br>
+<br>
+&gt;&gt;&gt;PHOENICS from CHAM seeing the MPI software.&amp;nbsp; Ran the
+wmpiconfig.exe utility.&amp;nbsp; Utility reports &quot;MPICH2 not installed
+or unable to query the<br>
+<br>
+&gt;&gt;&gt;&gt;host&quot;.&amp;nbsp; It reports this same error message
+on all 5 nodes.&lt;/DIV&gt;&lt;DIV&gt;The Windows firewall is turned off
+on the head node and 4 compute<br>
+<br>
+&gt;&gt;&gt;&gt;nodes.&lt;/DIV&gt;&lt;DIV&gt;The service MPICH2 Process
+Manager is running, set at automatic.&lt;/DIV&gt;&lt;DIV&gt;Can you provide
+any other recommendations that may help<br>
+<br>
+&gt;&gt;&gt;&gt; getting MPICH2 to work correctly?<br>
+<br>
+<br>
+-----Original Message-----<br>
+From: owner-mpich2-bugs@mcs.anl.gov [</font><a href="mailto:owner-mpich2-bugs@mcs.anl.gov"><font size=2 color=blue><u>mailto:owner-mpich2-bugs@mcs.anl.gov</u></font></a><font size=2>]
+On Behalf Of mpich2<br>
+Sent: Thursday, September 18, 2008 10:43 AM<br>
+To: undisclosed-recipients:<br>
+Subject: [mpich2-maint] #155: MPICH2 Assistance<br>
+<br>
+----------------------------------------------------+-------------------<br>
+----------------------------------------------------+----<br>
+ Reporter: &nbsp;Renae A Baldovski &lt;rbaldovski@uss.com&gt; &nbsp;| &nbsp;
+&nbsp; &nbsp; &nbsp;Type: &nbsp;bug &nbsp;<br>
+ &nbsp; Status: &nbsp;new &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+| &nbsp; &nbsp;Priority: &nbsp;major<br>
+Milestone: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;| &nbsp; Component: &nbsp;mpich2<br>
+----------------------------------------------------+-------------------<br>
+----------------------------------------------------+----<br>
+<br>
+<br>
+ (see attachment for HTML mail message)<br>
+<br>
+<br>
+--<br>
+Ticket URL: &lt;</font><a href=https://trac.mcs.anl.gov/projects/mpich2/ticket/155><font size=2 color=blue><u>https://trac.mcs.anl.gov/projects/mpich2/ticket/155</u></font></a><font size=2>&gt;<br>
+</font>
+<br>

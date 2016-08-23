@@ -1,0 +1,18 @@
+<html>
+<head>
+<style>
+.hmmessage P
+{
+margin:0px;
+padding:0px
+}
+body.hmmessage
+{
+font-size: 10pt;
+font-family:Verdana
+}
+</style>
+</head>
+<body class='hmmessage'>
+thanks,<br><br>it seems to work well in /tmp ,<br>but, the " bin, share, include "&nbsp; directories of /home/jxding/mpich2_install&nbsp; are all empty. <br>all of them are installed in /tmp/mpich2-1.0.8 .<br><br>Ant help is appreciated. <br><br>Jack <br><br>Mar. 15&nbsp; 2009<br><br><br>&gt; From: mpich2-maint@mcs.anl.gov<br>&gt; Date: Sun, 15 Mar 2009 21:32:57 +0000<br>&gt; Subject: Re: [mpich2-maint] #461: mpich2 error in build<br>&gt; To: <br>&gt; <br>&gt; -------------------------------------------------+--------------------------<br>&gt;  Reporter:  Jack Bryan &lt;dtustudy68@hotmail.com&gt;  |        Owner:         <br>&gt;      Type:  bug                                  |       Status:  closed <br>&gt;  Priority:  major                                |    Milestone:         <br>&gt; Component:  mpich2                               |   Resolution:  invalid<br>&gt;  Keywords:                                       |  <br>&gt; -------------------------------------------------+--------------------------<br>&gt; <br>&gt; <br>&gt; Comment (by balaji):<br>&gt; <br>&gt;  Jack:<br>&gt; <br>&gt;  Can you try doing the same thing on /tmp, i.e.:<br>&gt; <br>&gt;  {{{<br>&gt;   $ cd /tmp &amp;&amp; tar -xzvf ~/mpich2-1.0.8.tar.gz<br>&gt; <br>&gt;   $ cd mpich2-1.0.8 &amp;&amp; ./configure --prefix=/home/mpich2_install 2&gt;&amp;1 | tee<br>&gt;  c.txt<br>&gt; <br>&gt;   $ make 2&gt;&amp;1 | tee m.txt<br>&gt;  }}}<br>&gt; <br>&gt;  Also, do send us the c.txt and m.txt output files.<br>&gt; <br>&gt;   -- Pavan<br>&gt; <br>&gt; -- <br>&gt; Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/461#comment:8&gt;<br><br /><hr />Hotmail® is up to 70% faster. Now good news travels really fast.  <a href='http://windowslive.com/online/hotmail?ocid=TXT_TAGLM_WL_HM_70faster_032009' target='_new'>Find out more.</a></body>
+</html>

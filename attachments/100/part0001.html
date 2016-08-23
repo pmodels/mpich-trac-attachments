@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #100: Fwd: [mpich2-core] deleting dead/unsupported code</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2><BR>
+Windows currently has a different channel (wintcp) which is derived from newtcp (The file names are already different). I will have to manually pick the changes from newtcp to wintcp (or back) for now.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Wednesday, September 03, 2008 11:17 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #100: Fwd: [mpich2-core] deleting dead/unsupported code<BR>
+<BR>
+------------------------+-----------------------------------------------<BR>
+------------------------+----<BR>
+&nbsp; Reporter:&nbsp; goodell&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp; balaji<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;<BR>
+&nbsp; Priority:&nbsp; long-term&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+------------------------+-----------------------------------------------<BR>
+------------------------+----<BR>
+<BR>
+Changes (by balaji):<BR>
+<BR>
+&nbsp; * owner:&nbsp; =&gt; balaji<BR>
+<BR>
+Comment:<BR>
+<BR>
+&nbsp;Newtcp should probably not be renamed to tcp, at least till we merge the&nbsp; shmemcoll branch back to trunk (we'll probably need to wait for nemesis-&nbsp; windows to be merged as well). It has some dependency with nemesis, and&nbsp; svn doesn't do a very good job merging when file names have been moved.<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/100#comment:6">https://trac.mcs.anl.gov/projects/mpich2/ticket/100#comment:6</A>&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

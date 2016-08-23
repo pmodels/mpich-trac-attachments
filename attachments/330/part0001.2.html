@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #330: mpich2-installation problems</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; There could be two reasons you are getting the error message,<BR>
+<BR>
+1) You don't have the Visual studio runtime libs installed in your machine. Please install the Visual Studio SP1 x64 redistributable package from microsoft (<A HREF="http://www.microsoft.com/downloads/details.aspx?familyid=EB4EBE2D-33C0-4A47-9DD4-B9A6D7BD44DA&displaylang=en">http://www.microsoft.com/downloads/details.aspx?familyid=EB4EBE2D-33C0-4A47-9DD4-B9A6D7BD44DA&displaylang=en</A>).<BR>
+<BR>
+2) If you still have problems try installing the MPICH2 process manager, smpd, from an admin command prompt (Right-click on shortcut to command prompt &amp; Select &quot;Run as administrator&quot;. You can install smpd by typing, smpd -install, at the admin command prompt. Smpd.exe should be available in MPICH2\bin).<BR>
+<BR>
+&nbsp;Let us know if it works for you.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Thursday, December 18, 2008 4:01 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #330: mpich2-installation problems<BR>
+<BR>
+--------------------------------------+---------------------------------<BR>
+--------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; iker.fernandezp@idom.com&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+--------------------------------------+---------------------------------<BR>
+--------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Hello.-<BR>
+<BR>
+&nbsp;I'm trying to install mpich2 64 bit version (on my workstation with dual&nbsp; quadcore 3,2 GHz, 16 GB RAM an Windows Vista Business 64 bit) and it looks&nbsp; imposible because all times appear this error message: &quot;There is a problem&nbsp; with this windows installer . A program is required for this install to&nbsp; complet could not be run. Contact your support personel or package&nbsp; vendor&quot;. Which may be the problem? I have instaled fortran 10.1 and visual&nbsp; studio 2008.<BR>
+<BR>
+&nbsp;In other times I don't have so many problems.<BR>
+<BR>
+&nbsp;regarrds &amp; thanks<BR>
+<BR>
+&nbsp;------------------------------------------------------------------------------<BR>
+&nbsp;Iker Fernández Prieto<BR>
+&nbsp;Ingeniero Técnico Industrial<BR>
+<BR>
+&nbsp;IDOM, Ingeniería y Consultoría, S.A.<BR>
+&nbsp;Lehendakari Aguirre, 3 - 48014-Bilbao (España)<BR>
+&nbsp;Tel.: +34 944 797 600<BR>
+&nbsp;Fax: +34 944 761 804<BR>
+&nbsp;e-mail:&nbsp; iker.fernandezp@idom.com<BR>
+&nbsp;<A HREF="http://www.idom.es">http://www.idom.es</A><BR>
+&nbsp;------------------------------------------------------------------------------<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/330">https://trac.mcs.anl.gov/projects/mpich2/ticket/330</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

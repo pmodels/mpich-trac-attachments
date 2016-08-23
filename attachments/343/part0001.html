@@ -1,0 +1,18 @@
+<table cellspacing="0" cellpadding="0" border="0" ><tr><td valign="top" style="font: inherit;"><DIV>version used : 1.0.8</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>the current jumpshot script created by config has the JAVA path and MPICH2 installation path hard coded in.&nbsp; This make shipping jumpshot to a different env impossible without hacking.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>I am requesting that the jumpshot/jumpshot.in code (in src/mpe2/src/slog2sdk/bin) be enhanced with the following changes:</DIV>
+<DIV>&nbsp;</DIV>
+<DIV># Set JAVA environment<BR>if [ "XX${JRE}" = "XX" ] ; then<BR>&nbsp;&nbsp;&nbsp; JVM=&lt;JAVA path during configure&gt;/bin/java&nbsp; ###<BR>else<BR>&nbsp;&nbsp;&nbsp; JVM=${JRE}/bin/java<BR>fi</DIV>
+<DIV>JVMOPTS=""&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ###<BR># Assume user's environmental JVMFLAGS is better than what configure found.<BR>JVMFLAGS=${JVMFLAGS:-${JVMOPTS}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ###</DIV>
+<DIV># Set PATH to various jar's needed by the GUI<BR>MPIEXEC_PATH=`which mpiexec`<BR>echo ${MPIEXEC_PATH}<BR>if [ "XX${MPIEXEC_PATH}" = "XX" ] ; then<BR>&nbsp;&nbsp; GUI_LIBDIR=&lt;MPICH2 install path&gt;/lib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ###<BR>else<BR>&nbsp;&nbsp; GUI_LIBDIR=$(dirname $(dirname $MPIEXEC_PATH))/lib<BR>fi<BR><BR></DIV>
+<DIV>where path in &lt;&gt; are hard coded like the existing code.&nbsp; the env var JRE (or any name the MPICH2 group prefers) decides where to pickup the JRE.&nbsp; lines marked ### are lines from 1.0.8 release.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>this will make relocating jumpshot to a different system easy.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>thanks</DIV>
+<DIV>tan</DIV>
+<DIV>&nbsp;</DIV></td></tr></table><br>
+
+      

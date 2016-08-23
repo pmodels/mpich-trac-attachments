@@ -1,0 +1,291 @@
+/usr/bin/make  all-recursive
+make[1]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1'
+Making all in /scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/mpl
+make[2]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/mpl'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/mpl'
+Making all in /scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa
+make[2]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa'
+Making all in src
+make[3]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa/src'
+/usr/bin/make  all-am
+make[4]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa/src'
+make[4]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa/src'
+make[3]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa/src'
+Making all in test
+make[3]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa/test'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa/test'
+make[3]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa'
+make[2]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/openpa'
+Making all in src/mpi/romio
+make[2]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/mpi/romio'
+make[3]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/mpi/romio'
+make[3]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/mpi/romio'
+make[2]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/mpi/romio'
+Making all in src/pm/hydra
+make[2]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra'
+Making all in ../../mpl
+make[3]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/mpl'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/mpl'
+Making all in tools/topo/hwloc/hwloc
+make[3]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc'
+Making all in src
+make[4]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src'
+Making all in include
+make[4]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/include'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/include'
+make[4]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc'
+make[3]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc'
+Making all in .
+make[3]: Entering directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra'
+  CCLD     hydra_persist
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-linux.o): In function `_GLOBAL__sub_I_65535_0_topology_linux.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/topology-linux.c:4572: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-linux.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+tools/bootstrap/persist/hydra_persist-persist_server.o: In function `listen_cb':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/persist/persist_server.c:162: undefined reference to `__gcov_fork'
+tools/bootstrap/persist/hydra_persist-persist_server.o: In function `_GLOBAL__sub_I_65535_0_persist_server.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/persist/persist_server.c:303: undefined reference to `__gcov_init'
+tools/bootstrap/persist/hydra_persist-persist_server.o:(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(args.o): In function `_GLOBAL__sub_I_65535_0_args.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/args/args.c:424: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(args.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(dbg.o): In function `_GLOBAL__sub_I_65535_0_dbg.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/dbg/dbg.c:35: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(dbg.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(launch.o): In function `HYDU_create_process':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/launch/launch.c:28: undefined reference to `__gcov_fork'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/launch/launch.c:70: undefined reference to `__gcov_execvp'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(launch.o): In function `_GLOBAL__sub_I_65535_0_launch.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/launch/launch.c:106: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(launch.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(others.o): In function `_GLOBAL__sub_I_65535_0_others.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/others/others.c:74: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(others.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sock.o): In function `_GLOBAL__sub_I_65535_0_sock.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/sock/sock.c:702: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sock.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(string.o): In function `_GLOBAL__sub_I_65535_0_string.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/string/string.c:273: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(string.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(topo.o): In function `_GLOBAL__sub_I_65535_0_topo.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/topo.c:124: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(topo.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(topo_hwloc.o): In function `_GLOBAL__sub_I_65535_0_topo_hwloc.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/topo_hwloc.c:494: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(topo_hwloc.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(demux.o): In function `_GLOBAL__sub_I_65535_0_demux.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/demux/demux.c:284: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(demux.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(demux_poll.o): In function `_GLOBAL__sub_I_65535_0_demux_poll.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/demux/demux_poll.c:137: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(demux_poll.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(demux_select.o): In function `_GLOBAL__sub_I_65535_0_demux_select.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/demux/demux_select.c:129: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(demux_select.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(alloc.o): In function `_GLOBAL__sub_I_65535_0_alloc.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/alloc/alloc.c:520: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(alloc.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(env.o): In function `_GLOBAL__sub_I_65535_0_env.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/env/env.c:341: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(env.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(signals.o): In function `_GLOBAL__sub_I_65535_0_signals.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/utils/signals/signals.c:68: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(signals.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bsci_env.o): In function `_GLOBAL__sub_I_65535_0_bsci_env.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/src/bsci_env.c:31: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bsci_env.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bsci_init.o): In function `_GLOBAL__sub_I_65535_0_bsci_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/src/bsci_init.c:188: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bsci_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bsci_query_native_int.o): In function `_GLOBAL__sub_I_65535_0_bsci_query_native_int.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/src/bsci_query_native_int.c:31: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bsci_query_native_int.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(fork_init.o): In function `_GLOBAL__sub_I_65535_0_fork_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/fork_init.c:16: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(fork_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(user_init.o): In function `_GLOBAL__sub_I_65535_0_user_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/user_init.c:14: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(user_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(manual_init.o): In function `_GLOBAL__sub_I_65535_0_manual_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/manual_init.c:16: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(manual_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(rsh_init.o): In function `_GLOBAL__sub_I_65535_0_rsh_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/rsh_init.c:17: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(rsh_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ssh_init.o): In function `_GLOBAL__sub_I_65535_0_ssh_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ssh_init.c:36: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ssh_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ssh_env.o): In function `_GLOBAL__sub_I_65535_0_ssh_env.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ssh_env.c:22: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ssh_env.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ssh_finalize.o): In function `_GLOBAL__sub_I_65535_0_ssh_finalize.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ssh_finalize.c:28: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ssh_finalize.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_init.o): In function `_GLOBAL__sub_I_65535_0_slurm_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/slurm_init.c:26: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_launch.o): In function `_GLOBAL__sub_I_65535_0_slurm_launch.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/slurm_launch.c:169: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_launch.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_env.o): In function `_GLOBAL__sub_I_65535_0_slurm_env.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/slurm_env.c:41: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_env.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_query_native_int.o): In function `_GLOBAL__sub_I_65535_0_slurm_query_native_int.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/slurm_query_native_int.c:32: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_query_native_int.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_query_node_list.o): In function `_GLOBAL__sub_I_65535_0_slurm_query_node_list.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/slurm_query_node_list.c:212: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_query_node_list.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_query_proxy_id.o): In function `_GLOBAL__sub_I_65535_0_slurm_query_proxy_id.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/slurm_query_proxy_id.c:29: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(slurm_query_proxy_id.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_init.o): In function `_GLOBAL__sub_I_65535_0_ll_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ll_init.c:26: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_launch.o): In function `_GLOBAL__sub_I_65535_0_ll_launch.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ll_launch.c:122: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_launch.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_query_native_int.o): In function `_GLOBAL__sub_I_65535_0_ll_query_native_int.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ll_query_native_int.c:30: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_query_native_int.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_query_node_list.o): In function `_GLOBAL__sub_I_65535_0_ll_query_node_list.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ll_query_node_list.c:82: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_query_node_list.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_query_proxy_id.o): In function `_GLOBAL__sub_I_65535_0_ll_query_proxy_id.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ll_query_proxy_id.c:29: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_query_proxy_id.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_env.o): In function `_GLOBAL__sub_I_65535_0_ll_env.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ll_env.c:58: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ll_env.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(lsf_init.o): In function `_GLOBAL__sub_I_65535_0_lsf_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/lsf_init.c:25: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(lsf_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(lsf_query_native_int.o): In function `_GLOBAL__sub_I_65535_0_lsf_query_native_int.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/lsf_query_native_int.c:30: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(lsf_query_native_int.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(lsf_query_node_list.o): In function `_GLOBAL__sub_I_65535_0_lsf_query_node_list.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/lsf_query_node_list.c:59: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(lsf_query_node_list.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(lsf_env.o): In function `_GLOBAL__sub_I_65535_0_lsf_env.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/lsf_env.c:39: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(lsf_env.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sge_init.o): In function `_GLOBAL__sub_I_65535_0_sge_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/sge_init.c:25: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sge_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sge_query_native_int.o): In function `_GLOBAL__sub_I_65535_0_sge_query_native_int.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/sge_query_native_int.c:32: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sge_query_native_int.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sge_query_node_list.o): In function `_GLOBAL__sub_I_65535_0_sge_query_node_list.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/sge_query_node_list.c:71: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sge_query_node_list.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sge_env.o): In function `_GLOBAL__sub_I_65535_0_sge_env.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/sge_env.c:35: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(sge_env.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(pbs_init.o): In function `_GLOBAL__sub_I_65535_0_pbs_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/pbs_init.c:53: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(pbs_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(pbs_query_native_int.o): In function `_GLOBAL__sub_I_65535_0_pbs_query_native_int.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/pbs_query_native_int.c:28: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(pbs_query_native_int.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(pbs_query_node_list.o): In function `_GLOBAL__sub_I_65535_0_pbs_query_node_list.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/pbs_query_node_list.c:36: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(pbs_query_node_list.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(cobalt_init.o): In function `_GLOBAL__sub_I_65535_0_cobalt_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/cobalt_init.c:17: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(cobalt_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(cobalt_query_native_int.o): In function `_GLOBAL__sub_I_65535_0_cobalt_query_native_int.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/cobalt_query_native_int.c:28: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(cobalt_query_native_int.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(cobalt_query_node_list.o): In function `_GLOBAL__sub_I_65535_0_cobalt_query_node_list.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/cobalt_query_node_list.c:36: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(cobalt_query_node_list.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(persist_init.o): In function `_GLOBAL__sub_I_65535_0_persist_init.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/persist/persist_init.c:23: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(persist_init.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(persist_launch.o): In function `_GLOBAL__sub_I_65535_0_persist_launch.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/persist/persist_launch.c:103: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(persist_launch.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(persist_wait.o): In function `_GLOBAL__sub_I_65535_0_persist_wait.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/persist/persist_wait.c:39: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(persist_wait.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bscu_wait.o): In function `_GLOBAL__sub_I_65535_0_bscu_wait.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/utils/bscu_wait.c:130: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bscu_wait.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bscu_cb.o): In function `_GLOBAL__sub_I_65535_0_bscu_cb.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/utils/bscu_cb.c:43: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(bscu_cb.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(external_common.o): In function `_GLOBAL__sub_I_65535_0_external_common.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/external_common.c:31: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(external_common.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(external_common_launch.o): In function `_GLOBAL__sub_I_65535_0_external_common_launch.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/external_common_launch.c:344: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(external_common_launch.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ssh.o): In function `_GLOBAL__sub_I_65535_0_ssh.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/bootstrap/external/ssh.c:98: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/.libs/libhydra.a(ssh.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology.o): In function `_GLOBAL__sub_I_65535_0_topology.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/topology.c:3100: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(traversal.o): In function `_GLOBAL__sub_I_65535_0_traversal.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/traversal.c:623: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(traversal.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(distances.o): In function `_GLOBAL__sub_I_65535_0_distances.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/distances.c:1018: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(distances.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(components.o): In function `_GLOBAL__sub_I_65535_0_components.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/components.c:746: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(components.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(bind.o): In function `_GLOBAL__sub_I_65535_0_bind.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/bind.c:780: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(bind.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(bitmap.o): In function `_GLOBAL__sub_I_65535_0_bitmap.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/bitmap.c:1163: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(bitmap.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(misc.o): In function `_GLOBAL__sub_I_65535_0_misc.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/misc.c:106: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(misc.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-noos.o): In function `_GLOBAL__sub_I_65535_0_topology_noos.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/topology-noos.c:57: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-noos.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-synthetic.o): In function `_GLOBAL__sub_I_65535_0_topology_synthetic.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/topology-synthetic.c:444: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-synthetic.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-custom.o): In function `_GLOBAL__sub_I_65535_0_topology_custom.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/topology-custom.c:99: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-custom.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-xml.o): In function `_GLOBAL__sub_I_65535_0_topology_xml.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/topology-xml.c:1530: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-xml.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-xml-nolibxml.o): In function `_GLOBAL__sub_I_65535_0_topology_xml_nolibxml.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/topology-xml-nolibxml.c:851: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-xml-nolibxml.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-xml-libxml.o): In function `_GLOBAL__sub_I_65535_0_topology_xml_libxml.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/topology-xml-libxml.c:565: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-xml-libxml.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-x86.o): In function `_GLOBAL__sub_I_65535_0_topology_x86.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/topology-x86.c:931: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(topology-x86.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(pci-common.o): In function `_GLOBAL__sub_I_65535_0_pci_common.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/pci-common.c:457: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(pci-common.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(base64.o): In function `_GLOBAL__sub_I_65535_0_base64.c':
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/base64.c:306: undefined reference to `__gcov_init'
+/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra/tools/topo/hwloc/hwloc/src/.libs/libhwloc_embedded.a(base64.o):(.data.rel+0x48): undefined reference to `__gcov_merge_add'
+collect2: ld returned 1 exit status
+make[3]: *** [hydra_persist] Error 1
+make[3]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1/src/pm/hydra'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/scratch/balay/petsc/arch-linux-gcov/externalpackages/mpich-3.1'
+make: *** [all] Error 2

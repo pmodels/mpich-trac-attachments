@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>RE: [mpich-discuss] [mpich2-maint] #428: MPI_Win_fencememoryconsumption</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16809" name=GENERATOR></HEAD>
+<BODY>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=899552723-04032009>We are looking at the code to see if we missed 
+anything... will keep you posted...</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=899552723-04032009></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=899552723-04032009>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=899552723-04032009>jayesh</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> mpich-discuss-bounces@mcs.anl.gov 
+[mailto:mpich-discuss-bounces@mcs.anl.gov] <B>On Behalf Of </B>Jayesh 
+Krishna<BR><B>Sent:</B> Wednesday, March 04, 2009 3:16 PM<BR><B>To:</B> 'Dorian 
+Krause'<BR><B>Cc:</B> mpich2-maint@mcs.anl.gov; 
+mpich-discuss@mcs.anl.gov<BR><B>Subject:</B> Re: [mpich-discuss] [mpich2-maint] 
+#428:MPI_Win_fencememoryconsumption<BR></FONT><BR></DIV>
+<DIV></DIV><!-- Converted from text/plain format -->
+<P><FONT size=2>Hi,<BR><BR>&gt;&gt; But the memory layout of an array of double3 
+and...<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Any *tricks* like the one 
+you tried would make your code non-portable.<BR><BR>&gt;&gt; Is 
+MPI_Type_create_struct able to infer from the input data, whether the struct is 
+a contiuguous block ...<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Looks like MPICH2 
+does. However I don't think the standard says anything about this (Don&#8217;t make 
+any assumptions which are not in the std)...<BR><BR>&gt;&gt; ...I'm just sending 
+my array as a MPI_DOUBLE array...<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I think this 
+is the *right* approach in your 
+case.<BR><BR>Regards,<BR>Jayesh<BR><BR>-----Original Message-----<BR>From: 
+mpich-discuss-bounces@mcs.anl.gov [<A 
+href="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] 
+On Behalf Of Dorian Krause<BR>Sent: Wednesday, March 04, 2009 2:52 PM<BR>To: 
+mpich-discuss@mcs.anl.gov<BR>Cc: mpich2-maint@mcs.anl.gov<BR>Subject: Re: 
+[mpich-discuss] [mpich2-maint] #428: 
+MPI_Win_fencememoryconsumption<BR><BR>Hi<BR><BR>(sorry for sending the message 
+twice ...)<BR><BR>Jayesh Krishna wrote:<BR>&gt;&nbsp; Hi,<BR>&gt;&nbsp;&nbsp; A 
+contiguous MPI derived type consisting of 3 MPI_DOUBLEs is not<BR>&gt; 
+equivalent to a C structure with 3 doubles. Try using an array of 3<BR>&gt; 
+doubles (double[3])<BR><BR>But the memory layout of an array of double3 and an 
+array of double[3] is the same since all data is aligned to an 8 byte boundary, 
+so no padding is necessary (I checked it).<BR>But in the end, MPI gets a void* 
+passed so the actual data layout in the buffer is irrelevant since it just greps 
+what it thinks is the correct data (if it isn't (e.g., for padding reasons), 
+this is the users fault). It this is the problem I would expect the problems to 
+be on the origin side, not on the target side?!<BR><BR>&gt; or using an 
+equivalent MPI datatype (eg:<BR>&gt; 
+MPI_Type_create_struct()).<BR>&gt;&nbsp;&nbsp;<BR><BR>With 
+MPI_Type_create_struct I don't observe the mentioned problems.<BR><BR>Is 
+MPI_Type_create_struct able to infer from the input data, whether the struct is 
+a contiuguous block or data? I read that strided data still yields a significant 
+drop down of performance so I this wouldn't be a good alternative if the 
+overhead is too large.<BR><BR>At the moment I'm just sending my array as a 
+MPI_DOUBLE array of 3x the size. This works for the moment ...<BR><BR>Thanks + 
+Regards,<BR>Dorian<BR><BR>&gt;&nbsp;&nbsp; Let us know if it works for 
+you.<BR>&gt;<BR>&gt; Regards,<BR>&gt; Jayesh<BR>&gt;<BR>&gt; -----Original 
+Message-----<BR>&gt; From: mpich-discuss-bounces@mcs.anl.gov<BR>&gt; [<A 
+href="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] 
+On Behalf Of Rajeev Thakur<BR>&gt; Sent: Friday, February 27, 2009 9:07 
+PM<BR>&gt; To: mpich-discuss@mcs.anl.gov<BR>&gt; Subject: Re: [mpich-discuss] 
+MPI_Win_fence memory consumption<BR>&gt;<BR>&gt; OK, thanks. We will look into 
+it.<BR>&gt;<BR>&gt; Rajeev<BR>&gt;&nbsp;<BR>&gt;&gt; -----Original 
+Message-----<BR>&gt;&gt; From: mpich-discuss-bounces@mcs.anl.gov<BR>&gt;&gt; [<A 
+href="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] 
+On Behalf Of Dorian Krause<BR>&gt;&gt; Sent: Friday, February 27, 2009 7:44 
+PM<BR>&gt;&gt; To: mpich-discuss@mcs.anl.gov<BR>&gt;&gt; Subject: Re: 
+[mpich-discuss] MPI_Win_fence memory consumption<BR>&gt;&gt;<BR>&gt;&gt; Rajeev 
+Thakur wrote:<BR>&gt;&gt;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt;&gt; Does that happen 
+only with Nemesis or even with 
+ch3:sock?<BR>&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt; 
+The behaviour is the same with the configure flag<BR>&gt;&gt; 
+--with-device=ch3:sock.<BR>&gt;&gt;<BR>&gt;&gt; 
+Dorian<BR>&gt;&gt;<BR>&gt;&gt;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt;&gt; 
+Rajeev<BR>&gt;&gt;&gt;<BR>&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt;&gt;&gt; 
+-----Original Message-----<BR>&gt;&gt;&gt;&gt; From: 
+mpich-discuss-bounces@mcs.anl.gov<BR>&gt;&gt;&gt;&gt; [<A 
+href="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] 
+On Behalf 
+Of<BR>&gt;&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt; 
+Dorian Krause<BR>&gt;&gt;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt;&gt;&gt; Sent: Friday, 
+February 27, 2009 7:16 AM<BR>&gt;&gt;&gt;&gt; To: 
+mpich-discuss@mcs.anl.gov<BR>&gt;&gt;&gt;&gt; Subject: [mpich-discuss] 
+MPI_Win_fence memory consumption<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt; Hi 
+List,<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt; the attached test program 
+uses<BR>&gt;&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt; 
+MPI_Accumulate/MPI_Win_fence for 
+one<BR>&gt;&gt;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt;&gt;&gt; sided communication with 
+derived datatype.<BR>&gt;&gt;&gt;&gt; The program runs fine with mpich2-1.1a2 
+except for my debugging<BR>&gt;&gt;&gt;&gt; version of MPICH2 compiled 
+with<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt; ./configure 
+--with-device=ch3:nemesis 
+--enable-g=dbg,mem,meminit<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt; In this case 
+the MPI_Win_fence on the target side 
+comuses<BR>&gt;&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt; 
+about 90%<BR>&gt;&gt;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt;&gt;&gt; of main memory (e.g. 
+&gt; 3 GB). As the behaviour is completely<BR>&gt;&gt;&gt;&gt; different for 
+predefined datatypes, I suspect that the memory<BR>&gt;&gt;&gt;&gt; consumption 
+is related to the construction of the 
+derived<BR>&gt;&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt; 
+datatype on<BR>&gt;&gt;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt;&gt;&gt; the target 
+side.<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt; Is there a workaround for 
+this?<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt; Thanks + Best 
+regards,<BR>&gt;&gt;&gt;&gt; 
+Dorian<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt;<BR>&gt;&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&gt;<BR>&gt;<BR>&gt;&nbsp;&nbsp;<BR><BR></FONT></P></BODY></HTML>

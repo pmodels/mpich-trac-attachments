@@ -1,0 +1,25 @@
+hai i have one doubt<br><br><br>is it not possible to create a new comm without calling MPI_COMM_create by all the process<br><br><br>Problem&nbsp; : I want to open a file using MPI_File_open whose first parameter is MPI_COMM <br>
+<br>at the time of opening a file only subset of processes will be executing that part of code all other processes may be doing something else<br><br>here i want to create a comm for opening file without knowing to other processes is it not possible<br>
+<br><br><br><div class="gmail_quote">On Fri, Oct 10, 2008 at 4:46 PM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+------------------------------------------------------------------------+---<br>
+&nbsp;Reporter: &nbsp;&quot;vemireddy ramakrishnareddy&quot; &lt;<a href="mailto:vemireddy.rkreddy@gmail.com">vemireddy.rkreddy@gmail.com</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp;Type: &nbsp;bug<br>
+ &nbsp; Status: &nbsp;new &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;Priority: &nbsp;major<br>
+Milestone: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; Component: &nbsp;mpich2<br>
+------------------------------------------------------------------------+---<br>
+<br>
+<br>
+&nbsp;{{{<br>
+<br>
+&nbsp;i am a able to fire a exe on both linux and windows systems<br>
+<br>
+<br>
+&nbsp;but sending and receiving are failing<br>
+<br>
+<br>
+&nbsp;saying that unable to find process group structure with id &lt;&gt;<br>
+&nbsp;}}}<br>
+<font color="#888888"><br>
+<br>
+--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/203" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/203</a>&gt;<br>
+</font></blockquote></div><br>

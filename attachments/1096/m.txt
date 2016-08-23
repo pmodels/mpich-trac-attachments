@@ -1,0 +1,2154 @@
+Beginning make
+Using variables CC='gcc' CFLAGS=' -O2' LDFLAGS='' AR='ar' FC='g77' F90='' FFLAGS=' -O2' F90FLAGS='' CXX='c++' CPPFLAGS=' -I/home/molm/mpich2-1.2.1p1/src/openpa/src -I/home/molm/mpich2-1.2.1p1/src/openpa/src -DUSE_PROCESS_LOCKS  -I/home/molm/mpich2-1.2.1p1/src/mpid/ch3/include -I/home/molm/mpich2-1.2.1p1/src/mpid/ch3/include -I/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype -I/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype -I/home/molm/mpich2-1.2.1p1/src/mpid/common/locks -I/home/molm/mpich2-1.2.1p1/src/mpid/common/locks -I/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/include -I/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/include -I/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/include -I/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/include -I/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/home/molm/mpich2-1.2.1p1/src/mpid/common/locks -I/home/molm/mpich2-1.2.1p1/src/mpid/common/locks -I/home/molm/mpich2-1.2.1p1/src/util/wrappers -I/home/molm/mpich2-1.2.1p1/src/util/wrappers'
+make all-local
+make[1]: Entering directory `/home/molm/mpich2-1.2.1p1'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1'
+make clean && cd test && make clean
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1'
+make cleanlibs
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1'
+rm -f lib/libmpich.a lib/libpmpich.a
+rm -f lib/libmpichcxx.a 
+rm -f lib/libfmpich.a lib/libmpichf90.a
+rm -f lib/libmpich.so* 
+rm -f lib/libpmpich.so*
+rm -f lib/libmpichcxx.so* 
+rm -f lib/libfmpich.so* 
+rm -f lib/libmpichf90.so* 
+rm -f lib/libmpichf90.*.so* 
+rm -f lib/libmpich.*.so* 
+rm -f lib/libpmpich.*.so*
+rm -f lib/libmpichcxx.*.so* 
+rm -f lib/libfmpich.*.so* 
+rm -f lib/libmpich.la* lib/libpmpich.la*
+rm -f lib/libmpichf90.la*
+rm -f lib/libmpichcxx.la* 
+rm -f lib/libfmpich.la* 
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1'
+for dir in  src/openpa src examples - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src/openpa'
+Making clean in test
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/openpa/test'
+test -z "sanity test_primitives test_barriers" || rm -f sanity test_primitives test_barriers
+rm -f *.o
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/openpa/test'
+Making clean in src
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/openpa/src'
+test -z "libopa.a" || rm -f libopa.a
+rm -f *.o
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/openpa/src'
+Making clean in .
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/openpa'
+make[5]: Nothing to be done for `clean-am'.
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/openpa'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/openpa'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src'
+for dir in mpid mpi util nameserv binding env packaging mpe2 pmi pm - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid'
+for dir in common ch3 - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	if [ "$dir" = "mpe2" ] ; then continue ; fi ;\
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/common'
+(cd locks && make clean )
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/locks'
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/locks'
+(cd datatype && make clean )
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype'
+(cd dataloop && make clean )
+make[8]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype/dataloop'
+make[8]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype/dataloop'
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/common'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3'
+for dir in channels src util ; do \
+	(cd $dir && make clean ) ; done
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels'
+for dir in nemesis - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[8]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis'
+(cd nemesis && make clean )
+make[9]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis'
+(cd src && make clean )
+make[10]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/src'
+make[10]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/src'
+(cd netmod && make clean )
+make[10]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+for dir in tcp - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[11]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+make[11]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+make[10]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+(cd utils && make clean )
+make[10]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils'
+(cd monitor && make clean )
+make[11]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+make[11]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+(cd replacements && make clean )
+make[11]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+make[11]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+make[10]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils'
+make[9]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis'
+(cd src && make clean )
+make[9]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/src'
+make[9]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/src'
+make[8]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis'
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels'
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/src'
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/src'
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/util'
+for dir in   - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/util'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi'
+for dir in attr coll comm datatype errhan group init misc pt2pt rma spawn timer topo romio  - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/attr'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/attr'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/coll'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/coll'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/comm'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/comm'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/datatype'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/datatype'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/errhan'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/errhan'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/group'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/group'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/init'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/init'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/misc'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/misc'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/pt2pt'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/pt2pt'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/rma'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/rma'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/spawn'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/spawn'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/timer'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/timer'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/topo'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/topo'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio'
+ 
+cleaning directory mpi-io
+ 
+cleaning directory adio/common
+ 
+cleaning directory mpi-io/glue/mpich2
+ 
+cleaning directory adio/ad_testfs
+ 
+cleaning directory adio/ad_ufs
+ 
+cleaning directory adio/ad_nfs
+ 
+cleaning directory test-internal
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/test-internal'
+rm -f .P* PI* *.o 
+rm -f file_realms_test io_bounds_test heap_test 
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/test-internal'
+ 
+ 
+cleaning directory test
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/test'
+rm -f .P* PI* *.o 
+rm -f simple perf async coll_test coll_perf misc file_info excl large_array atomicity noncontig i_noncontig noncontig_coll split_coll shared_fp large_file psimple error status noncontig_coll2 aggregation1 aggregation2 async-multiple ordered_fp hindexed fcoll_test fperf fmisc pfcoll_test 
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/test'
+ 
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util'
+for dir in mem info msgs instrm thread dbg param osserv procmap other  - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/mem'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/mem'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/info'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/info'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/msgs'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/msgs'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/instrm'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/instrm'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/thread'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/thread'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/dbg'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/dbg'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/param'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/param'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/osserv'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/osserv'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/procmap'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/procmap'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/other'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/other'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/nameserv'
+for dir in mpd - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/nameserv/mpd'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/nameserv/mpd'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/nameserv'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/binding'
+for dir in  f77 cxx - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/binding/f77'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/binding/f77'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/binding/cxx'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/binding/cxx'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/binding'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/env'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/env'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/packaging'
+(cd pkgconfig && make clean )
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/packaging/pkgconfig'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/packaging/pkgconfig'
+(cd envmods && make clean )
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/packaging/envmods'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/packaging/envmods'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/packaging'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpe2'
+rm -f /home/molm/mpich2-1.2.1p1/src/mpe2/lib/lib*
+rm -f /home/molm/mpich2-1.2.1p1/src/mpe2/lib/*.jar
+rm -f /home/molm/mpich2-1.2.1p1/src/mpe2/lib/*.o
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpe2'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pmi'
+for dir in simple - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pmi/simple'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pmi/simple'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pmi'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pm'
+for dir in mpd  - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pm/mpd'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pm/mpd'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pm'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/examples'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/examples'
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/test'
+for dir in mpi mpid util basic commands ; do \
+	(cd $dir && make clean ) ; done
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi'
+rm -f summary.xml
+for dir in util attr basic datatype coll comm errhan group info init pt2pt rma spawn topo io  f77 cxx threads errors manual perf - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/util'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/util'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/attr'
+rm -f summary.xml
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/attr'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/basic'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/basic'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/datatype'
+rm -f summary.xml
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/datatype'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/coll'
+rm -f summary.xml
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/coll'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/comm'
+rm -f summary.xml
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/comm'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errhan'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errhan'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/group'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/group'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/info'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/info'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/init'
+rm -f summary.xml
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/init'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/pt2pt'
+rm -f summary.xml
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/pt2pt'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/rma'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/rma'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/spawn'
+rm -f summary.xml
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/spawn'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/topo'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/topo'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/io'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/io'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77'
+for dir in util attr datatype coll pt2pt info init comm topo rma spawn io ext ; do \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/util'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/util'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/attr'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/attr'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/datatype'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/datatype'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/coll'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/coll'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/pt2pt'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/pt2pt'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/info'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/info'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/init'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/init'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/comm'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/comm'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/topo'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/topo'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/rma'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/rma'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/spawn'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/spawn'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/io'
+rm -f .iotest.txt.*
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/io'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/ext'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77/ext'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/f77'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx'
+for dir in util attr pt2pt init info comm coll datatype io rma spawn ; do \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/util'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/util'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/attr'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/attr'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/pt2pt'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/pt2pt'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/init'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/init'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/info'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/info'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/comm'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/comm'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/coll'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/coll'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/datatype'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/datatype'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/io'
+rm -f .iotest.txt.*
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/io'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/rma'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/rma'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/spawn'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx/spawn'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/cxx'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads'
+rm -f summary.xml
+for dir in util pt2pt comm init spawn ; do \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/util'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/util'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/pt2pt'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/pt2pt'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/comm'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/comm'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/init'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/init'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/spawn'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads/spawn'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/threads'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors'
+for dir in attr coll comm group pt2pt rma spawn topo io  f77 cxx basic faults - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ) ; done
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/attr'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/attr'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/coll'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/coll'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/comm'
+rm -f summary.xml
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/comm'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/group'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/group'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/pt2pt'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/pt2pt'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/rma'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/rma'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/spawn'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/spawn'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/topo'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/topo'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/io'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/io'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/f77'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/f77'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/cxx'
+(cd io && make clean )
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/cxx/io'
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/cxx/io'
+(cd errhan && make clean )
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/cxx/errhan'
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/cxx/errhan'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/cxx'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/basic'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/basic'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/faults'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors/faults'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/errors'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/manual'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/manual'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpi/perf'
+rm -f summary.xml
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi/perf'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpi'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpid'
+(cd ch3 && make clean )
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/mpid/ch3'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpid/ch3'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/mpid'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/test/util'
+(cd timer && make clean )
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/test/util/timer'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/util/timer'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/util'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/test/basic'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/basic'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/test/commands'
+rm -f err.txt out.log out.txt stdintest stdintest2 sdtiotest a.out
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/test/commands'
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/test'
+rm -f lib/newconfig
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1'
+make[1]: Leaving directory `/home/molm/mpich2-1.2.1p1'
+make[1]: Entering directory `/home/molm/mpich2-1.2.1p1/src/openpa'
+Making all in src
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/openpa/src'
+make  all-am
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/openpa/src'
+gcc -DHAVE_CONFIG_H -I.   -I/home/molm/mpich2-1.2.1p1/src/openpa/src -I/home/molm/mpich2-1.2.1p1/src/openpa/src -DUSE_PROCESS_LOCKS  -O2 -MT opa_primitives.o -MD -MP -MF .deps/opa_primitives.Tpo -c -o opa_primitives.o opa_primitives.c
+mv -f .deps/opa_primitives.Tpo .deps/opa_primitives.Po
+gcc -DHAVE_CONFIG_H -I.   -I/home/molm/mpich2-1.2.1p1/src/openpa/src -I/home/molm/mpich2-1.2.1p1/src/openpa/src -DUSE_PROCESS_LOCKS  -O2 -MT opa_queue.o -MD -MP -MF .deps/opa_queue.Tpo -c -o opa_queue.o opa_queue.c
+mv -f .deps/opa_queue.Tpo .deps/opa_queue.Po
+rm -f libopa.a
+ar cru libopa.a opa_primitives.o opa_queue.o 
+ranlib libopa.a
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/openpa/src'
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/openpa/src'
+Making all in test
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/openpa/test'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/openpa/test'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/openpa'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/openpa'
+make[1]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/openpa'
+make[1]: Entering directory `/home/molm/mpich2-1.2.1p1/src'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/common'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/locks'
+  CC              mpidu_process_locks.c
+  AR cr ../../../../lib/libmpich.a mpidu_process_locks.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/locks'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype/dataloop'
+  CC              dataloop.c
+  CC              segment.c
+  CC              segment_ops.c
+  CC              dataloop_create.c
+  CC              dataloop_create_contig.c
+  CC              dataloop_create_vector.c
+  CC              dataloop_create_blockindexed.c
+  CC              dataloop_create_indexed.c
+  CC              dataloop_create_struct.c
+  CC              dataloop_create_pairtype.c
+  CC              subarray_support.c
+  CC              darray_support.c
+  AR cr ../../../../../lib/libmpich.a dataloop.o segment.o segment_ops.o dataloop_create.o dataloop_create_contig.o dataloop_create_vector.o dataloop_create_blockindexed.o dataloop_create_indexed.o dataloop_create_struct.o dataloop_create_pairtype.o subarray_support.o darray_support.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype/dataloop'
+make all-local
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype'
+  CC              mpid_type_debug.c
+  CC              mpid_segment.c
+  CC              mpid_ext32_segment.c
+  CC              mpid_ext32_datatype.c
+  CC              mpid_type_dup.c
+  CC              mpir_type_get_contig_blocks.c
+  CC              mpir_type_flatten.c
+  CC              mpid_type_commit.c
+  CC              mpid_type_zerolen.c
+  CC              mpid_type_vector.c
+  CC              mpid_type_contiguous.c
+  CC              mpid_type_create_resized.c
+  CC              mpid_type_blockindexed.c
+  CC              mpid_type_indexed.c
+  CC              mpid_type_struct.c
+  CC              mpid_type_get_envelope.c
+  CC              mpid_datatype_free.c
+  CC              mpid_datatype_contents.c
+  CC              mpid_type_get_contents.c
+  CC              mpid_type_create_pairtype.c
+  CC              mpid_contents_support.c
+  AR cr ../../../../lib/libmpich.a mpid_type_debug.o mpid_segment.o mpid_ext32_segment.o mpid_ext32_datatype.o mpid_type_dup.o mpir_type_get_contig_blocks.o mpir_type_flatten.o mpid_type_commit.o mpid_type_zerolen.o mpid_type_vector.o mpid_type_contiguous.o mpid_type_create_resized.o mpid_type_blockindexed.o mpid_type_indexed.o mpid_type_struct.o mpid_type_get_envelope.o mpid_datatype_free.o mpid_datatype_contents.o mpid_type_get_contents.o mpid_type_create_pairtype.o mpid_contents_support.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/common/datatype'
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/common'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels'
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis'
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/src'
+  CC              mpid_nem_alloc.c
+  CC              mpid_nem_init.c
+  CC              mpid_nem_queue.c
+  CC              mpid_nem_barrier.c
+  CC              mpid_nem_mpich2.c
+  CC              mpid_nem_ckpt.c
+  CC              mpid_nem_finalize.c
+  CC              mpid_nem_network_poll.c
+  CC              mpid_nem_network.c
+  CC              mpid_nem_debug.c
+  CC              mpid_nem_lmt.c
+  CC              mpid_nem_lmt_shm.c
+  CC              mpid_nem_net_array.c
+  CC              mpid_nem_lmt_dma.c
+  CC              mpid_nem_lmt_vmsplice.c
+  AR cr ../../../../../../../lib/libmpich.a mpid_nem_alloc.o mpid_nem_init.o mpid_nem_queue.o mpid_nem_barrier.o mpid_nem_mpich2.o mpid_nem_ckpt.o mpid_nem_finalize.o mpid_nem_network_poll.o mpid_nem_network.o mpid_nem_debug.o mpid_nem_lmt.o mpid_nem_lmt_shm.o mpid_nem_net_array.o mpid_nem_lmt_dma.o mpid_nem_lmt_vmsplice.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/src'
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+make[8]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+  CC              tcp_finalize.c
+  CC              tcp_init.c
+  CC              tcp_send.c
+  CC              tcp_utility.c
+  CC              socksm.c
+  CC              tcp_getip.c
+  AR cr ../../../../../../../../lib/libmpich.a tcp_finalize.o tcp_init.o tcp_send.o tcp_utility.o socksm.o tcp_getip.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[8]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+make[7]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils'
+make[8]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+  CC              papi_defs.c
+  AR cr ../../../../../../../../lib/libmpich.a papi_defs.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[8]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+make[8]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+  CC              mkstemp.c
+  AR cr ../../../../../../../../lib/libmpich.a mkstemp.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[8]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+make[7]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils'
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/nemesis'
+make[6]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/src'
+  CC              ch3_finalize.c
+  CC              ch3_init.c
+  CC              ch3_isend.c
+  CC              ch3_isendv.c
+  CC              ch3_istartmsg.c
+  CC              ch3_istartmsgv.c
+  CC              ch3_progress.c
+  CC              ch3_comm_spawn.c
+  CC              ch3_abort.c
+  CC              ch3i_comm.c
+  CC              ch3i_eagernoncontig.c
+  AR cr ../../../../../../lib/libmpich.a ch3_finalize.o ch3_init.o ch3_isend.o ch3_isendv.o ch3_istartmsg.o ch3_istartmsgv.o ch3_progress.o ch3_comm_spawn.o ch3_abort.o ch3i_comm.o ch3i_eagernoncontig.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[6]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis/src'
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels/nemesis'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/channels'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/src'
+  CC              ch3u_buffer.c
+  CC              ch3u_comm_spawn_multiple.c
+  CC              ch3u_handle_connection.c
+  CC              ch3u_handle_recv_pkt.c
+  CC              ch3u_handle_recv_req.c
+  CC              ch3u_handle_send_req.c
+  CC              ch3u_port.c
+  CC              ch3u_recvq.c
+  CC              ch3u_request.c
+  CC              ch3u_rma_ops.c
+  CC              ch3u_rma_sync.c
+  CC              ch3u_rndv.c
+  CC              ch3u_eager.c
+  CC              ch3u_eagersync.c
+  CC              mpid_abort.c
+  CC              mpid_cancel_recv.c
+  CC              mpid_cancel_send.c
+  CC              mpid_comm_disconnect.c
+  CC              mpid_comm_spawn_multiple.c
+  CC              mpid_finalize.c
+  CC              mpid_get_universe_size.c
+  CC              mpid_getpname.c
+  CC              mpid_init.c
+  CC              mpid_iprobe.c
+  CC              mpid_irecv.c
+  CC              mpid_irsend.c
+  CC              mpid_isend.c
+  CC              mpid_issend.c
+  CC              mpid_port.c
+  CC              mpid_probe.c
+  CC              mpid_recv.c
+  CC              mpid_rsend.c
+  CC              mpid_send.c
+  CC              mpid_ssend.c
+  CC              mpid_startall.c
+  CC              mpid_vc.c
+  CC              mpid_rma.c
+  CC              mpidi_isend_self.c
+  CC              mpidi_pg.c
+  CC              mpidi_printf.c
+  AR cr ../../../../lib/libmpich.a ch3u_buffer.o ch3u_comm_spawn_multiple.o ch3u_handle_connection.o ch3u_handle_recv_pkt.o ch3u_handle_recv_req.o ch3u_handle_send_req.o ch3u_port.o ch3u_recvq.o ch3u_request.o ch3u_rma_ops.o ch3u_rma_sync.o ch3u_rndv.o ch3u_eager.o ch3u_eagersync.o mpid_abort.o mpid_cancel_recv.o mpid_cancel_send.o mpid_comm_disconnect.o mpid_comm_spawn_multiple.o mpid_finalize.o mpid_get_universe_size.o mpid_getpname.o mpid_init.o mpid_iprobe.o mpid_irecv.o mpid_irsend.o mpid_isend.o mpid_issend.o mpid_port.o mpid_probe.o mpid_recv.o mpid_rsend.o mpid_send.o mpid_ssend.o mpid_startall.o mpid_vc.o mpid_rma.o mpidi_isend_self.o mpidi_pg.o mpidi_printf.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/src'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/util'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3/util'
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid/ch3'
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpid'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/attr'
+  CC              attr_delete.c
+  CC              attr_get.c
+  CC              attr_put.c
+  CC              comm_create_keyval.c
+  CC              comm_delete_attr.c
+  CC              comm_free_keyval.c
+  CC              comm_get_attr.c
+  CC              comm_set_attr.c
+  CC              keyval_create.c
+  CC              keyval_free.c
+  CC              type_create_keyval.c
+  CC              type_delete_attr.c
+  CC              type_free_keyval.c
+  CC              type_get_attr.c
+  CC              type_set_attr.c
+  CC              win_create_keyval.c
+  CC              win_delete_attr.c
+  CC              win_free_keyval.c
+  CC              win_get_attr.c
+  CC              win_set_attr.c
+  CC              attrutil.c
+  CC              dup_fn.c
+  AR cr ../../../lib/libmpich.a attr_delete.o attr_get.o attr_put.o comm_create_keyval.o comm_delete_attr.o comm_free_keyval.o comm_get_attr.o comm_set_attr.o keyval_create.o keyval_free.o type_create_keyval.o type_delete_attr.o type_free_keyval.o type_get_attr.o type_set_attr.o win_create_keyval.o win_delete_attr.o win_free_keyval.o win_get_attr.o win_set_attr.o attrutil.o dup_fn.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/attr'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/coll'
+  CC              allreduce.c
+  CC              barrier.c
+  CC              op_create.c
+  CC              op_free.c
+  CC              bcast.c
+  CC              alltoall.c
+  CC              alltoallv.c
+  CC              reduce.c
+  CC              scatter.c
+  CC              gather.c
+  CC              scatterv.c
+  CC              gatherv.c
+  CC              scan.c
+  CC              exscan.c
+  CC              allgather.c
+  CC              allgatherv.c
+  CC              red_scat.c
+  CC              alltoallw.c
+  CC              reduce_local.c
+  CC              op_commutative.c
+  CC              red_scat_block.c
+  CC              helper_fns.c
+  CC              opsum.c
+  CC              opmax.c
+  CC              opmin.c
+  CC              opband.c
+  CC              opbor.c
+  CC              opbxor.c
+  CC              opland.c
+  CC              oplor.c
+  CC              oplxor.c
+  CC              opprod.c
+  CC              opminloc.c
+  CC              opmaxloc.c
+  AR cr ../../../lib/libmpich.a allreduce.o barrier.o op_create.o op_free.o bcast.o alltoall.o alltoallv.o reduce.o scatter.o gather.o scatterv.o gatherv.o scan.o exscan.o allgather.o allgatherv.o red_scat.o alltoallw.o reduce_local.o op_commutative.o red_scat_block.o helper_fns.o opsum.o opmax.o opmin.o opband.o opbor.o opbxor.o opland.o oplor.o oplxor.o opprod.o opminloc.o opmaxloc.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/coll'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/comm'
+  CC              comm_compare.c
+  CC              comm_create.c
+  CC              comm_dup.c
+  CC              comm_free.c
+  CC              comm_get_name.c
+  CC              comm_group.c
+  CC              comm_rank.c
+  CC              comm_size.c
+  CC              comm_remote_group.c
+  CC              comm_remote_size.c
+  CC              comm_set_name.c
+  CC              comm_split.c
+  CC              comm_test_inter.c
+  CC              intercomm_create.c
+  CC              intercomm_merge.c
+  CC              commutil.c
+  AR cr ../../../lib/libmpich.a comm_compare.o comm_create.o comm_dup.o comm_free.o comm_get_name.o comm_group.o comm_rank.o comm_size.o comm_remote_group.o comm_remote_size.o comm_set_name.o comm_split.o comm_test_inter.o intercomm_create.o intercomm_merge.o commutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/comm'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/datatype'
+  CC              address.c
+  CC              get_address.c
+  CC              get_count.c
+  CC              get_elements.c
+  CC              pack.c
+  CC              unpack.c
+  CC              pack_size.c
+  CC              status_set_elements.c
+  CC              type_get_name.c
+  CC              type_set_name.c
+  CC              type_size.c
+  CC              type_extent.c
+  CC              type_vector.c
+  CC              type_commit.c
+  CC              type_indexed.c
+  CC              type_hindexed.c
+  CC              type_struct.c
+  CC              type_contiguous.c
+  CC              type_free.c
+  CC              type_hvector.c
+  CC              type_dup.c
+  CC              type_get_envelope.c
+  CC              type_get_contents.c
+  CC              type_ub.c
+  CC              type_lb.c
+  CC              type_get_extent.c
+  CC              type_get_true_extent.c
+  CC              type_match_size.c
+  CC              type_create_struct.c
+  CC              type_create_hindexed.c
+  CC              type_create_hvector.c
+  CC              pack_external.c
+  CC              pack_external_size.c
+  CC              unpack_external.c
+  CC              type_create_indexed_block.c
+  CC              type_create_resized.c
+  CC              type_create_darray.c
+  CC              type_create_subarray.c
+  CC              typeutil.c
+  AR cr ../../../lib/libmpich.a address.o get_address.o get_count.o get_elements.o pack.o unpack.o pack_size.o status_set_elements.o type_get_name.o type_set_name.o type_size.o type_extent.o type_vector.o type_commit.o type_indexed.o type_hindexed.o type_struct.o type_contiguous.o type_free.o type_hvector.o type_dup.o type_get_envelope.o type_get_contents.o type_ub.o type_lb.o type_get_extent.o type_get_true_extent.o type_match_size.o type_create_struct.o type_create_hindexed.o type_create_hvector.o pack_external.o pack_external_size.o unpack_external.o type_create_indexed_block.o type_create_resized.o type_create_darray.o type_create_subarray.o typeutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/datatype'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/errhan'
+  CC              add_error_code.c
+  CC              add_error_class.c
+  CC              add_error_string.c
+  CC              comm_call_errhandler.c
+  CC              comm_create_errhandler.c
+  CC              comm_get_errhandler.c
+  CC              comm_set_errhandler.c
+  CC              errhandler_create.c
+  CC              errhandler_free.c
+  CC              errhandler_get.c
+  CC              errhandler_set.c
+  CC              error_class.c
+  CC              error_string.c
+  CC              file_create_errhandler.c
+  CC              file_get_errhandler.c
+  CC              file_set_errhandler.c
+  CC              file_call_errhandler.c
+  CC              win_create_errhandler.c
+  CC              win_call_errhandler.c
+  CC              win_get_errhandler.c
+  CC              win_set_errhandler.c
+  CC              errutil.c
+  CC              dynerrutil.c
+  AR cr ../../../lib/libmpich.a add_error_code.o add_error_class.o add_error_string.o comm_call_errhandler.o comm_create_errhandler.o comm_get_errhandler.o comm_set_errhandler.o errhandler_create.o errhandler_free.o errhandler_get.o errhandler_set.o error_class.o error_string.o file_create_errhandler.o file_get_errhandler.o file_set_errhandler.o file_call_errhandler.o win_create_errhandler.o win_call_errhandler.o win_get_errhandler.o win_set_errhandler.o errutil.o dynerrutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/errhan'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/group'
+  CC              group_compare.c
+  CC              group_difference.c
+  CC              group_excl.c
+  CC              group_free.c
+  CC              group_incl.c
+  CC              group_intersection.c
+  CC              group_range_excl.c
+  CC              group_range_incl.c
+  CC              group_rank.c
+  CC              group_size.c
+  CC              group_translate_ranks.c
+  CC              group_union.c
+  CC              grouputil.c
+  AR cr ../../../lib/libmpich.a group_compare.o group_difference.o group_excl.o group_free.o group_incl.o group_intersection.o group_range_excl.o group_range_incl.o group_rank.o group_size.o group_translate_ranks.o group_union.o grouputil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/group'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/init'
+  CC              abort.c
+  CC              init.c
+  CC              initialized.c
+  CC              initthread.c
+  CC              ismain.c
+  CC              finalize.c
+  CC              finalized.c
+  CC              querythread.c
+  CC              async.c
+  CC              initinfo.c
+  AR cr ../../../lib/libmpich.a abort.o init.o initialized.o initthread.o ismain.o finalize.o finalized.o querythread.o async.o initinfo.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/init'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/misc'
+  CC              getpname.c
+  CC              pcontrol.c
+  CC              version.c
+  AR cr ../../../lib/libmpich.a getpname.o pcontrol.o version.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/misc'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/pt2pt'
+  CC              bsend.c
+  CC              bsend_init.c
+  CC              bufattach.c
+  CC              buffree.c
+  CC              cancel.c
+  CC              greq_start.c
+  CC              greq_complete.c
+  CC              ibsend.c
+  CC              iprobe.c
+  CC              irecv.c
+  CC              irsend.c
+  CC              isend.c
+  CC              issend.c
+  CC              probe.c
+  CC              recv.c
+  CC              recv_init.c
+  CC              request_free.c
+  CC              request_get_status.c
+  CC              rsend.c
+  CC              rsend_init.c
+  CC              send.c
+  CC              send_init.c
+  CC              sendrecv.c
+  CC              sendrecv_rep.c
+  CC              status_set_cancelled.c
+  CC              ssend.c
+  CC              ssend_init.c
+  CC              start.c
+  CC              startall.c
+  CC              test.c
+  CC              test_cancelled.c
+  CC              testall.c
+  CC              testany.c
+  CC              testsome.c
+  CC              wait.c
+  CC              waitall.c
+  CC              waitany.c
+  CC              waitsome.c
+  CC              bsendutil.c
+  CC              mpir_request.c
+  AR cr ../../../lib/libmpich.a bsend.o bsend_init.o bufattach.o buffree.o cancel.o greq_start.o greq_complete.o ibsend.o iprobe.o irecv.o irsend.o isend.o issend.o probe.o recv.o recv_init.o request_free.o request_get_status.o rsend.o rsend_init.o send.o send_init.o sendrecv.o sendrecv_rep.o status_set_cancelled.o ssend.o ssend_init.o start.o startall.o test.o test_cancelled.o testall.o testany.o testsome.o wait.o waitall.o waitany.o waitsome.o bsendutil.o mpir_request.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/pt2pt'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/rma'
+  CC              accumulate.c
+  CC              alloc_mem.c
+  CC              free_mem.c
+  CC              get.c
+  CC              put.c
+  CC              win_complete.c
+  CC              win_create.c
+  CC              win_fence.c
+  CC              win_free.c
+  CC              win_get_group.c
+  CC              win_get_name.c
+  CC              win_lock.c
+  CC              win_post.c
+  CC              win_set_name.c
+  CC              win_start.c
+  CC              win_unlock.c
+  CC              win_wait.c
+  CC              win_test.c
+  CC              winutil.c
+  AR cr ../../../lib/libmpich.a accumulate.o alloc_mem.o free_mem.o get.o put.o win_complete.o win_create.o win_fence.o win_free.o win_get_group.o win_get_name.o win_lock.o win_post.o win_set_name.o win_start.o win_unlock.o win_wait.o win_test.o winutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/rma'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/spawn'
+  CC              comm_disconnect.c
+  CC              comm_get_parent.c
+  CC              comm_join.c
+  CC              comm_spawn.c
+  CC              comm_spawn_multiple.c
+  CC              lookup_name.c
+  CC              publish_name.c
+  CC              unpublish_name.c
+  CC              open_port.c
+  CC              close_port.c
+  CC              comm_connect.c
+  CC              comm_accept.c
+  AR cr ../../../lib/libmpich.a comm_disconnect.o comm_get_parent.o comm_join.o comm_spawn.o comm_spawn_multiple.o lookup_name.o publish_name.o unpublish_name.o open_port.o close_port.o comm_connect.o comm_accept.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/spawn'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/timer'
+  CC              wtime.c
+  CC              wtick.c
+  CC              mpidtime.c
+  AR cr ../../../lib/libmpich.a wtime.o wtick.o mpidtime.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/timer'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/topo'
+  CC              cart_coords.c
+  CC              cart_create.c
+  CC              cart_get.c
+  CC              cart_map.c
+  CC              cart_rank.c
+  CC              cart_shift.c
+  CC              cart_sub.c
+  CC              dims_create.c
+  CC              graph_get.c
+  CC              graph_map.c
+  CC              graph_nbr.c
+  CC              graphcreate.c
+  CC              graphdimsget.c
+  CC              graphnbrcnt.c
+  CC              cartdim_get.c
+  CC              topo_test.c
+  CC              dist_gr_create_adj.c
+  CC              dist_gr_create.c
+  CC              dist_gr_neighb_count.c
+  CC              dist_gr_neighb.c
+  CC              topoutil.c
+  AR cr ../../../lib/libmpich.a cart_coords.o cart_create.o cart_get.o cart_map.o cart_rank.o cart_shift.o cart_sub.o dims_create.o graph_get.o graph_map.o graph_nbr.o graphcreate.o graphdimsget.o graphnbrcnt.o cartdim_get.o topo_test.o dist_gr_create_adj.o dist_gr_create.o dist_gr_neighb_count.o dist_gr_neighb.o topoutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/topo'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio'
+make mpiolib
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio'
+ 
+compiling ROMIO in directory mpi-io
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/mpi-io'
+  CC              close.c
+  CC              read.c
+  CC              open.c
+  CC              write.c
+  CC              set_view.c
+  CC              iread.c
+  CC              iwrite.c
+  CC              seek.c
+  CC              get_posn.c
+  CC              delete.c
+  CC              read_all.c
+  CC              read_at.c
+  CC              read_atall.c
+  CC              iread_at.c
+  CC              iwrite_at.c
+  CC              write_all.c
+  CC              get_bytoff.c
+  CC              write_at.c
+  CC              write_atall.c
+  CC              get_view.c
+  CC              get_group.c
+  CC              get_amode.c
+  CC              get_extent.c
+  CC              fsync.c
+  CC              get_atom.c
+  CC              set_atom.c
+  CC              set_size.c
+  CC              get_size.c
+  CC              prealloc.c
+  CC              file_f2c.c
+  CC              file_c2f.c
+  CC              set_info.c
+  CC              get_info.c
+  CC              rd_atallb.c
+  CC              rd_atalle.c
+  CC              read_allb.c
+  CC              read_alle.c
+  CC              wr_atallb.c
+  CC              wr_atalle.c
+  CC              write_allb.c
+  CC              write_alle.c
+  CC              get_posn_sh.c
+  CC              iread_sh.c
+  CC              read_sh.c
+  CC              write_sh.c
+  CC              iwrite_sh.c
+  CC              seek_sh.c
+  CC              read_ord.c
+  CC              read_orde.c
+  CC              write_ordb.c
+  CC              read_ordb.c
+  CC              write_ord.c
+  CC              write_orde.c
+  CC              mpiu_greq.c
+  CC              mpich2_fileutil.c
+  CC              register_datarep.c
+  CC              mpir-mpioinit.c
+ar cr /home/molm/mpich2-1.2.1p1/lib/libmpich.a close.o read.o open.o write.o set_view.o iread.o iwrite.o seek.o get_posn.o delete.o read_all.o read_at.o read_atall.o iread_at.o iwrite_at.o write_all.o get_bytoff.o write_at.o write_atall.o get_view.o get_group.o get_amode.o get_extent.o fsync.o get_atom.o set_atom.o set_size.o get_size.o prealloc.o file_f2c.o file_c2f.o set_info.o get_info.o rd_atallb.o rd_atalle.o read_allb.o read_alle.o wr_atallb.o wr_atalle.o write_allb.o write_alle.o get_posn_sh.o iread_sh.o read_sh.o write_sh.o iwrite_sh.o seek_sh.o read_ord.o read_orde.o write_ordb.o read_ordb.o write_ord.o write_orde.o mpiu_greq.o mpich2_fileutil.o register_datarep.o mpir-mpioinit.o 
+ranlib /home/molm/mpich2-1.2.1p1/lib/libmpich.a
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/mpi-io'
+ 
+compiling ROMIO in directory adio/common
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/adio/common'
+  CC              ad_close.c
+  CC              ad_init.c
+  CC              ad_end.c
+  CC              ad_open.c
+  CC              flatten.c
+  CC              malloc.c
+  CC              ad_read_coll.c
+  CC              eof_offset.c
+  CC              ad_write_coll.c
+  CC              lock.c
+  CC              ad_read_str.c
+  CC              ad_write_str.c
+  CC              iscontig.c
+  CC              get_fp_posn.c
+  CC              ad_seek.c
+  CC              ad_delete.c
+  CC              ad_flush.c
+  CC              ad_hints.c
+  CC              error.c
+  CC              ad_fstype.c
+  CC              ad_get_sh_fp.c
+  CC              ad_set_sh_fp.c
+  CC              shfp_fname.c
+  CC              byte_offset.c
+  CC              status_setb.c
+  CC              ad_aggregate.c
+  CC              cb_config_list.c
+  CC              ad_read_str_naive.c
+  CC              ad_set_view.c
+  CC              ad_iopen.c
+  CC              ad_write_str_naive.c
+  CC              ad_resize.c
+  CC              ad_read.c
+  CC              ad_write.c
+  CC              ad_iread.c
+  CC              ad_iwrite.c
+  CC              ad_done.c
+  CC              ad_wait.c
+  CC              adi_close.c
+  CC              ad_prealloc.c
+  CC              ad_fcntl.c
+  CC              ad_iread_fake.c
+  CC              ad_iwrite_fake.c
+  CC              ad_done_fake.c
+  CC              ad_wait_fake.c
+  CC              ad_subarray.c
+  CC              ad_darray.c
+  CC              strfns.c
+  CC              greq_fns.c
+  CC              system_hints.c
+  CC              ad_write_nolock.c
+  CC              ad_coll_exch_new.c
+  CC              ad_coll_build_req_new.c
+  CC              ad_io_coll.c
+  CC              ad_aggregate_new.c
+  CC              heap-sort.c
+  CC              ad_opencoll.c
+  CC              ad_opencoll_scalable.c
+  CC              ad_opencoll_failsafe.c
+  CC              ad_features.c
+ar cr /home/molm/mpich2-1.2.1p1/lib/libmpich.a ad_close.o ad_init.o ad_end.o ad_open.o flatten.o malloc.o ad_read_coll.o eof_offset.o ad_write_coll.o lock.o ad_read_str.o ad_write_str.o iscontig.o get_fp_posn.o ad_seek.o ad_delete.o ad_flush.o ad_hints.o error.o ad_fstype.o ad_get_sh_fp.o ad_set_sh_fp.o shfp_fname.o byte_offset.o status_setb.o ad_aggregate.o cb_config_list.o ad_read_str_naive.o ad_set_view.o ad_iopen.o ad_write_str_naive.o ad_resize.o ad_read.o ad_write.o ad_iread.o ad_iwrite.o ad_done.o ad_wait.o adi_close.o ad_prealloc.o ad_fcntl.o ad_iread_fake.o ad_iwrite_fake.o ad_done_fake.o ad_wait_fake.o ad_subarray.o ad_darray.o strfns.o greq_fns.o system_hints.o ad_write_nolock.o ad_coll_exch_new.o ad_coll_build_req_new.o ad_io_coll.o ad_aggregate_new.o heap-sort.o ad_opencoll.o ad_opencoll_scalable.o ad_opencoll_failsafe.o ad_features.o
+ranlib /home/molm/mpich2-1.2.1p1/lib/libmpich.a 
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/adio/common'
+ 
+compiling ROMIO in directory mpi-io/glue/mpich2
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/mpi-io/glue/mpich2'
+  CC              mpio_file.c
+  CC              mpio_err.c
+ar cr /home/molm/mpich2-1.2.1p1/lib/libmpich.a mpio_file.o mpio_err.o
+ranlib /home/molm/mpich2-1.2.1p1/lib/libmpich.a  
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/mpi-io/glue/mpich2'
+ 
+compiling ROMIO in directory adio/ad_testfs
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/adio/ad_testfs'
+  CC              ad_testfs_close.c
+  CC              ad_testfs_read.c
+  CC              ad_testfs_rdcoll.c
+  CC              ad_testfs_wrcoll.c
+  CC              ad_testfs_open.c
+  CC              ad_testfs_write.c
+  CC              ad_testfs_done.c
+  CC              ad_testfs_fcntl.c
+  CC              ad_testfs_iread.c
+  CC              ad_testfs_iwrite.c
+  CC              ad_testfs_wait.c
+  CC              ad_testfs_flush.c
+  CC              ad_testfs_seek.c
+  CC              ad_testfs_resize.c
+  CC              ad_testfs_hints.c
+  CC              ad_testfs_delete.c
+  CC              ad_testfs.c
+ar cr /home/molm/mpich2-1.2.1p1/lib/libmpich.a ad_testfs_close.o ad_testfs_read.o ad_testfs_rdcoll.o ad_testfs_wrcoll.o ad_testfs_open.o ad_testfs_write.o ad_testfs_done.o ad_testfs_fcntl.o ad_testfs_iread.o ad_testfs_iwrite.o ad_testfs_wait.o ad_testfs_flush.o ad_testfs_seek.o ad_testfs_resize.o ad_testfs_hints.o ad_testfs_delete.o ad_testfs.o
+ranlib /home/molm/mpich2-1.2.1p1/lib/libmpich.a 
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/adio/ad_testfs'
+ 
+compiling ROMIO in directory adio/ad_ufs
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/adio/ad_ufs'
+  CC              ad_ufs_open.c
+  CC              ad_ufs.c
+ar cr /home/molm/mpich2-1.2.1p1/lib/libmpich.a ad_ufs_open.o ad_ufs.o
+ranlib /home/molm/mpich2-1.2.1p1/lib/libmpich.a 
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/adio/ad_ufs'
+ 
+compiling ROMIO in directory adio/ad_nfs
+make[5]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/adio/ad_nfs'
+  CC              ad_nfs_read.c
+  CC              ad_nfs_open.c
+  CC              ad_nfs_write.c
+  CC              ad_nfs_done.c
+  CC              ad_nfs_fcntl.c
+  CC              ad_nfs_iread.c
+  CC              ad_nfs_iwrite.c
+  CC              ad_nfs_wait.c
+  CC              ad_nfs_setsh.c
+  CC              ad_nfs_getsh.c
+  CC              ad_nfs.c
+  CC              ad_nfs_resize.c
+  CC              ad_nfs_features.c
+ar cr /home/molm/mpich2-1.2.1p1/lib/libmpich.a ad_nfs_read.o ad_nfs_open.o ad_nfs_write.o ad_nfs_done.o ad_nfs_fcntl.o ad_nfs_iread.o ad_nfs_iwrite.o ad_nfs_wait.o ad_nfs_setsh.o ad_nfs_getsh.o ad_nfs.o ad_nfs_resize.o ad_nfs_features.o
+ranlib /home/molm/mpich2-1.2.1p1/lib/libmpich.a 
+make[5]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio/adio/ad_nfs'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio'
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio'
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio'
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi/romio'
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpi'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/mem'
+  CC              trmem.c
+  CC              handlemem.c
+  CC              safestr.c
+  CC              argstr.c
+  AR cr ../../../lib/libmpich.a trmem.o handlemem.o safestr.o argstr.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/mem'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/info'
+  CC              infoutil.c
+  CC              info_create.c
+  CC              info_delete.c
+  CC              info_dup.c
+  CC              info_free.c
+  CC              info_get.c
+  CC              info_getn.c
+  CC              info_getnth.c
+  CC              info_getvallen.c
+  CC              info_set.c
+  AR cr ../../../lib/libmpich.a infoutil.o info_create.o info_delete.o info_dup.o info_free.o info_get.o info_getn.o info_getnth.o info_getvallen.o info_set.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/info'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/msgs'
+  CC              msgprint.c
+  AR cr ../../../lib/libmpich.a msgprint.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/msgs'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/instrm'
+  CC              states.c
+  AR cr ../../../lib/libmpich.a states.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/instrm'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/thread'
+  CC              mpiu_thread.c
+  AR cr ../../../lib/libmpich.a mpiu_thread.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/thread'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/dbg'
+  CC              dbg_printf.c
+  CC              timelimit.c
+  CC              exit.c
+  AR cr ../../../lib/libmpich.a dbg_printf.o timelimit.o exit.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/dbg'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/param'
+  CC              param.c
+  AR cr ../../../lib/libmpich.a param.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/param'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/osserv'
+  CC              dl.c
+  AR cr ../../../lib/libmpich.a dl.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/osserv'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/procmap'
+  CC              local_proc.c
+  AR cr ../../../lib/libmpich.a local_proc.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/procmap'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/util/other'
+  CC              outliers.c
+  AR cr ../../../lib/libmpich.a outliers.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util/other'
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/util'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/nameserv'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/nameserv/mpd'
+  CC              mpd_nameserv.c
+  AR cr ../../../lib/libmpich.a mpd_nameserv.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/nameserv/mpd'
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/nameserv'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/binding'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/binding/f77'
+  CC             -o _wsendf.o -c -D... ./sendf.c
+  CC             -o _wrecvf.o -c -D... ./recvf.c
+  CC             -o _wget_countf.o -c -D... ./get_countf.c
+  CC             -o _wbsendf.o -c -D... ./bsendf.c
+  CC             -o _wssendf.o -c -D... ./ssendf.c
+  CC             -o _wrsendf.o -c -D... ./rsendf.c
+  CC             -o _wbufattachf.o -c -D... ./bufattachf.c
+  CC             -o _wbufdetachf.o -c -D... ./bufdetachf.c
+  CC             -o _wisendf.o -c -D... ./isendf.c
+  CC             -o _wibsendf.o -c -D... ./ibsendf.c
+  CC             -o _wissendf.o -c -D... ./issendf.c
+  CC             -o _wirsendf.o -c -D... ./irsendf.c
+  CC             -o _wirecvf.o -c -D... ./irecvf.c
+  CC             -o _wwaitf.o -c -D... ./waitf.c
+  CC             -o _wtestf.o -c -D... ./testf.c
+  CC             -o _wrequest_freef.o -c -D... ./request_freef.c
+  CC             -o _wwaitanyf.o -c -D... ./waitanyf.c
+  CC             -o _wtestanyf.o -c -D... ./testanyf.c
+  CC             -o _wwaitallf.o -c -D... ./waitallf.c
+  CC             -o _wtestallf.o -c -D... ./testallf.c
+  CC             -o _wwaitsomef.o -c -D... ./waitsomef.c
+  CC             -o _wtestsomef.o -c -D... ./testsomef.c
+  CC             -o _wiprobef.o -c -D... ./iprobef.c
+  CC             -o _wprobef.o -c -D... ./probef.c
+  CC             -o _wcancelf.o -c -D... ./cancelf.c
+  CC             -o _wtestcancelf.o -c -D... ./testcancelf.c
+  CC             -o _wsend_initf.o -c -D... ./send_initf.c
+  CC             -o _wbsend_initf.o -c -D... ./bsend_initf.c
+  CC             -o _wssend_initf.o -c -D... ./ssend_initf.c
+  CC             -o _wrsend_initf.o -c -D... ./rsend_initf.c
+  CC             -o _wrecv_initf.o -c -D... ./recv_initf.c
+  CC             -o _wstartf.o -c -D... ./startf.c
+  CC             -o _wstartallf.o -c -D... ./startallf.c
+  CC             -o _wsendrecvf.o -c -D... ./sendrecvf.c
+  CC             -o _wsndrcvrplf.o -c -D... ./sndrcvrplf.c
+  CC             -o _wtypecontigf.o -c -D... ./typecontigf.c
+  CC             -o _wtype_vectorf.o -c -D... ./type_vectorf.c
+  CC             -o _wtype_hvectorf.o -c -D... ./type_hvectorf.c
+  CC             -o _wtype_indexedf.o -c -D... ./type_indexedf.c
+  CC             -o _wtype_hindexedf.o -c -D... ./type_hindexedf.c
+  CC             -o _wtype_structf.o -c -D... ./type_structf.c
+  CC             -o _wtype_extentf.o -c -D... ./type_extentf.c
+  CC             -o _wtype_sizef.o -c -D... ./type_sizef.c
+  CC             -o _wtype_lbf.o -c -D... ./type_lbf.c
+  CC             -o _wtype_ubf.o -c -D... ./type_ubf.c
+  CC             -o _wtype_commitf.o -c -D... ./type_commitf.c
+  CC             -o _wtype_freef.o -c -D... ./type_freef.c
+  CC             -o _wget_elementsf.o -c -D... ./get_elementsf.c
+  CC             -o _wpackf.o -c -D... ./packf.c
+  CC             -o _wunpackf.o -c -D... ./unpackf.c
+  CC             -o _wpack_sizef.o -c -D... ./pack_sizef.c
+  CC             -o _wbarrierf.o -c -D... ./barrierf.c
+  CC             -o _wbcastf.o -c -D... ./bcastf.c
+  CC             -o _wgatherf.o -c -D... ./gatherf.c
+  CC             -o _wgathervf.o -c -D... ./gathervf.c
+  CC             -o _wscatterf.o -c -D... ./scatterf.c
+  CC             -o _wscattervf.o -c -D... ./scattervf.c
+  CC             -o _wallgatherf.o -c -D... ./allgatherf.c
+  CC             -o _wallgathervf.o -c -D... ./allgathervf.c
+  CC             -o _walltoallf.o -c -D... ./alltoallf.c
+  CC             -o _walltoallvf.o -c -D... ./alltoallvf.c
+  CC             -o _wreducef.o -c -D... ./reducef.c
+  CC             -o _wop_createf.o -c -D... ./op_createf.c
+  CC             -o _wop_freef.o -c -D... ./op_freef.c
+  CC             -o _wallreducef.o -c -D... ./allreducef.c
+  CC             -o _wredscatf.o -c -D... ./redscatf.c
+  CC             -o _wscanf.o -c -D... ./scanf.c
+  CC             -o _wgroup_sizef.o -c -D... ./group_sizef.c
+  CC             -o _wgroup_rankf.o -c -D... ./group_rankf.c
+  CC             -o _wgrouptranksf.o -c -D... ./grouptranksf.c
+  CC             -o _wgroup_comparef.o -c -D... ./group_comparef.c
+  CC             -o _wcomm_groupf.o -c -D... ./comm_groupf.c
+  CC             -o _wgroup_unionf.o -c -D... ./group_unionf.c
+  CC             -o _wgroupinterf.o -c -D... ./groupinterf.c
+  CC             -o _wgroupdifff.o -c -D... ./groupdifff.c
+  CC             -o _wgroup_inclf.o -c -D... ./group_inclf.c
+  CC             -o _wgroup_exclf.o -c -D... ./group_exclf.c
+  CC             -o _wgrouprinclf.o -c -D... ./grouprinclf.c
+  CC             -o _wgrouprexclf.o -c -D... ./grouprexclf.c
+  CC             -o _wgroup_freef.o -c -D... ./group_freef.c
+  CC             -o _wcomm_sizef.o -c -D... ./comm_sizef.c
+  CC             -o _wcomm_rankf.o -c -D... ./comm_rankf.c
+  CC             -o _wcomm_comparef.o -c -D... ./comm_comparef.c
+  CC             -o _wcomm_dupf.o -c -D... ./comm_dupf.c
+  CC             -o _wcomm_createf.o -c -D... ./comm_createf.c
+  CC             -o _wcomm_splitf.o -c -D... ./comm_splitf.c
+  CC             -o _wcomm_freef.o -c -D... ./comm_freef.c
+  CC             -o _wcommtesticf.o -c -D... ./commtesticf.c
+  CC             -o _wcommrsizef.o -c -D... ./commrsizef.c
+  CC             -o _wcommrgroupf.o -c -D... ./commrgroupf.c
+  CC             -o _wiccreatef.o -c -D... ./iccreatef.c
+  CC             -o _wicmergef.o -c -D... ./icmergef.c
+  CC             -o _wkeyval_freef.o -c -D... ./keyval_freef.c
+  CC             -o _wattr_putf.o -c -D... ./attr_putf.c
+  CC             -o _wattr_getf.o -c -D... ./attr_getf.c
+  CC             -o _wattr_deletef.o -c -D... ./attr_deletef.c
+  CC             -o _wtopo_testf.o -c -D... ./topo_testf.c
+  CC             -o _wcart_createf.o -c -D... ./cart_createf.c
+  CC             -o _wdims_createf.o -c -D... ./dims_createf.c
+  CC             -o _wgraph_createf.o -c -D... ./graph_createf.c
+  CC             -o _wgraphdims_getf.o -c -D... ./graphdims_getf.c
+  CC             -o _wgraph_getf.o -c -D... ./graph_getf.c
+  CC             -o _wcartdim_getf.o -c -D... ./cartdim_getf.c
+  CC             -o _wcart_getf.o -c -D... ./cart_getf.c
+  CC             -o _wcart_rankf.o -c -D... ./cart_rankf.c
+  CC             -o _wcart_coordsf.o -c -D... ./cart_coordsf.c
+  CC             -o _wgrfnbcountf.o -c -D... ./grfnbcountf.c
+  CC             -o _wgrfnbrsf.o -c -D... ./grfnbrsf.c
+  CC             -o _wcart_shiftf.o -c -D... ./cart_shiftf.c
+  CC             -o _wcart_subf.o -c -D... ./cart_subf.c
+  CC             -o _wcart_mapf.o -c -D... ./cart_mapf.c
+  CC             -o _wgraph_mapf.o -c -D... ./graph_mapf.c
+  CC             -o _wgetpnamef.o -c -D... ./getpnamef.c
+  CC             -o _wget_versionf.o -c -D... ./get_versionf.c
+  CC             -o _werrhcreatef.o -c -D... ./errhcreatef.c
+  CC             -o _werrhsetf.o -c -D... ./errhsetf.c
+  CC             -o _werrhgetf.o -c -D... ./errhgetf.c
+  CC             -o _werrhfreef.o -c -D... ./errhfreef.c
+  CC             -o _werror_stringf.o -c -D... ./error_stringf.c
+  CC             -o _werror_classf.o -c -D... ./error_classf.c
+  CC             -o _wfinalizef.o -c -D... ./finalizef.c
+  CC             -o _winitializedf.o -c -D... ./initializedf.c
+  CC             -o _wabortf.o -c -D... ./abortf.c
+  CC             -o _wclose_portf.o -c -D... ./close_portf.c
+  CC             -o _wcomm_acceptf.o -c -D... ./comm_acceptf.c
+  CC             -o _wcomm_connectf.o -c -D... ./comm_connectf.c
+  CC             -o _wcommdiscf.o -c -D... ./commdiscf.c
+  CC             -o _wcommparentf.o -c -D... ./commparentf.c
+  CC             -o _wcomm_joinf.o -c -D... ./comm_joinf.c
+  CC             -o _wcomm_spawnf.o -c -D... ./comm_spawnf.c
+  CC             -o _wspawnmultf.o -c -D... ./spawnmultf.c
+  CC             -o _wlookup_namef.o -c -D... ./lookup_namef.c
+  CC             -o _wopen_portf.o -c -D... ./open_portf.c
+  CC             -o _wpublish_namef.o -c -D... ./publish_namef.c
+  CC             -o _wunpubnamef.o -c -D... ./unpubnamef.c
+  CC             -o _waccumulatef.o -c -D... ./accumulatef.c
+  CC             -o _wgetf.o -c -D... ./getf.c
+  CC             -o _wputf.o -c -D... ./putf.c
+  CC             -o _wwin_completef.o -c -D... ./win_completef.c
+  CC             -o _wwin_createf.o -c -D... ./win_createf.c
+  CC             -o _wwin_fencef.o -c -D... ./win_fencef.c
+  CC             -o _wwin_freef.o -c -D... ./win_freef.c
+  CC             -o _wwin_get_groupf.o -c -D... ./win_get_groupf.c
+  CC             -o _wwin_lockf.o -c -D... ./win_lockf.c
+  CC             -o _wwin_postf.o -c -D... ./win_postf.c
+  CC             -o _wwin_startf.o -c -D... ./win_startf.c
+  CC             -o _wwin_testf.o -c -D... ./win_testf.c
+  CC             -o _wwin_unlockf.o -c -D... ./win_unlockf.c
+  CC             -o _wwin_waitf.o -c -D... ./win_waitf.c
+  CC             -o _walltoallwf.o -c -D... ./alltoallwf.c
+  CC             -o _wexscanf.o -c -D... ./exscanf.c
+  CC             -o _wadderrclassf.o -c -D... ./adderrclassf.c
+  CC             -o _wadderrcodef.o -c -D... ./adderrcodef.c
+  CC             -o _wadderrstringf.o -c -D... ./adderrstringf.c
+  CC             -o _wcommcallerrf.o -c -D... ./commcallerrf.c
+  CC             -o _wcommnewkeyf.o -c -D... ./commnewkeyf.c
+  CC             -o _wcommdelattrf.o -c -D... ./commdelattrf.c
+  CC             -o _wcommfreekeyf.o -c -D... ./commfreekeyf.c
+  CC             -o _wcomm_get_attrf.o -c -D... ./comm_get_attrf.c
+  CC             -o _wcommgetnamf.o -c -D... ./commgetnamf.c
+  CC             -o _wcomm_set_attrf.o -c -D... ./comm_set_attrf.c
+  CC             -o _wcomm_set_namef.o -c -D... ./comm_set_namef.c
+  CC             -o _wfilecallerrf.o -c -D... ./filecallerrf.c
+  CC             -o _wgreqcompletef.o -c -D... ./greqcompletef.c
+  CC             -o _wgreqstartf.o -c -D... ./greqstartf.c
+  CC             -o _wisthrmainf.o -c -D... ./isthrmainf.c
+  CC             -o _wquery_threadf.o -c -D... ./query_threadf.c
+  CC             -o _wstatgetclf.o -c -D... ./statgetclf.c
+  CC             -o _wstatsetelf.o -c -D... ./statsetelf.c
+  CC             -o _wtypenewkeyf.o -c -D... ./typenewkeyf.c
+  CC             -o _wtypedelattrf.o -c -D... ./typedelattrf.c
+  CC             -o _wtype_dupf.o -c -D... ./type_dupf.c
+  CC             -o _wtypefreekeyf.o -c -D... ./typefreekeyf.c
+  CC             -o _wtype_get_attrf.o -c -D... ./type_get_attrf.c
+  CC             -o _wtypegetcntsf.o -c -D... ./typegetcntsf.c
+  CC             -o _wtypegetenvf.o -c -D... ./typegetenvf.c
+  CC             -o _wtypegnamef.o -c -D... ./typegnamef.c
+  CC             -o _wtypesetattrf.o -c -D... ./typesetattrf.c
+  CC             -o _wtypesetnamef.o -c -D... ./typesetnamef.c
+  CC             -o _wtype_match_sizef.o -c -D... ./type_match_sizef.c
+  CC             -o _wwincallerrf.o -c -D... ./wincallerrf.c
+  CC             -o _wwinnewkeyf.o -c -D... ./winnewkeyf.c
+  CC             -o _wwindelattrf.o -c -D... ./windelattrf.c
+  CC             -o _wwinfreekeyf.o -c -D... ./winfreekeyf.c
+  CC             -o _wwin_get_attrf.o -c -D... ./win_get_attrf.c
+  CC             -o _wwin_get_namef.o -c -D... ./win_get_namef.c
+  CC             -o _wwin_set_attrf.o -c -D... ./win_set_attrf.c
+  CC             -o _wwin_set_namef.o -c -D... ./win_set_namef.c
+  CC             -o _walloc_memf.o -c -D... ./alloc_memf.c
+  CC             -o _wcommcreerrf.o -c -D... ./commcreerrf.c
+  CC             -o _wcommgeterrf.o -c -D... ./commgeterrf.c
+  CC             -o _wcommseterrf.o -c -D... ./commseterrf.c
+  CC             -o _wfilecreerrf.o -c -D... ./filecreerrf.c
+  CC             -o _wfilegeterrf.o -c -D... ./filegeterrf.c
+  CC             -o _wfileseterrf.o -c -D... ./fileseterrf.c
+  CC             -o _wfinalizedf.o -c -D... ./finalizedf.c
+  CC             -o _wfree_memf.o -c -D... ./free_memf.c
+  CC             -o _winfo_createf.o -c -D... ./info_createf.c
+  CC             -o _winfo_deletef.o -c -D... ./info_deletef.c
+  CC             -o _winfo_dupf.o -c -D... ./info_dupf.c
+  CC             -o _winfo_freef.o -c -D... ./info_freef.c
+  CC             -o _winfo_getf.o -c -D... ./info_getf.c
+  CC             -o _winfognkf.o -c -D... ./infognkf.c
+  CC             -o _winfognthkf.o -c -D... ./infognthkf.c
+  CC             -o _winfovallenf.o -c -D... ./infovallenf.c
+  CC             -o _winfo_setf.o -c -D... ./info_setf.c
+  CC             -o _wpack_externalf.o -c -D... ./pack_externalf.c
+  CC             -o _wpackesizef.o -c -D... ./packesizef.c
+  CC             -o _wreqgetstatf.o -c -D... ./reqgetstatf.c
+  CC             -o _wtypedarrayf.o -c -D... ./typedarrayf.c
+  CC             -o _wtypechindf.o -c -D... ./typechindf.c
+  CC             -o _wtypechvecf.o -c -D... ./typechvecf.c
+  CC             -o _wtypecindbf.o -c -D... ./typecindbf.c
+  CC             -o _wtypecresizef.o -c -D... ./typecresizef.c
+  CC             -o _wtypecstructf.o -c -D... ./typecstructf.c
+  CC             -o _wtypecsubarrf.o -c -D... ./typecsubarrf.c
+  CC             -o _wtypegetextentf.o -c -D... ./typegetextentf.c
+  CC             -o _wtypegtextf.o -c -D... ./typegtextf.c
+  CC             -o _wunpackextf.o -c -D... ./unpackextf.c
+  CC             -o _wwincreerrf.o -c -D... ./wincreerrf.c
+  CC             -o _wwingeterrf.o -c -D... ./wingeterrf.c
+  CC             -o _wwinseterrf.o -c -D... ./winseterrf.c
+  CC             -o _wreduce_localf.o -c -D... ./reduce_localf.c
+  CC             -o _wop_commutativef.o -c -D... ./op_commutativef.c
+  CC             -o _wreduce_scatter_blockf.o -c -D... ./reduce_scatter_blockf.c
+  CC             -o _wdist_graph_create_adjacentf.o -c -D... ./dist_graph_create_adjacentf.c
+  CC             -o _wdist_graph_createf.o -c -D... ./dist_graph_createf.c
+  CC             -o _wdist_graph_neighbors_countf.o -c -D... ./dist_graph_neighbors_countf.c
+  CC             -o _wdist_graph_neighborsf.o -c -D... ./dist_graph_neighborsf.c
+  CC             -o _wfile_openf.o -c -D... ./file_openf.c
+  CC             -o _wfile_closef.o -c -D... ./file_closef.c
+  CC             -o _wfile_deletef.o -c -D... ./file_deletef.c
+  CC             -o _wfile_set_sizef.o -c -D... ./file_set_sizef.c
+  CC             -o _wfile_preallocatef.o -c -D... ./file_preallocatef.c
+  CC             -o _wfile_get_sizef.o -c -D... ./file_get_sizef.c
+  CC             -o _wfile_get_groupf.o -c -D... ./file_get_groupf.c
+  CC             -o _wfile_get_amodef.o -c -D... ./file_get_amodef.c
+  CC             -o _wfile_set_infof.o -c -D... ./file_set_infof.c
+  CC             -o _wfile_get_infof.o -c -D... ./file_get_infof.c
+  CC             -o _wfile_set_viewf.o -c -D... ./file_set_viewf.c
+  CC             -o _wfile_get_viewf.o -c -D... ./file_get_viewf.c
+  CC             -o _wfile_read_atf.o -c -D... ./file_read_atf.c
+  CC             -o _wfile_read_at_allf.o -c -D... ./file_read_at_allf.c
+  CC             -o _wfile_write_atf.o -c -D... ./file_write_atf.c
+  CC             -o _wfile_write_at_allf.o -c -D... ./file_write_at_allf.c
+  CC             -o _wfile_iread_atf.o -c -D... ./file_iread_atf.c
+  CC             -o _wfile_iwrite_atf.o -c -D... ./file_iwrite_atf.c
+  CC             -o _wfile_readf.o -c -D... ./file_readf.c
+  CC             -o _wfile_read_allf.o -c -D... ./file_read_allf.c
+  CC             -o _wfile_writef.o -c -D... ./file_writef.c
+  CC             -o _wfile_write_allf.o -c -D... ./file_write_allf.c
+  CC             -o _wfile_ireadf.o -c -D... ./file_ireadf.c
+  CC             -o _wfile_iwritef.o -c -D... ./file_iwritef.c
+  CC             -o _wfile_seekf.o -c -D... ./file_seekf.c
+  CC             -o _wfile_get_positionf.o -c -D... ./file_get_positionf.c
+  CC             -o _wfile_get_byte_offsetf.o -c -D... ./file_get_byte_offsetf.c
+  CC             -o _wfile_read_sharedf.o -c -D... ./file_read_sharedf.c
+  CC             -o _wfile_write_sharedf.o -c -D... ./file_write_sharedf.c
+  CC             -o _wfile_iread_sharedf.o -c -D... ./file_iread_sharedf.c
+  CC             -o _wfile_iwrite_sharedf.o -c -D... ./file_iwrite_sharedf.c
+  CC             -o _wfile_read_orderedf.o -c -D... ./file_read_orderedf.c
+  CC             -o _wfile_write_orderedf.o -c -D... ./file_write_orderedf.c
+  CC             -o _wfile_seek_sharedf.o -c -D... ./file_seek_sharedf.c
+  CC             -o _wfile_get_position_sharedf.o -c -D... ./file_get_position_sharedf.c
+  CC             -o _wfile_read_at_all_beginf.o -c -D... ./file_read_at_all_beginf.c
+  CC             -o _wfile_read_at_all_endf.o -c -D... ./file_read_at_all_endf.c
+  CC             -o _wfile_write_at_all_beginf.o -c -D... ./file_write_at_all_beginf.c
+  CC             -o _wfile_write_at_all_endf.o -c -D... ./file_write_at_all_endf.c
+  CC             -o _wfile_read_all_beginf.o -c -D... ./file_read_all_beginf.c
+  CC             -o _wfile_read_all_endf.o -c -D... ./file_read_all_endf.c
+  CC             -o _wfile_write_all_beginf.o -c -D... ./file_write_all_beginf.c
+  CC             -o _wfile_write_all_endf.o -c -D... ./file_write_all_endf.c
+  CC             -o _wfile_read_ordered_beginf.o -c -D... ./file_read_ordered_beginf.c
+  CC             -o _wfile_read_ordered_endf.o -c -D... ./file_read_ordered_endf.c
+  CC             -o _wfile_write_ordered_beginf.o -c -D... ./file_write_ordered_beginf.c
+  CC             -o _wfile_write_ordered_endf.o -c -D... ./file_write_ordered_endf.c
+  CC             -o _wfile_get_type_extentf.o -c -D... ./file_get_type_extentf.c
+  CC             -o _wregister_datarepf.o -c -D... ./register_datarepf.c
+  CC             -o _wfile_set_atomicityf.o -c -D... ./file_set_atomicityf.c
+  CC             -o _wfile_get_atomicityf.o -c -D... ./file_get_atomicityf.c
+  CC             -o _wfile_syncf.o -c -D... ./file_syncf.c
+  CC             -o _winitf.o -c -D... ./initf.c
+  CC             -o _winitthreadf.o -c -D... ./initthreadf.c
+  CC             -o _wpcontrolf.o -c -D... ./pcontrolf.c
+  CC             -o _waddressf.o -c -D... ./addressf.c
+  CC             -o _wgetaddressf.o -c -D... ./getaddressf.c
+  CC             -o _wwtimef.o -c -D... ./wtimef.c
+  CC             -o _wwtickf.o -c -D... ./wtickf.c
+  CC             -o _wkeyval_createf.o -c -D... ./keyval_createf.c
+  CC             -o _wdup_fnf.o -c -D... ./dup_fnf.c
+  CC             -o _wnull_del_fnf.o -c -D... ./null_del_fnf.c
+  CC             -o _wnull_copy_fnf.o -c -D... ./null_copy_fnf.c
+  CC             -o _wdup_comm_fnf.o -c -D... ./dup_comm_fnf.c
+  CC             -o _wnull_comm_del_fnf.o -c -D... ./null_comm_del_fnf.c
+  CC             -o _wnull_comm_copy_fnf.o -c -D... ./null_comm_copy_fnf.c
+  CC             -o _wdup_win_fnf.o -c -D... ./dup_win_fnf.c
+  CC             -o _wnull_win_del_fnf.o -c -D... ./null_win_del_fnf.c
+  CC             -o _wnull_win_copy_fnf.o -c -D... ./null_win_copy_fnf.c
+  CC             -o _wdup_type_fnf.o -c -D... ./dup_type_fnf.c
+  CC             -o _wnull_type_del_fnf.o -c -D... ./null_type_del_fnf.c
+  CC             -o _wnull_type_copy_fnf.o -c -D... ./null_type_copy_fnf.c
+  CC             -o _wstatusf2c.o -c -D... ./statusf2c.c
+  CC             -o _wstatusc2f.o -c -D... ./statusc2f.c
+  AR cr ../../../lib/libfmpich.a _wsendf.o _wrecvf.o _wget_countf.o _wbsendf.o _wssendf.o _wrsendf.o _wbufattachf.o _wbufdetachf.o _wisendf.o _wibsendf.o _wissendf.o _wirsendf.o _wirecvf.o _wwaitf.o _wtestf.o _wrequest_freef.o _wwaitanyf.o _wtestanyf.o _wwaitallf.o _wtestallf.o _wwaitsomef.o _wtestsomef.o _wiprobef.o _wprobef.o _wcancelf.o _wtestcancelf.o _wsend_initf.o _wbsend_initf.o _wssend_initf.o _wrsend_initf.o _wrecv_initf.o _wstartf.o _wstartallf.o _wsendrecvf.o _wsndrcvrplf.o _wtypecontigf.o _wtype_vectorf.o _wtype_hvectorf.o _wtype_indexedf.o _wtype_hindexedf.o _wtype_structf.o _wtype_extentf.o _wtype_sizef.o _wtype_lbf.o _wtype_ubf.o _wtype_commitf.o _wtype_freef.o _wget_elementsf.o _wpackf.o _wunpackf.o _wpack_sizef.o _wbarrierf.o _wbcastf.o _wgatherf.o _wgathervf.o _wscatterf.o _wscattervf.o _wallgatherf.o _wallgathervf.o _walltoallf.o _walltoallvf.o _wreducef.o _wop_createf.o _wop_freef.o _wallreducef.o _wredscatf.o _wscanf.o _wgroup_sizef.o _wgroup_rankf.o _wgrouptranksf.o _wgroup_comparef.o _wcomm_groupf.o _wgroup_unionf.o _wgroupinterf.o _wgroupdifff.o _wgroup_inclf.o _wgroup_exclf.o _wgrouprinclf.o _wgrouprexclf.o _wgroup_freef.o _wcomm_sizef.o _wcomm_rankf.o _wcomm_comparef.o _wcomm_dupf.o _wcomm_createf.o _wcomm_splitf.o _wcomm_freef.o _wcommtesticf.o _wcommrsizef.o _wcommrgroupf.o _wiccreatef.o _wicmergef.o _wkeyval_freef.o _wattr_putf.o _wattr_getf.o _wattr_deletef.o _wtopo_testf.o _wcart_createf.o _wdims_createf.o _wgraph_createf.o _wgraphdims_getf.o _wgraph_getf.o _wcartdim_getf.o _wcart_getf.o _wcart_rankf.o _wcart_coordsf.o _wgrfnbcountf.o _wgrfnbrsf.o _wcart_shiftf.o _wcart_subf.o _wcart_mapf.o _wgraph_mapf.o _wgetpnamef.o _wget_versionf.o _werrhcreatef.o _werrhsetf.o _werrhgetf.o _werrhfreef.o _werror_stringf.o _werror_classf.o _wfinalizef.o _winitializedf.o _wabortf.o _wclose_portf.o _wcomm_acceptf.o _wcomm_connectf.o _wcommdiscf.o _wcommparentf.o _wcomm_joinf.o _wcomm_spawnf.o _wspawnmultf.o _wlookup_namef.o _wopen_portf.o _wpublish_namef.o _wunpubnamef.o _waccumulatef.o _wgetf.o _wputf.o _wwin_completef.o _wwin_createf.o _wwin_fencef.o _wwin_freef.o _wwin_get_groupf.o _wwin_lockf.o _wwin_postf.o _wwin_startf.o _wwin_testf.o _wwin_unlockf.o _wwin_waitf.o _walltoallwf.o _wexscanf.o _wadderrclassf.o _wadderrcodef.o _wadderrstringf.o _wcommcallerrf.o _wcommnewkeyf.o _wcommdelattrf.o _wcommfreekeyf.o _wcomm_get_attrf.o _wcommgetnamf.o _wcomm_set_attrf.o _wcomm_set_namef.o _wfilecallerrf.o _wgreqcompletef.o _wgreqstartf.o _wisthrmainf.o _wquery_threadf.o _wstatgetclf.o _wstatsetelf.o _wtypenewkeyf.o _wtypedelattrf.o _wtype_dupf.o _wtypefreekeyf.o _wtype_get_attrf.o _wtypegetcntsf.o _wtypegetenvf.o _wtypegnamef.o _wtypesetattrf.o _wtypesetnamef.o _wtype_match_sizef.o _wwincallerrf.o _wwinnewkeyf.o _wwindelattrf.o _wwinfreekeyf.o _wwin_get_attrf.o _wwin_get_namef.o _wwin_set_attrf.o _wwin_set_namef.o _walloc_memf.o _wcommcreerrf.o _wcommgeterrf.o _wcommseterrf.o _wfilecreerrf.o _wfilegeterrf.o _wfileseterrf.o _wfinalizedf.o _wfree_memf.o _winfo_createf.o _winfo_deletef.o _winfo_dupf.o _winfo_freef.o _winfo_getf.o _winfognkf.o _winfognthkf.o _winfovallenf.o _winfo_setf.o _wpack_externalf.o _wpackesizef.o _wreqgetstatf.o _wtypedarrayf.o _wtypechindf.o _wtypechvecf.o _wtypecindbf.o _wtypecresizef.o _wtypecstructf.o _wtypecsubarrf.o _wtypegetextentf.o _wtypegtextf.o _wunpackextf.o _wwincreerrf.o _wwingeterrf.o _wwinseterrf.o _wreduce_localf.o _wop_commutativef.o _wreduce_scatter_blockf.o _wdist_graph_create_adjacentf.o _wdist_graph_createf.o _wdist_graph_neighbors_countf.o _wdist_graph_neighborsf.o _wfile_openf.o _wfile_closef.o _wfile_deletef.o _wfile_set_sizef.o _wfile_preallocatef.o _wfile_get_sizef.o _wfile_get_groupf.o _wfile_get_amodef.o _wfile_set_infof.o _wfile_get_infof.o _wfile_set_viewf.o _wfile_get_viewf.o _wfile_read_atf.o _wfile_read_at_allf.o _wfile_write_atf.o _wfile_write_at_allf.o _wfile_iread_atf.o _wfile_iwrite_atf.o _wfile_readf.o _wfile_read_allf.o _wfile_writef.o _wfile_write_allf.o _wfile_ireadf.o _wfile_iwritef.o _wfile_seekf.o _wfile_get_positionf.o _wfile_get_byte_offsetf.o _wfile_read_sharedf.o _wfile_write_sharedf.o _wfile_iread_sharedf.o _wfile_iwrite_sharedf.o _wfile_read_orderedf.o _wfile_write_orderedf.o _wfile_seek_sharedf.o _wfile_get_position_sharedf.o _wfile_read_at_all_beginf.o _wfile_read_at_all_endf.o _wfile_write_at_all_beginf.o _wfile_write_at_all_endf.o _wfile_read_all_beginf.o _wfile_read_all_endf.o _wfile_write_all_beginf.o _wfile_write_all_endf.o _wfile_read_ordered_beginf.o _wfile_read_ordered_endf.o _wfile_write_ordered_beginf.o _wfile_write_ordered_endf.o _wfile_get_type_extentf.o _wregister_datarepf.o _wfile_set_atomicityf.o _wfile_get_atomicityf.o _wfile_syncf.o _winitf.o _winitthreadf.o _wpcontrolf.o _waddressf.o _wgetaddressf.o _wwtimef.o _wwtickf.o _wkeyval_createf.o _wdup_fnf.o _wnull_del_fnf.o _wnull_copy_fnf.o _wdup_comm_fnf.o _wnull_comm_del_fnf.o _wnull_comm_copy_fnf.o _wdup_win_fnf.o _wnull_win_del_fnf.o _wnull_win_copy_fnf.o _wdup_type_fnf.o _wnull_type_del_fnf.o _wnull_type_copy_fnf.o _wstatusf2c.o _wstatusc2f.o
+  RANLIB          libfmpich.a
+date > .libstamp0
+  CC              sendf.c
+  CC              recvf.c
+  CC              get_countf.c
+  CC              bsendf.c
+  CC              ssendf.c
+  CC              rsendf.c
+  CC              bufattachf.c
+  CC              bufdetachf.c
+  CC              isendf.c
+  CC              ibsendf.c
+  CC              issendf.c
+  CC              irsendf.c
+  CC              irecvf.c
+  CC              waitf.c
+  CC              testf.c
+  CC              request_freef.c
+  CC              waitanyf.c
+  CC              testanyf.c
+  CC              waitallf.c
+  CC              testallf.c
+  CC              waitsomef.c
+  CC              testsomef.c
+  CC              iprobef.c
+  CC              probef.c
+  CC              cancelf.c
+  CC              testcancelf.c
+  CC              send_initf.c
+  CC              bsend_initf.c
+  CC              ssend_initf.c
+  CC              rsend_initf.c
+  CC              recv_initf.c
+  CC              startf.c
+  CC              startallf.c
+  CC              sendrecvf.c
+  CC              sndrcvrplf.c
+  CC              typecontigf.c
+  CC              type_vectorf.c
+  CC              type_hvectorf.c
+  CC              type_indexedf.c
+  CC              type_hindexedf.c
+  CC              type_structf.c
+  CC              type_extentf.c
+  CC              type_sizef.c
+  CC              type_lbf.c
+  CC              type_ubf.c
+  CC              type_commitf.c
+  CC              type_freef.c
+  CC              get_elementsf.c
+  CC              packf.c
+  CC              unpackf.c
+  CC              pack_sizef.c
+  CC              barrierf.c
+  CC              bcastf.c
+  CC              gatherf.c
+  CC              gathervf.c
+  CC              scatterf.c
+  CC              scattervf.c
+  CC              allgatherf.c
+  CC              allgathervf.c
+  CC              alltoallf.c
+  CC              alltoallvf.c
+  CC              reducef.c
+  CC              op_createf.c
+  CC              op_freef.c
+  CC              allreducef.c
+  CC              redscatf.c
+  CC              scanf.c
+  CC              group_sizef.c
+  CC              group_rankf.c
+  CC              grouptranksf.c
+  CC              group_comparef.c
+  CC              comm_groupf.c
+  CC              group_unionf.c
+  CC              groupinterf.c
+  CC              groupdifff.c
+  CC              group_inclf.c
+  CC              group_exclf.c
+  CC              grouprinclf.c
+  CC              grouprexclf.c
+  CC              group_freef.c
+  CC              comm_sizef.c
+  CC              comm_rankf.c
+  CC              comm_comparef.c
+  CC              comm_dupf.c
+  CC              comm_createf.c
+  CC              comm_splitf.c
+  CC              comm_freef.c
+  CC              commtesticf.c
+  CC              commrsizef.c
+  CC              commrgroupf.c
+  CC              iccreatef.c
+  CC              icmergef.c
+  CC              keyval_freef.c
+  CC              attr_putf.c
+  CC              attr_getf.c
+  CC              attr_deletef.c
+  CC              topo_testf.c
+  CC              cart_createf.c
+  CC              dims_createf.c
+  CC              graph_createf.c
+  CC              graphdims_getf.c
+  CC              graph_getf.c
+  CC              cartdim_getf.c
+  CC              cart_getf.c
+  CC              cart_rankf.c
+  CC              cart_coordsf.c
+  CC              grfnbcountf.c
+  CC              grfnbrsf.c
+  CC              cart_shiftf.c
+  CC              cart_subf.c
+  CC              cart_mapf.c
+  CC              graph_mapf.c
+  CC              getpnamef.c
+  CC              get_versionf.c
+  CC              errhcreatef.c
+  CC              errhsetf.c
+  CC              errhgetf.c
+  CC              errhfreef.c
+  CC              error_stringf.c
+  CC              error_classf.c
+  CC              finalizef.c
+  CC              initializedf.c
+  CC              abortf.c
+  CC              close_portf.c
+  CC              comm_acceptf.c
+  CC              comm_connectf.c
+  CC              commdiscf.c
+  CC              commparentf.c
+  CC              comm_joinf.c
+  CC              comm_spawnf.c
+  CC              spawnmultf.c
+  CC              lookup_namef.c
+  CC              open_portf.c
+  CC              publish_namef.c
+  CC              unpubnamef.c
+  CC              accumulatef.c
+  CC              getf.c
+  CC              putf.c
+  CC              win_completef.c
+  CC              win_createf.c
+  CC              win_fencef.c
+  CC              win_freef.c
+  CC              win_get_groupf.c
+  CC              win_lockf.c
+  CC              win_postf.c
+  CC              win_startf.c
+  CC              win_testf.c
+  CC              win_unlockf.c
+  CC              win_waitf.c
+  CC              alltoallwf.c
+  CC              exscanf.c
+  CC              adderrclassf.c
+  CC              adderrcodef.c
+  CC              adderrstringf.c
+  CC              commcallerrf.c
+  CC              commnewkeyf.c
+  CC              commdelattrf.c
+  CC              commfreekeyf.c
+  CC              comm_get_attrf.c
+  CC              commgetnamf.c
+  CC              comm_set_attrf.c
+  CC              comm_set_namef.c
+  CC              filecallerrf.c
+  CC              greqcompletef.c
+  CC              greqstartf.c
+  CC              isthrmainf.c
+  CC              query_threadf.c
+  CC              statgetclf.c
+  CC              statsetelf.c
+  CC              typenewkeyf.c
+  CC              typedelattrf.c
+  CC              type_dupf.c
+  CC              typefreekeyf.c
+  CC              type_get_attrf.c
+  CC              typegetcntsf.c
+  CC              typegetenvf.c
+  CC              typegnamef.c
+  CC              typesetattrf.c
+  CC              typesetnamef.c
+  CC              type_match_sizef.c
+  CC              wincallerrf.c
+  CC              winnewkeyf.c
+  CC              windelattrf.c
+  CC              winfreekeyf.c
+  CC              win_get_attrf.c
+  CC              win_get_namef.c
+  CC              win_set_attrf.c
+  CC              win_set_namef.c
+  CC              alloc_memf.c
+  CC              commcreerrf.c
+  CC              commgeterrf.c
+  CC              commseterrf.c
+  CC              filecreerrf.c
+  CC              filegeterrf.c
+  CC              fileseterrf.c
+  CC              finalizedf.c
+  CC              free_memf.c
+  CC              info_createf.c
+  CC              info_deletef.c
+  CC              info_dupf.c
+  CC              info_freef.c
+  CC              info_getf.c
+  CC              infognkf.c
+  CC              infognthkf.c
+  CC              infovallenf.c
+  CC              info_setf.c
+  CC              pack_externalf.c
+  CC              packesizef.c
+  CC              reqgetstatf.c
+  CC              typedarrayf.c
+  CC              typechindf.c
+  CC              typechvecf.c
+  CC              typecindbf.c
+  CC              typecresizef.c
+  CC              typecstructf.c
+  CC              typecsubarrf.c
+  CC              typegetextentf.c
+  CC              typegtextf.c
+  CC              unpackextf.c
+  CC              wincreerrf.c
+  CC              wingeterrf.c
+  CC              winseterrf.c
+  CC              reduce_localf.c
+  CC              op_commutativef.c
+  CC              reduce_scatter_blockf.c
+  CC              dist_graph_create_adjacentf.c
+  CC              dist_graph_createf.c
+  CC              dist_graph_neighbors_countf.c
+  CC              dist_graph_neighborsf.c
+  CC              file_openf.c
+  CC              file_closef.c
+  CC              file_deletef.c
+  CC              file_set_sizef.c
+  CC              file_preallocatef.c
+  CC              file_get_sizef.c
+  CC              file_get_groupf.c
+  CC              file_get_amodef.c
+  CC              file_set_infof.c
+  CC              file_get_infof.c
+  CC              file_set_viewf.c
+  CC              file_get_viewf.c
+  CC              file_read_atf.c
+  CC              file_read_at_allf.c
+  CC              file_write_atf.c
+  CC              file_write_at_allf.c
+  CC              file_iread_atf.c
+  CC              file_iwrite_atf.c
+  CC              file_readf.c
+  CC              file_read_allf.c
+  CC              file_writef.c
+  CC              file_write_allf.c
+  CC              file_ireadf.c
+  CC              file_iwritef.c
+  CC              file_seekf.c
+  CC              file_get_positionf.c
+  CC              file_get_byte_offsetf.c
+  CC              file_read_sharedf.c
+  CC              file_write_sharedf.c
+  CC              file_iread_sharedf.c
+  CC              file_iwrite_sharedf.c
+  CC              file_read_orderedf.c
+  CC              file_write_orderedf.c
+  CC              file_seek_sharedf.c
+  CC              file_get_position_sharedf.c
+  CC              file_read_at_all_beginf.c
+  CC              file_read_at_all_endf.c
+  CC              file_write_at_all_beginf.c
+  CC              file_write_at_all_endf.c
+  CC              file_read_all_beginf.c
+  CC              file_read_all_endf.c
+  CC              file_write_all_beginf.c
+  CC              file_write_all_endf.c
+  CC              file_read_ordered_beginf.c
+  CC              file_read_ordered_endf.c
+  CC              file_write_ordered_beginf.c
+  CC              file_write_ordered_endf.c
+  CC              file_get_type_extentf.c
+  CC              register_datarepf.c
+  CC              file_set_atomicityf.c
+  CC              file_get_atomicityf.c
+  CC              file_syncf.c
+  CC              initf.c
+  CC              initthreadf.c
+  CC              pcontrolf.c
+  CC              addressf.c
+  CC              getaddressf.c
+  CC              wtimef.c
+  CC              wtickf.c
+  CC              keyval_createf.c
+  CC              dup_fnf.c
+  CC              null_del_fnf.c
+  CC              null_copy_fnf.c
+  CC              dup_comm_fnf.c
+  CC              null_comm_del_fnf.c
+  CC              null_comm_copy_fnf.c
+  CC              dup_win_fnf.c
+  CC              null_win_del_fnf.c
+  CC              null_win_copy_fnf.c
+  CC              dup_type_fnf.c
+  CC              null_type_del_fnf.c
+  CC              null_type_copy_fnf.c
+  CC              statusf2c.c
+  CC              statusc2f.c
+  CC              setbot.c
+  FC              setbotf.f
+  AR cr ../../../lib/libmpich.a sendf.o recvf.o get_countf.o bsendf.o ssendf.o rsendf.o bufattachf.o bufdetachf.o isendf.o ibsendf.o issendf.o irsendf.o irecvf.o waitf.o testf.o request_freef.o waitanyf.o testanyf.o waitallf.o testallf.o waitsomef.o testsomef.o iprobef.o probef.o cancelf.o testcancelf.o send_initf.o bsend_initf.o ssend_initf.o rsend_initf.o recv_initf.o startf.o startallf.o sendrecvf.o sndrcvrplf.o typecontigf.o type_vectorf.o type_hvectorf.o type_indexedf.o type_hindexedf.o type_structf.o type_extentf.o type_sizef.o type_lbf.o type_ubf.o type_commitf.o type_freef.o get_elementsf.o packf.o unpackf.o pack_sizef.o barrierf.o bcastf.o gatherf.o gathervf.o scatterf.o scattervf.o allgatherf.o allgathervf.o alltoallf.o alltoallvf.o reducef.o op_createf.o op_freef.o allreducef.o redscatf.o scanf.o group_sizef.o group_rankf.o grouptranksf.o group_comparef.o comm_groupf.o group_unionf.o groupinterf.o groupdifff.o group_inclf.o group_exclf.o grouprinclf.o grouprexclf.o group_freef.o comm_sizef.o comm_rankf.o comm_comparef.o comm_dupf.o comm_createf.o comm_splitf.o comm_freef.o commtesticf.o commrsizef.o commrgroupf.o iccreatef.o icmergef.o keyval_freef.o attr_putf.o attr_getf.o attr_deletef.o topo_testf.o cart_createf.o dims_createf.o graph_createf.o graphdims_getf.o graph_getf.o cartdim_getf.o cart_getf.o cart_rankf.o cart_coordsf.o grfnbcountf.o grfnbrsf.o cart_shiftf.o cart_subf.o cart_mapf.o graph_mapf.o getpnamef.o get_versionf.o errhcreatef.o errhsetf.o errhgetf.o errhfreef.o error_stringf.o error_classf.o finalizef.o initializedf.o abortf.o close_portf.o comm_acceptf.o comm_connectf.o commdiscf.o commparentf.o comm_joinf.o comm_spawnf.o spawnmultf.o lookup_namef.o open_portf.o publish_namef.o unpubnamef.o accumulatef.o getf.o putf.o win_completef.o win_createf.o win_fencef.o win_freef.o win_get_groupf.o win_lockf.o win_postf.o win_startf.o win_testf.o win_unlockf.o win_waitf.o alltoallwf.o exscanf.o adderrclassf.o adderrcodef.o adderrstringf.o commcallerrf.o commnewkeyf.o commdelattrf.o commfreekeyf.o comm_get_attrf.o commgetnamf.o comm_set_attrf.o comm_set_namef.o filecallerrf.o greqcompletef.o greqstartf.o isthrmainf.o query_threadf.o statgetclf.o statsetelf.o typenewkeyf.o typedelattrf.o type_dupf.o typefreekeyf.o type_get_attrf.o typegetcntsf.o typegetenvf.o typegnamef.o typesetattrf.o typesetnamef.o type_match_sizef.o wincallerrf.o winnewkeyf.o windelattrf.o winfreekeyf.o win_get_attrf.o win_get_namef.o win_set_attrf.o win_set_namef.o alloc_memf.o commcreerrf.o commgeterrf.o commseterrf.o filecreerrf.o filegeterrf.o fileseterrf.o finalizedf.o free_memf.o info_createf.o info_deletef.o info_dupf.o info_freef.o info_getf.o infognkf.o infognthkf.o infovallenf.o info_setf.o pack_externalf.o packesizef.o reqgetstatf.o typedarrayf.o typechindf.o typechvecf.o typecindbf.o typecresizef.o typecstructf.o typecsubarrf.o typegetextentf.o typegtextf.o unpackextf.o wincreerrf.o wingeterrf.o winseterrf.o reduce_localf.o op_commutativef.o reduce_scatter_blockf.o dist_graph_create_adjacentf.o dist_graph_createf.o dist_graph_neighbors_countf.o dist_graph_neighborsf.o file_openf.o file_closef.o file_deletef.o file_set_sizef.o file_preallocatef.o file_get_sizef.o file_get_groupf.o file_get_amodef.o file_set_infof.o file_get_infof.o file_set_viewf.o file_get_viewf.o file_read_atf.o file_read_at_allf.o file_write_atf.o file_write_at_allf.o file_iread_atf.o file_iwrite_atf.o file_readf.o file_read_allf.o file_writef.o file_write_allf.o file_ireadf.o file_iwritef.o file_seekf.o file_get_positionf.o file_get_byte_offsetf.o file_read_sharedf.o file_write_sharedf.o file_iread_sharedf.o file_iwrite_sharedf.o file_read_orderedf.o file_write_orderedf.o file_seek_sharedf.o file_get_position_sharedf.o file_read_at_all_beginf.o file_read_at_all_endf.o file_write_at_all_beginf.o file_write_at_all_endf.o file_read_all_beginf.o file_read_all_endf.o file_write_all_beginf.o file_write_all_endf.o file_read_ordered_beginf.o file_read_ordered_endf.o file_write_ordered_beginf.o file_write_ordered_endf.o file_get_type_extentf.o register_datarepf.o file_set_atomicityf.o file_get_atomicityf.o file_syncf.o initf.o initthreadf.o pcontrolf.o addressf.o getaddressf.o wtimef.o wtickf.o keyval_createf.o dup_fnf.o null_del_fnf.o null_copy_fnf.o dup_comm_fnf.o null_comm_del_fnf.o null_comm_copy_fnf.o dup_win_fnf.o null_win_del_fnf.o null_win_copy_fnf.o dup_type_fnf.o null_type_del_fnf.o null_type_copy_fnf.o statusf2c.o statusc2f.o setbot.o setbotf.o
+  RANLIB          libmpich.a
+date > .libstamp2
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/binding/f77'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/binding/cxx'
+  CXX             initcxx.cxx
+  AR cr ../../../lib/libmpichcxx.a initcxx.o
+  RANLIB          libmpichcxx.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/binding/cxx'
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/binding'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/env'
+  CC              mpich2version.c
+gcc -O2   -o mpich2version mpich2version.o  \
+../../lib/libmpich.a -lpthread   -lrt    
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/env'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/packaging'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/packaging/pkgconfig'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/packaging/pkgconfig'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/packaging/envmods'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/packaging/envmods'
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/packaging'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/mpe2'
+make --no-print-directory  build_lib_bin
+
+**** Making src/misc ....
+make --no-print-directory  build_lib_bin
+make --no-print-directory  mpe_debug_objs 
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a
+gcc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -DMPE_NOMPI -o mpehname.no -c mpehname.c
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a mpehname.no
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o decomp.po -c decomp.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o mpe_seq.po -c mpe_seq.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o dbxerr.po -c dbxerr.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o getgrank.po -c getgrank.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o examine.po -c examine.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o privtags.po -c privtags.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o mpehname.po -c mpehname.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o mpe_io.po -c mpe_io.c
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a decomp.po mpe_seq.po dbxerr.po getgrank.po examine.po privtags.po mpehname.po mpe_io.po
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o decompf.po -c decompf.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o mpe_seqf.po -c mpe_seqf.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o getgrankf.po -c getgrankf.c
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a
+
+**** Making src/callstack ....
+make --no-print-directory  build_lib_bin
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -o iterator.po -c iterator.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -o fancyprint.po -c fancyprint.c
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -O2  -o iterator.no -c iterator.c
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -O2  -o fancyprint.no -c fancyprint.c
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a iterator.no fancyprint.no
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a iterator.po fancyprint.po
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/bin/check_callstack
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -O2  -o check_callstack.no -c check_callstack.c
+cp -f check_callstack.no mpe2tmp.o
+gcc -Wl,--export-dynamic -O2  -o /home/molm/mpich2-1.2.1p1/src/mpe2/bin/check_callstack mpe2tmp.o \
+                         -L/home/molm/mpich2-1.2.1p1/src/mpe2/lib -lmpe_nompi
+
+**** Making src/logging ....
+make --no-print-directory  build_lib_bin
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o mpi_null.no -c mpi_null.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_util.no -c clog_util.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_timer.no -c clog_timer.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_uuid.no -c clog_uuid.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_commset.no -c clog_commset.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_preamble.no -c clog_preamble.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_record.no -c clog_record.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_sync.no -c clog_sync.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_block.no -c clog_block.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_buffer.no -c clog_buffer.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_merger.no -c clog_merger.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_cache.no -c clog_cache.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_joiner.no -c clog_joiner.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog.no -c clog.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o mpe_log_thread.no -c mpe_log_thread.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o mpe_log.no -c mpe_log.c
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o mpe_log_null.no -c mpe_log_null.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o mpe_log_null.po -c mpe_log_null.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_util.po -c clog_util.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_timer.po -c clog_timer.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_uuid.po -c clog_uuid.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_commset.po -c clog_commset.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_preamble.po -c clog_preamble.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_record.po -c clog_record.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_sync.po -c clog_sync.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_block.po -c clog_block.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_buffer.po -c clog_buffer.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_merger.po -c clog_merger.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_cache.po -c clog_cache.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog_joiner.po -c clog_joiner.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o clog.po -c clog.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o mpe_log_thread.po -c mpe_log_thread.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o mpe_log.po -c mpe_log.c
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a mpi_null.no clog_util.no clog_timer.no clog_uuid.no clog_commset.no clog_preamble.no clog_record.no clog_sync.no clog_block.no clog_buffer.no clog_merger.no clog_cache.no clog_joiner.no clog.no mpe_log_thread.no mpe_log.no
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o mpe_logf.no -c mpe_logf.c
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi_null.a
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi_null.a mpi_null.no mpe_log_null.no
+make[8]: `mpe_logf.no' is up to date.
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi_null.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_null.a
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_null.a mpe_log_null.po
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include   -o mpe_logf.po -c mpe_logf.c
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_null.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a clog_util.po clog_timer.po clog_uuid.po clog_commset.po clog_preamble.po clog_record.po clog_sync.po clog_block.po clog_buffer.po clog_merger.po clog_cache.po clog_joiner.po clog.po mpe_log_thread.po mpe_log.po
+make[8]: `mpe_logf.po' is up to date.
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/bin/clog2_print /home/molm/mpich2-1.2.1p1/src/mpe2/bin/clog2_join /home/molm/mpich2-1.2.1p1/src/mpe2/bin/clog2_repair
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_print.no -c clog_print.c
+cp -f clog_print.no mpe2tmp1.o
+gcc  -O2  -o /home/molm/mpich2-1.2.1p1/src/mpe2/bin/clog2_print mpe2tmp1.o \
+                         -L/home/molm/mpich2-1.2.1p1/src/mpe2/lib -lmpe_nompi
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_join.no -c clog_join.c
+cp -f clog_join.no mpe2tmp2.o
+gcc  -O2  -o /home/molm/mpich2-1.2.1p1/src/mpe2/bin/clog2_join mpe2tmp2.o \
+                         -L/home/molm/mpich2-1.2.1p1/src/mpe2/lib -lmpe_nompi
+gcc -I.. -I../../.. -I../include -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -o clog_repair.no -c clog_repair.c
+cp -f clog_repair.no mpe2tmp3.o
+gcc  -O2  -o /home/molm/mpich2-1.2.1p1/src/mpe2/bin/clog2_repair mpe2tmp3.o \
+                         -L/home/molm/mpich2-1.2.1p1/src/mpe2/lib -lmpe_nompi
+
+**** Making src/wrappers ....
+make --no-print-directory  build_lib_bin
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c log_mpi_util.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c log_mpi_core.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c trace_mpi_core.c
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/liblmpe.a
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/liblmpe.a log_mpi_util.o log_mpi_core.o
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/liblmpe.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libtmpe.a
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libtmpe.a trace_mpi_core.o
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libtmpe.a
+/home/molm/mpich2-1.2.1p1/bin/mpif77   -c mpi_f2c_consts.f
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c mpe_proff.c
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_f2cmpi.a mpi_f2c_consts.o log_mpi_util.o mpe_proff.o
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_f2cmpi.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/mpe_prof.o
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c mpe_prof.c
+make --no-print-directory  linktest_all
+make --no-print-directory  linktest_C
+make --no-print-directory  linktest_F77
+
+
+**** Making src/graphics ....
+make --no-print-directory  build_lib_bin
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include -O2  -DMPE_NOMPI -o mpe_graphics.no -c mpe_graphics.c
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include -O2  -DMPE_NOMPI -o xcolor.no -c xcolor.c
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include -O2  -DMPE_NOMPI -o xframe.no -c xframe.c
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include -O2  -DMPE_NOMPI -o xinit.no -c xinit.c
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include -O2  -DMPE_NOMPI -o xwmap.no -c xwmap.c
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include -O2  -DMPE_NOMPI -o xmouse.no -c xmouse.c
+gcc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include -O2  -DMPE_NOMPI -o xkey.no -c xkey.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o mpe_graphics.po -c mpe_graphics.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o xcolor.po -c xcolor.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o xframe.po -c xframe.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o xinit.po -c xinit.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o xwmap.po -c xwmap.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o xmouse.po -c xmouse.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o xkey.po -c xkey.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o visual_mess.po -c visual_mess.c
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a 
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a mpe_graphics.no xcolor.no xframe.no xinit.no xwmap.no xmouse.no xkey.no
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a 
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a mpe_graphics.po xcolor.po xframe.po xinit.po xwmap.po xmouse.po xkey.po
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o mpe_graphicsf.po -c mpe_graphicsf.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include -I/usr/X11R6/include   -o xmousef.po -c xmousef.c
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe.a
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libampe.a
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libampe.a visual_mess.po
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libampe.a
+make --no-print-directory  linktest_all
+make --no-print-directory  linktest_C
+make --no-print-directory  linktest_F77
+
+
+**** Making src/collchk ....
+make --no-print-directory  build_lib_bin
+make --no-print-directory  /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_collchk.a
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c begin.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c err_han.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c is_init.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c check_buff.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c check_dims.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c check_graph.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c check_size.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_amode.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_call.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_dtype.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_high_low.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_int.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_local_leader.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_op.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_root.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_tag.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_datarep.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c same_whence.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c allgather.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c allgatherv.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c allreduce.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c alltoall.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c alltoallv.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c barrier.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c bcast.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c cart_create.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c cart_map.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c gather.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c gatherv.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c graph_create.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c graph_map.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c init.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c intercomm_create.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c intercomm_merge.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c reduce.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c reduce_scatter.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c scan.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c scatter.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c scatterv.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c finalize.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c exscan.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c alltoallw.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_open.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_preallocate.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_read_all_begin.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_read_all.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_read_all_end.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_read_at_all_begin.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_read_at_all.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_read_at_all_end.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_read_ordered_begin.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_read_ordered.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_read_ordered_end.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_seek_shared.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_set_atomicity.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_set_size.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_set_view.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_write_all_begin.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_write_all.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_write_all_end.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_write_at_all_begin.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_write_at_all.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_write_at_all_end.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_write_ordered_begin.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_write_ordered.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c file_write_ordered_end.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c add_fh.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c get_fh.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c win_create.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c win_fence.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c add_win.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c get_win.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c comm_accept.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c comm_connect.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c comm_create.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c comm_disconnect.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c comm_dup.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c comm_spawn.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c comm_spawn_multiple.c
+/home/molm/mpich2-1.2.1p1/bin/mpicc -I.. -I../include -I/home/molm/mpich2-1.2.1p1/src/mpe2/include -I../../.. -I../../../include   -c comm_split.c
+ar cr /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_collchk.a *.o
+ranlib /home/molm/mpich2-1.2.1p1/src/mpe2/lib/libmpe_collchk.a
+make --no-print-directory  linktest_all
+make --no-print-directory  linktest_C
+make --no-print-directory  linktest_F77
+
+
+**** Making src/slog2sdk ....
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/mpe2'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pmi'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pmi/simple'
+  CC              simple_pmiutil.c
+  CC              simple_pmi.c
+  AR cr ../../../lib/libmpich.a simple_pmiutil.o simple_pmi.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pmi/simple'
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pmi'
+make[2]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pm'
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pm/mpd'
+gcc -I. -I. -O2  -c  mpdroot.c 
+gcc -O2   -o mpdroot mpdroot.o -lpthread   -lrt    
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pm/mpd'
+make all-postamble
+make[3]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pm'
+if [ -n "mpd" -a -d "mpd" ] ; then \
+build_prefix=`cd ../.. && pwd` && cd mpd && \
+make prefix=$build_prefix exec_prefix=$build_prefix bindir=$build_prefix/bin mpich2-build-install ; \
+fi
+make[4]: Entering directory `/home/molm/mpich2-1.2.1p1/src/pm/mpd'
+/usr/bin/install -c -m 644 ./mpdroot.c mpich2-mpdroot.c
+gcc -I. -I. -O2  -c mpich2-mpdroot.c
+rm -f mpich2-mpdroot.c
+gcc -O2   -o mpich2-mpdroot mpich2-mpdroot.o -lpthread   -lrt    
+rm -f mpich2-mpdroot.o
+copying python files/links into  /home/molm/mpich2-1.2.1p1/bin
+rm -f mpich2-mpdroot
+make[4]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pm/mpd'
+make[3]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pm'
+make[2]: Leaving directory `/home/molm/mpich2-1.2.1p1/src/pm'
+make[1]: Leaving directory `/home/molm/mpich2-1.2.1p1/src'
+make[1]: Entering directory `/home/molm/mpich2-1.2.1p1/examples'
+  CC              cpi.c
+../bin/mpicc   -o cpi cpi.o  -lm 
+make[1]: Leaving directory `/home/molm/mpich2-1.2.1p1/examples'
+make all-postamble
+make[1]: Entering directory `/home/molm/mpich2-1.2.1p1'
+Make completed
+make[1]: Leaving directory `/home/molm/mpich2-1.2.1p1'

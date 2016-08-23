@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #766: unprotected pragma</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>Hi,<BR>
+&nbsp;My mistake the &quot;#pragma&quot; had to be included in the other part of &quot;#ifdef&quot;. These wrappers are included indirectly from &quot;mpiu_os_wrappers.h&quot; which is probably included in one of the main nemesis header files.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,1944 @@
+commit 466264dfcd38cb943aa6d2dab0e52c434860b24e
+Author: Dave Goodell <goodell@mcs.anl.gov>
+Date:   Fri May 15 09:01:30 2009 -0500
+
+    Properly namespace global symbols, change common symbols to globals.
+    
+    Reviewed by balaji@.
+
+diff --git a/src/pm/hydra/bootstrap/fork/fork_init.c b/src/pm/hydra/bootstrap/fork/fork_init.c
+index 1a45ef2..8af4710 100644
+--- a/src/pm/hydra/bootstrap/fork/fork_init.c
++++ b/src/pm/hydra/bootstrap/fork/fork_init.c
+@@ -8,8 +8,6 @@
+ #include "bsci.h"
+ #include "fork.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_fork_init(void)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/bootstrap/fork/fork_launch.c b/src/pm/hydra/bootstrap/fork/fork_launch.c
+index 9060f27..b5c50e9 100644
+--- a/src/pm/hydra/bootstrap/fork/fork_launch.c
++++ b/src/pm/hydra/bootstrap/fork/fork_launch.c
+@@ -9,8 +9,6 @@
+ #include "bscu.h"
+ #include "fork.h"
+ 
+-struct HYD_BSCI_info HYD_BSCI_info;
+-
+ HYD_Status HYD_BSCD_fork_launch_procs(char **global_args, char *partition_id_str,
+                                       struct HYD_Partition *partition_list)
+ {
+diff --git a/src/pm/hydra/bootstrap/rsh/rsh_init.c b/src/pm/hydra/bootstrap/rsh/rsh_init.c
+index 5a40814..9b0288a 100644
+--- a/src/pm/hydra/bootstrap/rsh/rsh_init.c
++++ b/src/pm/hydra/bootstrap/rsh/rsh_init.c
+@@ -8,8 +8,6 @@
+ #include "bsci.h"
+ #include "rsh.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_rsh_init(void)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/bootstrap/rsh/rsh_launch.c b/src/pm/hydra/bootstrap/rsh/rsh_launch.c
+index 3e6557e..a980abe 100644
+--- a/src/pm/hydra/bootstrap/rsh/rsh_launch.c
++++ b/src/pm/hydra/bootstrap/rsh/rsh_launch.c
+@@ -9,8 +9,6 @@
+ #include "bscu.h"
+ #include "rsh.h"
+ 
+-struct HYD_BSCI_info HYD_BSCI_info;
+-
+ /*
+  * HYD_BSCD_rsh_launch_procs: For each process, we create an
+  * executable which reads like "rsh exec args" and the list of
+diff --git a/src/pm/hydra/bootstrap/slurm/slurm_init.c b/src/pm/hydra/bootstrap/slurm/slurm_init.c
+index 1c4fc1c..d81a9f2 100644
+--- a/src/pm/hydra/bootstrap/slurm/slurm_init.c
++++ b/src/pm/hydra/bootstrap/slurm/slurm_init.c
+@@ -8,8 +8,6 @@
+ #include "bsci.h"
+ #include "slurm.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_slurm_init(void)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/bootstrap/slurm/slurm_launch.c b/src/pm/hydra/bootstrap/slurm/slurm_launch.c
+index d573018..158eba6 100644
+--- a/src/pm/hydra/bootstrap/slurm/slurm_launch.c
++++ b/src/pm/hydra/bootstrap/slurm/slurm_launch.c
+@@ -9,8 +9,6 @@
+ #include "bscu.h"
+ #include "slurm.h"
+ 
+-struct HYD_BSCI_info HYD_BSCI_info;
+-
+ HYD_Status HYD_BSCD_slurm_launch_procs(char **global_args, char *partition_id_str,
+                                        struct HYD_Partition *partition_list)
+ {
+diff --git a/src/pm/hydra/bootstrap/src/bsci_finalize.c b/src/pm/hydra/bootstrap/src/bsci_finalize.c
+index 7c4f350..ca9fe74 100644
+--- a/src/pm/hydra/bootstrap/src/bsci_finalize.c
++++ b/src/pm/hydra/bootstrap/src/bsci_finalize.c
+@@ -8,8 +8,6 @@
+ #include "bsci.h"
+ #include "bscu.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_finalize(void)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/bootstrap/src/bsci_init.c.in b/src/pm/hydra/bootstrap/src/bsci_init.c.in
+index fbd42fc..a643bd2 100644
+--- a/src/pm/hydra/bootstrap/src/bsci_init.c.in
++++ b/src/pm/hydra/bootstrap/src/bsci_init.c.in
+@@ -8,11 +8,11 @@
+ #include "bsci.h"
+ #include "bscu.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
++struct HYD_BSCI_fns HYD_BSCI_fns = {0};
+ 
+ char *HYD_BSCI_comp_array[] = { @hydra_bss_name_array@ };
+ HYD_Status(*HYD_BSCI_comp_init[])(void) = { @hydra_bss_init_array@ };
+-struct HYD_BSCI_info HYD_BSCI_info;
++struct HYD_BSCI_info HYD_BSCI_info = {0};
+ 
+ HYD_Status HYD_BSCI_init(char *bootstrap, char *bootstrap_exec, int enablex, int debug)
+ {
+diff --git a/src/pm/hydra/bootstrap/src/bsci_launch.c b/src/pm/hydra/bootstrap/src/bsci_launch.c
+index 32465b3..7a64b11 100644
+--- a/src/pm/hydra/bootstrap/src/bsci_launch.c
++++ b/src/pm/hydra/bootstrap/src/bsci_launch.c
+@@ -7,8 +7,6 @@
+ #include "hydra_utils.h"
+ #include "bsci.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_launch_procs(char **global_args, char *partition_id_str,
+                                  struct HYD_Partition *partition_list)
+ {
+diff --git a/src/pm/hydra/bootstrap/src/bsci_query_node_list.c b/src/pm/hydra/bootstrap/src/bsci_query_node_list.c
+index 35a74e3..2ba57af 100644
+--- a/src/pm/hydra/bootstrap/src/bsci_query_node_list.c
++++ b/src/pm/hydra/bootstrap/src/bsci_query_node_list.c
+@@ -8,8 +8,6 @@
+ #include "bsci.h"
+ #include "bscu.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_query_node_list(int num_nodes, struct HYD_Partition **partition_list)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/bootstrap/src/bsci_query_partition_id.c b/src/pm/hydra/bootstrap/src/bsci_query_partition_id.c
+index 90d695d..95fda79 100644
+--- a/src/pm/hydra/bootstrap/src/bsci_query_partition_id.c
++++ b/src/pm/hydra/bootstrap/src/bsci_query_partition_id.c
+@@ -8,8 +8,6 @@
+ #include "bsci.h"
+ #include "bscu.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_query_partition_id(int *partition_id)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/bootstrap/src/bsci_usize.c b/src/pm/hydra/bootstrap/src/bsci_usize.c
+index d2a695b..d539d0f 100644
+--- a/src/pm/hydra/bootstrap/src/bsci_usize.c
++++ b/src/pm/hydra/bootstrap/src/bsci_usize.c
+@@ -8,8 +8,6 @@
+ #include "bsci.h"
+ #include "bscu.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_get_usize(int *size)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/bootstrap/src/bsci_wait.c b/src/pm/hydra/bootstrap/src/bsci_wait.c
+index 42c5d79..9d94fcd 100644
+--- a/src/pm/hydra/bootstrap/src/bsci_wait.c
++++ b/src/pm/hydra/bootstrap/src/bsci_wait.c
+@@ -8,8 +8,6 @@
+ #include "bsci.h"
+ #include "bscu.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_wait_for_completion(struct HYD_Partition *partition_list)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/bootstrap/ssh/ssh_init.c b/src/pm/hydra/bootstrap/ssh/ssh_init.c
+index 21a621a..177df37 100644
+--- a/src/pm/hydra/bootstrap/ssh/ssh_init.c
++++ b/src/pm/hydra/bootstrap/ssh/ssh_init.c
+@@ -8,8 +8,6 @@
+ #include "bsci.h"
+ #include "ssh.h"
+ 
+-struct HYD_BSCI_fns HYD_BSCI_fns;
+-
+ HYD_Status HYD_BSCI_ssh_init(void)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/bootstrap/ssh/ssh_launch.c b/src/pm/hydra/bootstrap/ssh/ssh_launch.c
+index d76bd2d..32f1647 100644
+--- a/src/pm/hydra/bootstrap/ssh/ssh_launch.c
++++ b/src/pm/hydra/bootstrap/ssh/ssh_launch.c
+@@ -9,8 +9,6 @@
+ #include "bscu.h"
+ #include "ssh.h"
+ 
+-struct HYD_BSCI_info HYD_BSCI_info;
+-
+ /*
+  * HYD_BSCD_ssh_launch_procs: For each process, we create an
+  * executable which reads like "ssh exec args" and the list of
+diff --git a/src/pm/hydra/css/none/none_finalize.c b/src/pm/hydra/css/none/none_finalize.c
+index b3309c7..7e0fe1e 100644
+--- a/src/pm/hydra/css/none/none_finalize.c
++++ b/src/pm/hydra/css/none/none_finalize.c
+@@ -8,8 +8,6 @@
+ #include "cssi.h"
+ #include "none.h"
+ 
+-struct HYD_CSSI_fns HYD_CSSI_fns;
+-
+ HYD_Status HYD_CSSD_none_finalize(void)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/css/none/none_init.c b/src/pm/hydra/css/none/none_init.c
+index a8e1730..97062b1 100644
+--- a/src/pm/hydra/css/none/none_init.c
++++ b/src/pm/hydra/css/none/none_init.c
+@@ -8,8 +8,6 @@
+ #include "cssi.h"
+ #include "none.h"
+ 
+-struct HYD_CSSI_fns HYD_CSSI_fns;
+-
+ HYD_Status HYD_CSSI_none_init(void)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/css/none/none_query_string.c b/src/pm/hydra/css/none/none_query_string.c
+index e5dedcd..cd5b844 100644
+--- a/src/pm/hydra/css/none/none_query_string.c
++++ b/src/pm/hydra/css/none/none_query_string.c
+@@ -8,8 +8,6 @@
+ #include "cssi.h"
+ #include "none.h"
+ 
+-struct HYD_CSSI_fns HYD_CSSI_fns;
+-
+ HYD_Status HYD_CSSD_none_query_string(char *str)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/css/src/cssi_finalize.c b/src/pm/hydra/css/src/cssi_finalize.c
+index 6477ade..dd8a2d5 100644
+--- a/src/pm/hydra/css/src/cssi_finalize.c
++++ b/src/pm/hydra/css/src/cssi_finalize.c
+@@ -7,8 +7,6 @@
+ #include "hydra_utils.h"
+ #include "cssi.h"
+ 
+-struct HYD_CSSI_fns HYD_CSSI_fns;
+-
+ HYD_Status HYD_CSSI_finalize(void)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/css/src/cssi_init.c.in b/src/pm/hydra/css/src/cssi_init.c.in
+index 0cbcb56..ee950d7 100644
+--- a/src/pm/hydra/css/src/cssi_init.c.in
++++ b/src/pm/hydra/css/src/cssi_init.c.in
+@@ -7,7 +7,7 @@
+ #include "hydra_utils.h"
+ #include "cssi.h"
+ 
+-struct HYD_CSSI_fns HYD_CSSI_fns;
++struct HYD_CSSI_fns HYD_CSSI_fns = {0};
+ 
+ char *HYD_CSSI_comp_array[] = { @hydra_css_name_array@ };
+ HYD_Status(*HYD_CSSI_comp_init[])(void) = { @hydra_css_init_array@ };
+diff --git a/src/pm/hydra/css/src/cssi_query_string.c b/src/pm/hydra/css/src/cssi_query_string.c
+index 6dbdce6..1f26808 100644
+--- a/src/pm/hydra/css/src/cssi_query_string.c
++++ b/src/pm/hydra/css/src/cssi_query_string.c
+@@ -7,8 +7,6 @@
+ #include "hydra_utils.h"
+ #include "cssi.h"
+ 
+-struct HYD_CSSI_fns HYD_CSSI_fns;
+-
+ HYD_Status HYD_CSSI_query_string(char *str)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/include/hydra.h b/src/pm/hydra/include/hydra.h
+index 99145be..ef68f96 100644
+--- a/src/pm/hydra/include/hydra.h
++++ b/src/pm/hydra/include/hydra.h
+@@ -64,6 +64,6 @@ struct HYD_Handle_ {
+ 
+ typedef struct HYD_Handle_ HYD_Handle;
+ 
+-extern HYD_Handle handle;
++extern HYD_Handle HYD_handle;
+ 
+ #endif /* HYDRA_H_INCLUDED */
+diff --git a/src/pm/hydra/pm/pmiserv/pmi_handle.c b/src/pm/hydra/pm/pmiserv/pmi_handle.c
+index 03214fc..abf4bd6 100644
+--- a/src/pm/hydra/pm/pmiserv/pmi_handle.c
++++ b/src/pm/hydra/pm/pmiserv/pmi_handle.c
+@@ -9,11 +9,9 @@
+ #include "pmi_handle_v1.h"
+ #include "pmi_handle_v2.h"
+ 
+-HYD_Handle handle;
+-HYD_PMCD_pmi_pg_t *pg_list = NULL;
++HYD_PMCD_pmi_pg_t *HYD_pg_list = NULL;
+ 
+-struct HYD_PMCD_pmi_handle *HYD_PMCD_pmi_v1;
+-struct HYD_PMCD_pmi_handle *HYD_PMCD_pmi_v2;
++struct HYD_PMCD_pmi_handle *HYD_PMCD_pmi_handle = {0};
+ 
+ struct segment {
+     int start_pid;
+@@ -208,13 +206,13 @@ HYD_Status HYD_PMCD_pmi_id_to_rank(int id, int *rank)
+ 
+     HYDU_FUNC_ENTER();
+ 
+-    if (handle.ranks_per_proc == -1) {
++    if (HYD_handle.ranks_per_proc == -1) {
+         /* If multiple procs per rank is not defined, use ID as the rank */
+         *rank = id;
+     }
+     else {
+-        *rank = (id * handle.ranks_per_proc) + pg_list->conn_procs[id];
+-        pg_list->conn_procs[id]++;
++        *rank = (id * HYD_handle.ranks_per_proc) + HYD_pg_list->conn_procs[id];
++        HYD_pg_list->conn_procs[id]++;
+     }
+ 
+     HYDU_FUNC_EXIT();
+@@ -239,7 +237,7 @@ HYD_Status HYD_PMCD_pmi_process_mapping(HYD_PMCD_pmi_process_t * process,
+ 
+     seglist_head = NULL;
+     node_id = -1;
+-    FORALL_PARTITIONS(partition, handle.partition_list) {
++    FORALL_PARTITIONS(partition, HYD_handle.partition_list) {
+         node_id++;
+         for (segment = partition->segment_list; segment; segment = segment->next) {
+             HYDU_MALLOC(seg, struct segment *, sizeof(struct segment), status);
+@@ -373,10 +371,10 @@ static struct HYD_PMCD_pmi_node *find_node(HYD_PMCD_pmi_pg_t * pg, int rank)
+     struct HYD_PMCD_pmi_node *node, *tmp;
+     HYD_Status status = HYD_SUCCESS;
+ 
+-    srank = rank % handle.global_core_count;
++    srank = rank % HYD_handle.global_core_count;
+ 
+     node_id = 0;
+-    FORALL_PARTITIONS(partition, handle.partition_list) {
++    FORALL_PARTITIONS(partition, HYD_handle.partition_list) {
+         for (segment = partition->segment_list; segment; segment = segment->next) {
+             if ((srank >= segment->start_pid) &&
+                 (srank < (segment->start_pid + segment->proc_count))) {
+@@ -460,7 +458,7 @@ HYD_PMCD_pmi_process_t *HYD_PMCD_pmi_find_process(int fd)
+     HYD_PMCD_pmi_node_t *node;
+     HYD_PMCD_pmi_process_t *process = NULL;
+ 
+-    for (pg = pg_list; pg; pg = pg->next) {
++    for (pg = HYD_pg_list; pg; pg = pg->next) {
+         for (node = pg->node_list; node; node = node->next) {
+             for (process = node->process_list; process; process = process->next) {
+                 if (process->fd == fd)
+@@ -482,25 +480,25 @@ HYD_Status HYD_PMCD_pmi_init(void)
+ 
+     HYDU_FUNC_ENTER();
+ 
+-    status = create_pg(&pg_list, 0);
++    status = create_pg(&HYD_pg_list, 0);
+     HYDU_ERR_POP(status, "unable to create pg\n");
+ 
+     /* Find the number of processes in the PG */
+-    pg_list->num_subgroups = 0;
+-    FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++    HYD_pg_list->num_subgroups = 0;
++    FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+         for (exec = partition->exec_list; exec; exec = exec->next)
+-            pg_list->num_subgroups += exec->proc_count;
++            HYD_pg_list->num_subgroups += exec->proc_count;
+     }
+ 
+-    if (handle.ranks_per_proc != -1)
+-        pg_list->num_procs = pg_list->num_subgroups * handle.ranks_per_proc;
++    if (HYD_handle.ranks_per_proc != -1)
++        HYD_pg_list->num_procs = HYD_pg_list->num_subgroups * HYD_handle.ranks_per_proc;
+     else
+-        pg_list->num_procs = pg_list->num_subgroups;
++        HYD_pg_list->num_procs = HYD_pg_list->num_subgroups;
+ 
+     /* Allocate and initialize the connected ranks */
+-    HYDU_MALLOC(pg_list->conn_procs, int *, pg_list->num_subgroups * sizeof(int), status);
+-    for (i = 0; i < pg_list->num_subgroups; i++)
+-        pg_list->conn_procs[i] = 0;
++    HYDU_MALLOC(HYD_pg_list->conn_procs, int *, HYD_pg_list->num_subgroups * sizeof(int), status);
++    for (i = 0; i < HYD_pg_list->num_subgroups; i++)
++        HYD_pg_list->conn_procs[i] = 0;
+ 
+   fn_exit:
+     HYDU_FUNC_EXIT();
+@@ -518,7 +516,7 @@ HYD_Status HYD_PMCD_pmi_finalize(void)
+ 
+     HYDU_FUNC_ENTER();
+ 
+-    pg = pg_list;
++    pg = HYD_pg_list;
+     while (pg) {
+         tmp = pg->next;
+ 
+diff --git a/src/pm/hydra/pm/pmiserv/pmi_handle.h b/src/pm/hydra/pm/pmiserv/pmi_handle.h
+index 147d7d3..8aa21a4 100644
+--- a/src/pm/hydra/pm/pmiserv/pmi_handle.h
++++ b/src/pm/hydra/pm/pmiserv/pmi_handle.h
+@@ -83,7 +83,7 @@ HYD_Status HYD_PMCD_pmi_process_mapping(HYD_PMCD_pmi_process_t * process,
+ HYD_Status HYD_PMCD_pmi_init(void);
+ HYD_Status HYD_PMCD_pmi_finalize(void);
+ 
+-extern HYD_PMCD_pmi_pg_t *pg_list;
++extern HYD_PMCD_pmi_pg_t *HYD_pg_list;
+ 
+ struct HYD_PMCD_pmi_handle_fns {
+     char *cmd;
+diff --git a/src/pm/hydra/pm/pmiserv/pmi_handle_common.c b/src/pm/hydra/pm/pmiserv/pmi_handle_common.c
+index e00fef7..ef49cc8 100644
+--- a/src/pm/hydra/pm/pmiserv/pmi_handle_common.c
++++ b/src/pm/hydra/pm/pmiserv/pmi_handle_common.c
+@@ -10,9 +10,6 @@
+ #include "pmi_handle_v1.h"
+ #include "pmi_handle_v2.h"
+ 
+-struct HYD_PMCD_pmi_handle *HYD_PMCD_pmi_v1;
+-struct HYD_PMCD_pmi_handle *HYD_PMCD_pmi_v2;
+-
+ HYD_Status HYD_PMCD_pmi_handle_init(int fd, char *args[])
+ {
+     int pmi_version, pmi_subversion;
+diff --git a/src/pm/hydra/pm/pmiserv/pmi_handle_v1.c b/src/pm/hydra/pm/pmiserv/pmi_handle_v1.c
+index 2135c05..4c162cd 100644
+--- a/src/pm/hydra/pm/pmiserv/pmi_handle_v1.c
++++ b/src/pm/hydra/pm/pmiserv/pmi_handle_v1.c
+@@ -11,9 +11,6 @@
+ #include "pmi_handle.h"
+ #include "pmi_handle_v1.h"
+ 
+-HYD_Handle handle;
+-HYD_PMCD_pmi_pg_t *pg_list;
+-
+ /* TODO: abort, create_kvs, destroy_kvs, getbyidx, spawn */
+ static struct HYD_PMCD_pmi_handle_fns pmi_v1_handle_fns_foo[] = {
+     {"initack", HYD_PMCD_pmi_handle_v1_initack},
+@@ -46,7 +43,7 @@ HYD_Status HYD_PMCD_pmi_handle_v1_initack(int fd, char *args[])
+ 
+     i = 0;
+     tmp[i++] = HYDU_strdup("cmd=initack\ncmd=set size=");
+-    tmp[i++] = HYDU_int_to_str(pg_list->num_procs);
++    tmp[i++] = HYDU_int_to_str(HYD_pg_list->num_procs);
+     tmp[i++] = HYDU_strdup("\ncmd=set rank=");
+ 
+     status = HYD_PMCD_pmi_id_to_rank(id, &rank);
+@@ -54,7 +51,7 @@ HYD_Status HYD_PMCD_pmi_handle_v1_initack(int fd, char *args[])
+     tmp[i++] = HYDU_int_to_str(rank);
+ 
+     tmp[i++] = HYDU_strdup("\ncmd=set debug=");
+-    tmp[i++] = HYDU_int_to_str(handle.debug);
++    tmp[i++] = HYDU_int_to_str(HYD_handle.debug);
+     tmp[i++] = HYDU_strdup("\n");
+     tmp[i++] = NULL;
+ 
+@@ -69,7 +66,7 @@ HYD_Status HYD_PMCD_pmi_handle_v1_initack(int fd, char *args[])
+ 
+     HYDU_FREE(cmd);
+ 
+-    run = pg_list;
++    run = HYD_pg_list;
+     while (run->next)
+         run = run->next;
+ 
+diff --git a/src/pm/hydra/pm/pmiserv/pmi_handle_v2.c b/src/pm/hydra/pm/pmiserv/pmi_handle_v2.c
+index 07a4b6f..b340898 100644
+--- a/src/pm/hydra/pm/pmiserv/pmi_handle_v2.c
++++ b/src/pm/hydra/pm/pmiserv/pmi_handle_v2.c
+@@ -11,9 +11,6 @@
+ #include "pmi_handle.h"
+ #include "pmi_handle_v2.h"
+ 
+-HYD_Handle handle;
+-HYD_PMCD_pmi_pg_t *pg_list;
+-
+ /* TODO: abort, create_kvs, destroy_kvs, getbyidx, spawn */
+ static struct HYD_PMCD_pmi_handle_fns pmi_v2_handle_fns_foo[] = {
+     {"fullinit", HYD_PMCD_pmi_handle_v2_fullinit},
+@@ -239,7 +236,7 @@ HYD_Status HYD_PMCD_pmi_handle_v2_fullinit(int fd, char *args[])
+     tmp[i++] = HYDU_int_to_str(rank);
+ 
+     tmp[i++] = HYDU_strdup(";size=");
+-    tmp[i++] = HYDU_int_to_str(pg_list->num_procs);
++    tmp[i++] = HYDU_int_to_str(HYD_pg_list->num_procs);
+     tmp[i++] = HYDU_strdup(";appnum=0;debugged=FALSE;pmiverbose=0;rc=0;");
+     tmp[i++] = NULL;
+ 
+@@ -254,7 +251,7 @@ HYD_Status HYD_PMCD_pmi_handle_v2_fullinit(int fd, char *args[])
+ 
+     HYDU_FREE(cmd);
+ 
+-    run = pg_list;
++    run = HYD_pg_list;
+     while (run->next)
+         run = run->next;
+ 
+diff --git a/src/pm/hydra/pm/pmiserv/pmi_serv_cb.c b/src/pm/hydra/pm/pmiserv/pmi_serv_cb.c
+index 1bf7dda..6c8a524 100644
+--- a/src/pm/hydra/pm/pmiserv/pmi_serv_cb.c
++++ b/src/pm/hydra/pm/pmiserv/pmi_serv_cb.c
+@@ -14,9 +14,6 @@
+ #include "demux.h"
+ #include "pmi_serv.h"
+ 
+-HYD_Handle handle;
+-struct HYD_PMCD_pmi_handle *HYD_PMCD_pmi_handle;
+-
+ HYD_Status HYD_PMCD_pmi_connect_cb(int fd, HYD_Event_t events, void *userp)
+ {
+     int accept_fd;
+@@ -226,7 +223,7 @@ HYD_Status HYD_PMCD_pmi_serv_control_connect_cb(int fd, HYD_Event_t events, void
+     HYDU_ERR_POP(status, "sock read returned error\n");
+ 
+     /* Find the partition */
+-    FORALL_PARTITIONS(partition, handle.partition_list) {
++    FORALL_PARTITIONS(partition, HYD_handle.partition_list) {
+         if (partition->base->partition_id == partition_id)
+             break;
+     }
+@@ -299,7 +296,7 @@ HYD_Status HYD_PMCD_pmi_serv_cleanup(void)
+     /* FIXME: Instead of doing this from this process itself, fork a
+      * bunch of processes to do this. */
+     /* Connect to all proxies and send a KILL command */
+-    FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++    FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+         cmd = KILL_JOB;
+         status = HYDU_sock_trywrite(partition->control_fd, &cmd,
+                                     sizeof(enum HYD_PMCD_pmi_proxy_cmds));
+diff --git a/src/pm/hydra/pm/pmiserv/pmi_serv_finalize.c b/src/pm/hydra/pm/pmiserv/pmi_serv_finalize.c
+index a1a5749..b57fe5f 100644
+--- a/src/pm/hydra/pm/pmiserv/pmi_serv_finalize.c
++++ b/src/pm/hydra/pm/pmiserv/pmi_serv_finalize.c
+@@ -20,7 +20,7 @@ HYD_Status HYD_PMCI_finalize(void)
+     status = HYD_PMCD_pmi_finalize();
+     HYDU_ERR_POP(status, "unable to finalize process manager utils\n");
+ 
+-    if (handle.launch_mode == HYD_LAUNCH_RUNTIME) {
++    if (HYD_handle.launch_mode == HYD_LAUNCH_RUNTIME) {
+         status = HYD_BSCI_finalize();
+         HYDU_ERR_POP(status, "unable to finalize bootstrap server\n");
+     }
+diff --git a/src/pm/hydra/pm/pmiserv/pmi_serv_launch.c b/src/pm/hydra/pm/pmiserv/pmi_serv_launch.c
+index eaa28d6..1d530ea 100644
+--- a/src/pm/hydra/pm/pmiserv/pmi_serv_launch.c
++++ b/src/pm/hydra/pm/pmiserv/pmi_serv_launch.c
+@@ -12,7 +12,6 @@
+ #include "demux.h"
+ #include "pmi_serv.h"
+ 
+-HYD_Handle handle;
+ static char *pmi_port_str = NULL;
+ static char *proxy_port_str = NULL;
+ 
+@@ -53,7 +52,7 @@ static void *launch_helper(void *args)
+      *    work.
+      */
+ 
+-    status = HYDU_sock_connect(partition->base->name, handle.proxy_port,
++    status = HYDU_sock_connect(partition->base->name, HYD_handle.proxy_port,
+                                &partition->control_fd);
+     HYDU_ERR_POP(status, "unable to connect to proxy\n");
+ 
+@@ -61,7 +60,7 @@ static void *launch_helper(void *args)
+     HYDU_ERR_POP(status, "error sending executable info\n");
+ 
+     /* Create an stdout socket */
+-    status = HYDU_sock_connect(partition->base->name, handle.proxy_port,
++    status = HYDU_sock_connect(partition->base->name, HYD_handle.proxy_port,
+                                &partition->base->out);
+     HYDU_ERR_POP(status, "unable to connect to proxy\n");
+ 
+@@ -70,7 +69,7 @@ static void *launch_helper(void *args)
+     HYDU_ERR_POP(status, "unable to write data to proxy\n");
+ 
+     /* Create an stderr socket */
+-    status = HYDU_sock_connect(partition->base->name, handle.proxy_port,
++    status = HYDU_sock_connect(partition->base->name, HYD_handle.proxy_port,
+                                &partition->base->err);
+     HYDU_ERR_POP(status, "unable to connect to proxy\n");
+ 
+@@ -80,7 +79,7 @@ static void *launch_helper(void *args)
+ 
+     /* If rank 0 is here, create an stdin socket */
+     if (partition->base->partition_id == 0) {
+-        status = HYDU_sock_connect(partition->base->name, handle.proxy_port,
++        status = HYDU_sock_connect(partition->base->name, HYD_handle.proxy_port,
+                                    &partition->base->in);
+         HYDU_ERR_POP(status, "unable to connect to proxy\n");
+ 
+@@ -153,10 +152,10 @@ static HYD_Status fill_in_proxy_args(HYD_Launch_mode_t mode, char **proxy_args)
+         mode != HYD_LAUNCH_BOOT_FOREGROUND)
+         goto fn_exit;
+ 
+-    FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++    FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+         arg = 0;
+         i = 0;
+-        path_str[i++] = HYDU_strdup(handle.base_path);
++        path_str[i++] = HYDU_strdup(HYD_handle.base_path);
+         path_str[i++] = HYDU_strdup("pmi_proxy");
+         path_str[i] = NULL;
+         status = HYDU_str_alloc_and_join(path_str, &proxy_args[arg++]);
+@@ -170,22 +169,22 @@ static HYD_Status fill_in_proxy_args(HYD_Launch_mode_t mode, char **proxy_args)
+         if (mode == HYD_LAUNCH_RUNTIME)
+             proxy_args[arg++] = HYDU_strdup(proxy_port_str);
+         else
+-            proxy_args[arg++] = HYDU_int_to_str(handle.proxy_port);
++            proxy_args[arg++] = HYDU_int_to_str(HYD_handle.proxy_port);
+ 
+-        if (handle.debug)
++        if (HYD_handle.debug)
+             proxy_args[arg++] = HYDU_strdup("--debug");
+ 
+-        if (handle.enablex != -1) {
++        if (HYD_handle.enablex != -1) {
+             proxy_args[arg++] = HYDU_strdup("--enable-x");
+-            proxy_args[arg++] = HYDU_int_to_str(handle.enablex);
++            proxy_args[arg++] = HYDU_int_to_str(HYD_handle.enablex);
+         }
+ 
+         proxy_args[arg++] = HYDU_strdup("--bootstrap");
+-        proxy_args[arg++] = HYDU_strdup(handle.bootstrap);
++        proxy_args[arg++] = HYDU_strdup(HYD_handle.bootstrap);
+ 
+-        if (handle.bootstrap_exec) {
++        if (HYD_handle.bootstrap_exec) {
+             proxy_args[arg++] = HYDU_strdup("--bootstrap-exec");
+-            proxy_args[arg++] = HYDU_strdup(handle.bootstrap_exec);
++            proxy_args[arg++] = HYDU_strdup(HYD_handle.bootstrap_exec);
+         }
+ 
+         proxy_args[arg++] = NULL;
+@@ -209,24 +208,24 @@ static HYD_Status fill_in_exec_args(void)
+ 
+     /* Create the arguments list for each proxy */
+     process_id = 0;
+-    FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++    FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+         arg = 0;
+         partition->base->exec_args[arg++] = HYDU_strdup("--global-core-count");
+-        partition->base->exec_args[arg++] = HYDU_int_to_str(handle.global_core_count);
++        partition->base->exec_args[arg++] = HYDU_int_to_str(HYD_handle.global_core_count);
+ 
+         partition->base->exec_args[arg++] = HYDU_strdup("--wdir");
+-        partition->base->exec_args[arg++] = HYDU_strdup(handle.wdir);
++        partition->base->exec_args[arg++] = HYDU_strdup(HYD_handle.wdir);
+ 
+         partition->base->exec_args[arg++] = HYDU_strdup("--pmi-port-str");
+-        if (handle.pm_env)
++        if (HYD_handle.pm_env)
+             partition->base->exec_args[arg++] = HYDU_strdup(pmi_port_str);
+         else
+             partition->base->exec_args[arg++] = HYDU_strdup("HYDRA_NULL");
+ 
+         partition->base->exec_args[arg++] = HYDU_strdup("--binding");
+-        partition->base->exec_args[arg++] = HYDU_int_to_str(handle.binding);
+-        if (handle.user_bind_map)
+-            partition->base->exec_args[arg++] = HYDU_strdup(handle.user_bind_map);
++        partition->base->exec_args[arg++] = HYDU_int_to_str(HYD_handle.binding);
++        if (HYD_handle.user_bind_map)
++            partition->base->exec_args[arg++] = HYDU_strdup(HYD_handle.user_bind_map);
+         else if (partition->user_bind_map)
+             partition->base->exec_args[arg++] = HYDU_strdup(partition->user_bind_map);
+         else
+@@ -235,12 +234,12 @@ static HYD_Status fill_in_exec_args(void)
+         /* Pass the global environment separately, instead of for each
+          * executable, as an optimization */
+         partition->base->exec_args[arg++] = HYDU_strdup("--global-env");
+-        for (i = 0, env = handle.system_env; env; env = env->next, i++);
+-        for (env = handle.prop_env; env; env = env->next, i++);
++        for (i = 0, env = HYD_handle.system_env; env; env = env->next, i++);
++        for (env = HYD_handle.prop_env; env; env = env->next, i++);
+         partition->base->exec_args[arg++] = HYDU_int_to_str(i);
+         partition->base->exec_args[arg++] = NULL;
+-        HYDU_list_append_env_to_str(handle.system_env, partition->base->exec_args);
+-        HYDU_list_append_env_to_str(handle.prop_env, partition->base->exec_args);
++        HYDU_list_append_env_to_str(HYD_handle.system_env, partition->base->exec_args);
++        HYDU_list_append_env_to_str(HYD_handle.prop_env, partition->base->exec_args);
+ 
+         /* Pass the segment information */
+         for (segment = partition->segment_list; segment; segment = segment->next) {
+@@ -297,37 +296,37 @@ HYD_Status HYD_PMCI_launch_procs(void)
+     /* Initialize PMI */
+     status = create_and_listen_portstr(HYD_PMCD_pmi_connect_cb, &pmi_port_str);
+     HYDU_ERR_POP(status, "unable to create PMI port\n");
+-    HYDU_Debug(handle.debug, "Got a PMI port string of %s\n", pmi_port_str);
++    HYDU_Debug(HYD_handle.debug, "Got a PMI port string of %s\n", pmi_port_str);
+ 
+     status = HYD_PMCD_pmi_init();
+     HYDU_ERR_POP(status, "unable to create process group\n");
+ 
+-    if (handle.launch_mode == HYD_LAUNCH_RUNTIME) {
++    if (HYD_handle.launch_mode == HYD_LAUNCH_RUNTIME) {
+         status = create_and_listen_portstr(HYD_PMCD_pmi_serv_control_connect_cb,
+                                            &proxy_port_str);
+         HYDU_ERR_POP(status, "unable to create PMI port\n");
+-        HYDU_Debug(handle.debug, "Got a proxy port string of %s\n", proxy_port_str);
++        HYDU_Debug(HYD_handle.debug, "Got a proxy port string of %s\n", proxy_port_str);
+ 
+-        status = fill_in_proxy_args(handle.launch_mode, proxy_args);
++        status = fill_in_proxy_args(HYD_handle.launch_mode, proxy_args);
+         HYDU_ERR_POP(status, "unable to fill in proxy arguments\n");
+ 
+         status = fill_in_exec_args();
+         HYDU_ERR_POP(status, "unable to fill in executable arguments\n");
+ 
+-        status = HYD_BSCI_launch_procs(proxy_args, "--partition-id", handle.partition_list);
++        status = HYD_BSCI_launch_procs(proxy_args, "--partition-id", HYD_handle.partition_list);
+         HYDU_ERR_POP(status, "bootstrap server cannot launch processes\n");
+     }
+-    else if (handle.launch_mode == HYD_LAUNCH_BOOT ||
+-             handle.launch_mode == HYD_LAUNCH_BOOT_FOREGROUND) {
+-        status = fill_in_proxy_args(handle.launch_mode, proxy_args);
++    else if (HYD_handle.launch_mode == HYD_LAUNCH_BOOT ||
++             HYD_handle.launch_mode == HYD_LAUNCH_BOOT_FOREGROUND) {
++        status = fill_in_proxy_args(HYD_handle.launch_mode, proxy_args);
+         HYDU_ERR_POP(status, "unable to fill in proxy arguments\n");
+ 
+-        status = HYD_BSCI_launch_procs(proxy_args, "--partition-id", handle.partition_list);
++        status = HYD_BSCI_launch_procs(proxy_args, "--partition-id", HYD_handle.partition_list);
+         HYDU_ERR_POP(status, "bootstrap server cannot launch processes\n");
+     }
+-    else if (handle.launch_mode == HYD_LAUNCH_SHUTDOWN) {
+-        FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
+-            status = HYDU_sock_connect(partition->base->name, handle.proxy_port, &fd);
++    else if (HYD_handle.launch_mode == HYD_LAUNCH_SHUTDOWN) {
++        FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
++            status = HYDU_sock_connect(partition->base->name, HYD_handle.proxy_port, &fd);
+             if (status != HYD_SUCCESS) {
+                 /* Don't abort. Try to shutdown as many proxies as possible */
+                 HYDU_Error_printf("Unable to connect to proxy at %s\n", partition->base->name);
+@@ -341,12 +340,12 @@ HYD_Status HYD_PMCI_launch_procs(void)
+             close(fd);
+         }
+     }
+-    else if (handle.launch_mode == HYD_LAUNCH_PERSISTENT) {
++    else if (HYD_handle.launch_mode == HYD_LAUNCH_PERSISTENT) {
+         status = fill_in_exec_args();
+         HYDU_ERR_POP(status, "unable to fill in proxy arguments\n");
+ 
+         len = 0;
+-        FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list)
++        FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list)
+             len++;
+ 
+         HYDU_CALLOC(thread_context, struct HYD_Thread_context *, len,
+@@ -356,13 +355,13 @@ HYD_Status HYD_PMCI_launch_procs(void)
+                                 "Unable to allocate memory for thread context\n");
+ 
+         id = 0;
+-        FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++        FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+             HYDU_create_thread(launch_helper, (void *) partition, &thread_context[id]);
+             id++;
+         }
+ 
+         id = 0;
+-        FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++        FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+             HYDU_join_thread(thread_context[id]);
+ 
+             status = HYD_DMX_register_fd(1, &partition->control_fd, HYD_STDOUT, partition,
+@@ -397,31 +396,31 @@ HYD_Status HYD_PMCI_wait_for_completion(void)
+ 
+     HYDU_FUNC_ENTER();
+ 
+-    if ((handle.launch_mode == HYD_LAUNCH_BOOT) || (handle.launch_mode == HYD_LAUNCH_SHUTDOWN)) {
++    if ((HYD_handle.launch_mode == HYD_LAUNCH_BOOT) || (HYD_handle.launch_mode == HYD_LAUNCH_SHUTDOWN)) {
+         status = HYD_SUCCESS;
+     }
+     else {
+         while (1) {
+             /* Wait for some event to occur */
+-            status = HYD_DMX_wait_for_event(HYDU_time_left(handle.start, handle.timeout));
++            status = HYD_DMX_wait_for_event(HYDU_time_left(HYD_handle.start, HYD_handle.timeout));
+             HYDU_ERR_POP(status, "error waiting for event\n");
+ 
+             /* If the timeout expired, raise a SIGINT and kill all the
+              * processes */
+-            if (HYDU_time_left(handle.start, handle.timeout) == 0)
++            if (HYDU_time_left(HYD_handle.start, HYD_handle.timeout) == 0)
+                 raise(SIGINT);
+ 
+             /* Check to see if there's any open read socket left; if
+              * there are, we will just wait for more events. */
+             sockets_open = 0;
+-            FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++            FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+                 if (partition->base->out != -1 || partition->base->err != -1) {
+                     sockets_open++;
+                     break;
+                 }
+             }
+ 
+-            if (sockets_open && HYDU_time_left(handle.start, handle.timeout))
++            if (sockets_open && HYDU_time_left(HYD_handle.start, HYD_handle.timeout))
+                 continue;
+ 
+             break;
+@@ -430,7 +429,7 @@ HYD_Status HYD_PMCI_wait_for_completion(void)
+         do {
+             /* Check if the exit status has already arrived */
+             all_procs_exited = 1;
+-            FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++            FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+                 if (partition->exit_status == NULL) {
+                     all_procs_exited = 0;
+                     break;
+@@ -441,7 +440,7 @@ HYD_Status HYD_PMCI_wait_for_completion(void)
+                 break;
+ 
+             /* If not, wait for some event to occur */
+-            status = HYD_DMX_wait_for_event(HYDU_time_left(handle.start, handle.timeout));
++            status = HYD_DMX_wait_for_event(HYDU_time_left(HYD_handle.start, HYD_handle.timeout));
+             HYDU_ERR_POP(status, "error waiting for event\n");
+         } while (1);
+     }
+diff --git a/src/pm/hydra/pm/pmiserv/pmi_serv_utils.c b/src/pm/hydra/pm/pmiserv/pmi_serv_utils.c
+index 77aa352..64fb222 100644
+--- a/src/pm/hydra/pm/pmiserv/pmi_serv_utils.c
++++ b/src/pm/hydra/pm/pmiserv/pmi_serv_utils.c
+@@ -9,9 +9,6 @@
+ #include "pmi_serv.h"
+ #include "demux.h"
+ 
+-HYD_Handle handle;
+-struct HYD_PMCD_pmi_handle *HYD_PMCD_pmi_handle;
+-
+ HYD_Status HYD_PMCD_pmi_send_exec_info(struct HYD_Partition *partition)
+ {
+     enum HYD_PMCD_pmi_proxy_cmds cmd;
+diff --git a/src/pm/hydra/rmk/dummy/rmk_dummy_init.c b/src/pm/hydra/rmk/dummy/rmk_dummy_init.c
+index 87d8c9b..3ab366b 100644
+--- a/src/pm/hydra/rmk/dummy/rmk_dummy_init.c
++++ b/src/pm/hydra/rmk/dummy/rmk_dummy_init.c
+@@ -8,8 +8,6 @@
+ #include "rmki.h"
+ #include "rmk_dummy.h"
+ 
+-struct HYD_RMKI_fns HYD_RMKI_fns;
+-
+ HYD_Status HYD_RMKI_dummy_init(void)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/rmk/src/rmki_init.c.in b/src/pm/hydra/rmk/src/rmki_init.c.in
+index f9bc140..76f9d15 100644
+--- a/src/pm/hydra/rmk/src/rmki_init.c.in
++++ b/src/pm/hydra/rmk/src/rmki_init.c.in
+@@ -9,7 +9,8 @@
+ #include "rmku.h"
+ #include "bsci.h"
+ 
+-struct HYD_RMKI_fns HYD_RMKI_fns;
++/* initialize to avoid common symbols */
++struct HYD_RMKI_fns HYD_RMKI_fns = {0};
+ 
+ char *HYD_RMKI_comp_array[] = { @hydra_rmk_name_array@ };
+ HYD_Status(*HYD_RMKI_comp_init[])(void) = { @hydra_rmk_init_array@ };
+@@ -38,8 +39,8 @@ HYD_Status HYD_RMKI_init(char *rmk)
+     if (HYD_RMKI_fns.query_node_list == NULL)
+         HYD_RMKI_fns.query_node_list = HYD_RMKU_query_node_list;
+ 
+-    status = HYD_BSCI_init(handle.bootstrap, handle.bootstrap_exec, handle.enablex,
+-                           handle.debug);
++    status = HYD_BSCI_init(HYD_handle.bootstrap, HYD_handle.bootstrap_exec, HYD_handle.enablex,
++                           HYD_handle.debug);
+     HYDU_ERR_POP(status, "unable to initialize the bootstrap server\n");
+ 
+   fn_exit:
+diff --git a/src/pm/hydra/rmk/src/rmki_query_node_list.c b/src/pm/hydra/rmk/src/rmki_query_node_list.c
+index 39d953d..7078742 100644
+--- a/src/pm/hydra/rmk/src/rmki_query_node_list.c
++++ b/src/pm/hydra/rmk/src/rmki_query_node_list.c
+@@ -7,8 +7,6 @@
+ #include "hydra_base.h"
+ #include "rmki.h"
+ 
+-struct HYD_RMKI_fns HYD_RMKI_fns;
+-
+ HYD_Status HYD_RMKI_query_node_list(int num_nodes, struct HYD_Partition **partition_list)
+ {
+     HYD_Status status = HYD_SUCCESS;
+diff --git a/src/pm/hydra/ui/mpiexec/callback.c b/src/pm/hydra/ui/mpiexec/callback.c
+index 19f1960..a10d97c 100644
+--- a/src/pm/hydra/ui/mpiexec/callback.c
++++ b/src/pm/hydra/ui/mpiexec/callback.c
+@@ -9,8 +9,6 @@
+ #include "mpiexec.h"
+ #include "demux.h"
+ 
+-extern HYD_Handle handle;
+-
+ static HYD_Status close_fd(int fd)
+ {
+     struct HYD_Partition *partition;
+@@ -23,8 +21,8 @@ static HYD_Status close_fd(int fd)
+     HYDU_ERR_SETANDJUMP1(status, status, "error deregistering fd %d\n", fd);
+     close(fd);
+ 
+-    /* Find the FD in the handle and remove it. */
+-    FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++    /* Find the FD in the HYD_handle and remove it. */
++    FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+         if (partition->base->out == fd) {
+             partition->base->out = -1;
+             goto fn_exit;
+@@ -106,8 +104,8 @@ HYD_Status HYD_UII_mpx_stdin_cb(int fd, HYD_Event_t events, void *userp)
+ 
+     HYDU_FUNC_ENTER();
+ 
+-    status = HYDU_sock_stdin_cb(fd, events, 0, handle.stdin_tmp_buf,
+-                                &handle.stdin_buf_count, &handle.stdin_buf_offset, &closed);
++    status = HYDU_sock_stdin_cb(fd, events, 0, HYD_handle.stdin_tmp_buf,
++                                &HYD_handle.stdin_buf_count, &HYD_handle.stdin_buf_offset, &closed);
+     HYDU_ERR_POP(status, "stdin callback error\n");
+ 
+     if (closed) {
+diff --git a/src/pm/hydra/ui/mpiexec/mpiexec.c b/src/pm/hydra/ui/mpiexec/mpiexec.c
+index 3e4bd77..5210e9c 100644
+--- a/src/pm/hydra/ui/mpiexec/mpiexec.c
++++ b/src/pm/hydra/ui/mpiexec/mpiexec.c
+@@ -12,8 +12,6 @@
+ #include "uiu.h"
+ #include "demux.h"
+ 
+-extern HYD_Handle handle;
+-
+ static void usage(void)
+ {
+     printf("\n");
+@@ -113,28 +111,28 @@ int main(int argc, char **argv)
+         goto fn_fail;
+     }
+ 
+-    status = HYD_RMKI_init(handle.rmk);
++    status = HYD_RMKI_init(HYD_handle.rmk);
+     HYDU_ERR_POP(status, "unable to initialize RMK\n");
+ 
+-    if (handle.host_file == NULL) {
++    if (HYD_handle.host_file == NULL) {
+         /* User did not provide any host file. Query the RMK. We pass
+          * a zero node count, so the RMK will give us all the nodes it
+          * already has and won't try to allocate any more. */
+-        status = HYD_RMKI_query_node_list(0, &handle.partition_list);
++        status = HYD_RMKI_query_node_list(0, &HYD_handle.partition_list);
+         HYDU_ERR_POP(status, "unable to query the RMK for a node list\n");
+ 
+         /* We don't have an allocation capability yet, but when we do,
+          * we should try it here. */
+ 
+-        if (handle.partition_list == NULL) {
++        if (HYD_handle.partition_list == NULL) {
+             /* The RMK didn't give us anything back; use localhost */
+-            handle.host_file = HYDU_strdup("HYDRA_USE_LOCALHOST");
++            HYD_handle.host_file = HYDU_strdup("HYDRA_USE_LOCALHOST");
+         }
+     }
+ 
+-    if (handle.host_file) {
++    if (HYD_handle.host_file) {
+         /* Use the user specified host file */
+-        status = HYDU_create_node_list_from_file(handle.host_file, &handle.partition_list);
++        status = HYDU_create_node_list_from_file(HYD_handle.host_file, &HYD_handle.partition_list);
+         HYDU_ERR_POP(status, "unable to create host list\n");
+     }
+ 
+@@ -145,34 +143,34 @@ int main(int argc, char **argv)
+     status = HYD_UIU_merge_exec_info_to_partition();
+     HYDU_ERR_POP(status, "unable to merge exec info\n");
+ 
+-    if (handle.debug)
++    if (HYD_handle.debug)
+         HYD_UIU_print_params();
+ 
+     /* Figure out what the active partitions are: in RUNTIME and
+      * PERSISTENT modes, only partitions which have an executable are
+      * active. In BOOT, BOOT_FOREGROUND and SHUTDOWN modes, all
+      * partitions are active. */
+-    if (handle.launch_mode == HYD_LAUNCH_RUNTIME ||
+-        handle.launch_mode == HYD_LAUNCH_PERSISTENT) {
+-        for (partition = handle.partition_list; partition && partition->exec_list;
++    if (HYD_handle.launch_mode == HYD_LAUNCH_RUNTIME ||
++        HYD_handle.launch_mode == HYD_LAUNCH_PERSISTENT) {
++        for (partition = HYD_handle.partition_list; partition && partition->exec_list;
+              partition = partition->next)
+             partition->base->active = 1;
+     }
+     else {
+-        for (partition = handle.partition_list; partition; partition = partition->next)
++        for (partition = HYD_handle.partition_list; partition; partition = partition->next)
+             partition->base->active = 1;
+     }
+ 
+-    HYDU_time_set(&handle.start, NULL); /* NULL implies right now */
++    HYDU_time_set(&HYD_handle.start, NULL); /* NULL implies right now */
+     if (getenv("MPIEXEC_TIMEOUT"))
+         timeout = atoi(getenv("MPIEXEC_TIMEOUT"));
+     else
+         timeout = -1;   /* Set a negative timeout */
+-    HYDU_time_set(&handle.timeout, &timeout);
+-    HYDU_Debug(handle.debug, "Timeout set to %d (-1 means infinite)\n", timeout);
++    HYDU_time_set(&HYD_handle.timeout, &timeout);
++    HYDU_Debug(HYD_handle.debug, "Timeout set to %d (-1 means infinite)\n", timeout);
+ 
+-    if (handle.print_rank_map) {
+-        FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++    if (HYD_handle.print_rank_map) {
++        FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+             HYDU_Dump("[%s] ", partition->base->name);
+ 
+             process_id = 0;
+@@ -181,7 +179,7 @@ int main(int argc, char **argv)
+                     HYDU_Dump("%d", HYDU_local_to_global_id(process_id++,
+                                                             partition->partition_core_count,
+                                                             partition->segment_list,
+-                                                            handle.global_core_count));
++                                                            HYD_handle.global_core_count));
+                     if (i < exec->proc_count - 1)
+                         HYDU_Dump(",");
+                 }
+@@ -203,7 +201,7 @@ int main(int argc, char **argv)
+      * instead of assuming this. For example, it is possible to have a
+      * PM implementation that launches separate "new" proxies on a
+      * different port and kills the original proxies using them. */
+-    if (handle.launch_mode == HYD_LAUNCH_SHUTDOWN) {
++    if (HYD_handle.launch_mode == HYD_LAUNCH_SHUTDOWN) {
+         /* Call finalize functions for lower layers to cleanup their resources */
+         status = HYD_PMCI_finalize();
+         HYDU_ERR_POP(status, "process manager error on finalize\n");
+@@ -219,10 +217,10 @@ int main(int argc, char **argv)
+     status = HYDU_sock_set_nonblock(0);
+     HYDU_ERR_POP(status, "unable to set socket as non-blocking\n");
+ 
+-    handle.stdin_buf_count = 0;
+-    handle.stdin_buf_offset = 0;
++    HYD_handle.stdin_buf_count = 0;
++    HYD_handle.stdin_buf_offset = 0;
+ 
+-    FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++    FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+         if (partition->base->out != -1) {
+             status = HYD_DMX_register_fd(1, &partition->base->out, HYD_STDOUT, NULL,
+                                          HYD_UII_mpx_stdout_cb);
+@@ -247,18 +245,18 @@ int main(int argc, char **argv)
+     HYDU_ERR_POP(status, "process manager error waiting for completion\n");
+ 
+     /* Check for the exit status for all the processes */
+-    if (handle.print_all_exitcodes)
++    if (HYD_handle.print_all_exitcodes)
+         HYDU_Dump("Exit codes: ");
+     exit_status = 0;
+-    FORALL_ACTIVE_PARTITIONS(partition, handle.partition_list) {
++    FORALL_ACTIVE_PARTITIONS(partition, HYD_handle.partition_list) {
+         proc_count = 0;
+         for (exec = partition->exec_list; exec; exec = exec->next)
+             proc_count += exec->proc_count;
+         for (i = 0; i < proc_count; i++) {
+-            if (handle.print_all_exitcodes) {
++            if (HYD_handle.print_all_exitcodes) {
+                 HYDU_Dump("[%d]", HYDU_local_to_global_id(i, partition->partition_core_count,
+                                                           partition->segment_list,
+-                                                          handle.global_core_count));
++                                                          HYD_handle.global_core_count));
+                 HYDU_Dump("%d", WEXITSTATUS(partition->exit_status[i]));
+                 if (i < proc_count - 1)
+                     HYDU_Dump(",");
+@@ -266,7 +264,7 @@ int main(int argc, char **argv)
+             exit_status |= partition->exit_status[i];
+         }
+     }
+-    if (handle.print_all_exitcodes)
++    if (HYD_handle.print_all_exitcodes)
+         HYDU_Dump("\n");
+ 
+     /* Call finalize functions for lower layers to cleanup their resources */
+diff --git a/src/pm/hydra/ui/mpiexec/utils.c b/src/pm/hydra/ui/mpiexec/utils.c
+index f0da8a0..d2de545 100644
+--- a/src/pm/hydra/ui/mpiexec/utils.c
++++ b/src/pm/hydra/ui/mpiexec/utils.c
+@@ -11,8 +11,6 @@
+ 
+ #define HYDRA_MAX_PATH 4096
+ 
+-extern HYD_Handle handle;
+-
+ #define INCREMENT_ARGV(status)             \
+     {                                      \
+ 	if (!(++argv)) {                   \
+@@ -54,7 +52,7 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+ 
+     HYD_UIU_init_params();
+ 
+-    status = HYDU_list_global_env(&handle.global_env);
++    status = HYDU_list_global_env(&HYD_handle.global_env);
+     HYDU_ERR_POP(status, "unable to get the global env list\n");
+ 
+     if (IS_HELP(argv[1]))
+@@ -63,7 +61,7 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+     while (++argv && *argv) {
+ 
+         if (!strcmp(*argv, "-genvall")) {
+-            HYDU_ERR_CHKANDJUMP(status, handle.prop != HYD_ENV_PROP_UNSET,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.prop != HYD_ENV_PROP_UNSET,
+                                 HYD_INTERNAL_ERROR, "duplicate environment setting\n");
+ 
+             if (argv[1] && IS_HELP(argv[1])) {
+@@ -73,12 +71,12 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.prop = HYD_ENV_PROP_ALL;
++            HYD_handle.prop = HYD_ENV_PROP_ALL;
+             continue;
+         }
+ 
+         if (!strcmp(*argv, "-genvnone")) {
+-            HYDU_ERR_CHKANDJUMP(status, handle.prop != HYD_ENV_PROP_UNSET,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.prop != HYD_ENV_PROP_UNSET,
+                                 HYD_INTERNAL_ERROR, "duplicate environment setting\n");
+ 
+             if (argv[1] && IS_HELP(argv[1])) {
+@@ -88,12 +86,12 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.prop = HYD_ENV_PROP_NONE;
++            HYD_handle.prop = HYD_ENV_PROP_NONE;
+             continue;
+         }
+ 
+         if (!strcmp(*argv, "-genvlist")) {
+-            HYDU_ERR_CHKANDJUMP(status, handle.prop != HYD_ENV_PROP_UNSET,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.prop != HYD_ENV_PROP_UNSET,
+                                 HYD_INTERNAL_ERROR, "duplicate environment setting\n");
+ 
+             if (argv[1] && IS_HELP(argv[1])) {
+@@ -106,9 +104,9 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.prop = HYD_ENV_PROP_LIST;
++            HYD_handle.prop = HYD_ENV_PROP_LIST;
+             INCREMENT_ARGV(status);
+-            HYDU_comma_list_to_env_list(*argv, &handle.user_env);
++            HYDU_comma_list_to_env_list(*argv, &HYD_handle.user_env);
+             continue;
+         }
+ 
+@@ -131,7 +129,7 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+             status = HYDU_env_create(&env, env_name, env_value);
+             HYDU_ERR_POP(status, "unable to create env struct\n");
+ 
+-            HYDU_append_env_to_list(*env, &handle.user_env);
++            HYDU_append_env_to_list(*env, &HYD_handle.user_env);
+             continue;
+         }
+ 
+@@ -229,7 +227,7 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+             }
+ 
+             INCREMENT_ARGV(status);
+-            handle.wdir = HYDU_strdup(*argv);
++            HYD_handle.wdir = HYDU_strdup(*argv);
+             continue;
+         }
+ 
+@@ -260,7 +258,7 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+             }
+ 
+             INCREMENT_ARGV(status);
+-            handle.host_file = HYDU_strdup(*argv);
++            HYD_handle.host_file = HYDU_strdup(*argv);
+             continue;
+         }
+ 
+@@ -291,7 +289,7 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.debug = 1;
++            HYD_handle.debug = 1;
+             continue;
+         }
+ 
+@@ -302,7 +300,7 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.print_rank_map = 1;
++            HYD_handle.print_rank_map = 1;
+             continue;
+         }
+ 
+@@ -313,12 +311,12 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.print_all_exitcodes = 1;
++            HYD_handle.print_all_exitcodes = 1;
+             continue;
+         }
+ 
+         if (!strcmp(str[0], "--enable-x") || !strcmp(str[0], "--disable-x")) {
+-            HYDU_ERR_CHKANDJUMP(status, handle.enablex != -1, HYD_INTERNAL_ERROR,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.enablex != -1, HYD_INTERNAL_ERROR,
+                                 "duplicate --enable-x argument\n");
+ 
+             if (argv[1] && IS_HELP(argv[1])) {
+@@ -328,12 +326,12 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.enablex = !strcmp(str[0], "--enable-x");
++            HYD_handle.enablex = !strcmp(str[0], "--enable-x");
+             continue;
+         }
+ 
+         if (!strcmp(str[0], "--enable-pm-env") || !strcmp(str[0], "--disable-pm-env")) {
+-            HYDU_ERR_CHKANDJUMP(status, handle.pm_env != -1, HYD_INTERNAL_ERROR,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.pm_env != -1, HYD_INTERNAL_ERROR,
+                                 "duplicate --enable-pm-env argument\n");
+ 
+             if (argv[1] && IS_HELP(argv[1])) {
+@@ -343,12 +341,12 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.pm_env = !strcmp(str[0], "--enable-pm-env");
++            HYD_handle.pm_env = !strcmp(str[0], "--enable-pm-env");
+             continue;
+         }
+ 
+         if (!strcmp(str[0], "--boot-proxies")) {
+-            HYDU_ERR_CHKANDJUMP(status, handle.launch_mode != HYD_LAUNCH_UNSET,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.launch_mode != HYD_LAUNCH_UNSET,
+                                 HYD_INTERNAL_ERROR, "duplicate launch mode\n");
+ 
+             if (argv[1] && IS_HELP(argv[1])) {
+@@ -357,12 +355,12 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.launch_mode = HYD_LAUNCH_BOOT;
++            HYD_handle.launch_mode = HYD_LAUNCH_BOOT;
+             continue;
+         }
+ 
+         if (!strcmp(str[0], "--boot-foreground-proxies")) {
+-            HYDU_ERR_CHKANDJUMP(status, handle.launch_mode != HYD_LAUNCH_UNSET,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.launch_mode != HYD_LAUNCH_UNSET,
+                                 HYD_INTERNAL_ERROR, "duplicate launch mode\n");
+ 
+             if (argv[1] && IS_HELP(argv[1])) {
+@@ -372,12 +370,12 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.launch_mode = HYD_LAUNCH_BOOT_FOREGROUND;
++            HYD_handle.launch_mode = HYD_LAUNCH_BOOT_FOREGROUND;
+             continue;
+         }
+ 
+         if (!strcmp(str[0], "--shutdown-proxies")) {
+-            HYDU_ERR_CHKANDJUMP(status, handle.launch_mode != HYD_LAUNCH_UNSET,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.launch_mode != HYD_LAUNCH_UNSET,
+                                 HYD_INTERNAL_ERROR, "duplicate launch mode\n");
+ 
+             if (argv[1] && IS_HELP(argv[1])) {
+@@ -386,12 +384,12 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 HYDU_ERR_SETANDJUMP(status, HYD_GRACEFUL_ABORT, "");
+             }
+ 
+-            handle.launch_mode = HYD_LAUNCH_SHUTDOWN;
++            HYD_handle.launch_mode = HYD_LAUNCH_SHUTDOWN;
+             continue;
+         }
+ 
+         if (!strcmp(str[0], "--use-persistent") || !strcmp(str[0], "--use-runtime")) {
+-            HYDU_ERR_CHKANDJUMP(status, handle.launch_mode != HYD_LAUNCH_UNSET,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.launch_mode != HYD_LAUNCH_UNSET,
+                                 HYD_INTERNAL_ERROR, "duplicate launch mode\n");
+ 
+             if (argv[1] && IS_HELP(argv[1])) {
+@@ -402,9 +400,9 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+             }
+ 
+             if (!strcmp(str[0], "--use-persistent"))
+-                handle.launch_mode = HYD_LAUNCH_PERSISTENT;
++                HYD_handle.launch_mode = HYD_LAUNCH_PERSISTENT;
+             else
+-                handle.launch_mode = HYD_LAUNCH_RUNTIME;
++                HYD_handle.launch_mode = HYD_LAUNCH_RUNTIME;
+ 
+             continue;
+         }
+@@ -424,9 +422,9 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 str[1] = HYDU_strdup(*argv);
+             }
+ 
+-            HYDU_ERR_CHKANDJUMP(status, handle.bootstrap, HYD_INTERNAL_ERROR,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.bootstrap, HYD_INTERNAL_ERROR,
+                                 "duplicate --bootstrap option\n");
+-            handle.bootstrap = str[1];
++            HYD_handle.bootstrap = str[1];
+             HYDU_FREE(str[0]);
+             continue;
+         }
+@@ -446,9 +444,9 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 str[1] = HYDU_strdup(*argv);
+             }
+ 
+-            HYDU_ERR_CHKANDJUMP(status, handle.bootstrap_exec, HYD_INTERNAL_ERROR,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.bootstrap_exec, HYD_INTERNAL_ERROR,
+                                 "duplicate --bootstrap-exec option\n");
+-            handle.bootstrap_exec = str[1];
++            HYD_handle.bootstrap_exec = str[1];
+             HYDU_FREE(str[0]);
+             continue;
+         }
+@@ -468,9 +466,9 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 str[1] = HYDU_strdup(*argv);
+             }
+ 
+-            HYDU_ERR_CHKANDJUMP(status, handle.rmk, HYD_INTERNAL_ERROR,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.rmk, HYD_INTERNAL_ERROR,
+                                 "duplicate --rmk option\n");
+-            handle.rmk = str[1];
++            HYD_handle.rmk = str[1];
+             HYDU_FREE(str[0]);
+             continue;
+         }
+@@ -490,9 +488,9 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 str[1] = HYDU_strdup(*argv);
+             }
+ 
+-            HYDU_ERR_CHKANDJUMP(status, handle.css, HYD_INTERNAL_ERROR,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.css, HYD_INTERNAL_ERROR,
+                                 "duplicate --css option\n");
+-            handle.css = str[1];
++            HYD_handle.css = str[1];
+             HYDU_FREE(str[0]);
+             continue;
+         }
+@@ -516,25 +514,25 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 str[1] = HYDU_strdup(*argv);
+             }
+ 
+-            HYDU_ERR_CHKANDJUMP(status, handle.binding != HYD_BIND_UNSET,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.binding != HYD_BIND_UNSET,
+                                 HYD_INTERNAL_ERROR, "duplicate binding\n");
+             if (!strcmp(str[1], "none"))
+-                handle.binding = HYD_BIND_NONE;
++                HYD_handle.binding = HYD_BIND_NONE;
+             else if (!strcmp(str[1], "rr"))
+-                handle.binding = HYD_BIND_RR;
++                HYD_handle.binding = HYD_BIND_RR;
+             else if (!strcmp(str[1], "buddy"))
+-                handle.binding = HYD_BIND_BUDDY;
++                HYD_handle.binding = HYD_BIND_BUDDY;
+             else if (!strcmp(str[1], "pack"))
+-                handle.binding = HYD_BIND_PACK;
++                HYD_handle.binding = HYD_BIND_PACK;
+             else {
+                 /* Check if the user wants to specify her own mapping */
+                 status = HYDU_strsplit(str[1], &str[2], &str[3], ':');
+                 HYDU_ERR_POP(status, "string break returned error\n");
+ 
+                 if (!strcmp(str[2], "user")) {
+-                    handle.binding = HYD_BIND_USER;
++                    HYD_handle.binding = HYD_BIND_USER;
+                     if (str[3])
+-                        handle.user_bind_map = str[3];
++                        HYD_handle.user_bind_map = str[3];
+                     HYDU_FREE(str[2]);
+                 }
+             }
+@@ -556,9 +554,9 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 str[1] = HYDU_strdup(*argv);
+             }
+ 
+-            HYDU_ERR_CHKANDJUMP(status, handle.proxy_port != -1, HYD_INTERNAL_ERROR,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.proxy_port != -1, HYD_INTERNAL_ERROR,
+                                 "duplicate --proxy-port option\n");
+-            handle.proxy_port = atoi(str[1]);
++            HYD_handle.proxy_port = atoi(str[1]);
+             HYDU_FREE(str[0]);
+             HYDU_FREE(str[1]);
+             continue;
+@@ -577,9 +575,9 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+                 str[1] = HYDU_strdup(*argv);
+             }
+ 
+-            HYDU_ERR_CHKANDJUMP(status, handle.ranks_per_proc != -1, HYD_INTERNAL_ERROR,
++            HYDU_ERR_CHKANDJUMP(status, HYD_handle.ranks_per_proc != -1, HYD_INTERNAL_ERROR,
+                                 "duplicate --ranks-per-proc option\n");
+-            handle.ranks_per_proc = atoi(str[1]);
++            HYD_handle.ranks_per_proc = atoi(str[1]);
+             HYDU_FREE(str[0]);
+             HYDU_FREE(str[1]);
+             continue;
+@@ -625,115 +623,115 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+ 
+     /* First set all the variables that do not depend on the launch mode */
+     tmp = getenv("HYDRA_DEBUG");
+-    if (handle.debug == -1 && tmp)
+-        handle.debug = atoi(tmp) ? 1 : 0;
+-    if (handle.debug == -1)
+-        handle.debug = 0;
++    if (HYD_handle.debug == -1 && tmp)
++        HYD_handle.debug = atoi(tmp) ? 1 : 0;
++    if (HYD_handle.debug == -1)
++        HYD_handle.debug = 0;
+ 
+     tmp = getenv("HYDRA_PM_ENV");
+-    if (handle.pm_env == -1 && tmp)
+-        handle.pm_env = (atoi(getenv("HYDRA_PM_ENV")) != 0);
+-    if (handle.pm_env == -1)
+-        handle.pm_env = 1;      /* Default is to pass the PM environment */
++    if (HYD_handle.pm_env == -1 && tmp)
++        HYD_handle.pm_env = (atoi(getenv("HYDRA_PM_ENV")) != 0);
++    if (HYD_handle.pm_env == -1)
++        HYD_handle.pm_env = 1;      /* Default is to pass the PM environment */
+ 
+     tmp = getenv("HYDRA_BOOTSTRAP");
+-    if (handle.bootstrap == NULL && tmp)
+-        handle.bootstrap = HYDU_strdup(tmp);
+-    if (handle.bootstrap == NULL)
+-        handle.bootstrap = HYDU_strdup(HYDRA_DEFAULT_BSS);
++    if (HYD_handle.bootstrap == NULL && tmp)
++        HYD_handle.bootstrap = HYDU_strdup(tmp);
++    if (HYD_handle.bootstrap == NULL)
++        HYD_handle.bootstrap = HYDU_strdup(HYDRA_DEFAULT_BSS);
+ 
+     tmp = getenv("HYDRA_CSS");
+-    if (handle.css == NULL && tmp)
+-        handle.css = HYDU_strdup(tmp);
+-    if (handle.css == NULL)
+-        handle.css = HYDU_strdup(HYDRA_DEFAULT_CSS);
++    if (HYD_handle.css == NULL && tmp)
++        HYD_handle.css = HYDU_strdup(tmp);
++    if (HYD_handle.css == NULL)
++        HYD_handle.css = HYDU_strdup(HYDRA_DEFAULT_CSS);
+ 
+     tmp = getenv("HYDRA_RMK");
+-    if (handle.rmk == NULL && tmp)
+-        handle.rmk = HYDU_strdup(tmp);
+-    if (handle.rmk == NULL)
+-        handle.rmk = HYDU_strdup(HYDRA_DEFAULT_RMK);
++    if (HYD_handle.rmk == NULL && tmp)
++        HYD_handle.rmk = HYDU_strdup(tmp);
++    if (HYD_handle.rmk == NULL)
++        HYD_handle.rmk = HYDU_strdup(HYDRA_DEFAULT_RMK);
+ 
+     tmp = getenv("HYDRA_HOST_FILE");
+-    if (handle.host_file == NULL && tmp)
+-        handle.host_file = HYDU_strdup(tmp);
++    if (HYD_handle.host_file == NULL && tmp)
++        HYD_handle.host_file = HYDU_strdup(tmp);
+ 
+     tmp = getenv("HYDRA_PROXY_PORT");
+-    if (handle.proxy_port == -1 && tmp)
+-        handle.proxy_port = atoi(getenv("HYDRA_PROXY_PORT"));
+-    if (handle.proxy_port == -1)
+-        handle.proxy_port = HYD_DEFAULT_PROXY_PORT;
++    if (HYD_handle.proxy_port == -1 && tmp)
++        HYD_handle.proxy_port = atoi(getenv("HYDRA_PROXY_PORT"));
++    if (HYD_handle.proxy_port == -1)
++        HYD_handle.proxy_port = HYD_DEFAULT_PROXY_PORT;
+ 
+     tmp = getenv("HYDRA_LAUNCH_MODE");
+-    if (handle.launch_mode == HYD_LAUNCH_UNSET && tmp) {
++    if (HYD_handle.launch_mode == HYD_LAUNCH_UNSET && tmp) {
+         if (!strcmp(tmp, "persistent"))
+-            handle.launch_mode = HYD_LAUNCH_PERSISTENT;
++            HYD_handle.launch_mode = HYD_LAUNCH_PERSISTENT;
+         else if (!strcmp(tmp, "runtime"))
+-            handle.launch_mode = HYD_LAUNCH_RUNTIME;
++            HYD_handle.launch_mode = HYD_LAUNCH_RUNTIME;
+     }
+-    if (handle.launch_mode == HYD_LAUNCH_UNSET)
+-        handle.launch_mode = HYD_LAUNCH_RUNTIME;
++    if (HYD_handle.launch_mode == HYD_LAUNCH_UNSET)
++        HYD_handle.launch_mode = HYD_LAUNCH_RUNTIME;
+ 
+     tmp = getenv("HYDRA_BOOT_FOREGROUND_PROXIES");
+-    if (handle.launch_mode == HYD_LAUNCH_UNSET && tmp) {
++    if (HYD_handle.launch_mode == HYD_LAUNCH_UNSET && tmp) {
+         if (atoi(tmp) == 1) {
+-            handle.launch_mode = HYD_LAUNCH_BOOT_FOREGROUND;
++            HYD_handle.launch_mode = HYD_LAUNCH_BOOT_FOREGROUND;
+         }
+     }
+ 
+     tmp = getenv("HYDRA_BOOTSTRAP_EXEC");
+-    if (handle.bootstrap_exec == NULL && tmp)
+-        handle.bootstrap_exec = HYDU_strdup(tmp);
++    if (HYD_handle.bootstrap_exec == NULL && tmp)
++        HYD_handle.bootstrap_exec = HYDU_strdup(tmp);
+ 
+     /* Get the base path for the proxy */
+-    if (handle.wdir == NULL) {
+-        HYDU_MALLOC(handle.wdir, char *, HYDRA_MAX_PATH, status);
+-        if (getcwd(handle.wdir, HYDRA_MAX_PATH) == NULL)
++    if (HYD_handle.wdir == NULL) {
++        HYDU_MALLOC(HYD_handle.wdir, char *, HYDRA_MAX_PATH, status);
++        if (getcwd(HYD_handle.wdir, HYDRA_MAX_PATH) == NULL)
+             HYDU_ERR_SETANDJUMP(status, HYD_INTERNAL_ERROR,
+                                 "allocated space is too small for absolute path\n");
+     }
+-    status = HYDU_get_base_path(progname, handle.wdir, &handle.base_path);
++    status = HYDU_get_base_path(progname, HYD_handle.wdir, &HYD_handle.base_path);
+     HYDU_ERR_POP(status, "unable to get base path\n");
+ 
+     /* Proxy setup or teardown */
+-    if ((handle.launch_mode == HYD_LAUNCH_BOOT) ||
+-        (handle.launch_mode == HYD_LAUNCH_BOOT_FOREGROUND) ||
+-        (handle.launch_mode == HYD_LAUNCH_SHUTDOWN)) {
++    if ((HYD_handle.launch_mode == HYD_LAUNCH_BOOT) ||
++        (HYD_handle.launch_mode == HYD_LAUNCH_BOOT_FOREGROUND) ||
++        (HYD_handle.launch_mode == HYD_LAUNCH_SHUTDOWN)) {
+ 
+         /* NULL out variables we don't care about */
+-        HYDU_ERR_CHKANDJUMP(status, handle.prop != HYD_ENV_PROP_UNSET, HYD_INTERNAL_ERROR,
++        HYDU_ERR_CHKANDJUMP(status, HYD_handle.prop != HYD_ENV_PROP_UNSET, HYD_INTERNAL_ERROR,
+                             "env setting not required for booting/shutting proxies\n");
+-        handle.prop = HYD_ENV_PROP_NONE;
++        HYD_handle.prop = HYD_ENV_PROP_NONE;
+ 
+-        HYDU_ERR_CHKANDJUMP(status, handle.binding != HYD_BIND_UNSET, HYD_INTERNAL_ERROR,
++        HYDU_ERR_CHKANDJUMP(status, HYD_handle.binding != HYD_BIND_UNSET, HYD_INTERNAL_ERROR,
+                             "binding not allowed while booting/shutting proxies\n");
+-        handle.binding = HYD_BIND_UNSET;
++        HYD_handle.binding = HYD_BIND_UNSET;
+ 
+-        HYDU_ERR_CHKANDJUMP(status, handle.exec_info_list, HYD_INTERNAL_ERROR,
++        HYDU_ERR_CHKANDJUMP(status, HYD_handle.exec_info_list, HYD_INTERNAL_ERROR,
+                             "executables should not be specified while booting/shutting proxies\n");
+     }
+     else {      /* Application launch */
+-        if (handle.exec_info_list == NULL)
++        if (HYD_handle.exec_info_list == NULL)
+             HYDU_ERR_SETANDJUMP(status, HYD_INTERNAL_ERROR, "no executable specified\n");
+ 
+         /* Check environment for setting binding */
+         tmp = getenv("HYDRA_BINDING");
+-        if (handle.binding == HYD_BIND_UNSET && tmp)
+-            handle.binding = !strcmp(tmp, "none") ? HYD_BIND_NONE :
++        if (HYD_handle.binding == HYD_BIND_UNSET && tmp)
++            HYD_handle.binding = !strcmp(tmp, "none") ? HYD_BIND_NONE :
+                 !strcmp(tmp, "rr") ? HYD_BIND_RR :
+                 !strcmp(tmp, "buddy") ? HYD_BIND_BUDDY :
+                 !strcmp(tmp, "pack") ? HYD_BIND_PACK : HYD_BIND_USER;
+-        if (handle.binding == HYD_BIND_UNSET)
+-            handle.binding = HYD_BIND_NONE;
++        if (HYD_handle.binding == HYD_BIND_UNSET)
++            HYD_handle.binding = HYD_BIND_NONE;
+ 
+         /* Check environment for setting the global environment */
+         tmp = getenv("HYDRA_ENV");
+-        if (handle.prop == HYD_ENV_PROP_UNSET && tmp)
+-            handle.prop = !strcmp(tmp, "all") ? HYD_ENV_PROP_ALL : HYD_ENV_PROP_NONE;
++        if (HYD_handle.prop == HYD_ENV_PROP_UNSET && tmp)
++            HYD_handle.prop = !strcmp(tmp, "all") ? HYD_ENV_PROP_ALL : HYD_ENV_PROP_NONE;
+ 
+         /* Make sure local executable is set */
+         local_env_set = 0;
+-        for (exec_info = handle.exec_info_list; exec_info; exec_info = exec_info->next) {
++        for (exec_info = HYD_handle.exec_info_list; exec_info; exec_info = exec_info->next) {
+             if (exec_info->exec[0] == NULL)
+                 HYDU_ERR_SETANDJUMP(status, HYD_INTERNAL_ERROR, "no executable specified\n");
+ 
+@@ -745,8 +743,8 @@ HYD_Status HYD_UII_mpx_get_parameters(char **t_argv)
+         }
+ 
+         /* If no global or local environment is set, use the default */
+-        if ((handle.prop == HYD_ENV_PROP_UNSET) && (local_env_set == 0))
+-            handle.prop = HYD_ENV_PROP_ALL;
++        if ((HYD_handle.prop == HYD_ENV_PROP_UNSET) && (local_env_set == 0))
++            HYD_handle.prop = HYD_ENV_PROP_ALL;
+     }
+ 
+   fn_exit:
+diff --git a/src/pm/hydra/ui/utils/uiu.c b/src/pm/hydra/ui/utils/uiu.c
+index 77bfafe..9b878c2 100644
+--- a/src/pm/hydra/ui/utils/uiu.c
++++ b/src/pm/hydra/ui/utils/uiu.c
+@@ -8,93 +8,93 @@
+ #include "hydra_utils.h"
+ #include "uiu.h"
+ 
+-HYD_Handle handle;
++HYD_Handle HYD_handle = {0};
+ 
+ void HYD_UIU_init_params(void)
+ {
+-    handle.base_path = NULL;
+-    handle.proxy_port = -1;
+-    handle.launch_mode = HYD_LAUNCH_UNSET;
+-
+-    handle.bootstrap = NULL;
+-    handle.css = NULL;
+-    handle.rmk = NULL;
+-    handle.binding = HYD_BIND_UNSET;
+-    handle.user_bind_map = NULL;
+-
+-    handle.debug = -1;
+-    handle.print_rank_map = 0;
+-    handle.print_all_exitcodes = 0;
+-    handle.enablex = -1;
+-    handle.pm_env = -1;
+-    handle.wdir = NULL;
+-    handle.host_file = NULL;
+-
+-    handle.ranks_per_proc = -1;
+-    handle.bootstrap_exec = NULL;
+-
+-    handle.global_env = NULL;
+-    handle.system_env = NULL;
+-    handle.user_env = NULL;
+-    handle.prop = HYD_ENV_PROP_UNSET;
+-    handle.prop_env = NULL;
+-
+-    handle.stdin_cb = NULL;
+-    handle.stdout_cb = NULL;
+-    handle.stderr_cb = NULL;
++    HYD_handle.base_path = NULL;
++    HYD_handle.proxy_port = -1;
++    HYD_handle.launch_mode = HYD_LAUNCH_UNSET;
++
++    HYD_handle.bootstrap = NULL;
++    HYD_handle.css = NULL;
++    HYD_handle.rmk = NULL;
++    HYD_handle.binding = HYD_BIND_UNSET;
++    HYD_handle.user_bind_map = NULL;
++
++    HYD_handle.debug = -1;
++    HYD_handle.print_rank_map = 0;
++    HYD_handle.print_all_exitcodes = 0;
++    HYD_handle.enablex = -1;
++    HYD_handle.pm_env = -1;
++    HYD_handle.wdir = NULL;
++    HYD_handle.host_file = NULL;
++
++    HYD_handle.ranks_per_proc = -1;
++    HYD_handle.bootstrap_exec = NULL;
++
++    HYD_handle.global_env = NULL;
++    HYD_handle.system_env = NULL;
++    HYD_handle.user_env = NULL;
++    HYD_handle.prop = HYD_ENV_PROP_UNSET;
++    HYD_handle.prop_env = NULL;
++
++    HYD_handle.stdin_cb = NULL;
++    HYD_handle.stdout_cb = NULL;
++    HYD_handle.stderr_cb = NULL;
+ 
+     /* FIXME: Should the timers be initialized? */
+ 
+-    handle.global_core_count = 0;
+-    handle.exec_info_list = NULL;
+-    handle.partition_list = NULL;
++    HYD_handle.global_core_count = 0;
++    HYD_handle.exec_info_list = NULL;
++    HYD_handle.partition_list = NULL;
+ 
+-    handle.func_depth = 0;
+-    handle.stdin_buf_offset = 0;
+-    handle.stdin_buf_count = 0;
++    HYD_handle.func_depth = 0;
++    HYD_handle.stdin_buf_offset = 0;
++    HYD_handle.stdin_buf_count = 0;
+ }
+ 
+ 
+ void HYD_UIU_free_params(void)
+ {
+-    if (handle.base_path)
+-        HYDU_FREE(handle.base_path);
++    if (HYD_handle.base_path)
++        HYDU_FREE(HYD_handle.base_path);
+ 
+-    if (handle.bootstrap)
+-        HYDU_FREE(handle.bootstrap);
++    if (HYD_handle.bootstrap)
++        HYDU_FREE(HYD_handle.bootstrap);
+ 
+-    if (handle.css)
+-        HYDU_FREE(handle.css);
++    if (HYD_handle.css)
++        HYDU_FREE(HYD_handle.css);
+ 
+-    if (handle.rmk)
+-        HYDU_FREE(handle.rmk);
++    if (HYD_handle.rmk)
++        HYDU_FREE(HYD_handle.rmk);
+ 
+-    if (handle.wdir)
+-        HYDU_FREE(handle.wdir);
++    if (HYD_handle.wdir)
++        HYDU_FREE(HYD_handle.wdir);
+ 
+-    if (handle.host_file)
+-        HYDU_FREE(handle.host_file);
++    if (HYD_handle.host_file)
++        HYDU_FREE(HYD_handle.host_file);
+ 
+-    if (handle.bootstrap_exec)
+-        HYDU_FREE(handle.bootstrap_exec);
++    if (HYD_handle.bootstrap_exec)
++        HYDU_FREE(HYD_handle.bootstrap_exec);
+ 
+-    if (handle.global_env)
+-        HYDU_env_free_list(handle.global_env);
++    if (HYD_handle.global_env)
++        HYDU_env_free_list(HYD_handle.global_env);
+ 
+-    if (handle.system_env)
+-        HYDU_env_free_list(handle.system_env);
++    if (HYD_handle.system_env)
++        HYDU_env_free_list(HYD_handle.system_env);
+ 
+-    if (handle.user_env)
+-        HYDU_env_free_list(handle.user_env);
++    if (HYD_handle.user_env)
++        HYDU_env_free_list(HYD_handle.user_env);
+ 
+-    if (handle.prop_env)
+-        HYDU_env_free_list(handle.prop_env);
++    if (HYD_handle.prop_env)
++        HYDU_env_free_list(HYD_handle.prop_env);
+ 
+-    if (handle.exec_info_list)
+-        HYDU_free_exec_info_list(handle.exec_info_list);
++    if (HYD_handle.exec_info_list)
++        HYDU_free_exec_info_list(HYD_handle.exec_info_list);
+ 
+-    if (handle.partition_list)
+-        HYDU_free_partition_list(handle.partition_list);
++    if (HYD_handle.partition_list)
++        HYDU_free_partition_list(HYD_handle.partition_list);
+ 
+     /* Re-initialize everything to default values */
+     HYD_UIU_init_params();
+@@ -109,39 +109,39 @@ HYD_Status HYD_UIU_create_env_list(void)
+ 
+     HYDU_FUNC_ENTER();
+ 
+-    if (handle.prop == HYD_ENV_PROP_ALL) {
+-        handle.prop_env = HYDU_env_list_dup(handle.global_env);
+-        for (env = handle.user_env; env; env = env->next) {
+-            status = HYDU_append_env_to_list(*env, &handle.prop_env);
++    if (HYD_handle.prop == HYD_ENV_PROP_ALL) {
++        HYD_handle.prop_env = HYDU_env_list_dup(HYD_handle.global_env);
++        for (env = HYD_handle.user_env; env; env = env->next) {
++            status = HYDU_append_env_to_list(*env, &HYD_handle.prop_env);
+             HYDU_ERR_POP(status, "unable to add env to list\n");
+         }
+     }
+-    else if (handle.prop == HYD_ENV_PROP_NONE) {
+-        for (env = handle.user_env; env; env = env->next) {
+-            status = HYDU_append_env_to_list(*env, &handle.prop_env);
++    else if (HYD_handle.prop == HYD_ENV_PROP_NONE) {
++        for (env = HYD_handle.user_env; env; env = env->next) {
++            status = HYDU_append_env_to_list(*env, &HYD_handle.prop_env);
+             HYDU_ERR_POP(status, "unable to add env to list\n");
+         }
+     }
+-    else if (handle.prop == HYD_ENV_PROP_LIST) {
+-        for (env = handle.user_env; env; env = env->next) {
+-            run = HYDU_env_lookup(*env, handle.global_env);
++    else if (HYD_handle.prop == HYD_ENV_PROP_LIST) {
++        for (env = HYD_handle.user_env; env; env = env->next) {
++            run = HYDU_env_lookup(*env, HYD_handle.global_env);
+             if (run) {
+-                status = HYDU_append_env_to_list(*run, &handle.prop_env);
++                status = HYDU_append_env_to_list(*run, &HYD_handle.prop_env);
+                 HYDU_ERR_POP(status, "unable to add env to list\n");
+             }
+         }
+     }
+-    else if (handle.prop == HYD_ENV_PROP_UNSET) {
+-        for (env = handle.user_env; env; env = env->next) {
+-            status = HYDU_append_env_to_list(*env, &handle.prop_env);
++    else if (HYD_handle.prop == HYD_ENV_PROP_UNSET) {
++        for (env = HYD_handle.user_env; env; env = env->next) {
++            status = HYDU_append_env_to_list(*env, &HYD_handle.prop_env);
+             HYDU_ERR_POP(status, "unable to add env to list\n");
+         }
+     }
+ 
+-    exec_info = handle.exec_info_list;
++    exec_info = HYD_handle.exec_info_list;
+     while (exec_info) {
+         if (exec_info->prop == HYD_ENV_PROP_ALL) {
+-            exec_info->prop_env = HYDU_env_list_dup(handle.global_env);
++            exec_info->prop_env = HYDU_env_list_dup(HYD_handle.global_env);
+             for (env = exec_info->user_env; env; env = env->next) {
+                 status = HYDU_append_env_to_list(*env, &exec_info->prop_env);
+                 HYDU_ERR_POP(status, "unable to add env to list\n");
+@@ -155,7 +155,7 @@ HYD_Status HYD_UIU_create_env_list(void)
+         }
+         else if (exec_info->prop == HYD_ENV_PROP_LIST) {
+             for (env = exec_info->user_env; env; env = env->next) {
+-                run = HYDU_env_lookup(*env, handle.global_env);
++                run = HYDU_env_lookup(*env, HYD_handle.global_env);
+                 if (run) {
+                     status = HYDU_append_env_to_list(*run, &exec_info->prop_env);
+                     HYDU_ERR_POP(status, "unable to add env to list\n");
+@@ -187,12 +187,12 @@ HYD_Status HYD_UIU_get_current_exec_info(struct HYD_Exec_info **info)
+ 
+     HYDU_FUNC_ENTER();
+ 
+-    if (handle.exec_info_list == NULL) {
+-        status = HYDU_alloc_exec_info(&handle.exec_info_list);
++    if (HYD_handle.exec_info_list == NULL) {
++        status = HYDU_alloc_exec_info(&HYD_handle.exec_info_list);
+         HYDU_ERR_POP(status, "unable to allocate exec_info\n");
+     }
+ 
+-    exec_info = handle.exec_info_list;
++    exec_info = HYD_handle.exec_info_list;
+     while (exec_info->next)
+         exec_info = exec_info->next;
+ 
+@@ -217,14 +217,14 @@ HYD_Status HYD_UIU_merge_exec_info_to_partition(void)
+ 
+     HYDU_FUNC_ENTER();
+ 
+-    for (partition = handle.partition_list; partition; partition = partition->next)
+-        handle.global_core_count += partition->partition_core_count;
++    for (partition = HYD_handle.partition_list; partition; partition = partition->next)
++        HYD_handle.global_core_count += partition->partition_core_count;
+ 
+-    for (exec_info = handle.exec_info_list; exec_info; exec_info = exec_info->next) {
++    for (exec_info = HYD_handle.exec_info_list; exec_info; exec_info = exec_info->next) {
+         /* The run_count tells us how many processes the partitions
+          * before us can host */
+         run_count = 0;
+-        for (partition = handle.partition_list; partition; partition = partition->next) {
++        for (partition = HYD_handle.partition_list; partition; partition = partition->next) {
+             if (run_count >= exec_info->exec_proc_count)
+                 break;
+ 
+@@ -239,9 +239,9 @@ HYD_Status HYD_UIU_merge_exec_info_to_partition(void)
+                 partition->exec_list->exec[i] = NULL;
+ 
+                 partition->exec_list->proc_count =
+-                    ((exec_info->exec_proc_count / handle.global_core_count) *
++                    ((exec_info->exec_proc_count / HYD_handle.global_core_count) *
+                      partition->partition_core_count);
+-                rem = (exec_info->exec_proc_count % handle.global_core_count);
++                rem = (exec_info->exec_proc_count % HYD_handle.global_core_count);
+                 if (rem > run_count + partition->partition_core_count)
+                     rem = run_count + partition->partition_core_count;
+                 partition->exec_list->proc_count += (rem > run_count) ? (rem - run_count) : 0;
+@@ -262,9 +262,9 @@ HYD_Status HYD_UIU_merge_exec_info_to_partition(void)
+                 exec->exec[i] = NULL;
+ 
+                 exec->proc_count =
+-                    ((exec_info->exec_proc_count / handle.global_core_count) *
++                    ((exec_info->exec_proc_count / HYD_handle.global_core_count) *
+                      partition->partition_core_count);
+-                rem = (exec_info->exec_proc_count % handle.global_core_count);
++                rem = (exec_info->exec_proc_count % HYD_handle.global_core_count);
+                 if (rem > run_count + partition->partition_core_count)
+                     rem = run_count + partition->partition_core_count;
+                 exec->proc_count += (rem > run_count) ? (rem - run_count) : 0;
+@@ -303,33 +303,33 @@ void HYD_UIU_print_params(void)
+     HYDU_Dump("\n");
+     HYDU_Dump("mpiexec options:\n");
+     HYDU_Dump("----------------\n");
+-    HYDU_Dump("  Base path: %s\n", handle.base_path);
+-    HYDU_Dump("  Proxy port: %d\n", handle.proxy_port);
+-    HYDU_Dump("  Bootstrap server: %s\n", handle.bootstrap);
+-    HYDU_Dump("  Debug level: %d\n", handle.debug);
+-    HYDU_Dump("  Enable X: %d\n", handle.enablex);
+-    HYDU_Dump("  Working dir: %s\n", handle.wdir);
+-    HYDU_Dump("  Host file: %s\n", handle.host_file);
++    HYDU_Dump("  Base path: %s\n", HYD_handle.base_path);
++    HYDU_Dump("  Proxy port: %d\n", HYD_handle.proxy_port);
++    HYDU_Dump("  Bootstrap server: %s\n", HYD_handle.bootstrap);
++    HYDU_Dump("  Debug level: %d\n", HYD_handle.debug);
++    HYDU_Dump("  Enable X: %d\n", HYD_handle.enablex);
++    HYDU_Dump("  Working dir: %s\n", HYD_handle.wdir);
++    HYDU_Dump("  Host file: %s\n", HYD_handle.host_file);
+ 
+     HYDU_Dump("\n");
+     HYDU_Dump("  Global environment:\n");
+     HYDU_Dump("  -------------------\n");
+-    for (env = handle.global_env; env; env = env->next)
++    for (env = HYD_handle.global_env; env; env = env->next)
+         HYDU_Dump("    %s=%s\n", env->env_name, env->env_value);
+ 
+-    if (handle.system_env) {
++    if (HYD_handle.system_env) {
+         HYDU_Dump("\n");
+         HYDU_Dump("  Hydra internal environment:\n");
+         HYDU_Dump("  ---------------------------\n");
+-        for (env = handle.system_env; env; env = env->next)
++        for (env = HYD_handle.system_env; env; env = env->next)
+             HYDU_Dump("    %s=%s\n", env->env_name, env->env_value);
+     }
+ 
+-    if (handle.user_env) {
++    if (HYD_handle.user_env) {
+         HYDU_Dump("\n");
+         HYDU_Dump("  User set environment:\n");
+         HYDU_Dump("  ---------------------\n");
+-        for (env = handle.user_env; env; env = env->next)
++        for (env = HYD_handle.user_env; env; env = env->next)
+             HYDU_Dump("    %s=%s\n", env->env_name, env->env_value);
+     }
+ 
+@@ -338,7 +338,7 @@ void HYD_UIU_print_params(void)
+     HYDU_Dump("    Executable information:\n");
+     HYDU_Dump("    **********************\n");
+     i = 1;
+-    for (exec_info = handle.exec_info_list; exec_info; exec_info = exec_info->next) {
++    for (exec_info = HYD_handle.exec_info_list; exec_info; exec_info = exec_info->next) {
+         HYDU_Dump("      Executable ID: %2d\n", i++);
+         HYDU_Dump("      -----------------\n");
+         HYDU_Dump("        Process count: %d\n", exec_info->exec_proc_count);
+@@ -358,7 +358,7 @@ void HYD_UIU_print_params(void)
+     HYDU_Dump("    Partition information:\n");
+     HYDU_Dump("    *********************\n");
+     i = 1;
+-    for (partition = handle.partition_list; partition; partition = partition->next) {
++    for (partition = HYD_handle.partition_list; partition; partition = partition->next) {
+         HYDU_Dump("      Partition ID: %2d\n", i++);
+         HYDU_Dump("      -----------------\n");
+         HYDU_Dump("        Partition name: %s\n", partition->base->name);

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>[mpich2-dev] trivial patch for src/mpi/init/finalize.c</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>Hi again.</FONT>
+</P>
+
+<P><FONT SIZE=2>I had to make the modification below to make the testsuite of my</FONT>
+
+<BR><FONT SIZE=2>mpi4py complete. As this testsuite exercises almost all MPI features</FONT>
+
+<BR><FONT SIZE=2>in a single run (I mean, between MPI_Init/MPI_Finalize), I guess</FONT>
+
+<BR><FONT SIZE=2>that's the reason this problem showed up for me (and probably not for</FONT>
+
+<BR><FONT SIZE=2>you).</FONT>
+</P>
+
+<P><FONT SIZE=2>IMHO, 32 entries could still be not enough if in the near future the</FONT>
+
+<BR><FONT SIZE=2>usage of those finalizers increases in the mpich2 codebase.</FONT>
+</P>
+<BR>
+
+<P><FONT SIZE=2>Index: src/mpi/init/finalize.c</FONT>
+
+<BR><FONT SIZE=2>===================================================================</FONT>
+
+<BR><FONT SIZE=2>--- src/mpi/init/finalize.c&nbsp;&nbsp;&nbsp;&nbsp; (revision 3665)</FONT>
+
+<BR><FONT SIZE=2>+++ src/mpi/init/finalize.c&nbsp;&nbsp;&nbsp;&nbsp; (working copy)</FONT>
+
+<BR><FONT SIZE=2>@@ -38,7 +38,7 @@</FONT>
+
+<BR><FONT SIZE=2>&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp; priority;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* priority is used to control the order</FONT>
+
+<BR><FONT SIZE=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; in which the callbacks are invoked */</FONT>
+
+<BR><FONT SIZE=2>&nbsp;} Finalize_func_t;</FONT>
+
+<BR><FONT SIZE=2>-#define MAX_FINALIZE_FUNC 16</FONT>
+
+<BR><FONT SIZE=2>+#define MAX_FINALIZE_FUNC 32</FONT>
+
+<BR><FONT SIZE=2>&nbsp;static Finalize_func_t fstack[MAX_FINALIZE_FUNC];</FONT>
+
+<BR><FONT SIZE=2>&nbsp;static int fstack_sp = 0;</FONT>
+
+<BR><FONT SIZE=2>&nbsp;static int fstack_max_priority = 0;</FONT>
+</P>
+<BR>
+
+<P><FONT SIZE=2>-- </FONT>
+
+<BR><FONT SIZE=2>Lisandro Dalcín</FONT>
+
+<BR><FONT SIZE=2>---------------</FONT>
+
+<BR><FONT SIZE=2>Centro Internacional de Métodos Computacionales en Ingeniería (CIMEC)</FONT>
+
+<BR><FONT SIZE=2>Instituto de Desarrollo Tecnológico para la Industria Química (INTEC)</FONT>
+
+<BR><FONT SIZE=2>Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET)</FONT>
+
+<BR><FONT SIZE=2>PTLC - Güemes 3450, (3000) Santa Fe, Argentina</FONT>
+
+<BR><FONT SIZE=2>Tel/Fax: +54-(0)342-451.1594</FONT>
+</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,165 @@
+Notes about the MPI f08 constants module and the mpich 3 mpif.h file
+--------------------------------------------------------------------
+
+In an effort to get a source of up-to-date values for the various
+constants that would be defined for the MPI_F08 module, Steve
+O. (Thanks!)  downloaded the mpich 3 distribution from ANL, uttering
+words like "preliminary" and "draft" the appropriate number of times.
+In working through the constants listed in A.1.1 I found some issues
+and questions. Some are for the Spec and others are about the mpif.h
+file in the distribution.  All comments below about "mpi.h" and
+"mpif.h" refer the the draft versions for MPI 3, and not the
+production versions for MPI 2.
+
+As an experiment, I pulled all of the strings beginning with MPI out
+of lines in the mpif.h file that also contained the word PARAMETER and
+an "=" sign, and made a test program to print each of the values. A
+second version prints the same variables, but with a USE of the module
+rather than an include of the mpif.h file. With the existing module
+and mpif.h file, the diff of the two outputs is
+
+> diff module_values.dat mpi3f_values.dat 
+50c50
+<  MPI_ERR_RMA_WRONG_FLAVOR= 0
+---
+>  MPI_ERR_RMA_WRONG_FLAVOR= 58
+251,252c251,252
+<  MPI_SUBARRAYS_SUPPORTED= T
+<  MPI_ASYNC_PROTECTS_NONBLOCKING= T
+---
+>  MPI_SUBARRAYS_SUPPORTED= F
+>  MPI_ASYNC_PROTECTS_NONBLOCKING= F
+
+These differences need answers to questions below.  This scheme is not
+bi-directional - it does not catch things that are defined in the
+module but are missing from the mpif.h file. Those were identified by
+hand.
+
+I am still missing several of the "information interface" constants in
+the module, mainly for lack of values.
+
+Here are the issues/questions:
+
+
+1) Duplicated constants in the Spec, value issues in mpif.h
+-----------------------------------------------------------
+
+These constant names appear twice in the spec in A.1.1:
+
+MPI_AINT   665:35 and 666:11
+MPI_COUNT  665:36 and 666:12
+MPI_OFFSET 665:37 and 666:13
+MPI_BYTE   665:42 and 666:14
+MPI_PACKED 665:43 and 666:15
+
+Since in both places they are listed as "Fortran type INTEGER or
+TYPE(MPI_Datatype)", there can be only one actual such constant in
+each case. I included only 1 intance.  There are a couple of related
+issues with these constants:
+
+a) There is an implication that the C integer typedef MPI_Count must
+represent the same integer representation as
+INTEGER(KIND=MPI_COUNT_KIND).  Similarly for MPI_Aint /
+MPI_ADDRESS_KIND and MPI_Offset / MPI_OFFSET_KIND.  If would be a good
+check to verify that. Or ensure it through a single point of
+definition.
+
+b) The VALUES for these constants should be the same in the mpi.h and
+mpif.h files for internal consistency. In mpif.h this is not the case
+for MPI_COUNT.  In particular,
+
+MPI_OFFSET  is 0x4c000844 in mpi.h and 1275070532 in mpif.h (values match)
+MPI_COUNT   is 0x4c000845 in mpi.h and 1275070532 in mpif.h (Values NO NOT MATCH)
+
+I used the mpi.h values. Is this a typo in mpif.h?
+
+c) The typedefs in the mpi.h file for MPI_Aint, MPI_Count, and
+MPI_Offset are long, long long, and long long. This seems strange. I
+would have expected something like intptr_t, size_t, and maybe
+ptrdiff_t.  For consistency, I'm using values from ISO_C_BINDING
+rather than using the ones in mpif.h.  Seems more portable.  For the
+one test I did they come out numerically the same anyway.
+
+
+2) Values missing from mpif.h
+-----------------------------
+
+MPI_INFO_ENV is in the spec at 667:47, but not in the mpif.h
+file. Inserted bogus value for now.  This a bit confusing because the
+definition in the mpi.h (C) file is "extern MPI_Info MPI_INFO_ENV;"
+suggesting this is a global variable and not a constant. If that's the
+case it is easy to connect to the same global from the module.  But it
+is confusing that this is in A.1.1 "Defined Constants". Should this be
+a constant or a variable?
+
+MPI_WIN_CREATE_FLAVOR and MPI_WIN_MODEL were missing from
+mpif.h. Comparing with the mpi.h file, it looks like the values of
+similar *WIN* constants for Fortran are 1 larger than the
+correpsonding ones for C, so I took the values from the mpi.h file and
+added 1. Is this (+1) assumption correct?
+
+MPI_NO_OP is in the spec at 668:26, but not in the mpif.h file. It is
+defined in mpi.h, so I used that value in the module.
+
+MPI_WIN_FLAVOR_CREATE, MPI_WIN_FLAVOR_ALLOCATE,
+MPI_WIN_FLAVOR_DYNAMIC, MPI_WIN_FLAVOR_SHARED, MPI_WIN_SEPARATE,
+MPI_WIN_UNIFIED were all missing from the mpif.h file.  I used the
+values from the mpi.h file.
+
+The mpif.h file seems to be missing values for the MPI_T_ERR*
+constants at [663:1-17] in the spec. They are also missing from mpi.h.
+Have dummy values for now.
+
+The mpif.h file seems to be missing the MPI_T_* values related to the
+"information interface". They are currently also missing from the
+module.
+
+
+3) Extra values defined in mpif.h
+---------------------------------
+
+
+These definitions appear in the mpif.h file:
+
+integer,parameter :: MPI_COMBINER_HVECTOR_INTEGER  = 5
+integer,parameter :: MPI_COMBINER_HINDEXED_INTEGER = 8
+integer,parameter :: MPI_COMBINER_STRUCT_INTEGER  = 12
+type(MPI_Datatype),parameter :: MPI_LB  = MPI_Datatype( 1275068432) ! 0x4c000010     
+type(MPI_Datatype),parameter :: MPI_UB  = MPI_Datatype( 1275068433) ! 0x4c000011
+
+but are marked as "removed" in MPI 3.0 in Table 2.1 on page 18 in the
+spec. Should these be removed from mpif.h?
+
+
+The mpif.h file defines MPI_2COMPLEX and MPI_2DOUBLE_COMPLEX, but I
+cannot find them in the spec. These are not listed in Table 2.1. I
+added them into the module, though they are not correctly handled for
+compilation with -r8.  I'd need the values for 128-bit floats for
+that.  The existing MPI_2DOUBLE_PRECISION has the same problem.  Note
+that the mpi.h (C) file has a note that " * MPI_2COMPLEX and
+MPI_2DOUBLE_COMPLEX were defined by accident in ...".  Should these be
+removed from mpif.h?
+
+
+4) Name difference between mpif.h and the spec
+----------------------------------------------
+
+MPI_ERR_RMA_FLAVOR in the spec does not exist in mpif.h, and
+MPI_ERR_RMA_WRONG_FLAVOR in mpif.h is not in the spec.  I assume this
+is a disagreement in the spelling of the name.  For now, using the
+MPI_ERR_RMA_WRONG_FLAVOR value from mpif.h as the value for
+MPI_ERR_RMA_FLAVOR in the module. Is this correct?
+
+
+5) Differing values between mpif.h and the module
+-------------------------------------------------
+
+For the constants MPI_SUBARRAYS_SUPPORTED and
+MPI_ASYNC_PROTECTS_NONBLOCKING, mpif.h has both as .false. I assume
+the mpi_f08_constants module should have these set to .true., so I did
+that. Is this correct?
+
+
+
+
+

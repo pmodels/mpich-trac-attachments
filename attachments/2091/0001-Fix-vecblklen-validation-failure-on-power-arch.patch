@@ -1,0 +1,49 @@
+From 82ba9bcd3e1702e03c63d5c6b0f820fb5037d74c Mon Sep 17 00:00:00 2001
+From: "Nysal Jan K.A" <jnysal@in.ibm.com>
+Date: Thu, 15 May 2014 19:10:11 +0530
+Subject: [PATCH] Fix vecblklen validation failure on power arch
+
+The default char datatype on power arch is unsigned.
+The following signed vs unsigned comparison thus fails:
+
+  if (*p != -1) {
+    errs++;
+    fprintf( stderr, "[%d,%d,%d]expected -1 but saw %d\n",
+             i, j, k, *p );
+  }
+
+Explicitly specify a signed char. Fixes ticket #2091
+---
+ test/mpi/datatype/hvecblklen.c |    2 +-
+ test/mpi/datatype/vecblklen.c  |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/test/mpi/datatype/hvecblklen.c b/test/mpi/datatype/hvecblklen.c
+index 63fc417..d9a6aa5 100644
+--- a/test/mpi/datatype/hvecblklen.c
++++ b/test/mpi/datatype/hvecblklen.c
+@@ -16,7 +16,7 @@ int main( int argc, char *argv[] )
+ {
+     MPI_Datatype ot, ot2, newtype;
+     int position, psize, insize, outsize;
+-    char *inbuf=0, *outbuf=0, *pbuf=0, *p;
++    signed char *inbuf=0, *outbuf=0, *pbuf=0, *p;
+     int  i, j, k;
+     int  errs = 0;
+     int  veccount=16, stride=16;
+diff --git a/test/mpi/datatype/vecblklen.c b/test/mpi/datatype/vecblklen.c
+index 1dc4c55..cfe0733 100644
+--- a/test/mpi/datatype/vecblklen.c
++++ b/test/mpi/datatype/vecblklen.c
+@@ -16,7 +16,7 @@ int main( int argc, char *argv[] )
+ {
+     MPI_Datatype ot, ot2, newtype;
+     int position, psize, insize, outsize;
+-    char *inbuf=0, *outbuf=0, *pbuf=0, *p;
++    signed char *inbuf=0, *outbuf=0, *pbuf=0, *p;
+     int  i, j, k;
+     int  errs = 0;
+     int  veccount=16, stride=16;
+-- 
+1.7.10.4
+

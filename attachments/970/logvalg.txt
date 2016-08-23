@@ -1,0 +1,97 @@
+
+eiki@liveinjapan:~/bonkura$ mpiexec -l -host liveinjapan -n 1 /home/eiki/valgrind-3.5.0-install/bin/valgrind -q /home/eiki/bonkura/a.out : -host carat24 -n 2 /home/eiki/valgrind-3.5.0-install/bin/valgrind -q /home/eiki/bonkura/a.out 
+2: before Init, hn carat24 pid 16548 argc 1
+1: before Init, hn carat24 pid 16547 argc 1
+0: before Init, hn liveinjapan pid 16989 argc 1
+2: ==16548== Invalid read of size 4
+2: ==16548==    at 0x80561D4: MPIDI_Populate_vc_node_ids (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x8054A68: MPID_Init (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x804F543: MPIR_Init_thread (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x804F08B: PMPI_Init (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x80498E7: mpi_init (tmp2.c:16)
+2: ==16548==    by 0x804999D: main (tmp2.c:26)
+2: ==16548==  Address 0x41c9ffc is 0 bytes after a block of size 12 alloc'd
+2: ==16548==    at 0x4025C1C: malloc (vg_replace_malloc.c:195)
+1: ==16547== Invalid read of size 4
+2: ==16548==    by 0x8055FA8: MPIDI_Populate_vc_node_ids (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x8054A68: MPID_Init (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x804F543: MPIR_Init_thread (in /home/eiki/bonkura/a.out)
+1: ==16547==    at 0x80560AB: MPIDI_Populate_vc_node_ids (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x804F08B: PMPI_Init (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x8054A68: MPID_Init (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x80498E7: mpi_init (tmp2.c:16)
+1: ==16547==    by 0x804F543: MPIR_Init_thread (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x804999D: main (tmp2.c:26)
+1: ==16547==    by 0x804F08B: PMPI_Init (in /home/eiki/bonkura/a.out)
+2: ==16548== 
+1: ==16547==    by 0x80498E7: mpi_init (tmp2.c:16)
+2: ==16548== Invalid write of size 1
+1: ==16547==    by 0x804999D: main (tmp2.c:26)
+2: ==16548==    at 0x40C71F1: vsnprintf (in /lib/tls/i686/cmov/libc-2.9.so)
+1: ==16547==  Address 0x41c9ffc is 0 bytes after a block of size 12 alloc'd
+2: ==16548==    by 0x40A8BA1: snprintf (in /lib/tls/i686/cmov/libc-2.9.so)
+1: ==16547==    at 0x4025C1C: malloc (vg_replace_malloc.c:195)
+2: ==16548==    by 0x80561DE: MPIDI_Populate_vc_node_ids (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x8055FA8: MPIDI_Populate_vc_node_ids (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x8054A68: MPID_Init (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x8054A68: MPID_Init (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x804F543: MPIR_Init_thread (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x804F543: MPIR_Init_thread (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x804F08B: PMPI_Init (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x804F08B: PMPI_Init (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x80498E7: mpi_init (tmp2.c:16)
+1: ==16547==    by 0x80498E7: mpi_init (tmp2.c:16)
+2: ==16548==    by 0x804999D: main (tmp2.c:26)
+1: ==16547==    by 0x804999D: main (tmp2.c:26)
+2: ==16548==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+1: ==16547== 
+2: ==16548== 
+1: ==16547== Invalid write of size 1
+2: ==16548== 
+1: ==16547==    at 0x805021D: MPIU_Strncpy (in /home/eiki/bonkura/a.out)
+2: ==16548== Process terminating with default action of signal 11 (SIGSEGV)
+1: ==16547==    by 0x80A0C64: PMIU_getval (in /home/eiki/bonkura/a.out)
+2: ==16548==  Access not within mapped region at address 0x0
+1: ==16547==    by 0x8070D30: PMI_KVS_Get (in /home/eiki/bonkura/a.out)
+2: ==16548==    at 0x40C71F1: vsnprintf (in /lib/tls/i686/cmov/libc-2.9.so)
+1: ==16547==    by 0x80560C0: MPIDI_Populate_vc_node_ids (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x40A8BA1: snprintf (in /lib/tls/i686/cmov/libc-2.9.so)
+1: ==16547==    by 0x8054A68: MPID_Init (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x80561DE: MPIDI_Populate_vc_node_ids (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x804F543: MPIR_Init_thread (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x8054A68: MPID_Init (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x804F08B: PMPI_Init (in /home/eiki/bonkura/a.out)
+2: ==16548==    by 0x804F543: MPIR_Init_thread (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x80498E7: mpi_init (tmp2.c:16)
+2: ==16548==    by 0x804F08B: PMPI_Init (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x804999D: main (tmp2.c:26)
+2: ==16548==    by 0x80498E7: mpi_init (tmp2.c:16)
+1: ==16547==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+2: ==16548==    by 0x804999D: main (tmp2.c:26)
+1: ==16547== 
+2: ==16548==  If you believe this happened as a result of a stack
+1: ==16547== 
+2: ==16548==  overflow in your program's main thread (unlikely but
+1: ==16547== Process terminating with default action of signal 11 (SIGSEGV)
+2: ==16548==  possible), you can try to increase the size of the
+1: ==16547==  Access not within mapped region at address 0x0
+2: ==16548==  main thread stack using the --main-stacksize= flag.
+1: ==16547==    at 0x805021D: MPIU_Strncpy (in /home/eiki/bonkura/a.out)
+2: ==16548==  The main thread stack size used in this run was 8388608.
+1: ==16547==    by 0x80A0C64: PMIU_getval (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x8070D30: PMI_KVS_Get (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x80560C0: MPIDI_Populate_vc_node_ids (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x8054A68: MPID_Init (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x804F543: MPIR_Init_thread (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x804F08B: PMPI_Init (in /home/eiki/bonkura/a.out)
+1: ==16547==    by 0x80498E7: mpi_init (tmp2.c:16)
+rank 2 in job 3  liveinjapan_53767   caused collective abort of all ranks
+  exit status of rank 2: killed by signal 9 
+1: ==16547==    by 0x804999D: main (tmp2.c:26)
+1: ==16547==  If you believe this happened as a result of a stack
+1: ==16547==  overflow in your program's main thread (unlikely but
+1: ==16547==  possible), you can try to increase the size of the
+1: ==16547==  main thread stack using the --main-stacksize= flag.
+1: ==16547==  The main thread stack size used in this run was 8388608.
+eiki@liveinjapan:~/bonkura$ 
+

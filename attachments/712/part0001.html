@@ -1,0 +1,20 @@
+<div>
+<div><span><font face="Arial" size="2">hi,</font></span></div>
+<div><span><font face="Arial" size="2">I have got a strange problem.</font></span></div>
+<div><span><font face="Arial" size="2">I have an test program(cpi based from mpi/examples directory). This program works well when i run it like this. </font></span></div>
+<div><span><font face="Arial" size="2">There is nothing fancy about this program, it is just printing the MPI_rank of the process and MPI_COMM_size.</font></span></div>
+<div><span><font face="Arial" size="2"></font></span> </div>
+<div><span><font face="Arial" size="2"> ./mpiexec -np 4 /export/home/sdc/nain/mpi_utest <br>process id 0 is master<br>Process 0 on myhost and world size is 4<br>Process 1 on myhost and world size is 4<br>Process 2 on myhost and world size is 4<br>
+Process 3 on myhost and world size is 4<br>pi is approximately 3.1416009869231249, Error is 0.0000083333333318<br>wall clock time = 0.004377<br></font></span></div>
+<div><span><font face="Arial" size="2">but the same program gives problem if i run it through <strong>/usr/bin/sudo</strong></font></span></div>
+<div><span><font face="Arial" size="2"><strong></strong></font></span> </div>
+<div><span><font face="Arial" size="2"> ./mpiexec -np 4 /usr/bin/sudo /export/home/sdc/nain/mpi_utest <br>process id 0 is master<br>pi is approximately 3.1416009869231254, Error is 0.0000083333333323<br>wall clock time = 0.000040<br>
+Process 0 on myhost and world size is 1<br>process id 0 is master<br>pi is approximately 3.1416009869231254, Error is 0.0000083333333323<br>wall clock time = 0.000019<br>Process 0 on myhost and world size is 1<br>process id 0 is master<br>
+pi is approximately 3.1416009869231254, Error is 0.0000083333333323<br>process id 0 is master<br>pi is approximately 3.1416009869231254, Error is 0.0000083333333323<br>wall clock time = 0.000063<br>wall clock time = 0.000073<br>
+Process 0 on myhost and world size is 1<br>Process 0 on myhost and world size is 1<br></font></span></div>
+<div><span><font face="Arial" size="2">In the sudo execution, all processes have rank as 0 and COMM_size is 1.</font></span></div>
+<div><span><font face="Arial" size="2"></font></span> </div>
+<div><span><font face="Arial" size="2">This thing used to work in other flavours of linux, viz. Redhat Fedora.</font></span></div>
+<div><span><font face="Arial" size="2">Can somebody help ?</font></span></div>
+<div><span><font face="Arial" size="2">with regards</font></span></div>
+<div><span><font face="Arial" size="2">J. S. Nain</font></span></div></div>

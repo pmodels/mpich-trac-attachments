@@ -1,0 +1,673 @@
+if [ ! -d /home/tim/mpich2-install ] ; then mkdir -p /home/tim/mpich2-install ; fi
+if [ ! -d /home/tim/mpich2-install/share ] ; then mkdir -p /home/tim/mpich2-install/share ; fi
+if [ ! -d /home/tim/mpich2-install/share/doc/ ] ; then mkdir -p /home/tim/mpich2-install/share/doc/ ; fi
+if [ ! -d /home/tim/mpich2-install/share/man ] ; then mkdir -p /home/tim/mpich2-install/share/man ; fi
+if [ ! -d /home/tim/mpich2-install/include ] ; then mkdir -p /home/tim/mpich2-install/include ; fi
+if [ ! -d /home/tim/mpich2-install ] ; then mkdir -p /home/tim/mpich2-install ; fi
+if [ ! -d /home/tim/mpich2-install/lib ] ; then mkdir -p /home/tim/mpich2-install/lib ; fi
+make install-local
+if [ "no" = "yes" ] ; then  /usr/bin/install -c -m 644 src/mpi/debugger/libtvmpich2.unknown  /home/tim/mpich2-install/lib/libtvmpich2.unknown ; fi
+if [ -n " hydra gforker" ] ; then  for pm in  hydra gforker /dev/null ; do  if [ -d src/pm/$pm ] ; then  (cd src/pm/$pm && make install-alt ) ; fi ;  done ;  fi
+mkdir -p /home/tim/mpich2-install/bin 
+/usr/bin/install -c  mpiexec /home/tim/mpich2-install/bin/mpiexec.hydra
+/usr/bin/install -c  pmi_proxy /home/tim/mpich2-install/bin/
+cd ../util && make
+gcc -O2   -lrt -lpthread  -lrt -lpthread -o mpiexec mpiexec.o   ../util/libmpiexec.a ../../../lib/libmpich.a 
+/usr/bin/install -c  mpiexec /home/tim/mpich2-install/bin/mpiexec.gforker
+/usr/bin/install -c -m 644 src/include/mpi.h /home/tim/mpich2-install/include/mpi.h
+/usr/bin/install -c -m 644 lib/libmpich.a /home/tim/mpich2-install/lib/libmpich.a
+if [ ! -d /home/tim/mpich2-install/share/doc/ ] ; then mkdir -p /home/tim/mpich2-install/share/doc/ ; fi
+/usr/bin/install -c -m 644 index.htm /home/tim/mpich2-install/share/doc//index.htm
+/usr/bin/install -c -m 644 MPI.html /home/tim/mpich2-install/share/doc//www1/MPI.html
+/usr/bin/install -c -m 644 index.htm /home/tim/mpich2-install/share/doc//www1/index.htm
+/usr/bin/install -c -m 644 mpicc.html /home/tim/mpich2-install/share/doc//www1/mpicc.html
+/usr/bin/install -c -m 644 mpicxx.html /home/tim/mpich2-install/share/doc//www1/mpicxx.html
+/usr/bin/install -c -m 644 mpiexec.html /home/tim/mpich2-install/share/doc//www1/mpiexec.html
+/usr/bin/install -c -m 644 mpif77.html /home/tim/mpich2-install/share/doc//www1/mpif77.html
+/usr/bin/install -c -m 644 mpif90.html /home/tim/mpich2-install/share/doc//www1/mpif90.html
+/usr/bin/install -c -m 644 MPI_Abort.html /home/tim/mpich2-install/share/doc//www3/MPI_Abort.html
+/usr/bin/install -c -m 644 MPI_Accumulate.html /home/tim/mpich2-install/share/doc//www3/MPI_Accumulate.html
+/usr/bin/install -c -m 644 MPI_Add_error_class.html /home/tim/mpich2-install/share/doc//www3/MPI_Add_error_class.html
+/usr/bin/install -c -m 644 MPI_Add_error_code.html /home/tim/mpich2-install/share/doc//www3/MPI_Add_error_code.html
+/usr/bin/install -c -m 644 MPI_Add_error_string.html /home/tim/mpich2-install/share/doc//www3/MPI_Add_error_string.html
+/usr/bin/install -c -m 644 MPI_Address.html /home/tim/mpich2-install/share/doc//www3/MPI_Address.html
+/usr/bin/install -c -m 644 MPI_Allgather.html /home/tim/mpich2-install/share/doc//www3/MPI_Allgather.html
+/usr/bin/install -c -m 644 MPI_Allgatherv.html /home/tim/mpich2-install/share/doc//www3/MPI_Allgatherv.html
+/usr/bin/install -c -m 644 MPI_Alloc_mem.html /home/tim/mpich2-install/share/doc//www3/MPI_Alloc_mem.html
+/usr/bin/install -c -m 644 MPI_Allreduce.html /home/tim/mpich2-install/share/doc//www3/MPI_Allreduce.html
+/usr/bin/install -c -m 644 MPI_Alltoall.html /home/tim/mpich2-install/share/doc//www3/MPI_Alltoall.html
+/usr/bin/install -c -m 644 MPI_Alltoallv.html /home/tim/mpich2-install/share/doc//www3/MPI_Alltoallv.html
+/usr/bin/install -c -m 644 MPI_Alltoallw.html /home/tim/mpich2-install/share/doc//www3/MPI_Alltoallw.html
+/usr/bin/install -c -m 644 MPI_Attr_delete.html /home/tim/mpich2-install/share/doc//www3/MPI_Attr_delete.html
+/usr/bin/install -c -m 644 MPI_Attr_get.html /home/tim/mpich2-install/share/doc//www3/MPI_Attr_get.html
+/usr/bin/install -c -m 644 MPI_Attr_put.html /home/tim/mpich2-install/share/doc//www3/MPI_Attr_put.html
+/usr/bin/install -c -m 644 MPI_Barrier.html /home/tim/mpich2-install/share/doc//www3/MPI_Barrier.html
+/usr/bin/install -c -m 644 MPI_Bcast.html /home/tim/mpich2-install/share/doc//www3/MPI_Bcast.html
+/usr/bin/install -c -m 644 MPI_Bsend.html /home/tim/mpich2-install/share/doc//www3/MPI_Bsend.html
+/usr/bin/install -c -m 644 MPI_Bsend_init.html /home/tim/mpich2-install/share/doc//www3/MPI_Bsend_init.html
+/usr/bin/install -c -m 644 MPI_Buffer_attach.html /home/tim/mpich2-install/share/doc//www3/MPI_Buffer_attach.html
+/usr/bin/install -c -m 644 MPI_Buffer_detach.html /home/tim/mpich2-install/share/doc//www3/MPI_Buffer_detach.html
+/usr/bin/install -c -m 644 MPI_Cancel.html /home/tim/mpich2-install/share/doc//www3/MPI_Cancel.html
+/usr/bin/install -c -m 644 MPI_Cart_coords.html /home/tim/mpich2-install/share/doc//www3/MPI_Cart_coords.html
+/usr/bin/install -c -m 644 MPI_Cart_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Cart_create.html
+/usr/bin/install -c -m 644 MPI_Cart_get.html /home/tim/mpich2-install/share/doc//www3/MPI_Cart_get.html
+/usr/bin/install -c -m 644 MPI_Cart_map.html /home/tim/mpich2-install/share/doc//www3/MPI_Cart_map.html
+/usr/bin/install -c -m 644 MPI_Cart_rank.html /home/tim/mpich2-install/share/doc//www3/MPI_Cart_rank.html
+/usr/bin/install -c -m 644 MPI_Cart_shift.html /home/tim/mpich2-install/share/doc//www3/MPI_Cart_shift.html
+/usr/bin/install -c -m 644 MPI_Cart_sub.html /home/tim/mpich2-install/share/doc//www3/MPI_Cart_sub.html
+/usr/bin/install -c -m 644 MPI_Cartdim_get.html /home/tim/mpich2-install/share/doc//www3/MPI_Cartdim_get.html
+/usr/bin/install -c -m 644 MPI_Close_port.html /home/tim/mpich2-install/share/doc//www3/MPI_Close_port.html
+/usr/bin/install -c -m 644 MPI_Comm_accept.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_accept.html
+/usr/bin/install -c -m 644 MPI_Comm_call_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_call_errhandler.html
+/usr/bin/install -c -m 644 MPI_Comm_compare.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_compare.html
+/usr/bin/install -c -m 644 MPI_Comm_connect.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_connect.html
+/usr/bin/install -c -m 644 MPI_Comm_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_create.html
+/usr/bin/install -c -m 644 MPI_Comm_create_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_create_errhandler.html
+/usr/bin/install -c -m 644 MPI_Comm_create_keyval.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_create_keyval.html
+/usr/bin/install -c -m 644 MPI_Comm_delete_attr.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_delete_attr.html
+/usr/bin/install -c -m 644 MPI_Comm_disconnect.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_disconnect.html
+/usr/bin/install -c -m 644 MPI_Comm_dup.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_dup.html
+/usr/bin/install -c -m 644 MPI_Comm_free.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_free.html
+/usr/bin/install -c -m 644 MPI_Comm_free_keyval.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_free_keyval.html
+/usr/bin/install -c -m 644 MPI_Comm_get_attr.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_get_attr.html
+/usr/bin/install -c -m 644 MPI_Comm_get_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_get_errhandler.html
+/usr/bin/install -c -m 644 MPI_Comm_get_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_get_name.html
+/usr/bin/install -c -m 644 MPI_Comm_get_parent.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_get_parent.html
+/usr/bin/install -c -m 644 MPI_Comm_group.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_group.html
+/usr/bin/install -c -m 644 MPI_Comm_join.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_join.html
+/usr/bin/install -c -m 644 MPI_Comm_rank.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_rank.html
+/usr/bin/install -c -m 644 MPI_Comm_remote_group.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_remote_group.html
+/usr/bin/install -c -m 644 MPI_Comm_remote_size.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_remote_size.html
+/usr/bin/install -c -m 644 MPI_Comm_set_attr.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_set_attr.html
+/usr/bin/install -c -m 644 MPI_Comm_set_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_set_errhandler.html
+/usr/bin/install -c -m 644 MPI_Comm_set_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_set_name.html
+/usr/bin/install -c -m 644 MPI_Comm_size.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_size.html
+/usr/bin/install -c -m 644 MPI_Comm_spawn.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_spawn.html
+/usr/bin/install -c -m 644 MPI_Comm_spawn_multiple.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_spawn_multiple.html
+/usr/bin/install -c -m 644 MPI_Comm_split.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_split.html
+/usr/bin/install -c -m 644 MPI_Comm_test_inter.html /home/tim/mpich2-install/share/doc//www3/MPI_Comm_test_inter.html
+/usr/bin/install -c -m 644 MPI_Dims_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Dims_create.html
+/usr/bin/install -c -m 644 MPI_Errhandler_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Errhandler_create.html
+/usr/bin/install -c -m 644 MPI_Errhandler_free.html /home/tim/mpich2-install/share/doc//www3/MPI_Errhandler_free.html
+/usr/bin/install -c -m 644 MPI_Errhandler_get.html /home/tim/mpich2-install/share/doc//www3/MPI_Errhandler_get.html
+/usr/bin/install -c -m 644 MPI_Errhandler_set.html /home/tim/mpich2-install/share/doc//www3/MPI_Errhandler_set.html
+/usr/bin/install -c -m 644 MPI_Error_class.html /home/tim/mpich2-install/share/doc//www3/MPI_Error_class.html
+/usr/bin/install -c -m 644 MPI_Error_string.html /home/tim/mpich2-install/share/doc//www3/MPI_Error_string.html
+/usr/bin/install -c -m 644 MPI_Exscan.html /home/tim/mpich2-install/share/doc//www3/MPI_Exscan.html
+/usr/bin/install -c -m 644 MPI_File_c2f.html /home/tim/mpich2-install/share/doc//www3/MPI_File_c2f.html
+/usr/bin/install -c -m 644 MPI_File_call_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_File_call_errhandler.html
+/usr/bin/install -c -m 644 MPI_File_close.html /home/tim/mpich2-install/share/doc//www3/MPI_File_close.html
+/usr/bin/install -c -m 644 MPI_File_create_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_File_create_errhandler.html
+/usr/bin/install -c -m 644 MPI_File_delete.html /home/tim/mpich2-install/share/doc//www3/MPI_File_delete.html
+/usr/bin/install -c -m 644 MPI_File_f2c.html /home/tim/mpich2-install/share/doc//www3/MPI_File_f2c.html
+/usr/bin/install -c -m 644 MPI_File_get_amode.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_amode.html
+/usr/bin/install -c -m 644 MPI_File_get_atomicity.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_atomicity.html
+/usr/bin/install -c -m 644 MPI_File_get_byte_offset.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_byte_offset.html
+/usr/bin/install -c -m 644 MPI_File_get_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_errhandler.html
+/usr/bin/install -c -m 644 MPI_File_get_group.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_group.html
+/usr/bin/install -c -m 644 MPI_File_get_info.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_info.html
+/usr/bin/install -c -m 644 MPI_File_get_position.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_position.html
+/usr/bin/install -c -m 644 MPI_File_get_position_shared.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_position_shared.html
+/usr/bin/install -c -m 644 MPI_File_get_size.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_size.html
+/usr/bin/install -c -m 644 MPI_File_get_type_extent.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_type_extent.html
+/usr/bin/install -c -m 644 MPI_File_get_view.html /home/tim/mpich2-install/share/doc//www3/MPI_File_get_view.html
+/usr/bin/install -c -m 644 MPI_File_iread.html /home/tim/mpich2-install/share/doc//www3/MPI_File_iread.html
+/usr/bin/install -c -m 644 MPI_File_iread_at.html /home/tim/mpich2-install/share/doc//www3/MPI_File_iread_at.html
+/usr/bin/install -c -m 644 MPI_File_iread_shared.html /home/tim/mpich2-install/share/doc//www3/MPI_File_iread_shared.html
+/usr/bin/install -c -m 644 MPI_File_iwrite.html /home/tim/mpich2-install/share/doc//www3/MPI_File_iwrite.html
+/usr/bin/install -c -m 644 MPI_File_iwrite_at.html /home/tim/mpich2-install/share/doc//www3/MPI_File_iwrite_at.html
+/usr/bin/install -c -m 644 MPI_File_iwrite_shared.html /home/tim/mpich2-install/share/doc//www3/MPI_File_iwrite_shared.html
+/usr/bin/install -c -m 644 MPI_File_open.html /home/tim/mpich2-install/share/doc//www3/MPI_File_open.html
+/usr/bin/install -c -m 644 MPI_File_preallocate.html /home/tim/mpich2-install/share/doc//www3/MPI_File_preallocate.html
+/usr/bin/install -c -m 644 MPI_File_read.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read.html
+/usr/bin/install -c -m 644 MPI_File_read_all.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_all.html
+/usr/bin/install -c -m 644 MPI_File_read_all_begin.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_all_begin.html
+/usr/bin/install -c -m 644 MPI_File_read_all_end.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_all_end.html
+/usr/bin/install -c -m 644 MPI_File_read_at.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_at.html
+/usr/bin/install -c -m 644 MPI_File_read_at_all.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_at_all.html
+/usr/bin/install -c -m 644 MPI_File_read_at_all_begin.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_at_all_begin.html
+/usr/bin/install -c -m 644 MPI_File_read_at_all_end.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_at_all_end.html
+/usr/bin/install -c -m 644 MPI_File_read_ordered.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_ordered.html
+/usr/bin/install -c -m 644 MPI_File_read_ordered_begin.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_ordered_begin.html
+/usr/bin/install -c -m 644 MPI_File_read_ordered_end.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_ordered_end.html
+/usr/bin/install -c -m 644 MPI_File_read_shared.html /home/tim/mpich2-install/share/doc//www3/MPI_File_read_shared.html
+/usr/bin/install -c -m 644 MPI_File_seek.html /home/tim/mpich2-install/share/doc//www3/MPI_File_seek.html
+/usr/bin/install -c -m 644 MPI_File_seek_shared.html /home/tim/mpich2-install/share/doc//www3/MPI_File_seek_shared.html
+/usr/bin/install -c -m 644 MPI_File_set_atomicity.html /home/tim/mpich2-install/share/doc//www3/MPI_File_set_atomicity.html
+/usr/bin/install -c -m 644 MPI_File_set_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_File_set_errhandler.html
+/usr/bin/install -c -m 644 MPI_File_set_info.html /home/tim/mpich2-install/share/doc//www3/MPI_File_set_info.html
+/usr/bin/install -c -m 644 MPI_File_set_size.html /home/tim/mpich2-install/share/doc//www3/MPI_File_set_size.html
+/usr/bin/install -c -m 644 MPI_File_set_view.html /home/tim/mpich2-install/share/doc//www3/MPI_File_set_view.html
+/usr/bin/install -c -m 644 MPI_File_sync.html /home/tim/mpich2-install/share/doc//www3/MPI_File_sync.html
+/usr/bin/install -c -m 644 MPI_File_write.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write.html
+/usr/bin/install -c -m 644 MPI_File_write_all.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_all.html
+/usr/bin/install -c -m 644 MPI_File_write_all_begin.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_all_begin.html
+/usr/bin/install -c -m 644 MPI_File_write_all_end.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_all_end.html
+/usr/bin/install -c -m 644 MPI_File_write_at.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_at.html
+/usr/bin/install -c -m 644 MPI_File_write_at_all.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_at_all.html
+/usr/bin/install -c -m 644 MPI_File_write_at_all_begin.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_at_all_begin.html
+/usr/bin/install -c -m 644 MPI_File_write_at_all_end.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_at_all_end.html
+/usr/bin/install -c -m 644 MPI_File_write_ordered.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_ordered.html
+/usr/bin/install -c -m 644 MPI_File_write_ordered_begin.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_ordered_begin.html
+/usr/bin/install -c -m 644 MPI_File_write_ordered_end.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_ordered_end.html
+/usr/bin/install -c -m 644 MPI_File_write_shared.html /home/tim/mpich2-install/share/doc//www3/MPI_File_write_shared.html
+/usr/bin/install -c -m 644 MPI_Finalize.html /home/tim/mpich2-install/share/doc//www3/MPI_Finalize.html
+/usr/bin/install -c -m 644 MPI_Finalized.html /home/tim/mpich2-install/share/doc//www3/MPI_Finalized.html
+/usr/bin/install -c -m 644 MPI_Free_mem.html /home/tim/mpich2-install/share/doc//www3/MPI_Free_mem.html
+/usr/bin/install -c -m 644 MPI_Gather.html /home/tim/mpich2-install/share/doc//www3/MPI_Gather.html
+/usr/bin/install -c -m 644 MPI_Gatherv.html /home/tim/mpich2-install/share/doc//www3/MPI_Gatherv.html
+/usr/bin/install -c -m 644 MPI_Get.html /home/tim/mpich2-install/share/doc//www3/MPI_Get.html
+/usr/bin/install -c -m 644 MPI_Get_address.html /home/tim/mpich2-install/share/doc//www3/MPI_Get_address.html
+/usr/bin/install -c -m 644 MPI_Get_count.html /home/tim/mpich2-install/share/doc//www3/MPI_Get_count.html
+/usr/bin/install -c -m 644 MPI_Get_elements.html /home/tim/mpich2-install/share/doc//www3/MPI_Get_elements.html
+/usr/bin/install -c -m 644 MPI_Get_processor_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Get_processor_name.html
+/usr/bin/install -c -m 644 MPI_Get_version.html /home/tim/mpich2-install/share/doc//www3/MPI_Get_version.html
+/usr/bin/install -c -m 644 MPI_Graph_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Graph_create.html
+/usr/bin/install -c -m 644 MPI_Graph_get.html /home/tim/mpich2-install/share/doc//www3/MPI_Graph_get.html
+/usr/bin/install -c -m 644 MPI_Graph_map.html /home/tim/mpich2-install/share/doc//www3/MPI_Graph_map.html
+/usr/bin/install -c -m 644 MPI_Graph_neighbors.html /home/tim/mpich2-install/share/doc//www3/MPI_Graph_neighbors.html
+/usr/bin/install -c -m 644 MPI_Graph_neighbors_count.html /home/tim/mpich2-install/share/doc//www3/MPI_Graph_neighbors_count.html
+/usr/bin/install -c -m 644 MPI_Graphdims_get.html /home/tim/mpich2-install/share/doc//www3/MPI_Graphdims_get.html
+/usr/bin/install -c -m 644 MPI_Grequest_complete.html /home/tim/mpich2-install/share/doc//www3/MPI_Grequest_complete.html
+/usr/bin/install -c -m 644 MPI_Grequest_start.html /home/tim/mpich2-install/share/doc//www3/MPI_Grequest_start.html
+/usr/bin/install -c -m 644 MPI_Group_compare.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_compare.html
+/usr/bin/install -c -m 644 MPI_Group_difference.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_difference.html
+/usr/bin/install -c -m 644 MPI_Group_excl.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_excl.html
+/usr/bin/install -c -m 644 MPI_Group_free.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_free.html
+/usr/bin/install -c -m 644 MPI_Group_incl.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_incl.html
+/usr/bin/install -c -m 644 MPI_Group_intersection.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_intersection.html
+/usr/bin/install -c -m 644 MPI_Group_range_excl.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_range_excl.html
+/usr/bin/install -c -m 644 MPI_Group_range_incl.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_range_incl.html
+/usr/bin/install -c -m 644 MPI_Group_rank.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_rank.html
+/usr/bin/install -c -m 644 MPI_Group_size.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_size.html
+/usr/bin/install -c -m 644 MPI_Group_translate_ranks.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_translate_ranks.html
+/usr/bin/install -c -m 644 MPI_Group_union.html /home/tim/mpich2-install/share/doc//www3/MPI_Group_union.html
+/usr/bin/install -c -m 644 MPI_Ibsend.html /home/tim/mpich2-install/share/doc//www3/MPI_Ibsend.html
+/usr/bin/install -c -m 644 MPI_Info_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Info_create.html
+/usr/bin/install -c -m 644 MPI_Info_delete.html /home/tim/mpich2-install/share/doc//www3/MPI_Info_delete.html
+/usr/bin/install -c -m 644 MPI_Info_dup.html /home/tim/mpich2-install/share/doc//www3/MPI_Info_dup.html
+/usr/bin/install -c -m 644 MPI_Info_free.html /home/tim/mpich2-install/share/doc//www3/MPI_Info_free.html
+/usr/bin/install -c -m 644 MPI_Info_get.html /home/tim/mpich2-install/share/doc//www3/MPI_Info_get.html
+/usr/bin/install -c -m 644 MPI_Info_get_nkeys.html /home/tim/mpich2-install/share/doc//www3/MPI_Info_get_nkeys.html
+/usr/bin/install -c -m 644 MPI_Info_get_nthkey.html /home/tim/mpich2-install/share/doc//www3/MPI_Info_get_nthkey.html
+/usr/bin/install -c -m 644 MPI_Info_get_valuelen.html /home/tim/mpich2-install/share/doc//www3/MPI_Info_get_valuelen.html
+/usr/bin/install -c -m 644 MPI_Info_set.html /home/tim/mpich2-install/share/doc//www3/MPI_Info_set.html
+/usr/bin/install -c -m 644 MPI_Init.html /home/tim/mpich2-install/share/doc//www3/MPI_Init.html
+/usr/bin/install -c -m 644 MPI_Init_thread.html /home/tim/mpich2-install/share/doc//www3/MPI_Init_thread.html
+/usr/bin/install -c -m 644 MPI_Initialized.html /home/tim/mpich2-install/share/doc//www3/MPI_Initialized.html
+/usr/bin/install -c -m 644 MPI_Intercomm_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Intercomm_create.html
+/usr/bin/install -c -m 644 MPI_Intercomm_merge.html /home/tim/mpich2-install/share/doc//www3/MPI_Intercomm_merge.html
+/usr/bin/install -c -m 644 MPI_Iprobe.html /home/tim/mpich2-install/share/doc//www3/MPI_Iprobe.html
+/usr/bin/install -c -m 644 MPI_Irecv.html /home/tim/mpich2-install/share/doc//www3/MPI_Irecv.html
+/usr/bin/install -c -m 644 MPI_Irsend.html /home/tim/mpich2-install/share/doc//www3/MPI_Irsend.html
+/usr/bin/install -c -m 644 MPI_Is_thread_main.html /home/tim/mpich2-install/share/doc//www3/MPI_Is_thread_main.html
+/usr/bin/install -c -m 644 MPI_Isend.html /home/tim/mpich2-install/share/doc//www3/MPI_Isend.html
+/usr/bin/install -c -m 644 MPI_Issend.html /home/tim/mpich2-install/share/doc//www3/MPI_Issend.html
+/usr/bin/install -c -m 644 MPI_Keyval_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Keyval_create.html
+/usr/bin/install -c -m 644 MPI_Keyval_free.html /home/tim/mpich2-install/share/doc//www3/MPI_Keyval_free.html
+/usr/bin/install -c -m 644 MPI_Lookup_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Lookup_name.html
+/usr/bin/install -c -m 644 MPI_Op_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Op_create.html
+/usr/bin/install -c -m 644 MPI_Op_free.html /home/tim/mpich2-install/share/doc//www3/MPI_Op_free.html
+/usr/bin/install -c -m 644 MPI_Open_port.html /home/tim/mpich2-install/share/doc//www3/MPI_Open_port.html
+/usr/bin/install -c -m 644 MPI_Pack.html /home/tim/mpich2-install/share/doc//www3/MPI_Pack.html
+/usr/bin/install -c -m 644 MPI_Pack_external.html /home/tim/mpich2-install/share/doc//www3/MPI_Pack_external.html
+/usr/bin/install -c -m 644 MPI_Pack_external_size.html /home/tim/mpich2-install/share/doc//www3/MPI_Pack_external_size.html
+/usr/bin/install -c -m 644 MPI_Pack_size.html /home/tim/mpich2-install/share/doc//www3/MPI_Pack_size.html
+/usr/bin/install -c -m 644 MPI_Pcontrol.html /home/tim/mpich2-install/share/doc//www3/MPI_Pcontrol.html
+/usr/bin/install -c -m 644 MPI_Probe.html /home/tim/mpich2-install/share/doc//www3/MPI_Probe.html
+/usr/bin/install -c -m 644 MPI_Publish_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Publish_name.html
+/usr/bin/install -c -m 644 MPI_Put.html /home/tim/mpich2-install/share/doc//www3/MPI_Put.html
+/usr/bin/install -c -m 644 MPI_Query_thread.html /home/tim/mpich2-install/share/doc//www3/MPI_Query_thread.html
+/usr/bin/install -c -m 644 MPI_Recv.html /home/tim/mpich2-install/share/doc//www3/MPI_Recv.html
+/usr/bin/install -c -m 644 MPI_Recv_init.html /home/tim/mpich2-install/share/doc//www3/MPI_Recv_init.html
+/usr/bin/install -c -m 644 MPI_Reduce.html /home/tim/mpich2-install/share/doc//www3/MPI_Reduce.html
+/usr/bin/install -c -m 644 MPI_Reduce_scatter.html /home/tim/mpich2-install/share/doc//www3/MPI_Reduce_scatter.html
+/usr/bin/install -c -m 644 MPI_Register_datarep.html /home/tim/mpich2-install/share/doc//www3/MPI_Register_datarep.html
+/usr/bin/install -c -m 644 MPI_Request_free.html /home/tim/mpich2-install/share/doc//www3/MPI_Request_free.html
+/usr/bin/install -c -m 644 MPI_Request_get_status.html /home/tim/mpich2-install/share/doc//www3/MPI_Request_get_status.html
+/usr/bin/install -c -m 644 MPI_Rsend.html /home/tim/mpich2-install/share/doc//www3/MPI_Rsend.html
+/usr/bin/install -c -m 644 MPI_Rsend_init.html /home/tim/mpich2-install/share/doc//www3/MPI_Rsend_init.html
+/usr/bin/install -c -m 644 MPI_Scan.html /home/tim/mpich2-install/share/doc//www3/MPI_Scan.html
+/usr/bin/install -c -m 644 MPI_Scatter.html /home/tim/mpich2-install/share/doc//www3/MPI_Scatter.html
+/usr/bin/install -c -m 644 MPI_Scatterv.html /home/tim/mpich2-install/share/doc//www3/MPI_Scatterv.html
+/usr/bin/install -c -m 644 MPI_Send.html /home/tim/mpich2-install/share/doc//www3/MPI_Send.html
+/usr/bin/install -c -m 644 MPI_Send_init.html /home/tim/mpich2-install/share/doc//www3/MPI_Send_init.html
+/usr/bin/install -c -m 644 MPI_Sendrecv.html /home/tim/mpich2-install/share/doc//www3/MPI_Sendrecv.html
+/usr/bin/install -c -m 644 MPI_Sendrecv_replace.html /home/tim/mpich2-install/share/doc//www3/MPI_Sendrecv_replace.html
+/usr/bin/install -c -m 644 MPI_Ssend.html /home/tim/mpich2-install/share/doc//www3/MPI_Ssend.html
+/usr/bin/install -c -m 644 MPI_Ssend_init.html /home/tim/mpich2-install/share/doc//www3/MPI_Ssend_init.html
+/usr/bin/install -c -m 644 MPI_Start.html /home/tim/mpich2-install/share/doc//www3/MPI_Start.html
+/usr/bin/install -c -m 644 MPI_Startall.html /home/tim/mpich2-install/share/doc//www3/MPI_Startall.html
+/usr/bin/install -c -m 644 MPI_Status_set_cancelled.html /home/tim/mpich2-install/share/doc//www3/MPI_Status_set_cancelled.html
+/usr/bin/install -c -m 644 MPI_Status_set_elements.html /home/tim/mpich2-install/share/doc//www3/MPI_Status_set_elements.html
+/usr/bin/install -c -m 644 MPI_Test.html /home/tim/mpich2-install/share/doc//www3/MPI_Test.html
+/usr/bin/install -c -m 644 MPI_Test_cancelled.html /home/tim/mpich2-install/share/doc//www3/MPI_Test_cancelled.html
+/usr/bin/install -c -m 644 MPI_Testall.html /home/tim/mpich2-install/share/doc//www3/MPI_Testall.html
+/usr/bin/install -c -m 644 MPI_Testany.html /home/tim/mpich2-install/share/doc//www3/MPI_Testany.html
+/usr/bin/install -c -m 644 MPI_Testsome.html /home/tim/mpich2-install/share/doc//www3/MPI_Testsome.html
+/usr/bin/install -c -m 644 MPI_Topo_test.html /home/tim/mpich2-install/share/doc//www3/MPI_Topo_test.html
+/usr/bin/install -c -m 644 MPI_Type_commit.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_commit.html
+/usr/bin/install -c -m 644 MPI_Type_contiguous.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_contiguous.html
+/usr/bin/install -c -m 644 MPI_Type_create_darray.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_create_darray.html
+/usr/bin/install -c -m 644 MPI_Type_create_hindexed.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_create_hindexed.html
+/usr/bin/install -c -m 644 MPI_Type_create_hvector.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_create_hvector.html
+/usr/bin/install -c -m 644 MPI_Type_create_indexed_block.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_create_indexed_block.html
+/usr/bin/install -c -m 644 MPI_Type_create_keyval.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_create_keyval.html
+/usr/bin/install -c -m 644 MPI_Type_create_resized.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_create_resized.html
+/usr/bin/install -c -m 644 MPI_Type_create_struct.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_create_struct.html
+/usr/bin/install -c -m 644 MPI_Type_create_subarray.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_create_subarray.html
+/usr/bin/install -c -m 644 MPI_Type_delete_attr.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_delete_attr.html
+/usr/bin/install -c -m 644 MPI_Type_dup.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_dup.html
+/usr/bin/install -c -m 644 MPI_Type_extent.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_extent.html
+/usr/bin/install -c -m 644 MPI_Type_free.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_free.html
+/usr/bin/install -c -m 644 MPI_Type_free_keyval.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_free_keyval.html
+/usr/bin/install -c -m 644 MPI_Type_get_attr.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_get_attr.html
+/usr/bin/install -c -m 644 MPI_Type_get_contents.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_get_contents.html
+/usr/bin/install -c -m 644 MPI_Type_get_envelope.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_get_envelope.html
+/usr/bin/install -c -m 644 MPI_Type_get_extent.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_get_extent.html
+/usr/bin/install -c -m 644 MPI_Type_get_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_get_name.html
+/usr/bin/install -c -m 644 MPI_Type_get_true_extent.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_get_true_extent.html
+/usr/bin/install -c -m 644 MPI_Type_hindexed.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_hindexed.html
+/usr/bin/install -c -m 644 MPI_Type_hvector.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_hvector.html
+/usr/bin/install -c -m 644 MPI_Type_indexed.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_indexed.html
+/usr/bin/install -c -m 644 MPI_Type_lb.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_lb.html
+/usr/bin/install -c -m 644 MPI_Type_match_size.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_match_size.html
+/usr/bin/install -c -m 644 MPI_Type_set_attr.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_set_attr.html
+/usr/bin/install -c -m 644 MPI_Type_set_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_set_name.html
+/usr/bin/install -c -m 644 MPI_Type_size.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_size.html
+/usr/bin/install -c -m 644 MPI_Type_struct.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_struct.html
+/usr/bin/install -c -m 644 MPI_Type_ub.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_ub.html
+/usr/bin/install -c -m 644 MPI_Type_vector.html /home/tim/mpich2-install/share/doc//www3/MPI_Type_vector.html
+/usr/bin/install -c -m 644 MPI_Unpack.html /home/tim/mpich2-install/share/doc//www3/MPI_Unpack.html
+/usr/bin/install -c -m 644 MPI_Unpack_external.html /home/tim/mpich2-install/share/doc//www3/MPI_Unpack_external.html
+/usr/bin/install -c -m 644 MPI_Unpublish_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Unpublish_name.html
+/usr/bin/install -c -m 644 MPI_Wait.html /home/tim/mpich2-install/share/doc//www3/MPI_Wait.html
+/usr/bin/install -c -m 644 MPI_Waitall.html /home/tim/mpich2-install/share/doc//www3/MPI_Waitall.html
+/usr/bin/install -c -m 644 MPI_Waitany.html /home/tim/mpich2-install/share/doc//www3/MPI_Waitany.html
+/usr/bin/install -c -m 644 MPI_Waitsome.html /home/tim/mpich2-install/share/doc//www3/MPI_Waitsome.html
+/usr/bin/install -c -m 644 MPI_Win_call_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_call_errhandler.html
+/usr/bin/install -c -m 644 MPI_Win_complete.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_complete.html
+/usr/bin/install -c -m 644 MPI_Win_create.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_create.html
+/usr/bin/install -c -m 644 MPI_Win_create_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_create_errhandler.html
+/usr/bin/install -c -m 644 MPI_Win_create_keyval.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_create_keyval.html
+/usr/bin/install -c -m 644 MPI_Win_delete_attr.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_delete_attr.html
+/usr/bin/install -c -m 644 MPI_Win_fence.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_fence.html
+/usr/bin/install -c -m 644 MPI_Win_free.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_free.html
+/usr/bin/install -c -m 644 MPI_Win_free_keyval.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_free_keyval.html
+/usr/bin/install -c -m 644 MPI_Win_get_attr.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_get_attr.html
+/usr/bin/install -c -m 644 MPI_Win_get_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_get_errhandler.html
+/usr/bin/install -c -m 644 MPI_Win_get_group.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_get_group.html
+/usr/bin/install -c -m 644 MPI_Win_get_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_get_name.html
+/usr/bin/install -c -m 644 MPI_Win_lock.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_lock.html
+/usr/bin/install -c -m 644 MPI_Win_post.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_post.html
+/usr/bin/install -c -m 644 MPI_Win_set_attr.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_set_attr.html
+/usr/bin/install -c -m 644 MPI_Win_set_errhandler.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_set_errhandler.html
+/usr/bin/install -c -m 644 MPI_Win_set_name.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_set_name.html
+/usr/bin/install -c -m 644 MPI_Win_start.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_start.html
+/usr/bin/install -c -m 644 MPI_Win_test.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_test.html
+/usr/bin/install -c -m 644 MPI_Win_unlock.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_unlock.html
+/usr/bin/install -c -m 644 MPI_Win_wait.html /home/tim/mpich2-install/share/doc//www3/MPI_Win_wait.html
+/usr/bin/install -c -m 644 MPI_Wtick.html /home/tim/mpich2-install/share/doc//www3/MPI_Wtick.html
+/usr/bin/install -c -m 644 MPI_Wtime.html /home/tim/mpich2-install/share/doc//www3/MPI_Wtime.html
+/usr/bin/install -c -m 644 index.htm /home/tim/mpich2-install/share/doc//www3/index.htm
+/usr/bin/install -c -m 644 MPI.1 /home/tim/mpich2-install/share/man/man1/MPI.1
+/usr/bin/install -c -m 644 mpicc.1 /home/tim/mpich2-install/share/man/man1/mpicc.1
+/usr/bin/install -c -m 644 mpicxx.1 /home/tim/mpich2-install/share/man/man1/mpicxx.1
+/usr/bin/install -c -m 644 mpiexec.1 /home/tim/mpich2-install/share/man/man1/mpiexec.1
+/usr/bin/install -c -m 644 mpif77.1 /home/tim/mpich2-install/share/man/man1/mpif77.1
+/usr/bin/install -c -m 644 mpif90.1 /home/tim/mpich2-install/share/man/man1/mpif90.1
+/usr/bin/install -c -m 644 MPI_Abort.3 /home/tim/mpich2-install/share/man/man3/MPI_Abort.3
+/usr/bin/install -c -m 644 MPI_Accumulate.3 /home/tim/mpich2-install/share/man/man3/MPI_Accumulate.3
+/usr/bin/install -c -m 644 MPI_Add_error_class.3 /home/tim/mpich2-install/share/man/man3/MPI_Add_error_class.3
+/usr/bin/install -c -m 644 MPI_Add_error_code.3 /home/tim/mpich2-install/share/man/man3/MPI_Add_error_code.3
+/usr/bin/install -c -m 644 MPI_Add_error_string.3 /home/tim/mpich2-install/share/man/man3/MPI_Add_error_string.3
+/usr/bin/install -c -m 644 MPI_Address.3 /home/tim/mpich2-install/share/man/man3/MPI_Address.3
+/usr/bin/install -c -m 644 MPI_Allgather.3 /home/tim/mpich2-install/share/man/man3/MPI_Allgather.3
+/usr/bin/install -c -m 644 MPI_Allgatherv.3 /home/tim/mpich2-install/share/man/man3/MPI_Allgatherv.3
+/usr/bin/install -c -m 644 MPI_Alloc_mem.3 /home/tim/mpich2-install/share/man/man3/MPI_Alloc_mem.3
+/usr/bin/install -c -m 644 MPI_Allreduce.3 /home/tim/mpich2-install/share/man/man3/MPI_Allreduce.3
+/usr/bin/install -c -m 644 MPI_Alltoall.3 /home/tim/mpich2-install/share/man/man3/MPI_Alltoall.3
+/usr/bin/install -c -m 644 MPI_Alltoallv.3 /home/tim/mpich2-install/share/man/man3/MPI_Alltoallv.3
+/usr/bin/install -c -m 644 MPI_Alltoallw.3 /home/tim/mpich2-install/share/man/man3/MPI_Alltoallw.3
+/usr/bin/install -c -m 644 MPI_Attr_delete.3 /home/tim/mpich2-install/share/man/man3/MPI_Attr_delete.3
+/usr/bin/install -c -m 644 MPI_Attr_get.3 /home/tim/mpich2-install/share/man/man3/MPI_Attr_get.3
+/usr/bin/install -c -m 644 MPI_Attr_put.3 /home/tim/mpich2-install/share/man/man3/MPI_Attr_put.3
+/usr/bin/install -c -m 644 MPI_Barrier.3 /home/tim/mpich2-install/share/man/man3/MPI_Barrier.3
+/usr/bin/install -c -m 644 MPI_Bcast.3 /home/tim/mpich2-install/share/man/man3/MPI_Bcast.3
+/usr/bin/install -c -m 644 MPI_Bsend.3 /home/tim/mpich2-install/share/man/man3/MPI_Bsend.3
+/usr/bin/install -c -m 644 MPI_Bsend_init.3 /home/tim/mpich2-install/share/man/man3/MPI_Bsend_init.3
+/usr/bin/install -c -m 644 MPI_Buffer_attach.3 /home/tim/mpich2-install/share/man/man3/MPI_Buffer_attach.3
+/usr/bin/install -c -m 644 MPI_Buffer_detach.3 /home/tim/mpich2-install/share/man/man3/MPI_Buffer_detach.3
+/usr/bin/install -c -m 644 MPI_Cancel.3 /home/tim/mpich2-install/share/man/man3/MPI_Cancel.3
+/usr/bin/install -c -m 644 MPI_Cart_coords.3 /home/tim/mpich2-install/share/man/man3/MPI_Cart_coords.3
+/usr/bin/install -c -m 644 MPI_Cart_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Cart_create.3
+/usr/bin/install -c -m 644 MPI_Cart_get.3 /home/tim/mpich2-install/share/man/man3/MPI_Cart_get.3
+/usr/bin/install -c -m 644 MPI_Cart_map.3 /home/tim/mpich2-install/share/man/man3/MPI_Cart_map.3
+/usr/bin/install -c -m 644 MPI_Cart_rank.3 /home/tim/mpich2-install/share/man/man3/MPI_Cart_rank.3
+/usr/bin/install -c -m 644 MPI_Cart_shift.3 /home/tim/mpich2-install/share/man/man3/MPI_Cart_shift.3
+/usr/bin/install -c -m 644 MPI_Cart_sub.3 /home/tim/mpich2-install/share/man/man3/MPI_Cart_sub.3
+/usr/bin/install -c -m 644 MPI_Cartdim_get.3 /home/tim/mpich2-install/share/man/man3/MPI_Cartdim_get.3
+/usr/bin/install -c -m 644 MPI_Close_port.3 /home/tim/mpich2-install/share/man/man3/MPI_Close_port.3
+/usr/bin/install -c -m 644 MPI_Comm_accept.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_accept.3
+/usr/bin/install -c -m 644 MPI_Comm_call_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_call_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_compare.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_compare.3
+/usr/bin/install -c -m 644 MPI_Comm_connect.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_connect.3
+/usr/bin/install -c -m 644 MPI_Comm_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_create.3
+/usr/bin/install -c -m 644 MPI_Comm_create_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_create_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_create_keyval.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_create_keyval.3
+/usr/bin/install -c -m 644 MPI_Comm_delete_attr.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_delete_attr.3
+/usr/bin/install -c -m 644 MPI_Comm_disconnect.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_disconnect.3
+/usr/bin/install -c -m 644 MPI_Comm_dup.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_dup.3
+/usr/bin/install -c -m 644 MPI_Comm_free.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_free.3
+/usr/bin/install -c -m 644 MPI_Comm_free_keyval.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_free_keyval.3
+/usr/bin/install -c -m 644 MPI_Comm_get_attr.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_get_attr.3
+/usr/bin/install -c -m 644 MPI_Comm_get_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_get_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_get_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_get_name.3
+/usr/bin/install -c -m 644 MPI_Comm_get_parent.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_get_parent.3
+/usr/bin/install -c -m 644 MPI_Comm_group.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_group.3
+/usr/bin/install -c -m 644 MPI_Comm_join.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_join.3
+/usr/bin/install -c -m 644 MPI_Comm_rank.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_rank.3
+/usr/bin/install -c -m 644 MPI_Comm_remote_group.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_remote_group.3
+/usr/bin/install -c -m 644 MPI_Comm_remote_size.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_remote_size.3
+/usr/bin/install -c -m 644 MPI_Comm_set_attr.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_set_attr.3
+/usr/bin/install -c -m 644 MPI_Comm_set_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_set_errhandler.3
+/usr/bin/install -c -m 644 MPI_Comm_set_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_set_name.3
+/usr/bin/install -c -m 644 MPI_Comm_size.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_size.3
+/usr/bin/install -c -m 644 MPI_Comm_spawn.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_spawn.3
+/usr/bin/install -c -m 644 MPI_Comm_spawn_multiple.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_spawn_multiple.3
+/usr/bin/install -c -m 644 MPI_Comm_split.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_split.3
+/usr/bin/install -c -m 644 MPI_Comm_test_inter.3 /home/tim/mpich2-install/share/man/man3/MPI_Comm_test_inter.3
+/usr/bin/install -c -m 644 MPI_Dims_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Dims_create.3
+/usr/bin/install -c -m 644 MPI_Errhandler_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Errhandler_create.3
+/usr/bin/install -c -m 644 MPI_Errhandler_free.3 /home/tim/mpich2-install/share/man/man3/MPI_Errhandler_free.3
+/usr/bin/install -c -m 644 MPI_Errhandler_get.3 /home/tim/mpich2-install/share/man/man3/MPI_Errhandler_get.3
+/usr/bin/install -c -m 644 MPI_Errhandler_set.3 /home/tim/mpich2-install/share/man/man3/MPI_Errhandler_set.3
+/usr/bin/install -c -m 644 MPI_Error_class.3 /home/tim/mpich2-install/share/man/man3/MPI_Error_class.3
+/usr/bin/install -c -m 644 MPI_Error_string.3 /home/tim/mpich2-install/share/man/man3/MPI_Error_string.3
+/usr/bin/install -c -m 644 MPI_Exscan.3 /home/tim/mpich2-install/share/man/man3/MPI_Exscan.3
+/usr/bin/install -c -m 644 MPI_File_c2f.3 /home/tim/mpich2-install/share/man/man3/MPI_File_c2f.3
+/usr/bin/install -c -m 644 MPI_File_call_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_File_call_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_close.3 /home/tim/mpich2-install/share/man/man3/MPI_File_close.3
+/usr/bin/install -c -m 644 MPI_File_create_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_File_create_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_delete.3 /home/tim/mpich2-install/share/man/man3/MPI_File_delete.3
+/usr/bin/install -c -m 644 MPI_File_f2c.3 /home/tim/mpich2-install/share/man/man3/MPI_File_f2c.3
+/usr/bin/install -c -m 644 MPI_File_get_amode.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_amode.3
+/usr/bin/install -c -m 644 MPI_File_get_atomicity.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_atomicity.3
+/usr/bin/install -c -m 644 MPI_File_get_byte_offset.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_byte_offset.3
+/usr/bin/install -c -m 644 MPI_File_get_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_get_group.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_group.3
+/usr/bin/install -c -m 644 MPI_File_get_info.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_info.3
+/usr/bin/install -c -m 644 MPI_File_get_position.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_position.3
+/usr/bin/install -c -m 644 MPI_File_get_position_shared.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_position_shared.3
+/usr/bin/install -c -m 644 MPI_File_get_size.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_size.3
+/usr/bin/install -c -m 644 MPI_File_get_type_extent.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_type_extent.3
+/usr/bin/install -c -m 644 MPI_File_get_view.3 /home/tim/mpich2-install/share/man/man3/MPI_File_get_view.3
+/usr/bin/install -c -m 644 MPI_File_iread.3 /home/tim/mpich2-install/share/man/man3/MPI_File_iread.3
+/usr/bin/install -c -m 644 MPI_File_iread_at.3 /home/tim/mpich2-install/share/man/man3/MPI_File_iread_at.3
+/usr/bin/install -c -m 644 MPI_File_iread_shared.3 /home/tim/mpich2-install/share/man/man3/MPI_File_iread_shared.3
+/usr/bin/install -c -m 644 MPI_File_iwrite.3 /home/tim/mpich2-install/share/man/man3/MPI_File_iwrite.3
+/usr/bin/install -c -m 644 MPI_File_iwrite_at.3 /home/tim/mpich2-install/share/man/man3/MPI_File_iwrite_at.3
+/usr/bin/install -c -m 644 MPI_File_iwrite_shared.3 /home/tim/mpich2-install/share/man/man3/MPI_File_iwrite_shared.3
+/usr/bin/install -c -m 644 MPI_File_open.3 /home/tim/mpich2-install/share/man/man3/MPI_File_open.3
+/usr/bin/install -c -m 644 MPI_File_preallocate.3 /home/tim/mpich2-install/share/man/man3/MPI_File_preallocate.3
+/usr/bin/install -c -m 644 MPI_File_read.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read.3
+/usr/bin/install -c -m 644 MPI_File_read_all.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_all.3
+/usr/bin/install -c -m 644 MPI_File_read_all_begin.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_read_all_end.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_all_end.3
+/usr/bin/install -c -m 644 MPI_File_read_at.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_at.3
+/usr/bin/install -c -m 644 MPI_File_read_at_all.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_at_all.3
+/usr/bin/install -c -m 644 MPI_File_read_at_all_begin.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_at_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_read_at_all_end.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_at_all_end.3
+/usr/bin/install -c -m 644 MPI_File_read_ordered.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_ordered.3
+/usr/bin/install -c -m 644 MPI_File_read_ordered_begin.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_ordered_begin.3
+/usr/bin/install -c -m 644 MPI_File_read_ordered_end.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_ordered_end.3
+/usr/bin/install -c -m 644 MPI_File_read_shared.3 /home/tim/mpich2-install/share/man/man3/MPI_File_read_shared.3
+/usr/bin/install -c -m 644 MPI_File_seek.3 /home/tim/mpich2-install/share/man/man3/MPI_File_seek.3
+/usr/bin/install -c -m 644 MPI_File_seek_shared.3 /home/tim/mpich2-install/share/man/man3/MPI_File_seek_shared.3
+/usr/bin/install -c -m 644 MPI_File_set_atomicity.3 /home/tim/mpich2-install/share/man/man3/MPI_File_set_atomicity.3
+/usr/bin/install -c -m 644 MPI_File_set_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_File_set_errhandler.3
+/usr/bin/install -c -m 644 MPI_File_set_info.3 /home/tim/mpich2-install/share/man/man3/MPI_File_set_info.3
+/usr/bin/install -c -m 644 MPI_File_set_size.3 /home/tim/mpich2-install/share/man/man3/MPI_File_set_size.3
+/usr/bin/install -c -m 644 MPI_File_set_view.3 /home/tim/mpich2-install/share/man/man3/MPI_File_set_view.3
+/usr/bin/install -c -m 644 MPI_File_sync.3 /home/tim/mpich2-install/share/man/man3/MPI_File_sync.3
+/usr/bin/install -c -m 644 MPI_File_write.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write.3
+/usr/bin/install -c -m 644 MPI_File_write_all.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_all.3
+/usr/bin/install -c -m 644 MPI_File_write_all_begin.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_write_all_end.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_all_end.3
+/usr/bin/install -c -m 644 MPI_File_write_at.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_at.3
+/usr/bin/install -c -m 644 MPI_File_write_at_all.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_at_all.3
+/usr/bin/install -c -m 644 MPI_File_write_at_all_begin.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_at_all_begin.3
+/usr/bin/install -c -m 644 MPI_File_write_at_all_end.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_at_all_end.3
+/usr/bin/install -c -m 644 MPI_File_write_ordered.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_ordered.3
+/usr/bin/install -c -m 644 MPI_File_write_ordered_begin.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_ordered_begin.3
+/usr/bin/install -c -m 644 MPI_File_write_ordered_end.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_ordered_end.3
+/usr/bin/install -c -m 644 MPI_File_write_shared.3 /home/tim/mpich2-install/share/man/man3/MPI_File_write_shared.3
+/usr/bin/install -c -m 644 MPI_Finalize.3 /home/tim/mpich2-install/share/man/man3/MPI_Finalize.3
+/usr/bin/install -c -m 644 MPI_Finalized.3 /home/tim/mpich2-install/share/man/man3/MPI_Finalized.3
+/usr/bin/install -c -m 644 MPI_Free_mem.3 /home/tim/mpich2-install/share/man/man3/MPI_Free_mem.3
+/usr/bin/install -c -m 644 MPI_Gather.3 /home/tim/mpich2-install/share/man/man3/MPI_Gather.3
+/usr/bin/install -c -m 644 MPI_Gatherv.3 /home/tim/mpich2-install/share/man/man3/MPI_Gatherv.3
+/usr/bin/install -c -m 644 MPI_Get.3 /home/tim/mpich2-install/share/man/man3/MPI_Get.3
+/usr/bin/install -c -m 644 MPI_Get_address.3 /home/tim/mpich2-install/share/man/man3/MPI_Get_address.3
+/usr/bin/install -c -m 644 MPI_Get_count.3 /home/tim/mpich2-install/share/man/man3/MPI_Get_count.3
+/usr/bin/install -c -m 644 MPI_Get_elements.3 /home/tim/mpich2-install/share/man/man3/MPI_Get_elements.3
+/usr/bin/install -c -m 644 MPI_Get_processor_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Get_processor_name.3
+/usr/bin/install -c -m 644 MPI_Get_version.3 /home/tim/mpich2-install/share/man/man3/MPI_Get_version.3
+/usr/bin/install -c -m 644 MPI_Graph_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Graph_create.3
+/usr/bin/install -c -m 644 MPI_Graph_get.3 /home/tim/mpich2-install/share/man/man3/MPI_Graph_get.3
+/usr/bin/install -c -m 644 MPI_Graph_map.3 /home/tim/mpich2-install/share/man/man3/MPI_Graph_map.3
+/usr/bin/install -c -m 644 MPI_Graph_neighbors.3 /home/tim/mpich2-install/share/man/man3/MPI_Graph_neighbors.3
+/usr/bin/install -c -m 644 MPI_Graph_neighbors_count.3 /home/tim/mpich2-install/share/man/man3/MPI_Graph_neighbors_count.3
+/usr/bin/install -c -m 644 MPI_Graphdims_get.3 /home/tim/mpich2-install/share/man/man3/MPI_Graphdims_get.3
+/usr/bin/install -c -m 644 MPI_Grequest_complete.3 /home/tim/mpich2-install/share/man/man3/MPI_Grequest_complete.3
+/usr/bin/install -c -m 644 MPI_Grequest_start.3 /home/tim/mpich2-install/share/man/man3/MPI_Grequest_start.3
+/usr/bin/install -c -m 644 MPI_Group_compare.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_compare.3
+/usr/bin/install -c -m 644 MPI_Group_difference.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_difference.3
+/usr/bin/install -c -m 644 MPI_Group_excl.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_excl.3
+/usr/bin/install -c -m 644 MPI_Group_free.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_free.3
+/usr/bin/install -c -m 644 MPI_Group_incl.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_incl.3
+/usr/bin/install -c -m 644 MPI_Group_intersection.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_intersection.3
+/usr/bin/install -c -m 644 MPI_Group_range_excl.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_range_excl.3
+/usr/bin/install -c -m 644 MPI_Group_range_incl.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_range_incl.3
+/usr/bin/install -c -m 644 MPI_Group_rank.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_rank.3
+/usr/bin/install -c -m 644 MPI_Group_size.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_size.3
+/usr/bin/install -c -m 644 MPI_Group_translate_ranks.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_translate_ranks.3
+/usr/bin/install -c -m 644 MPI_Group_union.3 /home/tim/mpich2-install/share/man/man3/MPI_Group_union.3
+/usr/bin/install -c -m 644 MPI_Ibsend.3 /home/tim/mpich2-install/share/man/man3/MPI_Ibsend.3
+/usr/bin/install -c -m 644 MPI_Info_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Info_create.3
+/usr/bin/install -c -m 644 MPI_Info_delete.3 /home/tim/mpich2-install/share/man/man3/MPI_Info_delete.3
+/usr/bin/install -c -m 644 MPI_Info_dup.3 /home/tim/mpich2-install/share/man/man3/MPI_Info_dup.3
+/usr/bin/install -c -m 644 MPI_Info_free.3 /home/tim/mpich2-install/share/man/man3/MPI_Info_free.3
+/usr/bin/install -c -m 644 MPI_Info_get.3 /home/tim/mpich2-install/share/man/man3/MPI_Info_get.3
+/usr/bin/install -c -m 644 MPI_Info_get_nkeys.3 /home/tim/mpich2-install/share/man/man3/MPI_Info_get_nkeys.3
+/usr/bin/install -c -m 644 MPI_Info_get_nthkey.3 /home/tim/mpich2-install/share/man/man3/MPI_Info_get_nthkey.3
+/usr/bin/install -c -m 644 MPI_Info_get_valuelen.3 /home/tim/mpich2-install/share/man/man3/MPI_Info_get_valuelen.3
+/usr/bin/install -c -m 644 MPI_Info_set.3 /home/tim/mpich2-install/share/man/man3/MPI_Info_set.3
+/usr/bin/install -c -m 644 MPI_Init.3 /home/tim/mpich2-install/share/man/man3/MPI_Init.3
+/usr/bin/install -c -m 644 MPI_Init_thread.3 /home/tim/mpich2-install/share/man/man3/MPI_Init_thread.3
+/usr/bin/install -c -m 644 MPI_Initialized.3 /home/tim/mpich2-install/share/man/man3/MPI_Initialized.3
+/usr/bin/install -c -m 644 MPI_Intercomm_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Intercomm_create.3
+/usr/bin/install -c -m 644 MPI_Intercomm_merge.3 /home/tim/mpich2-install/share/man/man3/MPI_Intercomm_merge.3
+/usr/bin/install -c -m 644 MPI_Iprobe.3 /home/tim/mpich2-install/share/man/man3/MPI_Iprobe.3
+/usr/bin/install -c -m 644 MPI_Irecv.3 /home/tim/mpich2-install/share/man/man3/MPI_Irecv.3
+/usr/bin/install -c -m 644 MPI_Irsend.3 /home/tim/mpich2-install/share/man/man3/MPI_Irsend.3
+/usr/bin/install -c -m 644 MPI_Is_thread_main.3 /home/tim/mpich2-install/share/man/man3/MPI_Is_thread_main.3
+/usr/bin/install -c -m 644 MPI_Isend.3 /home/tim/mpich2-install/share/man/man3/MPI_Isend.3
+/usr/bin/install -c -m 644 MPI_Issend.3 /home/tim/mpich2-install/share/man/man3/MPI_Issend.3
+/usr/bin/install -c -m 644 MPI_Keyval_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Keyval_create.3
+/usr/bin/install -c -m 644 MPI_Keyval_free.3 /home/tim/mpich2-install/share/man/man3/MPI_Keyval_free.3
+/usr/bin/install -c -m 644 MPI_Lookup_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Lookup_name.3
+/usr/bin/install -c -m 644 MPI_Op_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Op_create.3
+/usr/bin/install -c -m 644 MPI_Op_free.3 /home/tim/mpich2-install/share/man/man3/MPI_Op_free.3
+/usr/bin/install -c -m 644 MPI_Open_port.3 /home/tim/mpich2-install/share/man/man3/MPI_Open_port.3
+/usr/bin/install -c -m 644 MPI_Pack.3 /home/tim/mpich2-install/share/man/man3/MPI_Pack.3
+/usr/bin/install -c -m 644 MPI_Pack_external.3 /home/tim/mpich2-install/share/man/man3/MPI_Pack_external.3
+/usr/bin/install -c -m 644 MPI_Pack_external_size.3 /home/tim/mpich2-install/share/man/man3/MPI_Pack_external_size.3
+/usr/bin/install -c -m 644 MPI_Pack_size.3 /home/tim/mpich2-install/share/man/man3/MPI_Pack_size.3
+/usr/bin/install -c -m 644 MPI_Pcontrol.3 /home/tim/mpich2-install/share/man/man3/MPI_Pcontrol.3
+/usr/bin/install -c -m 644 MPI_Probe.3 /home/tim/mpich2-install/share/man/man3/MPI_Probe.3
+/usr/bin/install -c -m 644 MPI_Publish_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Publish_name.3
+/usr/bin/install -c -m 644 MPI_Put.3 /home/tim/mpich2-install/share/man/man3/MPI_Put.3
+/usr/bin/install -c -m 644 MPI_Query_thread.3 /home/tim/mpich2-install/share/man/man3/MPI_Query_thread.3
+/usr/bin/install -c -m 644 MPI_Recv.3 /home/tim/mpich2-install/share/man/man3/MPI_Recv.3
+/usr/bin/install -c -m 644 MPI_Recv_init.3 /home/tim/mpich2-install/share/man/man3/MPI_Recv_init.3
+/usr/bin/install -c -m 644 MPI_Reduce.3 /home/tim/mpich2-install/share/man/man3/MPI_Reduce.3
+/usr/bin/install -c -m 644 MPI_Reduce_scatter.3 /home/tim/mpich2-install/share/man/man3/MPI_Reduce_scatter.3
+/usr/bin/install -c -m 644 MPI_Register_datarep.3 /home/tim/mpich2-install/share/man/man3/MPI_Register_datarep.3
+/usr/bin/install -c -m 644 MPI_Request_free.3 /home/tim/mpich2-install/share/man/man3/MPI_Request_free.3
+/usr/bin/install -c -m 644 MPI_Request_get_status.3 /home/tim/mpich2-install/share/man/man3/MPI_Request_get_status.3
+/usr/bin/install -c -m 644 MPI_Rsend.3 /home/tim/mpich2-install/share/man/man3/MPI_Rsend.3
+/usr/bin/install -c -m 644 MPI_Rsend_init.3 /home/tim/mpich2-install/share/man/man3/MPI_Rsend_init.3
+/usr/bin/install -c -m 644 MPI_Scan.3 /home/tim/mpich2-install/share/man/man3/MPI_Scan.3
+/usr/bin/install -c -m 644 MPI_Scatter.3 /home/tim/mpich2-install/share/man/man3/MPI_Scatter.3
+/usr/bin/install -c -m 644 MPI_Scatterv.3 /home/tim/mpich2-install/share/man/man3/MPI_Scatterv.3
+/usr/bin/install -c -m 644 MPI_Send.3 /home/tim/mpich2-install/share/man/man3/MPI_Send.3
+/usr/bin/install -c -m 644 MPI_Send_init.3 /home/tim/mpich2-install/share/man/man3/MPI_Send_init.3
+/usr/bin/install -c -m 644 MPI_Sendrecv.3 /home/tim/mpich2-install/share/man/man3/MPI_Sendrecv.3
+/usr/bin/install -c -m 644 MPI_Sendrecv_replace.3 /home/tim/mpich2-install/share/man/man3/MPI_Sendrecv_replace.3
+/usr/bin/install -c -m 644 MPI_Ssend.3 /home/tim/mpich2-install/share/man/man3/MPI_Ssend.3
+/usr/bin/install -c -m 644 MPI_Ssend_init.3 /home/tim/mpich2-install/share/man/man3/MPI_Ssend_init.3
+/usr/bin/install -c -m 644 MPI_Start.3 /home/tim/mpich2-install/share/man/man3/MPI_Start.3
+/usr/bin/install -c -m 644 MPI_Startall.3 /home/tim/mpich2-install/share/man/man3/MPI_Startall.3
+/usr/bin/install -c -m 644 MPI_Status_set_cancelled.3 /home/tim/mpich2-install/share/man/man3/MPI_Status_set_cancelled.3
+/usr/bin/install -c -m 644 MPI_Status_set_elements.3 /home/tim/mpich2-install/share/man/man3/MPI_Status_set_elements.3
+/usr/bin/install -c -m 644 MPI_Test.3 /home/tim/mpich2-install/share/man/man3/MPI_Test.3
+/usr/bin/install -c -m 644 MPI_Test_cancelled.3 /home/tim/mpich2-install/share/man/man3/MPI_Test_cancelled.3
+/usr/bin/install -c -m 644 MPI_Testall.3 /home/tim/mpich2-install/share/man/man3/MPI_Testall.3
+/usr/bin/install -c -m 644 MPI_Testany.3 /home/tim/mpich2-install/share/man/man3/MPI_Testany.3
+/usr/bin/install -c -m 644 MPI_Testsome.3 /home/tim/mpich2-install/share/man/man3/MPI_Testsome.3
+/usr/bin/install -c -m 644 MPI_Topo_test.3 /home/tim/mpich2-install/share/man/man3/MPI_Topo_test.3
+/usr/bin/install -c -m 644 MPI_Type_commit.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_commit.3
+/usr/bin/install -c -m 644 MPI_Type_contiguous.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_contiguous.3
+/usr/bin/install -c -m 644 MPI_Type_create_darray.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_create_darray.3
+/usr/bin/install -c -m 644 MPI_Type_create_hindexed.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_create_hindexed.3
+/usr/bin/install -c -m 644 MPI_Type_create_hvector.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_create_hvector.3
+/usr/bin/install -c -m 644 MPI_Type_create_indexed_block.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_create_indexed_block.3
+/usr/bin/install -c -m 644 MPI_Type_create_keyval.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_create_keyval.3
+/usr/bin/install -c -m 644 MPI_Type_create_resized.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_create_resized.3
+/usr/bin/install -c -m 644 MPI_Type_create_struct.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_create_struct.3
+/usr/bin/install -c -m 644 MPI_Type_create_subarray.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_create_subarray.3
+/usr/bin/install -c -m 644 MPI_Type_delete_attr.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_delete_attr.3
+/usr/bin/install -c -m 644 MPI_Type_dup.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_dup.3
+/usr/bin/install -c -m 644 MPI_Type_extent.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_extent.3
+/usr/bin/install -c -m 644 MPI_Type_free.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_free.3
+/usr/bin/install -c -m 644 MPI_Type_free_keyval.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_free_keyval.3
+/usr/bin/install -c -m 644 MPI_Type_get_attr.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_get_attr.3
+/usr/bin/install -c -m 644 MPI_Type_get_contents.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_get_contents.3
+/usr/bin/install -c -m 644 MPI_Type_get_envelope.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_get_envelope.3
+/usr/bin/install -c -m 644 MPI_Type_get_extent.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_get_extent.3
+/usr/bin/install -c -m 644 MPI_Type_get_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_get_name.3
+/usr/bin/install -c -m 644 MPI_Type_get_true_extent.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_get_true_extent.3
+/usr/bin/install -c -m 644 MPI_Type_hindexed.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_hindexed.3
+/usr/bin/install -c -m 644 MPI_Type_hvector.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_hvector.3
+/usr/bin/install -c -m 644 MPI_Type_indexed.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_indexed.3
+/usr/bin/install -c -m 644 MPI_Type_lb.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_lb.3
+/usr/bin/install -c -m 644 MPI_Type_match_size.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_match_size.3
+/usr/bin/install -c -m 644 MPI_Type_set_attr.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_set_attr.3
+/usr/bin/install -c -m 644 MPI_Type_set_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_set_name.3
+/usr/bin/install -c -m 644 MPI_Type_size.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_size.3
+/usr/bin/install -c -m 644 MPI_Type_struct.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_struct.3
+/usr/bin/install -c -m 644 MPI_Type_ub.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_ub.3
+/usr/bin/install -c -m 644 MPI_Type_vector.3 /home/tim/mpich2-install/share/man/man3/MPI_Type_vector.3
+/usr/bin/install -c -m 644 MPI_Unpack.3 /home/tim/mpich2-install/share/man/man3/MPI_Unpack.3
+/usr/bin/install -c -m 644 MPI_Unpack_external.3 /home/tim/mpich2-install/share/man/man3/MPI_Unpack_external.3
+/usr/bin/install -c -m 644 MPI_Unpublish_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Unpublish_name.3
+/usr/bin/install -c -m 644 MPI_Wait.3 /home/tim/mpich2-install/share/man/man3/MPI_Wait.3
+/usr/bin/install -c -m 644 MPI_Waitall.3 /home/tim/mpich2-install/share/man/man3/MPI_Waitall.3
+/usr/bin/install -c -m 644 MPI_Waitany.3 /home/tim/mpich2-install/share/man/man3/MPI_Waitany.3
+/usr/bin/install -c -m 644 MPI_Waitsome.3 /home/tim/mpich2-install/share/man/man3/MPI_Waitsome.3
+/usr/bin/install -c -m 644 MPI_Win_call_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_call_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_complete.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_complete.3
+/usr/bin/install -c -m 644 MPI_Win_create.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_create.3
+/usr/bin/install -c -m 644 MPI_Win_create_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_create_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_create_keyval.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_create_keyval.3
+/usr/bin/install -c -m 644 MPI_Win_delete_attr.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_delete_attr.3
+/usr/bin/install -c -m 644 MPI_Win_fence.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_fence.3
+/usr/bin/install -c -m 644 MPI_Win_free.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_free.3
+/usr/bin/install -c -m 644 MPI_Win_free_keyval.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_free_keyval.3
+/usr/bin/install -c -m 644 MPI_Win_get_attr.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_get_attr.3
+/usr/bin/install -c -m 644 MPI_Win_get_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_get_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_get_group.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_get_group.3
+/usr/bin/install -c -m 644 MPI_Win_get_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_get_name.3
+/usr/bin/install -c -m 644 MPI_Win_lock.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_lock.3
+/usr/bin/install -c -m 644 MPI_Win_post.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_post.3
+/usr/bin/install -c -m 644 MPI_Win_set_attr.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_set_attr.3
+/usr/bin/install -c -m 644 MPI_Win_set_errhandler.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_set_errhandler.3
+/usr/bin/install -c -m 644 MPI_Win_set_name.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_set_name.3
+/usr/bin/install -c -m 644 MPI_Win_start.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_start.3
+/usr/bin/install -c -m 644 MPI_Win_test.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_test.3
+/usr/bin/install -c -m 644 MPI_Win_unlock.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_unlock.3
+/usr/bin/install -c -m 644 MPI_Win_wait.3 /home/tim/mpich2-install/share/man/man3/MPI_Win_wait.3
+/usr/bin/install -c -m 644 MPI_Wtick.3 /home/tim/mpich2-install/share/man/man3/MPI_Wtick.3
+/usr/bin/install -c -m 644 MPI_Wtime.3 /home/tim/mpich2-install/share/man/man3/MPI_Wtime.3
+if [ -s src/mpi/romio/include/mpiof.h ] ; then /usr/bin/install -c -m 644 src/mpi/romio/include/mpiof.h /home/tim/mpich2-install/include/mpiof.h ; fi
+if [ -s src/mpi/romio/include/mpio.h ] ; then /usr/bin/install -c -m 644 src/mpi/romio/include/mpio.h /home/tim/mpich2-install/include/mpio.h ; fi
+if [ -s lib/libmpich.a ] ; then /usr/bin/install -c -m 644 lib/libmpich.a /home/tim/mpich2-install/lib/libmpich.a ; fi
+if [ -s lib/libmpichcxx.a ] ; then /usr/bin/install -c -m 644 lib/libmpichcxx.a /home/tim/mpich2-install/lib/libmpichcxx.a ; fi
+if [ -s lib/libfmpich.a ] ; then /usr/bin/install -c -m 644 lib/libfmpich.a /home/tim/mpich2-install/lib/libfmpich.a ; fi
+if [ -s lib/libpmpich.a ] ; then /usr/bin/install -c -m 644 lib/libpmpich.a /home/tim/mpich2-install/lib/libpmpich.a ; fi
+if [ -s lib/libfmpich.a ] ; then /usr/bin/install -c -m 644 lib/libfmpich.a /home/tim/mpich2-install/lib/libfmpich.a ; fi
+if [ -s lib/libmpichf90.a ] ; then /usr/bin/install -c -m 644 lib/libmpichf90.a /home/tim/mpich2-install/lib/libmpichf90.a ; fi
+if [ -s lib/libmpich.unknown ] ; then false --mode=install lib/libmpich.unknown /home/tim/mpich2-install/lib/libmpich.unknown ; fi
+if [ -s lib/libpmpich.unknown ] ; then false --mode=install lib/libpmpich.unknown /home/tim/mpich2-install/lib/libpmpich.unknown ; fi
+if [ -s lib/libfmpich.unknown ] ; then false --mode=install lib/libfmpich.unknown /home/tim/mpich2-install/lib/libfmpich.unknown ; fi
+if [ -s lib/libmpichf90.unknown ] ; then false --mode=install lib/libmpichf90.unknown /home/tim/mpich2-install/lib/libmpichf90.unknown ; fi
+if [ -s lib/libmpichcxx.unknown ] ; then false --mode=install lib/libmpichcxx.unknown /home/tim/mpich2-install/lib/libmpichcxx.unknown ; fi
+if [ -s /home/tim/libraries/mpich2-1.1.1/doc/userguide/user.pdf ] ; then /usr/bin/install -c -m 644 /home/tim/libraries/mpich2-1.1.1/doc/userguide/user.pdf /home/tim/mpich2-install/share/doc//user.pdf ; fi
+if [ -s /home/tim/libraries/mpich2-1.1.1/doc/installguide/install.pdf ] ; then /usr/bin/install -c -m 644 /home/tim/libraries/mpich2-1.1.1/doc/installguide/install.pdf /home/tim/mpich2-install/share/doc//install.pdf ; fi
+if [ -s /home/tim/libraries/mpich2-1.1.1/doc/smpd/smpd_pmi.pdf ] ; then /usr/bin/install -c -m 644 /home/tim/libraries/mpich2-1.1.1/doc/smpd/smpd_pmi.pdf /home/tim/mpich2-install/share/doc//smpd_pmi.pdf ; fi
+if [ -s /home/tim/libraries/mpich2-1.1.1/doc/logging/logging.pdf ] ; then /usr/bin/install -c -m 644 /home/tim/libraries/mpich2-1.1.1/doc/logging/logging.pdf /home/tim/mpich2-install/share/doc//logging.pdf ; fi
+(cd src/util/thread && make INSTALL_STRIP_FLAG= install)
+if [ ! -d /home/tim/mpich2-install ] ; then mkdir -p /home/tim/mpich2-install ; fi
+if [ ! -d /home/tim/mpich2-install/include ] ; then mkdir -p /home/tim/mpich2-install/include ; fi
+/usr/bin/install -c -m 644 ../../include/mpe_thread.h /home/tim/mpich2-install/include/mpe_thread.h
+(cd src/env && make INSTALL_STRIP_FLAG= install)
+if [ ! -d /home/tim/mpich2-install ] ; then mkdir -p /home/tim/mpich2-install ; fi
+if [ ! -d /home/tim/mpich2-install ] ; then mkdir -p /home/tim/mpich2-install ; fi
+if [ ! -d /home/tim/mpich2-install/bin ] ; then mkdir -p /home/tim/mpich2-install/bin ; fi
+/usr/bin/install -c  mpich2version /home/tim/mpich2-install/bin/mpich2version
+/usr/bin/install -c mpicc /home/tim/mpich2-install/bin/mpicc
+/usr/bin/install -c parkill /home/tim/mpich2-install/bin/parkill
+if [ ! -d /home/tim/mpich2-install/etc ] ; then mkdir -p /home/tim/mpich2-install/etc ; fi
+/usr/bin/install -c -m 644 mpixxx_opts.conf /home/tim/mpich2-install/etc/mpixxx_opts.conf
+/usr/bin/install -c -m 644 mpicc.conf /home/tim/mpich2-install/etc/mpicc.conf
+if [ -s mpicxx ] ; then /usr/bin/install -c mpicxx /home/tim/mpich2-install/bin/mpicxx ; fi
+if [ -s mpif77 ] ; then /usr/bin/install -c mpif77 /home/tim/mpich2-install/bin/mpif77 ; fi
+if [ -s mpif90 ] ; then /usr/bin/install -c mpif90 /home/tim/mpich2-install/bin/mpif90 ; fi
+if [ -s mpicxx.conf ] ; then /usr/bin/install -c -m 644 mpicxx.conf /home/tim/mpich2-install/etc/mpicxx.conf ; fi
+if [ -s mpif77.conf ] ; then /usr/bin/install -c -m 644 mpif77.conf /home/tim/mpich2-install/etc/mpif77.conf ; fi
+if [ -s mpif90.conf ] ; then /usr/bin/install -c -m 644 mpif90.conf /home/tim/mpich2-install/etc/mpif90.conf ; fi
+make install-postamble
+if [ -x /home/tim/mpich2-install/bin/mpicxx ] ; then  cd /home/tim/mpich2-install/bin && ln -sf mpicxx mpic++ ; fi
+(cd src/packaging/pkgconfig && make INSTALL_STRIP_FLAG= install)
+if [ ! -d /home/tim/mpich2-install/lib/pkgconfig ] ; then mkdir -p /home/tim/mpich2-install/lib/pkgconfig ; fi
+if [ -s mpich2-ch3.pc ] ; then /usr/bin/install -c -m 644 mpich2-ch3.pc /home/tim/mpich2-install/lib/pkgconfig/mpich2-ch3.pc ; fi
+(cd src/packaging/envmods && make INSTALL_STRIP_FLAG= install)
+if [ ! -d /home/tim/mpich2-install/etc ] ; then mkdir -p /home/tim/mpich2-install/etc ; fi
+for dir in  src/binding/cxx - ; do  if [ "$dir" = "-" ] ; then break ; fi ; (cd $dir && make INSTALL_STRIP_FLAG= PACKAGE= install) ; done
+if [ ! -d /home/tim/mpich2-install ] ; then mkdir -p /home/tim/mpich2-install ; fi
+if [ ! -d /home/tim/mpich2-install/include ] ; then mkdir -p /home/tim/mpich2-install/include ; fi
+/usr/bin/install -c -m 644 mpicxx.h /home/tim/mpich2-install/include/mpicxx.h
+for dir in  src/openpa src/pm/mpd src/mpe2 - ; do  if [ "$dir" = "-" ] ; then break ; fi ; (cd $dir && make INSTALL_STRIP_FLAG= PACKAGE= install) ; done
+Making install in src
+test -z "/home/tim/mpich2-install/lib" || mkdir -p "/home/tim/mpich2-install/lib"
+ /usr/bin/install -c -m 644  libopa.a '/home/tim/mpich2-install/lib'
+ ( cd '/home/tim/mpich2-install/lib' && ranlib libopa.a )
+test -z "/home/tim/mpich2-install/include" || mkdir -p "/home/tim/mpich2-install/include"
+ /usr/bin/install -c -m 644 opa_config.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/opa_primitives.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/opa_queue.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/opa_util.h '/home/tim/mpich2-install/include'
+test -z "/home/tim/mpich2-install/include" || mkdir -p "/home/tim/mpich2-install/include"
+mkdir -p '/home/tim/mpich2-install/include/primitives'
+ /usr/bin/install -c -m 644  /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_by_lock.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_emulated.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_gcc_ia64.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_gcc_intel_32_64.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_gcc_intel_32_64_barrier.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_gcc_intel_32_64_ops.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_gcc_intel_32_64_p3.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_gcc_intel_32_64_p3barrier.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_gcc_intrinsics.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_gcc_ppc.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_gcc_sicortex.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_nt_intrinsics.h /home/tim/libraries/mpich2-1.1.1/src/openpa/src/primitives/opa_sun_atomic_ops.h '/home/tim/mpich2-install/include/primitives'
+Making install in test
+test -z "/home/tim/mpich2-install/share/doc/openpa" || mkdir -p "/home/tim/mpich2-install/share/doc/openpa"
+ /usr/bin/install -c -m 644 /home/tim/libraries/mpich2-1.1.1/src/openpa/README '/home/tim/mpich2-install/share/doc/openpa'
+copying python files/links into  /home/tim/mpich2-install/bin
+Installing MPE2 include files to /home/tim/mpich2-install/include
+Installing MPE2 libraries to /home/tim/mpich2-install/lib
+Installing MPE2 utility programs to /home/tim/mpich2-install/bin
+Installing MPE2 configuration files to /home/tim/mpich2-install/etc
+Installing MPE2 system utility programs to /home/tim/mpich2-install/sbin
+Installing MPE2 man to /home/tim/mpich2-install/share/man
+Installing MPE2 html to /home/tim/mpich2-install/share/doc/
+Installed MPE2 in /home/tim/mpich2-install
+/home/tim/mpich2-install/sbin/mpeuninstall may be used to remove the installation

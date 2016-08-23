@@ -1,0 +1,74 @@
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Send(174)....................: MPI_Send(buf=0x1fa6050, count=512, MPI_INT, dest=1, tag=0, MPI_COMM_WORLD) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(906): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_ACK fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Recv(187)....................: MPI_Recv(buf=0x21124f0, count=1, dtype=USER<indexed>, src=0, tag=0, MPI_COMM_WORLD, status=0x1) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(891): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_PT_DISABLED fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Send(174)....................: MPI_Send(buf=0x1fa6050, count=512, MPI_INT, dest=1, tag=0, MPI_COMM_WORLD) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(906): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_ACK fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Send(174)....................: MPI_Send(buf=0x1fa6050, count=512, MPI_INT, dest=1, tag=0, MPI_COMM_WORLD) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(906): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_ACK fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Send(174)....................: MPI_Send(buf=0x1fa6050, count=512, MPI_INT, dest=1, tag=0, MPI_COMM_WORLD) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(906): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_ACK fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Send(174)....................: MPI_Send(buf=0x1fa6050, count=512, MPI_INT, dest=1, tag=0, MPI_COMM_WORLD) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(906): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_ACK fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Send(174)....................: MPI_Send(buf=0x1fa6050, count=512, MPI_INT, dest=1, tag=0, MPI_COMM_WORLD) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(906): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_ACK fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Send(174)....................: MPI_Send(buf=0x1fa6050, count=512, MPI_INT, dest=1, tag=0, MPI_COMM_WORLD) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(906): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_ACK fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Send(174)....................: MPI_Send(buf=0x1fa6050, count=512, MPI_INT, dest=1, tag=0, MPI_COMM_WORLD) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(906): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_ACK fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: MPI_Send(174)....................: MPI_Send(buf=0x1fa6050, count=512, MPI_INT, dest=1, tag=0, MPI_COMM_WORLD) failed
+Unexpected output in pingping: MPIDI_CH3I_Progress(363).........: 
+Unexpected output in pingping: MPID_nem_mpich_blocking_recv(906): 
+Unexpected output in pingping: MPID_nem_ptl_poll(142)...........: communication failure event=PTL_EVENT_ACK fail_type=PTL_NI_PT_DISABLED)
+Unexpected output in pingping: Error class 15 (Other MPI error, error stack:
+Unexpected output in pingping: PMPI_Comm_dup(177)...................: MPI_Comm_dup(MPI_COMM_WORLD, new_comm=0x7fff245d6698) failed
+Unexpected output in pingping: PMPI_Comm_dup(162)...................: 
+Unexpected output in pingping: MPIR_Comm_dup_impl(57)...............: 
+Unexpected output in pingping: MPIR_Comm_copy(1695).................: 
+Unexpected output in pingping: MPIR_Get_contextid(828)..............: 
+Unexpected output in pingping: MPIR_Get_contextid_sparse_group(1096): 
+Unexpected output in pingping: MPIR_Allreduce_impl(769).............: 
+Unexpected output in pingping: MPIR_Allreduce_intra(419)............: 
+Unexpected output in pingping: MPIC_Sendrecv(473)...................: 
+Unexpected output in pingping: MPIC_Wait(243).......................: 
+Unexpected output in pingping: MPIDI_CH3I_Progress(3)
+Unexpected output in pingping: *** stack smashing detected ***: ./pingping terminated
+Unexpected output in pingping: 
+Unexpected output in pingping: ===================================================================================
+Unexpected output in pingping: =   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+Unexpected output in pingping: =   PID 7207 RUNNING AT bb73
+Unexpected output in pingping: =   EXIT CODE: 139
+Unexpected output in pingping: =   CLEANING UP REMAINING PROCESSES
+Unexpected output in pingping: =   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+Unexpected output in pingping: ===================================================================================
+Unexpected output in pingping: YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Segmentation fault (signal 11)
+Unexpected output in pingping: This typically refers to a problem with your application.
+Unexpected output in pingping: Please see the FAQ page for debugging suggestions

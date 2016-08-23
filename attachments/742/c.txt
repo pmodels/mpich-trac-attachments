@@ -1,0 +1,40 @@
+Configuring MPICH2 version 1.1 with  '--prefix' '/Users/mleconte/Unix/mpich2-ifort' 'F77=ifort' 'F90=ifort'
+Running on system: Darwin michael-lecontes-macbookpro41.local 9.7.0 Darwin Kernel Version 9.7.0: Tue Mar 31 22:52:17 PDT 2009; root:xnu-1228.12.14~1/RELEASE_I386 i386
+Executing mpich2prereq in /Users/mleconte/mpich2-1.1/src/mpid/ch3 with 
+Executing mpich2prereq in /Users/mleconte/mpich2-1.1/src/mpid/ch3/channels/nemesis
+sourcing /Users/mleconte/mpich2-1.1/src/pm/mpd/mpich2prereq
+sourcing /Users/mleconte/mpich2-1.1/src/pm/hydra/mpich2prereq
+sourcing /Users/mleconte/mpich2-1.1/src/pm/gforker/mpich2prereq
+sourcing /Users/mleconte/mpich2-1.1/src/pm/mpd/setup_pm
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... gcc -E
+checking whether the compiler defines __func__... yes
+checking whether the compiler defines __FUNC__... no
+checking whether the compiler sets __FUNCTION__... yes
+checking whether C compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for type of weak symbol alias support... no
+checking whether __attribute__ ((weak)) allowed... yes
+checking whether __attribute ((weak_import)) allowed... yes
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether ifort accepts -g... yes
+checking whether Fortran 77 compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking how to get verbose linking output from ifort... -v
+checking for Fortran 77 libraries of ifort...  -L/opt/intel/Compiler/11.0/064/lib -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/x86_64/ -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/../../../x86_64/ -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/x86_64 -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/ -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/../../../x86_64 -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/../../../ -L/usr/lib /opt/intel/Compiler/11.0/064/lib/libifport.a /opt/intel/Compiler/11.0/064/lib/libifcore.a /opt/intel/Compiler/11.0/064/lib/libimf.a /opt/intel/Compiler/11.0/064/lib/libsvml.a /opt/intel/Compiler/11.0/064/lib/libipgo.a -lSystemStubs -lmx /opt/intel/Compiler/11.0/064/lib/libirc.a -lpthread /opt/intel/Compiler/11.0/064/lib/libirc_s.a -ldl
+checking whether ifort accepts the FLIBS found by autoconf... yes
+checking whether C can link with  -L/opt/intel/Compiler/11.0/064/lib -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/x86_64/ -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/../../../x86_64/ -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/x86_64 -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/ -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/../../../x86_64 -L/usr/local/lib/gcc/i386-apple-darwin9.5.0/4.4.0/../../../ -L/usr/lib /opt/intel/Compiler/11.0/064/lib/libifport.a /opt/intel/Compiler/11.0/064/lib/libifcore.a /opt/intel/Compiler/11.0/064/lib/libimf.a /opt/intel/Compiler/11.0/064/lib/libsvml.a /opt/intel/Compiler/11.0/064/lib/libipgo.a -lSystemStubs -lmx /opt/intel/Compiler/11.0/064/lib/libirc.a -lpthread /opt/intel/Compiler/11.0/064/lib/libirc_s.a -ldl... yes
+checking for linker for Fortran main programs... Use Fortran to link programs
+checking whether Fortran 77 and C objects are compatible... no
+checking for file... file
+configure: error: ****  Incompatible Fortran and C Object File Types!  ****
+F77 Object File Type produced by "ifort  -O2" is : : Mach-O 64-bit object x86_64.
+ C  Object File Type produced by "gcc  -O2" is : : Mach-O object i386.

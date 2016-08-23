@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #391: Problem for migrating from MPICH to MPICH2</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; You will have to re-compile your code with MPICH2 to work.<BR>
+&nbsp; Let us know if it works for you.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Thursday, January 29, 2009 7:50 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #391: Problem for migrating from MPICH to MPICH2<BR>
+<BR>
+-------------------------------------------------------------+----------<BR>
+-------------------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;DONADILLE Laurent&quot; &lt;laurent.donadille@irsn.fr&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+-------------------------------------------------------------+----------<BR>
+-------------------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Dear developpers,<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;First thank you for your help for my previous question (see below). The&nbsp; answer&nbsp; solved this specific problem.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;However I have another question:<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;I use a precompiled Windows version of the MCNPX Monte Carlo code, which&nbsp; works&nbsp; fine with MPICH.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Trying to use the same .exe file with MPICH2, I have a problem.<BR>
+<BR>
+&nbsp;For example the command line:<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;mpiexec -n 2 (whatever other options) my_mcnpx.exe my_input_file<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;leads to 2 apparently independent MCNPX processes (hence 2&nbsp; my_output_file), and&nbsp; not 2 parallel MCNPX processes (with 1 my_output_file).<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;I wonder whether the precompiled MCNPX used for MPICH is compatible with&nbsp; MPICH2,&nbsp; i.e. whether one needs to recompile the code with specific options.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Could you help me ?<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Thanks again.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;L. Donadille.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;-----Message d'origine-----<BR>
+&nbsp;De : owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&nbsp;De la<BR>
+&nbsp;part de mpich2<BR>
+&nbsp;Envoyé : vendredi 23 janvier 2009 16:27&nbsp; Objet : Re: [mpich2-maint] #372: Problem with -wdir option for shared&nbsp; network&nbsp; hard drives<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;-------------------------------------------------------------+--------------<BR>
+<BR>
+&nbsp; Reporter:&nbsp; &quot;DONADILLE Laurent&quot; &lt;laurent.donadille@irsn.fr&gt;&nbsp; |<BR>
+&nbsp;Owner:<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;Status:<BR>
+&nbsp;new<BR>
+<BR>
+&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;Milestone:<BR>
+<BR>
+&nbsp;Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;Resolution:<BR>
+<BR>
+&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+<BR>
+&nbsp;-------------------------------------------------------------+--------------<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Comment (by Jayesh Krishna):<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; {{{<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Hi,<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; You should map any network drives that you use in your MPI job using&nbsp; the<BR>
+<BR>
+&nbsp; &quot;-map&quot; option of mpiexec (mpiexec -n 2 -map<BR>
+<BR>
+&nbsp; x:\\IPADDRESS_OF_HOST\NETWORK_SHARE_NAME ... ).<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; Let us know if it works for you.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; Regards,<BR>
+<BR>
+&nbsp; Jayesh<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; -----Original Message-----<BR>
+<BR>
+&nbsp; From: mpich2-bugs-bounces@mcs.anl.gov<BR>
+<BR>
+&nbsp; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+<BR>
+&nbsp; Sent: Friday, January 23, 2009 7:25 AM<BR>
+<BR>
+&nbsp; To: undisclosed-recipients:<BR>
+<BR>
+&nbsp; Subject: [mpich2-maint] #372: Problem with -wdir option for shared<BR>
+<BR>
+&nbsp; networkhard drives<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; -------------------------------------------------------------+----------<BR>
+<BR>
+&nbsp; -------------------------------------------------------------+----<BR>
+<BR>
+&nbsp;&nbsp; Reporter:&nbsp; &quot;DONADILLE Laurent&quot; &lt;laurent.donadille@irsn.fr&gt;&nbsp; |<BR>
+<BR>
+&nbsp; Type:&nbsp; bug<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+<BR>
+&nbsp; Priority:&nbsp; major<BR>
+<BR>
+&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+<BR>
+&nbsp; Component:&nbsp; mpich2<BR>
+<BR>
+&nbsp; -------------------------------------------------------------+----------<BR>
+<BR>
+&nbsp; -------------------------------------------------------------+----<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; {{{<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Dear developpers,<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; I have installed mpich2-1.0.8-win-ia32.msi on 2 Windows based PCs<BR>
+<BR>
+&nbsp; (downloaded from<BR>
+<BR>
+&nbsp; <A HREF="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=do">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=do</A><BR>
+<BR>
+&nbsp;&nbsp; wnloads).<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; From a shared network hardrive, the provided cpi.exe example works fine,<BR>
+<BR>
+&nbsp; i.e.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; mpiexec -n &lt;whatever nb proc&gt; -machinefile &lt;file listing the 2 hosts&gt;<BR>
+<BR>
+&nbsp; cpi<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; However, when running the same command but for a program (MCNPX, version<BR>
+<BR>
+&nbsp; running fine with MPICH1) which needs an input file, i.e.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; mpiexec -n &lt;whatever nb proc&gt; -machinefile &lt;file listing the 2 hosts&gt;<BR>
+<BR>
+&nbsp; -wdir (or -dir) &lt;shared network directory containing the input, which is<BR>
+<BR>
+&nbsp; the current directory&gt; program &lt;input file&gt;<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; the input file is not found.<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; It appears that MPICH2 doesn't &quot;see&quot; this network directory, i.e. the<BR>
+<BR>
+&nbsp; -wdir option is not effective.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Conversely, the -wdir option works well for local directories.<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Could you please help me ?<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Thank you very much in advance.<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Best regards,<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Dr. L. Donadille<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; IRSN, France<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; }}}<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; --<BR>
+<BR>
+&nbsp; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/372">https://trac.mcs.anl.gov/projects/mpich2/ticket/372</A>&gt;<BR>
+<BR>
+&nbsp; }}}<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;--<BR>
+<BR>
+&nbsp;Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/372#comment:&gt;<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/391">https://trac.mcs.anl.gov/projects/mpich2/ticket/391</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

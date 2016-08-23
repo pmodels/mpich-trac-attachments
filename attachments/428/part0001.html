@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>Re: [mpich2-maint] #428: [mpich-discuss] MPI_Win_fence memoryconsumption</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; A contiguous MPI derived type consisting of 3 MPI_DOUBLEs is not equivalent to a C structure with 3 doubles. Try using an array of 3 doubles (double[3]) or using an equivalent MPI datatype (eg: MPI_Type_create_struct()).<BR>
+&nbsp; Let us know if it works for you.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich-discuss-bounces@mcs.anl.gov [<A HREF="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] On Behalf Of Rajeev Thakur<BR>
+Sent: Friday, February 27, 2009 9:07 PM<BR>
+To: mpich-discuss@mcs.anl.gov<BR>
+Subject: Re: [mpich-discuss] MPI_Win_fence memory consumption<BR>
+<BR>
+OK, thanks. We will look into it.<BR>
+<BR>
+Rajeev<BR>
+<BR>
+&gt; -----Original Message-----<BR>
+&gt; From: mpich-discuss-bounces@mcs.anl.gov<BR>
+&gt; [<A HREF="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] On Behalf Of Dorian Krause<BR>
+&gt; Sent: Friday, February 27, 2009 7:44 PM<BR>
+&gt; To: mpich-discuss@mcs.anl.gov<BR>
+&gt; Subject: Re: [mpich-discuss] MPI_Win_fence memory consumption<BR>
+&gt;<BR>
+&gt; Rajeev Thakur wrote:<BR>
+&gt; &gt; Does that happen only with Nemesis or even with ch3:sock?<BR>
+&gt; &gt;&nbsp;&nbsp;<BR>
+&gt;<BR>
+&gt; The behaviour is the same with the configure flag<BR>
+&gt; --with-device=ch3:sock.<BR>
+&gt;<BR>
+&gt; Dorian<BR>
+&gt;<BR>
+&gt; &gt; Rajeev<BR>
+&gt; &gt;<BR>
+&gt; &gt;&nbsp;&nbsp;<BR>
+&gt; &gt;&gt; -----Original Message-----<BR>
+&gt; &gt;&gt; From: mpich-discuss-bounces@mcs.anl.gov<BR>
+&gt; &gt;&gt; [<A HREF="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] On Behalf Of<BR>
+&gt; Dorian Krause<BR>
+&gt; &gt;&gt; Sent: Friday, February 27, 2009 7:16 AM<BR>
+&gt; &gt;&gt; To: mpich-discuss@mcs.anl.gov<BR>
+&gt; &gt;&gt; Subject: [mpich-discuss] MPI_Win_fence memory consumption<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt; Hi List,<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt; the attached test program uses<BR>
+&gt; MPI_Accumulate/MPI_Win_fence for one<BR>
+&gt; &gt;&gt; sided communication with derived datatype.<BR>
+&gt; &gt;&gt; The program runs fine with mpich2-1.1a2 except for my debugging<BR>
+&gt; &gt;&gt; version of MPICH2 compiled with<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt; ./configure --with-device=ch3:nemesis --enable-g=dbg,mem,meminit<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt; In this case the MPI_Win_fence on the target side comuses<BR>
+&gt; about 90%<BR>
+&gt; &gt;&gt; of main memory (e.g. &gt; 3 GB). As the behaviour is completely<BR>
+&gt; &gt;&gt; different for predefined datatypes, I suspect that the memory<BR>
+&gt; &gt;&gt; consumption is related to the construction of the derived<BR>
+&gt; datatype on<BR>
+&gt; &gt;&gt; the target side.<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt; Is there a workaround for this?<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt; Thanks + Best regards,<BR>
+&gt; &gt;&gt; Dorian<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt;<BR>
+&gt; &gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&gt;<BR>
+&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

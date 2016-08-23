@@ -1,0 +1,76 @@
+Index: configure.in
+===================================================================
+--- configure.in	(revision 4231)
++++ configure.in	(working copy)
+@@ -4748,11 +4748,7 @@
+ AC_SUBST(BSEND_OVERHEAD)
+ 
+ # Check for special compile characteristics
+-# If we are either gcc or icc, see if we can use __asm__
+-# We test on prog_gcc to allow gcc by any name; if we are using
+-# icc, the value of CC must be icc for this test to pass
+-if test "$ac_cv_prog_gcc" = "yes" -o "$ac_cv_prog_CC" = "icc" ; then
+-AC_MSG_CHECKING([for gcc __asm__ and pentium cmpxchgl instruction])
++AC_MSG_CHECKING([for gcc-style __asm__ and pentium cmpxchgl instruction])
+ AC_TRY_RUN([
+ int main(int argc, char *argv[])
+ {
+@@ -4768,17 +4764,15 @@
+ return (compval == 20) ? 0 : -1;
+ }
+ ], AC_MSG_RESULT(yes)
+-   AC_DEFINE(HAVE_GCC_AND_PENTIUM_ASM, 1,[Define if using gcc on a system with an Intel Pentium class chip])
++   AC_DEFINE(HAVE_GCC_AND_PENTIUM_ASM, 1,[Define if using gcc-style asm on a system with an Intel Pentium class chip])
+    lac_cv_use_atomic_updates="yes", 
+ AC_MSG_RESULT(no), AC_MSG_RESULT(not checking when cross compiling))
+-fi
+ if test "$lac_cv_use_atomic_updates" = "yes" ; then
+     AC_DEFINE(USE_ATOMIC_UPDATES,, [Define if assembly language atomic update macros should be used (if available)])
+ fi
+ 
+ # check for x86_64
+-if test "$ac_cv_prog_gcc" = "yes" ; then
+-AC_MSG_CHECKING([for gcc __asm__ and AMD x86_64 cmpxchgq instruction])
++AC_MSG_CHECKING([for gcc-style __asm__ and AMD x86_64 cmpxchgq instruction])
+ AC_TRY_RUN([
+ int main(int argc, char *argv[])
+ {
+@@ -4796,7 +4790,6 @@
+ ], AC_MSG_RESULT(yes)
+    AC_DEFINE(HAVE_GCC_AND_X86_64_ASM, 1,[Define if using gcc on a system with an AMD x86_64 class chip]), 
+ AC_MSG_RESULT(no), AC_MSG_RESULT(not checking when cross compiling))
+-fi
+ dnl
+ dnl check for asm() format
+ dnl 
+@@ -4822,8 +4815,7 @@
+ dnl
+ dnl check for IA64
+ dnl 
+-if test "$ac_cv_prog_gcc" = "yes" ; then
+-AC_MSG_CHECKING([for gcc __asm__ and IA64 xchg4 instruction])
++AC_MSG_CHECKING([for gcc-style __asm__ and IA64 xchg4 instruction])
+ AC_TRY_RUN([
+ unsigned long _InterlockedExchange(volatile void *ptr, unsigned long x)
+ {
+@@ -4842,7 +4834,6 @@
+ ], AC_MSG_RESULT(yes)
+    AC_DEFINE(HAVE_GCC_AND_IA64_ASM, 1,[Define if using gcc on a system with an IA64 class chip]), 
+ AC_MSG_RESULT(no), AC_MSG_RESULT(not checking when cross compiling))
+-fi
+ # -----------------------------------------------------------------------------
+ # Check for support of enable-coverage.  Put this near the end of the tests
+ # because the coverage options may affect the other tests.
+Index: src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h
+===================================================================
+--- src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h	(revision 4231)
++++ src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h	(working copy)
+@@ -9,7 +9,7 @@
+ #define MPID_NEM_INLINE_DECL
+ #undef _MPID_NEM_INLINE_H /* ok to include again: we're including the non-inline functions in a .c file */
+ #else
+-#define MPID_NEM_INLINE_DECL extern inline
++#define MPID_NEM_INLINE_DECL static inline
+ #endif
+ 
+ #ifndef _MPID_NEM_INLINE_H

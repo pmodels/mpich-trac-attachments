@@ -1,0 +1,50 @@
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Arial">Hello,</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Arial; min-height: 15.0px"><br></p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Arial">I am trying to compile MPICH2-1.1 (downloaded on 05.06.09) in Mac OS X Server 2x3 GHz Quad-Core Intel Xeon OS 10.5.7 Darwin 9.7. Compiler intel 11.056 with following env settings with plans to run a Mac cluster.</p>
+
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Arial; min-height: 15.0px"><br></p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export F77=ifort</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export F90=ifort</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export CC=/usr/bin/gcc</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export CXX=/usr/bin/c++</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export FFLAGS=&quot;-i4 -O3 -xT -align all -fno-alias -m64&quot;</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export F90FLAGS=&quot;-i4 -O3 -xT -align all -fno-alias -m64&quot;</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export CFLAGS=&quot;-m64 -O3  -DMACOS&quot;</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export CXXFLAGS=&quot;-m64 -O3 -DMACOS&quot;</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">./configure --prefix=/usr/local/mpich --enable-f90 &gt;&amp; 1conflog &amp;</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">make &gt;&amp; 1log &amp;</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">make install</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana; min-height: 15.0px"><br></p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">I had the following error during make</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">----------------</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">See any operating system documentation about shared libraries for</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">more information, such as the ld(1) and ld.so(8) manual pages.</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">----------------------------------------------------------------------</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">/usr/bin/gcc -I.. -I/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/include -I../../src/logformat/trace -m64 -O3 -DMACOS -c trace_input.c</p>
+
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">/usr/bin/gcc -I.. -I/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/include -I../../src/logformat/trace -m64 -O3 -DMACOS -c rlogutil.c</p>
+
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">/usr/bin/gcc -I.. -I/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/include -I../../src/logformat/trace -m64 -O3 -DMACOS -c ../../src/logformat/trace/trace_print.c</p>
+
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">/usr/bin/gcc -m64 -O3 -DMACOS -o /var/root/Desktop/meso/mpich2-1.1/src/mpe2/src/slog2sdk/trace_rlog/bin/rlog_print trace_input.o rlogutil.o trace_print.o    -shrext .jnilib</p>
+
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">i686-apple-darwin9-gcc-4.0.1: .jnilib: No such file or directory</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">make[5]: *** [/var/root/Desktop/meso/mpich2-1.1/src/mpe2/src/slog2sdk/trace_rlog/bin/rlog_print] Error 1</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">make[4]: *** [all] Error 2</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">make[3]: [all] Error 2 (ignored)</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">---------------------------</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana; min-height: 15.0px"><br></p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">I am also attaching the configure.log make.log and instal.log.</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana; min-height: 15.0px"><br></p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">As the installation was successful without error I have checked the mpd &amp; but I could see the following error.</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">---------------</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">acrc:~ root# mpd &amp;</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">[1] 19462</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">acrc:~ root# mpd failed: gethostbyname_ex failed for acrc.local</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">------------------</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana; min-height: 15.0px"><br></p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">I have successfully built mpich2-1.1a2 in the same system without error but I got the same failure. This I have done it based on your previous help. Now we are establishing 20 node (80 core) Mac xserve cluster for WRF model running.</p>
+
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana; min-height: 15.0px"><br></p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">Request your help.</p><br>-- <br>With regards<br><br>Dr.R.Jagannathan				<br>Professor and Head				<br>Agro Climate Research Centre,			<br>
+Tamil Nadu Agricultural University,		<br>Coimbatore - 641 003 India			<br><br>PHONE: Off: 91-422-6611519 Res: 91-422-2453600<br>       Fax: 91-422-2430657 Mob: 91-94438 89891<br>

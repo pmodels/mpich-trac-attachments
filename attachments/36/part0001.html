@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; If you are running your executable from a shared network drive you need to map (see &quot;--map&quot; option of mpiexec in the window's developer's guide) the network drive with mpiexec when launching your job.<BR>
+&nbsp; Also make sure that you have turned the windows firewall (or any other firewalls) off on the machines involved in the job.<BR>
+&nbsp; Try specifying the ip addresses of the machines instead of the hostnames.<BR>
+&nbsp; Let us know the results.<BR>
+<BR>
+(PS: Instead of the &quot;-hosts&quot; option you could try using the &quot;-machinefile&quot; option available with mpiexec. See the window's developer's guide for details.)<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Monday, August 04, 2008 9:33 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+-----------------------------------------------------------+------------<BR>
+-----------------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Ayer, Timothy&nbsp; C.&quot; &lt;timothy.ayer@pw.utc.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+-----------------------------------------------------------+------------<BR>
+-----------------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;I am testing MPICH2 MPICH2-1.0.7 Windows XP (sp2).&nbsp; I have installed it on<BR>
+&nbsp;2<BR>
+&nbsp;hosts (hostA, hostB) and trying to run the fpi.exe built with fmpich2.lib.<BR>
+&nbsp;The code is hanging in a MPI_Bcast call.&nbsp; The fpi.exe source is attached.<BR>
+<BR>
+&nbsp;The following tests work fine from hostA, both prompt for a number of&nbsp; intervals, accept input, and produce and estimate of PI<BR>
+<BR>
+&nbsp;mpiexec.exe -hosts 2 hostA hostA \\hostA\temp\fpi.exe&nbsp; &lt;\\hostA\temp\fpi.exe&gt;<BR>
+<BR>
+&nbsp;mpiexec.exe -hosts 2 hostB hostB \\hostA\temp\fpi.exe&nbsp; &lt;\\hostA\temp\fpi.exe&gt;<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;The following test hangs when submitted from hostA (in MPI_Bcast).&nbsp; It&nbsp; does&nbsp; prompt for input (number of intervals) but once entered it hangs.&nbsp; I have&nbsp; launched the smpd process using smpd -d but see no output from the smpd&nbsp; after I enter an interval value<BR>
+<BR>
+&nbsp;mpiexec.exe -hosts 2 hostA hostB \\hostA\temp\fpi.exe&nbsp; &lt;\\hostA\temp\fpi.exe&gt;<BR>
+<BR>
+<BR>
+&nbsp;Any suggestions would be appreciated.&nbsp;&nbsp; Also let me know if you want me to<BR>
+&nbsp;send debug output.<BR>
+<BR>
+&nbsp;Thanks,<BR>
+&nbsp;Tim<BR>
+<BR>
+&nbsp;_____________________<BR>
+&nbsp;Timothy C. Ayer<BR>
+&nbsp;High Performance Technical Computing<BR>
+&nbsp;United Technologies - Pratt &amp; Whitney<BR>
+&nbsp;timothy.ayer@pw.utc.com<BR>
+&nbsp;(860) 565 - 5268 v<BR>
+&nbsp;(860) 565 - 2668 f<BR>
+<BR>
+&nbsp; &lt;&lt;fpi.f&gt;&gt;<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/36">https://trac.mcs.anl.gov/projects/mpich2/ticket/36</A>&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #203: mpi_send and recieve problem between windows and linux</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Can you compile and run the sample hello world program that I provided in my previous email ? Send us the command that you typed to run the program and the output (Please copy-paste).<BR>
+&nbsp; Can you run a non-MPI program (hostname) using mpiexec ?<BR>
+&nbsp; Do you have windows firewall (or a 3rd party firewall) running on your windows machine ? You should turn off (or look into the windows developer's guide for details on configuring windows firewall for MPICH2) the firewall before running your program.<BR>
+&nbsp; Can you ping from the machines to each other ?<BR>
+<BR>
+On windows : ping 193.0.1.39<BR>
+On Linux: ping 192.9.200.100<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Monday, October 13, 2008 12:31 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #203: mpi_send and recieve problem between windows and linux<BR>
+<BR>
+------------------------------------------------------------------------+---<BR>
+&nbsp;Reporter:&nbsp; &quot;vemireddy ramakrishnareddy&quot; &lt;vemireddy.rkreddy@gmail.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+------------------------------------------------------------------------+---<BR>
+<BR>
+<BR>
+Comment (by vemireddy ramakrishnareddy):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;sorry for the earlier wrong reply<BR>
+<BR>
+&nbsp;just now i tried to execute a mpi aplication without send and recieve on&nbsp; windows and linux<BR>
+<BR>
+&nbsp;actually&nbsp; without send or recieve&nbsp; apllication getting fired buft itis&nbsp; blocked after all statements executed<BR>
+<BR>
+&nbsp;********************************<BR>
+<BR>
+&nbsp;the following is the command i am using for firing job<BR>
+<BR>
+&nbsp;mpiexec -path &quot;/data;d:\&quot; -hosts 2 192.9.200.100 193.0.1.30 samplmpi<BR>
+<BR>
+&nbsp;192.9.200.100 is windows system<BR>
+<BR>
+&nbsp;193.0.1.39 is linux system<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;application getting fired&nbsp; iam also seeing all out put before send and&nbsp; recive<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;the follwoing error is comming<BR>
+&nbsp;MPI_Recv<BR>
+&nbsp;:MPI_Recv(buf=XXXXX,count=256,MPI_CHAR,src=1,tag=0,MPI_COMM_WORLD,status=XXXX)<BR>
+&nbsp;failed<BR>
+<BR>
+&nbsp;MPIDI_CH3I_PROGRESS_WAIT(215) : .......an error occured while handling an&nbsp; event returned by MPIDU_sock_wait()<BR>
+<BR>
+<BR>
+&nbsp;MPIDI_CH3_PROGRESS_handle_sock_event(640):................<BR>
+<BR>
+&nbsp;MPIDI_CH3_sockconn_handle_connopen_event(887): unable to find the process&nbsp; group structure with id&lt;&gt;<BR>
+<BR>
+&nbsp;On Fri, Oct 10, 2008 at 4:46 PM, mpich2 &lt;mpich2-maint@mcs.anl.gov&gt; wrote:<BR>
+<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;------------------------------------------------------------------------+---<BR>
+&nbsp;&gt;&nbsp; Reporter:&nbsp; &quot;vemireddy ramakrishnareddy&quot; &lt;vemireddy.rkreddy@gmail.com&gt;&nbsp; |<BR>
+&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp;&gt;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&gt;&nbsp; Priority:&nbsp; major<BR>
+&nbsp;&gt; Milestone:<BR>
+&nbsp;|<BR>
+&nbsp;&gt; Component:&nbsp; mpich2<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;------------------------------------------------------------------------+---<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; {{{<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; i am a able to fire a exe on both linux and windows systems&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;&nbsp; but sending and receiving are failing&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;&nbsp; saying that unable to find process group structure with id &lt;&gt;&nbsp; &gt;&nbsp; }}}&nbsp; &gt;&nbsp; &gt;&nbsp; &gt; --&nbsp; &gt; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/203">https://trac.mcs.anl.gov/projects/mpich2/ticket/203</A>&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/203#comment:&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

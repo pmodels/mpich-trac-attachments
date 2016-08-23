@@ -1,0 +1,75 @@
+$ gdb python 
+GNU gdb (GDB) Fedora 7.7.1-21.fc20
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from python...Reading symbols from /home/dalcinl/Devel/mpi4py-dev/python...(no debugging symbols found)...done.
+(no debugging symbols found)...done.
+Missing separate debuginfos, use: debuginfo-install python-2.7.5-16.fc20.x86_64
+(gdb) set args /home/dalcinl/Devel/mpi4py-dev/test/runtests.py -q
+(gdb) b MPIR_Add_finalize
+Function "MPIR_Add_finalize" not defined.
+Make breakpoint pending on future shared library load? (y or [n]) y
+Breakpoint 1 (MPIR_Add_finalize) pending.
+(gdb) commands 1
+Type commands for breakpoint(s) 1, one per line.
+End with a line saying just "end".
+>silent
+>bt 1
+>c
+>end
+(gdb) run
+Starting program: /usr/bin/python /home/dalcinl/Devel/mpi4py-dev/test/runtests.py -q
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cc780 <MPID_Datatype_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cc780 <MPID_Datatype_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd173c0 <MPIR_Datatype_finalize>, extra_data=extra_data@entry=0x0, priority=priority@entry=4) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd326b0 <register_hook_finalize>, extra_data=extra_data@entry=0x0, priority=priority@entry=4) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd8f6f0 <finalize_failed_procs_group>, extra_data=extra_data@entry=0x0, priority=priority@entry=4) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefdb8e20 <nem_coll_finalize>, extra_data=extra_data@entry=0x0, priority=priority@entry=4) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd11570 <cleanup_default_collops>, extra_data=extra_data@entry=0x0, priority=priority@entry=4) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd11640 <MPIR_Comm_free_hint_handles>, extra_data=extra_data@entry=0x0, priority=priority@entry=4) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cc6c0 <MPID_Keyval_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cc6c0 <MPID_Keyval_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd17360 <MPIR_DatatypeAttrFinalizeCallback>, extra_data=extra_data@entry=0x0, priority=priority@entry=4) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cca40 <MPID_Request_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cca40 <MPID_Request_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd118d0 <MPIU_CheckContextIDsOnFinalize>, extra_data=extra_data@entry=0x7ffff00d05e0 <context_mask>, priority=priority@entry=4) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cc720 <MPID_Comm_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cc720 <MPID_Comm_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd20610 <MPIR_Topology_finalize>, extra_data=extra_data@entry=0x0, priority=priority@entry=4) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cc680 <MPID_Attr_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cc680 <MPID_Attr_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cc860 <MPID_Info_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cc860 <MPID_Info_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cc8a0 <MPID_Win_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cc8a0 <MPID_Win_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cc500 <MPID_Op_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cc500 <MPID_Op_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cc820 <MPID_Group_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cc820 <MPID_Group_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd30590 <MPIR_FreeF90Datatypes>, extra_data=extra_data@entry=0x0, priority=priority@entry=2) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd1b1a0 <MPIR_Dynerrcodes_finalize>, extra_data=extra_data@entry=0x0, priority=priority@entry=9) at src/mpi/init/finalize.c:74
+[New Thread 0x7ffff7ff8740 (LWP 5807)]
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd259e0 <MPIU_CheckHandlesOnFinalize>, extra_data=extra_data@entry=0x7ffff00cc560 <MPID_Grequest_class_mem>, priority=priority@entry=1) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd255c0 <MPIU_Handle_finalize>, extra_data=extra_data@entry=0x7ffff00cc560 <MPID_Grequest_class_mem>, priority=priority@entry=0) at src/mpi/init/finalize.c:74
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefca4930 <MPIR_Grequest_free_classes_on_finalize>, extra_data=extra_data@entry=0x0, priority=priority@entry=2) at src/mpi/init/finalize.c:74
+[Thread 0x7ffff7ff8740 (LWP 5807) exited]
+#0  MPIR_Add_finalize (f=f@entry=0x7fffefd1e340 <MPIR_Bsend_finalize>, extra_data=extra_data@entry=0x0, priority=priority@entry=10) at src/mpi/init/finalize.c:74
+overflow in finalize stack!
+internal ABORT - process 0
+[unset]: write_line error; fd=-1 buf=:cmd=abort exitcode=13
+:
+system msg for write_line failure : Bad file descriptor
+[Inferior 1 (process 5803) exited with code 015]

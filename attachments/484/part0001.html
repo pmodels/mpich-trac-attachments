@@ -1,0 +1,122 @@
+
+<br><font size=2 face="sans-serif">Ah crap, sorry for sending this to mpich2-dev.
+:(</font>
+<br>
+<br><font size=2 face="sans-serif"><br>
+Brian Smith<br>
+BlueGene MPI Development<br>
+IBM Rochester<br>
+Phone: 507 253 4717<br>
+smithbr@us.ibm.com<br>
+</font>
+<br><font size=1 color=#800080 face="sans-serif">----- Forwarded by Brian
+Smith/Rochester/IBM on 03/20/2009 01:11 PM -----</font>
+<br>
+<table width=100%>
+<tr valign=top>
+<td width=40%><font size=1 face="sans-serif"><b>Brian Smith/Rochester/IBM</b>
+</font>
+<p><font size=1 face="sans-serif">03/20/2009 01:10 PM</font>
+<td width=59%>
+<table width=100%>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">To</font></div>
+<td><font size=1 face="sans-serif">mpich2-dev@mcs.anl.gov</font>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">cc</font></div>
+<td>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">Subject</font></div>
+<td><font size=1 face="sans-serif">Scaling problem with MPI_Comm_create()</font></table>
+<br>
+<table>
+<tr valign=top>
+<td>
+<td></table>
+<br></table>
+<br>
+<br><font size=2 face="sans-serif">Hey guys, we just had a bug report from
+LLNL that MPI_Comm_create() is taking a substantial amount of time on large
+communicators (~5min on 144k cores). Investigating the code, I found this
+snippet:</font>
+<br>
+<br><font size=2 face="sans-serif">for (i=0; i&lt;n; i++) {</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp;/* Mapping[i]
+is the rank in the communicator of the process that</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; is
+the ith element of the group */</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp;/* We use
+the appropriate vcr, depending on whether this is</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; an
+intercomm (use the local vcr) or an intracomm (remote vcr) </font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Note
+that this is really the local mapping for intercomm</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; and
+remote mapping for the intracomm */</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp;/* FIXME
+: BUBBLE SORT */</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp;/* FIXME
+: NEEDS COMM_WORLD SPECIALIZATION */</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp;mapping[i]
+= -1;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp;for (j=0;
+j&lt;vcr_size; j++) {</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; int comm_lpid;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; MPID_VCR_Get_lpid(
+vcr[j], &amp;comm_lpid );</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; if (comm_lpid ==
+group_ptr-&gt;lrank_to_lpid[i].lpid) {</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; mapping[i]
+= j;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; }</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp;}</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp;MPIU_ERR_CHKANDJUMP1(mapping[i]
+== -1,mpi_errno,</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;MPI_ERR_GROUP,</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;&quot;**groupnotincomm&quot;, &quot;**groupnotincomm %d&quot;, i
+);</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;}</font>
+<br>
+<br><font size=2 face="sans-serif">For large subcomms off of large (sub)comms,
+this is basically an O(np^2) operation. This step totally dominates any
+partition size larger than ~1k in my testing.</font>
+<br>
+<br><font size=2 face="sans-serif">I've &quot;inlined&quot; MPID_VCR_Get_lpid()
+by macro-izing it. That speeds it up by about 2x-3x, but we are still looking
+at an O(np^2) loop.</font>
+<br>
+<br><font size=2 face="sans-serif">I see there are a few FIXME comments
+in there. Have you guys thought about better ways of doing this? </font>
+<br>
+<br><font size=2 face="sans-serif">I'll admit I'm not fully certain what
+the code is trying to do so I haven't come up with a better strategy but
+I think we could sort the ranks of the parent comm and the ranks of the
+subcomm and then walk through the arrays to do the rank/lrank/lpid mapping.
+Is that basically what this is trying to do?</font>
+<br>
+<br><font size=2 face="sans-serif">That would at least get us to O(NplgNp).
+</font>
+<br>
+<br><font size=2 face="sans-serif">For subcomms off of comm_world I think
+we can get rid of part of this loop. I'm not sure if there is a way to
+get rid of it alltogether in the general subcomm case. I don't think there
+is. </font>
+<br>
+<br><font size=2 face="sans-serif">If you have some ideas we can try some
+patches for now. I'm not sure if changes would make it by MPICH2 1.1</font>
+<br>
+<br><font size=2 face="sans-serif">Thanks.</font>
+<br>
+<br><font size=2 face="sans-serif"><br>
+Brian Smith<br>
+BlueGene MPI Development<br>
+IBM Rochester<br>
+Phone: 507 253 4717<br>
+smithbr@us.ibm.com<br>
+</font>

@@ -1,0 +1,111 @@
+<html>
+<body>
+I tried submitting the following on your Wiki, but it was rejected as
+potential spam.<br><br>
+I have found out the causes of the problem.&nbsp; In short, the causes
+are an unclear procedure / documentation, necessary software not
+obviously available, and bugs in the installers that will accept a bad
+initial state.<br><br>
+I found out by trial and error that there are two install files that must
+be processed in order.<br>
+First, one must install<br>
+mpich2-1.0-1-win32-ia32.msi, which is not obviously available on your
+download page.<br>
+That puts some essential stuff in place which is necessary to then
+install<br>
+mpich2-1.1.1p1-win-ia32.msi<br><br>
+Yes, there were too copies if MPICH2 on the Add/ Remove programs page,
+indistinguishable except by clicking &quot;support
+information&quot;.&nbsp; See below for a suggestion on how to fix
+this.<br><br>
+The problem was caused by the fact that when I deinstalled the older
+version (1.0), I removed the base install with its essential stuff.&nbsp;
+Then I could not deinstall or reinstall mpich2-1.1.1p1-win-ia32.msi,
+which (as I found later) is a patch and not a complete
+installation.<br><br>
+So, finally I reinstalled the two installs in the order above, and it
+worked.<br><br>
+Below is what I would suggest to fix this problem:<br><br>
+Have a link to both the base install and the patch in the same place on
+your web download site.<br><br>
+Provide clear IMPORTANT instructions on the same web page stating that
+the base install must be installed first and the patch installed
+second.<br><br>
+Instead of simply &quot;MPICH2&quot; labels for both base install and
+patch in the Add / Remove programs window, provide descriptive labels,
+such as:<br><br>
+MPICH2 base 1.0, install first, uninstall last<br><br>
+MPICH2 patch 1.1.1p, install last, uninstall first<br><br>
+Don't let the patch installer work unless it finds a compatible base
+install.&nbsp; If it doesn't find one, provide a descriptive message of
+the problem and how to fix it, not the obscure message I got (see
+original)<br><br>
+Don't allow uninstallation of the base install if there is a patch still
+installed.&nbsp; Provide a descriptive message as above.<br><br>
+Another option, which makes more sense to me, would be to release in
+complete versions and abandon the patch concept altogether.<br><br>
+<br><br>
+At 08:27 PM 8/18/2009 +0000, you wrote:<br>
+<blockquote type=cite class=cite cite="">#797: Urgent - MPICH2 installer
+broken
+--------------------------------------------+-------------------------------<br>
+&nbsp;Reporter:&nbsp; Peter Smith
+&lt;smithpd@…&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp; jayesh&nbsp;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp;
+defect&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; accepted<br>
+&nbsp;Priority:&nbsp;
+major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+Component:&nbsp;
+mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;
+Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+--------------------------------------------+-------------------------------
+Comment(by jayesh): Hi,<br>
+&nbsp; Try creating a restore point to backup your registry before
+manually<br>
+&nbsp;editing it
+(<a href="http://support.microsoft.com/kb/322756" eudora="autourl">
+http://support.microsoft.com/kb/322756</a>).<br>
+&nbsp; The places in registry that you might want to check for MPICH2's
+presence<br>
+&nbsp;(after backing up your registry),<br><br>
+&nbsp;{{{<br><br>
+&nbsp;HKEY_LOCAL_MACHINE\SOFTWARE\MPICH<br><br>
+&nbsp;HKEY_LOCAL_MACHINE\SOFTWARE\MPICH2<br><br>
+&nbsp;HKEY_CURRENT_USER\SOFTWARE\MPICH<br><br>
+&nbsp;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\
+=&gt;<br>
+&nbsp;This directory will contain a directory (a unique GUID) containing
+MPICH2<br>
+&nbsp;uninstall info.<br><br>
+&nbsp;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Service\mpich2_smpd<br>
+<br>
+&nbsp;}}}<br><br>
+&nbsp;Regards,<br>
+&nbsp;Jayesh -- Ticket URL:
+&lt;<a href="http://trac.mcs.anl.gov/projects/mpich2/ticket/797#comment:3" eudora="autourl">
+http://trac.mcs.anl.gov/projects/mpich2/ticket/797#comment:3</a>&gt;
+mpich2
+&lt;<a href="http://www.mcs.anl.gov/research/projects/mpich2" eudora="autourl">
+http://www.mcs.anl.gov/research/projects/mpich2</a>&gt; How to edit this
+ticket:
+<a href="http://wiki.mcs.anl.gov/mpich2/index.php/Creating_New_Bug_Tickets" eudora="autourl">
+http://wiki.mcs.anl.gov/mpich2/index.php/Creating_New_Bug_Tickets</a>
+</blockquote>
+<x-sigsep><p></x-sigsep>
+<i><br>
+</i>Peter D. Smith,&nbsp; Technical Staff Member<br>
+<font face="arial" size=2>AET-6 / NDE Development Team<br>
+</font>Los Alamos National Laboratory<br>
+Mail Stop C914<br>
+Los Alamos, NM 87545<br><br>
+voice: 505-665-3047<x-tab>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</x-tab>FAX:
+505-665-7176<br>
+e-mail: smithpd@lanl.gov<br>
+</body>
+</html>

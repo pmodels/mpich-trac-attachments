@@ -1,0 +1,128 @@
+Index: dll_mpich2.c
+===================================================================
+--- dll_mpich2.c	(revision 5967)
++++ dll_mpich2.c	(working copy)
+@@ -52,6 +52,7 @@
+ 
+   err_failed_queue,
+     err_first,
++    err_bad_symbols,
+ 
+ };
+ 
+@@ -121,6 +122,12 @@
+ #define dbgr_fetch_data       (p_info->process_callbacks->mqs_fetch_data_fp)
+ #define dbgr_target_to_host   (p_info->process_callbacks->mqs_target_to_host_fp)
+ 
++#define CHECK_OFFSET(OFFSET)  \
++  do {                        \
++    if ( OFFSET == -1 )       \
++      return err_bad_symbols; \
++  } while ( 0 ); 
++
+ /* Routines to access data within the process */
+ static mqs_taddr_t fetch_pointer (mqs_process * proc, mqs_taddr_t addr, 
+ 				  mpich_process_info *p_info);
+@@ -232,7 +239,7 @@
+     int have_co = 0, have_cl = 0, have_req = 0, have_dreq = 0;
+ 
+     /* Default failure message ! */
+-    *message = "The symbols and types in the MPICH library used by TotalView\n"
++    *message = "The symbols and types in the MPICH library used\n"
+ 	"to extract the message queues are not as expected in\n"
+ 	"the image '%s'\n"
+ 	"No message queue display is possible.\n"
+@@ -260,6 +267,8 @@
+ 	    i_info->sequence_number_offs = 
+ 		dbgr_field_offset( cl_type, "sequence_number" );
+ 	    i_info->comm_head_offs = dbgr_field_offset( cl_type, "head" );
++	    CHECK_OFFSET(i_info->sequence_number_offs);
++	    CHECK_OFFSET(i_info->comm_head_offs);
+ 	}
+     }
+     {
+@@ -272,6 +281,12 @@
+ 	    i_info->comm_rank_offs = dbgr_field_offset( co_type, "rank" );
+ 	    i_info->comm_context_id_offs = dbgr_field_offset( co_type, "context_id" );
+ 	    i_info->comm_recvcontext_id_offs = dbgr_field_offset( co_type, "recvcontext_id" );
++	    CHECK_OFFSET(i_info->comm_name_offs);
++	    CHECK_OFFSET(i_info->comm_next_offs);
++	    CHECK_OFFSET(i_info->comm_rsize_offs);
++	    CHECK_OFFSET(i_info->comm_rank_offs);
++	    CHECK_OFFSET(i_info->comm_context_id_offs);
++	    CHECK_OFFSET(i_info->comm_recvcontext_id_offs);
+ 	}
+     }
+ 
+@@ -288,6 +303,8 @@
+ 	    dev_offs = dbgr_field_offset( req_type, "dev" );
+ 	    i_info->req_status_offs = dbgr_field_offset( req_type, "status" );
+ 	    i_info->req_cc_offs     = dbgr_field_offset( req_type, "cc" );
++	    CHECK_OFFSET(i_info->req_status_offs);
++	    CHECK_OFFSET(i_info->req_cc_offs);
+ 	    if (dev_offs >= 0) {
+ 		mqs_type *dreq_type = dbgr_find_type( image, "MPIDI_Request", 
+ 						      mqs_lang_c );
+@@ -296,17 +313,21 @@
+ 		    int loff, match_offs;
+ 		    have_dreq = 1;
+ 		    loff = dbgr_field_offset( dreq_type, "next" );
++		    CHECK_OFFSET(loff);
+ 		    i_info->req_next_offs = dev_offs + loff;
+ 		    match_offs = dbgr_field_offset( dreq_type, "match" );
+ 		    if (match_offs >= 0) {
+ 			mqs_type *match_type = dbgr_find_type( image, "MPIDI_Message_match", mqs_lang_c );
+ 			if (match_type) {
+ 			    int moff;
+-			    moff = dbgr_field_offset( match_type, "tag" );
++			    moff = dbgr_field_offset( match_type, "parts.tag" );
++			    CHECK_OFFSET(moff);
+ 			    i_info->req_tag_offs = dev_offs + match_offs + moff;
+-			    moff = dbgr_field_offset( match_type, "rank" );
++			    moff = dbgr_field_offset( match_type, "parts.rank" );
++			    CHECK_OFFSET(moff);
+ 			    i_info->req_rank_offs = dev_offs + match_offs + moff;
+-			    moff = dbgr_field_offset( match_type, "context_id" );
++			    moff = dbgr_field_offset( match_type, "parts.context_id" );
++			    CHECK_OFFSET(moff);
+ 			    i_info->req_context_id_offs = dev_offs + match_offs + moff;
+ 			}
+ 		    }
+@@ -323,9 +344,16 @@
+ 	    i_info->sendq_tag_offs  = dbgr_field_offset( sreq_type, "tag" );
+ 	    i_info->sendq_rank_offs  = dbgr_field_offset( sreq_type, "rank" );
+ 	    i_info->sendq_context_id_offs  = dbgr_field_offset( sreq_type, "context_id" );
++	    CHECK_OFFSET(i_info->sendq_next_offs);
++	    CHECK_OFFSET(i_info->sendq_tag_offs);
++	    CHECK_OFFSET(i_info->sendq_rank_offs);
++	    CHECK_OFFSET(i_info->sendq_context_id_offs);
+ 	}
+     }
+ 
++    /* The message is supposed to be shown to the user whatever the return code
++     * so if this function is succesfull don't pass back a failure message */
++    *message = NULL;
+     return mqs_ok;
+     /* FIXME: This function is not yet implemented */
+     return err_silent_failure;
+@@ -424,6 +452,8 @@
+       return "Failed to find symbol MPID_Recvq_unexpected_head_ptr";
+     case err_posted: 
+       return "Failed to find symbol MPID_Recvq_posted_head_ptr";
++    case err_bad_symbols:
++      return "Failed to find symbols required for message queue display";
+     }
+     return "Unknown error code";
+ }
+@@ -937,7 +967,10 @@
+ 	    nc->recvcontext_id        = recv_ctx;
+ 	    
+ 	    strncpy (nc->comm_info.name, name, sizeof( nc->comm_info.name ) );
+-	    nc->comm_info.unique_id = comm_base;
++
++	    /* Use the send_ctx as the id for this group, it has to be not just
++	     * uniqe locally but also common across all procs in this communicator */
++	    nc->comm_info.unique_id = send_ctx;
+ 	    nc->comm_info.size      = np;
+ 	    nc->comm_info.local_rank = fetch_int (proc, comm_base+i_info->comm_rank_offs,p_info);
+ #ifdef DEBUG_LIST_ITER

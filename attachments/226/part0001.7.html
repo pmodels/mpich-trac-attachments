@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #226: MPICH2 Cygwin install failes</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; A quick scan of the env variables show that the bash version in your Cygwin machine is old (Not sure if that is causing the problem). Can you try upgrading Cygwin packages to the latest version ?<BR>
+&nbsp; Let me look more into the info that you sent while you upgrade Cygwin.<BR>
+<BR>
+(PS: When you reply to any e-mail just copy to &quot;mpich2-maint&quot; - you don't have to reply to each dev)<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: Rolf Maier [<A HREF="mailto:maier@ucalgary.ca">mailto:maier@ucalgary.ca</A>]<BR>
+Sent: Saturday, October 25, 2008 4:54 PM<BR>
+To: Jayesh Krishna<BR>
+Cc: mpich2-maint@mcs.anl.gov<BR>
+Subject: Re: [mpich2-maint] #226: MPICH2 Cygwin install failes<BR>
+<BR>
+Hello,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you for the advice I received yesterday. Unfortunately the compilation still fails the same way. Here is what I did:<BR>
+<BR>
+1. Copy the old configure script to a save place.<BR>
+2. Remove and recreate the directory mpich2-1.0.8rc1 3. bash --norc --noprofile 4. cd mpich2-1.0.8rc1 5. cp ../mpich2-1.0.8rc1_save/configure .<BR>
+6. ./configure --prefix=/home/you/mpich2-install 2&gt;&amp;1 | tee c_plain_bash.txt<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (file attached)<BR>
+7. make 2&gt;&amp;1 | tee m_plain_bash.txt&nbsp;&nbsp;&nbsp;&nbsp; (file attached)<BR>
+<BR>
+During step 7 I saw a line<BR>
+0000000: 340d 0a<BR>
+That looked ominous.<BR>
+<BR>
+Since you are suspecting an environment problem I am adding some more files:<BR>
+<BR>
+A. The shell variables and environment as seen under bash --norc --noprofile:<BR>
+set &gt; set_bash--norc--noprofile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (file attached)<BR>
+set &gt; env_bash--norc--noprofile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (file attached)<BR>
+<BR>
+B. The shell variables and environment as seen under bash as I use it:<BR>
+$ set &gt; set_my_bash&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (file attached)<BR>
+$ env &gt; env_my_bash&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (file attached)<BR>
+<BR>
+These are perhaps more useful than my .bashrc and .profile, which are also attached.<BR>
+<BR>
+/etc/bash.bashrc contains only comments.<BR>
+<BR>
+/etc/bash_completion has never been touched, ls -l gives<BR>
+212 -rwxr-x---+ 1 maier Users 215739 Oct 29&nbsp; 2006 /etc/bash_completion*<BR>
+<BR>
+Thanks again for your effort,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rolf<BR>
+<BR>
+PS. I notice that I get each message from you (or someone else answering), and the mpich site, so I am responding to both. Is this the correct way?<BR>
+<BR>
+Jayesh Krishna wrote:<BR>
+&gt;&nbsp; Hi,<BR>
+&gt;&nbsp;&nbsp; The reason your configure fails is due to the extra line feed<BR>
+&gt; character ('0a') present in the sizes of fortran types determined by<BR>
+&gt; configure (&quot;$len&quot; should be &quot;340a&quot; and not &quot;340a 0a&quot;) . I don't have<BR>
+&gt; the extra line feed in the lengths when running configure from Cygwin<BR>
+&gt; on my machine (I use bash).<BR>
+&gt;&nbsp;&nbsp; Did you change any settings for the bash shell (.bashrc,<BR>
+&gt; .bash_profile,...). Can you try running configure with the default<BR>
+&gt; bash shell settings (You can try running bash shell from command<BR>
+&gt; prompt with the &quot;--norc&quot; &amp; &quot;--noprofile&quot; options) ?<BR>
+&gt;<BR>
+&gt; Regards,<BR>
+&gt; Jayesh<BR>
+&gt;<BR>
+&gt; -----Original Message-----<BR>
+&gt; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&gt; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&gt; Sent: Thursday, October 23, 2008 9:19 PM<BR>
+&gt; To: undisclosed-recipients:<BR>
+&gt; Subject: Re: [mpich2-maint] #226: MPICH2 Cygwin install failes<BR>
+&gt;<BR>
+&gt; --------------------------------------------+-------------------------<BR>
+&gt; --------------------------------------------+--<BR>
+&gt; --------------------------------------------+----<BR>
+&gt;&nbsp; Reporter:&nbsp; Rolf Maier &lt;maier@ucalgary.ca&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp; jayesh&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp; mpich2-1.1a2<BR>
+&gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&gt;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt; --------------------------------------------+-------------------------<BR>
+&gt; --------------------------------------------+--<BR>
+&gt; --------------------------------------------+----<BR>
+&gt;<BR>
+&gt;<BR>
+&gt; Comment (by Rolf Maier):<BR>
+&gt;<BR>
+&gt;&nbsp; {{{<BR>
+&gt;<BR>
+&gt;&nbsp; Hello,<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; first, sorry for being so tardy at answering, but I get too<BR>
+&gt; many&nbsp; interruptions.<BR>
+&gt;&nbsp; Here is what I did:<BR>
+&gt;&nbsp; 1. Following Jayesh Krishna request I added the line<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;$len&quot; | xxd<BR>
+&gt;&nbsp; as line 25489 of the configure script.<BR>
+&gt;<BR>
+&gt;&nbsp; 2. I realized that different runs of make produce output files of<BR>
+&gt; quite&nbsp; different length, so I reextracted, and reintroduced fix 1. I<BR>
+&gt; am running&nbsp; under a&nbsp; bash shell, and I am enclosing the output of the<BR>
+&gt; configure and make step&nbsp; as&nbsp; requested by Anthony Chan.<BR>
+&gt;<BR>
+&gt;&nbsp; Thanks for everybody's chipping in,<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rolf<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;&nbsp; mpich2 wrote:<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; --------------------------------------------+-------------------------------<BR>
+&gt;&nbsp; &gt;&nbsp; Reporter:&nbsp; Rolf Maier &lt;maier@ucalgary.ca&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&gt;&nbsp; &gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&gt;&nbsp; &gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&gt;&nbsp; &gt;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp;<BR>
+&gt; --------------------------------------------+-------------------------<BR>
+&gt; ------<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt; Comment (by Jayesh Krishna):<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp; {{{<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp; Hi,<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; Can you also update the configure (for MPICH2 1.0.8rc1) by adding line<BR>
+&gt;&nbsp; &gt;&nbsp; &quot;echo &quot;$len&quot; | xxd&quot; as shown below before you run it?<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp; ============================= modified configure script for<BR>
+&gt; 1.0.8rc1&nbsp; &gt;&nbsp; ====================<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25484&nbsp;&nbsp;&nbsp;&nbsp; #<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25485&nbsp;&nbsp;&nbsp;&nbsp; # Take len and turn it into two hex digits (there are 8<BR>
+&gt;&nbsp; bits<BR>
+&gt;&nbsp; &gt;&nbsp; available<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25486&nbsp;&nbsp;&nbsp;&nbsp; # in the built-in datatype handle for the length; see<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25487&nbsp;&nbsp;&nbsp;&nbsp; # src/mpid/common/datatype/mpid_datatype.h).&nbsp; This code is<BR>
+&gt;&nbsp; &gt;&nbsp; taken<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25488&nbsp;&nbsp;&nbsp;&nbsp; # from the code in mpich2/configure.in<BR>
+&gt;&nbsp; &gt;&nbsp; ####################### ADD THIS LINE #######################<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25489&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;$len&quot; | xxd<BR>
+&gt;&nbsp; &gt;&nbsp; ####################### ADD THIS LINE #######################<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25490&nbsp;&nbsp;&nbsp;&nbsp; if test &quot;$len&quot; -gt 255 ; then<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25491&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { { $as_echo &quot;$as_me:$LINENO: error: Type sizes greater<BR>
+&gt;&nbsp; &gt;&nbsp; than 255 bytes are not supported (type INTEGER i&nbsp; &gt;&nbsp; s $len bytes)&quot; &gt;&amp;5<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25492 $as_echo &quot;$as_me: error: Type sizes greater than 255 bytes are<BR>
+&gt;&nbsp; not<BR>
+&gt;&nbsp; &gt;&nbsp; supported (type INTEGER is $len bytes)&quot; &gt;&amp;2;}<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25493&nbsp;&nbsp;&nbsp; { (exit 1); exit 1; }; }<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25494&nbsp;&nbsp;&nbsp;&nbsp; fi<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25495&nbsp;&nbsp;&nbsp;&nbsp; tmplen=$len<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25496&nbsp;&nbsp;&nbsp;&nbsp; hexlen=&quot;&quot;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25497&nbsp;&nbsp;&nbsp;&nbsp; while test $tmplen -gt 0 ; do<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25498&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lowdigit=`expr $tmplen - 16 \* \( $tmplen / 16 \)`<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25499&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case $lowdigit in<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10) char=a ;;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25501&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11) char=b ;;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25502&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12) char=c ;;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25503&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13) char=d ;;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25504&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14) char=e ;;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 25505&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15) char=f ;;<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp; ============================= modified configure script for<BR>
+&gt; 1.0.8rc1&nbsp; &gt;&nbsp; ====================&nbsp; &gt;&nbsp; &gt;&nbsp; Regards,&nbsp; &gt;&nbsp; Jayesh&nbsp; &gt;&nbsp; &gt;<BR>
+&gt; -----Original Message-----&nbsp; &gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&gt; [<A HREF="mailto:owner-">mailto:owner-</A>&nbsp; mpich2-bugs@mcs.anl.gov]&nbsp; &gt;&nbsp; On Behalf Of mpich2&nbsp; &gt;<BR>
+&gt; Sent: Thursday, October 23, 2008 1:06 PM&nbsp; &gt;&nbsp; To: undisclosed-recipients:<BR>
+&gt;&nbsp; &gt;&nbsp; Subject: Re: [mpich2-maint] #226: MPICH2 Cygwin install failes&nbsp; &gt;&nbsp;<BR>
+&gt; &gt;<BR>
+&gt;&nbsp;<BR>
+&gt; --------------------------------------------+-------------------------<BR>
+&gt; --&nbsp; &gt;&nbsp; --------------------------------------------+----<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; Rolf Maier &lt;maier@ucalgary.ca&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&gt;&nbsp; &gt;&nbsp; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp;<BR>
+&gt; --------------------------------------------+-------------------------<BR>
+&gt; --&nbsp; &gt;&nbsp; --------------------------------------------+----<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp; Comment (by Rajeev Thakur):<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; {{{<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; If you don't need to use Fortran, you can configure with<BR>
+&gt;&nbsp; --disable-f77.<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; Rajeev<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Look like your fortran compiler failed some of the configure tests.<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Could you send us your configure and make outputs as shown on<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; your screen (as stated in MPICH2 installer's guide) ?&nbsp;&nbsp; I think<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; it will be helpful if you also send us the config.log (the&nbsp; &gt; one<BR>
+&gt;&nbsp; &gt;&nbsp; generated by configure, not the output seen on your screen).<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; A.Chan<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp;&nbsp; }}}<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp; --<BR>
+&gt;&nbsp; &gt;&nbsp; Ticket URL:<BR>
+&gt;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/226#comment:&gt;<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt;&nbsp; }}}<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; }}}<BR>
+&gt;<BR>
+&gt; --<BR>
+&gt; Ticket URL:<BR>
+&gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/226#comment:&gt;<BR>
+&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

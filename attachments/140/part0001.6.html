@@ -1,0 +1,340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<STYLE>.hmmessage P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+BODY.hmmessage {
+	FONT-SIZE: 10pt; FONT-FAMILY: Tahoma
+}
+</STYLE>
+
+<META content="MSHTML 6.00.6000.16705" name=GENERATOR></HEAD>
+<BODY class=hmmessage>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=370450516-22092008>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=370450516-22092008>&nbsp;Yes, MPI_INTERCOMM_MERGE() is blocking and is a 
+collective within the union of the two groups connected via the intercomm 
+(parent &amp; slave process in your case).</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=370450516-22092008>&nbsp;I would strongly recommend that you go through a 
+good tutorial or book on MPI. You can find documentation&nbsp;on 
+the&nbsp;MPI&nbsp;functions at the MPI forum website (Info on 
+MPI_INTERCOMM_MERGE() is available at&nbsp;<A 
+href="http://www.mpi-forum.org/docs/mpi-11-html/node113.html">http://www.mpi-forum.org/docs/mpi-11-html/node113.html</A>&nbsp;)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=370450516-22092008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=370450516-22092008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=370450516-22092008>Jayesh&nbsp;</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma><B>From:</B> Maria Laura De Bellis 
+[mailto:maria.laura.debellis@hotmail.it] <BR><B>Sent:</B> Monday, September 22, 
+2008 10:47 AM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] 
+#140: RE: [MPICH2 Req #4218]<BR></FONT><BR></DIV>
+<DIV></DIV>SORRY....<BR>i DID EXACTLY WHAT YOU SAiD.<BR>The first spawn 
+goes&nbsp;ok but when there is the first <BR>call mpi_intercomm_merge() the 
+programm blocks and it doesn't go on...no error messages are provided...just 
+stop...<BR>&nbsp;<BR>maybe I have to use merge also in the slave programm.....No 
+idea,,,,,<BR>&nbsp;<BR>p.s. sorry for my mails...I know I can be 
+persisting...but it is not easy dealing with those things alone!!!<BR>I would be 
+happy if you suggest me a good MPI manual!<BR>&nbsp;<BR>Thanks in 
+advance,<BR>MLDB<BR><BR><BR><BR><BR>
+<HR id=EC_stopSpelling>
+From: jayesh@mcs.anl.gov<BR>To: maria.laura.debellis@hotmail.it<BR>CC: 
+mpich2-maint@mcs.anl.gov<BR>Subject: RE: [mpich2-maint] #140: RE: [MPICH2 Req 
+#4218]<BR>Date: Thu, 18 Sep 2008 10:42:41 -0500<BR><BR>
+<META content="Microsoft SafeHTML" name=Generator>
+<STYLE>.ExternalClass .EC_hmmessage P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.ExternalClass BODY.EC_hmmessage {
+	FONT-SIZE: 10pt; FONT-FAMILY: Tahoma
+}
+</STYLE>
+
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008>&nbsp;Each time you call MPI_COMM_SPAWN() you get a 
+different intercommunicator.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008>============== Right usage (Note that I use diff 
+intercommunicators for subsequent 
+calls)&nbsp;=====================</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial><SPAN class=EC_724002715-18092008>call 
+MPI_COMM_SPAWN('SLAVE.EXE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'&nbsp; 
+',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_INFO_NULL,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_COMM_WORLD,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+slavecomm1,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_ERRCODES_IGNORE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ierr)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial><SPAN class=EC_724002715-18092008><SPAN 
+class=EC_724002715-18092008>call 
+MPI_COMM_SPAWN('SLAVE.EXE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'&nbsp; 
+',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_INFO_NULL,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_COMM_WORLD,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+slavecomm2,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_ERRCODES_IGNORE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ierr)</SPAN></SPAN></FONT></DIV><SPAN class=EC_724002715-18092008><SPAN 
+class=EC_724002715-18092008></SPAN>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008>============== Right usage 
+=====================</SPAN></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008>&nbsp;In the example above the first child process 
+with rank=0 will belong to slavecomm1 &amp; the second child process with rank=0 
+will belong to slavecomm2.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008>&nbsp;If you call MPI_INTERCOMM_MERGE() you can 
+merge the intercommunicator into an intracommunicator. You can use this 
+intracommunicator in your next call to MPI_COMM_SPAWN(). In this way you will 
+have a single intracommunicator.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008>============== Using MPI_INTERCOMM_MERGE() 
+===========</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008>
+<DIV dir=ltr align=left><FONT face=Arial><SPAN class=EC_724002715-18092008>call 
+MPI_COMM_SPAWN('SLAVE.EXE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'&nbsp; 
+',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_INFO_NULL,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_COMM_WORLD,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+slavecomm1,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_ERRCODES_IGNORE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ierr)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial><SPAN class=EC_724002715-18092008>C 
+==== In parent process have the "high" arg as 0 and in slave process have the 
+"high" arg as 1</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial><SPAN class=EC_724002715-18092008>call 
+MPI_INTERCOMM_MERGE(slavecomm1, high, slaveintracomm, ierr)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial><SPAN class=EC_724002715-18092008><SPAN 
+class=EC_724002715-18092008>call 
+MPI_COMM_SPAWN('SLAVE.EXE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'&nbsp; 
+',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_INFO_NULL,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+slaveintracomm,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+slavecomm2,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_ERRCODES_IGNORE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ierr)</SPAN></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial><SPAN class=EC_724002715-18092008><SPAN 
+class=EC_724002715-18092008>C === Free the old slaveintracomm, merge slavecomm2 
+to get a new slaveintracomm &amp; use it for 
+communicn</SPAN></SPAN></FONT></DIV></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_724002715-18092008>===================================================</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><SPAN class=EC_724002715-18092008></SPAN><FONT 
+face=Arial color=#0000ff>&nbsp; I would recommend that you go though a good book 
+or tutorial&nbsp;<SPAN class=EC_724002715-18092008>on MPI </SPAN>and see 
+the&nbsp;section on&nbsp;"dynamic processes" es.</FONT></DIV>
+<DIV dir=ltr align=left><SPAN class=EC_724002715-18092008></SPAN><FONT 
+face=Arial><FONT color=#0000ff>&nbsp;<SPAN class=EC_724002715-18092008> Let us 
+know if&nbsp;you need further help.</SPAN></FONT></FONT></DIV>
+<DIV><FONT face=Arial><FONT color=#0000ff><SPAN 
+class=EC_724002715-18092008></SPAN></FONT></FONT>&nbsp;</DIV>
+<DIV><FONT face=Arial><FONT color=#0000ff><SPAN 
+class=EC_724002715-18092008>Regards,</SPAN></FONT></FONT></DIV>
+<DIV><FONT face=Arial><FONT color=#0000ff><SPAN 
+class=EC_724002715-18092008>Jayesh</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><BR>&nbsp;</FONT></SPAN></FONT></DIV><BR>
+<DIV class=EC_OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR>
+<FONT face=Tahoma><B>From:</B> Maria Laura De Bellis 
+[mailto:maria.laura.debellis@hotmail.it] <BR><B>Sent:</B> Thursday, September 
+18, 2008 7:23 AM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: 
+[mpich2-maint] #140: RE: [MPICH2 Req #4218]<BR></FONT><BR></DIV>
+<DIV></DIV><BR><BR>Hi...<BR>I am writing again!!!!<BR>&nbsp;<BR>I try to explain 
+my problem:<BR>&nbsp;<BR>I have implemented a finite element code using fortran 
+77 and MPICH2 libraries to solve a multi-scale problem.<BR>I have a master 
+program (corresponding to the macro-level) that has to call several 
+slaves.<BR>Every slave is a copy of the same code for the microscopic 
+level.<BR>&nbsp;<BR>I want to call the slave.exe not all at the same time. I 
+want to call first of all 1 slave and I want it has "my_rank=0" <BR>then I want 
+to call another (it is called whenever a prescribed condition is fullfilled) and 
+I want it has "my_rank=1"&nbsp; and so on.<BR>&nbsp;<BR>I don't know, when I 
+start thhe procedure, how many slaves have to be generated...it depends on the 
+boundary conditions of the problem.<BR>&nbsp;<BR>I was trying with this 
+procedure (but it doesn't work):<BR>&nbsp;<BR>&nbsp;<BR>In the master 
+program:<BR>&nbsp;<BR>call 
+MPI_COMM_SPAWN('SLAVE.EXE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'&nbsp; 
+',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_INFO_NULL,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_COMM_WORLD,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+slavecomm,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_ERRCODES_IGNORE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ierr)<BR>&nbsp;<BR>at this time the first slave.exe has been creatted with 
+"my_rank=0"<BR>&nbsp;<BR>then I do again <BR>&nbsp;<BR>call 
+MPI_COMM_SPAWN('SLAVE.EXE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'&nbsp; 
+',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_INFO_NULL,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_COMM_WORLD,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+slavecomm,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_ERRCODES_IGNORE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ierr)<BR><BR>but now I have 2 slave.exe with the same 
+my_rank==0......<BR>&nbsp;<BR>Maybe I should use&nbsp;&nbsp; 
+MPI_INTERCOOMM_MERGE.....but I am able to makke it 
+works!!!<BR>&nbsp;<BR>&nbsp;<BR>What hhave I to do???<BR>HELP ME 
+PLEASEEEEEE<BR>&nbsp;<BR>MLDB<BR><BR><BR>
+<HR id=EC_EC_stopSpelling>
+From: jayesh@mcs.anl.gov<BR>To: maria.laura.debellis@hotmail.it<BR>Subject: RE: 
+[mpich2-maint] #140: RE: [MPICH2 Req #4218]<BR>Date: Tue, 16 Sep 2008 09:47:35 
+-0500<BR><BR>
+<STYLE>.ExternalClass .EC_hmmessage P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.ExternalClass BODY.EC_hmmessage {
+	FONT-SIZE: 10pt; FONT-FAMILY: Tahoma
+}
+</STYLE>
+<BR>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_EC_467142814-16092008>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_EC_467142814-16092008>&nbsp;The processes spawned by an 
+MPI_COMM_SPAWN() have their own MPI_COMM_WORLD. The spawned processes have 
+the&nbsp;ranks determined by&nbsp;their MPI_COMM_WORLD. To communicate with the 
+spawned process/es&nbsp;the parent process&nbsp;needs to use the 
+intercommunicator returned by MPI_COMM_SPAWN().</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff><SPAN 
+class=EC_EC_467142814-16092008>&nbsp;Usually (And I guess this is what you want 
+to do) users want to spawn new processes and make it part of a single 
+intra-communicator (like COMM_WORLD). You can do this by spawning processes and 
+merging them using MPI_INTERCOMM_MERGE().</SPAN></FONT></DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial color=#0000ff>&nbsp;I 
+am providing below a sample usage of MPI_COMM_SPAWN() in a fortran program (Look 
+closely at the&nbsp;2nd arg),</FONT></SPAN></DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial 
+color=#0000ff></FONT></SPAN>&nbsp;</DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial color=#0000ff>C 
+============ sample usage of MPI_COMM_SPAWN() in fortran 
+================</FONT></SPAN></DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><SPAN lang=EN>integer np<SPAN 
+class=EC_EC_467142814-16092008>, ierr</SPAN><BR><SPAN lang=EN>integer 
+intercomm<BR></SPAN>integer errcodes(2)<BR><FONT face=Arial 
+color=#0000ff></FONT><FONT face=Arial color=#0000ff></FONT><FONT face=Arial 
+color=#0000ff></FONT></SPAN></SPAN><SPAN class=EC_EC_467142814-16092008><SPAN 
+lang=EN><FONT face=Arial color=#0000ff></FONT></SPAN></SPAN>&nbsp;<BR><SPAN 
+class=EC_EC_467142814-16092008><SPAN lang=EN><FONT face=Arial color=#0000ff>np = 
+2</FONT></SPAN></SPAN><BR><SPAN class=EC_EC_467142814-16092008><SPAN 
+lang=EN>call MPI_Comm_spawn( "slave.exe", MPI_ARGV_NULL, np,<SPAN 
+class=EC_EC_467142814-16092008> </SPAN>&nbsp;MPI_INFO_NULL, 0, MPI_COMM_WORLD, 
+intercomm, errcodes,ierr ) <BR></DIV>
+<DIV><FONT face=Arial color=#0000ff></FONT><FONT face=Arial 
+color=#0000ff></FONT></SPAN></SPAN><SPAN class=EC_EC_467142814-16092008><FONT 
+face=Arial color=#0000ff></FONT></SPAN>&nbsp;</DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial color=#0000ff>C 
+=================================================================</FONT></SPAN></DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial 
+color=#0000ff></FONT></SPAN>&nbsp;</DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial color=#0000ff>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial 
+color=#0000ff>&nbsp;Let us know if this 
+helps.</FONT></SPAN></DIV></FONT></SPAN></DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial 
+color=#0000ff></FONT></SPAN>&nbsp;</DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial 
+color=#0000ff>Regards,</FONT></SPAN></DIV>
+<DIV><SPAN class=EC_EC_467142814-16092008><FONT face=Arial 
+color=#0000ff>Jayesh</FONT></SPAN></DIV>
+<DIV><FONT face=Arial color=#0000ff></FONT><BR>&nbsp;</DIV>
+<DIV class=EC_EC_OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR>
+<FONT face=Tahoma><B>From:</B> Maria Laura De Bellis 
+[mailto:maria.laura.debellis@hotmail.it] <BR><B>Sent:</B> Tuesday, September 16, 
+2008 9:13 AM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] 
+#140: RE: [MPICH2 Req #4218]<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV style="TEXT-ALIGN: left">Hi jayes...here I am wtiting to you again!!!<BR>I 
+have a question:<BR>when a new process is dynamically created using the 
+command:<BR><BR>call 
+MPI_COMM_SPAWN('slave.exe',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'&nbsp; 
+',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_INFO_NULL,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp; 
+MPI_COMM_WORLD,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+slavecomm,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+MPI_ERRCODES_IGNORE,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ierr)<BR><BR>is the rank automatically assigned to the new process?<BR><BR>Till 
+now I was generating several copies of the 'slave.exe' at once....now I want to 
+generate a new copy only when it is required because a<BR>proper check is 
+passed....Is it enogh to call the processes in this manner or can I explicitate 
+the rank in any manner????<BR><BR>Thanks in 
+advance!<BR><BR>MLDB<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<BR></DIV><BR><BR><BR>
+<HR id=EC_EC_EC_stopSpelling>
+From: jayesh@mcs.anl.gov<BR>To: maria.laura.debellis@hotmail.it<BR>CC: 
+mpich2-maint@mcs.anl.gov<BR>Subject: RE: [mpich2-maint] #140: RE: [MPICH2 Req 
+#4218]<BR>Date: Mon, 15 Sep 2008 10:11:00 -0500<BR><BR>&nbsp;Hi,<BR>&nbsp; As 
+you mentioned in your email to dynamically create MPI processes you can use 
+MPI_COMM_SPAWN (Also look into MPI_INTERCOMM_MERGE()).<BR>&nbsp; Let us know if 
+you need further help.<BR><BR>Regards,<BR>Jayesh<BR><BR><BR>-----Original 
+Message-----<BR>From: owner-mpich2-bugs@mcs.anl.gov [<A 
+href="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] 
+On Behalf Of mpich2<BR>Sent: Monday, September 15, 2008 9:50 AM<BR>To: 
+undisclosed-recipients:<BR>Subject: [mpich2-maint] #140: RE: [MPICH2 Req 
+#4218]<BR><BR>---------------------------------------------------------------------+--<BR>---------------------------------------------------------------------+--<BR>---------------------------------------------------------------------+--<BR>&nbsp;Reporter:&nbsp; 
+Maria Laura De Bellis &lt;maria.laura.debellis@hotmail.it&gt;&nbsp; 
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;<BR>&nbsp;&nbsp; 
+Status:&nbsp; 
+new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|&nbsp;&nbsp; Priority:&nbsp; major<BR>Component:&nbsp; 
+mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|&nbsp;<BR>---------------------------------------------------------------------+--<BR>---------------------------------------------------------------------+--<BR>---------------------------------------------------------------------+--<BR><BR><BR>&nbsp;Hi...<BR>&nbsp;I 
+am new in MPI programming and I really need help!!<BR>&nbsp;I use fortran 77 and 
+MPICH2 with Windows. Is it possible to implement a&nbsp; program with 1 
+master.exe and several slaves.exe in which the slaves are&nbsp; not generated 
+all&nbsp; at once but can born successively during the computation?<BR>&nbsp;I 
+try to explain better: I want to check, during the computation, if a new&nbsp; 
+slave.exe is needed or not....just if it&nbsp; is needed I want to call a 
+new&nbsp; process...<BR>&nbsp;Can I use the comand<BR><BR>&nbsp;call&nbsp; 
+MPI_COMM_SPAWN<BR><BR>&nbsp;to generate 1 process at time&nbsp; or is there a 
+more specific MPI-command???<BR><BR><BR>&nbsp;PLEASE HELP 
+ME!!!<BR><BR><BR><BR>&nbsp;_________________________________________________________________<BR>&nbsp;Stanco 
+della solita finestra? Personalizza la tua Hotmail!<BR>&nbsp;<A 
+href="http://www.messenger.it/personalizza.html#sfondi" 
+target=_blank>http://www.messenger.it/personalizza.html#sfondi</A><BR><BR><BR>--<BR>Ticket 
+URL: &lt;<A href="https://trac.mcs.anl.gov/projects/mpich2/ticket/140" 
+target=_blank>https://trac.mcs.anl.gov/projects/mpich2/ticket/140</A>&gt;<BR><BR><BR><BR>
+<HR>
+5GB di spazio per i tuoi file online. <A href="http://skydrive.live.com/" 
+target=_blank>È gratis, è SkyDrive!</A> <BR>
+<HR>
+Crea gli inviti, contatta i tuoi amici e condividi le foto. <A 
+href="http://home.services.spaces.live.com/events/?mkt=it-it" target=_blank>I 
+tuoi Eventi sono Live!</A> <BR>
+<HR>
+Crosswire, il gioco delle relazioni. <A 
+href="http://livesearch.games.msn.com/crosswire/play_it/" target=_new>Sei pronto 
+per la sfida?</A> </BODY></HTML>

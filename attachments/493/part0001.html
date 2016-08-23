@@ -1,0 +1,4 @@
+Hello,<br><br>I used the &quot;sdk/trace_sample&quot; to trasform the file(datatest.txt) attached to .slog2 format. <br>After generating the .slog2 file, I use jumpshot to visualize the trace file(Trace.slog2).<br>Use &quot;identity map&quot; view.<br>
+I cannot see the difference of the two events in timeline.<br>In other words, the two events are ended far away in timeline, but the visualized graph didn&#39;t show the gap(0.3msec).<br>I room in it and the &quot;view final time&quot; filed shows 0.0047575188,which means the DMA after that time is cut off.<br>
+<br>core 1<br>DMA_GET<br>duration = 1.91767 msec<br>[0]: time = 0.0042670426, LineID = 1<br>[1]: time = 0.0061847118, LineID = 1<br><br>core 2<br>DMA_GET<br>duration = 1.63634 msec<br>[0]: time = 0.0031756892, LineID = 2<br>
+[1]: time = 0.0048120301, LineID = 2<br><br>Is this the bug or I misused jumpshot.<br>Thank you.<br><br>Best Regards,<br>Lin<br>

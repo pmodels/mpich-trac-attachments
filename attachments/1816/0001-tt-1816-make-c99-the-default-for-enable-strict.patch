@@ -1,0 +1,54 @@
+From d01b6c617d3a7ec7fc4cb641f50028c1caf6354d Mon Sep 17 00:00:00 2001
+From: Dave Goodell <goodell@mcs.anl.gov>
+Date: Tue, 23 Apr 2013 17:21:01 -0500
+Subject: [PATCH] tt#1816: make c99 the default for --enable-strict
+
+Maintaining C89 compliance is an increasingly poor development
+investment for us.  Reasonable C99 compliance (long long support, etc.)
+is ubiquitous.  The hwloc package we use in hydra assumes a certain
+amount of C99 support which is tedious to work around.
+
+No reviewer.
+---
+ confdb/aclocal_cc.m4 | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/confdb/aclocal_cc.m4 b/confdb/aclocal_cc.m4
+index fa44e6d6..98fdc347 100644
+--- a/confdb/aclocal_cc.m4
++++ b/confdb/aclocal_cc.m4
+@@ -528,8 +528,8 @@ if test "$enable_strict_done" != "yes" ; then
+         -Werror-implicit-function-declaration
+     "
+ 
+-    enable_c89=yes
+-    enable_c99=no
++    enable_c89=no
++    enable_c99=yes
+     enable_posix=2001
+     enable_opt=yes
+     flags="`echo $1 | sed -e 's/:/ /g' -e 's/,/ /g'`"
+@@ -538,9 +538,11 @@ if test "$enable_strict_done" != "yes" ; then
+ 	     c89)
+ 		enable_strict_done="yes"
+ 		enable_c89=yes
++                enable_c99=no
+ 		;;
+ 	     c99)
+ 		enable_strict_done="yes"
++                enable_c89=no
+ 		enable_c99=yes
+ 		;;
+ 	     posix1995)
+@@ -569,7 +571,7 @@ if test "$enable_strict_done" != "yes" ; then
+ 		;;
+ 	     all|yes)
+ 		enable_strict_done="yes"
+-		enable_c89=yes
++		enable_c99=yes
+ 		enable_posix=2001
+ 		enable_opt=yes
+ 	        ;;
+-- 
+1.8.2.1
+

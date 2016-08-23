@@ -1,0 +1,121 @@
+From 196d5c21d31039ed81a16df6dbd599497231363b Mon Sep 17 00:00:00 2001
+From: Michael Blocksome <blocksom@us.ibm.com>
+Date: Wed, 4 Sep 2013 14:29:09 -0500
+Subject: [PATCH] Limit tests to execute in runtests to a specific mpi version range
+
+The following environment variables are now checked by runtests:
+
+  MPITEST_VERSION_RANGE
+  MPITEST_VERSION_MINIMUM
+  MPITEST_VERSION_MAXIMUM
+---
+ test/mpi/runtests.in |   79 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 79 insertions(+), 0 deletions(-)
+
+diff --git a/test/mpi/runtests.in b/test/mpi/runtests.in
+index df6fd8b..93079a0 100644
+--- a/test/mpi/runtests.in
++++ b/test/mpi/runtests.in
+@@ -94,6 +94,14 @@ $clean_pgms      = 1;
+ 
+ my $program_wrapper = '';
+ 
++$MPIVersionTestRange = '';
++$MPIVersionTestLow = '';
++$MPIVersionTestLowMajor = '';
++$MPIVersionTestLowMinor = '';
++$MPIVersionTestHigh = '';
++$MPIVersionTestHighMajor = '';
++$MPIVersionTestHighMinor = '';
++
+ #---------------------------------------------------------------------------
+ # Get some arguments from the environment
+ #   Currently, only the following are understood:
+@@ -149,6 +157,47 @@ if (defined($ENV{'MPITEST_BATCHDIR'})) {
+ }
+ 
+ #---------------------------------------------------------------------------
++# The 'MPITEST_VERSION_RANGE' environment variable is used to limit the
++# tests that are executed to only those tests that have a required mpi
++# version that is within the specified range. Either the 'low' or 'high'
++# version range may be omitted. For example:
++#
++#   MPITEST_VERSION_RANGE=2.2-3.0            (skip tests < 2.2 and > 3.0)
++#   MPITEST_VERSION_RANGE=2.2                (skip tests < 2.2)
++#   MPITEST_VERSION_RANGE=-3.0               (skip tests > 3.0)
++#
++# In some respects this is opposite logic of the mpi library version check
++# and the required version for a test.
++#
++# These two checks are complimentary. For example, if a test requires mpi
++# version 3.0 and only tests that require a version greater than or equal
++# to version 2.2 are considered but the mpi library does not support the
++# mpi 3.0 standard then the test will be skipped.
++#
++# Environment variable aliases:
++#   'MPITEST_VERSION_MINIMUM=x.y' == 'MPITEST_VERSION_RANGE=x.y'
++#   'MPITEST_VERSION_MAXIMUM=x.y' == 'MPITEST_VERSION_RANGE=-x.y'
++#----------------------------------------------------------------------------
++if (defined($ENV{'MPITEST_VERSION_RANGE'})) {
++    $MPIVersionTestRange = $ENV{'MPITEST_VERSION_RANGE'};
++    ($MPIVersionTestRangeLow,$MPIVersionTestRangeHigh) = split(/-/,$MPIVersionTestRange);
++    ($MPIVersionTestRangeLowMajor,$MPIVersionTestRangeLowMinor) = split(/\./,$MPIVersionTestRangeLow);
++    ($MPIVersionTestRangeHighMajor,$MPIVersionTestRangeHighMinor) = split(/\./,$MPIVersionTestRangeHigh);
++}
++if (defined($ENV{'MPITEST_VERSION_MINIMUM'})) {
++    $MPIVersionTestRange = $ENV{'MPITEST_VERSION_MINIMUM'};
++    ($MPIVersionTestRangeLow,$MPIVersionTestRangeHigh) = split(/-/,$MPIVersionTestRange);
++    ($MPIVersionTestRangeLowMajor,$MPIVersionTestRangeLowMinor) = split(/\./,$MPIVersionTestRangeLow);
++    ($MPIVersionTestRangeHighMajor,$MPIVersionTestRangeHighMinor) = split(/\./,$MPIVersionTestRangeHigh);
++}
++if (defined($ENV{'MPITEST_VERSION_MAXIMUM'})) {
++    $MPIVersionTestRange = "-$ENV{'MPITEST_VERSION_MAXIMUM'}";
++    ($MPIVersionTestRangeLow,$MPIVersionTestRangeHigh) = split(/-/,$MPIVersionTestRange);
++    ($MPIVersionTestRangeLowMajor,$MPIVersionTestRangeLowMinor) = split(/\./,$MPIVersionTestRangeLow);
++    ($MPIVersionTestRangeHighMajor,$MPIVersionTestRangeHighMinor) = split(/\./,$MPIVersionTestRangeHigh);
++}
++
++#---------------------------------------------------------------------------
+ # Process arguments and override any defaults
+ #---------------------------------------------------------------------------
+ foreach $_ (@ARGV) {
+@@ -493,6 +542,36 @@ sub RunList {
+                 next;
+             }
+ 	}
++
++        # If a MPI version range to test is specified, check if the required MPI
++        # version is within the range.
++        #
++        # If the required version is unknown and a version range to test has
++        # been specified, we assume this test requires version 2.1 of the
++        # MPI standard.
++        if ($MPIVersionTestRange ne "") {
++            unless (-d $programname) {
++                if ($mpiVersion eq "") { $mpiVersion="2.1"; }
++                my ($majorReq,$minorReq) = split(/\./,$mpiVersion);
++
++                if ($MPIVersionTestRangeHighMajor ne "" && $MPIVersionTestRangeHighMinor ne "") {
++                    if ($MPIVersionTestRangeHighMajor < $majorReq or
++                        ($MPIVersionTestRangeHighMajor == $majorReq && $MPIVersionTestRangeHighMinor < $minorReq)) {
++                        SkippedTest($programname, $np, $workdir, "the required MPI version $mpiVersion is greater than $MPIVersionTestRangeHigh");
++                        next;
++                    }
++                }
++
++                if ($MPIVersionTestRangeLowMajor ne "" && $MPIVersionTestRangeLowMinor ne "") {
++                    if ($MPIVersionTestRangeLowMajor > $majorReq or
++                        ($MPIVersionTestRangeLowMajor == $majorReq && $MPIVersionTestRangeLowMinor > $minorReq)) {
++                        SkippedTest($programname, $np, $workdir, "the required MPI version $mpiVersion is less than $MPIVersionTestRangeLow");
++                        next;
++                    }
++                }
++            }
++        }
++
+ 	# Check whether strict is required by MPI but not by the
+ 	# test (use strict=false for tests that use non-standard extensions)
+         if (lc($requiresStrict) eq "false" && lc($testIsStrict) eq "true") {
+-- 
+1.7.1
+

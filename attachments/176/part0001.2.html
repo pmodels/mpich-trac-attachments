@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #176: mpich2 - issues with -map parameter</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Use the latest stable version of MPICH2 (1.0.7 - available at <A HREF="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads</A>). MPICH2 1.0.3 is old and there has been many bug fixes (including one for the &quot;-map&quot; option -- cleaning up shared drives correctly) and enhancements since to MPICH2.<BR>
+&nbsp; Let us know if it works for you.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Tuesday, September 30, 2008 11:35 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #176: mpich2 - issues with -map parameter<BR>
+<BR>
+-------------------------------------+----------------------------------<BR>
+-------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; Bernd_Goetz@swissre.com&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+-------------------------------------+----------------------------------<BR>
+-------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;Hello<BR>
+<BR>
+&nbsp;I have issues with the -map parameter in version 1.0.3. A first time it&nbsp; works, following runs I get an error, see below:<BR>
+<BR>
+&nbsp;C:\mpiworkspace\mpi1&gt;mpiexec -n 1 -host chrs3465 -timeout 12 -map&nbsp; p:\\chr53535\s&nbsp; hared -path p:\calc printarg.cmd<BR>
+<BR>
+&nbsp;C:\mpiworkspace\mpi1&gt;echo<BR>
+&nbsp;ECHO is on.<BR>
+<BR>
+&nbsp;C:\mpiworkspace\mpi1&gt;mpiexec -n 1 -host chrs3465 -timeout 12 -map&nbsp; p:\\chr53535\s&nbsp; hared -path p:\calc printarg.cmd bubu&nbsp; op_read error on left context: generic socket failure, error stack:<BR>
+&nbsp;MPIDU_Sock_wait(2533): The specified network name is no longer available.<BR>
+&nbsp;(errno<BR>
+&nbsp; 64)<BR>
+&nbsp;unable to read the cmd header on the left context, generic socket failure,&nbsp; error<BR>
+&nbsp; stack:<BR>
+&nbsp;MPIDU_Sock_wait(2533): The specified network name is no longer available.<BR>
+&nbsp;(errno<BR>
+&nbsp; 64).<BR>
+<BR>
+&nbsp;mpiexec terminated job due to 12 second timeout.<BR>
+<BR>
+&nbsp;Any help appreciated.<BR>
+&nbsp;Regards<BR>
+&nbsp;Bernd<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;This e-mail, including attachments, is intended for the person(s) or&nbsp; company named and may contain confidential and/or legally privileged&nbsp; information. Unauthorized disclosure, copying or use of this information&nbsp; may be unlawful and is prohibited. If you are not the intended recipient,&nbsp; please delete this message and notify the sender.<BR>
+&nbsp;All incoming and outgoing e-mail messages are stored in the Swiss Re&nbsp; Electronic Message Repository. If you do not wish the retention of&nbsp; potentially private e-mails by Swiss Re, we strongly advise you not to use&nbsp; the Swiss Re e-mail account for any private, non-business related&nbsp; communications.<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/176">https://trac.mcs.anl.gov/projects/mpich2/ticket/176</A>&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

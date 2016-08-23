@@ -1,0 +1,56 @@
+
+<br><font size=2 face="sans-serif">Hi guys, just picking off some failures
+in the IntelANL MPI test suite (2006) against MPICH2 1.1. It appears that
+all the failures are MPI 2.1 vs MPI 2.0 changes. </font>
+<br>
+<br><font size=2 face="sans-serif">However (and this might be a forum question,
+but I figured I'd ask here anyway), it appears there might either be an
+ambiguity in MPI_Cart_map and MPI_Graph_create, or the MPICH2 code is &quot;ahead&quot;
+of the standard as I read it.</font>
+<br>
+<br><font size=2 face="sans-serif">Basically, this test:</font>
+<br>
+<br><font size=2 face="sans-serif">num_dims = 0;</font>
+<br><font size=2 face="sans-serif">MPI_Cart_create(MPI_COMM_WORLD, num_dims,
+dim_size, periods, reorder, &amp;comm_cart);</font>
+<br>
+<br><font size=2 face="sans-serif">&quot;fails&quot; since it is expecting
+the MPI 2.0 behavior where num_dims = 0 was un(under?)defined. In MPI 2.1,
+we updated the description with &quot;If ndims is zero, then a zero-dimensional
+Cartesian topology is created&quot;, so I'm happy marking this as an invalid
+test.</font>
+<br>
+<br><font size=2 face="sans-serif">However, this test:</font>
+<br><font size=2 face="sans-serif">num_dims = 0;</font>
+<br><font size=2 face="sans-serif">MPI_Cart_map(comm_cart, num_dims, dim_size,
+periods, &amp;newrank);</font>
+<br>
+<br><font size=2 face="sans-serif">also &quot;fails&quot; since it doesn't
+report an error. I don't see any comments in the 2.1 standard or 2.2 issues
+that suggest MPI_Cart_map() changed in the same way that MPI_Cart_create()
+did, but it seems logical. So, my question is, is this correct behavior
+for MPI_Cart_map() and if so, should we add a comment in the 2.2 standard
+(or errata since I believe new tickets are closed?) that says num_dims=0
+is a valid argument?</font>
+<br>
+<br><font size=2 face="sans-serif">Finally, the third test that &quot;fails&quot;
+is doing this:</font>
+<br>
+<br><font size=2 face="sans-serif">edges[0] = 0; edges[1] = 3; edges[2]
+= 0; edges[3] = 3; edges[4] = 0; edges[5] = 2;</font>
+<br><font size=2 face="sans-serif">MPI_Graph_create(MPI_COMM_WORLD, nnodes,
+index, edges, reorder, &amp;comm_graph)</font>
+<br>
+<br><font size=2 face="sans-serif">Again, I don't see any comments on null
+edges for MPI_Graph_create() in 2.1 or 2.2 tickets. So is this correct
+behavior?</font>
+<br>
+<br><font size=2 face="sans-serif">Thanks.</font>
+<br>
+<br><font size=2 face="sans-serif"><br>
+Brian Smith<br>
+BlueGene MPI Development<br>
+IBM Rochester<br>
+Phone: 507 253 4717<br>
+smithbr@us.ibm.com<br>
+</font>

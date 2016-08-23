@@ -1,0 +1,40 @@
+--- aclocal_fc.m4.orig	2012-09-07 01:56:22.438555283 +0300
++++ aclocal_fc.m4	2012-09-07 02:00:27.089555215 +0300
+@@ -23,6 +23,8 @@
+ dnl fort is the Compaq Fortran 90 (now 95) compiler for Tru64 and Linux/Alpha.
+ dnl pathf90 is the Pathscale Fortran 90 compiler
+ dnl ifort is another name for the Intel f90 compiler
++dnl openf90 is Open64 f90 compiler
++dnl openf95 is Open64 f95 compiler
+ dnl efc - An older Intel compiler (?)
+ dnl ifc - An older Intel compiler
+ dnl fc  - A compiler on some unknown system.  This has been removed because
+@@ -35,7 +37,7 @@
+ PAC_PUSH_FLAG([FCFLAGS])
+ AC_PROG_FC([m4_default([$1],
+            [ifort pgf90 pathf90 pathf95 xlf90 xlf95 xlf2003 f90 epcf90 f95 fort lf95 \
+-            gfortran g95 ifc efc gfc])])
++            openf90 openf95 gfortran g95 ifc efc gfc])])
+ PAC_POP_FLAG([FCFLAGS])
+ ])
+ dnl
+@@ -691,6 +693,8 @@
+     if test -f conftest.txt ; then
+         if grep 'Portland Group' conftest.txt >/dev/null 2>&1 ; then
+             pac_cv_fc_vendor=pgi
++        elif grep 'Open64' conftest.txt >/dev/null 2>&1 ; then
++            pac_cv_fc_vendor=open64
+         elif grep 'Sun Workshop' conftest.txt >/dev/null 2>&1 ; then
+             pac_cv_fc_vendor=sun
+ 	elif grep 'Sun Fortran 9' conftest.txt >/dev/null 2>&1 ; then 
+@@ -712,6 +716,10 @@
+     # Try to use the compiler name
+     if test "$FC" = "ifort" -o "$FC" = "ifc" ; then
+         pac_cv_fc_vendor=intel
++    elif test "$FC" = "openf90" ; then
++        pac_cv_fc_vendor=open64
++    elif test "$FC" = "openf95" ; then
++        pac_cv_fc_vendor=open64
+     elif test "$FC" = "pgf90" ; then
+         pac_cv_fc_vendor=pgi
+     elif test "$FC" = "xlf90" -o "$FC" = "xlf90_r" ; then

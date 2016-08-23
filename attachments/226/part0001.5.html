@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #226: MPICH2 Cygwin install failes</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>Hi,<BR>
+&nbsp;Can you also update the configure (for MPICH2 1.0.8rc1) by adding line &quot;echo &quot;$len&quot; | xxd&quot; as shown below before you run it?<BR>
+<BR>
+============================= modified configure script for 1.0.8rc1 ====================<BR>
+&nbsp; 25484&nbsp;&nbsp;&nbsp;&nbsp; #<BR>
+&nbsp; 25485&nbsp;&nbsp;&nbsp;&nbsp; # Take len and turn it into two hex digits (there are 8 bits available<BR>
+&nbsp; 25486&nbsp;&nbsp;&nbsp;&nbsp; # in the built-in datatype handle for the length; see<BR>
+&nbsp; 25487&nbsp;&nbsp;&nbsp;&nbsp; # src/mpid/common/datatype/mpid_datatype.h).&nbsp; This code is taken<BR>
+&nbsp; 25488&nbsp;&nbsp;&nbsp;&nbsp; # from the code in mpich2/configure.in<BR>
+####################### ADD THIS LINE #######################<BR>
+&nbsp; 25489&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;$len&quot; | xxd&nbsp;<BR>
+####################### ADD THIS LINE #######################<BR>
+&nbsp; 25490&nbsp;&nbsp;&nbsp;&nbsp; if test &quot;$len&quot; -gt 255 ; then<BR>
+&nbsp; 25491&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { { $as_echo &quot;$as_me:$LINENO: error: Type sizes greater than 255 bytes are not supported (type INTEGER i<BR>
+s $len bytes)&quot; &gt;&amp;5<BR>
+&nbsp; 25492 $as_echo &quot;$as_me: error: Type sizes greater than 255 bytes are not supported (type INTEGER is $len bytes)&quot; &gt;&amp;2;}<BR>
+&nbsp; 25493&nbsp;&nbsp;&nbsp; { (exit 1); exit 1; }; }<BR>
+&nbsp; 25494&nbsp;&nbsp;&nbsp;&nbsp; fi<BR>
+&nbsp; 25495&nbsp;&nbsp;&nbsp;&nbsp; tmplen=$len<BR>
+&nbsp; 25496&nbsp;&nbsp;&nbsp;&nbsp; hexlen=&quot;&quot;<BR>
+&nbsp; 25497&nbsp;&nbsp;&nbsp;&nbsp; while test $tmplen -gt 0 ; do<BR>
+&nbsp; 25498&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lowdigit=`expr $tmplen - 16 \* \( $tmplen / 16 \)`<BR>
+&nbsp; 25499&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case $lowdigit in<BR>
+&nbsp; 25500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10) char=a ;;<BR>
+&nbsp; 25501&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11) char=b ;;<BR>
+&nbsp; 25502&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12) char=c ;;<BR>
+&nbsp; 25503&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 13) char=d ;;<BR>
+&nbsp; 25504&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14) char=e ;;<BR>
+&nbsp; 25505&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15) char=f ;;<BR>
+<BR>
+============================= modified configure script for 1.0.8rc1 ====================<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Thursday, October 23, 2008 1:06 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #226: MPICH2 Cygwin install failes<BR>
+<BR>
+--------------------------------------------+---------------------------<BR>
+--------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; Rolf Maier &lt;maier@ucalgary.ca&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+--------------------------------------------+---------------------------<BR>
+--------------------------------------------+----<BR>
+<BR>
+<BR>
+Comment (by Rajeev Thakur):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;If you don't need to use Fortran, you can configure with --disable-f77.<BR>
+<BR>
+&nbsp;Rajeev<BR>
+<BR>
+<BR>
+&nbsp;&gt;&nbsp; Look like your fortran compiler failed some of the configure tests.<BR>
+&nbsp;&gt;&nbsp; Could you send us your configure and make outputs as shown on<BR>
+&nbsp;&gt;&nbsp; your screen (as stated in MPICH2 installer's guide) ?&nbsp;&nbsp; I think<BR>
+&nbsp;&gt;&nbsp; it will be helpful if you also send us the config.log (the&nbsp; &gt; one&nbsp; generated by configure, not the output seen on your screen).<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; A.Chan<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/226#comment:&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

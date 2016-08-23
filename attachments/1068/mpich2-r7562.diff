@@ -1,0 +1,144 @@
+Index: src/pm/hydra/tools/bootstrap/external/external_init.c
+===================================================================
+--- src/pm/hydra/tools/bootstrap/external/external_init.c	(revision 7562)
++++ src/pm/hydra/tools/bootstrap/external/external_init.c	(working copy)
+@@ -52,6 +52,9 @@
+     if (!strcmp(HYDT_bsci_info.launcher, "ll"))
+         HYDT_bsci_fns.launch_procs = HYDT_bscd_ll_launch_procs;
+ 
++    if (!strcmp(HYDT_bsci_info.launcher, "none"))
++        HYDT_bsci_fns.launch_procs = HYDT_bscd_none_launch_procs;
++
+     /* for everything else, set default values */
+     if (HYDT_bsci_fns.launch_procs == NULL)
+         HYDT_bsci_fns.launch_procs = HYDT_bscd_external_launch_procs;
+@@ -102,6 +105,11 @@
+     return external_launcher_init();
+ }
+ 
++HYD_status HYDT_bsci_launcher_none_init(void)
++{
++    return external_launcher_init();
++}
++
+ HYD_status HYDT_bsci_rmk_lsf_init(void)
+ {
+     return external_rmk_init();
+@@ -131,3 +139,4 @@
+ {
+     return external_rmk_init();
+ }
++
+Index: src/pm/hydra/tools/bootstrap/external/external_launch.c
+===================================================================
+--- src/pm/hydra/tools/bootstrap/external/external_launch.c	(revision 7562)
++++ src/pm/hydra/tools/bootstrap/external/external_launch.c	(working copy)
+@@ -4,6 +4,8 @@
+  *      See COPYRIGHT in top-level directory.
+  */
+ 
++#include "assert.h"
++
+ #include "hydra_utils.h"
+ #include "bsci.h"
+ #include "bscu.h"
+@@ -313,3 +315,28 @@
+   fn_fail:
+     goto fn_exit;
+ }
++
++HYD_status HYDT_bscd_none_launch_procs(char **args, struct HYD_node *node_list,
++                                       int *control_fd, int enable_stdin)
++{
++    int i, proxy_id_index;
++    struct HYD_node *node;
++    char *proxy_id_string;
++
++    proxy_id_string = HYDU_malloc(16);
++
++    for (i = 0; args[i] != NULL; ) {
++        i++;
++    }
++    proxy_id_index = i;
++    args[proxy_id_index+1] = NULL;
++    for (i = 0, node = node_list; node; node = node->next, i++) {
++        assert(!strcmp(HYDT_bsci_info.launcher, "none"));
++        printf("HYDRA_NONE_LINE: ");
++        sprintf(proxy_id_string, "%d", i);
++        args[proxy_id_index] = proxy_id_string;
++        HYDU_print_strlist(args);
++    }
++    printf("HYDRA_NONE_END:\n");
++    fflush(stdout);
++}
+Index: src/pm/hydra/tools/bootstrap/external/external.h
+===================================================================
+--- src/pm/hydra/tools/bootstrap/external/external.h	(revision 7562)
++++ src/pm/hydra/tools/bootstrap/external/external.h	(working copy)
+@@ -20,4 +20,9 @@
+ HYD_status HYDT_bscd_external_query_env_inherit(const char *env_name, int *ret);
+ HYD_status HYDT_bscd_external_query_native_int(int *ret);
+ 
++HYD_status HYDT_bscd_none_launch_procs(char **args,
++                                       struct HYD_node *node_list,
++                                       int *control_fd,
++                                       int enable_stdin);
++
+ #endif /* EXTERNAL_H_INCLUDED */
+Index: src/pm/hydra/utils/args/args.c
+===================================================================
+--- src/pm/hydra/utils/args/args.c	(revision 7562)
++++ src/pm/hydra/utils/args/args.c	(working copy)
+@@ -112,7 +112,8 @@
+             }
+ 
+             status = m->handler_fn(arg, argv_p);
+-            HYDU_ERR_POP(status, "match handler returned error\n");
++            HYDU_ERR_POP(status, "match handler returned error (for %s)\n",
++                         arg);
+             break;
+         }
+         m++;
+Index: src/pm/hydra/configure.in
+===================================================================
+--- src/pm/hydra/configure.in	(revision 7562)
++++ src/pm/hydra/configure.in	(working copy)
+@@ -211,6 +211,7 @@
+ 		hydra_bss_none=true
+ 		available_bss=`echo $available_bss none`
+ 		available_rmks=`echo $available_rmks none`
++                available_launchers=`echo $available_launchers none`
+ 		;;
+ 	*)
+ 		;;
+@@ -357,7 +358,7 @@
+ 		   have_plpa=yes
+ 		   AC_DEFINE(HAVE_PLPA,1,[Define if plpa is available])
+ 		fi
+-		;;		
++		;;
+ 	hwloc)
+ 		if test "$with_hwloc_prefix" = "embedded" ; then
+ 		   PAC_CONFIG_SUBDIR([tools/bind/hwloc/hwloc],[have_hwloc=yes],[have_hwloc=no])
+@@ -428,7 +429,7 @@
+ 	       AC_DEFINE(HAVE_BLCR,1,[Define if blcr is available])
+ 	       available_ckpointlibs=`echo $available_ckpointlibs blcr`
+ 	    fi
+-	    ;;		
++	    ;;
+ 	*)
+ 	    ;;
+     esac
+Index: src/pm/hydra/pm/pmiserv/pmip_cb.c
+===================================================================
+--- src/pm/hydra/pm/pmiserv/pmip_cb.c	(revision 7562)
++++ src/pm/hydra/pm/pmiserv/pmip_cb.c	(working copy)
+@@ -715,7 +715,7 @@
+                                              cpuset);
+                 HYDU_ERR_POP(status, "create process returned error\n");
+ 
+-                if (HYD_pmcd_pmip.system_global.enable_stdin) {
++                if (HYD_pmcd_pmip.system_global.enable_stdin && 0) {
+                     stdin_fd = STDIN_FILENO;
+                     status = HYDT_dmx_register_fd(1, &stdin_fd, HYD_POLLIN,
+                                                   (void *) (size_t) STDIN_FILENO, stdio_cb);

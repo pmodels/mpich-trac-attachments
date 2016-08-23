@@ -1,0 +1,89 @@
+mvapich2 1.9b using based on mpich-3.0.2
+========================================
+mother superior
+---------------
+
+ 3451 ?        SLsl  36:40 /opt/torque/4.1.5.1/sbin/pbs_mom -q -d
+ /opt/torque/4.1.5.1/spool
+ 21456 ?        Ss     0:00  \_ -bash
+ 21492 ?        S      0:00  |   \_ pbs_demux
+ 21518 ?        S      0:00  |   \_ /bin/bash /opt/torque/4.1.5.1/spool/mom_priv/jobs/10861.master.cluster.SC
+ 21537 ?        S      0:00  |       \_ mpiexec -np 24 ./hello_world_mvapich2
+ 21538 ?        Ss     0:00  \_ /opt/apps/gcc4_5/mvapich2/1.9b/bin/hydra_pmi_proxy --control-port hs162:54560 --rmk pbs --launcher pb
+ 21539 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21540 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21541 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21542 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21543 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21544 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21545 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21546 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21547 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21548 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21549 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 21550 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+
+
+sister mom
+----------
+
+ 3425 ?        SLsl  29:08 /opt/torque/4.1.5.1/sbin/pbs_mom -q -d
+ /opt/torque/4.1.5.1/spool
+ 26585 ?        Ss     0:00  \_ /opt/apps/gcc4_5/mvapich2/1.9b/bin/hydra_pmi_proxy --control-port hs162:54560 --rmk pbs --launcher pb
+ 26594 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26595 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26596 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26597 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26598 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26599 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26600 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26601 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26602 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26603 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26604 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+ 26605 ?        SLsl   0:00      \_ ./hello_world_mvapich2
+
+
+openmpi-1.6.4
+=============
+mother superior
+---------------
+
+ 3451 ?        SLsl  36:40 /opt/torque/4.1.5.1/sbin/pbs_mom -q -d
+ /opt/torque/4.1.5.1/spool
+ 22070 ?        Ss     0:00  \_ -bash
+ 22106 ?        S      0:00      \_ pbs_demux
+ 22132 ?        S      0:00      \_ /bin/bash /opt/torque/4.1.5.1/spool/mom_priv/jobs/10862.master.cluster.SC
+ 22151 ?        S      0:00          \_ mpiexec -np 24 ./hello_world_ompi
+ 22152 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22153 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22154 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22155 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22156 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22157 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22158 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22159 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22160 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22161 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22162 ?        SLl    0:00              \_ ./hello_world_ompi
+ 22163 ?        SLl    0:00              \_ ./hello_world_ompi
+
+
+sister mom
+----------
+
+ 3425 ?        SLsl  29:09 /opt/torque/4.1.5.1/sbin/pbs_mom -q -d
+ /opt/torque/4.1.5.1/spool
+ 27161 ?        Ss     0:00  \_ orted -mca ess tm -mca orte_ess_jobid 3506896896 -mca orte_ess_vpid 1 -mca orte_ess_num_procs 2 --hnp
+ 27162 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27163 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27164 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27165 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27166 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27167 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27168 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27169 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27170 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27171 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27172 ?        SLl    0:00      \_ ./hello_world_ompi
+ 27173 ?        SLl    0:00      \_ ./hello_world_ompi

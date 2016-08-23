@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #382: New version fails to build</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Looks like the build breaks after r3752. I can see that &quot;mpiimplthread.h&quot; was included in &quot;mpiutil.h&quot; without including &quot;mpichconf.h&quot; (Some libs include mpiutil.h directly).<BR>
+<BR>
+-Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Wednesday, January 28, 2009 9:15 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #382: New version fails to build<BR>
+<BR>
+-------------------------------------------------+----------------------<BR>
+-------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; William Gropp &lt;wgropp@illinois.edu&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+-------------------------------------------------+----------------------<BR>
+-------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;I get the following when I make on OSX:<BR>
+<BR>
+&nbsp;...<BR>
+&nbsp;&nbsp;&nbsp; CC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /Users/gropp/projects/software/mpich2-current/src/<BR>
+&nbsp;mpid/common/sock/poll/sock.c<BR>
+&nbsp;In file included from /Users/gropp/projects/software/mpich2-current/<BR>
+&nbsp;src/include/mpiutil.h:9,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; from /Users/gropp/projects/software/mpich2-current/<BR>
+&nbsp;src/mpid/common/sock/mpidu_sock.h:26,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; from /Users/gropp/projects/software/mpich2-current/<BR>
+&nbsp;src/mpid/common/sock/poll/sock.c:8:<BR>
+&nbsp;/Users/gropp/projects/software/mpich2-current/src/include/<BR>
+&nbsp;mpiimplthread.h:11:2: error: #error 'This file requires mpichconf.h'<BR>
+<BR>
+&nbsp;Bill<BR>
+<BR>
+&nbsp;William Gropp<BR>
+&nbsp;Deputy Director for Research<BR>
+&nbsp;Institute for Advanced Computing Applications and Technologies&nbsp; Paul and Cynthia Saylor Professor of Computer Science&nbsp; University of Illinois Urbana-Champaign<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/382">https://trac.mcs.anl.gov/projects/mpich2/ticket/382</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

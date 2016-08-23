@@ -1,0 +1,124 @@
+<table cellspacing="0" cellpadding="0" border="0" ><tr><td valign="top" style="font: inherit;"><DIV>say, I build my MP code, give it someone else to run.&nbsp; when the person try to</DIV>
+<DIV>bring up jumpshot in the tar ball I gave him, the jumpsot script will try</DIV>
+<DIV>to use the JAVA&nbsp;path&nbsp;and install dir I used to build MPICH2.&nbsp; That definately</DIV>
+<DIV>will not work.&nbsp;&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>in most situuation, there is likely a JRE already installed somewhere in the user's</DIV>
+<DIV>env,&nbsp; if we can let him specify where that JAVA is, we solve the JAVA issue.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>For the path to the jar and GUI lib, if we can locate the dir where jumpshot is installed,</DIV>
+<DIV>that should work.&nbsp; However, I prefer locating mpiexec, as there is not meaningful clog2 or slog2 file without mpiexec.&nbsp; It is up to the MPICH2 team to dcide what to do with this issue.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>thanks</DIV>
+<DIV>tan</DIV>
+<DIV><BR><BR>--- On <B>Tue, 12/30/08, mpich2 <I>&lt;mpich2-maint@mcs.anl.gov&gt;</I></B> wrote:<BR></DIV>
+<BLOCKQUOTE style="PADDING-LEFT: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: rgb(16,16,255) 2px solid">From: mpich2 &lt;mpich2-maint@mcs.anl.gov&gt;<BR>Subject: Re: [mpich2-maint] #343: [mpich-discuss] request to enhance jumpshot script for portability<BR>To: <BR>Date: Tuesday, December 30, 2008, 9:52 AM<BR><BR><PRE>--------------------------------------------------+-------------------------
+ Reporter:  chong tan &lt;chong_guan_tan@yahoo.com&gt;  |        Owner:     
+     Type:  bug                                   |       Status:  new
+ Priority:  major                                 |    Milestone:     
+Component:  mpich2                                |   Resolution:     
+ Keywords:                                        |  
+--------------------------------------------------+-------------------------
+
+
+Comment (by Anthony Chan):
+
+ {{{
+
+ Hi chong tan,
+
+ jumpshot, which is part of a package called slog2sdk or slog2rte,
+ can be built separately from mpich2.  Jumpshot script can't really
+ be moved without jumpshot.jar (or maybe other utility jar files).
+ Your suggested changes to jumpshot script does not work because
+ jumpshot script can be built on platforms that mpiexec does not
+ exist.  If you can tell me what you mean by "shipping jumpshot
+ to a different env", i.e. what parts of jumpshot that are being
+ moved, i may be able to modify the script that suits your need.
+
+ A.Chan
+
+ ----- "mpich2" &lt;mpich2-maint@mcs.anl.gov&gt; wrote:
+
+ &gt;
+ --------------------------------------------------+-------------------------
+ &gt;  Reporter:  chong tan &lt;chong_guan_tan@yahoo.com&gt;  |        Type: 
+bug
+ &gt;
+ &gt;    Status:  new                                   |    Priority:
+ &gt; major
+ &gt; Milestone:                                        |   Component:
+ &gt; mpich2
+ &gt;
+ --------------------------------------------------+-------------------------
+ &gt;
+ &gt;
+ &gt;  {{{
+ &gt;
+ &gt;  version used : 1.0.8
+ &gt;
+ &gt;  the current jumpshot script created by config has the JAVA path and
+ &gt; MPICH2
+ &gt;  installation path hard coded in.Â&nbsp; This make shipping jumpshot to a
+ &gt;  different env
+ &gt;  impossible without hacking.
+ &gt;
+ &gt;  I am requesting that the jumpshot/jumpshot.in code (in
+ &gt;  src/mpe2/src/slog2sdk/bin) be enhanced with the following changes:
+ &gt;
+ &gt;  # Set JAVA environment
+ &gt;  if [ "XX${JRE}" = "XX" ] ; then
+ &gt;  Â&nbsp;Â&nbsp;Â&nbsp; JVM=&lt;JAVA path during configure&gt;/bin/javaÂ&nbsp; ###
+ &gt;  else
+ &gt;  Â&nbsp;Â&nbsp;Â&nbsp; JVM=${JRE}/bin/java
+ &gt;  fi
+ &gt;
+
+JVMOPTS=""Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â
+ &nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp; ###
+ &gt;  # Assume user's environmental JVMFLAGS is better than what
+configure
+ &gt;  found.
+ &gt;  JVMFLAGS=${JVMFLAGS:-${JVMOPTS}}Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp; ###
+ &gt;  # Set PATH to various jar's needed by the GUI
+ &gt;  MPIEXEC_PATH=`which mpiexec`
+ &gt;  echo ${MPIEXEC_PATH}
+ &gt;  if [ "XX${MPIEXEC_PATH}" = "XX" ] ; then
+ &gt;  Â&nbsp;Â&nbsp; GUI_LIBDIR=&lt;MPICH2 install
+path&gt;/libÂ&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp;Â&nbsp; ###
+ &gt;  else
+ &gt;  Â&nbsp;Â&nbsp; GUI_LIBDIR=$(dirname $(dirname $MPIEXEC_PATH))/lib
+ &gt;  fi
+ &gt;
+ &gt;
+ &gt;  where path in &lt;&gt; are hard coded like the existing code.Â&nbsp; the
+env var
+ &gt; JRE
+ &gt;  (or any
+ &gt;  name the MPICH2 group prefers) decides where to pickup the JRE.Â
+ &gt; lines
+ &gt;  marked
+ &gt;  ### are lines from 1.0.8 release.
+ &gt;
+ &gt;  this will make relocating jumpshot to a different system easy.
+ &gt;
+ &gt;  thanks
+ &gt;  tan
+ &gt;
+ &gt;
+ &gt;
+ &gt;  }}}
+ &gt;
+ &gt;
+ &gt; --
+ &gt; Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/343&gt;
+ }}}
+
+-- 
+Ticket URL:
+&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/343#comment:&gt;
+</PRE></BLOCKQUOTE></td></tr></table><br>
+
+
+
+      

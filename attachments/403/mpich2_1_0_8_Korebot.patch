@@ -1,0 +1,194 @@
+Only in .: mpich2_1_0_8_Korebot.patch
+diff -cr ../mpich2-1.0.8-clean/src/pm/smpd/smpd_launch_process.c ./src/pm/smpd/smpd_launch_process.c
+*** ../mpich2-1.0.8-clean/src/pm/smpd/smpd_launch_process.c	Tue Aug 19 16:57:10 2008
+--- ./src/pm/smpd/smpd_launch_process.c	Thu Feb 12 14:00:36 2009
+***************
+*** 2452,2463 ****
+--- 2452,2471 ----
+  int smpd_exit(int exitcode)
+  {
+      smpd_enter_fn(FCNAME);
++     smpd_dbg_printf("#\\smpd_kill_all_processes\n");
+      smpd_kill_all_processes();
++     smpd_dbg_printf("#/smpd_kill_all_processes\n");
+  #ifdef HAVE_WINDOWS_H
++     smpd_dbg_printf("#\\smpd_finalize_drive_maps\n");
+      smpd_finalize_drive_maps();
++     smpd_dbg_printf("#/smpd_finalize_drive_maps\n");
+  #endif
++     smpd_dbg_printf("#\\smpd_finalize_printf\n");
+      smpd_finalize_printf();
++     smpd_dbg_printf("#/smpd_finalize_printf\n");
++     smpd_dbg_printf("#\\PMI_Finalize\n");
+      PMPI_Finalize();
++     smpd_dbg_printf("#/PMI_Finalize\n");
+      /* If we're exiting due to a user abort, use the exit code supplied by the abort call */
+      if (smpd_process.use_abort_exit_code)
+  	exitcode = smpd_process.abort_exit_code;
+***************
+*** 2469,2474 ****
+--- 2477,2483 ----
+      /* This is necessary because exit() can deadlock flushing file buffers while the stdin thread is running */
+      ExitProcess(exitcode);
+  #else
++     smpd_dbg_printf("#smpd_exit() exiting with error code = %d\n",exitcode);
+      exit(exitcode);
+      smpd_exit_fn(FCNAME);
+      return SMPD_FAIL;
+diff -cr ../mpich2-1.0.8-clean/src/pmi/smpd/smpd_ipmi.c ./src/pmi/smpd/smpd_ipmi.c
+*** ../mpich2-1.0.8-clean/src/pmi/smpd/smpd_ipmi.c	Thu Sep 18 14:47:34 2008
+--- ./src/pmi/smpd/smpd_ipmi.c	Thu Feb 12 15:06:05 2009
+***************
+*** 129,145 ****
+--- 129,148 ----
+      return n;
+  }
+  
++ #define PMII_DEBUG_
+  #ifdef PMII_DEBUG_
+  static int pmi_dbg_printf(char *str, ...)
+  {
+      int n=0;
+      va_list list;
+  
++     if(smpd_process.verbose == SMPD_TRUE){
+  	printf("[%d] ", pmi_process.iproc);
+  	va_start(list, str);
+  	n = vprintf(str, list);
+  	va_end(list);
+  	fflush(stdout);
++     }
+  
+      return n;
+  }
+***************
+*** 174,179 ****
+--- 177,183 ----
+      int dest = 1;
+      int add_id = 0;
+  
++     pmi_dbg_printf("Creating & posting cmd = %s\n", command);
+      if (!pmi_process.rpmi)
+      {
+  	if (strcmp(command, "done") == 0)
+***************
+*** 188,194 ****
+--- 192,200 ----
+  	dest = 0;
+      }
+  
++     pmi_dbg_printf("\\smpd_create_command");
+      result = smpd_create_command((char*)command, pmi_process.smpd_id, dest, SMPD_TRUE, &cmd_ptr);
++     pmi_dbg_printf("/smpd_create_command");
+      if (result != SMPD_SUCCESS)
+      {
+  	pmi_err_printf("unable to create a %s command.\n", command);
+***************
+*** 276,282 ****
+--- 282,290 ----
+  #endif
+      }
+  
++     pmi_dbg_printf("\\smpd_post_write_command\n");
+      result = smpd_post_write_command(pmi_process.context, cmd_ptr);
++     pmi_dbg_printf("/smpd_post_write_command\n");
+      if (result != SMPD_SUCCESS)
+      {
+  	pmi_err_printf("unable to post a write of the %s command.\n", command);
+***************
+*** 294,300 ****
+--- 302,310 ----
+      }
+  
+      /* let the state machine send the command and receive the result */
++     pmi_dbg_printf("\\smpd_enter_at_state\n");
+      result = smpd_enter_at_state(pmi_process.set, SMPD_WRITING_CMD);
++     pmi_dbg_printf("/smpd_enter_at_state\n");
+      if (result != SMPD_SUCCESS)
+      {
+  	pmi_err_printf("the state machine logic failed to get the result of the %s command.\n", command);
+***************
+*** 367,377 ****
+--- 377,389 ----
+  
+  static int pmi_destroy_localKVS(void ){
+      /* Its ok to finalize here since we can only have one local db */
++     pmi_dbg_printf("#\\pmi_destroy_localKVS\n");
+      if(smpd_dbs_finalize() != SMPD_DBS_SUCCESS){
+          pmi_err_printf("unable to finalize the local dbs engine.\n");
+          return PMI_FAIL;
+      }
+      pmi_process.local_kvs = PMI_FALSE;
++     pmi_dbg_printf("#/pmi_destroy_localKVS\n");
+      return PMI_SUCCESS;
+  }
+  
+***************
+*** 1393,1398 ****
+--- 1405,1411 ----
+  
+      if (pmi_process.rpmi)
+      {
++         pmi_dbg_printf("#\\rPMI_Finalize()\n");
+  	return rPMI_Finalize();
+      }
+  
+***************
+*** 1401,1414 ****
+  
+      if (pmi_process.local_kvs)
+      {
+  	if(pmi_destroy_localKVS() != PMI_SUCCESS){
+!         pmi_dbg_printf("Failed to destroy local KVS\n");
+!     }
+  	result = MPIDU_Sock_finalize();
+  	pmi_process.init_finalized = PMI_FINALIZED;
+  	return PMI_SUCCESS;
+      }
+  
+      sprintf(rank_str, "%d", pmi_process.iproc);
+      result = pmi_create_post_command("finalize", pmi_process.kvs_name, rank_str, NULL);
+      if (result != PMI_SUCCESS)
+--- 1414,1431 ----
+  
+      if (pmi_process.local_kvs)
+      {
++         pmi_dbg_printf("# PMI has local kvs\n");
+  	if(pmi_destroy_localKVS() != PMI_SUCCESS){
+!             pmi_dbg_printf("Failed to destroy local KVS\n");
+!         }
+!         pmi_dbg_printf("\\MPIDU_Sock_finalize()\n");
+  	result = MPIDU_Sock_finalize();
++         pmi_dbg_printf("/MPIDU_Sock_finalize()\n");
+  	pmi_process.init_finalized = PMI_FINALIZED;
+  	return PMI_SUCCESS;
+      }
+  
++     pmi_dbg_printf("# PMI has non-local kvs\n");
+      sprintf(rank_str, "%d", pmi_process.iproc);
+      result = pmi_create_post_command("finalize", pmi_process.kvs_name, rank_str, NULL);
+      if (result != PMI_SUCCESS)
+***************
+*** 1429,1435 ****
+--- 1446,1454 ----
+  	goto fn_fail;
+      }
+  
++     pmi_dbg_printf("\\PMI_Barrier\n");
+      PMI_Barrier();
++     pmi_dbg_printf("/PMI_Barrier\n");
+  
+      /* post the done command and wait for the result */
+      result = pmi_create_post_command("done", NULL, NULL, NULL);
+***************
+*** 1441,1447 ****
+--- 1460,1468 ----
+  
+      /*if (pmi_process.sock != MPIDU_SOCK_INVALID_SOCK)*/
+      {
++         pmi_dbg_printf("\\MPIDU_Sock_finalize()\n");
+  	result = MPIDU_Sock_finalize();
++         pmi_dbg_printf("/MPIDU_Sock_finalize()\n");
+  	if (result != MPI_SUCCESS)
+  	{
+  	    /*pmi_err_printf("MPIDU_Sock_finalize failed,\nsock error: %s\n", get_sock_error_string(result));*/

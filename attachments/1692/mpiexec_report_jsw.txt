@@ -1,0 +1,378 @@
+..\smpd_get_full_path_name
+...fixing up exe name: 'test_mpi.exe' -> '(null)'
+../smpd_get_full_path_name
+..handling executable:
+test_mpi.exe
+..Processing environment variables 
+..Processing drive mappings
+..Creating launch nodes (2)
+..\smpd_get_next_host
+...\smpd_get_next_hostname
+.../smpd_get_next_hostname
+...\smpd_get_host_id
+.../smpd_get_host_id
+../smpd_get_next_host
+..Adding host (John-T60) to launch list 
+..\smpd_get_next_host
+...\smpd_get_next_hostname
+.../smpd_get_next_hostname
+...\smpd_get_host_id
+.../smpd_get_host_id
+../smpd_get_next_host
+..Adding host (John-T60) to launch list 
+..\smpd_create_cliques
+...\prev_launch_node
+.../prev_launch_node
+...\prev_launch_node
+.../prev_launch_node
+...\prev_launch_node
+.../prev_launch_node
+...\prev_launch_node
+.../prev_launch_node
+../smpd_create_cliques
+..\smpd_fix_up_host_tree
+../smpd_fix_up_host_tree
+./mp_parse_command_args
+.host tree:
+. host: John-T60, parent: 0, id: 1
+.launch nodes:
+. iproc: 1, id: 1, exe: test_mpi.exe
+. iproc: 0, id: 1, exe: test_mpi.exe
+.\SMPDU_Sock_create_set
+..\smpd_get_smpd_data
+...\smpd_get_smpd_data_from_environment
+.../smpd_get_smpd_data_from_environment
+../smpd_get_smpd_data
+..\smpd_create_context
+...\smpd_init_context
+....\smpd_init_command
+..../smpd_init_command
+.../smpd_init_context
+../smpd_create_context
+..\SMPDU_Sock_post_connect
+../SMPDU_Sock_post_connect
+..\SMPDU_Sock_set_user_ptr
+../SMPDU_Sock_set_user_ptr
+..\smpd_make_socket_loop
+...\smpd_get_hostname
+.../smpd_get_hostname
+../smpd_make_socket_loop
+..\SMPDU_Sock_native_to_sock
+../SMPDU_Sock_native_to_sock
+..\SMPDU_Sock_native_to_sock
+../SMPDU_Sock_native_to_sock
+..\smpd_create_context
+...\smpd_init_context
+....\smpd_init_command
+..../smpd_init_command
+....\SMPDU_Sock_set_user_ptr
+..../SMPDU_Sock_set_user_ptr
+.../smpd_init_context
+../smpd_create_context
+..\SMPDU_Sock_post_read
+...\SMPDU_Sock_post_readv
+.../SMPDU_Sock_post_readv
+../SMPDU_Sock_post_read
+..\smpd_enter_at_state
+...sock_waiting for the next event.
+...\SMPDU_Sock_wait
+.../SMPDU_Sock_wait
+...SOCK_OP_CONNECT event.error = 0, result = 0, context=left
+...\smpd_handle_op_connect
+....connect succeeded, posting read of the challenge string
+....\SMPDU_Sock_post_read
+.....\SMPDU_Sock_post_readv
+...../SMPDU_Sock_post_readv
+..../SMPDU_Sock_post_read
+.../smpd_handle_op_connect
+...sock_waiting for the next event.
+...\SMPDU_Sock_wait
+.../SMPDU_Sock_wait
+...SOCK_OP_READ event.error = 0, result = 0, context=left
+...\smpd_handle_op_read
+....\smpd_state_reading_challenge_string
+.....read challenge string: '1.4.1p1 18467'
+.....\smpd_verify_version
+...../smpd_verify_version
+.....Verification of smpd version succeeded
+.....\smpd_hash
+...../smpd_hash
+.....\SMPDU_Sock_post_write
+......\SMPDU_Sock_post_writev
+....../SMPDU_Sock_post_writev
+...../SMPDU_Sock_post_write
+..../smpd_state_reading_challenge_string
+.../smpd_handle_op_read
+...sock_waiting for the next event.
+...\SMPDU_Sock_wait
+.../SMPDU_Sock_wait
+...SOCK_OP_WRITE event.error = 0, result = 0, context=left
+...\smpd_handle_op_write
+....\smpd_state_writing_challenge_response
+.....wrote challenge response: 'dafd1d07c1e6e9cb5fae968403d0d933'
+.....\SMPDU_Sock_post_read
+......\SMPDU_Sock_post_readv
+....../SMPDU_Sock_post_readv
+...../SMPDU_Sock_post_read
+..../smpd_state_writing_challenge_response
+.../smpd_handle_op_write
+...sock_waiting for the next event.
+...\SMPDU_Sock_wait
+.../SMPDU_Sock_wait
+...SOCK_OP_READ event.error = 0, result = 0, context=left
+...\smpd_handle_op_read
+....\smpd_state_reading_connect_result
+.....read connect result: 'SUCCESS'
+.....\SMPDU_Sock_post_write
+......\SMPDU_Sock_post_writev
+....../SMPDU_Sock_post_writev
+...../SMPDU_Sock_post_write
+..../smpd_state_reading_connect_result
+.../smpd_handle_op_read
+...sock_waiting for the next event.
+...\SMPDU_Sock_wait
+.../SMPDU_Sock_wait
+...SOCK_OP_WRITE event.error = 0, result = 0, context=left
+...\smpd_handle_op_write
+....\smpd_state_writing_process_session_request
+.....wrote process session request: 'process'
+.....\SMPDU_Sock_post_read
+......\SMPDU_Sock_post_readv
+....../SMPDU_Sock_post_readv
+...../SMPDU_Sock_post_read
+..../smpd_state_writing_process_session_request
+.../smpd_handle_op_write
+...sock_waiting for the next event.
+...\SMPDU_Sock_wait
+.../SMPDU_Sock_wait
+...SOCK_OP_READ event.error = 0, result = 0, context=left
+...\smpd_handle_op_read
+....\smpd_state_reading_cred_request
+.....read cred request: 'credentials'
+.....\smpd_hide_string_arg
+......\first_token
+....../first_token
+......\compare_token
+....../compare_token
+......\next_token
+.......\first_token
+......./first_token
+.......\first_token
+......./first_token
+....../next_token
+...../smpd_hide_string_arg
+...../smpd_hide_string_arg
+.....\smpd_hide_string_arg
+......\first_token
+....../first_token
+......\compare_token
+....../compare_token
+......\next_token
+.......\first_token
+......./first_token
+.......\first_token
+......./first_token
+....../next_token
+...../smpd_hide_string_arg
+...../smpd_hide_string_arg
+.....\smpd_hide_string_arg
+......\first_token
+....../first_token
+......\compare_token
+....../compare_token
+......\next_token
+.......\first_token
+......./first_token
+.......\first_token
+......./first_token
+....../next_token
+...../smpd_hide_string_arg
+...../smpd_hide_string_arg
+.....\smpd_hide_string_arg
+......\first_token
+....../first_token
+......\compare_token
+....../compare_token
+......\next_token
+.......\first_token
+......./first_token
+.......\first_token
+......./first_token
+....../next_token
+...../smpd_hide_string_arg
+...../smpd_hide_string_arg
+.....\smpd_hide_string_arg
+......\first_token
+....../first_token
+......\compare_token
+....../compare_token
+......\next_token
+.......\first_token
+......./first_token
+.......\first_token
+......./first_token
+....../next_token
+...../smpd_hide_string_arg
+...../smpd_hide_string_arg
+......\smpd_option_on
+.......\smpd_get_smpd_data
+........\smpd_get_smpd_data_from_environment
+......../smpd_get_smpd_data_from_environment
+........\smpd_get_smpd_data_default
+......../smpd_get_smpd_data_default
+........Unable to get the data for the key 'nocache'
+......./smpd_get_smpd_data
+....../smpd_option_on
+.....\smpd_hide_string_arg
+......\first_token
+....../first_token
+......\compare_token
+....../compare_token
+......\next_token
+.......\first_token
+......./first_token
+.......\first_token
+......./first_token
+....../next_token
+...../smpd_hide_string_arg
+...../smpd_hide_string_arg
+.....\SMPDU_Sock_post_write
+......\SMPDU_Sock_post_writev
+....../SMPDU_Sock_post_writev
+...../SMPDU_Sock_post_write
+..../smpd_handle_op_read
+....sock_waiting for the next event.
+....\SMPDU_Sock_wait
+..../SMPDU_Sock_wait
+....SOCK_OP_WRITE event.error = 0, result = 0, context=left
+....\smpd_handle_op_write
+.....\smpd_state_writing_cred_ack_yes
+......wrote cred request yes ack.
+......\SMPDU_Sock_post_write
+.......\SMPDU_Sock_post_writev
+......./SMPDU_Sock_post_writev
+....../SMPDU_Sock_post_write
+...../smpd_state_writing_cred_ack_yes
+..../smpd_handle_op_write
+....sock_waiting for the next event.
+....\SMPDU_Sock_wait
+..../SMPDU_Sock_wait
+....SOCK_OP_WRITE event.error = 0, result = 0, context=left
+....\smpd_handle_op_write
+.....\smpd_state_writing_account
+......wrote account: 'JOHN-T60\John'
+......\smpd_encrypt_data
+....../smpd_encrypt_data
+......\SMPDU_Sock_post_write
+.......\SMPDU_Sock_post_writev
+......./SMPDU_Sock_post_writev
+....../SMPDU_Sock_post_write
+...../smpd_state_writing_account
+..../smpd_handle_op_write
+....sock_waiting for the next event.
+....\SMPDU_Sock_wait
+..../SMPDU_Sock_wait
+....SOCK_OP_WRITE event.error = 0, result = 0, context=left
+....\smpd_handle_op_write
+.....\smpd_hide_string_arg
+......\first_token
+....../first_token
+......\compare_token
+....../compare_token
+......\next_token
+.......\first_token
+......./first_token
+.......\first_token
+......./first_token
+....../next_token
+...../smpd_hide_string_arg
+...../smpd_hide_string_arg
+......\smpd_hide_string_arg
+.......\first_token
+......./first_token
+.......\compare_token
+......./compare_token
+.......\next_token
+........\first_token
+......../first_token
+........\first_token
+......../first_token
+......./next_token
+....../smpd_hide_string_arg
+....../smpd_hide_string_arg
+......\SMPDU_Sock_post_read
+.......\SMPDU_Sock_post_readv
+......./SMPDU_Sock_post_readv
+....../SMPDU_Sock_post_read
+.....\smpd_hide_string_arg
+......\first_token
+....../first_token
+......\compare_token
+....../compare_token
+......\next_token
+.......\first_token
+......./first_token
+.......\first_token
+......./first_token
+....../next_token
+...../smpd_hide_string_arg
+...../smpd_hide_string_arg
+..../smpd_handle_op_write
+....sock_waiting for the next event.
+....\SMPDU_Sock_wait
+..../SMPDU_Sock_wait
+....SOCK_OP_READ event.error = 0, result = 0, context=left
+....\smpd_handle_op_read
+.....\smpd_state_reading_process_result
+......read process session result: 'FAIL'
+......\smpd_hide_string_arg
+.......\first_token
+......./first_token
+.......\compare_token
+......./compare_token
+.......\next_token
+........\first_token
+......../first_token
+........\first_token
+......../first_token
+......./next_token
+....../smpd_hide_string_arg
+....../smpd_hide_string_arg
+......\smpd_hide_string_arg
+.......\first_token
+......./first_token
+.......\compare_token
+......./compare_token
+.......\next_token
+........\first_token
+......../first_token
+........\first_token
+......../first_token
+......./next_token
+....../smpd_hide_string_arg
+....../smpd_hide_string_arg
+Credentials for JOHN-T60\John rejected connecting to John-T60
+......process session rejected
+......\SMPDU_Sock_post_close
+.......\SMPDU_Sock_post_read
+........\SMPDU_Sock_post_readv
+......../SMPDU_Sock_post_readv
+......./SMPDU_Sock_post_read
+....../SMPDU_Sock_post_close
+......\smpd_post_abort_command
+.......\smpd_create_command
+........\smpd_init_command
+......../smpd_init_command
+......./smpd_create_command
+.......\smpd_add_command_arg
+......./smpd_add_command_arg
+.......\smpd_command_destination
+........0 -> 0 : returning NULL context
+......./smpd_command_destination
+Aborting: Unable to connect to John-T60
+....../smpd_post_abort_command
+......\smpd_exit
+.......\smpd_kill_all_processes
+......./smpd_kill_all_processes
+.......\smpd_finalize_drive_maps
+......./smpd_finalize_drive_maps

@@ -1,0 +1,27 @@
+<div dir="ltr"><br>sorry for the earlier wrong reply<br><br>just now i tried to execute a mpi aplication without send and recieve on windows and linux<br><br>actually&nbsp; without send or recieve&nbsp; apllication getting fired buft itis blocked after all statements executed <br>
+<br>********************************<br><br>the following is the command i am using for firing job<br><br>mpiexec -path &quot;/data;d:\&quot; -hosts 2 <a href="http://192.9.200.100">192.9.200.100</a> <a href="http://193.0.1.30">193.0.1.30</a> samplmpi<br>
+<br><a href="http://192.9.200.100">192.9.200.100</a> is windows system<br><br><a href="http://193.0.1.39">193.0.1.39</a> is linux system<br><br><br><br>application getting fired&nbsp; iam also seeing all out put before send and recive<br>
+<br><br><br>the follwoing error is comming<br>MPI_Recv :MPI_Recv(buf=XXXXX,count=256,MPI_CHAR,src=1,tag=0,MPI_COMM_WORLD,status=XXXX) failed<br><br>MPIDI_CH3I_PROGRESS_WAIT(215) : .......an error occured while handling an event returned by MPIDU_sock_wait()<br>
+<br><br>MPIDI_CH3_PROGRESS_handle_sock_event(640):................<br><br>MPIDI_CH3_sockconn_handle_connopen_event(887): unable to find the process group structure with id&lt;&gt;<br><br><div class="gmail_quote">On Fri, Oct 10, 2008 at 4:46 PM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">------------------------------------------------------------------------+---<br>
+&nbsp;Reporter: &nbsp;&quot;vemireddy ramakrishnareddy&quot; &lt;<a href="mailto:vemireddy.rkreddy@gmail.com">vemireddy.rkreddy@gmail.com</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp;Type: &nbsp;bug<br>
+ &nbsp; Status: &nbsp;new &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;Priority: &nbsp;major<br>
+Milestone: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; Component: &nbsp;mpich2<br>
+------------------------------------------------------------------------+---<br>
+<br>
+<br>
+&nbsp;{{{<br>
+<br>
+&nbsp;i am a able to fire a exe on both linux and windows systems<br>
+<br>
+<br>
+&nbsp;but sending and receiving are failing<br>
+<br>
+<br>
+&nbsp;saying that unable to find process group structure with id &lt;&gt;<br>
+&nbsp;}}}<br>
+<font color="#888888"><br>
+<br>
+--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/203" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/203</a>&gt;<br>
+</font></blockquote></div><br></div>

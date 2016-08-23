@@ -1,0 +1,30 @@
+Thanks for the reply. It works now.<div>But still one thing is confusing. When I compiled a MPI program by using gcc linking with</div><div>mpi libraries, say:</div><div>gcc mpi_prorgam.c -I $MPI_INCLUDE_PATH -L$MPI_LIBRARY_PATH -lmpi</div>
+<div>The output file is runnable on my Windows system(Cygwin) using mpiexec command.</div><div>However, it doesn&#39;t work on my mac. I have to use the &#39;mpicc&#39; compiler which is built </div><div>in MPICH2 rather than gcc. As I remember, in one document, it says this is recommended.</div>
+<div>And that is the way I used to do on my another Windows laptop. Does it depend on </div><div>what the system is? Or I have to do some more setting in my environment? </div><div><br></div><div><div><br><div class="gmail_quote">
+On Sun, Jul 12, 2009 at 8:03 PM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+--------------------------------------------------+-------------------------<br>
+ Reporter:  samantha lin &lt;<a href="mailto:wl8150@googlemail.com">wl8150@googlemail.com</a>&gt;  |        Owner:<br>
+<div class="im">     Type:  bug                                   |       Status:  new<br>
+ Priority:  major                                 |    Milestone:<br>
+</div>Component:  mpich2                                |   Resolution:<br>
+ Keywords:                                        |<br>
+--------------------------------------------------+-------------------------<br>
+<br>
+<br>
+Comment (by balaji):<br>
+<br>
+ Can you try<br>
+<br>
+ {{{<br>
+<div class="im"> mpiexec -n 2 ./a.out<br>
+ }}}<br>
+<br>
+</div> ... instead of<br>
+<br>
+ {{{<br>
+<div><div></div><div class="h5"> mpiexec -n 2 a.out<br>
+ }}}<br>
+<br>
+</div></div><font color="#888888">--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/715#comment:2" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/715#comment:2</a>&gt;<br>
+</font></blockquote></div><br></div></div>

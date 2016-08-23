@@ -1,0 +1,47 @@
+From 5d3c15d144cb0f4745d3d0f1bd5e27114974c51f Mon Sep 17 00:00:00 2001
+From: Jeff Hammond <jeff.science@gmail.com>
+Date: Thu, 26 Sep 2013 12:36:02 -0500
+Subject: [PATCH 2/2] check for size!=0 when erroring out on new==NULL
+
+per http://stackoverflow.com/questions/2132273/what-does-malloc0-return,
+malloc(0) may or may not return NULL.  it is implementation defined in
+C99.  therefore, it is incorrect to throw an OoM error on !new when
+size=0.
+---
+ src/mpi/romio/adio/common/malloc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/mpi/romio/adio/common/malloc.c b/src/mpi/romio/adio/common/malloc.c
+index 4541a35e..8dfe9be1 100644
+--- a/src/mpi/romio/adio/common/malloc.c
++++ b/src/mpi/romio/adio/common/malloc.c
+@@ -50,7 +50,7 @@ void *ADIOI_Malloc_fn(size_t size, int lineno, const char *fname)
+     new = (void *) malloc(size);
+ #endif
+ #endif
+-    if (!new) {
++    if (!new && size) {
+ 	FPRINTF(stderr, "Out of memory in file %s, line %d\n", fname, lineno);
+ 	MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+@@ -68,7 +68,7 @@ void *ADIOI_Calloc_fn(size_t nelem, size_t elsize, int lineno, const char *fname
+ #else
+     new = (void *) calloc(nelem, elsize);
+ #endif
+-    if (!new) {
++    if (!new && size) {
+ 	FPRINTF(stderr, "Out of memory in file %s, line %d\n", fname, lineno);
+ 	MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+@@ -86,7 +86,7 @@ void *ADIOI_Realloc_fn(void *ptr, size_t size, int lineno, const char *fname)
+ #else
+     new = (void *) realloc(ptr, size);
+ #endif
+-    if (!new) {
++    if (!new && size) {
+ 	FPRINTF(stderr, "realloc failed in file %s, line %d\n", fname, lineno);
+ 	MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+-- 
+1.8.4
+

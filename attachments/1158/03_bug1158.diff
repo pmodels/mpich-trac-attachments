@@ -1,0 +1,25 @@
+--- a/mpich2-1.3.1/src/binding/f77/comm_get_attrf.c	2010-11-17 17:48:44.000000000 +0100
++++ mpich2-1.3.1/src/binding/f77/comm_get_attrf.c	2011-01-07 21:22:21.089504700 +0100
+@@ -195,7 +195,10 @@
+         *(MPI_Aint*)v3 = 0;
+     }
+     else {
+-        *(MPI_Aint*)v3 = (MPI_Aint)attrv3;
++	if(*v2 == MPI_APPNUM)
++	    *(MPI_Aint*)v3 = *(int*)&attrv3;
++	else
++	    *(MPI_Aint*)v3 = (MPI_Aint)attrv3;
+     }
+     *v4 = MPIR_TO_FLOG(l4);
+ }
+--- a/mpich2-1.3.1/src/binding/f77/mpif.h.in	2010-11-17 17:48:45.000000000 +0100
++++ mpich2-1.3.1/src/binding/f77/mpif.h.in	2011-01-08 12:05:51.846524600 +0100
+@@ -200,7 +200,7 @@
+        INTEGER MPI_LASTUSEDCODE
+        PARAMETER (MPI_LASTUSEDCODE=1681915916)
+        INTEGER MPI_APPNUM
+-       PARAMETER (MPI_APPNUM=1681915918)
++       PARAMETER (MPI_APPNUM=1681915917)
+        INTEGER MPI_WIN_BASE
+        PARAMETER (MPI_WIN_BASE=1711276034)
+        INTEGER MPI_WIN_SIZE

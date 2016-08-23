@@ -1,0 +1,20 @@
+Configuring MPICH2 version 1.0.8p1 with  '--prefix=/home/tarek/mpich2-install'
+Running on system: Linux linux-ncd4 2.6.25.20-0.1-default #1 SMP 2008-12-12 20:30:38 +0100 i686 athlon i386 GNU/Linux
+./configure: line 2812: test: too many arguments
+./configure: line 3507: test: too many arguments
+configure: WARNING: ROMIO src directory is not available
+./configure: line 3537: test: too many arguments
+./configure: line 3540: test: too many arguments
+./configure: line 3622: test: too many arguments
+./configure: line 3626: test: too many arguments
+./configure: line 3638: test: too many arguments
+./configure: line 3705: test: too many arguments
+./configure: line 3708: test: too many arguments
+./configure: line 3729: test: too many arguments
+./configure: line 3737: test: too many arguments
+./configure: line 3743: test: too many arguments
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... configure: error: cannot run C compiled programs.
+If you meant to cross compile, use `--host'.
+See `config.log' for more details.

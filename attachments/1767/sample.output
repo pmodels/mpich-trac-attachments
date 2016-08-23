@@ -1,0 +1,21 @@
+
+In order to show the problem, I applied the debug.patch to my MPICH2
+sources.  Then when running the supplied test program test_gather.c
+you see the warning message about the temporary buffer size being
+too large.
+
+The aprun command is the Cray launcher.  I am running with 256
+ranks (-n 256), 32 ranks per node (-N 32).  The ranks per node
+I suspect doesn't matter.  The number of ranks (256) does matter,
+running with less than 256 the temporary buffer stays small enough
+that it doesn't overflow and go negative.
+
+[mork 01/21 17:57:41] (126) % cc -o test_gather test_gather.c -L mpt.xt-gni-dev-sko.01-21/xt-gni/mpich2-cray/lib/ -lmpich -lmpl
+[mork 01/21 18:05:15] (127) % aprun -n 256 -N 32 ./test_gather
+MPI VERSION : CRAY MPICH2 XT version 5.6.2-pre (ANL base 1.5b1)
+BUILD INFO  : Built Mon Jan 21 17:56:49 2013 by sko (svn rev 9429) RT-G CPR-R
+PE 7: WARN: MPIR_Gather_intra: tmp_buf_size too large - 2147483648
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Application 9606512 resources: utime ~1962s, stime ~263s
+[mork 01/21 18:05:30] (128) % 
+

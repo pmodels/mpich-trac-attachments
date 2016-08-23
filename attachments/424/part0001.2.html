@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #424: how to install MPICH2 on windows inTHREAD_MULTIPLE mode</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; To use threads in your MPI program launch your MPI job with the multithreaded sock channel (mpiexec -n 2 -channel mt multithreaded_mpi_pgm.exe).<BR>
+&nbsp; The next beta release of MPICH2 (in couple of weeks) will include a new channel on windows called nemesis. You might want to try that out too (supports multithreaded MPI pgms &amp; has better performance than sock channel).<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Tuesday, February 24, 2009 10:54 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #424: how to install MPICH2 on windows inTHREAD_MULTIPLE mode<BR>
+<BR>
+-------------------------------------------------------------------+----<BR>
+-------------------------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Jeyapandian Kottalam&quot; &lt;jkottalam@reactiondesign.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+-------------------------------------------------------------------+----<BR>
+-------------------------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Hello<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;I am interested in installing MPICH2 on windows with&nbsp; enable-threads=multiple. But I do not find instructions on how to do it.<BR>
+&nbsp;Can you please either give me some instructions or point me to&nbsp; documentation?<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;I first installed the windows binary. When I wrote a sample program I&nbsp; found out that only thread_single is provided. Then I tried to download&nbsp; the source and build. Instructions on how to configure for&nbsp; thread_multiple is only available for unix. Does this mean that&nbsp; thread_multiple is not implemented for windows?<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;You may wonder why I am interested in such functionality. (It is true&nbsp; that I do not have a Windows cluster). I would like to develop my&nbsp; program in the mpi-mp hybrid model and a quad-core dual processor&nbsp; machine running Windows is available for my testing. So I plan to test&nbsp; my program by partitioning the machine as a 4 node dual processor and 4&nbsp; node quad processor and so on<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;I would appreciate your guidance very much.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Thanks<BR>
+<BR>
+&nbsp;Kottalam<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/424">https://trac.mcs.anl.gov/projects/mpich2/ticket/424</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,22 @@
+<table cellspacing="0" cellpadding="0" border="0" ><tr><td valign="top" style="font: inherit;"><DIV>Hello,</DIV>
+<DIV>&nbsp;&nbsp;&nbsp; I downloaded mpich2-1.0.8p1-win-ia32 from <A href="http://www.mcs.anl.gov/research/projects/mpich2/">http://www.mcs.anl.gov/research/projects/mpich2/</A>&nbsp;. I followed the steps described by README.winbin which&nbsp;was generated&nbsp;after&nbsp;the mpich2 installed. If I compiled and linked the file which only includes the six basic functions, the file can be compiled and linked successfully. But if my program employed other functions, such as mpi_scatterv, mpi_gatherv, the link process could be failed. </DIV>
+<DIV>&nbsp;</DIV>
+<DIV>In the projection settings, I already added fmpich2s.lib to the object/library modules. </DIV>
+<DIV>&nbsp;</DIV>
+<DIV>The error information are as follows,</DIV>
+<DIV>Linking...<BR>imslmpistub.lib(MPISTUB.obj) : error LNK2005: <A href="mailto:_MPI_BARRIER@8">_MPI_BARRIER@8</A> already defined in fmpich2s.lib(fmpich2s.dll)<BR>imslmpistub.lib(MPISTUB.obj) : error LNK2005: <A href="mailto:_MPI_BCAST@24">_MPI_BCAST@24</A> already defined in fmpich2s.lib(fmpich2s.dll)<BR>imslmpistub.lib(MPISTUB.obj) : error LNK2005: <A href="mailto:_MPI_COMM_RANK@12">_MPI_COMM_RANK@12</A> already defined in fmpich2s.lib(fmpich2s.dll)<BR>imslmpistub.lib(MPISTUB.obj) : error LNK2005: <A href="mailto:_MPI_COMM_SIZE@12">_MPI_COMM_SIZE@12</A> already defined in fmpich2s.lib(fmpich2s.dll)<BR>imslmpistub.lib(MPISTUB.obj) : error LNK2005: <A href="mailto:_MPI_FINALIZE@4">_MPI_FINALIZE@4</A> already defined in fmpich2s.lib(fmpich2s.dll)<BR>imslmpistub.lib(MPISTUB.obj) : error LNK2005: <A href="mailto:_MPI_INIT@4">_MPI_INIT@4</A> already defined in fmpich2s.lib(fmpich2s.dll)<BR>imslmpistub.lib(MPISTUB.obj) : error LNK2005: <A
+ href="mailto:_MPI_RECV@32">_MPI_RECV@32</A> already defined in fmpich2s.lib(fmpich2s.dll)<BR>imslmpistub.lib(MPISTUB.obj) : error LNK2005: <A href="mailto:_MPI_SEND@28">_MPI_SEND@28</A> already defined in fmpich2s.lib(fmpich2s.dll)<BR>Debug/automacro.exe : fatal error LNK1169: one or more multiply defined symbols found<BR>Error executing link.exe.</DIV>
+<DIV>automacro.exe - 9 error(s), 0 warning(s)</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>I also tried to add fmpich2g.lib to the link option, the same error information appears.</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>If I only add fmpich2.lib to the link option, link error would be</DIV>
+<DIV>Linking...<BR>automacro.obj : error LNK2001: unresolved external symbol <A href="mailto:_MPI_SCATTER@36">_MPI_SCATTER@36</A><BR>automacro.obj : error LNK2001: unresolved external symbol <A href="mailto:_MPI_SCATTERV@40">_MPI_SCATTERV@40</A><BR>automacro.obj : error LNK2001: unresolved external symbol <A href="mailto:_MPI_GATHERV@40">_MPI_GATHERV@40</A><BR>Debug/automacro.exe : fatal error LNK1120: 3 unresolved externals</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Could you please help me solve the problems. Now I am puzzled that which library&nbsp;I should use to make&nbsp;the functions such as mpi_scatterv,&nbsp;resolved ?</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Thanks a lot.</DIV>
+<DIV>&nbsp;</DIV></td></tr></table><br>
+
+
+      <hr size=1><a href="http://cn.rd.yahoo.com/mail_cn/tagline/card/*http://card.mail.cn.yahoo.com/">  好玩贺卡等你发，邮箱贺卡全新上线！</a>

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<STYLE>BLOCKQUOTE {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 2em
+}
+OL {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+UL {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+</STYLE>
+
+<META content="MSHTML 6.00.6000.16890" name=GENERATOR></HEAD>
+<BODY style="MARGIN: 10px"><FONT face=Verdana size=2>
+<DIV>
+<DIV>Hi,</DIV>
+<DIV>When I configure MPICH2, I encounter the following issues&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>[root@c2403&nbsp;mpich2-1.1.1p1]#&nbsp;&nbsp;/home/zhxue/mpich2-1.1.1p1/configure&nbsp;&nbsp;-prefix=/opt/app/mpich2/&nbsp;2&gt;&amp;1&nbsp;tee&nbsp;c.txt 
+</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>configure:&nbsp;error:</DIV>
+<DIV>The&nbsp;nemesis&nbsp;channel&nbsp;was&nbsp;selected&nbsp;yet&nbsp;no&nbsp;native&nbsp;atomic&nbsp;primitives&nbsp;are</DIV>
+<DIV>available&nbsp;on&nbsp;this&nbsp;platform.&nbsp;&nbsp;OpenPA&nbsp;can&nbsp;emulate&nbsp;atomic&nbsp;primitives&nbsp;using</DIV>
+<DIV>locks&nbsp;by&nbsp;specifying&nbsp;--with-atomic-primitives=no&nbsp;but&nbsp;performance&nbsp;will&nbsp;be</DIV>
+<DIV>very&nbsp;poor.&nbsp;&nbsp;This&nbsp;override&nbsp;should&nbsp;only&nbsp;be&nbsp;specified&nbsp;for&nbsp;correctness</DIV>
+<DIV>testing&nbsp;purposes.</DIV>
+<DIV>configure:&nbsp;error:&nbsp;/home/zhxue/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/configure&nbsp;failed&nbsp;for&nbsp;channels/nemesis</DIV>
+<DIV>configure:&nbsp;error:&nbsp;Configure&nbsp;of&nbsp;src/mpid/ch3&nbsp;failed!</DIV></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>
+<DIV>My platform information is:</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Linux&nbsp;c2403&nbsp;2.4.21-15.EL&nbsp;#1&nbsp;SMP&nbsp;Thu&nbsp;Apr&nbsp;22&nbsp;00:13:07&nbsp;EDT&nbsp;2004&nbsp;ia64&nbsp;ia64&nbsp;ia64&nbsp;GNU/Linux</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>How to solve the&nbsp;issue? </DIV>
+<DIV>&nbsp;</DIV>
+<DIV>Thanks.&nbsp;</DIV></DIV></FONT></BODY></HTML>

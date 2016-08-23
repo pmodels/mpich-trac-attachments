@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16705" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff>
+<DIV dir=ltr align=left><SPAN class=281153214-03092008><FONT face=Arial 
+color=#0000ff size=2>Forwarding from old req system.</FONT></SPAN></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Rajeev Thakur [mailto:thakur@mcs.anl.gov] 
+<BR><B>Sent:</B> Friday, July 25, 2008 1:27 PM<BR><B>To:</B> 
+mpich2-maint@mcs.anl.gov<BR><B>Cc:</B> 
+mpich2-maint@mcs.anl.gov<BR><B>Subject:</B> FW: [MPICH2 Req #4194] Re: 
+[mvapich-discuss] Races with MPI_THREAD_MULTI<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Roberto Fichera 
+[mailto:kernel@tekno-soft.it] <BR><B>Sent:</B> Friday, July 25, 2008 12:41 
+PM<BR><B>To:</B> Dhabaleswar Panda<BR><B>Cc:</B> 
+mvapich-core@cse.ohio-state.edu; mpich-discuss@mcs.anl.gov; 
+mvapich-discuss@cse.ohio-state.edu<BR><B>Subject:</B> Re: [mvapich-discuss] 
+Races with MPI_THREAD_MULTI<BR></FONT><BR></DIV>
+<DIV></DIV>Dhabaleswar Panda ha scritto: 
+<BLOCKQUOTE 
+cite=mid:Pine.GSO.4.40.0807241603530.11472-100000@xi.cse.ohio-state.edu 
+type="cite"><PRE wrap="">Hi Roberto,
+
+We have done several rounds of checks and do not see any difference
+between MPICH2 1.0.7 and the TCP/IP interface of MVAPICH2 1.2. Both these
+should perform exactly the same. We are continuing our investigation.
+
+We are wondering whether you can send us a sample code piece to reproduce
+the problem you are indicating across these two interfaces.  This will
+help us to debug this problem faster and help you to solve your problem.
+  </PRE></BLOCKQUOTE>I've added other CCs in this email, maybe other people are 
+interested to have a look in.<BR><BR>Attached you find the test program, which 
+I'm working on, to turn up the problem. I'm not completely sure if it works 
+perfectly since I wasn't<BR>able to complete its execution, but please let me 
+know if I made something wrong inside the code. The testmaster is quite easy, 
+you must provide the number <BR>of jobs to simulate (say 50000) and the node 
+file that the resource manager provide for its schedule. Actually the node that 
+matches the master will<BR>be excluded by the slave nodes.<BR><BR>The testmain 
+creates a ring of threads from the assigned nodes. So walking in the ring, for 
+each free node it find, a thread is started so you should have as <BR>many 
+threads as the number of assigned nodes working in multithreading. For 
+simulating something to do each thread internally generate a random integer, 
+<BR>sets some MPI_Info (host and pwd), spawn the testslave job, send it the 
+generated random number, wait that the testslave receive and send back that 
+<BR>number, sent and received numbers are comparated in order to verify their 
+coherency, the slave send an empty MPI_Send() for signaling its termination, 
+<BR>the thread now calls MPI_Comm_disconnect() for closing the slave connection, 
+and finally all the MPI_Info are cleared. At this time the thread 
+terminate.<BR>When the number of requested jobs are correctly "worked out" the 
+application should terminate ... but without cleaning up (too tired sorry ;-), 
+so it just wait a <BR>bit and finalize the MPI.<BR><BR>At this time, I wasn't 
+able to complete any execution. Currently the application still crashing with 
+the backtrace you find below. Only one time<BR>I was able to reach 3500 jobs but 
+one thread was stuck in a mutex. Looking in the backtrace you can find the same 
+race I'm getting in my applications.<BR><BR>Program received signal SIGSEGV, 
+Segmentation fault.<BR>[Switching to Thread 1087666512 (LWP 
+18231)]<BR>0x00000000006a3902 in MPIDI_PG_Dup_vcr () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>Missing 
+separate debuginfos, use: debuginfo-install glibc.x86_64<BR>(gdb) info 
+threads<BR>&nbsp; 29 Thread 1121462608 (LWP 18232)&nbsp; 0x0000003465a0a8f9 in 
+<A class=moz-txt-link-abbreviated 
+href="mailto:pthread_cond_wait@@GLIBC_2.3.2">pthread_cond_wait@@GLIBC_2.3.2</A> 
+() from /lib64/libpthread.so.0<BR>* 28 Thread 1087666512 (LWP 18231)&nbsp; 
+0x00000000006a3902 in MPIDI_PG_Dup_vcr () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>&nbsp; 
+27 Thread 1142442320 (LWP 18230)&nbsp; 0x0000003464ecbd66 in poll () from 
+/lib64/libc.so.6<BR>&nbsp; 26 Thread 1098156368 (LWP 18229)&nbsp; 
+0x0000003464e9ac61 in nanosleep () from /lib64/libc.so.6<BR>&nbsp; 1 Thread 
+140135980537584 (LWP 18029)&nbsp; main (argc=3, argv=0x7ffffb5992d8) at 
+testmaster.c:437<BR><BR>(gdb) bt<BR>#0&nbsp; 0x00000000006a3902 in 
+MPIDI_PG_Dup_vcr () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#1&nbsp; 
+0x0000000000668012 in SetupNewIntercomm () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#2&nbsp; 
+0x00000000006682c8 in MPIDI_Comm_accept () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#3&nbsp; 
+0x00000000006a6617 in MPID_Comm_accept () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#4&nbsp; 
+0x000000000065ec5f in MPIDI_Comm_spawn_multiple () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#5&nbsp; 
+0x00000000006a17e6 in MPID_Comm_spawn_multiple () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#6&nbsp; 
+0x00000000006783fd in PMPI_Comm_spawn () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#7&nbsp; 
+0x00000000004017de in NodeThread_threadMain (arg=0x120a790) at 
+testmaster.c:314<BR>#8&nbsp; 0x0000003465a06407 in start_thread () from 
+/lib64/libpthread.so.0<BR>#9&nbsp; 0x0000003464ed4b0d in clone () from 
+/lib64/libc.so.6<BR>(gdb) thread 29<BR><BR>[Switching to thread 29 (Thread 
+1121462608 (LWP 18232))]#0&nbsp; 0x0000003465a0a8f9 in <A 
+class=moz-txt-link-abbreviated 
+href="mailto:pthread_cond_wait@@GLIBC_2.3.2">pthread_cond_wait@@GLIBC_2.3.2</A> 
+() from /lib64/libpthread.so.0<BR>(gdb) bt<BR>#0&nbsp; 0x0000003465a0a8f9 in <A 
+class=moz-txt-link-abbreviated 
+href="mailto:pthread_cond_wait@@GLIBC_2.3.2">pthread_cond_wait@@GLIBC_2.3.2</A> 
+() from /lib64/libpthread.so.0<BR>#1&nbsp; 0x000000000065e2e7 in 
+MPIDI_CH3I_Progress () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#2&nbsp; 
+0x00000000006675ca in FreeNewVC () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#3&nbsp; 
+0x0000000000668302 in MPIDI_Comm_accept () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#4&nbsp; 
+0x00000000006a6617 in MPID_Comm_accept () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#5&nbsp; 
+0x000000000065ec5f in MPIDI_Comm_spawn_multiple () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#6&nbsp; 
+0x00000000006a17e6 in MPID_Comm_spawn_multiple () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#7&nbsp; 
+0x00000000006783fd in PMPI_Comm_spawn () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#8&nbsp; 
+0x00000000004017de in NodeThread_threadMain (arg=0x120d590) at 
+testmaster.c:314<BR>#9&nbsp; 0x0000003465a06407 in start_thread () from 
+/lib64/libpthread.so.0<BR>#10 0x0000003464ed4b0d in clone () from 
+/lib64/libc.so.6<BR>(gdb) thread 27<BR><BR>[Switching to thread 27 (Thread 
+1142442320 (LWP 18230))]#0&nbsp; 0x0000003464ecbd66 in poll () from 
+/lib64/libc.so.6<BR>(gdb) bt<BR>#0&nbsp; 0x0000003464ecbd66 in poll () from 
+/lib64/libc.so.6<BR>#1&nbsp; 0x00000000006d63bf in MPIDU_Sock_wait () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#2&nbsp; 
+0x000000000065e1e7 in MPIDI_CH3I_Progress () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#3&nbsp; 
+0x00000000006cf87c in PMPI_Send () from 
+/home/roberto/.HRI/Proxy/HRI/External/mpich2/1.0.7/lib/linux-x86_64-gcc-glibc2.3.4/libmpich.so.1.1<BR>#4&nbsp; 
+0x0000000000401831 in NodeThread_threadMain (arg=0x120a6f0) at 
+testmaster.c:480<BR>#5&nbsp; 0x0000003465a06407 in start_thread () from 
+/lib64/libpthread.so.0<BR>#6&nbsp; 0x0000003464ed4b0d in clone () from 
+/lib64/libc.so.6<BR><BR>(gdb) thread 26<BR>[Switching to thread 26 (Thread 
+1098156368 (LWP 18229))]#0&nbsp; 0x0000003464e9ac61 in nanosleep () from 
+/lib64/libc.so.6<BR>(gdb) bt<BR>#0&nbsp; 0x0000003464e9ac61 in nanosleep () from 
+/lib64/libc.so.6<BR>#1&nbsp; 0x0000003464e9aa84 in sleep () from 
+/lib64/libc.so.6<BR>#2&nbsp; 0x000000000040197c in NodeThread_threadMain 
+(arg=0x120d630) at testmaster.c:505<BR>#3&nbsp; 0x0000003465a06407 in 
+start_thread () from /lib64/libpthread.so.0<BR>#4&nbsp; 0x0000003464ed4b0d in 
+clone () from /lib64/libc.so.6<BR>(gdb) </BODY></HTML>

@@ -1,0 +1,18 @@
+<html>
+<head>
+<style>
+.hmmessage P
+{
+margin:0px;
+padding:0px
+}
+body.hmmessage
+{
+font-size: 10pt;
+font-family:Verdana
+}
+</style>
+</head>
+<body class='hmmessage'>
+Hi,<br><br>I used wget http://www.mcs.anl.gov/research/projects/mpich2/downloads/tarballs/1.0.8/mpich2-1.0.8.tar.gz<br><br>And then, tar -mxf mpich2-1.0.8.tar.gz<br>and then <br><br>./configure --prefix=/home/mpich2_install 2&gt;&amp;1 | tee c.txt <br><br>and then <br><br>make 2&gt;&amp;1 | tee m.txt<br><br>--------------------------------<br><br>make[1]: Entering directory `/home/jxding/mpich2/mpich2-1.0.8/src'<br>( cd . &amp;&amp; /maint/simplemake \<br>-rootdir=../ \<br>-configdir=. \<br>-common=/maint/makedefs \<br>-docnamedefs=/maint/docnotes \<br>"-autoconf=-I ROOTDIR/confdb" \<br>-libdir='${MPILIBNAME}=ROOTDIR/lib' \<br>-smroot=/maint \<br>-smvar_doc_attop=0 \<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Makefile.sm )<br>/bin/sh: /maint/simplemake: No such file or directory<br>make[1]: *** [Makefile.in] Error 127<br>make[1]: Leaving directory `/home/jxding/mpich2/mpich2-1.0.8/src'<br>make: *** [all-redirect] Error 2<br><br>-----------------------<br><br><br>I found simplemake in /home/mpich2/mpich2-1.0.8/maint, which is not my install directory. <br><br><br>Is this a problem ? <br><br>Any help is appreciated. <br><br>thanks<br><br><br>Jack <br><br><br>Mar.&nbsp; 15&nbsp; 2009 <br><br>&gt; From: mpich2-maint@mcs.anl.gov<br>&gt; Date: Sun, 15 Mar 2009 17:08:18 +0000<br>&gt; Subject: Re: [mpich2-maint] #461: mpich2 error in build<br>&gt; To: <br>&gt; <br>&gt; -------------------------------------------------+--------------------------<br>&gt;  Reporter:  Jack Bryan &lt;dtustudy68@hotmail.com&gt;  |        Owner:         <br>&gt;      Type:  bug                                  |       Status:  closed <br>&gt;  Priority:  major                                |    Milestone:         <br>&gt; Component:  mpich2                               |   Resolution:  invalid<br>&gt;  Keywords:                                       |  <br>&gt; -------------------------------------------------+--------------------------<br>&gt; <br>&gt; <br>&gt; Comment (by balaji):<br>&gt; <br>&gt;  You can run "mount" to see where each volume is mounted from. Did you try<br>&gt;  extracting a completely fresh copy of the release tarball and configuring?<br>&gt; <br>&gt;   -- Pavan<br>&gt; <br>&gt; -- <br>&gt; Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/461#comment:6&gt;<br><br /><hr />Hotmail® is up to 70% faster. Now good news travels really fast.  <a href='http://windowslive.com/online/hotmail?ocid=TXT_TAGLM_WL_HM_70faster_032009' target='_new'>Find out more.</a></body>
+</html>

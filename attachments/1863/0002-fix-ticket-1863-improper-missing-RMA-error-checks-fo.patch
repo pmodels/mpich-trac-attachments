@@ -1,0 +1,149 @@
+From 16724e1ab898dc573c107112e7261e35be5ef3a0 Mon Sep 17 00:00:00 2001
+From: Jeff Hammond <jhammond@alcf.anl.gov>
+Date: Wed, 29 May 2013 16:17:25 -0500
+Subject: [PATCH 2/2] fix ticket 1863 - improper+missing RMA error checks for
+ addr=NULL
+
+MPIR_ERRTEST_ARGNULL is used in MPI_Get_accumulate and
+MPI_Rget_accumulate to verify that the address of a buffer is not NULL.
+However, it is valid to use buffer=NULL if zero bytes are to be
+communicated, i.e. count=0, or when using user-defined datatypes, which
+can be relative to MPI_BOTTOM with offset=absolute address; MPICH
+defines MPI_BOTTOM=NULL.
+
+This issue can be categorized as a bug since correct but silly usage of
+MPI_Get_accumulate and MPI_Rget_accumulate will falsely fail for
+built-in datatypes if buffer=NULL and count=0 or when a derived-datatype
+is relative MPI_BOTTOM.
+
+The check was used in (r)get_accumulate.c but not the other RMA
+functions. I have added the buffer=NULL checks to all of the RMA
+functions with the appropriate guards in place and added the guard to
+the existing uses. Specifically, the guard used is (type==BUILTIN &&
+count).
+
+No modification of the Fetch_and_op or Compare_and_swap code was
+required to address this issue since those functions are restricted to
+the special case count=1 and particular built-in datatypes.
+---
+ src/mpi/rma/accumulate.c      | 1 +
+ src/mpi/rma/get.c             | 1 +
+ src/mpi/rma/get_accumulate.c  | 4 ++--
+ src/mpi/rma/put.c             | 1 +
+ src/mpi/rma/raccumulate.c     | 1 +
+ src/mpi/rma/rget.c            | 1 +
+ src/mpi/rma/rget_accumulate.c | 4 ++--
+ src/mpi/rma/rput.c            | 1 +
+ 8 files changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/src/mpi/rma/accumulate.c b/src/mpi/rma/accumulate.c
+index 8610e929..f2eb1fe4 100644
+--- a/src/mpi/rma/accumulate.c
++++ b/src/mpi/rma/accumulate.c
+@@ -102,6 +102,7 @@ int MPI_Accumulate(const void *origin_addr, int origin_count, MPI_Datatype
+ 
+ 	    MPIR_ERRTEST_COUNT(origin_count, mpi_errno);
+ 	    MPIR_ERRTEST_DATATYPE(origin_datatype, "origin_datatype", mpi_errno);
++            MPIR_ERRTEST_USERBUFFER(origin_addr, origin_count, origin_datatype, mpi_errno);
+ 	    MPIR_ERRTEST_COUNT(target_count, mpi_errno);
+ 	    MPIR_ERRTEST_DATATYPE(target_datatype, "target_datatype", mpi_errno);
+             if (win_ptr->create_flavor != MPI_WIN_FLAVOR_DYNAMIC)
+diff --git a/src/mpi/rma/get.c b/src/mpi/rma/get.c
+index 0e0ca288..b523d9d3 100644
+--- a/src/mpi/rma/get.c
++++ b/src/mpi/rma/get.c
+@@ -98,6 +98,7 @@ int MPI_Get(void *origin_addr, int origin_count, MPI_Datatype
+ 
+ 	    MPIR_ERRTEST_COUNT(origin_count, mpi_errno);
+ 	    MPIR_ERRTEST_DATATYPE(origin_datatype, "origin_datatype", mpi_errno);
++            MPIR_ERRTEST_USERBUFFER(origin_addr, origin_count, origin_datatype, mpi_errno);
+ 	    MPIR_ERRTEST_COUNT(target_count, mpi_errno);
+ 	    MPIR_ERRTEST_DATATYPE(target_datatype, "target_datatype", mpi_errno);
+             if (win_ptr->create_flavor != MPI_WIN_FLAVOR_DYNAMIC)
+diff --git a/src/mpi/rma/get_accumulate.c b/src/mpi/rma/get_accumulate.c
+index fa42354d..4660212f 100644
+--- a/src/mpi/rma/get_accumulate.c
++++ b/src/mpi/rma/get_accumulate.c
+@@ -133,11 +133,11 @@ int MPI_Get_accumulate(const void *origin_addr, int origin_count,
+             if (op != MPI_NO_OP) {
+                 MPIR_ERRTEST_COUNT(origin_count, mpi_errno);
+                 MPIR_ERRTEST_DATATYPE(origin_datatype, "origin_datatype", mpi_errno);
+-                MPIR_ERRTEST_ARGNULL(origin_addr, "origin_addr", mpi_errno);
++                MPIR_ERRTEST_USERBUFFER(origin_addr, origin_count, origin_datatype, mpi_errno);
+             }
+             MPIR_ERRTEST_COUNT(result_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(result_datatype, "result_datatype", mpi_errno);
+-            MPIR_ERRTEST_ARGNULL(result_addr, "result_addr", mpi_errno);
++            MPIR_ERRTEST_USERBUFFER(result_addr, result_count, result_datatype, mpi_errno);
+             MPIR_ERRTEST_COUNT(target_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(target_datatype, "target_datatype", mpi_errno);
+             if (win_ptr->create_flavor != MPI_WIN_FLAVOR_DYNAMIC)
+diff --git a/src/mpi/rma/put.c b/src/mpi/rma/put.c
+index 8bb1bd9b..d05662c9 100644
+--- a/src/mpi/rma/put.c
++++ b/src/mpi/rma/put.c
+@@ -98,6 +98,7 @@ int MPI_Put(const void *origin_addr, int origin_count, MPI_Datatype
+ 
+ 	    MPIR_ERRTEST_COUNT(origin_count, mpi_errno);
+ 	    MPIR_ERRTEST_DATATYPE(origin_datatype, "origin_datatype", mpi_errno);
++            MPIR_ERRTEST_USERBUFFER(origin_addr, origin_count, origin_datatype, mpi_errno);
+ 	    MPIR_ERRTEST_COUNT(target_count, mpi_errno);
+ 	    MPIR_ERRTEST_DATATYPE(target_datatype, "target_datatype", mpi_errno);
+             if (win_ptr->create_flavor != MPI_WIN_FLAVOR_DYNAMIC)
+diff --git a/src/mpi/rma/raccumulate.c b/src/mpi/rma/raccumulate.c
+index ef7168f5..49069911 100644
+--- a/src/mpi/rma/raccumulate.c
++++ b/src/mpi/rma/raccumulate.c
+@@ -115,6 +115,7 @@ int MPI_Raccumulate(const void *origin_addr, int origin_count, MPI_Datatype
+ 
+             MPIR_ERRTEST_COUNT(origin_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(origin_datatype, "origin_datatype", mpi_errno);
++            MPIR_ERRTEST_USERBUFFER(origin_addr, origin_count, origin_datatype, mpi_errno);
+             MPIR_ERRTEST_COUNT(target_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(target_datatype, "target_datatype", mpi_errno);
+             if (win_ptr->create_flavor != MPI_WIN_FLAVOR_DYNAMIC)
+diff --git a/src/mpi/rma/rget.c b/src/mpi/rma/rget.c
+index 738ec704..33edc790 100644
+--- a/src/mpi/rma/rget.c
++++ b/src/mpi/rma/rget.c
+@@ -110,6 +110,7 @@ int MPI_Rget(void *origin_addr, int origin_count, MPI_Datatype
+ 
+             MPIR_ERRTEST_COUNT(origin_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(origin_datatype, "origin_datatype", mpi_errno);
++            MPIR_ERRTEST_USERBUFFER(origin_addr, origin_count, origin_datatype, mpi_errno);
+             MPIR_ERRTEST_COUNT(target_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(target_datatype, "target_datatype", mpi_errno);
+             if (win_ptr->create_flavor != MPI_WIN_FLAVOR_DYNAMIC)
+diff --git a/src/mpi/rma/rget_accumulate.c b/src/mpi/rma/rget_accumulate.c
+index 0b8eb1bf..b3a47bef 100644
+--- a/src/mpi/rma/rget_accumulate.c
++++ b/src/mpi/rma/rget_accumulate.c
+@@ -125,11 +125,11 @@ int MPI_Rget_accumulate(const void *origin_addr, int origin_count,
+             if (op != MPI_NO_OP) {
+                 MPIR_ERRTEST_COUNT(origin_count, mpi_errno);
+                 MPIR_ERRTEST_DATATYPE(origin_datatype, "origin_datatype", mpi_errno);
+-                MPIR_ERRTEST_ARGNULL(origin_addr, "origin_addr", mpi_errno);
++                MPIR_ERRTEST_USERBUFFER(origin_addr, origin_count, origin_datatype, mpi_errno);
+             }
+             MPIR_ERRTEST_COUNT(result_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(result_datatype, "result_datatype", mpi_errno);
+-            MPIR_ERRTEST_ARGNULL(result_addr, "result_addr", mpi_errno);
++            MPIR_ERRTEST_USERBUFFER(result_addr, result_count, result_datatype, mpi_errno);
+             MPIR_ERRTEST_COUNT(target_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(target_datatype, "target_datatype", mpi_errno);
+             if (win_ptr->create_flavor != MPI_WIN_FLAVOR_DYNAMIC)
+diff --git a/src/mpi/rma/rput.c b/src/mpi/rma/rput.c
+index 510ab4e4..48c3052f 100644
+--- a/src/mpi/rma/rput.c
++++ b/src/mpi/rma/rput.c
+@@ -112,6 +112,7 @@ int MPI_Rput(const void *origin_addr, int origin_count, MPI_Datatype
+ 
+             MPIR_ERRTEST_COUNT(origin_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(origin_datatype, "origin_datatype", mpi_errno);
++            MPIR_ERRTEST_USERBUFFER(origin_addr, origin_count, origin_datatype, mpi_errno);
+             MPIR_ERRTEST_COUNT(target_count, mpi_errno);
+             MPIR_ERRTEST_DATATYPE(target_datatype, "target_datatype", mpi_errno);
+             if (win_ptr->create_flavor != MPI_WIN_FLAVOR_DYNAMIC)
+-- 
+1.8.2.2
+

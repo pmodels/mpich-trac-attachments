@@ -1,0 +1,778 @@
+Index: confdb/aclocal_cc.m4
+===================================================================
+--- confdb/aclocal_cc.m4	(revision 5176)
++++ confdb/aclocal_cc.m4	(working copy)
+@@ -1,4 +1,3 @@
+-dnl
+ dnl This is a replacement for AC_PROG_CC that does not prefer gcc and
+ dnl that does not mess with CFLAGS.  See acspecific.m4 for the original defn.
+ dnl
+@@ -20,7 +19,6 @@
+ dnl   full ANSI/ISO C, such as -Aa for HP.
+ dnl
+ dnl D*/
+-dnl 2.52 doesn't have AC_PROG_CC_GNU
+ ifdef([AC_PROG_CC_GNU],,[AC_DEFUN([AC_PROG_CC_GNU],)])
+ AC_DEFUN([PAC_PROG_CC],[
+ AC_PROVIDE([AC_PROG_CC])
+@@ -34,7 +32,8 @@
+   GCC=
+ fi
+ ])
+-dnl
++
++
+ dnl/*D
+ dnl PAC_C_CHECK_COMPILER_OPTION - Check that a compiler option is accepted
+ dnl without warning messages
+@@ -135,7 +134,8 @@
+ rm -rf conftest.dSYM
+ rm -f conftest*
+ ])
+-dnl
++
++
+ dnl/*D
+ dnl PAC_C_OPTIMIZATION - Determine C options for producing optimized code
+ dnl
+@@ -174,6 +174,7 @@
+ 
+ ])
+ 
++
+ dnl/*D
+ dnl PAC_C_VOLATILE - Check if C supports volatile
+ dnl
+@@ -194,6 +195,7 @@
+ fi
+ ])
+ 
++
+ dnl/*D
+ dnl PAC_C_RESTRICT - Check if C supports restrict
+ dnl
+@@ -234,6 +236,7 @@
+ fi
+ ])
+ 
++
+ dnl/*D
+ dnl PAC_PROG_C_UNALIGNED_DOUBLES - Check that the C compiler allows unaligned
+ dnl doubles
+@@ -281,6 +284,7 @@
+ fi)
+ ])
+ 
++
+ dnl/*D 
+ dnl PAC_PROG_C_WEAK_SYMBOLS - Test whether C supports weak alias symbols.
+ dnl
+@@ -458,6 +462,7 @@
+ fi
+ ])
+ 
++
+ dnl/*D 
+ dnl PAC_PROG_C_MULTIPLE_WEAK_SYMBOLS - Test whether C and the
+ dnl linker allow multiple weak symbols.
+@@ -512,6 +517,7 @@
+ fi
+ ])
+ 
++
+ dnl Use the value of enable-strict to update CFLAGS
+ dnl pac_cc_strict_flags contains the strict flags.
+ dnl
+@@ -633,6 +639,7 @@
+ fi
+ ])
+ 
++
+ dnl/*D
+ dnl PAC_ARG_STRICT - Add --enable-strict to configure.  
+ dnl
+@@ -651,249 +658,287 @@
+ export CFLAGS
+ ])
+ 
++
++dnl Check integer structure alignment
++dnl
+ dnl Return the integer structure alignment in pac_cv_c_max_integer_align
+ dnl Possible values include
+-dnl	packed
+-dnl	two
+-dnl	four
+-dnl	eight
+-dnl
+-dnl In addition, a "Could not determine alignment" and a "error!"
+-dnl return is possible.  
++dnl     packed
++dnl     two
++dnl     four
++dnl     eight
++dnl	unknown
+ AC_DEFUN([PAC_C_MAX_INTEGER_ALIGN],[
+-AC_CACHE_CHECK([for max C struct integer alignment],
+-pac_cv_c_max_integer_align,[
+-AC_TRY_RUN([
+-#include <stdio.h>
+-#define DBG(a,b,c)
+-int main( int argc, char *argv[] )
+-{
+-    FILE *cf;
+-    int is_packed  = 1;
+-    int is_two     = 1;
+-    int is_four    = 1;
+-    int is_eight   = 1;
+-    struct { char a; int b; } char_int;
+-    struct { char a; short b; } char_short;
+-    struct { char a; long b; } char_long;
+-    struct { char a; int b; char c; } char_int_char;
+-    struct { char a; short b; char c; } char_short_char;
+-#ifdef HAVE_LONG_LONG_INT
+-    struct { long long int a; char b; } lli_c;
+-    struct { char a; long long int b; } c_lli;
+-#endif
+-    int size, extent, extent2;
++	# Initialize alignment checks
++	is_packed=1
++	is_two=1
++	is_four=1
++	is_eight=1
+ 
+-    /* assume max integer alignment isn't 8 if we don't have
+-     * an eight-byte value :)
+-     */
+-#ifdef HAVE_LONG_LONG_INT
+-    if (sizeof(int) < 8 && sizeof(long) < 8 && sizeof(long long int) < 8)
+-	is_eight = 0;
+-#else
+-    if (sizeof(int) < 8 && sizeof(long) < 8) is_eight = 0;
+-#endif
++	# See if long long int exists
++	AC_TRY_COMPILE(,[long long int a;],have_long_long_int=yes,have_long_long_int=no)
+ 
+-    size = sizeof(char) + sizeof(int);
+-    extent = sizeof(char_int);
+-    if (size != extent) is_packed = 0;
+-    if ( (extent % 2) != 0) is_two = 0;
+-    if ( (extent % 4) != 0) is_four = 0;
+-    if (sizeof(int) == 8 && (extent % 8) != 0) is_eight = 0;
+-    DBG("char_int",size,extent);
++	# Get sizes of regular types
++	AC_CHECK_SIZEOF(char)
++	AC_CHECK_SIZEOF(int)
++	AC_CHECK_SIZEOF(short)
++	AC_CHECK_SIZEOF(long)
++	AC_CHECK_SIZEOF(long long int)
+ 
+-    size = sizeof(char) + sizeof(short);
+-    extent = sizeof(char_short);
+-    if (size != extent) is_packed = 0;
+-    if ( (extent % 2) != 0) is_two = 0;
+-    if (sizeof(short) == 4 && (extent % 4) != 0) is_four = 0;
+-    if (sizeof(short) == 8 && (extent % 8) != 0) is_eight = 0;
+-    DBG("char_short",size,extent);
++	# assume max integer alignment isn't 8 if we don't have an
++	# eight-byte value :)
++	if test "$have_long_long_int" = "yes" ; then
++	   if test $ac_cv_sizeof_long_long_int -lt 8 ; then
++	      is_eight=0
++	   fi
++	else
++	   if test $ac_cv_sizeof_long -lt 8 ; then
++	      is_eight=0
++	   fi
++	fi
+ 
+-    size = sizeof(char) + sizeof(long);
+-    extent = sizeof(char_long);
+-    if (size != extent) is_packed = 0;
+-    if ( (extent % 2) != 0) is_two = 0;
+-    if ( (extent % 4) != 0) is_four = 0;
+-    if (sizeof(long) == 8 && (extent % 8) != 0) is_eight = 0;
+-    DBG("char_long",size,extent);
++	# char_int comparison
++	AC_CHECK_SIZEOF(char_int, 0, [typedef struct { char a; int b; } char_int; ])
++	size=`expr $ac_cv_sizeof_char + $ac_cv_sizeof_int`
++	extent=$ac_cv_sizeof_char_int
++	if test "$size" != "$extent" ; then is_packed=0 ; fi
++	if test "`expr $extent % 2`" != "0" ; then is_two=0 ; fi
++	if test "`expr $extent % 4`" != "0" ; then is_four=0 ; fi
++	if test "$ac_cv_sizeof_int" = "8" -a "`expr $extent % 8`" != "0" ; then
++	   is_eight=0
++	fi
+ 
+-#ifdef HAVE_LONG_LONG_INT
+-    size = sizeof(char) + sizeof(long long int);
+-    extent = sizeof(lli_c);
+-    extent2 = sizeof(c_lli);
+-    if (size != extent) is_packed = 0;
+-    if ( (extent % 2) != 0 && (extent2 % 2) != 0) is_two = 0;
+-    if ( (extent % 4) != 0 && (extent2 % 4) != 0) is_four = 0;
+-    if (sizeof(long long int) >= 8 && (extent % 8) != 0 && (extent2 % 8) != 0)
+-	is_eight = 0;
+-#endif
++	# char_short comparison
++	AC_CHECK_SIZEOF(char_short, 0, [typedef struct { char a; short b; } char_short; ])
++	size=`expr $ac_cv_sizeof_char + $ac_cv_sizeof_short`
++	extent=$ac_cv_sizeof_char_short
++	if test "$size" != "$extent" ; then is_packed=0 ; fi
++	if test "`expr $extent % 2`" != "0" ; then is_two=0 ; fi
++	if test "$ac_cv_sizeof_short" = "4" -a "`expr $extent % 4`" != "0" ; then
++	   is_four=0
++	fi
++	if test "$ac_cv_sizeof_short" = "8" -a "`expr $extent % 8`" != "0" ; then
++	   is_eight=0
++	fi
+ 
+-    size = sizeof(char) + sizeof(int) + sizeof(char);
+-    extent = sizeof(char_int_char);
+-    if (size != extent) is_packed = 0;
+-    if ( (extent % 2) != 0) is_two = 0;
+-    if ( (extent % 4) != 0) is_four = 0;
+-    if (sizeof(int) == 8 && (extent % 8) != 0) is_eight = 0;
+-    DBG("char_int_char",size,extent);
++	# char_long comparison
++	AC_CHECK_SIZEOF(char_long, 0, [typedef struct { char a; long b; } char_long; ])
++	size=`expr $ac_cv_sizeof_char + $ac_cv_sizeof_long`
++	extent=$ac_cv_sizeof_char_long
++	if test "$size" != "$extent" ; then is_packed=0 ; fi
++	if test "`expr $extent % 2`" != "0" ; then is_two=0 ; fi
++	if test "`expr $extent % 4`" != "0" ; then is_four=0 ; fi
++	if test "$ac_cv_sizeof_long" = "8" -a "`expr $extent % 8`" != "0" ; then
++	   is_eight=0
++	fi
+ 
+-    size = sizeof(char) + sizeof(short) + sizeof(char);
+-    extent = sizeof(char_short_char);
+-    if (size != extent) is_packed = 0;
+-    if ( (extent % 2) != 0) is_two = 0;
+-    if (sizeof(short) == 4 && (extent % 4) != 0) is_four = 0;
+-    if (sizeof(short) == 8 && (extent % 8) != 0) is_eight = 0;
+-    DBG("char_short_char",size,extent);
++	# char_long_long_int comparison
++	if test "$have_long_long_int" = "yes" ; then
++	AC_CHECK_SIZEOF(c_lli, 0,
++			[typedef struct { char a; long long int b; } c_lli; ])
++	AC_CHECK_SIZEOF(lli_c, 0,
++			[typedef struct { long long int a; char b; } lli_c; ])
++	size=`expr $ac_cv_sizeof_char + $ac_cv_sizeof_long_long_int`
++	extent=$ac_cv_sizeof_c_lli
++	extent2=$ac_cv_sizeof_lli_c
++	if test "$size" != "$extent" ; then is_packed=0 ; fi
++	if test "`expr $extent % 2`" != "0" -a "`expr $extent2 % 2`" != "0" ; then
++	   is_two=0
++	fi
++	if test "`expr $extent % 4`" != "0" -a "`expr $extent2 % 4`" != "0" ; then
++	   is_four=0
++	fi
++	if test "$ac_cv_sizeof_long_long_int" = "8" -a "`expr $extent % 2`" != "0" \
++	   -a "`expr $extent2 % 2`" != "0" ; then
++	   is_eight=0
++	fi
++	fi
+ 
+-    /* If aligned mod 8, it will be aligned mod 4 */
+-    if (is_eight) { is_four = 0; is_two = 0; }
++	# char_int_char comparison
++	AC_CHECK_SIZEOF(char_int_char, 0, [
++				       typedef struct {
++				       	       char a;
++					       int b;
++					       char c;
++				       } char_int_char;
++				       ])
++	size=`expr $ac_cv_sizeof_char + $ac_cv_sizeof_int + $ac_cv_sizeof_char`
++	extent=$ac_cv_sizeof_char_int_char
++	if test "$size" != "$extent" ; then is_packed=0 ; fi
++	if test "`expr $extent % 2`" != "0" ; then is_two=0 ; fi
++	if test "`expr $extent % 4`" != "0" ; then is_four=0 ; fi
++	if test "$ac_cv_sizeof_int" = "8" -a "`expr $extent % 8`" != "0" ; then
++	   is_eight=0
++	fi
+ 
+-    if (is_four) is_two = 0;
++	# char_short_char comparison
++	AC_CHECK_SIZEOF(char_short_char, 0, [
++				       typedef struct {
++				       	       char a;
++					       short b;
++					       char c;
++				       } char_short_char;
++				       ])
++	size=`expr $ac_cv_sizeof_char + $ac_cv_sizeof_short + $ac_cv_sizeof_char`
++	extent=$ac_cv_sizeof_char_short_char
++	if test "$size" != "$extent" ; then is_packed=0 ; fi
++	if test "`expr $extent % 2`" != "0" ; then is_two=0 ; fi
++	if test "$ac_cv_sizeof_short" = "4" -a "`expr $extent % 4`" != "0" ; then
++	   is_four=0
++	fi
++	if test "$ac_cv_sizeof_short" = "8" -a "`expr $extent % 8`" != "0" ; then
++	   is_eight=0
++	fi
+ 
+-    /* Tabulate the results */
+-    cf = fopen( "ctest.out", "w" );
+-    if (is_packed + is_two + is_four + is_eight == 0) {
+-	fprintf( cf, "Could not determine alignment\n" );
+-    }
+-    else {
+-	if (is_packed + is_two + is_four + is_eight != 1) {
+-	    fprintf( cf, "error!\n" );
+-	}
+-	else {
+-	    if (is_packed) fprintf( cf, "packed\n" );
+-	    if (is_two) fprintf( cf, "two\n" );
+-	    if (is_four) fprintf( cf, "four\n" );
+-	    if (is_eight) fprintf( cf, "eight\n" );
+-	}
+-    }
+-    fclose( cf );
+-    return 0;
+-}],
+-pac_cv_c_max_integer_align=`cat ctest.out`,
+-pac_cv_c_max_integer_align="unknown",
+-pac_cv_c_max_integer_align="$CROSS_ALIGN_STRUCT_INT")
+-rm -f ctest.out
++	# If aligned mod 8, it will be aligned mod 4
++	if test $is_eight = 1 ; then is_four=0 ; is_two=0 ; fi
++	if test $is_four = 1 ; then is_two=0 ; fi
++
++	# Find the alignment
++	if test "`expr $is_packed + $is_two + $is_four + $is_eight`" = "0" ; then
++	   pac_cv_struct_alignment="unknown"
++	elif test "`expr $is_packed + $is_two + $is_four + $is_eight`" != "1" ; then
++	   pac_cv_struct_alignment="unknown"
++	elif test $is_packed = 1 ; then
++	   pac_cv_struct_alignment="packed"
++	elif test $is_two = 1 ; then
++	   pac_cv_struct_alignment="two"
++	elif test $is_four = 1 ; then
++	   pac_cv_struct_alignment="four"
++	elif test $is_eight = 1 ; then
++	   pac_cv_struct_alignment="eight"
++	fi
+ ])
+-if test -z "$pac_cv_c_max_integer_align" ; then
+-    pac_cv_c_max_integer_align="unknown"
+-fi
+-])
+ 
++
+ dnl Return the floating point structure alignment in
+-dnl pac_cv_c_max_fp_align.
++dnl pac_cv_c_max_fp_align
+ dnl
+-dnl Possible values include:
+-dnl	packed
+-dnl	two
+-dnl	four
+-dnl	eight
+-dnl     sixteen
+-dnl
+-dnl In addition, a "Could not determine alignment" and a "error!"
+-dnl return is possible.  
++dnl Possible values include
++dnl     packed
++dnl     two
++dnl     four
++dnl     eight
++dnl	sixteen
++dnl	unknown
+ AC_DEFUN([PAC_C_MAX_FP_ALIGN],[
+-AC_CACHE_CHECK([for max C struct floating point alignment],
+-pac_cv_c_max_fp_align,[
+-AC_TRY_RUN([
+-#include <stdio.h>
+-#define DBG(a,b,c)
+-int main( int argc, char *argv[] )
+-{
+-    FILE *cf;
+-    int is_packed  = 1;
+-    int is_two     = 1;
+-    int is_four    = 1;
+-    int is_eight   = 1;
+-    int is_sixteen = 1;
+-    struct { char a; float b; } char_float;
+-    struct { float b; char a; } float_char;
+-    struct { char a; double b; } char_double;
+-    struct { double b; char a; } double_char;
+-#ifdef HAVE_LONG_DOUBLE
+-    struct { char a; long double b; } char_long_double;
+-    struct { long double b; char a; } long_double_char;
+-    struct { long double a; int b; char c; } long_double_int_char;
+-#endif
+-    int size, extent1, extent2;
++	# Initialize alignment checks
++	is_packed=1
++	is_two=1
++	is_four=1
++	is_eight=1
++	is_sixteen=1
+ 
+-    size = sizeof(char) + sizeof(float);
+-    extent1 = sizeof(char_float);
+-    extent2 = sizeof(float_char);
+-    if (size != extent1) is_packed = 0;
+-    if ( (extent1 % 2) != 0 && (extent2 % 2) != 0) is_two = 0;
+-    if ( (extent1 % 4) != 0 && (extent2 % 4) != 0) is_four = 0;
+-    if (sizeof(float) == 8 && (extent1 % 8) != 0 && (extent2 % 8) != 0)
+-	is_eight = 0;
+-    DBG("char_float",size,extent1);
++	# See if long double exists
++	AC_TRY_COMPILE(,[long double a;],have_long_double=yes,have_long_double=no)
+ 
+-    size = sizeof(char) + sizeof(double);
+-    extent1 = sizeof(char_double);
+-    extent2 = sizeof(double_char);
+-    if (size != extent1) is_packed = 0;
+-    if ( (extent1 % 2) != 0 && (extent2 % 2) != 0) is_two = 0;
+-    if ( (extent1 % 4) != 0 && (extent2 % 4) != 0) is_four = 0;
+-    if (sizeof(double) == 8 && (extent1 % 8) != 0 && (extent2 % 8) != 0)
+-	is_eight = 0;
+-    DBG("char_double",size,extent1);
++	# Get sizes of regular types
++	AC_CHECK_SIZEOF(char)
++	AC_CHECK_SIZEOF(float)
++	AC_CHECK_SIZEOF(double)
++	AC_CHECK_SIZEOF(long double)
+ 
+-#ifdef HAVE_LONG_DOUBLE
+-    size = sizeof(char) + sizeof(long double);
+-    extent1 = sizeof(char_long_double);
+-    extent2 = sizeof(long_double_char);
+-    if (size != extent1) is_packed = 0;
+-    if ( (extent1 % 2) != 0 && (extent2 % 2) != 0) is_two = 0;
+-    if ( (extent1 % 4) != 0 && (extent2 % 4) != 0) is_four = 0;
+-    if (sizeof(long double) >= 8 && (extent1 % 8) != 0 && (extent2 % 8) != 0)
+-	is_eight = 0;
+-    if (sizeof(long double) > 8 && (extent1 % 16) != 0
+-	&& (extent2 % 16) != 0) is_sixteen = 0;
+-    DBG("char_long-double",size,extent1);
++	# char_float comparison
++	AC_CHECK_SIZEOF(char_float, 0, [typedef struct { char a; float b; } char_float; ])
++	AC_CHECK_SIZEOF(float_char, 0, [typedef struct { float a; char b; } float_char; ])
++	size=`expr $ac_cv_sizeof_char + $ac_cv_sizeof_float`
++	extent1=$ac_cv_sizeof_char_float
++	extent2=$ac_cv_sizeof_float_char
++	if test "$size" != "$extent1" ; then is_packed=0 ; fi
++	if test "`expr $extent1 % 2`" != "0" -a "`expr $extent2 % 2`" != "0"; then is_two=0 ; fi
++	if test "`expr $extent1 % 4`" != "0" -a "`expr $extent2 % 4`" != "0"; then is_four=0 ; fi
++	if test "$ac_cv_sizeof_float" = "8" -a "`expr $extent1 % 8`" != "0" -a \
++	   "`expr $extent2 % 8`" != "0" ; then
++	   is_eight=0
++	fi
+ 
+-    extent1 = sizeof(long_double_int_char);
+-    if ( (extent1 % 2) != 0) is_two = 0;
+-    if ( (extent1 % 4) != 0) is_four = 0;
+-    if (sizeof(long double) >= 8 && (extent1 % 8) != 0)	is_eight = 0;
+-    if (sizeof(long double) > 8 && (extent1 % 16) != 0) is_sixteen = 0;
+-#else
+-    is_sixteen = 0;
+-#endif
++	# char_double comparison
++	AC_CHECK_SIZEOF(char_double, 0, [typedef struct { char a; double b; } char_double; ])
++	AC_CHECK_SIZEOF(double_char, 0, [typedef struct { double a; char b; } double_char; ])
++	size=`expr $ac_cv_sizeof_char + $ac_cv_sizeof_double`
++	extent1=$ac_cv_sizeof_char_double
++	extent2=$ac_cv_sizeof_double_char
++	if test "$size" != "$extent1" ; then is_packed=0 ; fi
++	if test "`expr $extent1 % 2`" != "0" -a "`expr $extent2 % 2`" != "0"; then is_two=0 ; fi
++	if test "`expr $extent1 % 4`" != "0" -a "`expr $extent2 % 4`" != "0"; then is_four=0 ; fi
++	if test "$ac_cv_sizeof_double" = "8" -a "`expr $extent1 % 8`" != "0" -a \
++	   "`expr $extent2 % 8`" != "0" ; then
++	   is_eight=0
++	fi
+ 
+-    if (is_sixteen) { is_eight = 0; is_four = 0; is_two = 0; }
++	# char_long_double comparison
++	if "$have_long_double" = "yes" ; then
++	AC_CHECK_SIZEOF(char_long_double, 0, [
++					  typedef struct {
++					  	  char a;
++						  long double b;
++					  } char_long_double;
++					  ])
++	AC_CHECK_SIZEOF(long_double_char, 0, [
++					  typedef struct {
++						  long double 1;
++					  	  char b;
++					  } long_double_char;
++					  ])
++	size=`expr $ac_cv_sizeof_char + $ac_cv_sizeof_long_double`
++	extent1=$ac_cv_sizeof_char_long_double
++	extent2=$ac_cv_sizeof_long_double_char
++	if test "$size" != "$extent1" ; then is_packed=0 ; fi
++	if test "`expr $extent1 % 2`" != "0" -a "`expr $extent2 % 2`" != "0"; then is_two=0 ; fi
++	if test "`expr $extent1 % 4`" != "0" -a "`expr $extent2 % 4`" != "0"; then is_four=0 ; fi
++	if test "$ac_cv_sizeof_double" >= "8" -a "`expr $extent1 % 8`" != "0" -a \
++	   "`expr $extent2 % 8`" != "0" ; then
++	   is_eight=0
++	fi
++	if test "$ac_cv_sizeof_double" > "8" -a "`expr $extent1 % 16`" != "0" -a \
++	   "`expr $extent2 % 16`" != "0" ; then
++	   is_sixteen=0
++	fi
+ 
+-    if (is_eight) { is_four = 0; is_two = 0; }
++	AC_CHECK_SIZEOF(long_double_int_char, 0, [
++					      typedef struct {
++					      	      long double a;
++						      int b;
++						      char c;
++					      } long_double_int_char;
++					      ])
++	extent=$ac_cv_sizeof_long_double_int_char
++	if test "`expr $extent % 2`" != "0" ; then is_two=0 ; fi
++	if test "`expr $extent % 4`" != "0" ; then is_four=0 ; fi
++	if test "$ac_cv_sizeof_long_double" >= "8" -a "`expr $extent % 8`" != "0" ; then
++	   is_eight=0
++	fi
++	if test "$ac_cv_sizeof_long_double" > "8" -a "`expr $extent % 16`" != "0" ; then
++	   is_sixteen=0
++	fi
++	else
++		is_sixteen=0
++	fi
+ 
+-    if (is_four) is_two = 0;
++	# If aligned mod 18, it will be aligned mod 8
++	if test $is_sixteen = 1 ; then is_eight=0 ; is_four=0 ; is_two=0 ; fi
++	if test $is_eight = 1 ; then is_four=0 ; is_two=0 ; fi
++	if test $is_four = 1 ; then is_two=0 ; fi
+ 
+-    /* Tabulate the results */
+-    cf = fopen( "ctest.out", "w" );
+-    if (is_packed + is_two + is_four + is_eight + is_sixteen == 0) {
+-	fprintf( cf, "Could not determine alignment\n" );
+-    }
+-    else {
+-	if (is_packed + is_two + is_four + is_eight + is_sixteen != 1) {
+-	    fprintf( cf, "error!\n" );
+-	}
+-	else {
+-	    if (is_packed) fprintf( cf, "packed\n" );
+-	    if (is_two) fprintf( cf, "two\n" );
+-	    if (is_four) fprintf( cf, "four\n" );
+-	    if (is_eight) fprintf( cf, "eight\n" );
+-	    if (is_sixteen) fprintf( cf, "sixteen\n" );
+-	}
+-    }
+-    fclose( cf );
+-    return 0;
+-}],
+-pac_cv_c_max_fp_align=`cat ctest.out`,
+-pac_cv_c_max_fp_align="unknown",
+-pac_cv_c_max_fp_align="$CROSS_ALIGN_STRUCT_FP")
+-rm -f ctest.out
++	# Find the alignment
++	if test "`expr $is_packed + $is_two + $is_four + $is_eight + $is_sixteen`" = "0" ; then
++	   pac_cv_struct_alignment="unknown"
++	elif test "`expr $is_packed + $is_two + $is_four + $is_eight + $is_sixteen`" != "1" ; then
++	   pac_cv_struct_alignment="unknown"
++	elif test $is_packed = 1 ; then
++	   pac_cv_struct_alignment="packed"
++	elif test $is_two = 1 ; then
++	   pac_cv_struct_alignment="two"
++	elif test $is_four = 1 ; then
++	   pac_cv_struct_alignment="four"
++	elif test $is_eight = 1 ; then
++	   pac_cv_struct_alignment="eight"
++	elif test $is_sixteen = 1 ; then
++	   pac_cv_struct_alignment="sixteen"
++	fi
+ ])
+-if test -z "$pac_cv_c_max_fp_align" ; then
+-    pac_cv_c_max_fp_align="unknown"
+-fi
+-])
+ 
++
+ dnl Return the floating point structure alignment in
+ dnl pac_cv_c_max_double_fp_align.
+ dnl
+@@ -976,6 +1021,8 @@
+     pac_cv_c_max_double_fp_align="unknown"
+ fi
+ ])
++
++
+ AC_DEFUN([PAC_C_MAX_LONGDOUBLE_FP_ALIGN],[
+ AC_CACHE_CHECK([for max C struct floating point alignment with long doubles],
+ pac_cv_c_max_longdouble_fp_align,[
+@@ -1111,6 +1158,7 @@
+ fi
+ ])
+ 
++
+ dnl Test for odd struct alignment rule that only applies max.
+ dnl padding when double value is at front of type.
+ dnl Puts result in pac_cv_c_double_pos_align.
+@@ -1199,6 +1247,7 @@
+ fi
+ ])
+ 
++
+ dnl/*D
+ dnl PAC_FUNC_NEEDS_DECL - Set NEEDS_<funcname>_DECL if a declaration is needed
+ dnl
+@@ -1238,6 +1287,7 @@
+ fi
+ ])
+ 
++
+ dnl PAC_C_GNU_ATTRIBUTE - See if the GCC __attribute__ specifier is allow.
+ dnl Use the following
+ dnl #ifndef HAVE_GCC_ATTRIBUTE
+@@ -1267,7 +1317,8 @@
+     fi
+ fi
+ ])
+-dnl
++
++
+ dnl Check for a broken install (fails to preserve file modification times,
+ dnl thus breaking libraries.
+ dnl
+@@ -1332,7 +1383,7 @@
+ AC_SUBST(RANLIB_AFTER_INSTALL)
+ ])
+ 
+-#
++
+ # determine if the compiler defines a symbol containing the function name
+ # Inspired by checks within the src/mpid/globus/configure.in file in MPICH2
+ #
+@@ -1345,114 +1396,26 @@
+ #   HAVE__FUNCTION__  (if __FUNCTION__ defined)
+ #
+ AC_DEFUN([PAC_CC_FUNCTION_NAME_SYMBOL],[
+-AC_CACHE_CHECK([whether the compiler defines __func__],
+-pac_cv_have__func__,[
+-tmp_am_cross=no
+-AC_RUN_IFELSE([
+-#include <string.h>
+-int foo(void);
+-int foo(void)
+-{
+-    return (strcmp(__func__, "foo") == 0);
+-}
+-int main(int argc, char ** argv)
+-{
+-    return (foo() ? 0 : 1);
+-}
+-], pac_cv_have__func__=yes, pac_cv_have__func__=no,tmp_am_cross=yes)
+-if test "$tmp_am_cross" = yes ; then
+-    AC_LINK_IFELSE([
+-#include <string.h>
+-int foo(void);
+-int foo(void)
+-{
+-    return (strcmp(__func__, "foo") == 0);
+-}
+-int main(int argc, char ** argv)
+-{
+-    return (foo() ? 0 : 1);
+-}
+-], pac_cv_have__func__=yes, pac_cv_have__func__=no)
+-fi
+-])
++	AC_TRY_LINK(,[printf("%s", __func__);],
++			pac_cv_have__func__=yes,pac_cv_have__func__=no)
++	if test "$pac_cv_have__func__" = "yes" ; then
++	   AC_DEFINE(HAVE__FUNC__,,[define if the compiler defines __func__])
++	fi
+ 
+-if test "$pac_cv_have__func__" = "yes" ; then
+-    AC_DEFINE(HAVE__FUNC__,,[define if the compiler defines __func__])
+-fi
++	AC_TRY_LINK(,[printf("%s", __FUNC__);],
++			pac_cv_have__FUNC__=yes,pac_cv_have__FUNC__=no)
++	if test "$pac_cv_have__FUNC__" = "yes" ; then
++	   AC_DEFINE(HAVE_CAP__FUNC__,,[define if the compiler defines __FUNC__])
++	fi
+ 
+-AC_CACHE_CHECK([whether the compiler defines __FUNC__],
+-pac_cv_have_cap__func__,[
+-tmp_am_cross=no
+-AC_RUN_IFELSE([
+-#include <string.h>
+-int foo(void);
+-int foo(void)
+-{
+-    return (strcmp(__FUNC__, "foo") == 0);
+-}
+-int main(int argc, char ** argv)
+-{
+-    return (foo() ? 0 : 1);
+-}
+-], pac_cv_have_cap__func__=yes, pac_cv_have_cap__func__=no,tmp_am_cross=yes)
+-if test "$tmp_am_cross" = yes ; then
+-    AC_LINK_IFELSE([
+-#include <string.h>
+-int foo(void);
+-int foo(void)
+-{
+-    return (strcmp(__FUNC__, "foo") == 0);
+-}
+-int main(int argc, char ** argv)
+-{
+-    return (foo() ? 0 : 1);
+-}
+-], pac_cv_have__func__=yes, pac_cv_have__func__=no)
+-fi
++	AC_TRY_LINK(,[printf("%s", __FUNCTION__);],
++			pac_cv_have__FUNCTION__=yes,pac_cv_have__FUNCTION__=no)
++	if test "$pac_cv_have__FUNCTION__" = "yes" ; then
++	   AC_DEFINE(HAVE__FUNCTION__,,[define if the compiler defines __FUNCTION__])
++	fi
+ ])
+ 
+-if test "$pac_cv_have_cap__func__" = "yes" ; then
+-    AC_DEFINE(HAVE_CAP__FUNC__,,[define if the compiler defines __FUNC__])
+-fi
+ 
+-AC_CACHE_CHECK([whether the compiler sets __FUNCTION__],
+-pac_cv_have__function__,[
+-tmp_am_cross=no
+-AC_RUN_IFELSE([
+-#include <string.h>
+-int foo(void);
+-int foo(void)
+-{
+-    return (strcmp(__FUNCTION__, "foo") == 0);
+-}
+-int main(int argc, char ** argv)
+-{
+-    return (foo() ? 0 : 1);
+-}
+-], pac_cv_have__function__=yes, pac_cv_have__function__=no,tmp_am_cross=yes)
+-if test "$tmp_am_cross" = yes ; then
+-    AC_LINK_IFELSE([
+-#include <string.h>
+-int foo(void);
+-int foo(void)
+-{
+-    return (strcmp(__FUNCTION__, "foo") == 0);
+-}
+-int main(int argc, char ** argv)
+-{
+-    return (foo() ? 0 : 1);
+-}
+-], pac_cv_have__func__=yes, pac_cv_have__func__=no)
+-fi
+-])
+-
+-if test "$pac_cv_have__function__" = "yes" ; then
+-    AC_DEFINE(HAVE__FUNCTION__,,[define if the compiler defines __FUNCTION__])
+-fi
+-
+-])
+-
+-
+ dnl Check structure alignment
+ AC_DEFUN([PAC_STRUCT_ALIGNMENT],[
+ 	# Initialize alignment checks

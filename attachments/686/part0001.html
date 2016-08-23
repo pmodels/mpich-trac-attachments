@@ -1,0 +1,141 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:st1="urn:schemas-microsoft-com:office:smarttags" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=Generator content="Microsoft Word 11 (filtered medium)">
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if !mso]>
+<style>
+st1\:*{behavior:url(#default#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:Arial;
+	color:windowtext;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>Mpich2-maint,<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I
+am running a server for a proof-of-concept project built on
+FreeBSD-7.2-Release. When I first ran configure, it told me that I did not have
+python installed. I went back and installed the FreeBSD port of python-2.6 and
+re-ran configure for mpich2-1.1. Configure ran successfully and c.txt showed no
+alarming errors that I am aware of. However, now when I attempt to run make, I receive
+the following error:<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>In Function &#8216;HYDU_create_thread&#8217;:<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>:undefined reference to &#8216;pthread_create&#8217;<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>*** Error code 1<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>Stop in /tmp/tim/mpich2/src/pm/hydra/pm/pmiserv.<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>*** Error code 1<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>Stop in /tmp/tim/mpich2/src/pm/hydra/pm.<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>*** Error code 1<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>&#8230;.etc. (rest of error in m.txt)<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>I am following the Quick Start instructions for now in the
+installer&#8217;s guide. <o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>I did try to go back a version to mpich2-1.0.p1 which completed
+configure, make, and make install, but while running &#8220;mpd &amp;&#8221;,
+it would complain about depreciated calls in the python scripts and hang and I
+figured my python version was too new for it so I tried mpich2-1.1 again with
+the same errors. <o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>I have attached the make output (m.txt) using the VERBOSE=1 option
+and the configure output (c.txt). Any help you can give in regards to my mpich2-1.1
+make errors would be greatly appreciated!!<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>-Timothy Sliwinski<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><st1:place w:st="on"><st1:PlaceName w:st="on"><font size=2
+  face=Arial><span style='font-size:10.0pt;font-family:Arial'>Florida</span></font></st1:PlaceName><font
+ size=2 face=Arial><span style='font-size:10.0pt;font-family:Arial'> <st1:PlaceType
+ w:st="on">State</st1:PlaceType> <st1:PlaceType w:st="on">University</st1:PlaceType></span></font></st1:place><font
+size=2 face=Arial><span style='font-size:10.0pt;font-family:Arial'> Student<o:p></o:p></span></font></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #299: ERROR MESSAGE:../../../include/mpitypedefs.h:17:25: sys/bitypes.h:No such file or directory</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Did you redirect the output of make to make.log (In your prev email I don't see that)?<BR>
+<BR>
+========= snip =====COMMANDS RUN BY YOU =====<BR>
+&nbsp; &gt;&nbsp; ./configure -enable-g CPP=&quot;gcc -E&quot; --prefix=....&quot;<BR>
+&nbsp; &gt;&nbsp; Make<BR>
+&nbsp; &gt;&nbsp; Make install 2&gt;&amp;1 | tee install.log<BR>
+========= snip =====COMMANDS RUN BY YOU =====<BR>
+<BR>
+&nbsp; The make command should be, &quot;make 2&gt;&amp;1 | tee make.log &quot;<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Monday, December 01, 2008 10:54 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #299: ERROR MESSAGE:../../../include/mpitypedefs.h:17:25: sys/bitypes.h:No such file or directory<BR>
+<BR>
+--------------------------------------------------------------------------+-<BR>
+&nbsp;Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+--------------------------------------------------------------------------+-<BR>
+<BR>
+<BR>
+Comment (by Lee Mun Chiew, Cornelius):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Hi Anthony,<BR>
+<BR>
+&nbsp;Yes. I did.<BR>
+<BR>
+&nbsp;Regards,<BR>
+&nbsp;Cornelius<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;-----Original Message-----<BR>
+&nbsp;From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&nbsp;On<BR>
+&nbsp;Behalf Of mpich2<BR>
+&nbsp;Sent: Tuesday, December 02, 2008 12:46 PM<BR>
+&nbsp;Subject: Re: [mpich2-maint] #299: ERROR<BR>
+&nbsp;MESSAGE:../../../include/mpitypedefs.h:17:25: sys/bitypes.h:No such file&nbsp; or&nbsp; directory<BR>
+<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;&nbsp; |<BR>
+&nbsp;Owner:<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp;|<BR>
+&nbsp;Status:&nbsp; new<BR>
+&nbsp; Priority:&nbsp; major<BR>
+&nbsp;|<BR>
+&nbsp;Milestone:<BR>
+&nbsp;Component:&nbsp; mpich2<BR>
+&nbsp;|<BR>
+&nbsp;Resolution:<BR>
+&nbsp; Keywords:<BR>
+&nbsp;|<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+<BR>
+<BR>
+&nbsp;Comment (by Anthony Chan):<BR>
+<BR>
+&nbsp; {{{<BR>
+<BR>
+&nbsp; Did you do &quot;make distclean&quot; before doing configure again ?<BR>
+<BR>
+&nbsp; A.Chan<BR>
+&nbsp; ----- &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt; wrote:<BR>
+<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; Comment (by Lee Mun Chiew, Cornelius):<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; {{{<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Hi Anthony,<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Attached are the log files after running:<BR>
+&nbsp; &gt;&nbsp; ./configure -enable-g CPP=&quot;gcc -E&quot; --prefix=....&quot;<BR>
+&nbsp; &gt;&nbsp; Make<BR>
+&nbsp; &gt;&nbsp; Make install 2&gt;&amp;1 | tee install.log<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; How do I check if installation is successful, please?<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Thank you.<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; regards,<BR>
+&nbsp; &gt;&nbsp; Cornelius<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp; &gt; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&nbsp; &gt;&nbsp; On<BR>
+&nbsp; &gt;&nbsp; Behalf Of mpich2<BR>
+&nbsp; &gt;&nbsp; Sent: Tuesday, December 02, 2008 6:42 AM<BR>
+&nbsp; &gt;&nbsp; Subject: Re: [mpich2-maint] #299: ERROR<BR>
+&nbsp; &gt;&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25: sys/bitypes.h:No such<BR>
+&nbsp; &gt; file<BR>
+&nbsp; &gt;&nbsp; or<BR>
+&nbsp; &gt;&nbsp; directory<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;<BR>
+&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Comment (by Anthony Chan):<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; As a temporary fix, can you add CPP=&quot;gcc -E&quot; as part of your<BR>
+&nbsp; &gt;&nbsp;&nbsp; configure command and see it works, i.e.<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; make distclean<BR>
+&nbsp; &gt;&nbsp;&nbsp; ./configure &lt;other-configure-options&gt; CPP=&quot;gcc -E&quot; --prefix=....<BR>
+&nbsp; &gt;&nbsp;&nbsp; make<BR>
+&nbsp; &gt;&nbsp;&nbsp; make install<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; A permanent fix has been committed.&nbsp; Let us know if the temporary<BR>
+&nbsp; &gt;&nbsp;&nbsp; fix works.<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; Thanks,<BR>
+&nbsp; &gt;&nbsp;&nbsp; A.Chan<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; ----- &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt; wrote:<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Comment (by Lee Mun Chiew, Cornelius):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Hi Anthony,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Thank you for your reply.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Attached is the requested file.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; The output of the line : conftest.c ; echo &quot;rc=$?&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Is: bash:conftest.c: command not found<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; rc=127<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; regards,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Cornelius<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; On<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Behalf Of mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Sent: Saturday, November 29, 2008 6:53 AM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Subject: Re: [mpich2-maint] #299: ERROR<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25: sys/bitypes.h:No<BR>
+&nbsp; &gt; such<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; file<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; or<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Comment (by Anthony Chan):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Could you send us the config.log file that I requested earlier,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; i.e. &lt;mpich2_build_dir&gt;/src/mpe2/src/logging/config.log<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; which contains some useful information that may<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; help us to craft a fix for your problem under cygwin ?<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Also, could you try running the following .c file as<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; if it is a command (I would like to know the response<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; of your version of cygwin shell/environment),<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; The 1 line command is the following:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; conftest.c ; echo &quot;rc=$?&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; and the content of conftest.c is as follows:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; /* confdefs.h.&nbsp; */<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; #define PACKAGE_NAME &quot;&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; #define HAVE_RUNTIME_THREADCHECK 1<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; #include &lt;sys/bitypes.h&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Thanks,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; A.Chan<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; ----- &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt; wrote:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Comment (by Lee Mun Chiew, Cornelius):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Hi Jayesh,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Attached are the required files for your review after<BR>
+&nbsp; &gt; running<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; attached<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; configure script.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Makefile still fails due to the request for sys/bitypes.h<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Thank you.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Regards,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Cornelius<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; On<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Behalf Of mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Sent: Wednesday, November 26, 2008 3:01 AM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Subject: Re: [mpich2-maint] #299: ERROR<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25:<BR>
+&nbsp; &gt; sys/bitypes.h:No<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; such<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; file<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; or<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------+-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Comment (by Jayesh Krishna):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Hi,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Please send us the configure.log (output of configure<BR>
+&nbsp; &gt; command)<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; and<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; config.log (log file internally generated by configure<BR>
+&nbsp; &gt; script)<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; after<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; running configure.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Regards,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Jayesh<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:krishna@zimbra.mcs.anl.gov">mailto:krishna@zimbra.mcs.anl.gov</A>]<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Sent: Tuesday, November 25, 2008 10:53 AM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; To: 'Cornelius_LEE@dsi.a-star.edu.sg'<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Cc: 'mpich2-maint@mcs.anl.gov'<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Subject: RE: [mpich2-maint] #299: ERROR<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25:<BR>
+&nbsp; &gt; sys/bitypes.h:No<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; such<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; file<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; or directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Hi,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Can you try the following configure script ?<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Regards,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Jayesh<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; From: mpich2-bugs-bounces@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of<BR>
+&nbsp; &gt; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Sent: Monday, November 24, 2008 8:53 PM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; To: undisclosed-recipients:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #299: ERROR<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25:<BR>
+&nbsp; &gt; sys/bitypes.h:No<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; such<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; file<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; or directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Comment (by Lee Mun Chiew, Cornelius):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Hi Jayesh,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; I have done the following:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; 1. First check for /usr/include/sys/bitypes.h<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; 2. Next try to find the header file in your system, find<BR>
+&nbsp; &gt; /<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; -name<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; bitypes.h<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; But I can't seem to find that header file.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Attached is the configure file of a fresh download as well<BR>
+&nbsp; &gt; as<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; a<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; fresh<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; configure.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Regards,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Cornelius<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; On<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Behalf Of mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Sent: Monday, November 24, 2008 11:29 PM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #299: ERROR<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25:<BR>
+&nbsp; &gt; sys/bitypes.h:No<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; such<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; file<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; or&nbsp; directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Comment (by Jayesh Krishna):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hi,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I am using Cygwin &quot;CYGWIN_NT-5.1 1.5.25(0.156/4/2)&quot; on<BR>
+&nbsp; &gt; my<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; laptop<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; (Same<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; as your version of Cygwin). However when I run MPICH2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; configure on<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; my<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; machine &quot;sys/bitypes.h&quot; is not found on my system (In<BR>
+&nbsp; &gt; your<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; machine<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; configure is able to find &lt;sys/bitypes.h&gt; - Look in<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; configure.log.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; But<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; make fails when the source includes &quot;sys/bitypes.h&quot;).<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; #&nbsp; Can you try running configure on a fresh download of<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; MPICH2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; 1.0.8<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; (Download a fresh copy of MPICH2 1.0.8 source. Untar and<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; re-run<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; configure.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Check if configure finds &quot;sys/bitypes.h&quot; - Look in<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; configure.log)?<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; # Can you manually check whether you have the header file<BR>
+&nbsp; &gt; in<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; your<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; system<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; (1. First check for /usr/include/sys/bitypes.h 2. Next try<BR>
+&nbsp; &gt; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; find<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; header file in your system, find / -name bitypes.h)?<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Let us know the results.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Regards,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Jayesh<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; From: mpich2-bugs-bounces@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of<BR>
+&nbsp; &gt; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Sent: Sunday, November 23, 2008 6:45 AM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; To: undisclosed-recipients:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #299: ERROR<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; sys/bitypes.h:No<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; such<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; file<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; or directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Comment (by Lee Mun Chiew, Cornelius):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dear Jaysesh,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you for your reply.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Attached is the configure.log file.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; regards,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cornelius<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ________________________________________<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; [owner-mpich2-bugs@mcs.anl.gov] On<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Behalf Of<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mpich2 [mpich2-maint@mcs.anl.gov]<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sent: Friday, November 21, 2008 11:31 PM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #299: ERROR<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; sys/bitypes.h:No<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; such<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; file<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; or&nbsp; directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Resolution:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Keywords:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comment (by Jayesh Krishna):<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hi,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Can you send us your configure output ( 1)<BR>
+&nbsp; &gt; configure.log<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; ---<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; output<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; of<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; configure to the stdout&nbsp; &amp; (2) config.log --- output of<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; configure<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; script<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Regards,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jayesh<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -----Original Message-----<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; From: mpich2-bugs-bounces@mcs.anl.gov<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sent: Friday, November 21, 2008 2:02 AM<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To: undisclosed-recipients:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Subject: [mpich2-maint] #299: ERROR<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MESSAGE:../../../include/mpitypedefs.h:17:25:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; sys/bitypes.h:No<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; such<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; file<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or directory<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Lee Mun Chiew, Cornelius&quot;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; &lt;Cornelius_LEE@dsi.a-star.edu.sg&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------------------------------<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +-<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{{<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dear Sir/Mdm,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I am trying to install MPICH2 into CYGWIN and<BR>
+&nbsp; &gt; encountered<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; this<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; error<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message at&nbsp; the end of my make.log file.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Attached is my make.log file for your kind<BR>
+&nbsp; &gt; consideration.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I would like to request for some advice about it,<BR>
+&nbsp; &gt; please.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; regards,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cornelius<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1) This email is confidential and may be privileged. If<BR>
+&nbsp; &gt; you<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; are<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; not<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; intended recipient, please delete it and notify us<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; immediately.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; do<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; not copy or use it for any purpose, or disclose its<BR>
+&nbsp; &gt; contents<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; any<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; other<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; person.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2) If you believe you're receiving this e-mail in error<BR>
+&nbsp; &gt; or<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; prefer<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; not<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; receive publicity materials from Data Storage<BR>
+&nbsp; &gt; Institute,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; send<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e-mail to admin@dsi.a-star.edu.sg with the subject<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; &quot;Unsubscribe&quot;.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please remember to include the body text&nbsp; received.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Removal requests will be honored and respected. Please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; allow 1<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; to 3<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; days<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for&nbsp; processing.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You may still receive other e-mails from us within the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; grace<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; period.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3) As an anti-virus measure, our mail server rejects<BR>
+&nbsp; &gt; the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; following<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; attachments:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *.bat, *.com, *.cmd, *.exe, *.hta, *.Ink, *.pif,<BR>
+&nbsp; &gt; *.scr,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *.shs; *.vb*; *.{*, *.js, *.sct, *.wsh, *.jse,<BR>
+&nbsp; &gt; *.swf.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If you need to send us an attachment of this type,<BR>
+&nbsp; &gt; please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; contact us<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; at<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; helpline@dsi.a-star.edu.sg.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you!<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/299">https://trac.mcs.anl.gov/projects/mpich2/ticket/299</A>&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1) This email is confidential and may be privileged. If<BR>
+&nbsp; &gt; you<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; are<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; not<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; intended recipient, please delete it and notify us<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; immediately.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; do<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; not copy or use it for any purpose, or disclose its<BR>
+&nbsp; &gt; contents<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; any<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; other<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; person.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2) If you believe you're receiving this e-mail in error<BR>
+&nbsp; &gt; or<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; prefer<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; not<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; receive publicity materials from Data Storage Institute,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; send<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; e-mail to admin@dsi.a-star.edu.sg with the subject<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; &quot;Unsubscribe&quot;.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please remember to include the body text&nbsp; received.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Removal requests will be honored and respected. Please<BR>
+&nbsp; &gt; allow<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; 1 to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; 3<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; days<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; for&nbsp; processing.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You may still receive other e-mails from us within the<BR>
+&nbsp; &gt; grace<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; period.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3) As an anti-virus measure, our mail server rejects the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; following<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; attachments:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *.bat, *.com, *.cmd, *.exe, *.hta, *.Ink, *.pif,<BR>
+&nbsp; &gt; *.scr,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *.shs; *.vb*; *.{*, *.js, *.sct, *.wsh, *.jse, *.swf.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If you need to send us an attachment of this type,<BR>
+&nbsp; &gt; please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; contact<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; us<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; at<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; helpline@dsi.a-star.edu.sg.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you!<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 1) This email is confidential and may be privileged. If you<BR>
+&nbsp; &gt; are<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; not<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; intended recipient, please delete it and notify us<BR>
+&nbsp; &gt; immediately.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; do<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; not copy or use it for any purpose, or disclose its contents<BR>
+&nbsp; &gt; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; any<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; other<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; person.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 2) If you believe you're receiving this e-mail in error or<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; prefer<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; not to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; receive publicity materials from Data Storage Institute,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; send<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; e-mail to admin@dsi.a-star.edu.sg with the subject<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; &quot;Unsubscribe&quot;.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Please remember to include the body text&nbsp; received.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Removal requests will be honored and respected. Please<BR>
+&nbsp; &gt; allow 1<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; to 3<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; days<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; for&nbsp; processing.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; You may still receive other e-mails from us within the<BR>
+&nbsp; &gt; grace<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; period.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; 3) As an anti-virus measure, our mail server rejects the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; following<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; attachments:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *.bat, *.com, *.cmd, *.exe, *.hta, *.Ink, *.pif, *.scr,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *.shs; *.vb*; *.{*, *.js, *.sct, *.wsh, *.jse, *.swf.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; If you need to send us an attachment of this type, please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; contact<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; us&nbsp; at<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; helpline@dsi.a-star.edu.sg.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Thank you!<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; 1) This email is confidential and may be privileged. If you<BR>
+&nbsp; &gt; are<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; not<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; intended recipient, please delete it and notify us<BR>
+&nbsp; &gt; immediately.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; do not copy or use it for any purpose, or disclose its<BR>
+&nbsp; &gt; contents<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; any<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; other person.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; 2) If you believe you're receiving this e-mail in error or<BR>
+&nbsp; &gt; prefer<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; not<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; receive publicity materials from Data Storage Institute,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; please send e-mail to admin@dsi.a-star.edu.sg with the<BR>
+&nbsp; &gt; subject<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; &quot;Unsubscribe&quot;.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Please remember to include the body text&nbsp; received.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Removal requests will be honored and respected. Please allow<BR>
+&nbsp; &gt; 1 to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; 3<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; days<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; for<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; processing.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; You may still receive other e-mails from us within the grace<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; period.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; 3) As an anti-virus measure, our mail server rejects the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; following<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; attachments:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; *.bat, *.com, *.cmd, *.exe, *.hta, *.Ink, *.pif, *.scr,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; *.shs; *.vb*; *.{*, *.js, *.sct, *.wsh, *.jse, *.swf.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; If you need to send us an attachment of this type, please<BR>
+&nbsp; &gt; contact<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; us<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; at helpline@dsi.a-star.edu.sg.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Thank you!<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; 1) This email is confidential and may be privileged. If you are<BR>
+&nbsp; &gt; not<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; the<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; intended recipient, please delete it and notify us immediately.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Please<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; do not copy or use it for any purpose, or disclose its contents<BR>
+&nbsp; &gt; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; any<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; other person.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; 2) If you believe you're receiving this e-mail in error or prefer<BR>
+&nbsp; &gt; not<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; to<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; receive publicity materials from Data Storage Institute,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; please send e-mail to admin@dsi.a-star.edu.sg with the subject<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; &quot;Unsubscribe&quot;.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Please remember to include the body text&nbsp; received.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Removal requests will be honored and respected. Please allow 1 to<BR>
+&nbsp; &gt; 3<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; days<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; for<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; processing.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; You may still receive other e-mails from us within the grace<BR>
+&nbsp; &gt; period.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; 3) As an anti-virus measure, our mail server rejects the<BR>
+&nbsp; &gt; following<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; attachments:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; *.bat, *.com, *.cmd, *.exe, *.hta, *.Ink, *.pif, *.scr,<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; *.shs; *.vb*; *.{*, *.js, *.sct, *.wsh, *.jse, *.swf.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; If you need to send us an attachment of this type, please contact<BR>
+&nbsp; &gt; us<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; at helpline@dsi.a-star.edu.sg.<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Thank you!<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; }}}<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; --<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; Ticket URL:<BR>
+&nbsp; &gt;&nbsp;&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; &gt;&nbsp;&nbsp; }}}<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; --<BR>
+&nbsp; &gt;&nbsp; Ticket URL:<BR>
+&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; 1) This email is confidential and may be privileged. If you are not<BR>
+&nbsp; &gt; the<BR>
+&nbsp; &gt;&nbsp; intended recipient, please delete it and notify us immediately.<BR>
+&nbsp; &gt; Please<BR>
+&nbsp; &gt;&nbsp; do not copy or use it for any purpose, or disclose its contents to<BR>
+&nbsp; &gt; any<BR>
+&nbsp; &gt;&nbsp; other person.<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; 2) If you believe you're receiving this e-mail in error or prefer not<BR>
+&nbsp; &gt; to<BR>
+&nbsp; &gt;&nbsp; receive publicity materials from Data Storage Institute,<BR>
+&nbsp; &gt;&nbsp; please send e-mail to admin@dsi.a-star.edu.sg with the subject<BR>
+&nbsp; &gt;&nbsp; &quot;Unsubscribe&quot;.<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Please remember to include the body text&nbsp; received.<BR>
+&nbsp; &gt;&nbsp; Removal requests will be honored and respected. Please allow 1 to 3<BR>
+&nbsp; &gt; days<BR>
+&nbsp; &gt;&nbsp; for<BR>
+&nbsp; &gt;&nbsp; processing.<BR>
+&nbsp; &gt;&nbsp; You may still receive other e-mails from us within the grace period.<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; 3) As an anti-virus measure, our mail server rejects the following<BR>
+&nbsp; &gt;&nbsp; attachments:<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; *.bat, *.com, *.cmd, *.exe, *.hta, *.Ink, *.pif, *.scr,<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; *.shs; *.vb*; *.{*, *.js, *.sct, *.wsh, *.jse, *.swf.<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; If you need to send us an attachment of this type, please contact us<BR>
+&nbsp; &gt;&nbsp; at helpline@dsi.a-star.edu.sg.<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Thank you!<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; }}}<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; --<BR>
+&nbsp; &gt; Ticket URL:<BR>
+&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+&nbsp; }}}<BR>
+<BR>
+&nbsp;--<BR>
+&nbsp;Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;1) This email is confidential and may be privileged. If you are not the&nbsp; intended recipient, please delete it and notify us immediately. Please&nbsp; do not copy or use it for any purpose, or disclose its contents to any&nbsp; other person.<BR>
+<BR>
+&nbsp;2) If you believe you're receiving this e-mail in error or prefer not to&nbsp; receive publicity materials from Data Storage Institute,&nbsp; please send e-mail to admin@dsi.a-star.edu.sg with the subject&nbsp; &quot;Unsubscribe&quot;.<BR>
+<BR>
+&nbsp;Please remember to include the body text&nbsp; received.<BR>
+&nbsp;Removal requests will be honored and respected. Please allow 1 to 3 days&nbsp; for&nbsp; processing.<BR>
+&nbsp;You may still receive other e-mails from us within the grace period.<BR>
+<BR>
+&nbsp;3) As an anti-virus measure, our mail server rejects the following<BR>
+&nbsp;attachments:<BR>
+&nbsp;&nbsp;&nbsp; *.bat, *.com, *.cmd, *.exe, *.hta, *.Ink, *.pif, *.scr,<BR>
+&nbsp;&nbsp;&nbsp; *.shs; *.vb*; *.{*, *.js, *.sct, *.wsh, *.jse, *.swf.<BR>
+<BR>
+&nbsp;If you need to send us an attachment of this type, please contact us&nbsp; at helpline@dsi.a-star.edu.sg.<BR>
+<BR>
+&nbsp;Thank you!<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/299#comment:&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

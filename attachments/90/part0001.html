@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16705" name=GENERATOR></HEAD>
+<BODY 
+style="WORD-WRAP: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space">
+<DIV dir=ltr align=left><SPAN class=859512422-12082008><FONT face=Arial 
+color=#0000ff size=2>Need to look into this.</FONT></SPAN></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> owner-mpich2-dev@mcs.anl.gov 
+[mailto:owner-mpich2-dev@mcs.anl.gov] <B>On Behalf Of </B>David 
+Gingold<BR><B>Sent:</B> Thursday, August 07, 2008 8:48 PM<BR><B>To:</B> 
+mpich2-dev@mcs.anl.gov<BR><B>Subject:</B> [mpich2-dev] issues around 
+MPID_Dev_comm_create_hook(), etc.<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV>I'm scrambling to get a release out, but lest I forget about this later, I 
+thought I should mention a few brief bits about MPID_Dev_comm_create_hook() and 
+friends:</DIV>
+<DIV><BR></DIV>
+<DIV>1. The callers of these don't check the return values. It would be nicer to 
+allow the hooks to pass errors up, e.g. if the create hook does memory 
+allocation.</DIV>
+<DIV><BR></DIV>2. MPIR_Setup_intercomm_localcomm() doesn't call 
+MPID_Dev_comm_create_hook(). Should it? (This had me on a bit of a goose chase 
+this evening, but I'm better now.) 
+<DIV><BR></DIV>
+<DIV>3. I've ended up hanging device-specific things off the communicator that 
+might instead be hung off the communicator's group. (The bits, in my case, are 
+representations of what ranks are local versus off-node.) Should we have 
+MPID_Dev_group_{create,destroy}_hook() functions, also? I note that there is 
+already a MPID_DEV_GROUP_DECL facility.</DIV>
+<DIV><BR></DIV>
+<DIV>-dg</DIV>
+<DIV>
+<DIV><BR></DIV></DIV>
+<DIV><SPAN class=Apple-style-span 
+style="WORD-SPACING: 0px; FONT: 12px Helvetica; TEXT-TRANSFORM: none; COLOR: rgb(0,0,0); TEXT-INDENT: 0px; WHITE-SPACE: normal; LETTER-SPACING: normal; BORDER-COLLAPSE: separate; border-spacing: 0px 0px; -khtml-text-decorations-in-effect: none; -apple-text-size-adjust: auto; orphans: 2; widows: 2"><SPAN 
+class=Apple-style-span 
+style="WORD-SPACING: 0px; FONT: 12px Helvetica; TEXT-TRANSFORM: none; COLOR: rgb(0,0,0); TEXT-INDENT: 0px; WHITE-SPACE: normal; LETTER-SPACING: normal; BORDER-COLLAPSE: separate; border-spacing: 0px 0px; -khtml-text-decorations-in-effect: none; -apple-text-size-adjust: auto; orphans: 2; widows: 2">
+<DIV style="MARGIN: 0px">--</DIV>
+<DIV style="MARGIN: 0px">David Gingold</DIV>
+<DIV style="MARGIN: 0px">Principal Software Engineer</DIV>
+<DIV style="MARGIN: 0px">SiCortex</DIV>
+<DIV style="MARGIN: 0px">Three Clock Tower Place, Suite 210</DIV>
+<DIV style="MARGIN: 0px">Maynard MA 01754</DIV>
+<DIV style="MARGIN: 0px">(978) 897-0214 x224</DIV>
+<DIV style="MARGIN: 0px"><BR class=khtml-block-placeholder></DIV></SPAN><BR 
+class=Apple-interchange-newline></SPAN></DIV><BR></BODY></HTML>

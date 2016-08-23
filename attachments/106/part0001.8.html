@@ -1,0 +1,107 @@
+<div dir="ltr">Dear Rajeev: <br><br>&nbsp;&nbsp;&nbsp; Thank you so much for your help.<br><br>&nbsp;&nbsp;&nbsp;&nbsp; During compilation, I explicitly specify the mpicc I want to use, which is another mpich2 I installed.<br><br>&nbsp;&nbsp;&nbsp; Also, the error comes when I install the mpich2, to be accurate, when the installation process tries to compile files under /example. What do you think the problem is?<br>
+<br>&nbsp;&nbsp;&nbsp; Thanks again.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yu Liu<br><br><div class="gmail_quote">On Wed, Sep 17, 2008 at 11:39 AM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">-------------------------------------------------+--------------------------<br>
+&nbsp;Reporter: &nbsp;&quot;Thomas Liu&quot; &lt;<a href="mailto:thomas0810@gmail.com">thomas0810@gmail.com</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; &nbsp;Owner:<br>
+<div class="Ih2E3d"> &nbsp; &nbsp; Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp; Status: &nbsp;closed<br>
+&nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Milestone:<br>
+Component: &nbsp;mpich2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; Resolution: &nbsp;fixed<br>
+&nbsp;Keywords: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |<br>
+-------------------------------------------------+--------------------------<br>
+<br>
+<br>
+</div>Comment (by Rajeev Thakur):<br>
+<br>
+&nbsp;What is in /usr/local/lib/libmpich.a? Looks like it is MPICH-1 not MPICH2.<br>
+<div class="Ih2E3d"><br>
+&nbsp;Rajeev<br>
+<br>
+&nbsp;&gt; -----Original Message-----<br>
+&nbsp;&gt; From: <a href="mailto:owner-mpich2-bugs@mcs.anl.gov">owner-mpich2-bugs@mcs.anl.gov</a><br>
+&nbsp;&gt; [mailto:<a href="mailto:owner-mpich2-bugs@mcs.anl.gov">owner-mpich2-bugs@mcs.anl.gov</a>] On Behalf Of mpich2<br>
+</div><div class="Ih2E3d">&nbsp;&gt; Sent: Wednesday, September 17, 2008 10:43 AM<br>
+&nbsp;&gt; To: undisclosed-recipients:<br>
+&nbsp;&gt; Subject: Re: [mpich2-maint] #106: A question regarding mpich2 and pvfs<br>
+&nbsp;&gt;<br>
+</div><div class="Ih2E3d">&nbsp;&gt; -------------------------------------------------+------------<br>
+&nbsp;&gt; --------------<br>
+&nbsp;&gt; &nbsp;Reporter: &nbsp;&quot;Thomas Liu&quot; &lt;<a href="mailto:thomas0810@gmail.com">thomas0810@gmail.com</a>&gt; &nbsp;|<br>
+</div><div><div></div><div class="Wj3C7c">&nbsp;&gt; Owner:<br>
+&nbsp;&gt; &nbsp; &nbsp; &nbsp;Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|<br>
+&nbsp;&gt; Status: &nbsp;closed<br>
+&nbsp;&gt; &nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|<br>
+&nbsp;&gt; Milestone:<br>
+&nbsp;&gt; Component: &nbsp;mpich2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |<br>
+&nbsp;&gt; Resolution: &nbsp;fixed<br>
+&nbsp;&gt; &nbsp;Keywords: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |<br>
+&nbsp;&gt; -------------------------------------------------+------------<br>
+&nbsp;&gt; --------------<br>
+&nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; Comment (by Thomas Liu):<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;HI, yong, here is another email sent by Rajeev. but it still<br>
+&nbsp;&gt; doesn&#39;t solve<br>
+&nbsp;&gt; &nbsp;the problem.<br>
+&nbsp;&gt; &nbsp;you see, the sole problem has delayed us for more than one<br>
+&nbsp;&gt; month. and as<br>
+&nbsp;&gt; &nbsp;all<br>
+&nbsp;&gt; &nbsp;senior developer<br>
+&nbsp;&gt; &nbsp;can&#39;t solve it, there is no doubt that it is a hard one.<br>
+&nbsp;&gt; sorry for that.<br>
+&nbsp;&gt; &nbsp;but<br>
+&nbsp;&gt; &nbsp;we really need to find<br>
+&nbsp;&gt; &nbsp;some way to get the job done.<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;On Fri, Sep 12, 2008 at 3:12 PM, mpich2<br>
+</div></div><div class="Ih2E3d">&nbsp;&gt; &lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt; wrote:<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; --------------------------------------------------+-----------<br>
+&nbsp;&gt; --------------<br>
+</div>&nbsp;&gt; &nbsp;&gt; &nbsp;Reporter: &nbsp;&quot;Thomas Liu&quot; &lt;<a href="mailto:thomas0810@gmail.com">thomas0810@gmail.com</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; Owner:<br>
+<div class="Ih2E3d">&nbsp;&gt; &nbsp;&gt; &nbsp; &nbsp; &nbsp; Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|<br>
+&nbsp;&gt; Status: &nbsp;closed<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|<br>
+&nbsp;&gt; Component: &nbsp;mpich2<br>
+&nbsp;&gt; &nbsp;&gt; Resolution: &nbsp;fixed &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Keywords:<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; --------------------------------------------------+-----------<br>
+&nbsp;&gt; --------------<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; Comment (by Rajeev Thakur):<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;&gt; &nbsp;: undefined reference to `_intel_fast_memcpy&#39;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;&gt; &nbsp;/usr/local/lib/libmpich.a(dmpipk.o)(.text+0x2aa): In function<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;&gt; &nbsp;`MPIR_UnPack_Hvect<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;&gt; &nbsp;: undefined reference to `_intel_fast_memcpy&#39;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;&gt; &nbsp;collect2: ld returned 1 exit status<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;&gt; &nbsp;make[1]: *** [cpi] Error 1<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;&gt; &nbsp;make[1]: Leaving directory `/home-mgt5/yliu/mb/examples&#39;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;&gt; &nbsp;make: *** [all-redirect] Error 2<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;These error messages are from MPICH-1 not MPICH2. Make<br>
+&nbsp;&gt; sure the mpicc<br>
+&nbsp;&gt; &nbsp;from<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;MPICH2 is in your default path or give the full path to mpicc.<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; &nbsp;Rajeev<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt; &nbsp;&gt; --<br>
+&nbsp;&gt; &nbsp;&gt; Ticket URL:<br>
+&nbsp;&gt; &nbsp;&lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment</a>:&gt;<br>
+&nbsp;&gt; &nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; --<br>
+&nbsp;&gt; Ticket URL:<br>
+&nbsp;&gt; &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment</a>:&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt;<br>
+<br>
+</div>--<br>
+<div><div></div><div class="Wj3C7c">Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment</a>:&gt;<br>
+</div></div></blockquote></div><br></div>

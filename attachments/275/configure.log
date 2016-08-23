@@ -1,0 +1,123 @@
+Configuring MPICH2 version 1.0
+./configure: line 1548: test: too many arguments
+configure: warning: ROMIO src directory is not available
+./configure: line 1582: test: too many arguments
+./configure: line 1584: test: too many arguments
+./configure: line 1602: test: too many arguments
+./configure: line 1604: test: too many arguments
+./configure: line 1626: test: too many arguments
+./configure: line 1628: test: too many arguments
+./configure: line 1633: test: too many arguments
+./configure: line 1644: test: too many arguments
+./configure: line 1649: test: too many arguments
+checking for gcc... gcc
+checking whether the C compiler (gcc  ) works... yes
+checking whether the C compiler (gcc  ) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking for g77... g77
+checking whether the Fortran 77 compiler (g77  ) works... yes
+checking whether the Fortran 77 compiler (g77  ) is a cross-compiler... no
+checking whether we are using GNU Fortran 77... yes
+checking whether g77 accepts -g... yes
+checking for f95... no
+checking for f90... no
+checking for xlf90... no
+checking for pgf90... no
+checking for ifc... no
+checking for efc... no
+configure: warning: no acceptable Fortran 90 compiler found in $PATH
+checking how to run the C preprocessor... /lib/cpp
+checking for ar... ar
+checking for ranlib... ranlib
+checking for ranlib... (cached) ranlib
+checking whether global variables handled properly... yes
+checking for a BSD compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking whether install breaks libraries... no
+checking whether mkdir -p works... yes
+checking for perl... /usr/bin/perl
+checking for strerror... no
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make echos directory changes... yes using --no-print-directory
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for type of weak symbol support... no
+checking whether __attribute__ ((weak)) allowed... no
+checking for working const... no
+checking for volatile... no
+checking for restrict... no
+checking for inline... no
+checking whether __attribute__ allowed... no
+checking whether __attribute__((format)) allowed... no
+Using gcc to determine dependencies
+checking whether long double is supported... no
+checking whether long long is supported... no
+checking for C struct alignment... unknown
+checking for alignment restrictions on pointers... pointer
+checking size of char... 0
+checking size of short... 0
+checking size of int... 0
+checking size of long... 0
+checking size of long long... 0
+checking size of float... 0
+checking size of double... 0
+checking size of long double... 0
+checking size of wchar_t... 0
+checking for stddef.h... no
+checking size of void *... 0
+checking for size of float int... 0
+checking for size of double int... 0
+checking for size of long int... 0
+checking for size of short int... 0
+checking for size of 2 int... 0
+checking for size of long double int... 0
+checking for sys/bitypes.h... no
+checking for int16_t... no
+checking size of short... (cached) 0
+checking for int32_t... no
+checking size of int... (cached) 0
+checking for int64_t... no
+checking size of long... (cached) 0
+checking size of long long... (cached) 0
+checking if char * pointers use give byte addresses... 
+checking for size of MPI_BSEND_OVERHEAD... 256
+checking for size of MPI_Status... 0
+checking for gcc __asm__ and pentium cmpxchgl instruction... no
+checking for gcc __asm__ and AMD x86_64 cmpxchgq instruction... no
+checking for gcc __asm__ and IA64 xchg4 instruction... no
+checking for ANSI C header files... no
+checking for stdlib.h... no
+checking for stdarg.h... no
+checking for sys/types.h... no
+checking for inttypes.h... no
+checking for limits.h... no
+checking for stddef.h... (cached) no
+checking for errno.h... no
+checking for sys/socket.h... no
+checking for sys/uio.h... no
+checking for setitimer... no
+checking for alarm... no
+checking for vsnprintf... no
+checking for vsprintf... no
+checking for snprintf... no
+checking for va_copy... no
+checking for __va_copy... no
+checking for working alloca.h... no
+checking for alloca... no
+checking whether alloca needs Cray hooks... no
+checking stack direction for C alloca... -1
+checking for strdup... no
+./configure: line 7906: test: too many arguments
+updating cache 3516conf.cache
+configuring in src/mpi/timer
+running /bin/sh ./configure  -enable-cache --cache-file=../../../3516conf.cache --srcdir=.
+loading cache ../../../3516conf.cache
+RUNNING CONFIGURE FOR TIMER
+checking for gcc... (cached) gcc
+checking whether the C compiler (gcc  ) works... no
+configure: error: installation or configuration problem: C compiler cannot create executables.
+configure: error: ./configure failed for src/mpi/timer

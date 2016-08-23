@@ -1,0 +1,81 @@
+Configuring MPICH2 version 1.0.8 with  '-prefix=/home/gulum/mpich2-install'
+Running on system: SunOS dinamik 5.10 Generic_127128-11 i86pc i386 i86pc
+Executing mpich2prereq in /home/gulum/mpich/mpich2-1.0.8/src/mpid/ch3 with 
+Executing mpich2prereq in /home/gulum/mpich/mpich2-1.0.8/src/mpid/ch3/channels/sock
+sourcing /home/gulum/mpich/mpich2-1.0.8/src/pm/mpd/mpich2prereq
+sourcing /home/gulum/mpich/mpich2-1.0.8/src/pm/mpd/setup_pm
+checking for gcc... no
+checking for cc... cc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... no
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking whether C compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for type of weak symbol support... pragma weak
+checking whether __attribute__ ((weak)) allowed... yes
+checking for multiple weak symbol support... yes
+checking for g77... no
+checking for xlf... no
+checking for f77... f77
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether f77 accepts -g... yes
+checking whether Fortran 77 compiler accepts option -O2... no
+checking how to get verbose linking output from f77... -v
+checking for Fortran 77 libraries of f77...  -R/opt/SUNWspro/lib -L/opt/SUNWspro/lib -L/opt/SUNWspro/prod/lib -L/usr/ccs/lib -L/lib -L/usr/lib -lfui -lfai -lfsu -lsunmath -lmtsk -lm
+checking whether f77 accepts the FLIBS found by autoconf... yes
+checking whether C can link with  -R/opt/SUNWspro/lib -L/opt/SUNWspro/lib -L/opt/SUNWspro/prod/lib -L/usr/ccs/lib -L/lib -L/usr/lib -lfui -lfai -lfsu -lsunmath -lmtsk -lm... yes
+checking for linker for Fortran main programs... NOTICE: Invoking /opt/SUNWspro/bin/f90 -f77 -ftrap=%none -o conftest conftest.o conftest1.o
+Use Fortran to link programs
+checking for Fortran 77 name mangling... lower underscore
+checking what libraries are needed to link Fortran programs with C routines that use stdio... none
+checking for f90... f90
+checking that f works as the extension for Fortran 90 program... yes
+checking whether we are using the GNU Fortran 90 compiler... no
+checking whether f90 accepts -g... yes
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (f90  ) works... yes
+checking whether the Fortran 90 compiler (f90  ) is a cross-compiler... no
+checking whether Fortran 90 works with Fortran 77... yes
+checking whether Fortran accepts ! for comments... yes
+checking for include directory flag for Fortran... -I
+checking for Fortran 77 flag for library directories... 
+checking for which Fortran libraries are needed to link C with Fortran... none
+checking whether Fortran compiler processes .F files with C preprocessor... yes
+checking that f works as the extension for Fortran 90 program... yes
+checking whether we are using the GNU Fortran 90 compiler... (cached) no
+checking whether f90 accepts -g... (cached) yes
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (f90  ) works... yes
+checking whether the Fortran 90 compiler (f90  ) is a cross-compiler... no
+checking for Fortran 90 module extension... mod
+checking for Fortran 90 module include flag... -M
+checking whether Fortran 90 accepts f90 suffix... yes
+checking whether Fortran 90 compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking whether Fortran 90 compiler processes .F90 files with C preprocessor... yes
+checking what libraries are needed to link Fortran90 programs with C routines that use stdio... none
+checking for f90 compiler vendor... unknown
+checking for c++... no
+checking for g++... no
+checking for gcc... no
+checking for CC... CC
+checking whether we are using the GNU C++ compiler... no
+checking whether CC accepts -g... yes
+checking whether the C++ compiler CC can build an executable... yes
+checking whether C++ compiler works with string... yes
+checking whether the compiler supports exceptions... yes
+checking whether the compiler recognizes bool as a built-in type... yes
+checking whether the compiler implements namespaces... yes
+checking whether <iostream> available... yes
+checking whether the compiler implements the namespace std... yes
+checking whether <math> available... no
+checking whether C++ compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for perl... /bin/perl
+checking for ar... no
+configure: error: The program ar is required for building MPICH2.  Make sure that your path includes ar

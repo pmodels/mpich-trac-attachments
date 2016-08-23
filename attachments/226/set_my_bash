@@ -1,0 +1,464 @@
+!::='::\'
+ALLUSERSPROFILE='H:\Documents and Settings\All Users'
+AMENDED_PATHS=1
+APPDATA='H:\Documents and Settings\maier\Application Data'
+BASH=/bin/bash
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_LINENO=()
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="3" [1]="2" [2]="9" [3]="11" [4]="release" [5]="i686-pc-cygwin")
+BASH_VERSION='3.2.9(11)-release'
+BROWSER='H:\Program Files\Mozilla Firefox\firefox.exe'
+COLORFGBG='15;default;0'
+COLORTERM=rxvt-xpm
+COMMONPROGRAMFILES='H:\Program Files\Common Files'
+COMPUTERNAME=ROLF
+COMSPEC='H:\WINDOWS\system32\cmd.exe'
+CVSROOT=maier/cvs
+CVS_RSH=/usr/bin/ssh
+CWPROOT=/home/su
+CWP_TMPDIR=/tmp/maier
+CYGWIN='binmode tty ntsec notraverse'
+DEFLOGDIR='H:\Documents and Settings\All Users\Application Data\McAfee\DesktopProtection'
+DIRSTACK=()
+DISPLAY=:0
+EDITOR=emacs
+EMAIL=maier@ucalgary.ca
+ENSCRIPT='-B -h -G2rE -C -M Letter --non-printable-format=caret'
+EUID=13156
+FOCIHOME=/H/home/foci
+FP_NO_HOST_CHECK=NO
+G95_ABORT=FALSE
+G95_CHECKPOINT=0
+G95_CR=FALSE
+G95_ENDIAN=NATIVE
+G95_FLAGS='-Wall -fimplicit-none -ftrace=full -fbounds-check -finteger=9999 -freal=nan -fpointer=invalid'
+G95_FPU_INVALID=Yes
+G95_FPU_OVERFLOW=Yes
+G95_FPU_PRECISION=53
+G95_FPU_ZERODIV=Yes
+G95_LIST_SEPARATOR=
+G95_MEM_INIT=NAN
+G95_MEM_MAXALLOC=YES
+G95_MEM_SEGMENTS=-1
+G95_MEM_TRIM_THRESHOLD=262144
+GAGEDIR='H:\Program Files\Gage\CompuScope\'
+GNUPLOTDIR=/usr/local/bin
+GROUPS=()
+HISTFILE=/cygdrive/h/home/maier/.bash_history
+HISTFILESIZE=500
+HISTSIZE=500
+HOME=/cygdrive/h/home/maier
+HOMEDRIVE=H:
+HOMEPATH='\Documents and Settings\maier'
+HONAM=rolf
+HOSTNAME=rolf
+HOSTTYPE=i686
+IFS=$' \t\n'
+INFOPATH=/usr/local/info:/usr/share/info:/usr/info:
+LD_LIBRARY_PATH=/usr/local/lib:.
+LD_RUN_PATH=/usr/local/lib
+LOGONSERVER='\\ROLF'
+LS_COLORS='fi=00:di=01;34:ln=02;32:*.mar=01;33:'
+MACHTYPE=i686-pc-cygwin
+MAILDIR=/var/spool/mail
+MAKE_MODE=unix
+MANBASE=/usr/ssl/man:/usr/share/man:/usr/man:/usr/X11R6/man:/usr/X11R6/share/man:/usr/local/man:/cygdrive/h/home/maier/man
+MANPATH=/usr/ssl/man:/usr/share/man:/usr/man:/usr/X11R6/man:/usr/X11R6/share/man:/usr/local/man:/cygdrive/h/home/maier/man
+MATLAB='h:\Program Files\MATLAB\R2007b'
+MM_NOASK=1
+MY_HONAM=rolf
+NUMBER_OF_PROCESSORS=2
+OLDPWD=/cygdrive/h/home/Downloads
+OPTERR=1
+OPTIND=1
+OS=Windows_NT
+OSTYPE=cygwin
+PATH='/H/Program Files/MATLAB/MATLAB Component Runtime/v75/bin/win32:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/cygdrive/h/WINDOWS/system32:/cygdrive/h/WINDOWS:/cygdrive/h/WINDOWS/system32/wbem:/cygdrive/h/Program Files/MATLAB/R2007b/bin:/cygdrive/h/Program Files/MATLAB/R2007b/bin/win32:/cygdrive/h/program files/common files/ulead systems/mpeg:/cygdrive/h/Program Files/MATLAB/MATLAB Component Runtime/v75/runtime/win32:/cygdrive/h/Program Files/ImageConverter Plus:/cygdrive/h/Program Files/ImageConverter Plus/Microsoft.VC80.CRT:/cygdrive/h/Program Files/ImageConverter Plus/Microsoft.VC80.MFC:/cygdrive/h/Program Files/Microsoft SQL Server/90/Tools/binn/:/cygdrive/h/Program Files/ImageConverter Plus:/cygdrive/h/Program Files/ImageConverter Plus/Microsoft.VC80.CRT:/cygdrive/h/Program Files/ImageConverter Plus/Microsoft.VC80.MFC:/usr/lib/lapack:/home/ow/ProMAX/port/bin:/H/Program Files/Sun/jdk/bin:/H/Program Files/Windows NT/Accessories:/H/Program Files/Ahead/Nero StartSmart:/H/Program Files/Common Files/Ulead Systems/MPEG:/H/Program Files/Microsoft Office/Office12:/H/Program Files/Microsoft Office/Office11:/H/Program Files/CREWES/QuadDes:/H/Program Files/CREWES/Syngram:/usr/sbin:/cygdrive/h/home/maier/bin:/home/su/bin'
+PATHBASE='/H/Program Files/MATLAB/MATLAB Component Runtime/v75/bin/win32:/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:/cygdrive/h/WINDOWS/system32:/cygdrive/h/WINDOWS:/cygdrive/h/WINDOWS/system32/wbem:/cygdrive/h/Program Files/MATLAB/R2007b/bin:/cygdrive/h/Program Files/MATLAB/R2007b/bin/win32:/cygdrive/h/program files/common files/ulead systems/mpeg:/cygdrive/h/Program Files/MATLAB/MATLAB Component Runtime/v75/runtime/win32:/cygdrive/h/Program Files/ImageConverter Plus:/cygdrive/h/Program Files/ImageConverter Plus/Microsoft.VC80.CRT:/cygdrive/h/Program Files/ImageConverter Plus/Microsoft.VC80.MFC:/cygdrive/h/Program Files/Microsoft SQL Server/90/Tools/binn/:/cygdrive/h/Program Files/ImageConverter Plus:/cygdrive/h/Program Files/ImageConverter Plus/Microsoft.VC80.CRT:/cygdrive/h/Program Files/ImageConverter Plus/Microsoft.VC80.MFC:/usr/lib/lapack:/home/ow/ProMAX/port/bin:/H/Program Files/Sun/jdk/bin:/H/Program Files/Windows NT/Accessories:/H/Program Files/Ahead/Nero StartSmart:/H/Program Files/Common Files/Ulead Systems/MPEG:/H/Program Files/Microsoft Office/Office12:/H/Program Files/Microsoft Office/Office11:/H/Program Files/CREWES/QuadDes:/H/Program Files/CREWES/Syngram:/usr/sbin:/cygdrive/h/home/maier/bin:/home/su/bin'
+PATHEXT='.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH'
+PIPESTATUS=([0]="0")
+PKG_CONFIG_PATH=/usr/X11R6/lib/pkgconfig
+POTSIHOME=/H/home/potsi/i
+PPID=860
+PRINTER=//mars/Rainier
+PROCESSOR_ARCHITECTURE=x86
+PROCESSOR_IDENTIFIER='x86 Family 15 Model 35 Stepping 2, AuthenticAMD'
+PROCESSOR_LEVEL=15
+PROCESSOR_REVISION=2302
+PROGRAMFILES='H:\Program Files'
+PROG_FILS='/H/Program Files'
+PROMAX_DATA_HOME=/cygdrive/h/home/maier/Promax
+PROMAX_HOME=/home/ow/ProMAX
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+PS2='> '
+PS4='+ '
+PWD=/cygdrive/h/home/Downloads/mpich2-1.0.8rc1
+PYTHONSTARTUP=/cygdrive/h/home/maier/.pystartup
+QMAKESPEC=/usr/lib/qt3/mkspecs/cygwin-g++
+QTDIR=/usr/lib/qt3
+REPLYTO=maier@ucalgary.ca
+SESSIONNAME=Console
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:emacs:hashall:histexpand:history:interactive-comments:monitor
+SHLVL=1
+SYSTEMDRIVE=H:
+SYSTEMROOT='H:\WINDOWS'
+SYS_DRV=/H
+TEMP=/cygdrive/h/DOCUME~1/maier/LOCALS~1/Temp
+TERM=xterm
+TEXDOCVIEW_dvi='cygstart %s'
+TEXDOCVIEW_html='cygstart %s'
+TEXDOCVIEW_pdf='cygstart %s'
+TEXDOCVIEW_ps='cygstart %s'
+TEXDOCVIEW_txt='cygstart %s'
+TMP=/tmp/maier
+TMPDIR=/tmp/maier
+UC_HONAM=rolf
+UID=13156
+USER=maier
+USERDOMAIN=ROLF
+USERNAME=maier
+USERPROFILE='H:\Documents and Settings\maier'
+VISUAL=emacs
+VS90COMNTOOLS='h:\Program Files\Microsoft Visual Studio 9.0\Common7\Tools\'
+VSEDEFLOGDIR='H:\Documents and Settings\All Users\Application Data\McAfee\DesktopProtection'
+WHEN=never
+WINDIR='H:\WINDOWS'
+WINDOWID=6815888
+_=README
+f=
+a2p2 () 
+{ 
+    a2ps --medium=Letter -2 --output=- ${1} | ps2pdf - > ${1}.pdf;
+    echo Set \'flip on long edge\' to print ${1}.pdf;
+    ${SYSTEMDRIVE}/Program\ Files/Adobe/Acrobat\ 7.0/Reader/AcroRd32 ${1}.pdf &
+}
+a2p4 () 
+{ 
+    a2ps --medium=Letter -4 --output=- ${1} | ps2pdf - > ${1}.pdf;
+    echo Set \'flip on long edge\' to print ${1}.pdf;
+    ${SYSTEMDRIVE}/Program\ Files/Adobe/Acrobat\ 7.0/Reader/AcroRd32 ${1}.pdf &
+}
+add2llp () 
+{ 
+    if test -d "$1"; then
+        yy=`echo $LD_LIBRARY_PATH | grep "$1"`;
+        if [[ ! -n ${yy} ]]; then
+            export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$1";
+        fi;
+    fi;
+    unset yy
+}
+add2pathbase () 
+{ 
+    if test -d "$1"; then
+        yy=`echo $PATHBASE | grep "$1"`;
+        if [[ ! -n ${yy} ]]; then
+            export PATHBASE="${PATHBASE}:$1";
+        fi;
+    fi;
+    unset yy
+}
+ccc () 
+{ 
+    gcc -DISMAIN -o $1 ${1}.c
+}
+cdc () 
+{ 
+    if [ "$1" == "" ]; then
+        cd `cygpath -a "$PWD" | sed -e "s+${HOME}+/c/maier+"`;
+    else
+        cd `cygpath -a  "$1"  | sed -e "s+${HOME}+/c/maier+"`;
+    fi
+}
+cdn () 
+{ 
+    if [ "$1" == "" ]; then
+        cd `cygpath -a "$PWD" | sed -e "s+${HOME}+/n+"`;
+    else
+        cd `cygpath -a  "$1"  | sed -e "s+${HOME}+/n+"`;
+    fi
+}
+desk () 
+{ 
+    cygstart "$SYSTEMROOT/system32/mstsc.exe" /v:$1
+}
+diffc () 
+{ 
+    TMPFILE=`mktemp -t mirror.XXXXXXXXXX` || exit 1;
+    echo `cygpath -a "$1"` > $TMPFILE;
+    sed -e 's*/cygdrive/h/home/maier*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+    if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+        sed -e 's*/home/maier*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+        if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+            sed -e 's*~*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+        fi;
+    fi;
+    if test -f "$1"; then
+        echo $1 VERSUS `cat ${TMPFILE}.2`;
+        /bin/diff "$1" "`cat ${TMPFILE}.2`";
+    else
+        echo 'Error: diffn acts only on normal files.';
+    fi;
+    /bin/rm -f $TMPFILE ${TMPFILE}.2
+}
+diffn () 
+{ 
+    TMPFILE=`mktemp -t mirror.XXXXXXXXXX` || exit 1;
+    echo `cygpath -a "$1"` > $TMPFILE;
+    sed -e 's*/cygdrive/h/home/maier*//mars/crewes1\$/maier*' $TMPFILE > ${TMPFILE}.2;
+    if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+        sed -e 's*/home/maier*//mars/crewes1\$/maier*' $TMPFILE > ${TMPFILE}.2;
+        if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+            sed -e 's*~*//mars/crewes1\$/maier*' $TMPFILE > ${TMPFILE}.2;
+        fi;
+    fi;
+    if test -f "$1"; then
+        echo $1 VERSUS `cat ${TMPFILE}.2`;
+        /bin/diff "$1" "`cat ${TMPFILE}.2`";
+    else
+        echo 'Error: diffn acts only on normal files.';
+    fi;
+    /bin/rm -f $TMPFILE ${TMPFILE}.2
+}
+fff () 
+{ 
+    if test -f ${1}.for; then
+        g77 -o $1 ${1}.for;
+    else
+        if test -f ${1}.FOR; then
+            g77 -o $1 ${1}.FOR;
+        else
+            if test -f ${1}.f; then
+                g77 -o $1 ${1}.f;
+            else
+                if test -f ${1}.F; then
+                    g77 -o $1 ${1}.F;
+                else
+                    if test -f ${1}.f90; then
+                        g95 -o $1 ${1}.f90;
+                    else
+                        if test -f ${1}.F90; then
+                            g95 -o $1 ${1}.F90;
+                        else
+                            if test -f ${1}.f95; then
+                                g95 -o $1 ${1}.f95;
+                            else
+                                if test -f ${1}.F95; then
+                                    g95 -o $1 ${1}.F95;
+                                else
+                                    echo File has no recognized Fortran suffix.;
+                                fi;
+                            fi;
+                        fi;
+                    fi;
+                fi;
+            fi;
+        fi;
+    fi
+}
+fixpdf () 
+{ 
+    cygstart "$1";
+    more "$1".indextxt;
+    echo ' L A S T : ' "$1";
+    /bin/ls -AsFkvh -1 *.pdf
+}
+llc () 
+{ 
+    if [ "$1" == "" ]; then
+        /bin/ls -AsFvlgG `cygpath -a "$PWD" | sed -e "s+${HOME}+/c/maier+"`;
+    else
+        /bin/ls -AsFvlgG `cygpath -a  "$1"  | sed -e "s+${HOME}+/c/maier+"`;
+    fi
+}
+lln () 
+{ 
+    if [ "$1" == "" ]; then
+        /bin/ls -AsFvlGg `cygpath -a "$PWD" | sed -e "s+${HOME}+/n+"`;
+    else
+        /bin/ls -AsFvhlGg `cygpath -a  "$1"  | sed -e "s+${HOME}+/n+"`;
+    fi
+}
+lsc () 
+{ 
+    if [ "$1" == "" ]; then
+        /bin/ls -AsFkvh `cygpath -a "$PWD" | sed -e "s+${HOME}+/c/maier+"`;
+    else
+        /bin/ls -AsFkvh `cygpath -a  "$1"  | sed -e "s+${HOME}+/c/maier+"`;
+    fi
+}
+lsn () 
+{ 
+    if [ "$1" == "" ]; then
+        /bin/ls -AsFvh `cygpath -a "$PWD" | sed -e "s+${HOME}+/n+"`;
+    else
+        /bin/ls -AsFvh `cygpath -a  "$1"  | sed -e "s+${HOME}+/n+"`;
+    fi
+}
+mirror () 
+{ 
+    TMPFILE=`mktemp -t mirror.XXXXXXXXXX` || exit 1;
+    echo `cygpath -a "$1"` > $TMPFILE;
+    sed -e "s%`cygpath -a $HOMEDRIVE`/home/maier%/n%" $TMPFILE > ${TMPFILE}.2;
+    if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+        sed -e 's*/h/home/*//mars/crewes1\$/*' $TMPFILE > ${TMPFILE}.2;
+        if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+            sed -e 's*/home/*//mars/crewes1\$/*' $TMPFILE > ${TMPFILE}.2;
+            if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+                sed -e 's*~*//mars/crewes1\$/maier*' $TMPFILE > ${TMPFILE}.2;
+            fi;
+        fi;
+    fi;
+    if test -f "$1"; then
+        /bin/cp -i "$1" "`cat ${TMPFILE}.2`";
+    else
+        echo 'Error: mirror acts only on normal files.';
+    fi;
+    /bin/rm -f $TMPFILE ${TMPFILE}.2
+}
+mirrorc () 
+{ 
+    TMPFILE=`mktemp -t mirror.XXXXXXXXXX` || exit 1;
+    echo `cygpath -a "$1"` > $TMPFILE;
+    sed -e "s%`cygpath -a $HOMEDRIVE`/home/maier%/c/maier%" $TMPFILE > ${TMPFILE}.2;
+    if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+        sed -e 's*/h/home/*/c/maier/*' $TMPFILE > ${TMPFILE}.2;
+        if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+            sed -e 's*/home/*/c/maier/*' $TMPFILE > ${TMPFILE}.2;
+            if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+                sed -e 's*~*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+            fi;
+        fi;
+    fi;
+    if test -f "$1"; then
+        /bin/cp -i "$1" "`cat ${TMPFILE}.2`";
+    else
+        echo 'Error: mirrorc acts only on normal files.';
+    fi;
+    /bin/rm -f $TMPFILE ${TMPFILE}.2
+}
+mvc () 
+{ 
+    TMPFILE=`mktemp -t mirror.XXXXXXXXXX` || exit 1;
+    echo `cygpath -a "$1"` > $TMPFILE;
+    sed -e 's*/cygdrive/h/home/maier*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+    if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+        sed -e 's*/home/maier*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+        if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+            sed -e 's*~*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+        fi;
+    fi;
+    echo `cygpath -a "$2"` > $TMPFILE;
+    sed -e 's*/cygdrive/h/home/maier*/c/maier*' $TMPFILE > ${TMPFILE}.3;
+    if test -z "`diff $TMPFILE ${TMPFILE}.3`"; then
+        sed -e 's*/home/maier*/c/maier*' $TMPFILE > ${TMPFILE}.3;
+        if test -z "`diff $TMPFILE ${TMPFILE}.3`"; then
+            sed -e 's*~*/c/maier*' $TMPFILE > ${TMPFILE}.3;
+        fi;
+    fi;
+    if test -f "$1"; then
+        /bin/mv -i "`cat ${TMPFILE}.2`" "`cat ${TMPFILE}.3`";
+    else
+        echo 'Error: mvn acts only on normal files.';
+    fi;
+    /bin/rm -f $TMPFILE ${TMPFILE}.2 ${TMPFILE}.3
+}
+mvn () 
+{ 
+    TMPFILE=`mktemp -t mirror.XXXXXXXXXX` || exit 1;
+    echo `cygpath -a "$1"` > $TMPFILE;
+    sed -e 's*/cygdrive/h/home/maier*/n*' $TMPFILE > ${TMPFILE}.2;
+    if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+        sed -e 's*/home/maier*/n*' $TMPFILE > ${TMPFILE}.2;
+        if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+            sed -e 's*~*/n*' $TMPFILE > ${TMPFILE}.2;
+        fi;
+    fi;
+    echo `cygpath -a "$2"` > $TMPFILE;
+    sed -e 's*/cygdrive/h/home/maier*/n*' $TMPFILE > ${TMPFILE}.3;
+    if test -z "`diff $TMPFILE ${TMPFILE}.3`"; then
+        sed -e 's*/home/maier*/n*' $TMPFILE > ${TMPFILE}.3;
+        if test -z "`diff $TMPFILE ${TMPFILE}.3`"; then
+            sed -e 's*~*/n*' $TMPFILE > ${TMPFILE}.3;
+        fi;
+    fi;
+    if test -f "$1"; then
+        /bin/mv -i "`cat ${TMPFILE}.2`" "`cat ${TMPFILE}.3`";
+    else
+        echo 'Error: mvn acts only on normal files.';
+    fi;
+    /bin/rm -f $TMPFILE ${TMPFILE}.2 ${TMPFILE}.3
+}
+pwdc () 
+{ 
+    echo -n s/"`echo -n $HOME | sed -e 's/\//\\\\\//g'`"/\\\/c\\\maier/ > /tmp/zzz;
+    if [ "$1" == "" ]; then
+        echo `echo -n $PWD | sed -f /tmp/zzz`/;
+    else
+        echo `echo -n  $1  | sed -f /tmp/zzz`/;
+    fi;
+    /bin/rm /tmp/zzz
+}
+pwdn () 
+{ 
+    echo -n s/"`echo -n $HOME | sed -e 's/\//\\\\\//g'`"/\\\/n/ > /tmp/zzz;
+    if [ "$1" == "" ]; then
+        echo `echo -n $PWD | sed -f /tmp/zzz`/;
+    else
+        echo `echo -n  $1  | sed -f /tmp/zzz`/;
+    fi;
+    /bin/rm /tmp/zzz
+}
+rmc () 
+{ 
+    TMPFILE=`mktemp -t mirror.XXXXXXXXXX` || exit 1;
+    echo `cygpath -a "$1"` > $TMPFILE;
+    sed -e 's*/cygdrive/h/home/maier*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+    if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+        sed -e 's*/home/maier*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+        if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+            sed -e 's*~*/c/maier*' $TMPFILE > ${TMPFILE}.2;
+        fi;
+    fi;
+    if test -f "`cat ${TMPFILE}.2`"; then
+        /bin/rm -i "`cat ${TMPFILE}.2`";
+    else
+        if test -e "`cat ${TMPFILE}.2`"; then
+            echo 'Error: rmc acts only on normal files.';
+        else
+            echo "`cat ${TMPFILE}.2`" does not exist.;
+        fi;
+    fi;
+    /bin/rm -f $TMPFILE ${TMPFILE}.2
+}
+rmn () 
+{ 
+    TMPFILE=`mktemp -t mirror.XXXXXXXXXX` || exit 1;
+    echo `cygpath -a "$1"` > $TMPFILE;
+    sed -e 's*/cygdrive/h/home/maier*/n*' $TMPFILE > ${TMPFILE}.2;
+    if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+        sed -e 's*/home/maier*/n*' $TMPFILE > ${TMPFILE}.2;
+        if test -z "`diff $TMPFILE ${TMPFILE}.2`"; then
+            sed -e 's*~*/n*' $TMPFILE > ${TMPFILE}.2;
+        fi;
+    fi;
+    if test -f "`cat ${TMPFILE}.2`"; then
+        /bin/rm -i "`cat ${TMPFILE}.2`";
+    else
+        if test -e "`cat ${TMPFILE}.2`"; then
+            echo 'Error: rmn acts only on normal files.';
+        else
+            echo "`cat ${TMPFILE}.2`" does not exist.;
+        fi;
+    fi;
+    /bin/rm -f $TMPFILE ${TMPFILE}.2
+}
+ssx () 
+{ 
+    xhost + $2;
+    ssh -Y -c 3des -e none $1'@'$2
+}

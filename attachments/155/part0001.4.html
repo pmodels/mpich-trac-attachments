@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #155: MPICH2 Assistance</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; From your PATH I can see that &quot;C:\Program Files\Microsoft Compute Cluster Pack\Bin\&quot; is before PATHs to MPICH2 install dir (&amp; HP-MPI install dir). The MCCP bin directory could contain job launcher, mpiexec.exe, from Microsoft (part of MSMPI). Move &quot;C:\Program Files\mpich2x64\bin&quot; before the MCCP bin directory. I also see a &quot;C:\Program files\MPICH2\bin&quot; directory in your PATH (Make sure that you have uninstalled all previous versions of MPICH2 and have only one version of MPICH2 installed in your machine. I would recommend that you uninstall all versions of MPICH2 in your machine and install MPICH2 64-bit using the installer from MPICH2 webpage - <A HREF="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads</A>).<BR>
+<BR>
+&gt;&gt;&nbsp; The phoenics manual says to use MPIRUN ...<BR>
+&nbsp;Use &quot;mpiexec&quot; instead with MPICH2.<BR>
+<BR>
+&gt;&gt; ...does it matter if more than one version is installed...<BR>
+&nbsp;You should install the same version of MPICH2 on all the nodes. You can have MPI libraries from multiple vendors installed on the same machine as long as the PATH is setup correctly.<BR>
+<BR>
+&nbsp;Let us know if it works for you.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Thursday, September 18, 2008 3:32 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #155: MPICH2 Assistance<BR>
+<BR>
+----------------------------------------------------+-------------------<BR>
+----------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; Renae A Baldovski &lt;rbaldovski@uss.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+----------------------------------------------------+-------------------<BR>
+----------------------------------------------------+----<BR>
+<BR>
+<BR>
+Comment (by Renae A Baldovski):<BR>
+<BR>
+&nbsp;Hello,<BR>
+<BR>
+&nbsp;Thanks for the quick response.<BR>
+&nbsp;I have the HP MPI installed in C:\Program Files&nbsp; (x86)\Hewlett-Packard\HP-MPI&nbsp; and the MPICH2 in C:\Program Files\mpich2x64<BR>
+<BR>
+&nbsp;My path statement has&nbsp; C:\Program Files\mpich2x64\bin before C:\Program&nbsp; Files (x86)\Hewlett-Packard\HP-MPI\bin&nbsp; Here is my path statement:<BR>
+<BR>
+&nbsp;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;C:\Program<BR>
+&nbsp;Files (x86)\Microsoft SQL Server\80\Tools\Binn\;C:\Program Files\Microsoft&nbsp; Compute Cluster<BR>
+&nbsp;Pack\Bin\;\\fml-<BR>
+&nbsp;ace\fluent.inc\ntbin\win64;c:\phoenics\d_utils\d_windf;c:\phoenics\d_utils;C:\Program<BR>
+&nbsp;Files (x86)\Microsoft Visual Studio 8\VC\Bin;C:\Program Files&nbsp; (x86)\Intel\Compiler\Fortran\10.1.021\em64t;C:\Program Files&nbsp; (x86)\Microsoft Visual Studio&nbsp; 8\Common7\IDE;%IFORT_COMPILER10%\EM64T\Lib;C:\Program Files&nbsp; (x86)\Intel\Compiler\Fortran\10.1.021\em64t\bin;C:\Program<BR>
+&nbsp;Files\mpich2x64\bin;C:\Program files\MPICH2\bin;C:\Program Files&nbsp; (x86)\Hewlett-Packard\HP-MPI\bin<BR>
+<BR>
+&nbsp;The phoenics manual says to use MPIRUN&nbsp; but I only see this command in the&nbsp; HP MPI\bin&nbsp; directory.<BR>
+&nbsp;I guess I am confused as to what version of MPI should the cluster be&nbsp; running and does it matter if more than one version is installed.<BR>
+<BR>
+&nbsp;Here is a command window of what happens when we run runpart.bat which is&nbsp; a Phoenics job.<BR>
+&nbsp;Runpart.bat contains these commands:<BR>
+&nbsp;rem &quot;&lt;html&gt;&lt;body&gt;&lt;pre&gt;&lt;strong&gt;&quot;<BR>
+&nbsp;@echo off<BR>
+&nbsp;if defined phoenics (set pho=%phoenics%) else set pho=\phoenics&nbsp; if %1!==! goto default&nbsp; mpiexec -np %1 &quot;%pho%\d_earth\d_windf\earexe.exe&quot;<BR>
+&nbsp;goto end<BR>
+&nbsp;:default<BR>
+&nbsp;mpiexec -np 2 &quot;%pho%\d_earth\d_windf\earexe.exe&quot;<BR>
+&nbsp;:end<BR>
+&nbsp;rem &quot;&lt;/strong&gt;&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Renae A. Baldovski<BR>
+&nbsp;United States Steel Corporation<BR>
+&nbsp;Research &amp; Technology Center<BR>
+&nbsp;MS W1<BR>
+&nbsp;800 E. Waterfront Drive<BR>
+&nbsp;Munhall, PA 15120<BR>
+&nbsp;Phone: 412-433-7171<BR>
+&nbsp;FAX: 412-433-7170<BR>
+&nbsp;Email: rbaldovski@uss.com<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&quot;Jayesh Krishna&quot; &lt;jayesh@mcs.anl.gov&gt;<BR>
+&nbsp;09/18/2008 02:10 PM<BR>
+<BR>
+&nbsp;To<BR>
+&nbsp;&lt;rbaldovski@uss.com&gt;<BR>
+&nbsp;cc<BR>
+&nbsp;&lt;mpich2-maint@mcs.anl.gov&gt;<BR>
+&nbsp;Subject<BR>
+&nbsp;RE: [mpich2-maint] #155: MPICH2 Assistance<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Hi,<BR>
+&nbsp; Can you run mpiexec from the command prompt ? Do you have&nbsp; &lt;MPICH2-INSTALL-DIR&gt;\bin in your PATH ?<BR>
+&nbsp; Let us know what you find out.<BR>
+<BR>
+&nbsp;(PS: The Compute cluster server comes with Microsoft's MPI installed. Make&nbsp; sure that the PATH variable has MPICH2 dirs before MSMPI dirs. Check&nbsp; &quot;Program Files&quot; --&gt; &quot;Control Panel&quot; --&gt; &quot;System&quot; - see the &quot;Advanced Tab&quot;<BR>
+&nbsp;for setting the environment variables)<BR>
+<BR>
+&nbsp;Regards,<BR>
+&nbsp;Jayesh<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&gt;&gt;&gt;I am running an HP Cluster 64-bit Windows 2003 Compute Cluster&nbsp; Edition.&amp;nbsp; Installed MPICH2 but having problems with third-party CFD&nbsp; software<BR>
+<BR>
+&nbsp;&gt;&gt;&gt;PHOENICS from CHAM seeing the MPI software.&amp;nbsp; Ran the&nbsp; wmpiconfig.exe utility.&amp;nbsp; Utility reports &quot;MPICH2 not installed or&nbsp; unable to query the<BR>
+<BR>
+&nbsp;&gt;&gt;&gt;&gt;host&quot;.&amp;nbsp; It reports this same error message on all 5&nbsp; nodes.&lt;/DIV&gt;&lt;DIV&gt;The Windows firewall is turned off on the head node and 4&nbsp; compute<BR>
+<BR>
+&nbsp;&gt;&gt;&gt;&gt;nodes.&lt;/DIV&gt;&lt;DIV&gt;The service MPICH2 Process Manager is running, set at&nbsp; automatic.&lt;/DIV&gt;&lt;DIV&gt;Can you provide any other recommendations that may&nbsp; help<BR>
+<BR>
+&nbsp;&gt;&gt;&gt;&gt; getting MPICH2 to work correctly?<BR>
+<BR>
+<BR>
+&nbsp;-----Original Message-----<BR>
+&nbsp;From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&nbsp;On Behalf Of mpich2<BR>
+&nbsp;Sent: Thursday, September 18, 2008 10:43 AM<BR>
+&nbsp;To: undisclosed-recipients:<BR>
+&nbsp;Subject: [mpich2-maint] #155: MPICH2 Assistance<BR>
+<BR>
+&nbsp;----------------------------------------------------+-------------------<BR>
+&nbsp;----------------------------------------------------+----<BR>
+&nbsp; Reporter:&nbsp; Renae A Baldovski &lt;rbaldovski@uss.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp;Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&nbsp;----------------------------------------------------+-------------------<BR>
+&nbsp;----------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp; (see attachment for HTML mail message)<BR>
+<BR>
+<BR>
+&nbsp;--<BR>
+&nbsp;Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/155">https://trac.mcs.anl.gov/projects/mpich2/ticket/155</A>&gt;<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/155#comment:&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

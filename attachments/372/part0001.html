@@ -1,0 +1,122 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=us-ascii">
+<meta name=Generator content="Microsoft Word 11 (filtered medium)">
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 69.6pt 70.85pt 69.6pt;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=FR link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Dear developpers,<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>I have installed mpich2-1.0.8-win-ia32.msi on 2 Windows
+based PCs (downloaded from <a
+href="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads</a>).<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>From a shared network hardrive, the provided cpi.exe
+example works fine, i.e.<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>mpiexec &#8211;n &lt;whatever nb proc&gt; -machinefile
+&lt;file listing the 2 hosts&gt; cpi<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>However, when running the same command but for a
+program (MCNPX, version running fine with MPICH1) which needs an input file, i.e.<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>mpiexec &#8211;n &lt;whatever nb proc&gt; -machinefile
+&lt;file listing the 2 hosts&gt; -wdir (or &#8211;dir) &lt;shared network
+directory containing the input, which is the current directory&gt; program &lt;input
+file&gt;<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>the input file is not found.<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>It appears that MPICH2 doesn&#8217;t &#8220;see&#8221;
+this network directory, i.e. the &#8211;wdir option is not effective. <o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>Conversely, the &#8211;wdir option works well for local
+directories.<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>Could you please help me ?<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'>Thank you very much in advance.<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span lang=EN-GB
+style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Best regards,<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>Dr. L. Donadille<o:p></o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoPlainText><font size=2 face="Courier New"><span style='font-size:
+10.0pt'>IRSN, France</span><o:p></o:p></font></p>
+
+</div>
+
+</body>
+
+</html>

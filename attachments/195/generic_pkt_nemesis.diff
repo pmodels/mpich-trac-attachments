@@ -1,0 +1,125 @@
+Index: src/mpid/ch3/include/mpidpre.h
+===================================================================
+--- src/mpid/ch3/include/mpidpre.h	(revision 3298)
++++ src/mpid/ch3/include/mpidpre.h	(working copy)
+@@ -87,8 +87,10 @@
+    packet header can be copied in the event that a message cannot be
+    send immediately.  
+ */
+-typedef struct MPIDI_CH3_PktGeneric { int32_t kind; int32_t *pktptrs[1]; int32_t pktwords[6]; } 
+-    MPIDI_CH3_PktGeneric_t;
++typedef struct MPIDI_CH3_PktGeneric {
++    int32_t kind;
++    char padding[48];
++} MPIDI_CH3_PktGeneric_t;
+ 
+ /*
+  * THIS IS OBSOLETE AND UNUSED, BUT RETAINED FOR ITS DESCRIPTIONS OF THE
+Index: src/mpid/ch3/channels/nemesis/nemesis/net_mod/newtcp_module/newtcp_module_send.c
+===================================================================
+--- src/mpid/ch3/channels/nemesis/nemesis/net_mod/newtcp_module/newtcp_module_send.c	(revision 3298)
++++ src/mpid/ch3/channels/nemesis/nemesis/net_mod/newtcp_module/newtcp_module_send.c	(working copy)
+@@ -251,7 +251,7 @@
+             MPID_IOV iov[2];
+ 
+             iov[0].MPID_IOV_BUF = hdr;
+-            iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_PktGeneric_t);
++            iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_Pkt_t);
+             iov[1].MPID_IOV_BUF = data;
+             iov[1].MPID_IOV_LEN = data_sz;
+         
+@@ -266,7 +266,7 @@
+             }
+             MPIU_DBG_MSG_D(CH3_CHANNEL, VERBOSE, "write %d", offset);
+ 
+-            if (offset == sizeof(MPIDI_CH3_PktGeneric_t) + data_sz)
++            if (offset == sizeof(MPIDI_CH3_Pkt_t) + data_sz)
+             {
+                 /* sent whole message */
+                 *sreq_ptr = NULL;
+@@ -293,11 +293,11 @@
+     sreq->ch.vc = vc;
+     sreq->dev.iov_offset = 0;
+ 
+-    if (offset < sizeof(MPIDI_CH3_PktGeneric_t))
++    if (offset < sizeof(MPIDI_CH3_Pkt_t))
+     {
+         sreq->dev.pending_pkt = *(MPIDI_CH3_PktGeneric_t *)hdr;
+         sreq->dev.iov[0].MPID_IOV_BUF = (char *)&sreq->dev.pending_pkt + offset;
+-        sreq->dev.iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_PktGeneric_t) - offset ;
++        sreq->dev.iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_Pkt_t) - offset ;
+         if (data_sz)
+         {
+             sreq->dev.iov[1].MPID_IOV_BUF = data;
+@@ -309,8 +309,8 @@
+     }
+     else
+     {
+-        sreq->dev.iov[0].MPID_IOV_BUF = (char *)data + (offset - sizeof(MPIDI_CH3_PktGeneric_t));
+-        sreq->dev.iov[0].MPID_IOV_LEN = data_sz - (offset - sizeof(MPIDI_CH3_PktGeneric_t));
++        sreq->dev.iov[0].MPID_IOV_BUF = (char *)data + (offset - sizeof(MPIDI_CH3_Pkt_t));
++        sreq->dev.iov[0].MPID_IOV_LEN = data_sz - (offset - sizeof(MPIDI_CH3_Pkt_t));
+         sreq->dev.iov_count = 1;
+     }
+     
+@@ -355,7 +355,7 @@
+             MPID_IOV iov[2];
+ 
+             iov[0].MPID_IOV_BUF = hdr;
+-            iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_PktGeneric_t);
++            iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_Pkt_t);
+             iov[1].MPID_IOV_BUF = data;
+             iov[1].MPID_IOV_LEN = data_sz;
+         
+@@ -370,7 +370,7 @@
+             }
+             MPIU_DBG_MSG_D(CH3_CHANNEL, VERBOSE, "write %d", offset);
+ 
+-            if (offset == sizeof(MPIDI_CH3_PktGeneric_t) + data_sz)
++            if (offset == sizeof(MPIDI_CH3_Pkt_t) + data_sz)
+             {
+                 /* sent whole message */
+                 int (*reqFn)(MPIDI_VC_t *, MPID_Request *, int *);
+@@ -410,11 +410,11 @@
+ 
+ 
+     /* save iov */
+-    if (offset < sizeof(MPIDI_CH3_PktGeneric_t))
++    if (offset < sizeof(MPIDI_CH3_Pkt_t))
+     {
+         sreq->dev.pending_pkt = *(MPIDI_CH3_PktGeneric_t *)hdr;
+         sreq->dev.iov[0].MPID_IOV_BUF = (char *)&sreq->dev.pending_pkt + offset;
+-        sreq->dev.iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_PktGeneric_t) - offset;
++        sreq->dev.iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_Pkt_t) - offset;
+         if (data_sz)
+         {
+             sreq->dev.iov[1].MPID_IOV_BUF = data;
+@@ -426,8 +426,8 @@
+     }
+     else
+     {
+-        sreq->dev.iov[0].MPID_IOV_BUF = (char *)data + (offset - sizeof(MPIDI_CH3_PktGeneric_t));
+-        sreq->dev.iov[0].MPID_IOV_LEN = data_sz - (offset - sizeof(MPIDI_CH3_PktGeneric_t));
++        sreq->dev.iov[0].MPID_IOV_BUF = (char *)data + (offset - sizeof(MPIDI_CH3_Pkt_t));
++        sreq->dev.iov[0].MPID_IOV_LEN = data_sz - (offset - sizeof(MPIDI_CH3_Pkt_t));
+         sreq->dev.iov_count = 1;
+     }
+ 
+@@ -468,7 +468,7 @@
+     MPIU_Assert(hdr_sz <= sizeof(MPIDI_CH3_PktGeneric_t));
+     
+     iov[0].MPID_IOV_BUF = header;
+-    iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_PktGeneric_t);
++    iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_Pkt_t);
+ 
+     iov_n = MPID_IOV_LIMIT - 1;
+ 
+@@ -505,7 +505,7 @@
+         /* header was not yet sent, save it in req */
+         sreq->dev.pending_pkt = *(MPIDI_CH3_PktGeneric_t *)header;
+         iov[0].MPID_IOV_BUF = &sreq->dev.pending_pkt;
+-        iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_PktGeneric_t);
++        iov[0].MPID_IOV_LEN = sizeof(MPIDI_CH3_Pkt_t);
+     }
+ 
+     /* check if whole iov was sent, and save any unsent portion of iov */

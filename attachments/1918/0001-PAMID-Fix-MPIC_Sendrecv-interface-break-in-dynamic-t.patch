@@ -1,0 +1,27 @@
+From 0abd89a1382f5512c7f1b25cce0c273065dfe960 Mon Sep 17 00:00:00 2001
+From: Charles Archer <archerc@us.ibm.com>
+Date: Tue, 30 Jul 2013 13:37:09 -0400
+Subject: [PATCH] PAMID:  Fix MPIC_Sendrecv interface break in dynamic tasking
+
+
+Signed-off-by: Michael Blocksome <blocksom@us.ibm.com>
+---
+ src/mpid/pamid/src/dyntask/mpidi_port.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/mpid/pamid/src/dyntask/mpidi_port.c b/src/mpid/pamid/src/dyntask/mpidi_port.c
+index bea645a..2d4fecf 100644
+--- a/src/mpid/pamid/src/dyntask/mpidi_port.c
++++ b/src/mpid/pamid/src/dyntask/mpidi_port.c
+@@ -1272,7 +1272,7 @@ int MPIDI_Comm_accept(const char *port_name, MPID_Info *info, int root,
+ 				  MPI_INT, 0, sendtag++,
+ 				  remote_translation, remote_comm_size * 3,
+ 				  MPI_INT, 0, recvtag++, tmp_comm->handle,
+-				  MPI_STATUS_IGNORE);
++                                  MPI_STATUS_IGNORE, &errflag);
+ 	for (i=0; i<remote_comm_size; i++)
+ 	{
+ 	    TRACE_ERR(" remote_translation[%d].pg_index = %d\n remote_translation[%d].pg_rank = %d\n",
+-- 
+1.7.1
+

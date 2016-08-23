@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7652.24">
+<TITLE>Incorrect behavior of MPICH2 C++ then Error handler MPI::ERRORS_RETURN is set</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/rtf format -->
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial">Hi,</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="ru"> <FONT COLOR="#003366" SIZE=2 FACE="Arial">Rajeev</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial">.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial">During investigation of some problem with MPI C++ code we have found</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"> <FONT COLOR="#003366" SIZE=2 FACE="Arial">that</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"> <FONT COLOR="#003366" SIZE=2 FACE="Arial">error handling in MPICH2 is not</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"> <FONT COLOR="#003366" SIZE=2 FACE="Arial">conform to</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial"> MPI standatd.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial">The issue is the</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"> <FONT COLOR="#003366" SIZE=2 FACE="Arial">program</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial"> throws exception then MPI::ERRORS_RETURN error handler is set</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial">.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial">It is</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"> <FONT COLOR="#003366" SIZE=2 FACE="Arial">demonstrated</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial"> in attached example.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT FACE="Arial" SIZE=2 COLOR="#000000"> &lt;&lt;test.cxx&gt;&gt; </FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial">I think that this behavior due to definition</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"> <FONT COLOR="#003366" SIZE=2 FACE="Arial">MPIX_CALL macro in mpicxx.h file.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><B></B></SPAN><SPAN LANG="en-us"><B></B></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><B></B></SPAN><SPAN LANG="en-us"><B><FONT COLOR="#003366" SIZE=2 FACE="Arial">#define MPIX_CALL( fnc ) \</FONT></B></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><B><FONT COLOR="#003366" SIZE=2 FACE="Arial">{int err; err = fnc ; if (err) throw Exception(err);}</FONT></B></SPAN><SPAN LANG="en-us"><B></B></SPAN><SPAN LANG="en-us"><B></B></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#003366" SIZE=2 FACE="Arial">Victor</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT COLOR="#000000" SIZE=2 FACE="Arial">.</FONT></SPAN><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<pre>
+--------------------------------------------------------------------
+Closed Joint Stock Company Intel A/O
+Registered legal address: Krylatsky Hills Business Park, 
+17 Krylatskaya Str., Bldg 4, Moscow 121614, 
+Russian Federation
+
+This e-mail and any attachments may contain confidential material for
+the sole use of the intended recipient(s). Any review or distribution
+by others is strictly prohibited. If you are not the intended
+recipient, please contact the sender and delete all copies.
+</pre></BODY>
+</HTML>

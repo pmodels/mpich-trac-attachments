@@ -1,0 +1,35 @@
+src/mpltrmem.c: In function 'MPL_trdump':
+src/mpltrmem.c:584:14: warning: variable 'old_head' set but not used [-Wunused-but-set-variable]
+src/mpi/coll/opminloc.c: In function 'MPIR_MINLOC':
+src/mpi/coll/opminloc.c:85:24: warning: variable 'flen' set but not used [-Wunused-but-set-variable]
+src/mpi/coll/opmaxloc.c: In function 'MPIR_MAXLOC':
+src/mpi/coll/opmaxloc.c:86:24: warning: variable 'flen' set but not used [-Wunused-but-set-variable]
+src/mpid/ch3/src/ch3u_rma_acc_ops.c: In function 'MPIDI_Get_accumulate':
+src/mpid/ch3/src/ch3u_rma_acc_ops.c:31:5: warning: unused variable 'mpiu_chklmem_stk_sz_' [-Wunused-variable]
+src/mpid/ch3/src/ch3u_rma_ops.c: In function 'MPIDI_Accumulate':
+src/mpid/ch3/src/ch3u_rma_ops.c:350:5: warning: unused variable 'mpiu_chklmem_stk_sz_' [-Wunused-variable]
+src/mpid/ch3/src/ch3u_rma_sync.c: In function 'MPIDI_CH3I_Recv_rma_msg':
+src/mpid/ch3/src/ch3u_rma_sync.c:1265:5: warning: 'mpiu_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/mpid/ch3/src/mpidi_pg.c: In function 'connToString':
+src/mpid/ch3/src/mpidi_pg.c:972:5: warning: 'mpiu_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/mpid/ch3/channels/nemesis/netmod/tcp/tcp_init.c: In function 'GetSockInterfaceAddr':
+src/mpid/ch3/channels/nemesis/netmod/tcp/tcp_init.c:248:9: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+src/mpid/ch3/channels/nemesis/netmod/tcp/socksm.c: In function 'alloc_sc_plfd_tbls':
+src/mpid/ch3/channels/nemesis/netmod/tcp/socksm.c:183:5: warning: the comparison will always evaluate as 'true' for the address of 'MPID_nem_tcp_g_lstn_sc' will never be NULL [-Waddress]
+src/mpid/ch3/channels/nemesis/netmod/tcp/socksm.c:184:5: warning: the comparison will always evaluate as 'true' for the address of 'MPID_nem_tcp_g_lstn_plfd' will never be NULL [-Waddress]
+src/mpi/coll/iallgather.c: In function 'MPIR_Iallgather_bruck':
+src/mpi/coll/iallgather.c:329:5: warning: 'mpir_sched_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/mpi/coll/iallgather.c: In function 'MPIR_Iallgather_inter':
+src/mpi/coll/iallgather.c:580:5: warning: 'mpir_sched_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/mpi/coll/iallgatherv.c: In function 'MPIR_Iallgatherv_rec_dbl':
+src/mpi/coll/iallgatherv.c:259:5: warning: 'mpir_sched_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/mpi/coll/iallgatherv.c: In function 'MPIR_Iallgatherv_bruck':
+src/mpi/coll/iallgatherv.c:398:5: warning: 'mpir_sched_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/mpi/coll/iallreduce.c: In function 'MPIR_Iallreduce_redscat_allgather':
+src/mpi/coll/iallreduce.c:282:5: warning: 'mpir_sched_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/mpi/coll/iallreduce.c: In function 'MPIR_Iallreduce_rec_dbl':
+src/mpi/coll/iallreduce.c:425:5: warning: 'mpir_sched_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/mpi/coll/ired_scat_block.c: In function 'MPIR_Ireduce_scatter_block_inter':
+src/mpi/coll/ired_scat_block.c:898:5: warning: 'mpir_sched_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/mpi/coll/ireduce.c: In function 'MPIR_Ireduce_SMP':
+src/mpi/coll/ireduce.c:676:5: warning: 'mpir_sched_chkpmem_stk_[0]' may be used uninitialized in this function [-Wmaybe-uninitialized]

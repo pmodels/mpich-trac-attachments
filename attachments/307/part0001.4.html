@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #307: about /iface:mixed_str_len_arg</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Did you try compiling your code with fmpich2s.lib ?<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Wednesday, November 26, 2008 10:28 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg<BR>
+<BR>
+--------------------------------------------------+---------------------<BR>
+--------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+--------------------------------------------------+---------------------<BR>
+--------------------------------------------------+----<BR>
+<BR>
+<BR>
+Comment (by Jayesh Krishna):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp; Hi,<BR>
+&nbsp;&nbsp; Changing the options of the fortran compiler won't work. Let me take a&nbsp; look into this and get back to you (I will try to make your life easier :)&nbsp; ).<BR>
+<BR>
+&nbsp;Regards,<BR>
+&nbsp;Jayesh<BR>
+<BR>
+&nbsp;-----Original Message-----<BR>
+&nbsp;From: mpich2-bugs-bounces@mcs.anl.gov<BR>
+&nbsp;[<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&nbsp;Sent: Tuesday, November 25, 2008 6:27 PM<BR>
+&nbsp;To: undisclosed-recipients:<BR>
+&nbsp;Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg<BR>
+<BR>
+&nbsp;--------------------------------------------------+---------------------<BR>
+&nbsp;--------------------------------------------------+----<BR>
+&nbsp; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp;Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;--------------------------------------------------+---------------------<BR>
+&nbsp;--------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;Comment (by Wei Yao):<BR>
+<BR>
+&nbsp; {{{<BR>
+<BR>
+&nbsp; Dear Jayesh,<BR>
+<BR>
+&nbsp; I am using MPI+IF on windows.<BR>
+&nbsp; I need to use libs from another software (CHEMKIN ) in my code. These&nbsp; libs&nbsp; are&nbsp; compiled with /iface:CVF option and I can not recompiled these&nbsp; libs.<BR>
+&nbsp; I changed the compiler option of Fortran projects to&nbsp; /iface:mixed_str_len_arg&nbsp; and recompilied it. But this&nbsp; does not solved&nbsp; the problem. I know few about the structure of MPI source&nbsp; code;&nbsp; maybe I&nbsp; need to do some changes in the MPICH2f project.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; Cheers,<BR>
+&nbsp; Wei<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; ----- Original Message -----<BR>
+&nbsp; From: &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt;<BR>
+&nbsp; Sent: Tuesday, November 25, 2008 8:21 PM<BR>
+&nbsp; Subject: Re: [mpich2-maint] #307: about /iface:mixed_str_len_arg<BR>
+<BR>
+<BR>
+&nbsp; &gt;<BR>
+<BR>
+&nbsp;--------------------------------------------------+-----------------------<BR>
+&nbsp;--<BR>
+&nbsp; &gt; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&nbsp; &gt; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:<BR>
+&nbsp; &gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:<BR>
+&nbsp; &gt; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp; &gt;<BR>
+<BR>
+&nbsp;--------------------------------------------------+-----------------------<BR>
+&nbsp;--<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; Comment (by Jayesh Krishna):<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; {{{<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Hi,<BR>
+&nbsp; &gt;&nbsp;&nbsp; Are you using MPICH2+IF on windows ? Why do you want to use the mixed<BR>
+&nbsp; &gt; string length args when compiling your fortran code ?<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; Regards,<BR>
+&nbsp; &gt; Jayesh<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; -----Original Message-----<BR>
+&nbsp; &gt; From: mpich2-bugs-bounces@mcs.anl.gov&nbsp; &gt;&nbsp; [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2&nbsp; &gt; Sent:<BR>
+&nbsp;Tuesday, November 25, 2008 11:34 AM&nbsp; &gt; To: undisclosed-recipients:<BR>
+&nbsp; &gt; Subject: [mpich2-maint] #307: about /iface:mixed_str_len_arg&nbsp; &gt;&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------+---------------------<BR>
+&nbsp; &gt; --------------------------------------------------+----<BR>
+&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Wei Yao&quot; &lt;Yao-W@email.ulster.ac.uk&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug<BR>
+&nbsp; &gt;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+&nbsp; &gt; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:<BR>
+&nbsp;mpich2<BR>
+&nbsp; &gt;<BR>
+&nbsp;--------------------------------------------------+---------------------<BR>
+&nbsp; &gt; --------------------------------------------------+----<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; {{{<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Dear MPI developing group,<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; I am trying to run a FORTRAN code (Intel Fortran compilier). In my&nbsp; code&nbsp; I&nbsp; &gt; need&nbsp; to use&nbsp; the compilier option: &quot;/iface:mixed_str_len_arg&quot;.<BR>
+&nbsp; &gt;&nbsp; Unfortrantely MPICH2 does not support this mixed_str_len_arg.<BR>
+&nbsp; &gt;&nbsp; I tried compiling the MPICH2 source code with mixed_str_len_arg&nbsp; option,&nbsp; &gt; but it&nbsp; still does not work.<BR>
+&nbsp; &gt;&nbsp; Do you know how to compile a MPI version that supports&nbsp; &gt;&nbsp; /iface:mixed_str_len_arg&nbsp; (based in Interl Fortran compilier).<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; Cheers,<BR>
+&nbsp; &gt;&nbsp; Wei Yao<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;&nbsp; }}}<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; --<BR>
+&nbsp; &gt; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/307">https://trac.mcs.anl.gov/projects/mpich2/ticket/307</A>&gt;<BR>
+&nbsp; &gt; }}}<BR>
+&nbsp; &gt;<BR>
+&nbsp; &gt; --<BR>
+&nbsp; &gt; Ticket URL:<BR>
+&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+&nbsp; &gt;<BR>
+&nbsp; }}}<BR>
+<BR>
+&nbsp;--<BR>
+&nbsp;Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/307#comment:&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

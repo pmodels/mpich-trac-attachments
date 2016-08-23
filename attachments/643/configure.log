@@ -1,0 +1,11 @@
+Configure in /tmp/jihed/mpich2-1.0 creating cache ./config.cache
+Configuring MPICH2 version 1.0 with  -prefix=/home/Jihed/mpich2-install
+sourcing /home/Jihed/Download/mpich2-1.0/src/pm/mpd/setup_pm
+checking for gcc... gcc
+checking whether the C compiler (gcc  ) works... yes
+checking whether the C compiler (gcc  ) is a cross-compiler... no
+checking whether we are using GNU C... yes
+checking whether gcc accepts -g... yes
+checking for g77... no
+checking for f77... no
+checking for f2c... no

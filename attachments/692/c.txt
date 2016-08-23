@@ -1,0 +1,10 @@
+Configuring MPICH2 version 1.1 with  '--with-device=ch3:nemesis' '--prefix=/opt/mpich2' 'CC=/opt/intel/Compiler/11.0/059/bin/icc' 'F90=/opt/intel/Compiler/11.0/059/bin/intel64/ifort' 'F77=/opt/intel/Compiler/11.0/059/bin/intel64/ifort'
+Running on system: Darwin imac-de-administrador-2.local 9.7.0 Darwin Kernel Version 9.7.0: Tue Mar 31 22:52:17 PDT 2009; root:xnu-1228.12.14~1/RELEASE_I386 i386
+Executing mpich2prereq in /Users/admin/Desktop/mpich2-1.1/src/mpid/ch3 with nemesis
+Executing mpich2prereq in /Users/admin/Desktop/mpich2-1.1/src/mpid/ch3/channels/nemesis
+sourcing /Users/admin/Desktop/mpich2-1.1/src/pm/mpd/mpich2prereq
+sourcing /Users/admin/Desktop/mpich2-1.1/src/pm/hydra/mpich2prereq
+sourcing /Users/admin/Desktop/mpich2-1.1/src/pm/gforker/mpich2prereq
+sourcing /Users/admin/Desktop/mpich2-1.1/src/pm/mpd/setup_pm
+checking for gcc... /opt/intel/Compiler/11.0/059/bin/icc
+checking for C compiler default output file name... 

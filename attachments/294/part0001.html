@@ -1,0 +1,26 @@
+Hello,<div><br></div><div>I have compiled&nbsp;<span class="Apple-style-span" style="font-family: &#39;Lucida Grande&#39;; font-size: 12px; ">mpich2-1.1.0a1 version in MAC book intel core2 duo, 2.4 GHz, MAC OSX 10.5.4 (Leopard), Darwin 9.4.0 using the following env settings</span></div>
+<div><span class="Apple-style-span" style="font-family: &#39;Lucida Grande&#39;; font-size: 12px;"><br></span></div><div><span class="Apple-style-span" style="font-family: &#39;Lucida Grande&#39;; font-size: 12px;"><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">
+export F77=ifort</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export F90=ifort</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export CC=/usr/bin/gcc</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export CXX=/usr/bin/c++</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export FFLAGS=&quot;-convert big_endian -i4 -O3 -xT -align all -fno-alias -m64&quot;</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">export CFLAGS=&quot;-arch x86_64 <span style="font: 14.0px Arial; color: #666666">-mmacosx-version-min=10.5</span><span style="font: 11.0px Andale Mono; color: #666666"> </span>-m64 -O3&nbsp; -DMACOS -isysroot /Developer/SDKs/MacOSX10.5.sdk&quot;</p>
+
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">CXXFLAGS=&quot;-m64 -O3 -DMACOS -isysroot /Developer/SDKs/MacOSX10.5.sdk&quot;</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">./configure --prefix=/usr/local/mpich --enable-f90</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">
+<br></p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">The make log showed error in Making src/slog2sdk (please see attached file) and the installation showed the following error</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana"><br></p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana"></p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">
+/usr/bin/gcc &nbsp;-o .libs/libTraceInput.jnilib -bundle &nbsp;.libs/trace_input.o .libs/rlogutil.o .libs/logformat_trace_InputLog.o&nbsp;</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">ld: warning in .libs/trace_input.o, file is not of required architecture</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">ld: warning in .libs/rlogutil.o, file is not of required architecture</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">
+ld: warning in .libs/logformat_trace_InputLog.o, file is not of required architecture</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">nmedit -s .libs/libTraceInput-symbols.expsym .libs/libTraceInput.jnilib</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">nmedit: symbols names listed in: .libs/libTraceInput-symbols.expsym not in: /Users/sathya/Desktop/meso/mpich2/src/mpe2/src/slog2sdk/trace_rlog/src/.libs/libTraceInput.jnilib</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">_Java_logformat_trace_InputLog_close</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">_Java_logformat_trace_InputLog_getNextCategory</p>
+<p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">_Java_logformat_trace_InputLog_getNextComposite</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">
+_Java_logformat_trace_InputLog_getNextPrimitive</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">_Java_logformat_trace_InputLog_getNextYCoordMap</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">
+_Java_logformat_trace_InputLog_initIDs</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">_Java_logformat_trace_InputLog_open</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">
+_Java_logformat_trace_InputLog_peekNextKindIndex</p><p style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 23.0px; font: 12.0px Verdana">make[2]: *** [INSTALL_LIBSO] Error 1</p><div><br></div><div>The mpirun was requirement for us to run WRF model and looks working perfect. Can you help me to sort out this error issue.</div>
+<p></p></span></div><div><span class="Apple-style-span" style="font-family: &#39;Lucida Grande&#39;; font-size: 12px;"><br></span></div><div><span class="Apple-style-span" style="font-family: &#39;Lucida Grande&#39;; font-size: 12px;"><br>
+</span>With regards<br><br>Dr.R.Jagannathan				<br>Professor and Head				<br>Agro Climate Research Centre,			<br>Tamil Nadu Agricultural University,		<br>Coimbatore - 641 003 India			<br><br>PHONE: Off: 91-422-6611519 Res: 91-422-2453600<br>
+ &nbsp; &nbsp; &nbsp; Fax: 91-422-2430657 Mob: 91-94438 89891<br>
+</div>

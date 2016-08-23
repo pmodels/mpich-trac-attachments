@@ -1,0 +1,261 @@
+Beginning make
+Using variables CC='gcc' CFLAGS=' -O2' LDFLAGS='' AR='ar' FC='g77' F90='' FFLAGS=' -O2' F90FLAGS='' CXX='c++' CPPFLAGS=' -I/root/mpich2-1.1.1p1/src/openpa/src -I/root/mpich2-1.1.1p1/src/openpa/src -DUSE_PROCESS_LOCKS  -I/root/mpich2-1.1.1p1/src/mpid/ch3/include -I/root/mpich2-1.1.1p1/src/mpid/ch3/include -I/root/mpich2-1.1.1p1/src/mpid/common/datatype -I/root/mpich2-1.1.1p1/src/mpid/common/datatype -I/root/mpich2-1.1.1p1/src/mpid/common/locks -I/root/mpich2-1.1.1p1/src/mpid/common/locks -I/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/include -I/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/include -I/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/include -I/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/include -I/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/root/mpich2-1.1.1p1/src/mpid/common/locks -I/root/mpich2-1.1.1p1/src/mpid/common/locks -I/root/mpich2-1.1.1p1/src/util/wrappers -I/root/mpich2-1.1.1p1/src/util/wrappers'
+make all-local
+make[1]: Entering directory `/root/mpich2-1.1.1p1'
+make[1]: Leaving directory `/root/mpich2-1.1.1p1'
+make[1]: Entering directory `/root/mpich2-1.1.1p1/src/openpa'
+Making all in src
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/openpa/src'
+make  all-am
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/openpa/src'
+make[3]: Nothing to be done for `all-am'.
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/openpa/src'
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/openpa/src'
+Making all in test
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/openpa/test'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/openpa/test'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/openpa'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/openpa'
+make[1]: Leaving directory `/root/mpich2-1.1.1p1/src/openpa'
+make[1]: Entering directory `/root/mpich2-1.1.1p1/src'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/mpid'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/common'
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/common/locks'
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/common/locks'
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/common/datatype'
+make[5]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/common/datatype/dataloop'
+make[5]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/common/datatype/dataloop'
+make all-local
+make[5]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/common/datatype'
+make[5]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/common/datatype'
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/common/datatype'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/common'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3'
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels'
+make[5]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis'
+make[6]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis'
+make[7]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/src'
+make[7]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/src'
+make[7]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+make[8]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+make[8]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+make[7]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+make[7]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils'
+make[8]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+make[8]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+make[8]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+make[8]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+make[7]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils'
+make[6]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis'
+make[6]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/src'
+make[6]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/src'
+make[5]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis'
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/channels'
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/src'
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/src'
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/mpid/ch3/util'
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3/util'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid/ch3'
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/mpid'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/mpi'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/attr'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/attr'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/coll'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/coll'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/comm'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/comm'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/datatype'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/datatype'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/errhan'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/errhan'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/group'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/group'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/init'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/init'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/misc'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/misc'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/pt2pt'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/pt2pt'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/rma'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/rma'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/spawn'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/spawn'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/timer'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/timer'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/topo'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/topo'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/romio'
+make mpiolib
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/romio'
+ 
+compiling ROMIO in directory mpi-io
+make[5]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/romio/mpi-io'
+make[5]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/romio/mpi-io'
+ 
+compiling ROMIO in directory adio/common
+make[5]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/romio/adio/common'
+make[5]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/romio/adio/common'
+ 
+compiling ROMIO in directory mpi-io/glue/mpich2
+make[5]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/romio/mpi-io/glue/mpich2'
+make[5]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/romio/mpi-io/glue/mpich2'
+ 
+compiling ROMIO in directory adio/ad_testfs
+make[5]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/romio/adio/ad_testfs'
+make[5]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/romio/adio/ad_testfs'
+ 
+compiling ROMIO in directory adio/ad_ufs
+make[5]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/romio/adio/ad_ufs'
+make[5]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/romio/adio/ad_ufs'
+ 
+compiling ROMIO in directory adio/ad_nfs
+make[5]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/romio/adio/ad_nfs'
+make[5]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/romio/adio/ad_nfs'
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/romio'
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/mpi/romio'
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/romio'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi/romio'
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/mpi'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/util'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/mem'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/mem'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/info'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/info'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/msgs'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/msgs'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/instrm'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/instrm'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/thread'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/thread'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/dbg'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/dbg'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/param'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/param'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/osserv'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/osserv'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/procmap'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/procmap'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/util/other'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/util/other'
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/util'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/nameserv'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/nameserv/mpd'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/nameserv/mpd'
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/nameserv'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/binding'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/binding/f77'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/binding/f77'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/binding/cxx'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/binding/cxx'
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/binding'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/env'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/env'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/packaging'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/packaging/pkgconfig'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/packaging/pkgconfig'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/packaging/envmods'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/packaging/envmods'
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/packaging'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/mpe2'
+
+**** Making src/misc ....
+make --no-print-directory mpe_debug_objs 
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_nompi.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_nompi.a' is up to date.
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libmpe.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe.a' is up to date.
+
+**** Making src/callstack ....
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_nompi.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_nompi.a' is up to date.
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libmpe.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe.a' is up to date.
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/bin/check_callstack
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/bin/check_callstack' is up to date.
+
+**** Making src/logging ....
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_nompi.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_nompi.a' is up to date.
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_nompi_null.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_nompi_null.a' is up to date.
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_null.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_null.a' is up to date.
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libmpe.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe.a' is up to date.
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/bin/clog2_print /root/mpich2-1.1.1p1/src/mpe2/bin/clog2_join /root/mpich2-1.1.1p1/src/mpe2/bin/clog2_repair
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/bin/clog2_print' is up to date.
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/bin/clog2_join' is up to date.
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/bin/clog2_repair' is up to date.
+
+**** Making src/wrappers ....
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/liblmpe.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/liblmpe.a' is up to date.
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libtmpe.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libtmpe.a' is up to date.
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_f2cmpi.a' is up to date.
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/mpe_prof.o
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/mpe_prof.o' is up to date.
+
+
+**** Making src/collchk ....
+make --no-print-directory /root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_collchk.a
+make[5]: `/root/mpich2-1.1.1p1/src/mpe2/lib/libmpe_collchk.a' is up to date.
+
+
+**** Making src/slog2sdk ....
+Making trace_rlog
+cd src && make --no-print-directory
+make[5]: Nothing to be done for `ALL'.
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/mpe2'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/pmi'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/pmi/simple'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/pmi/simple'
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/pmi'
+make[2]: Entering directory `/root/mpich2-1.1.1p1/src/pm'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/pm/mpd'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/pm/mpd'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/pm/hydra'
+Making all in mpl
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/pm/hydra/mpl'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/pm/hydra/mpl'
+Making all in .
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/pm/hydra'
+make[4]: Nothing to be done for `all-am'.
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/pm/hydra'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/pm/hydra'
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/pm/gforker'
+cd ../util && make
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/pm/util'
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/pm/util'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/pm/gforker'
+make all-postamble
+make[3]: Entering directory `/root/mpich2-1.1.1p1/src/pm'
+if [ -n "mpd" -a -d "mpd" ] ; then \
+	build_prefix=`cd ../.. && pwd` && cd mpd && \
+	make prefix=$build_prefix exec_prefix=$build_prefix bindir=$build_prefix/bin mpich2-build-install ; \
+	fi
+make[4]: Entering directory `/root/mpich2-1.1.1p1/src/pm/mpd'
+/usr/bin/install -c -m 644 ./mpdroot.c mpich2-mpdroot.c
+gcc -I. -I. -O2  -c mpich2-mpdroot.c
+rm -f mpich2-mpdroot.c
+gcc -O2   -o mpich2-mpdroot mpich2-mpdroot.o -lpthread   -lrt    
+rm -f mpich2-mpdroot.o
+copying python files/links into  /root/mpich2-1.1.1p1/bin
+rm -f mpich2-mpdroot
+make[4]: Leaving directory `/root/mpich2-1.1.1p1/src/pm/mpd'
+make[3]: Leaving directory `/root/mpich2-1.1.1p1/src/pm'
+make[2]: Leaving directory `/root/mpich2-1.1.1p1/src/pm'
+make[1]: Leaving directory `/root/mpich2-1.1.1p1/src'
+make[1]: Entering directory `/root/mpich2-1.1.1p1/examples'
+../bin/mpicc   -o cpi cpi.o  -lm 
+make[1]: Leaving directory `/root/mpich2-1.1.1p1/examples'
+make all-postamble
+make[1]: Entering directory `/root/mpich2-1.1.1p1'
+Make completed
+make[1]: Leaving directory `/root/mpich2-1.1.1p1'

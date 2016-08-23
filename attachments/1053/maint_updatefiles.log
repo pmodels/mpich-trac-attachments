@@ -1,0 +1,958 @@
+You have autoconf version 2.63 or greater.
+Checking that libtool version is acceptable...
+Checking that automake version is acceptable...
+Building Fortran 77 interface
+Creating sendf.c
+Creating recvf.c
+Creating get_countf.c
+Creating bsendf.c
+Creating ssendf.c
+Creating rsendf.c
+Creating bufattachf.c
+Creating bufdetachf.c
+Creating isendf.c
+Creating ibsendf.c
+Creating issendf.c
+Creating irsendf.c
+Creating irecvf.c
+Creating waitf.c
+Creating testf.c
+Creating request_freef.c
+Creating waitanyf.c
+Creating testanyf.c
+Creating waitallf.c
+Creating testallf.c
+Creating waitsomef.c
+Creating testsomef.c
+Creating iprobef.c
+Creating probef.c
+Creating cancelf.c
+Creating testcancelf.c
+Creating send_initf.c
+Creating bsend_initf.c
+Creating ssend_initf.c
+Creating rsend_initf.c
+Creating recv_initf.c
+Creating startf.c
+Creating startallf.c
+Creating sendrecvf.c
+Creating sndrcvrplf.c
+Creating typecontigf.c
+Creating type_vectorf.c
+Creating type_hvectorf.c
+Creating type_indexedf.c
+Creating type_hindexedf.c
+Creating type_structf.c
+Creating type_extentf.c
+Creating type_sizef.c
+Creating type_lbf.c
+Creating type_ubf.c
+Creating type_commitf.c
+Creating type_freef.c
+Creating get_elementsf.c
+Creating packf.c
+Creating unpackf.c
+Creating pack_sizef.c
+Creating barrierf.c
+Creating bcastf.c
+Creating gatherf.c
+Creating gathervf.c
+Creating scatterf.c
+Creating scattervf.c
+Creating allgatherf.c
+Creating allgathervf.c
+Creating alltoallf.c
+Creating alltoallvf.c
+Creating reducef.c
+Creating op_createf.c
+Creating op_freef.c
+Creating allreducef.c
+Creating redscatf.c
+Creating scanf.c
+Creating group_sizef.c
+Creating group_rankf.c
+Creating grouptranksf.c
+Creating group_comparef.c
+Creating comm_groupf.c
+Creating group_unionf.c
+Creating groupinterf.c
+Creating groupdifff.c
+Creating group_inclf.c
+Creating group_exclf.c
+Creating grouprinclf.c
+Creating grouprexclf.c
+Creating group_freef.c
+Creating comm_sizef.c
+Creating comm_rankf.c
+Creating comm_comparef.c
+Creating comm_dupf.c
+Creating comm_createf.c
+Creating comm_splitf.c
+Creating comm_freef.c
+Creating commtesticf.c
+Creating commrsizef.c
+Creating commrgroupf.c
+Creating iccreatef.c
+Creating icmergef.c
+Creating keyval_freef.c
+Creating attr_putf.c
+Creating attr_getf.c
+Creating attr_deletef.c
+Creating topo_testf.c
+Creating cart_createf.c
+Creating dims_createf.c
+Creating graph_createf.c
+Creating graphdims_getf.c
+Creating graph_getf.c
+Creating cartdim_getf.c
+Creating cart_getf.c
+Creating cart_rankf.c
+Creating cart_coordsf.c
+Creating grfnbcountf.c
+Creating grfnbrsf.c
+Creating cart_shiftf.c
+Creating cart_subf.c
+Creating cart_mapf.c
+Creating graph_mapf.c
+Creating getpnamef.c
+Creating get_versionf.c
+Creating errhcreatef.c
+Creating errhsetf.c
+Creating errhgetf.c
+Creating errhfreef.c
+Creating error_stringf.c
+Creating error_classf.c
+Creating finalizef.c
+Creating initializedf.c
+Creating abortf.c
+Creating close_portf.c
+Creating comm_acceptf.c
+Creating comm_connectf.c
+Creating commdiscf.c
+Creating commparentf.c
+Creating comm_joinf.c
+Creating comm_spawnf.c
+Creating spawnmultf.c
+Creating lookup_namef.c
+Creating open_portf.c
+Creating publish_namef.c
+Creating unpubnamef.c
+Creating accumulatef.c
+Creating getf.c
+Creating putf.c
+Creating win_completef.c
+Creating win_createf.c
+Creating win_fencef.c
+Creating win_freef.c
+Creating win_get_groupf.c
+Creating win_lockf.c
+Creating win_postf.c
+Creating win_startf.c
+Creating win_testf.c
+Creating win_unlockf.c
+Creating win_waitf.c
+Creating alltoallwf.c
+Creating exscanf.c
+Creating adderrclassf.c
+Creating adderrcodef.c
+Creating adderrstringf.c
+Creating commcallerrf.c
+Creating commnewkeyf.c
+Creating commdelattrf.c
+Creating commfreekeyf.c
+Creating comm_get_attrf.c
+Creating commgetnamf.c
+Creating comm_set_attrf.c
+Creating comm_set_namef.c
+Creating filecallerrf.c
+Creating greqcompletef.c
+Creating greqstartf.c
+Creating isthrmainf.c
+Creating query_threadf.c
+Creating statgetclf.c
+Creating statsetelf.c
+Creating typenewkeyf.c
+Creating typedelattrf.c
+Creating type_dupf.c
+Creating typefreekeyf.c
+Creating type_get_attrf.c
+Creating typegetcntsf.c
+Creating typegetenvf.c
+Creating typegnamef.c
+Creating typesetattrf.c
+Creating typesetnamef.c
+Creating type_match_sizef.c
+Creating wincallerrf.c
+Creating winnewkeyf.c
+Creating windelattrf.c
+Creating winfreekeyf.c
+Creating win_get_attrf.c
+Creating win_get_namef.c
+Creating win_set_attrf.c
+Creating win_set_namef.c
+Creating alloc_memf.c
+Creating commcreerrf.c
+Creating commgeterrf.c
+Creating commseterrf.c
+Creating filecreerrf.c
+Creating filegeterrf.c
+Creating fileseterrf.c
+Creating finalizedf.c
+Creating free_memf.c
+Creating info_createf.c
+Creating info_deletef.c
+Creating info_dupf.c
+Creating info_freef.c
+Creating info_getf.c
+Creating infognkf.c
+Creating infognthkf.c
+Creating infovallenf.c
+Creating info_setf.c
+Creating pack_externalf.c
+Creating packesizef.c
+Creating reqgetstatf.c
+Creating typedarrayf.c
+Creating typechindf.c
+Creating typechvecf.c
+Creating typecindbf.c
+Creating typecresizef.c
+Creating typecstructf.c
+Creating typecsubarrf.c
+Creating typegetextentf.c
+Creating typegtextf.c
+Creating unpackextf.c
+Creating wincreerrf.c
+Creating wingeterrf.c
+Creating winseterrf.c
+Creating reduce_localf.c
+Creating op_commutativef.c
+Creating reduce_scatter_blockf.c
+Creating dist_graph_create_adjacentf.c
+Creating dist_graph_createf.c
+Creating dist_graph_neighbors_countf.c
+Creating dist_graph_neighborsf.c
+Creating file_openf.c
+Creating file_closef.c
+Creating file_deletef.c
+Creating file_set_sizef.c
+Creating file_preallocatef.c
+Creating file_get_sizef.c
+Creating file_get_groupf.c
+Creating file_get_amodef.c
+Creating file_set_infof.c
+Creating file_get_infof.c
+Creating file_set_viewf.c
+Creating file_get_viewf.c
+Creating file_read_atf.c
+Creating file_read_at_allf.c
+Creating file_write_atf.c
+Creating file_write_at_allf.c
+Creating file_iread_atf.c
+Creating file_iwrite_atf.c
+Creating file_readf.c
+Creating file_read_allf.c
+Creating file_writef.c
+Creating file_write_allf.c
+Creating file_ireadf.c
+Creating file_iwritef.c
+Creating file_seekf.c
+Creating file_get_positionf.c
+Creating file_get_byte_offsetf.c
+Creating file_read_sharedf.c
+Creating file_write_sharedf.c
+Creating file_iread_sharedf.c
+Creating file_iwrite_sharedf.c
+Creating file_read_orderedf.c
+Creating file_write_orderedf.c
+Creating file_seek_sharedf.c
+Creating file_get_position_sharedf.c
+Creating file_read_at_all_beginf.c
+Creating file_read_at_all_endf.c
+Creating file_write_at_all_beginf.c
+Creating file_write_at_all_endf.c
+Creating file_read_all_beginf.c
+Creating file_read_all_endf.c
+Creating file_write_all_beginf.c
+Creating file_write_all_endf.c
+Creating file_read_ordered_beginf.c
+Creating file_read_ordered_endf.c
+Creating file_write_ordered_beginf.c
+Creating file_write_ordered_endf.c
+Creating file_get_type_extentf.c
+Creating register_datarepf.c
+Creating file_set_atomicityf.c
+Creating file_get_atomicityf.c
+Creating file_syncf.c
+Creating initf.c
+Creating initthreadf.c
+Creating pcontrolf.c
+Creating addressf.c
+Creating getaddressf.c
+Creating wtimef.c
+Creating wtickf.c
+Creating keyval_createf.c
+Creating dup_fnf.c
+Creating null_del_fnf.c
+Creating null_copy_fnf.c
+Creating dup_comm_fnf.c
+Creating null_comm_del_fnf.c
+Creating null_comm_copy_fnf.c
+Creating dup_win_fnf.c
+Creating null_win_del_fnf.c
+Creating null_win_copy_fnf.c
+Creating dup_type_fnf.c
+Creating null_type_del_fnf.c
+Creating null_type_copy_fnf.c
+Creating statusf2c.c
+Creating statusc2f.c
+Creating fproto.h
+Creating Makefile.sm
+Creating mpif.h.in
+Building Fortran 90 interface
+Creating mpi.f90
+Creating mpi_base.f90
+Creating mpi_constants.f90
+Creating mpi_t1.f90
+Creating Makefile.sm
+Creating typef90intf.c
+Creating typef90realf.c
+Creating typef90cmplxf.c
+Creating mpif90type.h
+Building C++ interface
+Creating mpicxx.h.in
+Creating initcxx.cxx
+Creating Makefile.sm
+Extracting the error messages...
+There are unused error message texts in src/mpi/errhan/errnames.txt
+See the file unusederr.txt for the complete list
+checking for perl... /usr/bin/perl
+configure: creating ./config.status
+config.status: creating simplemake
+config.status: creating checkbuilds
+config.status: creating getcoverage
+config.status: creating genstates
+config.status: creating clmake
+config.status: creating f77tof90
+config.status: creating extractstrings
+config.status: creating extractstates
+config.status: creating extractfixme
+config.status: creating createcoverage
+config.status: executing default-1 commands
+Creating the enumeration of logging states into src/include/mpiallstates.h
+Warning: State in FUNC_EXIT(a) does not match STATE_DECL() in src/include/rlog_macros.h
+Warning: State in FUNC_EXIT(a) does not match STATE_DECL() in src/include/rlog_macros.h
+generating parameter handling code
+Create or update the Fortran 90 tests derived from the Fortran 77 tests
+Replacing test/mpi/f90/attr/baseattr2f90.f90
+Replacing test/mpi/f90/attr/baseattrf90.f90
+Replacing test/mpi/f90/attr/commattr2f90.f90
+Replacing test/mpi/f90/attr/commattr3f90.f90
+Replacing test/mpi/f90/attr/commattrf90.f90
+Replacing test/mpi/f90/attr/typeattr2f90.f90
+Replacing test/mpi/f90/attr/typeattr3f90.f90
+Replacing test/mpi/f90/attr/typeattrf90.f90
+Replacing test/mpi/f90/attr/Makefile.sm
+Replacing test/mpi/f90/attr/testlist
+Replacing test/mpi/f90/coll/allredint8f90.f90
+Replacing test/mpi/f90/coll/allredopttf90.f90
+Replacing test/mpi/f90/coll/alltoallwf90.f90
+Replacing test/mpi/f90/coll/exscanf90.f90
+Replacing test/mpi/f90/coll/inplacef90.f90
+Replacing test/mpi/f90/coll/reducelocalf90.f90
+Replacing test/mpi/f90/coll/uallreducef90.f90
+Replacing test/mpi/f90/coll/Makefile.sm
+Replacing test/mpi/f90/coll/testlist
+Replacing test/mpi/f90/comm/commerrf90.f90
+Replacing test/mpi/f90/comm/commnamef90.f90
+Replacing test/mpi/f90/comm/Makefile.sm
+Replacing test/mpi/f90/comm/testlist
+Replacing test/mpi/f90/datatype/allctypesf90.f90
+Replacing test/mpi/f90/datatype/gaddressf90.f90
+Replacing test/mpi/f90/datatype/packef90.f90
+Replacing test/mpi/f90/datatype/typecntsf90.f90
+Replacing test/mpi/f90/datatype/typem2f90.f90
+Replacing test/mpi/f90/datatype/typenamef90.f90
+Replacing test/mpi/f90/datatype/typesnamef90.f90
+Replacing test/mpi/f90/datatype/typesubf90.f90
+Replacing test/mpi/f90/datatype/Makefile.sm
+Replacing test/mpi/f90/datatype/testlist
+Replacing test/mpi/f90/ext/allocmemf90.f90
+Replacing test/mpi/f90/ext/allocmemf290.f90
+Replacing test/mpi/f90/ext/c2f902c.c
+Replacing test/mpi/f90/ext/c2f2cf90.f90
+Replacing test/mpi/f90/ext/c2f90mult.c
+Replacing test/mpi/f90/ext/ctypesf90romc.c
+Replacing test/mpi/f90/ext/ctypesinf90.f90
+Replacing test/mpi/f90/ext/Makefile.sm
+Replacing test/mpi/f90/ext/testlist.in
+Replacing test/mpi/f90/info/infotest2f90.f90
+Replacing test/mpi/f90/info/infotestf90.f90
+Replacing test/mpi/f90/info/Makefile.sm
+Replacing test/mpi/f90/info/testlist
+Replacing test/mpi/f90/init/baseenvf90.f90
+Replacing test/mpi/f90/init/Makefile.sm
+Replacing test/mpi/f90/init/testlist
+Replacing test/mpi/f90/io/atomicityf90.f90
+Replacing test/mpi/f90/io/c2f902cio.c
+Replacing test/mpi/f90/io/c2f2ciof90.f90
+Replacing test/mpi/f90/io/c2f90multio.c
+Replacing test/mpi/f90/io/fileerrf90.f90
+Replacing test/mpi/f90/io/fileinfof90.f90
+Replacing test/mpi/f90/io/miscfilef90.f90
+Replacing test/mpi/f90/io/setviewcurf90.f90
+Replacing test/mpi/f90/io/shpositionf90.f90
+Replacing test/mpi/f90/io/Makefile.sm
+Replacing test/mpi/f90/io/testlist
+Replacing test/mpi/f90/pt2pt/greqf90.f90
+Replacing test/mpi/f90/pt2pt/statusesf90.f90
+Replacing test/mpi/f90/pt2pt/Makefile.sm
+Replacing test/mpi/f90/pt2pt/testlist
+Replacing test/mpi/f90/rma/c2f902cwin.c
+Replacing test/mpi/f90/rma/c2f2cwinf90.f90
+Replacing test/mpi/f90/rma/winaccf90.f90
+Replacing test/mpi/f90/rma/winerrf90.f90
+Replacing test/mpi/f90/rma/winfencef90.f90
+Replacing test/mpi/f90/rma/wingetf90.f90
+Replacing test/mpi/f90/rma/wingroupf90.f90
+Replacing test/mpi/f90/rma/winnamef90.f90
+Replacing test/mpi/f90/rma/winscale1f90.f90
+Replacing test/mpi/f90/rma/winscale2f90.f90
+Replacing test/mpi/f90/rma/Makefile.sm
+Replacing test/mpi/f90/rma/testlist
+Replacing test/mpi/f90/spawn/connaccf90.f90
+Replacing test/mpi/f90/spawn/namepubf90.f90
+Replacing test/mpi/f90/spawn/spawnargvf90.f90
+Replacing test/mpi/f90/spawn/spawnf90.f90
+Replacing test/mpi/f90/spawn/spawnmult2f90.f90
+Replacing test/mpi/f90/spawn/spawnmultf90.f90
+Replacing test/mpi/f90/spawn/Makefile.sm
+Replacing test/mpi/f90/spawn/testlist
+Replacing test/mpi/f90/topo/cartcrf90.f90
+Replacing test/mpi/f90/topo/Makefile.sm
+Replacing test/mpi/f90/topo/testlist
+Replacing test/mpi/f90/util/mtestf90.f90
+Replacing test/mpi/f90/util/Makefile.sm
+Creating /Makefile.in
+Creating src/Makefile.in
+Creating src/mpid/Makefile.in
+Creating src/mpid/common/Makefile.in
+Creating src/mpid/common/datatype/Makefile.in
+Creating src/mpid/common/datatype/dataloop/Makefile.in
+Creating src/mpid/common/sock/Makefile.in
+Creating src/mpid/common/sock/iocp/Makefile.in
+Creating src/mpid/common/sock/poll/Makefile.in
+Shell variable MPID_THREAD_OUTPUT_FILES will not be added to the list
+of known autoconf files for src/mpid/ch3.
+Creating src/mpid/ch3/Makefile.in
+Creating src/mpid/ch3/channels/Makefile.in
+Creating src/mpid/ch3/channels/sock/Makefile.in
+Creating src/mpid/ch3/channels/sock/src/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/Makefile.in
+Sourcefile src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_net_array.c does not exist.
+simplemake is assuming that this file will be created by the configure step
+in the build directory
+Creating src/mpid/ch3/channels/nemesis/nemesis/src/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/elan/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/gm/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/mx/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/none/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/psm/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/netmod/newmad/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/utils/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/utils/monitor/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/nemesis/utils/replacements/Makefile.in
+Creating src/mpid/ch3/channels/nemesis/src/Makefile.in
+Creating src/mpid/ch3/channels/sctp/Makefile.in
+Creating src/mpid/ch3/channels/sctp/src/Makefile.in
+Creating src/mpid/ch3/channels/dllchan/Makefile.in
+Creating src/mpid/ch3/channels/dllchan/src/Makefile.in
+Creating src/mpid/ch3/src/Makefile.in
+Creating src/mpid/ch3/util/Makefile.in
+Creating src/mpid/ch3/util/sock/Makefile.in
+Creating src/mpid/ch3/util/ftb/Makefile.in
+Warning: header file mpidconf.h.in or mpidconf.h.in.in not found in src/mpid/globus/
+Creating src/mpid/globus/Makefile.in
+Creating src/mpid/globus/examples/Makefile.in
+Shell variable MPID_THREAD_OUTPUT_FILES will not be added to the list
+of known autoconf files for src/mpid/dcmfd.
+Shell variable FILE will not be added to the list
+of known autoconf files for src/mpid/dcmfd.
+Creating src/mpid/dcmfd/Makefile.in
+Creating src/mpid/dcmfd/src/Makefile.in
+Creating src/mpid/dcmfd/src/impl/Makefile.in
+Creating src/mpid/dcmfd/src/misc/Makefile.in
+Creating src/mpid/dcmfd/src/pt2pt/Makefile.in
+Creating src/mpid/dcmfd/src/persistent/Makefile.in
+Creating src/mpid/dcmfd/src/onesided/Makefile.in
+Creating src/mpid/dcmfd/src/comm/Makefile.in
+Creating src/mpid/dcmfd/src/comm/collselect/Makefile.in
+Creating src/mpid/dcmfd/src/comm/topo/Makefile.in
+Creating src/mpid/dcmfd/src/coll/Makefile.in
+Creating src/mpid/dcmfd/src/coll/alltoall/Makefile.in
+Creating src/mpid/dcmfd/src/coll/alltoallv/Makefile.in
+Creating src/mpid/dcmfd/src/coll/alltoallw/Makefile.in
+Creating src/mpid/dcmfd/src/coll/barrier/Makefile.in
+Creating src/mpid/dcmfd/src/coll/bcast/Makefile.in
+Creating src/mpid/dcmfd/src/coll/allreduce/Makefile.in
+Creating src/mpid/dcmfd/src/coll/reduce/Makefile.in
+Creating src/mpid/dcmfd/src/coll/allgather/Makefile.in
+Creating src/mpid/dcmfd/src/coll/allgatherv/Makefile.in
+Creating src/mpid/dcmfd/src/coll/scatterv/Makefile.in
+Creating src/mpid/dcmfd/src/coll/scatter/Makefile.in
+Creating src/mpid/dcmfd/src/coll/gather/Makefile.in
+Creating src/mpid/dcmfd/src/coll/reduce_scatter/Makefile.in
+Creating src/mpi/Makefile.in
+Creating src/mpi/attr/Makefile.in
+Creating src/mpi/coll/Makefile.in
+Creating src/mpi/comm/Makefile.in
+Creating src/mpi/datatype/Makefile.in
+Creating src/mpi/errhan/Makefile.in
+Creating src/mpi/group/Makefile.in
+Creating src/mpi/init/Makefile.in
+Creating src/mpi/misc/Makefile.in
+Creating src/mpi/pt2pt/Makefile.in
+Creating src/mpi/rma/Makefile.in
+Creating src/mpi/spawn/Makefile.in
+Creating src/mpi/timer/Makefile.in
+Creating src/mpi/topo/Makefile.in
+Creating src/mpi/debugger/Makefile.in
+Creating src/util/Makefile.in
+Creating src/util/mem/Makefile.in
+Creating src/util/info/Makefile.in
+Creating src/util/msgs/Makefile.in
+Creating src/util/instrm/Makefile.in
+Creating src/util/thread/Makefile.in
+Creating src/util/dbg/Makefile.in
+Creating src/util/param/Makefile.in
+Creating src/util/osserv/Makefile.in
+Creating src/util/procmap/Makefile.in
+Creating src/util/other/Makefile.in
+Creating src/util/logging/Makefile.in
+Creating src/util/logging/rlog/Makefile.in
+libdir{${MPILIBNAME}} = ROOTDIR/lib
+Skipping generation of rule for qdemo because Makefile.sm already contains one
+Skipping generation of rule for tvtest because Makefile.sm already contains one
+Creating src/util/logging/common/Makefile.in
+Creating src/nameserv/Makefile.in
+Creating src/nameserv/file/Makefile.in
+Creating src/nameserv/mpd/Makefile.in
+Creating src/nameserv/pmi/Makefile.in
+Creating src/nameserv/test/Makefile.in
+Creating src/binding/Makefile.in
+Creating src/binding/f77/Makefile.in
+Creating src/binding/cxx/Makefile.in
+Creating src/binding/f90/Makefile.in
+Creating src/env/Makefile.in
+Creating src/packaging/Makefile.in
+Creating src/packaging/pkgconfig/Makefile.in
+Creating src/packaging/envmods/Makefile.in
+Creating src/pmi/Makefile.in
+Creating src/pmi/pmi2/Makefile.in
+Creating src/pmi/simple/Makefile.in
+Creating src/pmi/smpd/Makefile.in
+Creating src/pmi/slurm/Makefile.in
+Creating src/pm/Makefile.in
+Creating src/pm/smpd/Makefile.in
+Creating src/pm/smpd/sock/Makefile.in
+Creating src/pm/smpd/sock/iocp/Makefile.in
+Creating src/pm/smpd/sock/poll/Makefile.in
+Creating src/pm/gforker/Makefile.in
+Creating src/pm/remshell/Makefile.in
+Creating src/pm/util/Makefile.in
+Creating src/pm/util/test/Makefile.in
+Creating src/include/Makefile.in
+Creating examples/Makefile.in
+Creating test/Makefile.in
+Creating test/mpi/Makefile.in
+Creating test/mpi/util/Makefile.in
+Creating test/mpi/attr/Makefile.in
+Creating test/mpi/basic/Makefile.in
+Creating test/mpi/datatype/Makefile.in
+Creating test/mpi/coll/Makefile.in
+Creating test/mpi/comm/Makefile.in
+Creating test/mpi/errhan/Makefile.in
+Creating test/mpi/group/Makefile.in
+Creating test/mpi/info/Makefile.in
+Creating test/mpi/init/Makefile.in
+Creating test/mpi/pt2pt/Makefile.in
+Creating test/mpi/rma/Makefile.in
+Creating test/mpi/spawn/Makefile.in
+Creating test/mpi/topo/Makefile.in
+Creating test/mpi/io/Makefile.in
+Creating test/mpi/f77/Makefile.in
+Creating test/mpi/f77/util/Makefile.in
+Creating test/mpi/f77/attr/Makefile.in
+Creating test/mpi/f77/datatype/Makefile.in
+Creating test/mpi/f77/coll/Makefile.in
+Creating test/mpi/f77/pt2pt/Makefile.in
+Creating test/mpi/f77/info/Makefile.in
+Warning: source file checksizes.c or checksizes.c.in not found in test/mpi/f77/init/
+Creating test/mpi/f77/init/Makefile.in
+Creating test/mpi/f77/comm/Makefile.in
+Creating test/mpi/f77/topo/Makefile.in
+Creating test/mpi/f77/rma/Makefile.in
+Creating test/mpi/f77/spawn/Makefile.in
+Creating test/mpi/f77/io/Makefile.in
+Creating test/mpi/f77/ext/Makefile.in
+Creating test/mpi/cxx/Makefile.in
+Creating test/mpi/cxx/util/Makefile.in
+Creating test/mpi/cxx/attr/Makefile.in
+Creating test/mpi/cxx/pt2pt/Makefile.in
+Creating test/mpi/cxx/init/Makefile.in
+Creating test/mpi/cxx/info/Makefile.in
+Creating test/mpi/cxx/comm/Makefile.in
+Creating test/mpi/cxx/coll/Makefile.in
+Creating test/mpi/cxx/datatype/Makefile.in
+Creating test/mpi/cxx/io/Makefile.in
+Creating test/mpi/cxx/rma/Makefile.in
+Creating test/mpi/cxx/spawn/Makefile.in
+Creating test/mpi/f90/Makefile.in
+Creating test/mpi/f90/util/Makefile.in
+Creating test/mpi/f90/timer/Makefile.in
+Creating test/mpi/f90/attr/Makefile.in
+Creating test/mpi/f90/coll/Makefile.in
+Creating test/mpi/f90/datatype/Makefile.in
+Creating test/mpi/f90/pt2pt/Makefile.in
+Creating test/mpi/f90/info/Makefile.in
+Creating test/mpi/f90/comm/Makefile.in
+Creating test/mpi/f90/rma/Makefile.in
+Creating test/mpi/f90/spawn/Makefile.in
+Creating test/mpi/f90/topo/Makefile.in
+Creating test/mpi/f90/io/Makefile.in
+Warning: source file ctypesfromc.c or ctypesfromc.c.in not found in test/mpi/f90/ext/
+Creating test/mpi/f90/ext/Makefile.in
+Warning: source file checksizes.c or checksizes.c.in not found in test/mpi/f90/init/
+Creating test/mpi/f90/init/Makefile.in
+Creating test/mpi/f90/misc/Makefile.in
+Creating test/mpi/f90/f90types/Makefile.in
+Creating test/mpi/threads/Makefile.in
+Creating test/mpi/threads/util/Makefile.in
+Creating test/mpi/threads/pt2pt/Makefile.in
+Creating test/mpi/threads/comm/Makefile.in
+Creating test/mpi/threads/init/Makefile.in
+Creating test/mpi/threads/spawn/Makefile.in
+Creating test/mpi/errors/Makefile.in
+Creating test/mpi/errors/attr/Makefile.in
+Creating test/mpi/errors/coll/Makefile.in
+Creating test/mpi/errors/comm/Makefile.in
+Creating test/mpi/errors/group/Makefile.in
+Creating test/mpi/errors/pt2pt/Makefile.in
+Creating test/mpi/errors/rma/Makefile.in
+Creating test/mpi/errors/spawn/Makefile.in
+Creating test/mpi/errors/topo/Makefile.in
+Creating test/mpi/errors/io/Makefile.in
+Creating test/mpi/errors/cxx/Makefile.in
+Creating test/mpi/errors/cxx/io/Makefile.in
+Creating test/mpi/errors/cxx/errhan/Makefile.in
+Creating test/mpi/errors/f77/Makefile.in
+Creating test/mpi/errors/f90/Makefile.in
+Creating test/mpi/errors/basic/Makefile.in
+Creating test/mpi/errors/faults/Makefile.in
+Creating test/mpi/manual/Makefile.in
+Creating test/mpi/perf/Makefile.in
+Creating test/mpid/Makefile.in
+Creating test/mpid/ch3/Makefile.in
+Creating test/util/Makefile.in
+Creating test/util/timer/Makefile.in
+Creating test/basic/Makefile.in
+Creating test/commands/Makefile.in
+Creating doc/Makefile.in
+Creating doc/mansrc/Makefile.in
+Replacing last config dir with ../../..
+Rebuilding all configure script because of missing confdbtimestamp
+Found ./configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ./confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ./confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk'
+Found ./src/binding/f90/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/binding/f90'
+(cd . && /Users/goodell/prefix/bin/autoconf -I ../../../confdb )
+make: Leaving directory `/private/tmp/mpich2-trunk/src/binding/f90'
+Creating configure in ./src/mpi/romio
+Found ./src/mpid/ch3/channels/dllchan/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/ch3/channels/dllchan'
+(cd . && /Users/goodell/prefix/bin/autoheader -I \
+	../../../../../confdb && \
+	/Users/goodell/prefix/bin/autoconf -I \
+	../../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/ch3/channels/dllchan'
+Found ./src/mpid/ch3/channels/nemesis/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/ch3/channels/nemesis'
+(cd . && /Users/goodell/prefix/bin/autoheader -I \
+	../../../../../confdb && \
+	/Users/goodell/prefix/bin/autoconf -I \
+	../../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/ch3/channels/nemesis'
+Found ./src/mpid/ch3/channels/sctp/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/ch3/channels/sctp'
+(cd . && /Users/goodell/prefix/bin/autoheader -I \
+	../../../../../confdb && \
+	/Users/goodell/prefix/bin/autoconf -I \
+	../../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/ch3/channels/sctp'
+Found ./src/mpid/ch3/channels/sock/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/ch3/channels/sock'
+(cd . && /Users/goodell/prefix/bin/autoheader -I \
+	../../../../../confdb && \
+	/Users/goodell/prefix/bin/autoconf -I \
+	../../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/ch3/channels/sock'
+Found ./src/mpid/ch3/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/ch3'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/ch3'
+Found ./src/mpid/ch3/util/sock/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/ch3/util/sock'
+(cd . && /Users/goodell/prefix/bin/autoheader -I \
+	../../../../../confdb && \
+	/Users/goodell/prefix/bin/autoconf -I \
+	../../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/ch3/util/sock'
+Found ./src/mpid/common/sock/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/common/sock'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../../confdb \
+	&& \
+	/Users/goodell/prefix/bin/autoconf -I ../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/common/sock'
+Found ./src/mpid/common/sock/poll/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/common/sock/poll'
+(cd . && /Users/goodell/prefix/bin/autoheader -I \
+	../../../../../confdb && \
+	/Users/goodell/prefix/bin/autoconf -I \
+	../../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/common/sock/poll'
+Found ./src/mpid/dcmfd/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/dcmfd'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/dcmfd'
+Found ./src/mpid/globus/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/mpid/globus'
+(cd . && /Users/goodell/prefix/bin/autoconf -I ../../../confdb )
+make: Leaving directory `/private/tmp/mpich2-trunk/src/mpid/globus'
+Found ./src/pm/gforker/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pm/gforker'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pm/gforker'
+Found ./src/pm/mpd/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pm/mpd'
+(cd . && autoheader -I ../../../confdb && \
+	autoconf -I \
+	../../../confdb )
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pm/mpd'
+Found ./src/pm/remshell/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pm/remshell'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pm/remshell'
+Found ./src/pm/smpd/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pm/smpd'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pm/smpd'
+Found ./src/pm/smpd/sock/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pm/smpd/sock'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../../confdb \
+	&& \
+	/Users/goodell/prefix/bin/autoconf -I ../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pm/smpd/sock'
+Found ./src/pm/smpd/sock/poll/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pm/smpd/sock/poll'
+(cd . && /Users/goodell/prefix/bin/autoheader -I \
+	../../../../../confdb && \
+	/Users/goodell/prefix/bin/autoconf -I \
+	../../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pm/smpd/sock/poll'
+Found ./src/pm/util/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pm/util'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pm/util'
+Found ./src/pmi/pmi2/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pmi/pmi2'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pmi/pmi2'
+Found ./src/pmi/simple/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pmi/simple'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pmi/simple'
+Found ./src/pmi/slurm/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pmi/slurm'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pmi/slurm'
+Found ./src/pmi/smpd/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/pmi/smpd'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/pmi/smpd'
+Found ./src/util/logging/rlog/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/src/util/logging/rlog'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../../../confdb \
+	&& \
+	/Users/goodell/prefix/bin/autoconf -I ../../../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/src/util/logging/rlog'
+Found ./test/mpi/configure.in; executing make configure target
+make: Entering directory `/private/tmp/mpich2-trunk/test/mpi'
+(cd . && /Users/goodell/prefix/bin/autoheader -I ../../confdb && \
+	\
+	/Users/goodell/prefix/bin/autoconf -I ../../confdb ) 
+make: Leaving directory `/private/tmp/mpich2-trunk/test/mpi'
+------------------------------------------------------------------------
+running third-party initialization in src/pm/hydra/tools/bind/hwloc/hwloc
+autoreconf: Entering directory `.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: /Users/goodell/prefix/bin/aclocal --force -I ./config
+autoreconf: configure.ac: tracing
+autoreconf: running: /Users/goodell/prefix/bin/libtoolize --copy --force
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, `./config'.
+libtoolize: copying file `./config/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIR, `./config'.
+libtoolize: copying file `./config/libtool.m4'
+libtoolize: copying file `./config/ltoptions.m4'
+libtoolize: copying file `./config/ltsugar.m4'
+libtoolize: copying file `./config/ltversion.m4'
+libtoolize: copying file `./config/lt~obsolete.m4'
+autoreconf: running: /Users/goodell/prefix/bin/autoconf --force
+autoreconf: running: /Users/goodell/prefix/bin/autoheader --force
+autoreconf: running: /Users/goodell/prefix/bin/automake --add-missing --copy --force-missing
+configure.ac:106: installing `./config/compile'
+configure.ac:31: installing `./config/config.guess'
+configure.ac:31: installing `./config/config.sub'
+configure.ac:34: installing `./config/install-sh'
+configure.ac:34: installing `./config/missing'
+doc/Makefile.am: installing `./config/depcomp'
+autoreconf: Leaving directory `.'
+------------------------------------------------------------------------
+running third-party initialization in src/pm/hydra/tools/bind/plpa/plpa
+autoreconf: Entering directory `.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: /Users/goodell/prefix/bin/aclocal --force -I config
+autoreconf: configure.ac: tracing
+autoreconf: running: /Users/goodell/prefix/bin/libtoolize --copy --force
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, `./config'.
+libtoolize: copying file `./config/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIR, `config'.
+libtoolize: copying file `config/libtool.m4'
+libtoolize: copying file `config/ltoptions.m4'
+libtoolize: copying file `config/ltsugar.m4'
+libtoolize: copying file `config/ltversion.m4'
+libtoolize: copying file `config/lt~obsolete.m4'
+autoreconf: running: /Users/goodell/prefix/bin/autoconf --force
+autoreconf: running: /Users/goodell/prefix/bin/autoheader --force
+autoreconf: running: /Users/goodell/prefix/bin/automake --add-missing --copy --force-missing
+configure.ac:95: installing `./config/compile'
+configure.ac:148: installing `./config/config.guess'
+configure.ac:148: installing `./config/config.sub'
+configure.ac:32: installing `./config/install-sh'
+configure.ac:32: installing `./config/missing'
+./src/libplpa/Makefile.am: installing `./config/depcomp'
+autoreconf: Leaving directory `.'
+------------------------------------------------------------------------
+running /Users/goodell/prefix/bin/libtoolize in src/pm/hydra
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, `confdb'.
+libtoolize: linking file `confdb/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIR, `confdb'.
+libtoolize: linking file `confdb/libtool.m4'
+libtoolize: linking file `confdb/ltoptions.m4'
+libtoolize: linking file `confdb/ltsugar.m4'
+libtoolize: linking file `confdb/ltversion.m4'
+libtoolize: linking file `confdb/lt~obsolete.m4'
+------------------------------------------------------------------------
+running /Users/goodell/prefix/bin/libtoolize in src/mpl
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, `confdb'.
+libtoolize: linking file `confdb/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIR, `confdb'.
+libtoolize: linking file `confdb/libtool.m4'
+libtoolize: linking file `confdb/ltoptions.m4'
+libtoolize: linking file `confdb/ltsugar.m4'
+libtoolize: linking file `confdb/ltversion.m4'
+libtoolize: linking file `confdb/lt~obsolete.m4'
+------------------------------------------------------------------------
+running /Users/goodell/prefix/bin/autoreconf in src/openpa
+autoreconf: Entering directory `.'
+autoreconf: configure.in: not using Gettext
+autoreconf: running: /Users/goodell/prefix/bin/aclocal --force -I confdb
+autoreconf: configure.in: tracing
+autoreconf: configure.in: not using Libtool
+autoreconf: running: /Users/goodell/prefix/bin/autoconf --force
+autoreconf: running: /Users/goodell/prefix/bin/autoheader --force
+autoreconf: running: /Users/goodell/prefix/bin/automake --add-missing --copy --force-missing
+configure.in:14: installing `confdb/install-sh'
+configure.in:14: installing `confdb/missing'
+src/Makefile.am: installing `confdb/depcomp'
+autoreconf: Leaving directory `.'
+------------------------------------------------------------------------
+running /Users/goodell/prefix/bin/autoreconf in src/pm/hydra
+autoreconf: Entering directory `.'
+autoreconf: configure.in: not using Gettext
+autoreconf: running: /Users/goodell/prefix/bin/aclocal --force -I confdb
+autoreconf: configure.in: tracing
+autoreconf: running: /Users/goodell/prefix/bin/libtoolize --copy --force
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, `confdb'.
+libtoolize: copying file `confdb/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIR, `confdb'.
+libtoolize: copying file `confdb/libtool.m4'
+libtoolize: copying file `confdb/ltoptions.m4'
+libtoolize: copying file `confdb/ltsugar.m4'
+libtoolize: copying file `confdb/ltversion.m4'
+libtoolize: copying file `confdb/lt~obsolete.m4'
+autoreconf: running: /Users/goodell/prefix/bin/autoconf --force
+autoreconf: running: /Users/goodell/prefix/bin/autoheader --force
+autoreconf: running: /Users/goodell/prefix/bin/automake --add-missing --copy --force-missing
+autoreconf: Leaving directory `.'
+------------------------------------------------------------------------
+running /Users/goodell/prefix/bin/autoreconf in src/mpl
+autoreconf: Entering directory `.'
+autoreconf: configure.in: not using Gettext
+autoreconf: running: /Users/goodell/prefix/bin/aclocal --force -I confdb
+autoreconf: configure.in: tracing
+autoreconf: running: /Users/goodell/prefix/bin/libtoolize --copy --force
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, `confdb'.
+libtoolize: copying file `confdb/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIR, `confdb'.
+libtoolize: copying file `confdb/libtool.m4'
+libtoolize: copying file `confdb/ltoptions.m4'
+libtoolize: copying file `confdb/ltsugar.m4'
+libtoolize: copying file `confdb/ltversion.m4'
+libtoolize: copying file `confdb/lt~obsolete.m4'
+autoreconf: running: /Users/goodell/prefix/bin/autoconf --force
+autoreconf: running: /Users/goodell/prefix/bin/autoheader --force
+autoreconf: running: /Users/goodell/prefix/bin/automake --add-missing --copy --force-missing
+autoreconf: Leaving directory `.'
+Creating configure in /tmp/mpich2-trunk/src/mpe2/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/cross_spec/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/callstack/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/collchk/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/graphics/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/logging/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/misc/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/slog2sdk/ ...
+configure.in:431: warning: AC_CONFIG_SUBDIRS: you should use literals
+../../lib/autoconf/status.m4:1093: AC_CONFIG_SUBDIRS is expanded from...
+configure.in:431: the top level
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/slog2sdk/src/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/slog2sdk/trace_rlog/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/slog2sdk/trace_sample/ ...
+Creating configure in /tmp/mpich2-trunk/src/mpe2/src/wrappers/ ...
+Creating src/pm/smpd/smpd_version.h
+Updating README's version ID.

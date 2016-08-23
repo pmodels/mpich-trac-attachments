@@ -1,0 +1,65 @@
+diff -Naur mpich2-1.1.1p1.orig/src/mpi/romio/adio/ad_panfs/ad_panfs.c mpich2-1.1.1p1.new/src/mpi/romio/adio/ad_panfs/ad_panfs.c
+--- mpich2-1.1.1p1.orig/src/mpi/romio/adio/ad_panfs/ad_panfs.c	2007-11-02 18:50:19.000000000 -0400
++++ mpich2-1.1.1p1.new/src/mpi/romio/adio/ad_panfs/ad_panfs.c	2009-11-17 09:51:11.000000000 -0500
+@@ -13,6 +13,7 @@
+ 
+ struct ADIOI_Fns_struct ADIO_PANFS_operations = {
+     ADIOI_PANFS_Open, /* Open */
++    ADIOI_GEN_OpenColl, /* OpenColl */
+     ADIOI_PANFS_ReadContig, /* ReadContig */
+     ADIOI_PANFS_WriteContig, /* WriteContig */
+     ADIOI_GEN_ReadStridedColl, /* ReadStridedColl */
+@@ -39,4 +40,5 @@
+     ADIOI_GEN_Flush, /* Flush */
+     ADIOI_PANFS_Resize, /* Resize */
+     ADIOI_GEN_Delete, /* Delete */
++    ADIOI_GEN_Feature, /* Features */
+ };
+diff -Naur mpich2-1.1.1p1.orig/src/mpi/romio/adio/ad_panfs/Makefile.in mpich2-1.1.1p1.new/src/mpi/romio/adio/ad_panfs/Makefile.in
+--- mpich2-1.1.1p1.orig/src/mpi/romio/adio/ad_panfs/Makefile.in	2009-06-30 12:18:26.000000000 -0400
++++ mpich2-1.1.1p1.new/src/mpi/romio/adio/ad_panfs/Makefile.in	2009-11-16 17:11:12.000000000 -0500
+@@ -6,10 +6,14 @@
+ CC_SHL      = @CC_SHL@
+ SHLIBNAME   = @SHLIBNAME@
+ 
++CPPFLAGS    = @CPPFLAGS@
+ INCLUDES    = -I@MPI_INCLUDE_DIR@ -I${srcdir}/../include -I../include -I../../include -I${srcdir}/../../../../include -I../../../../include -I/opt/panfs/include
+-CFLAGS      = @CFLAGS@ $(INCLUDES)
++CFLAGS      = @CFLAGS@
+ 
+-C_COMPILE_SHL = $(CC_SHL)
++top_builddir  = @master_topbuild_dir@
++LIBTOOL       = @LIBTOOL@
++C_COMPILE       = $(CC) $(DEFS) $(INCLUDES) $(CFLAGS) $(CPPFLAGS)
++C_COMPILE_SHL   = $(CC_SHL) $(DEFS) $(INCLUDES) $(CFLAGS) $(CPPFLAGS)
+ 
+ @VPATH@
+ 
+@@ -23,11 +27,24 @@
+ 
+ .SUFFIXES: $(SUFFIXES) .p .lo
+ 
+-
++#	$(CC) $(CFLAGS) -c $<
+ .c.o:
+-	$(CC) $(CFLAGS) -c $<
++	@if [ "x$(VERBOSE)" != "x1" ] ; then \
++	  echo "  CC              $<" ; \
++	else \
++	  echo $(C_COMPILE) -c $< ; \
++	fi
++	@$(C_COMPILE) -c $<
++#	$(C_COMPILE_SHL) $(CFLAGS) -c $< -o _s$*.o
++#	@mv -f _s$*.o $*.lo
+ .c.lo:
+-	$(C_COMPILE_SHL) $(CFLAGS) -c $< -o _s$*.o
++	@if [ "x$(VERBOSE)" != "x1" ] ; then \
++	  echo "  CC              $<" ; \
++	else \
++	  echo $(C_COMPILE_SHL) -c $< -o _s$*.o ; \
++	  echo mv -f _s$*.o $*.lo ; \
++	fi
++	@$(C_COMPILE_SHL) -c $< -o _s$*.o
+ 	@mv -f _s$*.o $*.lo
+ 
+ $(LIBNAME): $(AD_PANFS_OBJECTS)

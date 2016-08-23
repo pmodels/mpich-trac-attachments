@@ -1,0 +1,44 @@
+--- src/env/mpicc.in.dist	2010-09-08 00:47:43.000000000 -0500
++++ src/env/mpicc.in	2012-06-01 17:02:12.000000000 -0500
+@@ -256,7 +256,7 @@
+ if [ "$linking" = yes ] ; then
+     if [ -n "$C_LINKPATH_SHL" ] ; then
+ 	# prepend the path for the shared libraries to the library list
+-	mpilibs="$C_LINKPATH_SHL$libdir $mpilibs"
++	mpilibs="$C_LINKPATH_SHL$libdir${LD_RUN_PATH:+:}$LD_RUN_PATH $mpilibs"
+     fi
+ 
+     path_list=""
+--- src/env/mpicxx.in.dist	2010-09-08 00:47:43.000000000 -0500
++++ src/env/mpicxx.in	2012-06-01 17:02:53.000000000 -0500
+@@ -254,7 +254,7 @@
+ if [ "$linking" = yes ] ; then
+     if [ -n "$CXX_LINKPATH_SHL" ] ; then
+         # Prepend the path for the shared libraries to the library list
+-        shllibpath="$CXX_LINKPATH_SHL$libdir"
++        shllibpath="$CXX_LINKPATH_SHL$libdir${LD_RUN_PATH:+:}$LD_RUN_PATH"
+     fi
+ 
+     path_list=""
+--- src/env/mpif77.in.dist	2010-09-08 00:47:43.000000000 -0500
++++ src/env/mpif77.in	2012-06-01 17:03:17.000000000 -0500
+@@ -316,7 +316,7 @@
+ if [ "$linking" = yes ] ; then
+     if [ -n "$F77_LINKPATH_SHL" ] ; then
+         # Prepend the path for the shared libraries to the library list
+-        mpilibs="$F77_LINKPATH_SHL$libdir $mpilibs"
++        mpilibs="$F77_LINKPATH_SHL$libdir${LD_RUN_PATH:+:}$LD_RUN_PATH $mpilibs"
+     fi
+ 
+     path_list=""
+--- src/env/mpif90.in.dist	2010-09-08 00:47:43.000000000 -0500
++++ src/env/mpif90.in	2012-06-01 17:03:31.000000000 -0500
+@@ -369,7 +369,7 @@
+ if [ "$linking" = yes ] ; then
+     if [ -n "$FC_LINKPATH_SHL" ] ; then
+         # Prepend the path for the shared libraries to the library list
+-        mpilibs="$FC_LINKPATH_SHL$libdir $mpilibs"
++        mpilibs="$FC_LINKPATH_SHL$libdir${LD_RUN_PATH:+:}$LD_RUN_PATH $mpilibs"
+     fi
+ 
+     path_list=""

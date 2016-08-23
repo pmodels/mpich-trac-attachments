@@ -1,0 +1,462 @@
+Making all in romio
+make[1]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio'
+Making all in include
+make[2]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/include'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/include'
+Making all in adio
+make[2]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio'
+Making all in common
+make[3]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/common'
+  CC     ad_aggregate.lo
+  CC     ad_aggregate_new.lo
+  CC     ad_close.lo
+  CC     ad_coll_build_req_new.lo
+  CC     ad_coll_exch_new.lo
+  CC     ad_darray.lo
+  CC     ad_delete.lo
+  CC     ad_done.lo
+  CC     ad_done_fake.lo
+  CC     ad_end.lo
+  CC     ad_features.lo
+  CC     ad_fcntl.lo
+  CC     ad_flush.lo
+  CC     ad_fstype.lo
+  CC     ad_get_sh_fp.lo
+  CC     ad_hints.lo
+  CC     ad_init.lo
+  CC     ad_io_coll.lo
+  CC     ad_iopen.lo
+  CC     ad_iread.lo
+  CC     ad_iread_fake.lo
+  CC     ad_iwrite.lo
+  CC     ad_iwrite_fake.lo
+  CC     ad_open.lo
+  CC     ad_opencoll.lo
+  CC     ad_opencoll_failsafe.lo
+  CC     ad_opencoll_scalable.lo
+  CC     ad_prealloc.lo
+  CC     ad_read.lo
+  CC     ad_read_coll.lo
+ad_read_coll.c(687): warning #810: conversion from "char *" to "unsigned int" may lose significant bits
+        ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)read_buf)+req_off-real_off) == (ADIO_Offset)(MPIR_Upint)(read_buf+req_off-real_off));
+        ^
+
+ad_read_coll.c(687): warning #810: conversion from "char *" to "unsigned int" may lose significant bits
+        ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)read_buf)+req_off-real_off) == (ADIO_Offset)(MPIR_Upint)(read_buf+req_off-real_off));
+        ^
+
+ad_read_coll.c(740): warning #810: conversion from "char *" to "unsigned int" may lose significant bits
+        ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)read_buf)+real_size-for_next_iter) == (ADIO_Offset)(MPIR_Upint)(read_buf+real_size-for_next_iter));
+        ^
+
+ad_read_coll.c(740): warning #810: conversion from "char *" to "unsigned int" may lose significant bits
+        ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)read_buf)+real_size-for_next_iter) == (ADIO_Offset)(MPIR_Upint)(read_buf+real_size-for_next_iter));
+        ^
+
+ad_read_coll.c(1035): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+  			ADIOI_BUF_COPY
+  			^
+
+ad_read_coll.c(1035): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+  			ADIOI_BUF_COPY
+  			^
+
+ad_read_coll.c(1042): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+  			ADIOI_BUF_COPY
+  			^
+
+ad_read_coll.c(1042): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+  			ADIOI_BUF_COPY
+  			^
+
+  CC     ad_read_str.lo
+  CC     ad_read_str_naive.lo
+ad_read_str_naive.c(83): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+      ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+      ^
+
+ad_read_str_naive.c(83): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+      ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+      ^
+
+ad_read_str_naive.c(245): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+          ^
+
+ad_read_str_naive.c(245): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+          ^
+
+ad_read_str_naive.c(311): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+          ^
+
+ad_read_str_naive.c(311): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+          ^
+
+  CC     ad_resize.lo
+  CC     ad_seek.lo
+  CC     ad_set_sh_fp.lo
+  CC     ad_set_view.lo
+  CC     ad_subarray.lo
+  CC     ad_wait.lo
+  CC     ad_wait_fake.lo
+  CC     ad_write.lo
+  CC     ad_write_coll.lo
+ad_write_coll.c(467): warning #810: conversion from "char *" to "unsigned int" may lose significant bits
+        ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)write_buf)+req_off-off) == (ADIO_Offset)(MPIR_Upint)(write_buf+req_off-off));
+        ^
+
+ad_write_coll.c(467): warning #810: conversion from "char *" to "unsigned int" may lose significant bits
+        ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)write_buf)+req_off-off) == (ADIO_Offset)(MPIR_Upint)(write_buf+req_off-off));
+        ^
+
+ad_write_coll.c(925): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+  		        ADIOI_BUF_COPY
+  		        ^
+
+ad_write_coll.c(925): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+  		        ADIOI_BUF_COPY
+  		        ^
+
+ad_write_coll.c(932): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+  			ADIOI_BUF_COPY
+  			^
+
+ad_write_coll.c(932): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+  			ADIOI_BUF_COPY
+  			^
+
+  CC     ad_write_nolock.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+ad_write_nolock.c(142): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + (ADIO_Offset)j*(ADIO_Offset)buftype_extent + flat_buf->indices[i]) == (ADIO_Offset)((MPIR_Upint)buf + (ADIO_Offset)j*(ADIO_Offset)buftype_extent + flat_buf->indices[i]));
+          ^
+
+ad_write_nolock.c(142): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + (ADIO_Offset)j*(ADIO_Offset)buftype_extent + flat_buf->indices[i]) == (ADIO_Offset)((MPIR_Upint)buf + (ADIO_Offset)j*(ADIO_Offset)buftype_extent + flat_buf->indices[i]));
+          ^
+
+  CC     ad_write_str.lo
+  CC     ad_write_str_naive.lo
+ad_write_str_naive.c(85): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+      ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+      ^
+
+ad_write_str_naive.c(85): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+      ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+      ^
+
+ad_write_str_naive.c(246): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+          ^
+
+ad_write_str_naive.c(246): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+          ^
+
+ad_write_str_naive.c(312): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+          ^
+
+ad_write_str_naive.c(312): warning #810: conversion from "void *" to "unsigned int" may lose significant bits
+          ADIOI_Assert((((ADIO_Offset)(MPIR_Upint)buf) + userbuf_off) == (ADIO_Offset)(MPIR_Upint)((MPIR_Upint)buf + userbuf_off));
+          ^
+
+  CC     adi_close.lo
+  CC     byte_offset.lo
+  CC     cb_config_list.lo
+  CC     eof_offset.lo
+  CC     error.lo
+  CC     flatten.lo
+  CC     get_fp_posn.lo
+  CC     greq_fns.lo
+  CC     heap-sort.lo
+  CC     iscontig.lo
+  CC     lock.lo
+  CC     malloc.lo
+  CC     shfp_fname.lo
+  CC     status_setb.lo
+  CC     strfns.lo
+  CC     system_hints.lo
+  CCLD   libadio_common.la
+make[3]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/common'
+Making all in include
+make[3]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/include'
+make  all-am
+make[4]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/include'
+make[4]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/include'
+make[3]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/include'
+Making all in ad_nfs
+make[3]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/ad_nfs'
+  CC     ad_nfs.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_done.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_fcntl.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_features.lo
+  CC     ad_nfs_getsh.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_hints.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_iread.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_iwrite.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_open.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_read.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_resize.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_setsh.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_wait.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_nfs_write.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CCLD   libadio_nfs.la
+make[3]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/ad_nfs'
+Making all in ad_testfs
+make[3]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/ad_testfs'
+  CC     ad_testfs.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_close.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_delete.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_done.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_fcntl.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_flush.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_getsh.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_hints.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_iread.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_iwrite.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_open.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_rdcoll.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_read.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_resize.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_seek.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_setsh.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_wait.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_wrcoll.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_testfs_write.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CCLD   libadio_testfs.la
+make[3]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/ad_testfs'
+Making all in ad_ufs
+make[3]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/ad_ufs'
+  CC     ad_ufs.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CC     ad_ufs_open.lo
+../../adio/include/adio.h(182): warning #147: declaration is incompatible with "ssize_t={__ssize_t={long}} readlink(const char *restrict, char *restrict, size_t={unsigned long})" (declared at line 775 of "/usr/include/unistd.h")
+  int readlink(const char *path, char *buf, size_t bufsiz);
+      ^
+
+  CCLD   libadio_ufs.la
+make[3]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio/ad_ufs'
+make[3]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio'
+  CCLD   libadio.la
+make[3]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio'
+make[2]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/adio'
+Making all in mpi-io
+make[2]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/mpi-io'
+Making all in glue/openmpi
+make[3]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/mpi-io/glue/openmpi'
+  CC     mpio_err.lo
+  CC     mpio_file.lo
+  CCLD   libglue.la
+make[3]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/mpi-io/glue/openmpi'
+make[3]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/mpi-io'
+  CC     close.lo
+  CC     delete.lo
+  CC     fsync.lo
+  CC     get_amode.lo
+  CC     get_atom.lo
+  CC     get_bytoff.lo
+  CC     get_errh.lo
+  CC     get_extent.lo
+  CC     get_group.lo
+  CC     get_info.lo
+  CC     get_posn.lo
+  CC     get_posn_sh.lo
+  CC     get_size.lo
+  CC     get_view.lo
+  CC     iread_at.lo
+  CC     iread.lo
+  CC     iread_sh.lo
+  CC     iwrite_at.lo
+  CC     iwrite.lo
+  CC     iwrite_sh.lo
+  CC     open.lo
+  CC     prealloc.lo
+  CC     rd_atallb.lo
+  CC     rd_atalle.lo
+  CC     read_allb.lo
+  CC     read_all.lo
+  CC     read_alle.lo
+  CC     read_atall.lo
+  CC     read_at.lo
+  CC     read.lo
+  CC     read_ordb.lo
+  CC     read_ord.lo
+  CC     read_orde.lo
+  CC     read_sh.lo
+  CC     seek.lo
+  CC     seek_sh.lo
+  CC     set_atom.lo
+  CC     set_errh.lo
+  CC     set_info.lo
+  CC     set_size.lo
+  CC     set_view.lo
+  CC     wr_atallb.lo
+  CC     wr_atalle.lo
+  CC     write_allb.lo
+  CC     write_all.lo
+  CC     write_alle.lo
+  CC     write_atall.lo
+  CC     write_at.lo
+  CC     write.lo
+  CC     write_ordb.lo
+  CC     write_ord.lo
+  CC     write_orde.lo
+  CC     write_sh.lo
+  CC     register_datarep.lo
+  CC     mpiu_greq.lo
+  CC     mpich2_fileutil.lo
+  CC     mpir-mpioinit.lo
+  CCLD   libmpi-io.la
+make[3]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/mpi-io'
+make[2]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio/mpi-io'
+make[2]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio'
+  CCLD   libromio_dist.la
+make[2]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio'
+make[1]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio/romio'
+make[1]: Entering directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio'
+  CC     src/io_romio_component.lo
+  CC     src/io_romio_file_open.lo
+  CC     src/io_romio_file_read.lo
+  CC     src/io_romio_file_write.lo
+  CC     src/io_romio_module.lo
+  CCLD   mca_io_romio.la
+make[1]: Leaving directory `/home/jsquyres/svn/ompi-1.5/ompi/mca/io/romio'

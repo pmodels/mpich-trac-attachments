@@ -1,0 +1,22 @@
+diff --git a/src/wrappers/configure.ac b/src/wrappers/configure.ac
+index e504488..a5e3e45 100644
+--- a/src/wrappers/configure.ac
++++ b/src/wrappers/configure.ac
+@@ -336,14 +336,16 @@ dnl Check if MPI implementation uses const in function declaration
+ if test "$MPI_IMPL" != "MPICH" -a "$MPI_IMPL" != "MPICH2" ; then
+     if test "$enable_checkMPI" = "yes" ; then
+         AC_MSG_CHECKING( [for the use of const in MPI function declaration] )
+-        PAC_MPI_COMPILE_CC_FUNC( $MPI_CC, [$MPI_CFLAGS], [], [],
++        PAC_MPI_COMPILE_CC_FUNC( $MPI_CC, [$MPI_CFLAGS],
+                                  [
++#include "mpi.h"
+ int MPI_Send(const void *buf, int count, MPI_Datatype datatype,
+              int dest, int tag, MPI_Comm comm)
+ {
+     return 0;
+ }
+                                  ],
++                                 [], [],
+                                  [ mpe_link_ok=yes ], [ mpe_link_ok=no ] )
+         if test "$mpe_link_ok" = "yes" ; then
+             AC_MSG_RESULT(yes)

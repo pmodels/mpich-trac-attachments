@@ -1,0 +1,17 @@
+--- configure.in.orig	2012-09-07 01:55:15.293554859 +0300
++++ configure.in	2012-09-07 01:56:03.070555158 +0300
+@@ -2211,6 +2211,14 @@
+ 		fi
+ 	        ;;
+ 
++	        open64)
++	        # open64 implements the GNU options
++	        FC_SHL="$FC -shared -fPIC"
++		if test "$enable_rpath" = yes ; then 
++                    FC_LINKPATH_SHL="-Wl,-rpath -Wl,"
++		fi
++	        ;;
++
+ 	        pgi)
+ 	        # Portland Group implements the GNU options
+ 	        FC_SHL="$FC -shared -fPIC"

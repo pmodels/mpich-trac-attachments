@@ -1,0 +1,10 @@
+Hi,<br><br>I&#39;m using MPICH2-1.0.8 on CentOS 5.2 with MPI_THREAD_MULTIPLE.&nbsp; I configured it with:<br><br><span style="font-family: courier new,monospace;">CC=&quot;icc&quot; ./configure --prefix=$HOME/mpich2-icc --with-device=ch3:sock --with-thread-package=pthreads --enable-threads --enable-error-checking=all --enable-error-messages=all --enable-timing=all --enable-g=all --disable-fast</span><br>
+
+<br>I&#39;m running my program with MALLOC_CHECK_=1 and got the following message repeated many times in stderr:<br><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">[4] Block at address 0x0000000008a7cce0 is corrupted (probably write past end)</span><br style="font-family: courier new,monospace;">
+
+<span style="font-family: courier new,monospace;">[4] Block allocated in segment.c[222]</span><br><br>My program ended with this message after running for over 5 hours on 8 nodes:<br><br><span style="font-family: courier new,monospace;">rank 7 in job 1&nbsp; node40_45659&nbsp;&nbsp; caused collective abort of all ranks</span><br style="font-family: courier new,monospace;">
+
+<span style="font-family: courier new,monospace;">&nbsp; exit status of rank 7: killed by signal 9</span><br><br>I don&#39;t know if this helps or if these messages came at the same time.&nbsp; Please let me know if you need more information or if there is a way I can log more information.&nbsp; I use MPI_Send, MPI_Bsend, MPI_Ssend, MPI_Recv, MPI_Barrier, and MPI_Reduce in my program.<br>
+<br>This is the first time I&#39;ve seen this error, but in previous runs I have had messages that say:<br><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">job aborted; reason = mpd disappeared</span><br>
+<br>but I don&#39;t know if this is related.<br>
+<br>Cheers,<br>Shawn<br>

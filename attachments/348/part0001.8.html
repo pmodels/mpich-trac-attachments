@@ -1,0 +1,1006 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7653.38">
+<TITLE>RE: [mpich2-maint] #348: error in installing mpich2</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/rtf format -->
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#FF0000" FACE="Courier New">It may be easier if you use all SGI compilers, i.e. set CC=cc, F77=f77 and</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT COLOR="#FF0000" FACE="Courier New">&nbsp;F90=f90... so all understand -n32 or -64 ABI flags</FONT></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">That would be the easy solution, but for inexplicable reasons, this computer doesn't have a license for the MIPSPro C compiler.</FONT></SPAN><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp; So I am experimenting with workarounds.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">Thanks,</FONT></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"></SPAN><A NAME=""><SPAN LANG="en-us"><FONT FACE="Courier New">Wade Miner </FONT></SPAN></A></P>
+
+<P DIR=LTR><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Wednesday, January 14, 2009 2:20 PM<BR>
+Subject: Re: [mpich2-maint] #348: error in installing mpich2</FONT></SPAN><SPAN LANG="en-us"></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">---------------------------------------------------------------+------------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp; robl</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new </FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; </FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">---------------------------------------------------------------+------------</FONT></SPAN></P>
+<BR>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">Comment (by Anthony Chan):</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;{{{</FONT></SPAN></P>
+<BR>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;Sorry that you had to find the binary incompatibility issue during</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;linking,</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;mpich2 actually has a test for the binary compatibility between C</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;and fortran compilers but the test isn't included in 1.0.8</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;(but 1.1 alpha releases).</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;Anyway, you could set all compilers to use same ABI by setting CFLAGS,</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;CXXFLAGS, FFLAGS, and F90FLAGS.&nbsp; Since your configure output shows that</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;configure chose gcc as CC, g++ as CXX, g77 as F77 and SGI's f90 as F90,</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;the *FLAGS that you set should correspond to the same ABI format.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;It may be easier if you use all SGI compilers, i.e. set CC=cc, F77=f77 and</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;F90=f90... so all understand -n32 or -64 ABI flags (I haven't had access</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;to</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;any SGI box for a long time, so info provided above may not be up-to-</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;date.)</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;A.Chan</FONT></SPAN></P>
+<BR>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;----- &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt; wrote:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;---------------------------------------------------------------+------------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Owner:&nbsp; robl</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; Status:&nbsp; new</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; Milestone:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; Resolution:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;---------------------------------------------------------------+------------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; Comment (by Miner, Wade (Newport News)):</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; {{{</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; This is a request for additional information.&nbsp; I decided to</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; investigate</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; what I would get if I just proceeded ahead, anyway.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; My efforts have been to get PEGASUS% from NASA AMES complied, with</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; mpi</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; enabled, on the SGI TEZRO (MIPS4).&nbsp; I first got the message that the</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; library had -n32 objects and that it was expecting -n64 objects.&nbsp; I</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; manually went into the Pegasus make file and added -64 to the FLAGS</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; parameter.&nbsp; From that run, I got a complaint that the mpichf90</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; library</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; was -n32.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Is there a way to specify that mpich2 should be build with -n64</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; objects?</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Thanks,</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Wade Miner</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; -----Original Message-----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Sent: Wednesday, January 14, 2009 1:08 PM</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Subject: Re: [mpich2-maint] #348: error in installing mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Owner:&nbsp; robl</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Status:&nbsp; new</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Milestone:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Resolution:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Comment (by Miner, Wade (Newport News)):</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; {{{</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Thanks for the clarification.&nbsp; Enclosed (with .gr suffix)</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Wade Miner</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; -----Original Message-----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Sent: Wednesday, January 14, 2009 12:30 PM</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #348: error in installing mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Owner:&nbsp; robl</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Status:&nbsp; new</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Milestone:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Resolution:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Comment (by Anthony Chan):</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; {{{</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; The offending Makefile is</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; /local/temp/mpich_build/mpich2-1.0.8/src/mpe2/src/graphics/src/Makefile</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; not the top-level Makefile that you just sent.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; ----- &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt; wrote:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Owner:&nbsp; robl</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; Status:&nbsp; new</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; Milestone:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; Resolution:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; Comment (by Miner, Wade (Newport News)):</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; {{{</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; OK</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Wade Miner</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; -----Original Message-----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Sent: Wednesday, January 14, 2009 12:18 PM</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Subject: Re: [mpich2-maint] #348: error in installing mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Owner:&nbsp; robl</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Status:&nbsp; new</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Priority:&nbsp; major</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Milestone:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Component:&nbsp; mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Resolution:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Keywords:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Comment (by Anthony Chan):</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; {{{</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; It looks as if something in src/mpe2/src/graphics/src/Makefile</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; was</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; corrupted.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Can you send us the Makefile ?</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; A.Chan</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; ----- &quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt; wrote:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Owner:&nbsp; robl</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Status:&nbsp; new</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Priority:&nbsp; major</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Milestone:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Component:&nbsp; mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Resolution:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Keywords:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Comment (by Miner, Wade (Newport News)):</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; {{{</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Some progress, but not there yet.&nbsp; The ending of make</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; listing</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; is</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; **** Making src/graphics ....</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; make</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; /local/temp/mpich_build/mpich2-1.0.8/src/mpe2/lib/lib_nompi.a</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gcc -I.. -I../include</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; -I/local/temp/mpich_build/mpich2-1.0.8/src/mpe2/include</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; -I../../..</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; -I../../../include&nbsp; PROF_LIBNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = mpe -O2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; -DMPE_NOMPI</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; -c</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; mpe_graphics.c</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; gcc: PROF_LIBNAME: No such file or directory</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; gcc: =: No such file or directory</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; gcc: mpe: No such file or directory</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; *** Error code 1 (bu21)</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; wmi00 on ITL00029008 in</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; /local/temp/mpich_build/mpich2-1.0.8</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; [38</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; ] %</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; copies of m.txt and configure.log attached.&nbsp; I did note in</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; the</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; configure.log file that it found the 1000 Mhz mips processor</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; to</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; be</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; unknown, but that doesn't seem to be the source of the</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; problem.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Thanks!</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Wade Miner</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; -----Original Message-----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Sent: Friday, January 09, 2009 3:09 PM</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Subject: Re: [mpich2-maint] #348: error in installing</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; &lt;Wade.Miner@ngc.com&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Owner:&nbsp; robl</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Status:&nbsp; new</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Priority:&nbsp; major</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Milestone:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Component:&nbsp; mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Resolution:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Keywords:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Comment (by Miner, Wade (Newport News)):</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; {{{</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; I think I am going to have to wait until Monday for this.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; The</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; TEZRO</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; is</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; being transitioned form a cubicle network to the corporate</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; network</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; and</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; I</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; am until Monday &quot;I am off the air.&quot;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Thanks,</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Wade Miner</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ***********************************************************************</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Wade Miner, PhD.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Engineer III</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Northrop Grumman Newport News&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Phone: (757) 688-4666</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Dept. E46, Bldg. 600-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fax: (757) 688-2296</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; 4101 Washington Ave.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e-mail:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; Wade.Miner@ngc.com</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Newport News, VA 23607</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ***********************************************************************</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; -----Original Message-----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Sent: Friday, January 09, 2009 3:04 PM</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #348: error in installing</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; &lt;Wade.Miner@ngc.com&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Owner:&nbsp; robl</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Status:&nbsp; new</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Milestone:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Component:&nbsp; mpich2</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Resolution:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Keywords:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; |</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; ---------------------------------------------------------------+--------</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; ----</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Comment (by Robert Latham):</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; {{{</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; On Fri, Jan 09, 2009 at 08:01:38PM -0000, mpich2 wrote:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; If you don't need any MPI_FILE_* in your code,</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; configure mpich2 with --disable-romio.</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; that's a little bit overkill, man!</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; ==rob</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; --</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Rob Latham</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Mathematics and Computer Science Division&nbsp;&nbsp;&nbsp; A215 0178</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; EA2D</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; B059</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; 8CDF</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Argonne National Lab, IL USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B29D F333</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; 664A</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; 4280</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; 315B</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; }}}</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; --</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Ticket URL:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp;&nbsp; }}}</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; --</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; Ticket URL:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;&nbsp; }}}</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; --</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Ticket URL:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; }}}</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; --</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Ticket URL:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; }}}</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; --</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; Ticket URL:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; &gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp;&nbsp; }}}</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; --</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; Ticket URL:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp;&nbsp; }}}</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; --</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; Ticket URL:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;&nbsp; }}}</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; --</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; Ticket URL:</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;&gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">&nbsp;}}}</FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">-- </FONT></SPAN></P>
+
+<P DIR=LTR><SPAN LANG="en-us"><FONT FACE="Courier New">Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;</FONT></SPAN></P>
+
+</BODY>
+</HTML>

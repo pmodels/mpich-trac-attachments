@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.6000.16705" name=GENERATOR></HEAD>
+<BODY>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=109542315-06092008>We should try to do what native compilers do. For 
+example, if I just type gcc or ifort, I get</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=109542315-06092008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=109542315-06092008>shakey:/homes/thakur% gcc<BR>gcc: no input 
+files<BR>shakey:/homes/thakur% ifort<BR>ifort: Command line error: no files 
+specified; for help type "ifort -help"<BR>shakey:/homes/thakur% 
+</SPAN></FONT></DIV><FONT face=Arial color=#0000ff size=2></FONT><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> owner-mpich-discuss@mcs.anl.gov 
+[mailto:owner-mpich-discuss@mcs.anl.gov] <B>On Behalf Of 
+</B>linzhenhua<BR><B>Sent:</B> Saturday, September 06, 2008 9:49 
+AM<BR><B>To:</B> mpich-discuss@mcs.anl.gov<BR><B>Subject:</B> Re:RE: 
+[mpich-discuss] mpif90 and mpicc problems<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV>I think I have also got similiar message when I just begin to try mpich2. 
+It bother me for quite some time.<BR><BR>Later I know if I just type the command 
+without source file,there will be such errors. I think it will be better if the 
+developers can change this default behavior when typing the command without 
+source file. <BR></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><BR>--<BR>&nbsp;</DIV><BR><PRE>在2008-09-06，"Rajeev Thakur" &lt;thakur@mcs.anl.gov&gt; 写道：
+&gt;Did you try to compile a program with mpicc/mpif90, i.e., "mpicc foo.c" or
+&gt;"mpif90 foo.f90"? If you just run "mpicc" or "mpif90", you will get
+&gt;something like the messages below. 
+&gt;
+&gt;Do the example programs in the examples and examples/f90 directories
+&gt;compile?
+&gt;
+&gt;Rajeev
+&gt;
+&gt; 
+&gt;
+&gt;&gt; -----Original Message-----
+&gt;&gt; From: owner-mpich-discuss@mcs.anl.gov 
+&gt;&gt; [mailto:owner-mpich-discuss@mcs.anl.gov] On Behalf Of jcrosby
+&gt;&gt; Sent: Friday, September 05, 2008 9:34 AM
+&gt;&gt; To: mpich-discuss@mcs.anl.gov
+&gt;&gt; Subject: [mpich-discuss] mpif90 and mpicc problems
+&gt;&gt; 
+&gt;&gt; Good morning,
+&gt;&gt; 
+&gt;&gt; I'm having a few problems getting mpif90 and mpicc to work.  
+&gt;&gt; Whenever I run them I get the following errors:
+&gt;&gt; MPIF90:
+&gt;&gt; /opt/intel/fc/10.1.015/lib/for_main.o: In function `main':
+&gt;&gt; /users/nbtester/x86linux_nightly/branch-10_1/20080313_000000/l
+&gt;&gt; ibdev/frtl/src/libfor/for_main.c:(.text+0x39): 
+&gt;&gt; undefined reference to `MAIN__'
+&gt;&gt; 
+&gt;&gt; MPICC:
+&gt;&gt; /usr/lib/gcc/i486-linux-gnu/4.2.3/../../../../lib/crt1.o: In function
+&gt;&gt; `_start':
+&gt;&gt; (.text+0x18): undefined reference to `main'
+&gt;&gt; collect2: ld returned 1 exit status
+&gt;&gt; 
+&gt;&gt; 
+&gt;&gt; -- 
+&gt;&gt; Joseph Crosby
+&gt;&gt; Network Administrator
+&gt;&gt; Scotia Weather Service Inc.
+&gt;&gt; netadmin@scotiaweather.com
+&gt;&gt; -----------
+&gt;&gt; A byte walks into a bar and orders a pint. Bartender asks him 
+&gt;&gt; "What's wrong?" Byte says "Parity error." Bartender nods and 
+&gt;&gt; says "Yeah, I thought you looked a bit off."
+&gt;&gt; 
+&gt;&gt; 
+&gt;
+</PRE><BR><!-- footer --><BR>
+<HR>
+<FONT style="FONT-SIZE: 12px; LINE-HEIGHT: 15px">超大花房赠送，60万</FONT><A 
+style="FONT-SIZE: 12px; COLOR: blue; LINE-HEIGHT: 15px; TEXT-DECORATION: underline" 
+href="http://popme.163.com/link/003984_0905_5286.html">轻松入住顺鑫花语</A></BODY></HTML>

@@ -1,0 +1,73 @@
+From abb12c89e5f18fec7c5b84ca21029985a74c35cf Mon Sep 17 00:00:00 2001
+From: Dave Goodell <goodell@mcs.anl.gov>
+Date: Wed, 2 Jan 2013 23:47:23 -0600
+Subject: [PATCH] tt#1776: fix platforms missing LLONG_MAX
+
+Provide an LLONG_MAX (and similar) definition in mpiimpl.h if the
+current platform/environment does not provide one.  Extremely useful for
+overflow checking especially for the "large count" functionality.
+
+No reviewer.
+---
+ configure.ac          |  2 ++
+ src/include/mpiimpl.h | 31 +++++++++++++++++++++++++++++++
+ 2 files changed, 33 insertions(+)
+
+diff --git a/configure.ac b/configure.ac
+index fda0358..868e382 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -4894,6 +4894,8 @@ for type in int long long_long short ; do
+             long_long)
+                 MPI_AINT_FMT_DEC_SPEC="%lld"
+                 MPI_AINT_FMT_HEX_SPEC="%llx"
++                # tt#1776: if LLONG_MAX is missing, we fix it up in C, b/c it's
++                # easier there.  See mpiiimpl.h.
+                 MPIR_AINT_MAX="LLONG_MAX"
+                 ;;
+             short)
+diff --git a/src/include/mpiimpl.h b/src/include/mpiimpl.h
+index 87c2903..544ad44 100644
+--- a/src/include/mpiimpl.h
++++ b/src/include/mpiimpl.h
+@@ -59,6 +59,37 @@
+ #endif
+ #endif
+ 
++#ifdef HAVE_LIMITS_H
++#include <limits.h>
++#endif
++
++#if defined(HAVE_LONG_LONG_INT)
++/* tt#1776: some platforms have "long long" but not a LLONG_MAX/ULLONG_MAX,
++ * usually because some feature test macro has turned them off in glibc's
++ * features.h header b/c we are not in a >=C99 mode.  Use well-defined unsigned
++ * integer overflow to determine ULLONG_MAX, and assume two's complement for
++ * determining LLONG_MAX (already assumed elsewhere in MPICH). */
++#ifndef ULLONG_MIN
++#define ULLONG_MIN (0) /* trivial */
++#endif
++#ifndef ULLONG_MAX
++#define ULLONG_MAX ((unsigned long long)0 - 1)
++#endif
++#ifndef LLONG_MAX
++/* slightly tricky (values in binary):
++ * - put a 1 in the second-to-msb digit                   (0100...0000)
++ * - sub 1, giving all 1s starting at third-to-msb digit  (0011...1111)
++ * - shift left 1                                         (0111...1110)
++ * - add 1, yielding all 1s in positive space             (0111...1111) */
++#define LLONG_MAX (((((long long) 1 << (sizeof(long long) * CHAR_BIT - 2)) - 1 ) << 1) + 1)
++#endif
++#ifndef LLONG_MIN
++/* (1000...0000) is the most negative value in a twos-complement representation,
++ * which is the bitwise complement of the most positive value */
++#define LLONG_MIN (~LLONG_MAX)
++#endif
++#endif /* defined(HAVE_LONG_LONG_INT) */
++
+ #ifdef HAVE_SYS_TYPES_H
+ #include <sys/types.h>
+ #endif
+-- 
+1.8.0.1
+

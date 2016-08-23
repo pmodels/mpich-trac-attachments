@@ -1,0 +1,41 @@
+
+<br><font size=2 face="sans-serif">Hello</font>
+<br>
+<br><font size=2 face="sans-serif">I have issues with the -map parameter
+in version 1.0.3. A first time it works, following runs I get an error,
+see below:</font>
+<br>
+<br><font size=1 face="Courier New">C:\mpiworkspace\mpi1&gt;mpiexec -n
+1 -host chrs3465 -timeout 12 -map p:\\chr53535\s</font>
+<br><font size=1 face="Courier New">hared -path p:\calc printarg.cmd</font>
+<br>
+<br><font size=1 face="Courier New">C:\mpiworkspace\mpi1&gt;echo</font>
+<br><font size=1 face="Courier New">ECHO is on.</font>
+<br>
+<br><font size=1 face="Courier New">C:\mpiworkspace\mpi1&gt;mpiexec -n
+1 -host chrs3465 -timeout 12 -map p:\\chr53535\s</font>
+<br><font size=1 face="Courier New">hared -path p:\calc printarg.cmd bubu</font>
+<br><font size=1 face="Courier New">op_read error on left context: generic
+socket failure, error stack:</font>
+<br><font size=1 face="Courier New">MPIDU_Sock_wait(2533): The specified
+network name is no longer available. (errno</font>
+<br><font size=1 face="Courier New">&nbsp;64)</font>
+<br><font size=1 face="Courier New">unable to read the cmd header on the
+left context, generic socket failure, error</font>
+<br><font size=1 face="Courier New">&nbsp;stack:</font>
+<br><font size=1 face="Courier New">MPIDU_Sock_wait(2533): The specified
+network name is no longer available. (errno</font>
+<br><font size=1 face="Courier New">&nbsp;64).</font>
+<br>
+<br><font size=1 face="Courier New">mpiexec terminated job due to 12 second
+timeout.</font>
+<br>
+<br><font size=1 face="Courier New">Any help appreciated.</font>
+<br><font size=1 face="Courier New">Regards</font>
+<br><font size=1 face="Courier New">Bernd</font>
+<br>
+<br>
+<br>
+<br>
+<span style="font-family:sans-serif,helvetica; font-size:10pt; color:#000000">This e-mail, including attachments, is intended for the person(s) or company named and may contain confidential and/or legally privileged information. Unauthorized disclosure, copying or use of this information may be unlawful and is prohibited. If you are not the intended recipient, please delete this message and notify the sender.</span><br>
+<span style="font-family:sans-serif,helvetica; font-size:10pt; color:#000000">All incoming and outgoing e-mail messages are stored in the Swiss Re Electronic Message Repository. If you do not wish the retention of potentially private e-mails by Swiss Re, we strongly advise you not to use the Swiss Re e-mail account for any private, non-business related communications.</span><br>

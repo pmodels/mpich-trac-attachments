@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Windows-1252">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.0.6619.12">
+<TITLE>RE: [mpich2-maint] #118: Simple MPICH2 Delegate Bug</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>Jayesh,<BR>
+<BR>
+I will let you know when I get back to the Home Office tonight.&nbsp; I am pretty sure it will work.&nbsp; It only seems to happen when I attempt to mpiexec using the delegate flag to the localhost.<BR>
+<BR>
+Larry<BR>
+<BR>
+<BR>
+-----Original Message-----<BR>
+From:&nbsp;&nbsp; Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+Sent:&nbsp;&nbsp; Tue 9/2/2008 10:23 AM<BR>
+To:&nbsp;&nbsp;&nbsp;&nbsp; Larry Adams<BR>
+Cc:&nbsp;&nbsp;&nbsp;&nbsp; mpich2-maint@mcs.anl.gov<BR>
+Subject:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RE: [mpich2-maint] #118: Simple MPICH2 Delegate Bug<BR>
+<BR>
+&nbsp;Hi,<BR>
+&nbsp; Can you execute hostname on vm-cce1 (execution host) from vm-cce2<BR>
+(submission host) ?<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+On Behalf Of mpich2<BR>
+Sent: Friday, August 29, 2008 6:34 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #118: Simple MPICH2 Delegate Bug<BR>
+<BR>
+-------------------------------------------------&#43;----------------------<BR>
+-------------------------------------------------&#43;----<BR>
+&nbsp;Reporter:&nbsp; &quot;Larry Adams&quot; &lt;ladams@platform.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+-------------------------------------------------&#43;----------------------<BR>
+-------------------------------------------------&#43;----<BR>
+<BR>
+<BR>
+&nbsp;Hi,<BR>
+<BR>
+&nbsp;I have setup 3 Win64 hosts using &quot;smpd -register_spn&quot; with no problem.<BR>
+&nbsp;On the domain controller, I have created a user that is authorized for<BR>
+delegation and setup all 3 hosts to allow delegation.<BR>
+<BR>
+&nbsp;Then, assume the following two scenarios:<BR>
+<BR>
+&nbsp;Scenario 1:<BR>
+&nbsp;submission host: vm-cce1<BR>
+&nbsp;execution host: vm-cce2<BR>
+&nbsp;command: mpiexec -delegate -hosts 1 vm-cce2 hostname<BR>
+&nbsp;result: vm-cce2<BR>
+<BR>
+&nbsp;Scenario 2:<BR>
+&nbsp;submission host: vm-cce1<BR>
+&nbsp;execution host: vm-cce1<BR>
+&nbsp;command: mpiexec -delegate -hosts 1 vm-cce1 hostname<BR>
+&nbsp;result: op_read error on left context: socket connection closed&nbsp; unable<BR>
+to read the re-connect request, socket connection closed.<BR>
+<BR>
+&nbsp;Scenario 2 appears to be a bug.&nbsp; Why is it that I can not use delegation<BR>
+when talking to the localhost vm-cce1.&nbsp; This I think is a bug.&nbsp; Try it<BR>
+for yourself.<BR>
+<BR>
+&nbsp;Regards,<BR>
+<BR>
+&nbsp;Larry Adams<BR>
+&nbsp;Senior Systems Engineer<BR>
+&nbsp;Platform Computing<BR>
+&nbsp;Tele: (586) 510-0007<BR>
+&nbsp;Cell: (586) 899-1138<BR>
+&nbsp;Skype: TheWitness<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/118">https://trac.mcs.anl.gov/projects/mpich2/ticket/118</A>&gt;<BR>
+<BR>
+<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

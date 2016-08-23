@@ -1,0 +1,53 @@
+Beginning make
+Using variables CC='gcc' CFLAGS=' -O2' LDFLAGS='' AR='ar' FC='f77' F90='f90' FFLAGS='' F90FLAGS=' -O2' CXX='c++' CPPFLAGS=' -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/openpa/src -I/export/home/rpm/MPI/mpich2-tmp/src/openpa/src -DUSE_PROCESS_LOCKS  -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/include -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/datatype -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/datatype -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/locks -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/locks -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/channels/nemesis/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/include -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/locks -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/locks -I/export/home/rpm/MPI/mpich2-tmp/src/util/wrappers -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/util/wrappers'
+make all-local
+make[1]: Entering directory `/export/home/rpm/MPI/mpich2-tmp'
+make[1]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp'
+make[1]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa'
+Making all in src
+make[2]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa/src'
+make  all-am
+make[3]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa/src'
+gcc -DHAVE_CONFIG_H -I. -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/openpa/src   -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/openpa/src -I/export/home/rpm/MPI/mpich2-tmp/src/openpa/src -DUSE_PROCESS_LOCKS  -O2 -MT opa_primitives.o -MD -MP -MF .deps/opa_primitives.Tpo -c -o opa_primitives.o /export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/openpa/src/opa_primitives.c
+mv -f .deps/opa_primitives.Tpo .deps/opa_primitives.Po
+gcc -DHAVE_CONFIG_H -I. -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/openpa/src   -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/openpa/src -I/export/home/rpm/MPI/mpich2-tmp/src/openpa/src -DUSE_PROCESS_LOCKS  -O2 -MT opa_queue.o -MD -MP -MF .deps/opa_queue.Tpo -c -o opa_queue.o /export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/openpa/src/opa_queue.c
+mv -f .deps/opa_queue.Tpo .deps/opa_queue.Po
+rm -f libopa.a
+ar cru libopa.a opa_primitives.o opa_queue.o 
+ranlib libopa.a
+make[3]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa/src'
+make[2]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa/src'
+Making all in test
+make[2]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa/test'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa/test'
+make[2]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa'
+make[1]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/openpa'
+make[1]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src'
+make[2]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid'
+make[3]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid/common'
+make[4]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/locks'
+gcc -DHAVE_CONFIG_H -I. -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/locks -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/locks -I../../../include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/include -O2 -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/openpa/src -I/export/home/rpm/MPI/mpich2-tmp/src/openpa/src -DUSE_PROCESS_LOCKS -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/include -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/datatype -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/datatype -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/locks -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/locks -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/channels/nemesis/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/include -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/locks -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/locks -I/export/home/rpm/MPI/mpich2-tmp/src/util/wrappers -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/util/wrappers -c /export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/locks/mpidu_process_locks.c
+ar cr ../../../../lib/libmpich.a mpidu_process_locks.o
+ranlib ../../../../lib/libmpich.a
+date > .libstamp0
+make[4]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/locks'
+make[4]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/datatype'
+make[5]: Entering directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/datatype/dataloop'
+gcc -DHAVE_CONFIG_H -I. -I../../../../../../Test/mpich2-1.1.1p1/src/mpid/common/datatype/dataloop -I../../../../../../Test/mpich2-1.1.1p1/src/mpid/common/datatype/dataloop/.. -I/export/home/rpm/MPI/mpich2-tmp/src/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/include -O2 -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/openpa/src -I/export/home/rpm/MPI/mpich2-tmp/src/openpa/src -DUSE_PROCESS_LOCKS -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/include -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/datatype -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/datatype -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/locks -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/locks -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/channels/nemesis/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/include -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/include -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/locks -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/mpid/common/locks -I/export/home/rpm/MPI/mpich2-tmp/src/util/wrappers -I/export/home/rpm/MPI/Test/mpich2-1.1.1p1/src/util/wrappers -c ../../../../../../Test/mpich2-1.1.1p1/src/mpid/common/datatype/dataloop/dataloop.c
+/var/tmp//cc3veMEZ.s: Assembler messages:
+/var/tmp//cc3veMEZ.s:321: Error: suffix or operands invalid for `mov'
+/var/tmp//cc3veMEZ.s:329: Error: suffix or operands invalid for `mov'
+make[5]: *** [dataloop.o] Error 1
+make[5]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/datatype/dataloop'
+make[4]: *** [all-redirect] Error 2
+make[4]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid/common/datatype'
+make[3]: *** [all-redirect] Error 2
+make[3]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid/common'
+make[2]: *** [all-redirect] Error 2
+make[2]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src/mpid'
+make[1]: *** [all-redirect] Error 2
+make[1]: Leaving directory `/export/home/rpm/MPI/mpich2-tmp/src'
+make: *** [all-redirect] Error 2

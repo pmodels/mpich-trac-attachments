@@ -1,0 +1,499 @@
+Beginning make
+Using variables CC='/opt/intel/cc/9.1.039/bin/icc' CFLAGS=' -O2' LDFLAGS='' AR='ar' FC='/opt/intel/fc/9.0/bin/ifort' F90='ifort' FFLAGS=' -O2' F90FLAGS=' -O2' CXX='/opt/intel/cc/9.1.039/bin/icpc'
+make all-local
+make[1]: Entering directory `/usr/local/mpich2-1.0.8'
+make[1]: Leaving directory `/usr/local/mpich2-1.0.8'
+make[1]: Entering directory `/usr/local/mpich2-1.0.8/src'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/common'
+make[4]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/common/locks'
+make[4]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/common/locks'
+make[4]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/common/datatype'
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/common/datatype/dataloop'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/common/datatype/dataloop'
+make all-local
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/common/datatype'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/common/datatype'
+make[4]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/common/datatype'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/common'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/ch3'
+make[4]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/channels'
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/channels/sock'
+make[6]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/common/sock'
+make[7]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/common/sock/poll'
+make[7]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/common/sock/poll'
+make[6]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/common/sock'
+make[6]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/channels/sock/src'
+make[6]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/channels/sock/src'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/channels/sock'
+make[4]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/channels'
+make[4]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/src'
+make[4]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/src'
+make[4]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/util'
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/util/sock'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/util/sock'
+make[4]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/ch3/util'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid/ch3'
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpid'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/attr'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/attr'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/coll'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/coll'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/comm'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/comm'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/datatype'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/datatype'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/errhan'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/errhan'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/group'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/group'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/init'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/init'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/misc'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/misc'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/pt2pt'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/pt2pt'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/rma'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/rma'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/spawn'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/spawn'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/timer'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/timer'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/topo'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/topo'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/romio'
+make mpiolib
+make[4]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/romio'
+ 
+compiling ROMIO in directory mpi-io
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/romio/mpi-io'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/romio/mpi-io'
+ 
+compiling ROMIO in directory adio/common
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/romio/adio/common'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/romio/adio/common'
+ 
+compiling ROMIO in directory mpi-io/glue/mpich2
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/romio/mpi-io/glue/mpich2'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/romio/mpi-io/glue/mpich2'
+ 
+compiling ROMIO in directory adio/ad_testfs
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/romio/adio/ad_testfs'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/romio/adio/ad_testfs'
+ 
+compiling ROMIO in directory adio/ad_ufs
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/romio/adio/ad_ufs'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/romio/adio/ad_ufs'
+ 
+compiling ROMIO in directory adio/ad_nfs
+make[5]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/romio/adio/ad_nfs'
+make[5]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/romio/adio/ad_nfs'
+make[4]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/romio'
+make[4]: Entering directory `/usr/local/mpich2-1.0.8/src/mpi/romio'
+make[4]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/romio'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi/romio'
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpi'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/util'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/util/mem'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/util/mem'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/util/info'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/util/info'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/util/msgs'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/util/msgs'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/util/instrm'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/util/instrm'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/util/thread'
+/opt/intel/cc/9.1.039/bin/icc -DHAVE_CONFIG_H -I. -I. -I../../include -I../../../src/include -O2 -I/usr/local/mpich2-1.0.8/src/mpid/ch3/include -I/usr/local/mpich2-1.0.8/src/mpid/ch3/include -I/usr/local/mpich2-1.0.8/src/mpid/common/datatype -I/usr/local/mpich2-1.0.8/src/mpid/common/datatype -I/usr/local/mpich2-1.0.8/src/mpid/common/locks -I/usr/local/mpich2-1.0.8/src/mpid/common/locks -I/usr/local/mpich2-1.0.8/src/mpid/ch3/channels/sock/include -I/usr/local/mpich2-1.0.8/src/mpid/ch3/channels/sock/include -I/usr/local/mpich2-1.0.8/src/mpid/common/sock -I/usr/local/mpich2-1.0.8/src/mpid/common/sock -I/usr/local/mpich2-1.0.8/src/mpid/common/sock/poll -I/usr/local/mpich2-1.0.8/src/mpid/common/sock/poll -c mpe_thread.c
+ar cr ../../../lib/libmpich.a mpe_thread.o
+ranlib ../../../lib/libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/util/thread'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/util/dbg'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/util/dbg'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/util/param'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/util/param'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/util/osserv'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/util/osserv'
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/util'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/nameserv'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/nameserv/mpd'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/nameserv/mpd'
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/nameserv'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/binding'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/binding/f77'
+/opt/intel/fc/9.0/bin/ifort -O2 -c setbotf.f
+ar cr ../../../lib/libmpich.a setbotf.o
+ranlib ../../../lib/libmpich.a
+date > .libstamp2
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/binding/f77'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/binding/f90'
+rm -f mpifnoext.h
+sed -e 's/^C/\!/g' -e '/EXTERNAL/d' \
+                -e '/REAL\*8/d' \
+		-e '/DOUBLE PRECISION/d' \
+		-e '/MPI_WTICK/d' ../f77/mpif.h > mpifnoext.h
+ifort -O2 -I. -c ./mpi_constants.f90
+ifort -O2 -I. -c mpi_sizeofs.f90
+ifort -O2 -I. -c ./mpi_base.f90
+ifort -O2 -I. -c ./mpi.f90
+ar cr libmpichf90.a mpi.o mpi_constants.o mpi_sizeofs.o mpi_base.o
+ranlib libmpichf90.a
+make all-postamble
+make[4]: Entering directory `/usr/local/mpich2-1.0.8/src/binding/f90'
+if [ -s libmpichf90.a ] ; then \
+	   cp -p libmpichf90.a ../../../lib ; fi
+make[4]: Leaving directory `/usr/local/mpich2-1.0.8/src/binding/f90'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/binding/f90'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/binding/cxx'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/binding/cxx'
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/binding'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/env'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/env'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/pkgconfig'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/pkgconfig'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/mpe2'
+
+**** Making src/misc ....
+make --no-print-directory mpe_debug_objs 
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -DMPE_NOMPI -c mpehname.c
+mv mpehname.o mpehname.no
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a mpehname.no
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c decomp.c
+mv decomp.o decomp.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c mpe_seq.c
+mv mpe_seq.o mpe_seq.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c dbxerr.c
+mv dbxerr.o dbxerr.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c getgrank.c
+mv getgrank.o getgrank.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c examine.c
+mv examine.o examine.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c privtags.c
+mv privtags.o privtags.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c mpehname.c
+mv mpehname.o mpehname.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c mpe_io.c
+mv mpe_io.o mpe_io.po
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a decomp.po mpe_seq.po dbxerr.po getgrank.po examine.po privtags.po mpehname.po mpe_io.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c decompf.c
+mv decompf.o decompf.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c mpe_seqf.c
+mv mpe_seqf.o mpe_seqf.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I../../.. -I../../../include -O2 -DMPI_LINUX  -c getgrankf.c
+mv getgrankf.o getgrankf.po
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a
+
+**** Making src/callstack ....
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c iterator.c
+mv iterator.o iterator.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c fancyprint.c
+mv fancyprint.o fancyprint.no
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a iterator.no fancyprint.no
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c iterator.c
+mv iterator.o iterator.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c fancyprint.c
+mv fancyprint.o fancyprint.po
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a iterator.po fancyprint.po
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/bin/check_callstack
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c check_callstack.c
+mv check_callstack.o check_callstack.no
+cp -f check_callstack.no mpe2tmp.o
+/opt/intel/cc/9.1.039/bin/icc -Wl,--export-dynamic -O2  -o /usr/local/mpich2-1.0.8/src/mpe2/bin/check_callstack mpe2tmp.o \
+	                         -L/usr/local/mpich2-1.0.8/src/mpe2/lib -lmpe_nompi
+
+**** Making src/logging ....
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c mpi_null.c
+mv mpi_null.o mpi_null.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_util.c
+mv clog_util.o clog_util.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_timer.c
+mv clog_timer.o clog_timer.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_uuid.c
+mv clog_uuid.o clog_uuid.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_commset.c
+mv clog_commset.o clog_commset.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_preamble.c
+mv clog_preamble.o clog_preamble.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_record.c
+mv clog_record.o clog_record.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_sync.c
+mv clog_sync.o clog_sync.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_block.c
+mv clog_block.o clog_block.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_buffer.c
+mv clog_buffer.o clog_buffer.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_merger.c
+mv clog_merger.o clog_merger.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_cache.c
+mv clog_cache.o clog_cache.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_joiner.c
+mv clog_joiner.o clog_joiner.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog.c
+mv clog.o clog.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c mpe_log_thread.c
+mv mpe_log_thread.o mpe_log_thread.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c mpe_log.c
+mv mpe_log.o mpe_log.no
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a mpi_null.no clog_util.no clog_timer.no clog_uuid.no clog_commset.no clog_preamble.no clog_record.no clog_sync.no clog_block.no clog_buffer.no clog_merger.no clog_cache.no clog_joiner.no clog.no mpe_log_thread.no mpe_log.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c mpe_logf.c
+mv mpe_logf.o mpe_logf.no
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi_null.a
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c mpe_log_null.c
+mv mpe_log_null.o mpe_log_null.no
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi_null.a mpi_null.no mpe_log_null.no
+make[6]: “mpe_logf.no”是最新的。
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi_null.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_null.a
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c mpe_log_null.c
+mv mpe_log_null.o mpe_log_null.po
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_null.a mpe_log_null.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c mpe_logf.c
+mv mpe_logf.o mpe_logf.po
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_null.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_util.c
+mv clog_util.o clog_util.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_timer.c
+mv clog_timer.o clog_timer.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_uuid.c
+mv clog_uuid.o clog_uuid.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_commset.c
+mv clog_commset.o clog_commset.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_preamble.c
+mv clog_preamble.o clog_preamble.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_record.c
+mv clog_record.o clog_record.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_sync.c
+mv clog_sync.o clog_sync.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_block.c
+mv clog_block.o clog_block.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_buffer.c
+mv clog_buffer.o clog_buffer.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_merger.c
+mv clog_merger.o clog_merger.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_cache.c
+mv clog_cache.o clog_cache.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog_joiner.c
+mv clog_joiner.o clog_joiner.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c clog.c
+mv clog.o clog.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c mpe_log_thread.c
+mv mpe_log_thread.o mpe_log_thread.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -c mpe_log.c
+mv mpe_log.o mpe_log.po
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a clog_util.po clog_timer.po clog_uuid.po clog_commset.po clog_preamble.po clog_record.po clog_sync.po clog_block.po clog_buffer.po clog_merger.po clog_cache.po clog_joiner.po clog.po mpe_log_thread.po mpe_log.po
+make[6]: “mpe_logf.po”是最新的。
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/bin/clog2_print /usr/local/mpich2-1.0.8/src/mpe2/bin/clog2_join /usr/local/mpich2-1.0.8/src/mpe2/bin/clog2_repair
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_print.c
+mv clog_print.o clog_print.no
+cp -f clog_print.no mpe2tmp.o
+/opt/intel/cc/9.1.039/bin/icc  -O2  -o /usr/local/mpich2-1.0.8/src/mpe2/bin/clog2_print mpe2tmp.o \
+	                         -L/usr/local/mpich2-1.0.8/src/mpe2/lib -lmpe_nompi
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_join.c
+mv clog_join.o clog_join.no
+cp -f clog_join.no mpe2tmp.o
+/opt/intel/cc/9.1.039/bin/icc  -O2  -o /usr/local/mpich2-1.0.8/src/mpe2/bin/clog2_join mpe2tmp.o \
+	                         -L/usr/local/mpich2-1.0.8/src/mpe2/lib -lmpe_nompi
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../../.. -I../include -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../../include -O2  -DCLOG_NOMPI -c clog_repair.c
+mv clog_repair.o clog_repair.no
+cp -f clog_repair.no mpe2tmp.o
+/opt/intel/cc/9.1.039/bin/icc  -O2  -o /usr/local/mpich2-1.0.8/src/mpe2/bin/clog2_repair mpe2tmp.o \
+	                         -L/usr/local/mpich2-1.0.8/src/mpe2/lib -lmpe_nompi
+
+**** Making src/wrappers ....
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/liblmpe.a
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c log_mpi_core.c
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/liblmpe.a log_mpi_core.o
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/liblmpe.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libtmpe.a
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c trace_mpi_core.c
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libtmpe.a trace_mpi_core.o
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libtmpe.a
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c mpe_proff.c
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_f2cmpi.a mpe_proff.o
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_f2cmpi.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/mpe_prof.o
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c mpe_prof.c
+
+
+**** Making src/graphics ....
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a 
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -DMPE_NOMPI -c mpe_graphics.c
+mv mpe_graphics.o mpe_graphics.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -DMPE_NOMPI -c xcolor.c
+mv xcolor.o xcolor.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -DMPE_NOMPI -c xframe.c
+mv xframe.o xframe.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -DMPE_NOMPI -c xinit.c
+mv xinit.o xinit.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -DMPE_NOMPI -c xwmap.c
+mv xwmap.o xwmap.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -DMPE_NOMPI -c xmouse.c
+mv xmouse.o xmouse.no
+/opt/intel/cc/9.1.039/bin/icc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -DMPE_NOMPI -c xkey.c
+mv xkey.o xkey.no
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a mpe_graphics.no xcolor.no xframe.no xinit.no xwmap.no xmouse.no xkey.no
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_nompi.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a 
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c mpe_graphics.c
+mv mpe_graphics.o mpe_graphics.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c xcolor.c
+mv xcolor.o xcolor.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c xframe.c
+mv xframe.o xframe.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c xinit.c
+mv xinit.o xinit.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c xwmap.c
+mv xwmap.o xwmap.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c xmouse.c
+mv xmouse.o xmouse.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c xkey.c
+mv xkey.o xkey.po
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a mpe_graphics.po xcolor.po xframe.po xinit.po xwmap.po xmouse.po xkey.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c mpe_graphicsf.c
+mv mpe_graphicsf.o mpe_graphicsf.po
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c xmousef.c
+mv xmousef.o xmousef.po
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe.a
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libampe.a
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include  -O2  -c visual_mess.c
+mv visual_mess.o visual_mess.po
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libampe.a visual_mess.po
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libampe.a
+
+
+**** Making src/collchk ....
+make --no-print-directory /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_collchk.a
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c begin.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c err_han.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c is_init.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c check_buff.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c check_dims.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c check_graph.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c check_size.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_amode.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_call.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_dtype.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_high_low.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_int.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_local_leader.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_op.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_root.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_tag.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_datarep.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c same_whence.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c allgather.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c allgatherv.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c allreduce.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c alltoall.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c alltoallv.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c barrier.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c bcast.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c cart_create.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c cart_map.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c gather.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c gatherv.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c graph_create.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c graph_map.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c init.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c intercomm_create.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c intercomm_merge.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c reduce.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c reduce_scatter.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c scan.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c scatter.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c scatterv.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c finalize.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c exscan.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c alltoallw.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_open.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_preallocate.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_read_all_begin.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_read_all.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_read_all_end.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_read_at_all_begin.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_read_at_all.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_read_at_all_end.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_read_ordered_begin.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_read_ordered.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_read_ordered_end.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_seek_shared.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_set_atomicity.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_set_size.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_set_view.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_write_all_begin.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_write_all.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_write_all_end.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_write_at_all_begin.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_write_at_all.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_write_at_all_end.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_write_ordered_begin.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_write_ordered.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c file_write_ordered_end.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c add_fh.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c get_fh.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c win_create.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c win_fence.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c add_win.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c get_win.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c comm_accept.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c comm_connect.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c comm_create.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c comm_disconnect.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c comm_dup.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c comm_spawn.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c comm_spawn_multiple.c
+/usr/local/mpich2-1.0.8/bin/mpicc -I.. -I../include -I/usr/local/mpich2-1.0.8/src/mpe2/include -I../../.. -I../../../include -O2  -c comm_split.c
+ar cr /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_collchk.a *.o
+ranlib /usr/local/mpich2-1.0.8/src/mpe2/lib/libmpe_collchk.a
+
+
+**** Making src/slog2sdk ....
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/mpe2'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/pmi'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/pmi/simple'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/pmi/simple'
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/pmi'
+make[2]: Entering directory `/usr/local/mpich2-1.0.8/src/pm'
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/pm/mpd'
+/opt/intel/cc/9.1.039/bin/icc -I. -I. -O2  -c  mpdroot.c 
+/opt/intel/cc/9.1.039/bin/icc -O2   -o mpdroot mpdroot.o -lpthread        -lrt    
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/pm/mpd'
+make all-postamble
+make[3]: Entering directory `/usr/local/mpich2-1.0.8/src/pm'
+if [ -n "mpd" -a -d "mpd" ] ; then \
+	build_prefix=`cd ../.. && pwd` && cd mpd && \
+	make prefix=$build_prefix exec_prefix=$build_prefix bindir=$build_prefix/bin mpich2-build-install ; \
+	fi
+make[4]: Entering directory `/usr/local/mpich2-1.0.8/src/pm/mpd'
+/usr/bin/install -c -m 644 ./mpdroot.c mpich2-mpdroot.c
+/opt/intel/cc/9.1.039/bin/icc -I. -I. -O2  -c mpich2-mpdroot.c
+rm -f mpich2-mpdroot.c
+/opt/intel/cc/9.1.039/bin/icc -O2   -o mpich2-mpdroot mpich2-mpdroot.o -lpthread        -lrt    
+rm -f mpich2-mpdroot.o
+copying python files/links into  /usr/local/mpich2-1.0.8/bin
+rm -f mpich2-mpdroot
+make[4]: Leaving directory `/usr/local/mpich2-1.0.8/src/pm/mpd'
+make[3]: Leaving directory `/usr/local/mpich2-1.0.8/src/pm'
+make[2]: Leaving directory `/usr/local/mpich2-1.0.8/src/pm'
+make[1]: Leaving directory `/usr/local/mpich2-1.0.8/src'
+make[1]: Entering directory `/usr/local/mpich2-1.0.8/examples'
+../bin/mpicc   -o cpi cpi.o  -lm 
+make[1]: Leaving directory `/usr/local/mpich2-1.0.8/examples'
+make all-postamble
+make[1]: Entering directory `/usr/local/mpich2-1.0.8'
+Make completed
+make[1]: Leaving directory `/usr/local/mpich2-1.0.8'

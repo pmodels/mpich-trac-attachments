@@ -1,0 +1,4669 @@
+Configuring MPICH2 version 1.0.7 with '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc'
+Running on system: Darwin nerve.cs.rit.edu 9.3.0 Darwin Kernel Version 9.3.0: Fri May 23 00:49:16 PDT 2008; root:xnu-1228.5.18~1/RELEASE_I386 i386
+Executing mpich2prereq in /Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3 with 
+Executing mpich2prereq in /Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/channels/sock
+sourcing /Users/hxq7681/Library/mpich2-1.0.7/src/pm/mpd/mpich2prereq
+sourcing /Users/hxq7681/Library/mpich2-1.0.7/src/pm/mpd/setup_pm
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking whether C compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+rm: conftest.dSYM: is a directory
+checking for type of weak symbol support... no
+checking whether __attribute__ ((weak)) allowed... yes
+checking for g77... no
+checking for f77... no
+checking for xlf... no
+checking for frt... no
+checking for pgf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for f90... no
+checking for xlf90... no
+checking for pgf90... no
+checking for epcf90... no
+checking for f95... no
+checking for fort... no
+checking for xlf95... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for gfortran... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking for c++... c++
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+rm: conftest.dSYM: is a directory
+checking whether the C++ compiler c++ can build an executable... yes
+checking whether the compiler supports exceptions... yes
+checking whether the compiler recognizes bool as a built-in type... yes
+checking whether the compiler implements namespaces... yes
+checking whether <iostream> available... yes
+checking whether the compiler implements the namespace std... yes
+checking whether <math> available... no
+checking for GNU g++ version... 4 . 0
+checking whether C++ compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+rm: conftest.dSYM: is a directory
+checking for perl... /usr/bin/perl
+checking for ar... ar
+checking for ranlib... ranlib
+checking for etags... etags
+checking for etags argument to specify language... --language=c
+rm: conftest.dSYM: is a directory
+checking for killall... killall
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking whether install breaks libraries... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+no
+checking whether mkdir -p works... yes
+checking for make... make
+checking whether clock skew breaks make... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for bash... /bin/sh
+checking whether /bin/sh supports arrays... yes
+Creating shared libraries using GNU for Mac OSX
+configure: WARNING: Some versions of gcc do not include debugging information
+within the executable.  Totalview requires this information to detect
+an MPICH code.  If you have trouble, try linking with the additional
+option
+    +noobjdebug
+on all link lines (consider adding it to LDFLAGS)
+checking for doctext... false
+checking for location of doctext style files... unavailable
+checking for an ANSI C-conforming const... yes
+checking for volatile... yes
+checking for restrict... __restrict
+checking for inline... inline
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking whether byte ordering is bigendian... no
+checking whether C compiler allows unaligned doubles... yes
+checking whether gcc supports __func__... yes
+Using gcc to determine dependencies
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for max C struct integer alignment... four
+checking for max C struct floating point alignment... sixteen
+checking for max C struct alignment of structs with doubles... four
+checking for max C struct floating point alignment with long doubles... sixteen
+configure: WARNING: Structures containing long doubles may be aligned differently from structures with floats or longs.  MPICH2 does not handle this case automatically and you should avoid assumed extents for structures containing float types.
+checking if alignment of structs with doubles is based on position... no
+checking if alignment of structs with long long ints is based on position... no
+checking if double alignment breaks rules, find actual alignment... four
+checking for alignment restrictions on pointers... int or better
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+no
+checking for sys/types.h... rm: conftest.dSYM: is a directory
+yes
+checking for sys/stat.h... rm: conftest.dSYM: is a directory
+yes
+checking for stdlib.h... rm: conftest.dSYM: is a directory
+yes
+checking for string.h... rm: conftest.dSYM: is a directory
+yes
+checking for memory.h... rm: conftest.dSYM: is a directory
+yes
+checking for strings.h... rm: conftest.dSYM: is a directory
+yes
+checking for inttypes.h... rm: conftest.dSYM: is a directory
+yes
+checking for stdint.h... rm: conftest.dSYM: is a directory
+yes
+checking for unistd.h... rm: conftest.dSYM: is a directory
+yes
+checking for char... yes
+checking size of char... 1
+checking for short... yes
+checking size of short... 2
+checking for int... yes
+checking size of int... 4
+checking for long... yes
+checking size of long... 4
+checking for long long... yes
+checking size of long long... 8
+checking for float... yes
+checking size of float... 4
+checking for double... yes
+checking size of double... 8
+checking for long double... yes
+checking size of long double... 16
+checking for wchar_t... yes
+checking size of wchar_t... 4
+checking for void *... yes
+checking size of void *... 4
+checking for size of float int... 8
+checking for size of double int... 12
+checking for size of long int... 8
+checking for size of short int... 6
+checking for size of 2 int... 8
+checking for size of long double int... 20
+checking for sys/bitypes.h... rm: conftest.dSYM: is a directory
+no
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for bool... yes
+checking size of bool... 1
+checking how to run the C++ preprocessor... c++ -E
+checking for complex... yes
+checking for Complex... yes
+checking size of Complex... 8
+checking for DoubleComplex... yes
+checking size of DoubleComplex... 16
+checking for LongDoubleComplex... yes
+checking size of LongDoubleComplex... 32
+checking if char * pointers use byte addresses... yes
+checking for alignment restrictions on int64_t... no
+checking for alignment restrictions on int32_t... no
+checking for size of MPI_BSEND_OVERHEAD... 59
+checking for gcc __asm__ and pentium cmpxchgl instruction... yes
+checking for gcc __asm__ and AMD x86_64 cmpxchgq instruction... no
+checking for gcc __asm__ and IA64 xchg4 instruction... no
+checking for ANSI C header files... (cached) no
+checking for stdlib.h... (cached) yes
+checking for stdarg.h... rm: conftest.dSYM: is a directory
+yes
+checking for sys/types.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for limits.h... rm: conftest.dSYM: is a directory
+yes
+checking for stddef.h... rm: conftest.dSYM: is a directory
+yes
+checking for errno.h... rm: conftest.dSYM: is a directory
+yes
+checking for sys/socket.h... rm: conftest.dSYM: is a directory
+yes
+checking for sys/time.h... rm: conftest.dSYM: is a directory
+yes
+checking for unistd.h... (cached) yes
+checking for endian.h... rm: conftest.dSYM: is a directory
+no
+checking for assert.h... rm: conftest.dSYM: is a directory
+yes
+checking for sys/uio.h... yes
+checking for size_t... yes
+checking for setitimer... yes
+checking for alarm... yes
+checking for vsnprintf... yes
+checking for vsprintf... yes
+checking whether vsnprintf needs a declaration... no
+checking for strerror... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for va_copy... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for search... rm: conftest.dSYM: is a directory
+no
+checking for tsearch... yes
+checking whether tsearch requires char* args... no
+checking for clock_gettime... no
+checking for clock_getres... no
+checking for gethrtime... no
+checking for gettimeofday... yes
+sourcing /Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/setup_device
+RUNNING SETUP_DEVICE FOR THE CH3 DEVICE
+sourcing /Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/channels/sock/setup_channel
+RUNNING SETUP_CHANNEL FOR THE SOCK CHANNEL
+sourcing /Users/hxq7681/Library/mpich2-1.0.7/src/mpid/common/sock/setup
+RUNNING SETUP FOR THE SOCK INTERFACE
+checking for pthread.h... rm: conftest.dSYM: is a directory
+yes
+checking for pthread_yield... no
+checking for library containing pthread_key_create... none required
+checking whether pthread routines without explicit lib are broken... no
+checking for pthread_cleanup_push... no
+checking whether pthread_cleanup_push is available (may be a macro in pthread.h)... no
+checking for sched_yield... yes
+checking for yield... no
+checking for usleep... yes
+checking for sleep... yes
+checking for select... yes
+RUNNING CONFIGURE FOR CH3 DEVICE
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking how to run the C preprocessor... gcc -E
+checking for assert.h... yes
+checking for limits.h... yes
+checking for string.h... yes
+checking for sys/types.h... yes
+checking for sys/uio.h... yes
+checking for uuid/uuid.h... yes
+checking for time.h... yes
+checking for ctype.h... yes
+checking for unistd.h... yes
+checking for arpa/inet.h... yes
+checking for sys/socket.h... yes
+checking for net/if.h... yes
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... (cached) yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... (cached) yes
+checking for pid_t... yes
+checking for inet_pton... yes
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for CFUUIDCreate... no
+checking for uuid_generate... yes
+checking for time... yes
+checking for library containing uuid_generate... none required
+checking whether CPP accepts variable length argument lists... yes
+checking whether byte ordering is bigendian... no
+checking whether we can use struct ifconf... yes
+checking for int... yes
+checking size of int... 4
+checking for long... yes
+checking size of long... 4
+checking for long long... yes
+checking size of long long... 8
+checking for void *... yes
+checking size of void *... 4
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating util/Makefile
+config.status: creating util/shm/Makefile
+config.status: creating util/shmbase/Makefile
+config.status: creating channels/Makefile
+config.status: creating localdefs
+config.status: creating include/mpid_thread.h
+config.status: creating include/mpidi_ch3_conf.h
+config.status: include/mpidi_ch3_conf.h is unchanged
+config.status: executing default-1 commands
+copying /Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/../common/thread/mpid_thread_mpe.c to src/mpid_thread.c
+configure: configuring in util/sock
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/util/sock/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/util/sock
+RUNNING CONFIGURE FOR CH3 UTIL SOCK ROUTINES
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for ar... ar
+checking for ranlib... ranlib
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking how to run the C preprocessor... gcc -E
+checking for assert.h... yes
+checking for limits.h... yes
+checking for string.h... yes
+checking for sys/types.h... yes
+checking for sys/uio.h... yes
+checking for time.h... yes
+checking for ctype.h... yes
+checking for unistd.h... yes
+checking for arpa/inet.h... yes
+checking for sys/socket.h... yes
+checking for net/if.h... yes
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... (cached) yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... (cached) yes
+checking for pid_t... yes
+checking for inet_pton... yes
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking whether CPP accepts variable length argument lists... yes
+checking whether byte ordering is bigendian... no
+checking whether we can use struct ifconf... yes
+checking for int... yes
+checking size of int... 4
+checking for long... yes
+checking size of long... 4
+checking for long long... yes
+checking size of long long... 8
+checking for void *... yes
+checking size of void *... 4
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating ch3usockconf.h
+config.status: ch3usockconf.h is unchanged
+config.status: executing default-1 commands
+Updating dependency directories .deps
+configure: configuring in channels/sock
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/channels/sock/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/channels/sock
+RUNNING CONFIGURE FOR THE SOCK CHANNEL
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking for ranlib... ranlib
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking whether install breaks libraries... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+no
+checking whether mkdir -p works... yes
+checking for make... make
+checking whether clock skew breaks make... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for ar... ar
+checking for ranlib... ranlib
+checking for net/if.h... yes
+checking how to run the C preprocessor... gcc -E
+checking for netdb.h... yes
+checking for sys/ioctl.h... yes
+checking for sys/socket.h... yes
+checking for sys/sockio.h... yes
+checking for sys/types.h... yes
+checking for errno.h... yes
+checking for netinet/in.h... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating localdefs
+config.status: creating include/mpidi_ch3i_sock_conf.h
+config.status: include/mpidi_ch3i_sock_conf.h is unchanged
+config.status: executing default-1 commands
+Updating dependency directories .deps
+RUNNING CONFIGURE FOR THE SOCK INTERFACE
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for strerror... yes
+checking for make... make
+checking whether clock skew breaks make... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for ar... ar
+checking for ranlib... ranlib
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating mpidu_sock_conf.h
+config.status: mpidu_sock_conf.h is unchanged
+configure: configuring in poll
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/common/sock/poll/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/common/sock/poll
+RUNNING CONFIGURE FOR THE POLL IMPLEMENTATION OF SOCK
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for inline... inline
+checking for poll... yes
+checking how to run the C preprocessor... gcc -E
+checking for assert.h... yes
+checking for errno.h... yes
+checking for fcntl.h... yes
+checking for limits.h... yes
+checking for netdb.h... yes
+checking for netinet/in.h... yes
+checking for netinet/tcp.h... yes
+checking for poll.h... yes
+checking for stdlib.h... yes
+checking for sys/param.h... yes
+checking for sys/poll.h... yes
+checking for sys/types.h... yes
+checking for sys/uio.h... yes
+checking for unistd.h... yes
+checking if struct poll is defined... yes
+checking if a simple program using poll() can be compiled... yes
+checking whether bit fields work in ip.h... yes
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+checking whether socklen_t is defined (in sys/socket.h if present)... yes
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating mpidu_socki_conf.h
+config.status: mpidu_socki_conf.h is unchanged
+config.status: executing default-1 commands
+Updating dependency directories .deps
+Configuring with args --prefix=NONE -enable-debuginfo -enable-g=dbg,mem,log -enable-fast -enable-sharedlibs=osx-gcc --disable-checkerrors
+checking for architecture... ipsc2
+configure: WARNING: Unknown architecture ... proceeding anyway
+ROMIO home directory is /Users/hxq7681/Library/mpich2-1.0.7/src/mpi/romio
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether f77 accepts -g... no
+checking for memalign... no
+checking Fortran external names
+configure: WARNING: Unable to test Fortran compiler.  Compiling a test
+program failed to produce an object file
+checking for inline... inline
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking malloc.h usability... no
+checking malloc.h presence... no
+checking for malloc.h... no
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for int... yes
+checking size of int... 4
+checking for void *... yes
+checking size of void *... 4
+checking for int large enough for pointers... yes
+checking for long long... yes
+checking size of long long... 8
+Overriding Array test for MPICH2
+checking for weak symbol support... no
+checking whether struct flock compatible with MPI_Offset... yes
+checking for pvfs2-config... notfound
+checking configured file systems... testfs ufs nfs
+configure: WARNING: File locks may not work with NFS.  See the Installation and
+users manual for instructions on testing and if necessary fixing this
+checking for library containing aio_write... none required
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking if aio.h exists and can be compiled... yes
+checking if sys/aio.h exists and can be compiled... yes
+checking whether aio routines can be used... yes
+checking for obsolete two-argument aio_write... no
+checking for obsolete two-argument aio_suspend... no
+checking for aio_fildes member of aiocb structure... yes
+checking for aio_whence member of aiocb structure... no
+checking for aio_handle member of aiocb structure... no
+checking for aio_reqprio member of aiocb structure... yes
+checking for aio_sigevent member of aiocb structure... yes
+checking sys/vfs.h usability... no
+checking sys/vfs.h presence... no
+checking for sys/vfs.h... no
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/mount.h usability... yes
+checking sys/mount.h presence... yes
+checking for sys/mount.h... yes
+checking sys/statvfs.h usability... yes
+checking sys/statvfs.h presence... yes
+checking for sys/statvfs.h... yes
+checking whether struct statfs properly defined... yes
+checking for f_fstypename member of statfs structure... yes
+checking for sys/stat.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for stat... yes
+checking for st_fstype member of stat structure... no
+checking for sys/types.h... (cached) yes
+checking for sys/statvfs.h... (cached) yes
+checking for sys/vfs.h... (cached) no
+checking for statvfs... yes
+checking for f_basetype member of statvfs structure... no
+checking for unistd.h... (cached) yes
+checking for large file defines... no
+checking for strerror... yes
+checking for doctext... false
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for lstat... yes
+checking whether lstat needs a declaration... yes
+checking for readlink... yes
+checking whether readlink needs a declaration... no
+checking for fsync... yes
+checking whether fsync needs a declaration... no
+checking for ftruncate... yes
+checking whether ftruncate needs a declaration... no
+checking for unistd.h... (cached) yes
+checking for large file defines... none
+setting SYSDEP_INC to 
+checking for restrict... __restrict
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+setting CC to gcc
+setting F77 to :
+setting TEST_CC to /tmp/hxq7681/mpich2-1.0.7/bin/mpicc
+setting TEST_F77 to /tmp/hxq7681/mpich2-1.0.7/bin/mpif77
+setting CFLAGS to  -g -DNDEBUG -O2  -DHAVE_ROMIOCONF_H
+setting USER_CFLAGS to 
+setting USER_FFLAGS to 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating mpi-io/Makefile
+config.status: creating mpi2-other/info/Makefile
+config.status: creating mpi2-other/array/Makefile
+config.status: creating adio/common/Makefile
+config.status: creating test/Makefile
+config.status: creating test/misc.c
+config.status: creating test/large_file.c
+config.status: creating test/runtests
+config.status: creating util/romioinstall
+config.status: creating include/mpio.h
+config.status: creating include/mpiof.h
+config.status: creating adio/ad_nfs/Makefile
+config.status: creating adio/ad_ufs/Makefile
+config.status: creating adio/ad_bgl/Makefile
+config.status: creating adio/ad_bglockless/Makefile
+config.status: creating adio/ad_panfs/Makefile
+config.status: creating adio/ad_xfs/Makefile
+config.status: creating adio/ad_sfs/Makefile
+config.status: creating adio/ad_pfs/Makefile
+config.status: creating adio/ad_testfs/Makefile
+config.status: creating adio/ad_pvfs/Makefile
+config.status: creating adio/ad_pvfs2/Makefile
+config.status: creating adio/ad_gridftp/Makefile
+config.status: creating adio/ad_lustre/Makefile
+config.status: creating mpi-io/fortran/Makefile
+config.status: creating mpi2-other/info/fortran/Makefile
+config.status: creating mpi2-other/array/fortran/Makefile
+config.status: creating test/fmisc.f
+config.status: creating test/fcoll_test.f
+config.status: creating test/pfcoll_test.f
+config.status: creating test/fperf.f
+config.status: creating mpi-io/glue/mpich2/Makefile
+config.status: creating mpi-io/glue/mpich1/Makefile
+config.status: creating mpi-io/glue/default/Makefile
+config.status: creating common/dataloop/Makefile
+config.status: creating adio/include/romioconf.h
+config.status: executing default-1 commands
+RUNNING CONFIGURE FOR THE SIMPLE PMI
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking how to run the C preprocessor... gcc -E
+checking for unistd.h... yes
+checking for string.h... yes
+checking for stdlib.h... yes
+checking for sys/socket.h... yes
+checking for strings.h... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for sys/types.h... yes
+checking for sys/param.h... yes
+checking for sys/socket.h... (cached) yes
+checking for netinet/in.h... yes
+checking for netinet/tcp.h... yes
+checking for sys/un.h... yes
+checking for netdb.h... yes
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+checking for socket... yes
+checking for setsockopt... yes
+checking for gethostbyname... yes
+checking whether socklen_t is defined (in sys/socket.h if present)... yes
+checking whether struct hostent contains h_addr_list... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating pmiconf.h
+config.status: pmiconf.h is unchanged
+Configuring with args --prefix=NONE -enable-debuginfo -enable-g=dbg,mem,log -enable-fast -enable-sharedlibs=osx-gcc --disable-checkerrors
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking whether make sets $(MAKE)... yes
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install /usr/bin/install -c works... yes
+Using INSTALL=/usr/bin/install -c
+checking for totalview... no
+checking for python2.5... python2.5
+checking for python2.4... no
+checking for python2.3... no
+checking for python2.2... no
+checking for python2... no
+checking for python... python
+checking that python2.5 is a valid python version... yes
+checking that the cPickle module is available for python2.5... yes
+checking for library containing socket... none required
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for strings.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for putenv... yes
+checking for socket... yes
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating mpdconf.h
+Configuring MPE Profiling System with '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS=  -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77'
+checking gnumake... no
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+This MPE build is part of the MPICH2 build
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking whether MPI_CC has been set ... /tmp/hxq7681/mpich2-1.0.7/bin/mpicc 
+checking for g77... no
+checking for f77... no
+checking for xlf... no
+checking for frt... no
+checking for pgf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for f90... no
+checking for xlf90... no
+checking for pgf90... no
+checking for epcf90... no
+checking for f95... no
+checking for fort... no
+checking for xlf95... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for gfortran... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking whether MPI_F77 has been set ... /tmp/hxq7681/mpich2-1.0.7/bin/mpif77 
+checking how to run the C preprocessor... gcc -E
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking for ranlib... ranlib
+checking whether install breaks libraries... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+no
+checking for leftover Makefiles in subpackages ...  "src/misc" "src/callstack" "src/logging" "src/wrappers" "src/graphics" "src/collchk" "src/slog2sdk" cleaned 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/mpetestlink
+config.status: creating sbin/mpetestexec
+config.status: creating sbin/mpetestexeclog
+config.status: creating sbin/mpeinstall
+config.status: creating sbin/mpecheckinstall
+config.status: creating sbin/mpecheckbuild
+config.status: creating etc/mpe_help.conf
+config.status: creating etc/mpe_f77env.conf
+config.status: creating mpe_conf.h
+config.status: mpe_conf.h is unchanged
+config.status: executing default-1 commands
+configure: configuring in src/misc
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/misc/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/misc
+Configuring MPE Miscellaneous Library with '--prefix=/usr/local' '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' '--cache-file=/dev/null' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/misc'
+checking gnumake... no
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... i386-apple-darwin9.3.0
+checking host system type... i386-apple-darwin9.3.0
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for dbx... no
+checking for gdb... /usr/bin/gdb
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for an ANSI C-conforming const... yes
+checking for sysinfo... no
+checking for uname... yes
+checking for gethostbyname... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking sys/systeminfo.h usability... no
+checking sys/systeminfo.h presence... no
+checking for sys/systeminfo.h... no
+checking for sys/types.h... (cached) yes
+checking for sighandler_t... no
+checking for kill... yes
+checking whether kill needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/dbxerr.c
+config.status: creating mpe_misc_conf.h
+configure: configuring in src/callstack
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/callstack/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/callstack
+Configuring MPE CallStack Library with '--prefix=/usr/local' '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' '--cache-file=/dev/null' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/callstack'
+checking gnumake... no
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking whether <execinfo.h> defines backtrace_symbols_fd() ... yes
+checking if <execinfo.h> links with -Wl,--export-dynamic ... no
+checking for fdopen... yes
+checking whether fdopen needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating include/mpe_callstack.h
+config.status: creating etc/mpe_callstack_ldflags.conf
+config.status: creating mpe_callstack_conf.h
+configure: configuring in src/logging
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/logging/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/logging
+Configuring MPE Logging Library and Tools with '--prefix=/usr/local' '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' '--cache-file=/dev/null' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/logging'
+checking gnumake... no
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for an ANSI C-conforming const... yes
+checking whether byte ordering is bigendian... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/bitypes.h usability... no
+checking sys/bitypes.h presence... no
+checking for sys/bitypes.h... no
+checking for sys/stat.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for header that defines C99 integer types, intXX_t ... <stdint.h> 
+checking for inttypes.h... (cached) yes
+checking whether <inttypes.h> defines the PRIdXX macros ... yes
+checking if <stdint.h> can be behind system headers ... yes
+checking for void *... yes
+checking size of void *... 4
+checking for address-sized integer ... CLOG_int32_t
+checking build system type... i386-apple-darwin9.3.0
+checking host system type... i386-apple-darwin9.3.0
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for mkstemp... yes
+checking whether mkstemp needs a declaration... no
+checking for srand48... yes
+checking whether srand48 needs a declaration... no
+checking for lrand48... yes
+checking whether lrand48 needs a declaration... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+rm: conftest.dSYM: is a directory
+checking for _LARGE_FILES value needed for large files... no
+rm: conftest.dSYM: is a directory
+checking for O_LARGEFILE for open() ... no
+checking for O_BINARY for open() ... no
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_mutex_lock in -lpthread... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating include/clog_inttypes.h
+config.status: creating include/mpi_null.h
+config.status: creating include/mpe_log_thread.h
+config.status: creating etc/mpe_log.conf
+config.status: creating etc/mpe_nolog.conf
+config.status: creating etc/mpe_log_postlib.conf
+config.status: creating mpe_logging_conf.h
+configure: configuring in src/wrappers
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/wrappers/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/wrappers
+Configuring MPE Wrapper Libraries For MPI with '--prefix=/usr/local' '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' '--cache-file=/dev/null' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/wrappers'
+checking gnumake... no
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdarg is correct... yes
+checking if compiler accepts prototypes ... yes
+checking build system type... i386-apple-darwin9.3.0
+checking host system type... i386-apple-darwin9.3.0
+checking for safe PMPI invocations ... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating etc/mpe_f77env.conf
+config.status: creating etc/mpe_mpilog.conf
+config.status: creating etc/mpe_mpitrace.conf
+config.status: creating mpe_wrappers_conf.h
+configure: configuring in src/graphics
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/graphics/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/graphics
+Configuring MPE X Graphics Library with '--prefix=/usr/local' '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' '--cache-file=/dev/null' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/graphics'
+checking gnumake... no
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for X... libraries /usr/X11R6/lib, headers in standard search path
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for void *... yes
+checking size of void *... 4
+checking for long pointer... no
+checking for system... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+mv: rename ./confstatOQadnw/out to src/Makefile: Permission denied
+config.status: creating contrib/life/Makefile
+mv: rename ./confstatOQadnw/out to contrib/life/Makefile: Permission denied
+config.status: creating contrib/mandel/Makefile
+mv: rename ./confstatOQadnw/out to contrib/mandel/Makefile: Permission denied
+config.status: creating contrib/mastermind/Makefile
+mv: rename ./confstatOQadnw/out to contrib/mastermind/Makefile: Permission denied
+config.status: creating contrib/test/Makefile
+mv: rename ./confstatOQadnw/out to contrib/test/Makefile: Permission denied
+config.status: creating etc/mpe_mpianim.conf
+mv: rename ./confstatOQadnw/out to etc/mpe_mpianim.conf: Permission denied
+config.status: creating etc/mpe_graphics.conf
+mv: rename ./confstatOQadnw/out to etc/mpe_graphics.conf: Permission denied
+config.status: creating mpe_graphics_conf.h
+configure: configuring in src/collchk
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/collchk/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/collchk
+Configuring MPE Collective and Datatype Checking Library with '--prefix=/usr/local' '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' '--cache-file=/dev/null' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/collchk'
+checking gnumake... no
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... i386-apple-darwin9.3.0
+checking host system type... i386-apple-darwin9.3.0
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for working alloca.h... yes
+checking for alloca... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating etc/mpe_mpicheck.conf
+config.status: creating mpe_collchk_conf.h
+configure: configuring in src/slog2sdk
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/slog2sdk/configure' --prefix=/usr/local  '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/slog2sdk
+Configuring SLOG2SDK with '--prefix=/usr/local' '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' '--cache-file=/dev/null' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/slog2sdk'
+checking gnumake... no
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking if CLASSPATH is set... no, good to go
+checking build system type... i386-apple-darwin9.3.0
+checking host system type... i386-apple-darwin9.3.0
+checking for java in user's PATH... found /usr/bin/java
+checking if /usr/bin/java works... yes
+checking if /usr/bin/java runs simple jar file... yes
+checking if /usr/bin/java runs simple Swing class... yes
+checking if /usr/bin/java runs simple Swing jar file... yes
+checking for Java version... java full version "1.5.0_13-b05-237", i.e. Java 2 SDK
+checking for cygpath... no
+creating sample logfiles from source
+checking for leftover Makefiles in subpackages ... none 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/install-package
+config.status: creating bin/slog2print
+config.status: creating bin/slog2navigator
+config.status: creating bin/slog2filter
+config.status: creating bin/slog2updater
+config.status: creating bin/logconvertor
+config.status: creating bin/jumpshot
+config.status: creating bin/clogprint
+config.status: creating bin/clogTOslog2
+config.status: creating bin/clog2print
+config.status: creating bin/clog2TOslog2
+configure: configuring in trace_rlog
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog/configure' --prefix=/usr/local  '--prefix=/usr/local' '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' '--cache-file=/dev/null' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/slog2sdk' --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog
+Configuring TRACE_RLOG implementation with '--prefix=/usr/local' '--prefix=NONE' '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' '--disable-checkerrors' 'CC=gcc' 'CFLAGS= -g -DNDEBUG -O2' 'F77=' 'FFLAGS= -g -DNDEBUG' 'MPI_CC=/tmp/hxq7681/mpich2-1.0.7/bin/mpicc' 'MPI_F77=/tmp/hxq7681/mpich2-1.0.7/bin/mpif77' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/slog2sdk' '--cache-file=/dev/null' '--srcdir=/Users/hxq7681/Library/mpich2-1.0.7/src/mpe2/src/slog2sdk/trace_rlog' 'CXXFLAGS= -g -DNDEBUG -O2' 'CXX=c++'
+checking gnumake... no
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking how to run the C preprocessor... gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking for an ANSI C-conforming const... yes
+checking for void *... yes
+checking size of void *... 4
+checking for int... yes
+checking size of int... 4
+checking for long... yes
+checking size of long... 4
+checking for long long... yes
+checking size of long long... 8
+checking for __int64... no
+checking size of __int64... 0
+checking whether byte ordering is bigendian... no
+checking build system type... i386-apple-darwin9.3.0
+checking host system type... i386-apple-darwin9.3.0
+checking for sed... sed
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for ld used by gcc... /usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld
+checking if the linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) is GNU ld... no
+checking for /usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -p
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+rm: conftest.dSYM: is a directory
+checking how to run the C++ preprocessor... c++ -E
+checking for g77... no
+checking for f77... no
+checking for xlf... no
+checking for frt... no
+checking for pgf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for f90... no
+checking for xlf90... no
+checking for pgf90... no
+checking for epcf90... no
+checking for f95... no
+checking for fort... no
+checking for xlf95... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for gfortran... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 196608
+checking command to parse /usr/bin/nm -p output from gcc object... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+failed
+checking for objdir... .libs
+checking for ar... ar
+checking for ranlib... ranlib
+checking for strip... strip
+rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+checking if gcc static flag  works... rm: conftest.dSYM: is a directory
+no
+checking if gcc supports -fno-rtti -fno-exceptions... rm: conftest.dSYM: is a directory
+no
+checking for gcc option to produce PIC... -fno-common
+checking if gcc PIC flag -fno-common works... rm: conftest.dSYM: is a directory
+yes
+checking if gcc supports -c -o file.o... rm: conftest.dSYM: is a directory
+yes
+checking whether the gcc linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin9.3.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+checking for ld used by c++... /usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld
+checking if the linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) is GNU ld... no
+checking whether the c++ linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) supports shared libraries... yes
+checking for c++ option to produce PIC... -fno-common
+checking if c++ PIC flag -fno-common works... rm: conftest.dSYM: is a directory
+yes
+checking if c++ supports -c -o file.o... rm: conftest.dSYM: is a directory
+yes
+checking whether the c++ linker (/usr/libexec/gcc/i686-apple-darwin9/4.0.1/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin9.3.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+appending configuration tag "F77" to libtool
+checking for malloc in -lefence... no
+checking for strstr... no
+checking target system type... i386-apple-darwin9.3.0
+checking for javah in user's PATH... found /usr/bin/javah
+checking if /usr/bin/javah works... unknown!
+checking if /usr exists... yes
+checking for <jni.h> include flag... no
+checking for working javah in user's PATH... not found
+checking for javah in known locations... found /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/bin/javah
+checking if /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/bin/javah works... unknown!
+checking if /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home exists... yes
+checking for <jni.h> include flag... found -I/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/include
+checking for <jni.h> usability... yes
+checking for cygpath... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking for ranlib... (cached) ranlib
+checking whether install breaks libraries... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+yes
+creating sample logfiles from source
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating sbin/install-package
+config.status: creating bin/traceprint
+config.status: creating bin/traceTOslog2
+config.status: creating trace_impl.h
+SLOG2SDK:  "trace_rlog" have been configured
+MPE2:  "src/misc" "src/callstack" "src/logging" "src/wrappers" "src/graphics" "src/collchk" "src/slog2sdk" have been configured
+configure: WARNING: Could not define Fortran MPI datatypes for C
+checking the sizeof MPI_Offset... rm: conftest.dSYM: is a directory
+rm: conftest.dSYM: is a directory
+8
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/include/Makefile
+config.status: creating src/include/mpich2info.h
+config.status: creating mpich2-doxygen
+config.status: creating src/include/mpichtimer.h
+config.status: creating src/binding/Makefile
+config.status: creating src/binding/cxx/Makefile
+config.status: creating src/binding/cxx/mpicxx.h
+config.status: creating src/binding/f77/Makefile
+config.status: creating src/binding/f77/mpif.h
+config.status: creating src/binding/f77/setbotf.f
+config.status: creating src/binding/f90/Makefile
+config.status: creating src/binding/f90/mpi_sizeofs.f90
+config.status: creating src/pkgconfig/mpich2-ch3.pc
+config.status: creating src/pkgconfig/Makefile
+config.status: creating src/env/mpicc
+config.status: creating src/env/mpicc.conf
+config.status: creating src/env/mpicc.bash
+config.status: creating src/env/mpicxx
+config.status: creating src/env/mpicxx.conf
+config.status: creating src/env/mpicxx.bash
+config.status: creating src/env/mpif77
+config.status: creating src/env/mpif77.conf
+config.status: creating src/env/mpif77.bash
+config.status: creating src/env/mpif90
+config.status: creating src/env/mpif90.conf
+config.status: creating src/env/mpif90.bash
+config.status: creating src/env/parkill
+config.status: creating src/env/Makefile
+config.status: creating src/util/createshlib
+config.status: creating src/mpi/Makefile
+config.status: creating src/mpi/attr/Makefile
+config.status: creating src/mpi/coll/Makefile
+config.status: creating src/mpi/comm/Makefile
+config.status: creating src/mpi/datatype/Makefile
+config.status: creating src/mpi/debugger/Makefile
+config.status: creating src/mpi/errhan/Makefile
+config.status: creating src/mpi/group/Makefile
+config.status: creating src/mpi/init/Makefile
+config.status: creating src/mpi/misc/Makefile
+config.status: creating src/mpi/pt2pt/Makefile
+config.status: creating src/mpi/rma/Makefile
+config.status: creating src/mpi/spawn/Makefile
+config.status: creating src/mpi/timer/Makefile
+config.status: creating src/mpi/topo/Makefile
+config.status: creating src/mpid/Makefile
+config.status: creating src/mpid/common/Makefile
+config.status: creating src/mpid/common/datatype/Makefile
+config.status: creating src/mpid/common/datatype/dataloop/Makefile
+config.status: creating src/mpid/common/locks/Makefile
+config.status: creating src/pm/Makefile
+config.status: creating src/pmi/Makefile
+config.status: creating src/nameserv/Makefile
+config.status: creating src/nameserv/file/Makefile
+config.status: creating src/nameserv/mpd/Makefile
+config.status: creating src/nameserv/pmi/Makefile
+config.status: creating src/nameserv/test/Makefile
+config.status: creating src/util/Makefile
+config.status: creating src/util/info/Makefile
+config.status: creating src/util/instrm/Makefile
+config.status: creating src/util/thread/Makefile
+config.status: creating src/util/thread/mpe_thread.h
+config.status: creating src/util/mem/Makefile
+config.status: creating src/util/msgs/Makefile
+config.status: creating src/util/param/Makefile
+config.status: creating src/util/dbg/Makefile
+config.status: creating src/util/dbg/getfuncstack
+config.status: creating src/util/osserv/Makefile
+config.status: creating src/include/mpi.h
+config.status: creating test/Makefile
+config.status: creating test/util/Makefile
+config.status: creating test/basic/Makefile
+config.status: creating test/commands/Makefile
+config.status: creating test/commands/cmdtests
+config.status: creating test/mpid/Makefile
+config.status: creating test/mpid/ch3/Makefile
+config.status: creating examples/Makefile
+config.status: creating examples/f77/Makefile
+config.status: creating examples/f90/Makefile
+config.status: creating examples/cxx/Makefile
+config.status: creating src/util/logging/Makefile
+config.status: creating src/util/logging/common/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/mansrc/Makefile
+config.status: creating doc/mansrc/createhtmlindex
+config.status: creating doc/refman/Makefile
+config.status: creating doc/installguide/Makefile
+config.status: creating doc/userguide/Makefile
+config.status: creating doc/logging/Makefile
+config.status: creating doc/design/Makefile
+config.status: creating doc/smpd/Makefile
+config.status: creating doc/windev/Makefile
+config.status: creating src/include/mpichconf.h
+config.status: src/include/mpichconf.h is unchanged
+config.status: executing default-1 commands
+config.status: executing default-2 commands
+config.status: executing default-3 commands
+config.status: executing default-4 commands
+copying /Users/hxq7681/Library/mpich2-1.0.7/src/util/thread/mpe_thread_posix.c to src/util/thread/mpe_thread.c
+moving mpe_thread.h to src/include
+config.status: executing default-5 commands
+config.status: executing default-6 commands
+config.status: executing default-7 commands
+config.status: executing default-8 commands
+config.status: executing default-9 commands
+Updating dependency directories .deps
+config.status: executing default-10 commands
+config.status: executing default-11 commands
+config.status: executing default-12 commands
+config.status: executing default-13 commands
+config.status: executing default-14 commands
+configure: configuring in test/mpi
+configure: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/test/mpi/configure' --prefix=/usr/local  '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' --disable-checkerrors --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/test/mpi
+RUNNING CONFIGURE FOR MPI TESTS
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for an ANSI C-conforming const... yes
+checking for restrict... __restrict
+checking how to run the C preprocessor... gcc -E
+checking for unistd.h... yes
+checking for stdarg.h... yes
+checking for string.h... yes
+checking for stdlib.h... yes
+checking for memory.h... yes
+Configuring tests for MPICH2
+checking whether struct hostent contains h_addr_list... no
+configure: WARNING: Selecting integer*8 as the Fortran type for MPI_Offset
+configure: WARNING: Selecting integer as the Fortran type for MPI_Aint
+checking whether <iostream> available... yes
+checking whether the compiler implements namespaces... yes
+checking whether the compiler implements the namespace std... yes
+checking for perl... /usr/bin/perl
+checking for etags... etags
+configure: creating ./config.status
+config.status: creating maint/testmerge
+config.status: creating runtests
+config.status: creating Makefile
+config.status: creating basic/Makefile
+config.status: creating attr/Makefile
+config.status: creating util/Makefile
+config.status: creating coll/Makefile
+config.status: creating comm/Makefile
+config.status: creating datatype/Makefile
+config.status: creating errhan/Makefile
+config.status: creating group/Makefile
+config.status: creating info/Makefile
+config.status: creating init/Makefile
+config.status: creating pt2pt/Makefile
+config.status: creating rma/Makefile
+config.status: creating spawn/Makefile
+config.status: creating topo/Makefile
+config.status: creating io/Makefile
+config.status: creating f77/Makefile
+config.status: creating f77/attr/Makefile
+config.status: creating f77/attr/attraints.h
+config.status: creating f77/pt2pt/attr1aints.h
+config.status: creating f77/ext/add1size.h
+config.status: creating f77/datatype/Makefile
+config.status: creating f77/datatype/typeaints.h
+config.status: creating f77/util/Makefile
+config.status: creating f77/coll/Makefile
+config.status: creating f77/comm/Makefile
+config.status: creating f77/topo/Makefile
+config.status: creating f77/init/Makefile
+config.status: creating f77/rma/addsize.h
+config.status: creating f77/pt2pt/Makefile
+config.status: creating f77/info/Makefile
+config.status: creating f77/spawn/Makefile
+config.status: creating f77/spawn/type1aint.h
+config.status: creating f77/rma/Makefile
+config.status: creating f77/ext/Makefile
+config.status: creating f77/ext/testlist
+config.status: creating f77/io/Makefile
+config.status: creating f77/io/iooffset.h
+config.status: creating f77/io/iodisp.h
+config.status: creating f77/io/ioaint.h
+config.status: creating f90/Makefile
+config.status: creating f90/attr/Makefile
+config.status: creating f90/datatype/Makefile
+config.status: creating f90/f90types/Makefile
+config.status: creating f90/util/Makefile
+config.status: creating f90/coll/Makefile
+config.status: creating f90/comm/Makefile
+config.status: creating f90/topo/Makefile
+config.status: creating f90/init/Makefile
+config.status: creating f90/pt2pt/Makefile
+config.status: creating f90/rma/Makefile
+config.status: creating f90/info/Makefile
+config.status: creating f90/spawn/Makefile
+config.status: creating f90/timer/Makefile
+config.status: creating f90/ext/Makefile
+config.status: creating f90/ext/testlist
+config.status: creating f90/io/Makefile
+config.status: creating f90/misc/Makefile
+config.status: creating cxx/Makefile
+config.status: creating cxx/util/Makefile
+config.status: creating cxx/attr/Makefile
+config.status: creating cxx/pt2pt/Makefile
+config.status: creating cxx/comm/Makefile
+config.status: creating cxx/coll/Makefile
+config.status: creating cxx/info/Makefile
+config.status: creating cxx/datatype/Makefile
+config.status: creating cxx/io/Makefile
+config.status: creating cxx/init/Makefile
+config.status: creating cxx/rma/Makefile
+config.status: creating cxx/spawn/Makefile
+config.status: creating threads/Makefile
+config.status: creating threads/pt2pt/Makefile
+config.status: creating threads/util/Makefile
+config.status: creating threads/comm/Makefile
+config.status: creating errors/Makefile
+config.status: creating errors/coll/Makefile
+config.status: creating errors/comm/Makefile
+config.status: creating errors/group/Makefile
+config.status: creating errors/pt2pt/Makefile
+config.status: creating errors/rma/Makefile
+config.status: creating errors/spawn/Makefile
+config.status: creating errors/topo/Makefile
+config.status: creating errors/io/Makefile
+config.status: creating errors/cxx/Makefile
+config.status: creating errors/cxx/errhan/Makefile
+config.status: creating errors/cxx/io/Makefile
+config.status: creating errors/f77/Makefile
+config.status: creating errors/f90/Makefile
+config.status: creating manual/Makefile
+config.status: creating manual/manyconnect
+config.status: creating perf/Makefile
+config.status: creating testlist
+config.status: creating cxx/testlist
+config.status: creating f77/testlist
+config.status: creating f90/testlist
+config.status: creating errors/testlist
+config.status: creating errors/cxx/testlist
+config.status: creating include/mpitestconf.h
+config.status: include/mpitestconf.h is unchanged
+config.status: executing default-1 commands
+config.status: executing default-2 commands
+config.status: executing default-3 commands
+Configuration completed.
+CHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| /* end confdefs.h.  */
+| #include <stddef.h>
+configure:27937: gcc -c  -g -DNDEBUG -O2  conftest.c 1>&5
+configure:27940: $? = 0
+configure:27958: result: yes
+configure:27885: checking for errno.h
+configure:27901:   conftest.c
+/Users/hxq7681/Library/mpich2-1.0.7/configure: line 27902: ./conftest.c: Permission denied
+configure:27907: $? = 126
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| /* end confdefs.h.  */
+| #include <errno.h>
+configure:27937: gcc -c  -g -DNDEBUG -O2  conftest.c 1>&5
+configure:27940: $? = 0
+configure:27958: result: yes
+configure:27885: checking for sys/socket.h
+configure:27901:   conftest.c
+/Users/hxq7681/Library/mpich2-1.0.7/configure: line 27902: ./conftest.c: Permission denied
+configure:27907: $? = 126
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| /* end confdefs.h.  */
+| #include <sys/socket.h>
+configure:27937: gcc -c  -g -DNDEBUG -O2  conftest.c 1>&5
+configure:27940: $? = 0
+configure:27958: result: yes
+configure:27885: checking for sys/time.h
+configure:27901:   conftest.c
+/Users/hxq7681/Library/mpich2-1.0.7/configure: line 27902: ./conftest.c: Permission denied
+configure:27907: $? = 126
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| /* end confdefs.h.  */
+| #include <sys/time.h>
+configure:27937: gcc -c  -g -DNDEBUG -O2  conftest.c 1>&5
+configure:27940: $? = 0
+configure:27958: result: yes
+configure:27885: checking for unistd.h
+configure:27958: result: yes
+configure:27885: checking for endian.h
+configure:27901:   conftest.c
+/Users/hxq7681/Library/mpich2-1.0.7/configure: line 27902: ./conftest.c: Permission denied
+configure:27907: $? = 126
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <endian.h>
+configure:27937: gcc -c  -g -DNDEBUG -O2  conftest.c 1>&5
+configure:27932:20: error: endian.h: No such file or directory
+configure:27940: $? = 1
+configure: failed program was:
+#line 27931 "configure"
+#include "confdefs.h"
+#include <endian.h>
+int conftest() {return 0;}
+configure:27965: result: no
+configure:27885: checking for assert.h
+configure:27901:   conftest.c
+/Users/hxq7681/Library/mpich2-1.0.7/configure: line 27902: ./conftest.c: Permission denied
+configure:27907: $? = 126
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <assert.h>
+configure:27937: gcc -c  -g -DNDEBUG -O2  conftest.c 1>&5
+configure:27940: $? = 0
+configure:27958: result: yes
+configure:27970: checking for sys/uio.h
+configure:27995: gcc -c  -g -DNDEBUG -O2  conftest.c >&5
+configure:28001: $? = 0
+configure:28004: test -z 			 || test ! -s conftest.err
+configure:28007: $? = 0
+configure:28010: test -s conftest.o
+configure:28013: $? = 0
+configure:28024: result: yes
+configure:28035: checking for size_t
+configure:28059: gcc -c  -g -DNDEBUG -O2  conftest.c >&5
+configure:28065: $? = 0
+configure:28068: test -z 			 || test ! -s conftest.err
+configure:28071: $? = 0
+configure:28074: test -s conftest.o
+configure:28077: $? = 0
+configure:28088: result: yes
+configure:28107: checking for setitimer
+configure:28164: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:28170: $? = 0
+configure:28173: test -z 			 || test ! -s conftest.err
+configure:28176: $? = 0
+configure:28179: test -s conftest
+configure:28182: $? = 0
+configure:28194: result: yes
+configure:28107: checking for alarm
+configure:28164: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:28170: $? = 0
+configure:28173: test -z 			 || test ! -s conftest.err
+configure:28176: $? = 0
+configure:28179: test -s conftest
+configure:28182: $? = 0
+configure:28194: result: yes
+configure:28210: checking for vsnprintf
+configure:28267: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+conftest.c:113: warning: conflicting types for built-in function 'vsnprintf'
+configure:28273: $? = 0
+configure:28276: test -z 			 || test ! -s conftest.err
+configure:28279: $? = 0
+configure:28282: test -s conftest
+configure:28285: $? = 0
+configure:28297: result: yes
+configure:28210: checking for vsprintf
+configure:28267: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+conftest.c:114: warning: conflicting types for built-in function 'vsprintf'
+configure:28273: $? = 0
+configure:28276: test -z 			 || test ! -s conftest.err
+configure:28279: $? = 0
+configure:28282: test -s conftest
+configure:28285: $? = 0
+configure:28297: result: yes
+configure:28310: checking whether vsnprintf needs a declaration
+configure:28333: gcc -c  -g -DNDEBUG -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:96: error: incompatible type for argument 1 of 'vsnprintf'
+conftest.c:96: error: incompatible type for argument 3 of 'vsnprintf'
+configure:28339: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #include <stdarg.h>
+| int
+| main ()
+| {
+| int a=vsnprintf(1.0,27,1.0,"foo");
+|   ;
+|   return 0;
+| }
+configure:28362: result: no
+configure:28380: checking for strerror
+configure:28437: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:28443: $? = 0
+configure:28446: test -z 			 || test ! -s conftest.err
+configure:28449: $? = 0
+configure:28452: test -s conftest
+configure:28455: $? = 0
+configure:28467: result: yes
+configure:28483: checking for snprintf
+configure:28540: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+conftest.c:116: warning: conflicting types for built-in function 'snprintf'
+configure:28546: $? = 0
+configure:28549: test -z 			 || test ! -s conftest.err
+configure:28552: $? = 0
+configure:28555: test -s conftest
+configure:28558: $? = 0
+configure:28570: result: yes
+configure:28582: checking whether snprintf needs a declaration
+configure:28604: gcc -c  -g -DNDEBUG -O2  conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:97: error: incompatible type for argument 1 of 'snprintf'
+conftest.c:97: error: incompatible type for argument 3 of 'snprintf'
+configure:28610: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| int
+| main ()
+| {
+| int a=snprintf(1.0,27,1.0,"foo");
+|   ;
+|   return 0;
+| }
+configure:28633: result: no
+configure:28651: checking for va_copy
+configure:28682: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:28688: $? = 0
+configure:28691: test -z 			 || test ! -s conftest.err
+configure:28694: $? = 0
+configure:28697: test -s conftest
+configure:28700: $? = 0
+configure:28712: result: yes
+configure:28798: checking for working alloca.h
+configure:28819: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:28825: $? = 0
+configure:28828: test -z 			 || test ! -s conftest.err
+configure:28831: $? = 0
+configure:28834: test -s conftest
+configure:28837: $? = 0
+configure:28849: result: yes
+configure:28859: checking for alloca
+configure:28900: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:28906: $? = 0
+configure:28909: test -z 			 || test ! -s conftest.err
+configure:28912: $? = 0
+configure:28915: test -s conftest
+configure:28918: $? = 0
+configure:28930: result: yes
+configure:29344: checking for search
+configure:29360:   conftest.c
+/Users/hxq7681/Library/mpich2-1.0.7/configure: line 29361: ./conftest.c: Permission denied
+configure:29366: $? = 126
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| /* end confdefs.h.  */
+| #include <search>
+configure:29396: gcc -c  -g -DNDEBUG -O2  conftest.c 1>&5
+configure:29391:18: error: search: No such file or directory
+configure:29399: $? = 1
+configure: failed program was:
+#line 29390 "configure"
+#include "confdefs.h"
+#include <search>
+int conftest() {return 0;}
+configure:29424: result: no
+configure:29433: checking for tsearch
+configure:29490: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:29496: $? = 0
+configure:29499: test -z 			 || test ! -s conftest.err
+configure:29502: $? = 0
+configure:29505: test -s conftest
+configure:29508: $? = 0
+configure:29520: result: yes
+configure:29533: checking whether tsearch requires char* args
+configure:29556: gcc -c  -g -DNDEBUG -O2  conftest.c >&5
+conftest.c:98: error: syntax error before '(' token
+conftest.c:98: error: syntax error before ')' token
+configure:29562: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| #define HAVE_TSEARCH 1
+| /* end confdefs.h.  */
+| #include <search.h>
+|     char *tsearch( char *k, char **r, (int (*)())compare ) { return k; }
+| int
+| main ()
+| {
+| int f=0;
+|   ;
+|   return 0;
+| }
+configure:29585: result: no
+configure:29628: checking for clock_gettime
+configure:29685: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+Undefined symbols:
+  "_clock_gettime", referenced from:
+      _f in ccdDjskP.o
+      _clock_gettime$non_lazy_ptr in ccdDjskP.o
+ld: symbol(s) not found
+collect2: ld returned 1 exit status
+configure:29691: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| #define HAVE_TSEARCH 1
+| /* end confdefs.h.  */
+| /* Define clock_gettime to an innocuous variant, in case <limits.h> declares clock_gettime.
+|    For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+| #define clock_gettime innocuous_clock_gettime
+| 
+| /* System header to define __stub macros and hopefully few prototypes,
+|     which can conflict with char clock_gettime (); below.
+|     Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+|     <limits.h> exists even on freestanding compilers.  */
+| 
+| #ifdef __STDC__
+| # include <limits.h>
+| #else
+| # include <assert.h>
+| #endif
+| 
+| #undef clock_gettime
+| 
+| /* Override any gcc2 internal prototype to avoid an error.  */
+| #ifdef __cplusplus
+| extern "C"
+| {
+| #endif
+| /* We use char because int might match the return type of a gcc2
+|    builtin and then its argument prototype would still apply.  */
+| char clock_gettime ();
+| /* The GNU C library defines this for functions which it implements
+|     to always fail with ENOSYS.  Some functions are actually named
+|     something starting with __ and the normal name is an alias.  */
+| #if defined (__stub_clock_gettime) || defined (__stub___clock_gettime)
+| choke me
+| #else
+| char (*f) () = clock_gettime;
+| #endif
+| #ifdef __cplusplus
+| }
+| #endif
+| 
+| int
+| main ()
+| {
+| return f != clock_gettime;
+|   ;
+|   return 0;
+| }
+configure:29715: result: no
+configure:29628: checking for clock_getres
+configure:29685: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+Undefined symbols:
+  "_clock_getres", referenced from:
+      _f in ccaJYNm0.o
+      _clock_getres$non_lazy_ptr in ccaJYNm0.o
+ld: symbol(s) not found
+collect2: ld returned 1 exit status
+configure:29691: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| #define HAVE_TSEARCH 1
+| /* end confdefs.h.  */
+| /* Define clock_getres to an innocuous variant, in case <limits.h> declares clock_getres.
+|    For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+| #define clock_getres innocuous_clock_getres
+| 
+| /* System header to define __stub macros and hopefully few prototypes,
+|     which can conflict with char clock_getres (); below.
+|     Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+|     <limits.h> exists even on freestanding compilers.  */
+| 
+| #ifdef __STDC__
+| # include <limits.h>
+| #else
+| # include <assert.h>
+| #endif
+| 
+| #undef clock_getres
+| 
+| /* Override any gcc2 internal prototype to avoid an error.  */
+| #ifdef __cplusplus
+| extern "C"
+| {
+| #endif
+| /* We use char because int might match the return type of a gcc2
+|    builtin and then its argument prototype would still apply.  */
+| char clock_getres ();
+| /* The GNU C library defines this for functions which it implements
+|     to always fail with ENOSYS.  Some functions are actually named
+|     something starting with __ and the normal name is an alias.  */
+| #if defined (__stub_clock_getres) || defined (__stub___clock_getres)
+| choke me
+| #else
+| char (*f) () = clock_getres;
+| #endif
+| #ifdef __cplusplus
+| }
+| #endif
+| 
+| int
+| main ()
+| {
+| return f != clock_getres;
+|   ;
+|   return 0;
+| }
+configure:29715: result: no
+configure:29628: checking for gethrtime
+configure:29685: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+Undefined symbols:
+  "_gethrtime", referenced from:
+      _f in cckE8sC6.o
+      _gethrtime$non_lazy_ptr in cckE8sC6.o
+ld: symbol(s) not found
+collect2: ld returned 1 exit status
+configure:29691: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| #define HAVE_TSEARCH 1
+| /* end confdefs.h.  */
+| /* Define gethrtime to an innocuous variant, in case <limits.h> declares gethrtime.
+|    For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+| #define gethrtime innocuous_gethrtime
+| 
+| /* System header to define __stub macros and hopefully few prototypes,
+|     which can conflict with char gethrtime (); below.
+|     Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+|     <limits.h> exists even on freestanding compilers.  */
+| 
+| #ifdef __STDC__
+| # include <limits.h>
+| #else
+| # include <assert.h>
+| #endif
+| 
+| #undef gethrtime
+| 
+| /* Override any gcc2 internal prototype to avoid an error.  */
+| #ifdef __cplusplus
+| extern "C"
+| {
+| #endif
+| /* We use char because int might match the return type of a gcc2
+|    builtin and then its argument prototype would still apply.  */
+| char gethrtime ();
+| /* The GNU C library defines this for functions which it implements
+|     to always fail with ENOSYS.  Some functions are actually named
+|     something starting with __ and the normal name is an alias.  */
+| #if defined (__stub_gethrtime) || defined (__stub___gethrtime)
+| choke me
+| #else
+| char (*f) () = gethrtime;
+| #endif
+| #ifdef __cplusplus
+| }
+| #endif
+| 
+| int
+| main ()
+| {
+| return f != gethrtime;
+|   ;
+|   return 0;
+| }
+configure:29715: result: no
+configure:29628: checking for gettimeofday
+configure:29685: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:29691: $? = 0
+configure:29694: test -z 			 || test ! -s conftest.err
+configure:29697: $? = 0
+configure:29700: test -s conftest
+configure:29703: $? = 0
+configure:29715: result: yes
+configure:31096: checking for pthread.h
+configure:31112:   conftest.c
+/Users/hxq7681/Library/mpich2-1.0.7/configure: line 31113: ./conftest.c: Permission denied
+configure:31118: $? = 126
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| #define HAVE_TSEARCH 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define SIZEOF_INT_IS_AINT 1
+| #define MPIU_SIZE_T unsigned int
+| /* end confdefs.h.  */
+| #include <pthread.h>
+configure:31148: gcc -c  -g -DNDEBUG -O2  conftest.c 1>&5
+configure:31151: $? = 0
+configure:31169: result: yes
+configure:31185: checking for pthread_yield
+configure:31242: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+Undefined symbols:
+  "_pthread_yield", referenced from:
+      _f in ccexiqhe.o
+      _pthread_yield$non_lazy_ptr in ccexiqhe.o
+ld: symbol(s) not found
+collect2: ld returned 1 exit status
+configure:31248: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| #define HAVE_TSEARCH 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define SIZEOF_INT_IS_AINT 1
+| #define MPIU_SIZE_T unsigned int
+| #define HAVE_PTHREAD_H 1
+| /* end confdefs.h.  */
+| /* Define pthread_yield to an innocuous variant, in case <limits.h> declares pthread_yield.
+|    For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+| #define pthread_yield innocuous_pthread_yield
+| 
+| /* System header to define __stub macros and hopefully few prototypes,
+|     which can conflict with char pthread_yield (); below.
+|     Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+|     <limits.h> exists even on freestanding compilers.  */
+| 
+| #ifdef __STDC__
+| # include <limits.h>
+| #else
+| # include <assert.h>
+| #endif
+| 
+| #undef pthread_yield
+| 
+| /* Override any gcc2 internal prototype to avoid an error.  */
+| #ifdef __cplusplus
+| extern "C"
+| {
+| #endif
+| /* We use char because int might match the return type of a gcc2
+|    builtin and then its argument prototype would still apply.  */
+| char pthread_yield ();
+| /* The GNU C library defines this for functions which it implements
+|     to always fail with ENOSYS.  Some functions are actually named
+|     something starting with __ and the normal name is an alias.  */
+| #if defined (__stub_pthread_yield) || defined (__stub___pthread_yield)
+| choke me
+| #else
+| char (*f) () = pthread_yield;
+| #endif
+| #ifdef __cplusplus
+| }
+| #endif
+| 
+| int
+| main ()
+| {
+| return f != pthread_yield;
+|   ;
+|   return 0;
+| }
+configure:31272: result: no
+configure:31284: checking for library containing pthread_key_create
+configure:31314: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:31320: $? = 0
+configure:31323: test -z 			 || test ! -s conftest.err
+configure:31326: $? = 0
+configure:31329: test -s conftest
+configure:31332: $? = 0
+configure:31401: result: none required
+configure:31419: checking whether pthread routines without explicit lib are broken
+configure:31440: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:31443: $? = 0
+configure:31445: ./conftest
+configure:31448: $? = 0
+configure:31461: result: no
+configure:31529: checking for pthread_cleanup_push
+configure:31586: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+Undefined symbols:
+  "_pthread_cleanup_push", referenced from:
+      _f in ccA7a7Ox.o
+      _pthread_cleanup_push$non_lazy_ptr in ccA7a7Ox.o
+ld: symbol(s) not found
+collect2: ld returned 1 exit status
+configure:31592: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| #define HAVE_TSEARCH 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define SIZEOF_INT_IS_AINT 1
+| #define MPIU_SIZE_T unsigned int
+| #define HAVE_PTHREAD_H 1
+| /* end confdefs.h.  */
+| /* Define pthread_cleanup_push to an innocuous variant, in case <limits.h> declares pthread_cleanup_push.
+|    For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+| #define pthread_cleanup_push innocuous_pthread_cleanup_push
+| 
+| /* System header to define __stub macros and hopefully few prototypes,
+|     which can conflict with char pthread_cleanup_push (); below.
+|     Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+|     <limits.h> exists even on freestanding compilers.  */
+| 
+| #ifdef __STDC__
+| # include <limits.h>
+| #else
+| # include <assert.h>
+| #endif
+| 
+| #undef pthread_cleanup_push
+| 
+| /* Override any gcc2 internal prototype to avoid an error.  */
+| #ifdef __cplusplus
+| extern "C"
+| {
+| #endif
+| /* We use char because int might match the return type of a gcc2
+|    builtin and then its argument prototype would still apply.  */
+| char pthread_cleanup_push ();
+| /* The GNU C library defines this for functions which it implements
+|     to always fail with ENOSYS.  Some functions are actually named
+|     something starting with __ and the normal name is an alias.  */
+| #if defined (__stub_pthread_cleanup_push) || defined (__stub___pthread_cleanup_push)
+| choke me
+| #else
+| char (*f) () = pthread_cleanup_push;
+| #endif
+| #ifdef __cplusplus
+| }
+| #endif
+| 
+| int
+| main ()
+| {
+| return f != pthread_cleanup_push;
+|   ;
+|   return 0;
+| }
+configure:31616: result: no
+configure:31627: checking whether pthread_cleanup_push is available (may be a macro in pthread.h)
+configure:31651: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+conftest.c: In function 'main':
+conftest.c:110: error: syntax error at end of input
+configure:31657: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| #define HAVE_TSEARCH 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define SIZEOF_INT_IS_AINT 1
+| #define MPIU_SIZE_T unsigned int
+| #define HAVE_PTHREAD_H 1
+| /* end confdefs.h.  */
+| 
+| #include <pthread.h>
+| void f1(void *a) { return; }
+| int
+| main ()
+| {
+| pthread_cleanup_push( f1, (void *)0 );
+|   ;
+|   return 0;
+| }
+configure:31681: result: no
+configure:32042: checking for sched_yield
+configure:32099: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:32105: $? = 0
+configure:32108: test -z 			 || test ! -s conftest.err
+configure:32111: $? = 0
+configure:32114: test -s conftest
+configure:32117: $? = 0
+configure:32129: result: yes
+configure:32042: checking for yield
+configure:32099: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+Undefined symbols:
+  "_yield", referenced from:
+      _f in cckuS348.o
+      _yield$non_lazy_ptr in cckuS348.o
+ld: symbol(s) not found
+collect2: ld returned 1 exit status
+configure:32105: $? = 1
+configure: failed program was:
+| /* confdefs.h.  */
+| 
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+| #define USE_LOGGING MPID_LOGGING_NONE
+| #define HAVE_RUNTIME_THREADCHECK 1
+| #define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+| #define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+| #define USE_MEMORY_TRACING 1
+| #define USE_DBG_LOGGING 1
+| #define HAVE_DEBUGGER_SUPPORT 1
+| #define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+| #define HAVE_ROMIO 1
+| #ifdef __cplusplus
+| extern "C" void std::exit (int); using std::exit;
+| #endif
+| #define HAVE_CXX_EXCEPTIONS
+| #define HAVE_NAMESPACES
+| #define HAVE_NAMESPACE_STD
+| #define HAVE_CXX_BINDING 1
+| #define HAVE_NAMEPUB_SERVICE 1
+| #define restrict __restrict
+| #define HAVE_GCC_ATTRIBUTE 1
+| #define WORDS_LITTLEENDIAN 1
+| #define HAVE_LONG_DOUBLE 1
+| #define HAVE_LONG_LONG_INT 1
+| #define HAVE_MAX_INTEGER_ALIGNMENT 4
+| #define HAVE_MAX_STRUCT_ALIGNMENT 4
+| #define HAVE_MAX_FP_ALIGNMENT 16
+| #define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+| #define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+| #define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define SIZEOF_CHAR 1
+| #define SIZEOF_SHORT 2
+| #define SIZEOF_INT 4
+| #define SIZEOF_LONG 4
+| #define SIZEOF_LONG_LONG 8
+| #define SIZEOF_FLOAT 4
+| #define SIZEOF_DOUBLE 8
+| #define SIZEOF_LONG_DOUBLE 16
+| #define SIZEOF_WCHAR_T 4
+| #define SIZEOF_VOID_P 4
+| #define HAVE_INT16_T 1
+| #define HAVE_INT32_T 1
+| #define HAVE_INT64_T 1
+| #define MPIR_REAL4_CTYPE float
+| #define MPIR_REAL8_CTYPE double
+| #define MPIR_REAL16_CTYPE long double
+| #define MPIR_INTEGER1_CTYPE char
+| #define MPIR_INTEGER2_CTYPE short
+| #define MPIR_INTEGER4_CTYPE int
+| #define MPIR_INTEGER8_CTYPE long long
+| #define SIZEOF_BOOL 1
+| #define SIZEOF_COMPLEX 8
+| #define SIZEOF_DOUBLECOMPLEX 16
+| #define SIZEOF_LONGDOUBLECOMPLEX 32
+| #define HAVE_ANY_INT64_T_ALIGNMENT 1
+| #define HAVE_ANY_INT32_T_ALIGNMENT 1
+| #define HAVE_GCC_AND_PENTIUM_ASM 1
+| #define USE_ATOMIC_UPDATES
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_STDDEF_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_ASSERT_H 1
+| #define HAVE_SYS_UIO_H 1
+| #define HAVE_SETITIMER 1
+| #define HAVE_ALARM 1
+| #define HAVE_VSNPRINTF 1
+| #define HAVE_VSPRINTF 1
+| #define HAVE_STRERROR 1
+| #define HAVE_SNPRINTF 1
+| #define HAVE_VA_COPY 1
+| #define HAVE_ALLOCA_H 1
+| #define HAVE_ALLOCA 1
+| #define HAVE_TSEARCH 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define SIZEOF_INT_IS_AINT 1
+| #define MPIU_SIZE_T unsigned int
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_SCHED_YIELD 1
+| /* end confdefs.h.  */
+| /* Define yield to an innocuous variant, in case <limits.h> declares yield.
+|    For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+| #define yield innocuous_yield
+| 
+| /* System header to define __stub macros and hopefully few prototypes,
+|     which can conflict with char yield (); below.
+|     Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+|     <limits.h> exists even on freestanding compilers.  */
+| 
+| #ifdef __STDC__
+| # include <limits.h>
+| #else
+| # include <assert.h>
+| #endif
+| 
+| #undef yield
+| 
+| /* Override any gcc2 internal prototype to avoid an error.  */
+| #ifdef __cplusplus
+| extern "C"
+| {
+| #endif
+| /* We use char because int might match the return type of a gcc2
+|    builtin and then its argument prototype would still apply.  */
+| char yield ();
+| /* The GNU C library defines this for functions which it implements
+|     to always fail with ENOSYS.  Some functions are actually named
+|     something starting with __ and the normal name is an alias.  */
+| #if defined (__stub_yield) || defined (__stub___yield)
+| choke me
+| #else
+| char (*f) () = yield;
+| #endif
+| #ifdef __cplusplus
+| }
+| #endif
+| 
+| int
+| main ()
+| {
+| return f != yield;
+|   ;
+|   return 0;
+| }
+configure:32129: result: no
+configure:32042: checking for usleep
+configure:32099: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:32105: $? = 0
+configure:32108: test -z 			 || test ! -s conftest.err
+configure:32111: $? = 0
+configure:32114: test -s conftest
+configure:32117: $? = 0
+configure:32129: result: yes
+configure:32042: checking for sleep
+configure:32099: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:32105: $? = 0
+configure:32108: test -z 			 || test ! -s conftest.err
+configure:32111: $? = 0
+configure:32114: test -s conftest
+configure:32117: $? = 0
+configure:32129: result: yes
+configure:32042: checking for select
+configure:32099: gcc -o conftest  -g -DNDEBUG -O2   conftest.c  >&5
+configure:32105: $? = 0
+configure:32108: test -z 			 || test ! -s conftest.err
+configure:32111: $? = 0
+configure:32114: test -s conftest
+configure:32117: $? = 0
+configure:32129: result: yes
+configure:32388: WARNING: Could not define Fortran MPI datatypes for C
+configure:32424: checking the sizeof MPI_Offset
+configure:32444: gcc -o conftest  -g -DNDEBUG -O2   conftest.c           >&5
+conftest.c: In function 'main':
+conftest.c:6: warning: incompatible implicit declaration of built-in function 'exit'
+configure:32447: $? = 0
+configure:32469: result: 8
+configure:33440: creating ./config.status
+
+## ---------------------- ##
+## Running config.status. ##
+## ---------------------- ##
+
+This file was extended by config.status, which was
+generated by GNU Autoconf 2.59.  Invocation command line was
+
+  CONFIG_FILES    = 
+  CONFIG_HEADERS  = 
+  CONFIG_LINKS    = 
+  CONFIG_COMMANDS = 
+  $ ./config.status 
+
+on nerve.cs.rit.edu
+
+config.status:1094: creating Makefile
+config.status:1094: creating src/Makefile
+config.status:1094: creating src/include/Makefile
+config.status:1094: creating src/include/mpich2info.h
+config.status:1094: creating mpich2-doxygen
+config.status:1094: creating src/include/mpichtimer.h
+config.status:1094: creating src/binding/Makefile
+config.status:1094: creating src/binding/cxx/Makefile
+config.status:1094: creating src/binding/cxx/mpicxx.h
+config.status:1094: creating src/binding/f77/Makefile
+config.status:1094: creating src/binding/f77/mpif.h
+config.status:1094: creating src/binding/f77/setbotf.f
+config.status:1094: creating src/binding/f90/Makefile
+config.status:1094: creating src/binding/f90/mpi_sizeofs.f90
+config.status:1094: creating src/pkgconfig/mpich2-ch3.pc
+config.status:1094: creating src/pkgconfig/Makefile
+config.status:1094: creating src/env/mpicc
+config.status:1094: creating src/env/mpicc.conf
+config.status:1094: creating src/env/mpicc.bash
+config.status:1094: creating src/env/mpicxx
+config.status:1094: creating src/env/mpicxx.conf
+config.status:1094: creating src/env/mpicxx.bash
+config.status:1094: creating src/env/mpif77
+config.status:1094: creating src/env/mpif77.conf
+config.status:1094: creating src/env/mpif77.bash
+config.status:1094: creating src/env/mpif90
+config.status:1094: creating src/env/mpif90.conf
+config.status:1094: creating src/env/mpif90.bash
+config.status:1094: creating src/env/parkill
+config.status:1094: creating src/env/Makefile
+config.status:1094: creating src/util/createshlib
+config.status:1094: creating src/mpi/Makefile
+config.status:1094: creating src/mpi/attr/Makefile
+config.status:1094: creating src/mpi/coll/Makefile
+config.status:1094: creating src/mpi/comm/Makefile
+config.status:1094: creating src/mpi/datatype/Makefile
+config.status:1094: creating src/mpi/debugger/Makefile
+config.status:1094: creating src/mpi/errhan/Makefile
+config.status:1094: creating src/mpi/group/Makefile
+config.status:1094: creating src/mpi/init/Makefile
+config.status:1094: creating src/mpi/misc/Makefile
+config.status:1094: creating src/mpi/pt2pt/Makefile
+config.status:1094: creating src/mpi/rma/Makefile
+config.status:1094: creating src/mpi/spawn/Makefile
+config.status:1094: creating src/mpi/timer/Makefile
+config.status:1094: creating src/mpi/topo/Makefile
+config.status:1094: creating src/mpid/Makefile
+config.status:1094: creating src/mpid/common/Makefile
+config.status:1094: creating src/mpid/common/datatype/Makefile
+config.status:1094: creating src/mpid/common/datatype/dataloop/Makefile
+config.status:1094: creating src/mpid/common/locks/Makefile
+config.status:1094: creating src/pm/Makefile
+config.status:1094: creating src/pmi/Makefile
+config.status:1094: creating src/nameserv/Makefile
+config.status:1094: creating src/nameserv/file/Makefile
+config.status:1094: creating src/nameserv/mpd/Makefile
+config.status:1094: creating src/nameserv/pmi/Makefile
+config.status:1094: creating src/nameserv/test/Makefile
+config.status:1094: creating src/util/Makefile
+config.status:1094: creating src/util/info/Makefile
+config.status:1094: creating src/util/instrm/Makefile
+config.status:1094: creating src/util/thread/Makefile
+config.status:1094: creating src/util/thread/mpe_thread.h
+config.status:1094: creating src/util/mem/Makefile
+config.status:1094: creating src/util/msgs/Makefile
+config.status:1094: creating src/util/param/Makefile
+config.status:1094: creating src/util/dbg/Makefile
+config.status:1094: creating src/util/dbg/getfuncstack
+config.status:1094: creating src/util/osserv/Makefile
+config.status:1094: creating src/include/mpi.h
+config.status:1094: creating test/Makefile
+config.status:1094: creating test/util/Makefile
+config.status:1094: creating test/basic/Makefile
+config.status:1094: creating test/commands/Makefile
+config.status:1094: creating test/commands/cmdtests
+config.status:1094: creating test/mpid/Makefile
+config.status:1094: creating test/mpid/ch3/Makefile
+config.status:1094: creating examples/Makefile
+config.status:1094: creating examples/f77/Makefile
+config.status:1094: creating examples/f90/Makefile
+config.status:1094: creating examples/cxx/Makefile
+config.status:1094: creating src/util/logging/Makefile
+config.status:1094: creating src/util/logging/common/Makefile
+config.status:1094: creating doc/Makefile
+config.status:1094: creating doc/mansrc/Makefile
+config.status:1094: creating doc/mansrc/createhtmlindex
+config.status:1094: creating doc/refman/Makefile
+config.status:1094: creating doc/installguide/Makefile
+config.status:1094: creating doc/userguide/Makefile
+config.status:1094: creating doc/logging/Makefile
+config.status:1094: creating doc/design/Makefile
+config.status:1094: creating doc/smpd/Makefile
+config.status:1094: creating doc/windev/Makefile
+config.status:1153: creating src/include/mpichconf.h
+config.status:1463: src/include/mpichconf.h is unchanged
+config.status:1621: executing default-1 commands
+config.status:1621: executing default-2 commands
+config.status:1621: executing default-3 commands
+config.status:1621: executing default-4 commands
+config.status:1621: executing default-5 commands
+config.status:1621: executing default-6 commands
+config.status:1621: executing default-7 commands
+config.status:1621: executing default-8 commands
+config.status:1621: executing default-9 commands
+config.status:1621: executing default-10 commands
+config.status:1621: executing default-11 commands
+config.status:1621: executing default-12 commands
+config.status:1621: executing default-13 commands
+config.status:1621: executing default-14 commands
+configure:35124: configuring in test/mpi
+configure:35241: running /bin/sh '/Users/hxq7681/Library/mpich2-1.0.7/test/mpi/configure' --prefix=/usr/local  '-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc' --disable-checkerrors --cache-file=/dev/null --srcdir=/Users/hxq7681/Library/mpich2-1.0.7/test/mpi
+
+## ---------------- ##
+## Cache variables. ##
+## ---------------- ##
+
+ac_cv_c_bigendian=no
+ac_cv_c_compiler_gnu=yes
+ac_cv_c_const=yes
+ac_cv_c_inline=inline
+ac_cv_cxx_bool=yes
+ac_cv_cxx_compiler_gnu=yes
+ac_cv_cxx_exceptions=yes
+ac_cv_cxx_namespace_std=yes
+ac_cv_cxx_namespaces=yes
+ac_cv_env_CC_set=
+ac_cv_env_CC_value=
+ac_cv_env_CFLAGS_set=
+ac_cv_env_CFLAGS_value=
+ac_cv_env_CPPFLAGS_set=
+ac_cv_env_CPPFLAGS_value=
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
+ac_cv_env_CXXCPP_set=
+ac_cv_env_CXXCPP_value=
+ac_cv_env_CXXFLAGS_set=
+ac_cv_env_CXXFLAGS_value=
+ac_cv_env_CXX_set=
+ac_cv_env_CXX_value=
+ac_cv_env_F77_set=
+ac_cv_env_F77_value=
+ac_cv_env_F90FLAGS_set=
+ac_cv_env_F90FLAGS_value=
+ac_cv_env_F90_set=
+ac_cv_env_F90_value=
+ac_cv_env_FFLAGS_set=
+ac_cv_env_FFLAGS_value=
+ac_cv_env_LDFLAGS_set=
+ac_cv_env_LDFLAGS_value=
+ac_cv_env_MPICH2LIB_CFLAGS_set=
+ac_cv_env_MPICH2LIB_CFLAGS_value=
+ac_cv_env_MPICH2LIB_CXXFLAGS_set=
+ac_cv_env_MPICH2LIB_CXXFLAGS_value=
+ac_cv_env_MPICH2LIB_F90FLAGS_set=
+ac_cv_env_MPICH2LIB_F90FLAGS_value=
+ac_cv_env_MPICH2LIB_FFLAGS_set=
+ac_cv_env_MPICH2LIB_FFLAGS_value=
+ac_cv_env_build_alias_set=
+ac_cv_env_build_alias_value=
+ac_cv_env_host_alias_set=
+ac_cv_env_host_alias_value=
+ac_cv_env_target_alias_set=
+ac_cv_env_target_alias_value=
+ac_cv_exeext=
+ac_cv_f77_compiler_gnu=no
+ac_cv_func_alarm=yes
+ac_cv_func_alloca_works=yes
+ac_cv_func_clock_getres=no
+ac_cv_func_clock_gettime=no
+ac_cv_func_gethrtime=no
+ac_cv_func_gettimeofday=yes
+ac_cv_func_pthread_cleanup_push=no
+ac_cv_func_pthread_yield=no
+ac_cv_func_sched_yield=yes
+ac_cv_func_select=yes
+ac_cv_func_setitimer=yes
+ac_cv_func_sleep=yes
+ac_cv_func_snprintf=yes
+ac_cv_func_strerror=yes
+ac_cv_func_tsearch=yes
+ac_cv_func_usleep=yes
+ac_cv_func_vsnprintf=yes
+ac_cv_func_vsprintf=yes
+ac_cv_func_yield=no
+ac_cv_header_assert_h=yes
+ac_cv_header_complex=yes
+ac_cv_header_endian_h=no
+ac_cv_header_errno_h=yes
+ac_cv_header_inttypes_h=yes
+ac_cv_header_limits_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_pthread_h=yes
+ac_cv_header_search=no
+ac_cv_header_stdarg_h=yes
+ac_cv_header_stdc=no
+ac_cv_header_stddef_h=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_bitypes_h=no
+ac_cv_header_sys_socket_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_time_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_sys_uio_h=yes
+ac_cv_header_unistd_h=yes
+ac_cv_objext=o
+ac_cv_path_BASH=/bin/sh
+ac_cv_path_DOCTEXT=false
+ac_cv_path_PERL=/usr/bin/perl
+ac_cv_path_install='/usr/bin/install -c'
+ac_cv_prog_AR=ar
+ac_cv_prog_CXX=c++
+ac_cv_prog_CXXCPP='c++ -E'
+ac_cv_prog_ETAGS=etags
+ac_cv_prog_KILLALL=killall
+ac_cv_prog_MAKE=make
+ac_cv_prog_RANLIB=ranlib
+ac_cv_prog_ac_ct_CC=gcc
+ac_cv_prog_cc_g=yes
+ac_cv_prog_cc_stdc=
+ac_cv_prog_cxx_g=yes
+ac_cv_prog_egrep='grep -E'
+ac_cv_prog_f77_g=no
+ac_cv_prog_install_breaks_libs=no
+ac_cv_search_pthread_key_create='none required'
+ac_cv_sizeof_Complex=8
+ac_cv_sizeof_DoubleComplex=16
+ac_cv_sizeof_LongDoubleComplex=32
+ac_cv_sizeof_MPI_Offset=8
+ac_cv_sizeof_bool=1
+ac_cv_sizeof_char=1
+ac_cv_sizeof_double=8
+ac_cv_sizeof_float=4
+ac_cv_sizeof_int=4
+ac_cv_sizeof_long=4
+ac_cv_sizeof_long_double=16
+ac_cv_sizeof_long_long=8
+ac_cv_sizeof_short=2
+ac_cv_sizeof_void_p=4
+ac_cv_sizeof_wchar_t=4
+ac_cv_type_Complex=yes
+ac_cv_type_DoubleComplex=yes
+ac_cv_type_LongDoubleComplex=yes
+ac_cv_type_bool=yes
+ac_cv_type_char=yes
+ac_cv_type_double=yes
+ac_cv_type_float=yes
+ac_cv_type_int=yes
+ac_cv_type_long=yes
+ac_cv_type_long_double=yes
+ac_cv_type_long_long=yes
+ac_cv_type_short=yes
+ac_cv_type_size_t=yes
+ac_cv_type_void_p=yes
+ac_cv_type_wchar_t=yes
+ac_cv_working_alloca_h=yes
+lac_cv_use_atomic_updates=yes
+pac_cv_attr_weak=yes
+pac_cv_c_char_p_is_byte=yes
+pac_cv_c_double_alignment_exception=four
+pac_cv_c_double_pos_align=no
+pac_cv_c_fp_align_nr=16
+pac_cv_c_llint_pos_align=no
+pac_cv_c_max_double_fp_align=four
+pac_cv_c_max_fp_align=sixteen
+pac_cv_c_max_integer_align=four
+pac_cv_c_max_longdouble_fp_align=sixteen
+pac_cv_c_restrict=__restrict
+pac_cv_c_struct_align_nr=4
+pac_cv_c_volatile=yes
+pac_cv_cc_has___func__=yes
+pac_cv_cxx_builds_exe=yes
+pac_cv_cxx_has_iostream=yes
+pac_cv_cxx_has_math=no
+pac_cv_func_decl_snprintf=no
+pac_cv_func_decl_vsnprintf=no
+pac_cv_func_pthread_cleanup_push=no
+pac_cv_func_va_copy=yes
+pac_cv_gnu_attr_format=yes
+pac_cv_gnu_attr_pure=yes
+pac_cv_have_long_double=yes
+pac_cv_have_long_long=yes
+pac_cv_int16_t=yes
+pac_cv_int32_t=yes
+pac_cv_int32_t_alignment=no
+pac_cv_int64_t=yes
+pac_cv_int64_t_alignment=no
+pac_cv_lib_pthread_broken=no
+pac_cv_mkdir_p=yes
+pac_cv_mpi_bsend_overhead=59
+pac_cv_my_conf_dir=/tmp/hxq7681/mpich2-1.0.7
+pac_cv_pointers_have_int_alignment=yes
+pac_cv_prog_c_unaligned_doubles=yes
+pac_cv_prog_c_weak_symbols=no
+pac_cv_prog_make_allows_comments=yes
+pac_cv_prog_make_found_clock_skew=no
+pac_cv_prog_make_include=yes
+pac_cv_prog_make_set_cflags=no
+pac_cv_prog_make_vpath=VPATH
+pac_cv_sizeof_2_int=8
+pac_cv_sizeof_double_int=12
+pac_cv_sizeof_float_int=8
+pac_cv_sizeof_long_double_int=20
+pac_cv_sizeof_long_int=8
+pac_cv_sizeof_short_int=6
+pac_cv_tsearch_charp=no
+
+## ----------------- ##
+## Output variables. ##
+## ----------------- ##
+
+ABIVERSION='1:1'
+ADDRESS_KIND=''
+ALLOCA=''
+AR='ar'
+BASH='/bin/sh'
+BSEND_OVERHEAD='59'
+BUILD_BASH_SCRIPTS='yes'
+BUILD_DLLS='no'
+BUILD_TVDLL='yes'
+CC='gcc'
+CC_SHL='${CC} -fPIC'
+CC_SHL_DBG='${CC} -fPIC'
+CFLAGS=' -g -DNDEBUG -O2'
+CONFIGURE_ARGS_CLEAN='-enable-debuginfo -enable-g=dbg,mem,log -enable-fast -enable-sharedlibs=osx-gcc'
+CONFIGURE_ARGUMENTS=''-enable-debuginfo' '-enable-g=dbg,mem,log' '-enable-fast' '-enable-sharedlibs=osx-gcc''
+CPP=''
+CPPFLAGS='  -I/tmp/hxq7681/mpich2-1.0.7/src/mpid/ch3/include -I/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/include -I/tmp/hxq7681/mpich2-1.0.7/src/mpid/common/datatype -I/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/common/datatype -I/tmp/hxq7681/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/ch3/channels/sock/include -I/tmp/hxq7681/mpich2-1.0.7/src/mpid/common/sock -I/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/common/sock -I/tmp/hxq7681/mpich2-1.0.7/src/mpid/common/sock/poll -I/Users/hxq7681/Library/mpich2-1.0.7/src/mpid/common/sock/poll'
+CREATESHLIB='/tmp/hxq7681/mpich2-1.0.7/src/util/createshlib'
+CXX='c++'
+CXXCPP='c++ -E'
+CXXFLAGS=' -g -DNDEBUG -O2'
+CXX_DEFS=' -DHAVE_CXX_IOSTREAM -DHAVE_NAMESPACE_STD'
+CXX_LINKPATH_SHL=''
+CXX_SHL='c++ -fPIC'
+C_LINKPATH_SHL=''
+C_LINK_SHL='${CC} -dynamiclib -undefined suppress -single_module -flat_namespace'
+C_LINK_SHL_DBG='${CC} -dynamiclib -undefined suppress -single_module -flat_namespace'
+DEFS='-DHAVE_CONFIG_H'
+DEVICE='ch3:sock'
+DEVICE_ARGS=''
+DEVICE_NAME='ch3'
+DLLIMPORT=''
+DOCTEXT='false'
+DOCTEXTSTYLE=''
+ECHO_C='ECHO_N=''
+ECHO_T=''
+EGREP='grep -E'
+ENABLE_SHLIB='osx-gcc'
+ETAGS='etags'
+ETAGSADD='--language=c'
+EXEEXT=''
+EXTERNAL_SRC_DIRS=''
+EXTRA_STATUS_DECL=''
+F77=''
+F77CPP=''
+F77_COMPLEX16=''
+F77_COMPLEX32=''
+F77_COMPLEX8=''
+F77_INCDIR=''
+F77_INTEGER16=''
+F77_INTEGER1=''
+F77_INTEGER2=''
+F77_INTEGER4=''
+F77_INTEGER8=''
+F77_IN_C_LIBS=''
+F77_LIBDIR_LEADER=''
+F77_NAME_MANGLE=''
+F77_OTHER_LIBS=''
+F77_REAL16=''
+F77_REAL4=''
+F77_REAL8=''
+F90=''
+F90CPP=''
+F90EXT=''
+F90FLAGS='  -g -DNDEBUG'
+F90INC=''
+F90INCFLAG=''
+F90MODEXT=''
+F90MODINCFLAG=''
+F90MODINCSPEC=''
+F90_LINKPATH_SHL=''
+F90_OTHER_LIBS=''
+F90_SHL=''
+F90_WORK_FILES_ARG=''
+FC=''
+FC_LINKPATH_SHL=''
+FC_SHL=''
+FFLAGS='  -g -DNDEBUG'
+FINCLUDES=''
+FLIBS=''
+FORTRAN_BINDING='0'
+FORTRAN_MPI_OFFSET='integer*8'
+FWRAPNAME='fmpich'
+GCC='yes'
+GNUC_MINORVERSION='0'
+GNUC_VERSION='4'
+HAVE_CXX_EXCEPTIONS='1'
+HAVE_ROMIO='#include "mpio.h"'
+INCLUDE_MPICXX_H='#include "mpicxx.h"'
+INCLUDE_MPIDDEFS_H='/* ... no device specific definitions ... */'
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_SCRIPT='${INSTALL}'
+INT16_T=''
+INT32_T=''
+INT64_T=''
+KILLALL='killall'
+LDFLAGS=''
+LIBOBJS=''
+LIBS='         '
+LIBTOOL=''
+LTLIBOBJS=''
+MAKE='make'
+MAKE_DEPEND_C='gcc -MM'
+MANY_PM='no'
+MKDIR_P='mkdir -p'
+MPE_THREAD_LIB_NAME='mpich'
+MPIBASEMODNAME='mpi_base'
+MPICC='$(bindir)/mpicc'
+MPICH2LIB_CFLAGS=''
+MPICH2LIB_CXXFLAGS=''
+MPICH2LIB_F90FLAGS=''
+MPICH2LIB_FFLAGS=''
+MPICH_TIMER_KIND='USE_GETTIMEOFDAY'
+MPICONSTMODNAME='mpi_constants'
+MPICXX='$(bindir)/mpicxx'
+MPICXXLIBNAME='mpichcxx'
+MPID_TIMER_TYPE='struct timeval'
+MPIF77='$(bindir)/mpif77'
+MPIF90='$(bindir)/mpif90'
+MPIFLIBNAME='mpich'
+MPIFPMPI=''
+MPILIBNAME='mpich'
+MPIMODNAME='mpi'
+MPIR_CXX_BOOL='0x4c000133'
+MPIR_CXX_COMPLEX='0x4c000834'
+MPIR_CXX_DOUBLE_COMPLEX='0x4c001035'
+MPIR_CXX_LONG_DOUBLE_COMPLEX='0x4c002036'
+MPISIZEOFMODNAME='mpi_sizeofs'
+MPIU_DLL_SPEC_DEF='#define MPIU_DLL_SPEC'
+MPI_2COMPLEX='MPI_DATATYPE_NULL'
+MPI_2DOUBLE_COMPLEX='MPI_DATATYPE_NULL'
+MPI_2DOUBLE_PRECISION='MPI_DATATYPE_NULL'
+MPI_2INT='0x4c000816'
+MPI_2INTEGER='MPI_DATATYPE_NULL'
+MPI_2REAL='MPI_DATATYPE_NULL'
+MPI_AINT='int'
+MPI_AINT_FMT_DEC_SPEC='%d'
+MPI_AINT_FMT_HEX_SPEC='%x'
+MPI_BYTE='0x4c00010d'
+MPI_CHAR='0x4c000101'
+MPI_CHARACTER='MPI_DATATYPE_NULL'
+MPI_COMPLEX16='0x4c00102a'
+MPI_COMPLEX32='0x4c00202c'
+MPI_COMPLEX8='0x4c000828'
+MPI_COMPLEX='MPI_DATATYPE_NULL'
+MPI_DOUBLE='0x4c00080b'
+MPI_DOUBLE_COMPLEX='MPI_DATATYPE_NULL'
+MPI_DOUBLE_INT='0x8c000001'
+MPI_DOUBLE_PRECISION='MPI_DATATYPE_NULL'
+MPI_F77_BYTE=''
+MPI_F77_LB=''
+MPI_F77_PACKED=''
+MPI_F77_UB=''
+MPI_FINT='int'
+MPI_FLOAT='0x4c00040a'
+MPI_FLOAT_INT='0x8c000000'
+MPI_INT='0x4c000405'
+MPI_INTEGER16='MPI_DATATYPE_NULL'
+MPI_INTEGER1='0x4c00012d'
+MPI_INTEGER2='0x4c00022f'
+MPI_INTEGER4='0x4c000430'
+MPI_INTEGER8='0x4c000831'
+MPI_INTEGER='MPI_DATATYPE_NULL'
+MPI_LB='0x4c000010'
+MPI_LOGICAL='MPI_DATATYPE_NULL'
+MPI_LONG='0x4c000407'
+MPI_LONG_DOUBLE='0x4c00100c'
+MPI_LONG_DOUBLE_INT='0x8c000004'
+MPI_LONG_INT='0x8c000002'
+MPI_LONG_LONG='0x4c000809'
+MPI_MAX_PROCESSOR_NAME='128'
+MPI_OFFSET='long long'
+MPI_OFFSET_TYPEDEF='typedef long long MPI_Offset;'
+MPI_PACKED='0x4c00010f'
+MPI_REAL16='0x4c00102b'
+MPI_REAL4='0x4c000427'
+MPI_REAL8='0x4c000829'
+MPI_REAL='MPI_DATATYPE_NULL'
+MPI_SHORT='0x4c000203'
+MPI_SHORT_INT='0x8c000003'
+MPI_SIGNED_CHAR='0x4c000118'
+MPI_STATUS_SIZE=''
+MPI_UB='0x4c000011'
+MPI_UNSIGNED_CHAR='0x4c000102'
+MPI_UNSIGNED_INT='0x4c000406'
+MPI_UNSIGNED_LONG='0x4c000408'
+MPI_UNSIGNED_LONG_LONG='0x4c000819'
+MPI_UNSIGNED_SHORT='0x4c000204'
+MPI_WCHAR='0x4c00040e'
+NEEDSPLIB='yes'
+NO_WEAK_SYM='build_proflib'
+NO_WEAK_SYM_TARGET='build_proflib'
+NUMVERSION='10007300'
+OBJEXT='o'
+OFFSET_KIND=''
+PACKAGE_BUGREPORT=''
+PACKAGE_NAME=''
+PACKAGE_STRING=''
+PACKAGE_TARNAME=''
+PACKAGE_VERSION=''
+PATH_SEPARATOR=':'
+PERL='/usr/bin/perl'
+PMPIFLIBNAME='pmpich'
+PMPILIBNAME='pmpich'
+PROFILE_DEF_MPI='-DMPICH_MPI_FROM_PMPI'
+RANLIB='ranlib'
+RANLIB_AFTER_INSTALL='no'
+RELEASE_DATE='Unknown, built on Mon Aug 11 20:54:12 EDT 2008'
+REQD=''
+SET_CFLAGS=''
+SET_MAKE='MAKE=make'
+SHELL='/bin/sh'
+SHLIB_EXT='dylib'
+SHLIB_FROM_LO='no'
+SHLIB_INSTALL='$(INSTALL_PROGRAM)'
+SIZEOF_F90_CHARACTER=''
+SIZEOF_F90_DOUBLE_PRECISION=''
+SIZEOF_F90_INTEGER=''
+SIZEOF_F90_REAL=''
+SIZEOF_MPI_STATUS=''
+TESTCPP=''
+THR_CFLAGS=' -D_REENTRANT -D_THREAD_SAFE'
+THR_CPPFLAGS=''
+THR_DEFS=''
+THR_LDFLAGS=''
+THR_LIBS=' -lpthread'
+VERSION='1.0.7'
+VPATH='VPATH=.:${srcdir}'
+WRAPPER_CFLAGS=''
+WRAPPER_CXXFLAGS=''
+WRAPPER_F90FLAGS=''
+WRAPPER_FFLAGS=''
+WRAPPER_LDFLAGS='  '
+XARGS_NODATA_OPT=''
+ac_ct_CC='gcc'
+ac_ct_CXX=''
+ac_ct_F77=''
+ac_ct_F90=''
+ac_ct_RANLIB=''
+bindings=' cxx'
+bindings_dirs=' src/binding/cxx'
+bindir='${exec_prefix}/bin'
+build_alias=''
+datadir='${prefix}/share'
+debugger_dir='debugger'
+device_name='ch3'
+docdir='${prefix}/doc'
+exec_prefix='${prefix}'
+host_alias=''
+htmldir='${prefix}/www'
+includedir='${prefix}/include'
+infodir='${prefix}/info'
+libdir='${exec_prefix}/lib'
+libexecdir='${exec_prefix}/libexec'
+localstatedir='${prefix}/var'
+logging_dir=''
+logging_name='none'
+logging_subdirs=''
+mandir='${prefix}/man'
+master_top_builddir='/tmp/hxq7681/mpich2-1.0.7'
+master_top_srcdir='/Users/hxq7681/Library/mpich2-1.0.7'
+modincdir=''
+mpe_dir='mpe2'
+nameserv_name='mpd'
+oldincludedir='/usr/include'
+other_install_dirs=' src/pm/mpd src/mpe2'
+other_pm_names=''
+pac_prog=''
+pm_name='mpd'
+pmi_name='simple'
+prefix='/usr/local'
+program_transform_name='s,x,x,'
+romio_dir='romio'
+sbindir='${exec_prefix}/sbin'
+sharedstatedir='${prefix}/com'
+subdirs=' test/mpi'
+subsystems=' src/mpid/ch3 src/mpid/common/sock  src/mpi/romio src/pmi/simple src/pm/mpd src/mpe2 '
+sysconfdir='${prefix}/etc'
+target_alias=''
+
+## ------------- ##
+## Output files. ##
+## ------------- ##
+
+MPE_THREAD_FUNCS='/Users/hxq7681/Library/mpich2-1.0.7/src/util/thread/posix_funcs.i'
+MPE_THREAD_TYPEDEFS='/Users/hxq7681/Library/mpich2-1.0.7/src/util/thread/posix_types.i'
+
+## ----------- ##
+## confdefs.h. ##
+## ----------- ##
+
+#define HAVE_ALARM 1
+#define HAVE_ALLOCA 1
+#define HAVE_ALLOCA_H 1
+#define HAVE_ANY_INT32_T_ALIGNMENT 1
+#define HAVE_ANY_INT64_T_ALIGNMENT 1
+#define HAVE_ASSERT_H 1
+#define HAVE_CXX_BINDING 1
+#define HAVE_CXX_EXCEPTIONS
+#define HAVE_DEBUGGER_SUPPORT 1
+#define HAVE_DOUBLE_ALIGNMENT_EXCEPTION 4
+#define HAVE_ERRNO_H 1
+#define HAVE_GCC_AND_PENTIUM_ASM 1
+#define HAVE_GCC_ATTRIBUTE 1
+#define HAVE_GETTIMEOFDAY 1
+#define HAVE_INT16_T 1
+#define HAVE_INT32_T 1
+#define HAVE_INT64_T 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_LIMITS_H 1
+#define HAVE_LONG_DOUBLE 1
+#define HAVE_LONG_LONG_INT 1
+#define HAVE_MAX_DOUBLE_FP_ALIGNMENT 4
+#define HAVE_MAX_FP_ALIGNMENT 16
+#define HAVE_MAX_INTEGER_ALIGNMENT 4
+#define HAVE_MAX_LONG_DOUBLE_FP_ALIGNMENT 16
+#define HAVE_MAX_STRUCT_ALIGNMENT 4
+#define HAVE_MEMORY_H 1
+#define HAVE_MPICHCONF 1
+#define HAVE_NAMEPUB_SERVICE 1
+#define HAVE_NAMESPACES
+#define HAVE_NAMESPACE_STD
+#define HAVE_NO_FORTRAN_MPI_TYPES_IN_C 1
+#define HAVE_PTHREAD_H 1
+#define HAVE_ROMIO 1
+#define HAVE_RUNTIME_THREADCHECK 1
+#define HAVE_SCHED_YIELD 1
+#define HAVE_SELECT 1
+#define HAVE_SETITIMER 1
+#define HAVE_SLEEP 1
+#define HAVE_SNPRINTF 1
+#define HAVE_STDARG_H 1
+#define HAVE_STDDEF_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRERROR 1
+#define HAVE_STRINGS_H 1
+#define HAVE_STRING_H 1
+#define HAVE_SYS_SOCKET_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_SYS_TIME_H 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_UIO_H 1
+#define HAVE_TSEARCH 1
+#define HAVE_UNISTD_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_USLEEP 1
+#define HAVE_VA_COPY 1
+#define HAVE_VSNPRINTF 1
+#define HAVE_VSPRINTF 1
+#define MPICH_ERROR_MSG_LEVEL MPICH_ERROR_MSG_NONE
+#define MPICH_INFODLL_LOC "NONE/lib/libtvmpich2.so"
+#define MPICH_THREAD_LEVEL MPI_THREAD_MULTIPLE
+#define MPIR_INTEGER1_CTYPE char
+#define MPIR_INTEGER2_CTYPE short
+#define MPIR_INTEGER4_CTYPE int
+#define MPIR_INTEGER8_CTYPE long long
+#define MPIR_REAL16_CTYPE long double
+#define MPIR_REAL4_CTYPE float
+#define MPIR_REAL8_CTYPE double
+#define MPIU_SIZE_T unsigned int
+#define PACKAGE_BUGREPORT ""
+#define PACKAGE_NAME ""
+#define PACKAGE_STRING ""
+#define PACKAGE_TARNAME ""
+#define PACKAGE_VERSION ""
+#define SIZEOF_BOOL 1
+#define SIZEOF_CHAR 1
+#define SIZEOF_COMPLEX 8
+#define SIZEOF_DOUBLE 8
+#define SIZEOF_DOUBLECOMPLEX 16
+#define SIZEOF_FLOAT 4
+#define SIZEOF_INT 4
+#define SIZEOF_INT_IS_AINT 1
+#define SIZEOF_LONG 4
+#define SIZEOF_LONGDOUBLECOMPLEX 32
+#define SIZEOF_LONG_DOUBLE 16
+#define SIZEOF_LONG_LONG 8
+#define SIZEOF_SHORT 2
+#define SIZEOF_VOID_P 4
+#define SIZEOF_WCHAR_T 4
+#define USE_ATOMIC_UPDATES
+#define USE_DBG_LOGGING 1
+#define USE_LOGGING MPID_LOGGING_NONE
+#define USE_MEMORY_TRACING 1
+#define USE_THREAD_IMPL MPICH_THREAD_IMPL_GLOBAL_MUTEX
+#define USE_THREAD_PKG MPICH_THREAD_PKG_POSIX
+#define WORDS_LITTLEENDIAN 1
+#define restrict __restrict
+#endif
+#ifdef __cplusplus
+extern "C" void std::exit (int); using std::exit;
+
+configure: exit 0

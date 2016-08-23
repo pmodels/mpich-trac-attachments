@@ -1,0 +1,132 @@
+diff -ruN mpich2-1.1.1/configure patch_mpich2-1.1.1/configure
+--- mpich2-1.1.1/configure	2009-07-21 17:48:05.000000000 -0400
++++ patch_mpich2-1.1.1/configure	2009-07-28 15:19:17.000000000 -0400
+@@ -35400,7 +35400,7 @@
+ { $as_echo "$as_me:$LINENO: result: $ac_cv_lib_pthread_pthread_key_create" >&5
+ $as_echo "$ac_cv_lib_pthread_pthread_key_create" >&6; }
+ if test "x$ac_cv_lib_pthread_pthread_key_create" = x""yes; then
+-  LDFLAGS="$LDFLAGS -lpthread"
++  LIBS="$LIBS -lpthread"
+ fi
+ 
+ 
+diff -ruN mpich2-1.1.1/configure.in patch_mpich2-1.1.1/configure.in
+--- mpich2-1.1.1/configure.in	2009-07-20 12:35:52.000000000 -0400
++++ patch_mpich2-1.1.1/configure.in	2009-07-28 15:19:17.000000000 -0400
+@@ -5648,7 +5648,7 @@
+ 	# FIXME: We are blindly adding the flag into LDFLAGS without
+ 	# checking if someone else added it as well, so there might be
+ 	# a duplication.
+-	AC_CHECK_LIB(pthread,pthread_key_create,LDFLAGS="$LDFLAGS -lpthread",)
++	AC_CHECK_LIB(pthread,pthread_key_create,LIBS="$LIBS -lpthread",)
+ 
+ 	# Check for a routine that specify a routine to call on 
+ 	# thread exit.  We can use this to release memory that may
+diff -ruN mpich2-1.1.1/Makefile.in patch_mpich2-1.1.1/Makefile.in
+--- mpich2-1.1.1/Makefile.in	2009-07-21 17:48:00.000000000 -0400
++++ patch_mpich2-1.1.1/Makefile.in	2009-07-28 15:19:17.000000000 -0400
+@@ -129,22 +129,24 @@
+ CC              = @CC@
+ CFLAGS          = @CFLAGS@ $(MPICH2_MAKE_CFLAGS)
+ C_COMPILE       = $(CC) $(DEFS) $(INCLUDES) $(CFLAGS) $(CPPFLAGS)
++LDFLAGS         = @LDFLAGS@
++LIBS            = @LIBS@
+ # Build the shared library from the shared object files
+ lib/lib${MPILIBNAME}.@SHLIB_EXT@: lib/lib${MPILIBNAME}.la
+-	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o lib${MPILIBNAME}.la  -rpath $(libdir) )
++	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o lib${MPILIBNAME}.la  -rpath $(libdir) -ldflags ${LDFLAGS} -libs "${LIBS}" )
+ 	if [ -n "@NO_WEAK_SYM@" -a \
+ 		"${MPILIBNAME}" != "${PMPILIBNAME}" ] ; then \
+-	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o lib${PMPILIBNAME}.la  -rpath $(libdir) );\
++	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o lib${PMPILIBNAME}.la  -rpath $(libdir) -ldflags ${LDFLAGS} -libs "${LIBS}" );\
+ 	fi
+ # Build the shared library from the shared object files
+ lib/libf${MPILIBNAME}.@SHLIB_EXT@: lib/libf${MPILIBNAME}.la
+-	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o libf${MPILIBNAME}.la  -rpath $(libdir) -L. -l$(MPILIBNAME))
++	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o libf${MPILIBNAME}.la  -rpath $(libdir) -L. -l$(MPILIBNAME) -ldflags ${LDFLAGS} -libs "${LIBS}" )
+ # Build the shared library from the shared object files
+ lib/lib${MPILIBNAME}f90.@SHLIB_EXT@: lib/lib${MPILIBNAME}f90.la
+-	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o lib${MPILIBNAME}f90.la  -rpath $(libdir) )
++	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o lib${MPILIBNAME}f90.la  -rpath $(libdir) -ldflags ${LDFLAGS} -libs "${LIBS}" )
+ # Build the shared library from the shared object files
+ lib/lib${MPICXXLIBNAME}.@SHLIB_EXT@: lib/lib${MPICXXLIBNAME}.la
+-	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o lib${MPICXXLIBNAME}.la  -rpath $(libdir) )
++	(cd lib && $(CREATESHLIB) --mode=link -version-info "@ABIVERSION@" -o lib${MPICXXLIBNAME}.la  -rpath $(libdir) -ldflags ${LDFLAGS} -libs "${LIBS}" )
+ 
+ # --------------------------------------------------------------------------
+ .libstamp0: 
+diff -ruN mpich2-1.1.1/src/util/createshlib.in patch_mpich2-1.1.1/src/util/createshlib.in
+--- mpich2-1.1.1/src/util/createshlib.in	2007-11-29 11:18:45.000000000 -0500
++++ patch_mpich2-1.1.1/src/util/createshlib.in	2009-07-28 15:19:43.000000000 -0400
+@@ -38,6 +38,9 @@
+ Show=eval
+ exportDefs=""
+ dependentLibs=""
++ldflags=""
++libs=""
++mx=""
+ #
+ # Check for options from the environment
+ if [ "$CREATESHLIB_ECHO" = "yes" ] ; then
+@@ -55,6 +58,12 @@
+ 	   -rpath)
+ 	   destdir=$arg
+ 	   ;;
++	   -ldflags)
++	   ldflags=$arg
++	   ;;
++	   -libs)
++	   libs=$arg
++	   ;;
+ 	   -export)
+ 	   # The libtool option is -export-symbols, and the file is
+ 	   # standardized as foo.sym, containing only the symbols
+@@ -81,6 +90,12 @@
+        -o|-rpath|-export|-version-info) # next arg is value for this option
+        nextarg=$arg
+        ;;
++       -ldflags) # next arg is value for this option
++       nextarg=$arg
++       ;;
++       -libs) # next arg is value for this option
++       nextarg=$arg
++       ;;
+        -echo) set -x ;;
+        -dryrun) Show=echo ;;
+        # -cc and -clink allow us to override the commands used to 
+@@ -105,6 +120,8 @@
+    esac
+ done
+ 
++mx="$ldflags $libs"
++
+ if [ -z "$srclibname" ] ; then
+     exit 1
+ fi
+@@ -261,7 +278,7 @@
+ 	    destlibname="$abssrclibdir/$realName"
+ 	fi
+ 	$Show ${C_LINK_SHL} -o $realName \
+-	    $minorVersionArg -install_name $destlibname .tmp/*.o
++	    $minorVersionArg -install_name $destlibname .tmp/*.o $mx
+ 	;;		
+ 
+ 	cygwin|cygwin-gcc)
+@@ -275,7 +292,7 @@
+ 	# for Windows-style dlls
+ 	$Show ${C_LINK_SHL} -o $realName $exportDefs \
+ 	    -Wl,--out-implib,$srclibbase.a \
+-	    .tmp/*.o $dependentLibs
++	    .tmp/*.o $dependentLibs $mx
+ 	# Create the import library
+ 	#dlltool --export-all-symbols --dllname $srclibbase.$SHLIB_EXT \
+ 	#    --output-lib $srclibbase.lib
+@@ -293,7 +310,7 @@
+         # Typically -Wl,-h,$soName
+ 	# FIXME: C_LINK_SHL knows the options for shared libraries,
+ 	# but not the args for setting the soname.
+-	$Show ${C_LINK_SHL} -o $realName -Wl,-h,$soName .tmp/*.o 
++	$Show ${C_LINK_SHL} -o $realName -Wl,-h,$soName .tmp/*.o $mx
+ 	# Do we need to add $dependentLibs ?
+ 	;;
+     esac

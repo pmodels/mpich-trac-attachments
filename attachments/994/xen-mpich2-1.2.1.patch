@@ -1,0 +1,522 @@
+diff -u -r -N mpich2-1.2.1-orig/src/include/xenroutines.h mpich2-1.2.1/src/include/xenroutines.h
+--- mpich2-1.2.1-orig/src/include/xenroutines.h	1970-01-01 08:00:00.000000000 +0800
++++ mpich2-1.2.1/src/include/xenroutines.h	2010-01-21 11:55:20.000000000 +0800
+@@ -0,0 +1,20 @@
++#define ENABLE_XEN_OPS	1
++
++//#define VERBOSE_DBG_MSG	1
++
++// define the time gap that will be considered so close to call
++//	xen level schedule operations. (in microseconds!)
++#define CLOSE_GAP	100
++
++int init_xen_env( void );
++int xen_sched_yield( void );
++int close_xen_env( void );
++
++extern int on_xen;
++extern struct timeval yield_before, yield_after;
++
++int get_yield_before();
++int get_yield_after();
++long diff_time();
++
++
+diff -u -r -N mpich2-1.2.1-orig/src/mpi/init/finalize.c mpich2-1.2.1/src/mpi/init/finalize.c
+--- mpich2-1.2.1-orig/src/mpi/init/finalize.c	2009-11-05 07:45:44.000000000 +0800
++++ mpich2-1.2.1/src/mpi/init/finalize.c	2010-01-21 02:22:45.000000000 +0800
+@@ -8,6 +8,10 @@
+ #include "mpiimpl.h"
+ #include "mpi_init.h"
+ 
++//added by Syivester
++#include <xenroutines.h>
++//added by Syivester
++
+ /* -- Begin Profiling Symbol Block for routine MPI_Finalize */
+ #if defined(HAVE_PRAGMA_WEAK)
+ #pragma weak MPI_Finalize = PMPI_Finalize
+@@ -308,6 +312,11 @@
+ 
+   fn_exit:
+     MPID_MPI_FINALIZE_FUNC_EXIT(MPID_STATE_MPI_FINALIZE);
++	
++	//added by Syivester.
++	close_xen_env();
++	//added by Syivester
++
+     return mpi_errno;
+ 
+   fn_fail:
+diff -u -r -N mpich2-1.2.1-orig/src/mpi/init/init.c mpich2-1.2.1/src/mpi/init/init.c
+--- mpich2-1.2.1-orig/src/mpi/init/init.c	2009-11-05 07:45:44.000000000 +0800
++++ mpich2-1.2.1/src/mpi/init/init.c	2010-01-21 02:22:14.000000000 +0800
+@@ -7,6 +7,9 @@
+ #include "mpiimpl.h"
+ #include "mpi_init.h"
+ 
++//added by Syivester.
++#include <xenroutines.h>
++//added by Syivester.
+ 
+ /* -- Begin Profiling Symbol Block for routine MPI_Init */
+ #if defined(HAVE_PRAGMA_WEAK)
+@@ -77,6 +80,10 @@
+     MPIU_THREADPRIV_DECL;
+     MPID_MPI_INIT_STATE_DECL(MPID_STATE_MPI_INIT);
+ 
++	//added by Syivester.
++	init_xen_env();
++	//added by Syivester
++
+     rc = MPID_Wtime_init();
+ #ifdef USE_DBG_LOGGING
+     MPIU_DBG_PreInit( argc, argv, rc );
+diff -u -r -N mpich2-1.2.1-orig/src/mpi/init/initthread.c mpich2-1.2.1/src/mpi/init/initthread.c
+--- mpich2-1.2.1-orig/src/mpi/init/initthread.c	2009-11-05 07:45:44.000000000 +0800
++++ mpich2-1.2.1/src/mpi/init/initthread.c	2010-01-21 02:22:25.000000000 +0800
+@@ -506,6 +506,10 @@
+     MPIU_THREADPRIV_DECL;
+     MPID_MPI_INIT_STATE_DECL(MPID_STATE_MPI_INIT_THREAD);
+ 
++    //added by Syivester.
++    init_xen_env();
++    //added by Syivester
++
+     rc = MPID_Wtime_init();
+ #ifdef USE_DBG_LOGGING
+     MPIU_DBG_PreInit( argc, argv, rc );
+diff -u -r -N mpich2-1.2.1-orig/src/mpi/pt2pt/Makefile.in mpich2-1.2.1/src/mpi/pt2pt/Makefile.in
+--- mpich2-1.2.1-orig/src/mpi/pt2pt/Makefile.in	2009-11-19 00:40:34.000000000 +0800
++++ mpich2-1.2.1/src/mpi/pt2pt/Makefile.in	2010-01-21 11:53:16.000000000 +0800
+@@ -35,7 +35,7 @@
+  request_free.c request_get_status.c rsend.c rsend_init.c send.c send_init.c \
+  sendrecv.c sendrecv_rep.c status_set_cancelled.c ssend.c ssend_init.c \
+  start.c startall.c test.c test_cancelled.c  testall.c testany.c \
+- testsome.c wait.c waitall.c waitany.c waitsome.c
++ testsome.c wait.c waitall.c waitany.c waitsome.c xenroutines.c
+ HEADERS = bsendutil.h
+ INCLUDES = -I../../include -I${top_srcdir}/src/include
+ 
+@@ -131,7 +131,7 @@
+ 	send_init.o sendrecv.o sendrecv_rep.o status_set_cancelled.o ssend.o \
+ 	ssend_init.o start.o startall.o test.o test_cancelled.o testall.o \
+ 	testany.o testsome.o wait.o waitall.o waitany.o waitsome.o \
+-	bsendutil.o mpir_request.o 
++	bsendutil.o mpir_request.o xenroutines.o
+ 	@if [ "x$(VERBOSE)" != "x1" -a "x$(V)" != "x1" ] ; then \
+ 	  echo "  AR cr ../../../lib/lib${MPILIBNAME}.a $?" ; \
+ 	else \
+@@ -152,7 +152,7 @@
+ 	rsend_init.lo send.lo send_init.lo sendrecv.lo sendrecv_rep.lo \
+ 	status_set_cancelled.lo ssend.lo ssend_init.lo start.lo startall.lo \
+ 	test.lo test_cancelled.lo testall.lo testany.lo testsome.lo wait.lo \
+-	waitall.lo waitany.lo waitsome.lo bsendutil.lo mpir_request.lo 
++	waitall.lo waitany.lo waitsome.lo bsendutil.lo mpir_request.lo xenroutines.lo 
+ 	@if [ "x$(VERBOSE)" != "x1" -a "x$(V)" != "x1" ] ; then \
+ 	  echo "  AR cr ../../../lib/lib${MPILIBNAME}.la $?" ; \
+ 	else \
+@@ -169,7 +169,7 @@
+ 	_sendrecv.o _sendrecv_rep.o _status_set_cancelled.o _ssend.o \
+ 	_ssend_init.o _start.o _startall.o _test.o _test_cancelled.o \
+ 	_testall.o _testany.o _testsome.o _wait.o _waitall.o _waitany.o \
+-	_waitsome.o 
++	_waitsome.o _xenroutines.o
+ 	@if [ "x$(VERBOSE)" != "x1" -a "x$(V)" != "x1" ] ; then \
+ 	  echo "  AR cr ../../../lib/lib${PMPILIBNAME}.a $?" ; \
+ 	else \
+@@ -1322,7 +1322,7 @@
+ 	sendrecv.c sendrecv_rep.c status_set_cancelled.c ssend.c ssend_init.c \
+ 	start.c startall.c test.c test_cancelled.c testall.c testany.c \
+ 	testsome.c wait.c waitall.c waitany.c waitsome.c bsendutil.c \
+-	mpir_request.c 
++	mpir_request.c xenroutines.c
+ HEADERFILES     = $(HEADERS)
+ SOURCEFILES     = $(SOURCES)
+ # --------------------------------------------------------------------------
+diff -u -r -N mpich2-1.2.1-orig/src/mpi/pt2pt/xenroutines.c mpich2-1.2.1/src/mpi/pt2pt/xenroutines.c
+--- mpich2-1.2.1-orig/src/mpi/pt2pt/xenroutines.c	1970-01-01 08:00:00.000000000 +0800
++++ mpich2-1.2.1/src/mpi/pt2pt/xenroutines.c	2010-01-21 02:21:42.000000000 +0800
+@@ -0,0 +1,169 @@
++#include <inttypes.h>
++
++/* Tell the Xen public headers we are a user-space tools build. */
++#ifndef __XEN_TOOLS__
++#define __XEN_TOOLS__ 1
++#endif
++
++#include <unistd.h>
++#include <stdio.h>
++#include <errno.h>
++#include <fcntl.h>
++#include <string.h>
++#include <sys/mman.h>
++#include <sys/types.h>
++#include <sys/stat.h>
++#include <stdlib.h>
++#include <sys/ioctl.h>
++#include <sys/time.h>
++
++#include <stddef.h>
++#include <stdint.h>
++#include <xen/xen.h>
++#include <xen/domctl.h>
++#include <xen/physdev.h>
++#include <xen/sysctl.h>
++#include <xen/version.h>
++#include <xen/event_channel.h>
++#include <xen/sched.h>
++#include <xen/memory.h>
++#include <xen/hvm/params.h>
++#include <xen/xsm/acm.h>
++#include <xen/xsm/acm_ops.h>
++#include <xen/xsm/flask_op.h>
++
++#include <xen/sys/privcmd.h>
++
++#define DECLARE_HYPERCALL privcmd_hypercall_t hypercall = { 0 }
++
++//self defined header file
++#include <xenroutines.h>
++//self defined header file
++
++#ifdef __ia64__
++#define XC_PAGE_SHIFT           14
++#else
++#define XC_PAGE_SHIFT           12
++#endif
++#define PAGE_SIZE            (1UL << XC_PAGE_SHIFT)
++#define PAGE_MASK            (~(PAGE_SIZE-1))
++
++DECLARE_HYPERCALL;
++
++// global variables
++int on_xen = 0;
++int xen_priv_cmd_fd = -1;
++
++struct timeval yield_before, yield_after;
++
++// get the high calibrated system time, and put it into yield_before
++int get_yield_before()
++{
++	if( gettimeofday( &yield_before, NULL ) < 0 ){
++    	printf( "get_yield_before():failed to get time\n" );
++        return  -1;
++	}
++}
++
++// get the high calibrated system time, and put it into yield_after
++int get_yield_after()
++{
++	if( gettimeofday( &yield_after, NULL ) < 0 ){
++    	printf( "get_yield_after():failed to get time\n" );
++        return  -1;
++	}
++}
++
++// compute the time gap (in microseconds) between the yield_after
++//	and yeild_before.
++//	Returns:
++//		>0 means the time gap;
++//		<0 means something wrong
++long diff_time( )
++{
++	long ret;
++	ret = (yield_after.tv_sec - yield_before.tv_sec)*1000000 + 
++		(yield_after.tv_usec - yield_before.tv_usec);
++
++	return ret;
++}
++
++// detect if the system is running on top of Xen environments.
++//	Currently, supports only Xen 3.4.2
++int init_xen_env( void )
++{
++	//now test if we are running on top of Xen, by opening the private command
++	//	file in /proc file system
++#ifdef ENABLE_XEN_OPS
++    int flags;
++
++    xen_priv_cmd_fd = open("/proc/xen/privcmd", O_RDWR);
++
++    if ( xen_priv_cmd_fd == -1 )
++    {
++        printf("Could not obtain handle on privileged command interface.\n");
++        return -1;
++    }
++
++    if ( (flags = fcntl(xen_priv_cmd_fd, F_GETFD)) < 0 )
++    {
++        printf("Could not get file handle flags.\n");
++        goto error;
++    }
++    flags |= FD_CLOEXEC;
++    if ( fcntl(xen_priv_cmd_fd, F_SETFD, flags) < 0 )
++    {
++        printf("Could not set file handle flags.\n");
++        goto error;
++    }
++
++#ifdef VERBOSE_DBG_MSG
++	printf( "init_xen_env() is called! and returns successfully\n" );
++#endif
++	on_xen = 1;
++    return xen_priv_cmd_fd;
++
++ error:
++    close(xen_priv_cmd_fd);
++	printf( "init_xen_env() is called, but file descriptor does not good!\n" );
++#endif
++    return -1;
++}
++
++// give up the possession of physical processor of the VM, which we are 
++//	currently running on
++//	Return values:
++//	<0, means error
++//	>=0, mean good, or not running on top of Xen
++int xen_sched_yield( void )
++{
++#ifdef ENABLE_XEN_OPS
++	int ret;
++	if( on_xen != 0 ){
++	    hypercall.op     = __HYPERVISOR_sched_op;
++	    hypercall.arg[0] = (unsigned long) SCHEDOP_yield;
++	    hypercall.arg[1] = (unsigned long) NULL;
++
++    	ret =  ioctl( xen_priv_cmd_fd, 
++					IOCTL_PRIVCMD_HYPERCALL, 
++					(unsigned long) &hypercall );
++		if( ret < 0 ) printf( "xen_sched_yield trying to yield but failed!\n" );
++	}
++#endif
++	return 0;
++}
++
++// close connection to underlying xen environment.
++int close_xen_env( void )
++{
++#ifdef ENABLE_XEN_OPS
++	if( xen_priv_cmd_fd != -1 )
++		close( xen_priv_cmd_fd );
++#ifdef VERBOSE_DBG_MSG
++	printf( "close_xen_env() is called\n" );
++#endif
++#endif
++	return 0;
++}
++
++
+diff -u -r -N mpich2-1.2.1-orig/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h
+--- mpich2-1.2.1-orig/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h	2009-09-10 19:30:56.000000000 +0800
++++ mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/include/mpid_nem_inline.h	2010-01-21 10:11:48.000000000 +0800
+@@ -13,6 +13,8 @@
+ #include "my_papi_defs.h"
+ #include "mpiiov.h"
+ 
++#include <xenroutines.h>
++
+ extern int MPID_nem_lmt_shm_pending;
+ extern MPID_nem_cell_ptr_t MPID_nem_prefetched_cell;
+ 
+@@ -935,10 +937,10 @@
+ 
+     while (MPID_nem_queue_empty (MPID_nem_mem_region.my_recvQ) || !MPID_nem_recv_seqno_matches (MPID_nem_mem_region.my_recvQ))
+     {
+-	DO_PAPI (PAPI_reset (PAPI_EventSet));
++		DO_PAPI (PAPI_reset (PAPI_EventSet));
+ 
+ #ifdef USE_FASTBOX	
+-	poll_all_fboxes (cell, goto fbox_l);
++		poll_all_fboxes (cell, goto fbox_l);
+         if (poll_fboxes(cell)) goto fbox_l;
+ #endif /*USE_FASTBOX */
+ 
+@@ -949,21 +951,39 @@
+ 
+             if (completions != MPIDI_CH3I_progress_completion_count || MPID_nem_local_lmt_pending || MPIDI_CH3I_active_send[CH3_NORMAL_QUEUE]
+                 || MPIDI_CH3I_SendQ_head(CH3_NORMAL_QUEUE))
+-            {
++			{
+                 *cell = NULL;
+                 *in_fbox = 0;
+                 goto exit_l;
+             }
+ 	}
+ #if !defined ENABLE_NO_YIELD
+-	if (pollcount >= MPID_NEM_POLLS_BEFORE_YIELD)
+-	{
+-	    pollcount = 0;
+-	    MPIDU_Yield();
+-	}
+-	++pollcount;
++		long int time_gap;
++		if (pollcount >= MPID_NEM_POLLS_BEFORE_YIELD){
++		    pollcount = 0;
++//added by Syiverster
++			//should work here to get yield on xen hypervisor
++#ifdef ENABLE_XEN_OPS
++			get_yield_before();
+ #endif
+-    }
++		    MPIDU_Yield();
++#ifdef ENABLE_XEN_OPS
++			get_yield_after();
++			if( (time_gap=diff_time()) < CLOSE_GAP ){
++#ifdef VERBOSE_DBG_MSG
++				printf( "[blocking recv]time gap is:%ld, will call xen_sched_yield\n", time_gap );
++#endif
++				xen_sched_yield();
++			}
++#ifdef VERBOSE_DBG_MSG
++			else
++				printf( "[blocking recv]time gap is:%ld, will NOT call xen_sched_yield\n", time_gap );
++#endif
++#endif
++		}
++		++pollcount;
++#endif
++	}//while
+ 
+     MPID_nem_queue_dequeue (MPID_nem_mem_region.my_recvQ, cell);
+ 
+diff -u -r -N mpich2-1.2.1-orig/src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_lmt_shm.c mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_lmt_shm.c
+--- mpich2-1.2.1-orig/src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_lmt_shm.c	2009-08-09 04:33:00.000000000 +0800
++++ mpich2-1.2.1/src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_lmt_shm.c	2010-01-21 10:05:47.000000000 +0800
+@@ -7,11 +7,14 @@
+ #include "mpid_nem_impl.h"
+ #include "mpid_nem_datatypes.h"
+ 
++#include <xenroutines.h>
++
+ #include "mpiu_os_wrappers.h"
+ #if defined(USE_DBG_LOGGING) && 0
+ #define DBG_LMT(x) x
+ #else
+-#define DBG_LMT(x)
++//#define DBG_LMT(x)
++#define DBG_LMT(x) x
+ #endif
+ 
+ #ifdef ENABLE_NO_YIELD
+@@ -471,7 +474,26 @@
+             {
+                 if (copy_buf->receiver_present.val)
+                 {
++
++//added by Syivester
++#ifdef ENABLE_XEN_OPS
++ 	   	    		long int time_gap;
++    		    	get_yield_before();
++#endif
+                     COND_Yield();
++#ifdef ENABLE_XEN_OPS
++		    		get_yield_after();
++		    		if( (time_gap=diff_time()) < CLOSE_GAP ){
++#ifdef VERBOSE_DBG_MSG
++             	    	printf( "[lmt_shm_send_progress]time gap is :%ld, will call xen_sched_yield\n", time_gap);
++#endif
++						xen_sched_yield();
++		    		}
++#ifdef VERBOSE_DBG_MSG
++		    		else
++						printf( "time gap is:%ld, will NOT call xen_sched_yield\n", time_gap );
++#endif
++#endif
+                     i = 0;
+                 }
+                 else
+@@ -569,7 +591,25 @@
+             {
+                 if (copy_buf->sender_present.val)
+                 {
++//add by Syivester
++#ifdef ENABLE_XEN_OPS
++                    long int time_gap;
++                    get_yield_before();
++#endif
+                     COND_Yield();
++#ifdef ENABLE_XEN_OPS
++		            get_yield_after();
++		            if( (time_gap=diff_time()) < CLOSE_GAP ){
++#ifdef VERBOSE_DBG_MSG
++			            printf( "[lmt_shm_recv_progress]time gap is:%d, will call xen_sched_yield\n", time_gap );
++#endif
++			            xen_sched_yield();
++		            }
++#ifdef VERBOSE_DBG_MSG
++		            else
++			            printf( "[lmt_shm_recv_progress]time gap is:%ld, will NOT call xen_schedyield\n", time_gap );
++#endif
++#endif
+                     i = 0;
+                 }
+                 else
+@@ -643,7 +683,6 @@
+             OPA_read_write_barrier();
+             copy_buf->len[buf_num].val = 0;
+         }
+-
+         first = last;
+         buf_num = (buf_num+1) % NUM_BUFS;
+     }
+diff -u -r -N mpich2-1.2.1-orig/src/mpid/ch3/channels/nemesis/src/ch3_progress.c mpich2-1.2.1/src/mpid/ch3/channels/nemesis/src/ch3_progress.c
+--- mpich2-1.2.1-orig/src/mpid/ch3/channels/nemesis/src/ch3_progress.c	2009-10-21 04:35:41.000000000 +0800
++++ mpich2-1.2.1/src/mpid/ch3/channels/nemesis/src/ch3_progress.c	2010-01-21 12:12:10.000000000 +0800
+@@ -6,6 +6,8 @@
+ 
+ #include "mpidi_ch3_impl.h"
+ 
++#include <xenroutines.h>
++
+ /*#include "mpidpre.h"*/
+ #include "mpid_nem_impl.h"
+ #if defined (MPID_NEM_INLINE) && MPID_NEM_INLINE
+@@ -105,14 +107,37 @@
+             ++pollcount;
+         }
+         MPIU_THREAD_CHECK_END;
+-#elif !defined(ENABLE_NO_YIELD)
++#endif
++
++//added by Syivester
++#ifdef ENABLE_XEN_OPS
++#ifndef ENABLE_NO_YIELD
+         if (pollcount >= MPID_NEM_POLLS_BEFORE_YIELD)
+         {
+             pollcount = 0;
++#ifdef ENABLE_XEN_OPS
++			long int time_gap;
++			get_yield_before();
++#endif
+             MPIDU_Yield();
++#ifdef ENABLE_XEN_OPS
++			get_yield_after();
++			if( (time_gap=diff_time()) < CLOSE_GAP ){
++#ifdef VERBOSE_DBG_MSG
++				printf( "[MPIDI_CH3I_Progress]time gap is:%ld, will call xen_sched_yield\n", time_gap );
++#endif
++				xen_sched_yield();
++			}
++#ifdef VERBOSE_DBG_MSG
++			else
++				printf( "[MPIDI_CH3I_Progress]time gap is:%ld, will NOT call xen_sched_yield\n", time_gap );
++#endif
++#endif
+         }
++
+         ++pollcount;
+ #endif
++#endif
+         do /* receive progress */
+         {
+ 
+@@ -141,6 +166,8 @@
+ #endif
+                 )
+             {
++				//added by Syivester.
++				//This is the real bottleneck in overcommitted virtual processors.
+                 mpi_errno = MPID_nem_mpich2_blocking_recv(&cell, &in_fbox);
+             }
+             else

@@ -1,0 +1,41 @@
+<div dir="ltr">Dear Rob:<br><br>&nbsp;&nbsp;&nbsp; Thank you so much for your patient and detailed help.<br>&nbsp;&nbsp;&nbsp; However, the mpich2 still runs without pvfs support. For example, sys_lseek() can not function properly and give the message: the file system is not supported.<br>
+
+
+
+&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; I install mpich2 as follows. I have been looking for solutions online for weeks but still no breakthrough. Can you please tell me what mistakes I have made? I really appreciate your great help.<br><br>gunzip -c mpich2-1.0.5p3.tar.gz | tar xf -<br>
+
+
+<div>mkdir cb<br>cd cb<br>$HOME/mpich2-1.0.5p3/configure -prefix=$HOME/mpich2withcach --with-file-systems=pvfs<br>
+make<br>make install</div><br><br>
+<br><div class="gmail_quote">On Fri, Aug 22, 2008 at 4:00 PM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov" target="_blank">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+
+
+
+--------------------------------------------------+-------------------------<br>
+ &nbsp;Reporter: &nbsp;&quot;Thomas Liu&quot; &lt;<a href="mailto:thomas0810@gmail.com" target="_blank">thomas0810@gmail.com</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; Owner:<br>
+ &nbsp; &nbsp; &nbsp;Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;Status: &nbsp;closed<br>
+ &nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; Component: &nbsp;mpich2<br>
+Resolution: &nbsp;fixed &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Keywords:<br>
+--------------------------------------------------+-------------------------<br>
+<br>
+<br>
+Comment (by robl):<br>
+<br>
+&nbsp;Replying to [comment:8 Thomas Liu]:<br>
+&nbsp;&gt; No, that would cause an error when openning the file.<br>
+&nbsp;&gt; Pls: the pvfs file system is mounted under a specific<br>
+&nbsp;directory(/mnt/pvfs).<br>
+&nbsp;&gt; the program is under nfs file system. but the program is trying to open<br>
+&nbsp;the<br>
+&nbsp;&gt; file under pvfs file system(/mnt/pvfs/testfile).<br>
+&nbsp;&gt;<br>
+<br>
+&nbsp;Ah, ok, I think we know what&#39;s going on now. &nbsp;You have to do two things.<br>
+&nbsp;First, configure MPICH2 with PVFS support (--with-file-systems=pvfs).<br>
+&nbsp;Then, if you want PVFS listio, you have to set hints using MPI_Info_set.<br>
+&nbsp;The hints are &quot;romio_pvfs_listio_read&quot; and &quot;romio_pvfs_listio_write&quot;. &nbsp;Set<br>
+&nbsp;those both to &quot;enable&quot;.<br>
+<font color="#888888"><br>
+--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment:9" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment:9</a>&gt;<br>
+</font></blockquote></div><br></div>

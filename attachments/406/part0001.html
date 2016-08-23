@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #406: Solution</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; You have to re-compile your code compiled with MPICH to work with MPICH2. However, once you compile your code with MPICH2 you shouldn't have to re-compile it when you upgrade to later versions of MPICH2.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Monday, February 09, 2009 10:11 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #406: Solution<BR>
+<BR>
+------------------------------------------------------------------+-----<BR>
+------------------------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Arkadiusz Kurowski&quot; &lt;Arkadiusz.Kurowski@ifj.edu.pl&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+------------------------------------------------------------------+-----<BR>
+------------------------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Hi. Below I attached query from someone. What is solution of this case?<BR>
+&nbsp;I would like to have one output file with split 2 processes (on Intel dual&nbsp; core processor).<BR>
+<BR>
+<BR>
+&nbsp;Best Regards,<BR>
+<BR>
+&nbsp;A. Kurowski<BR>
+<BR>
+<BR>
+&nbsp;&quot;I use a precompiled Windows version of the MCNPX Monte Carlo code, which&nbsp; works&nbsp; fine with MPICH.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; Trying to use the same .exe file with MPICH2, I have a problem.<BR>
+<BR>
+&nbsp; For example the command line:<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; mpiexec -n 2 (whatever other options) my_mcnpx.exe my_input_file<BR>
+<BR>
+<BR>
+<BR>
+&nbsp; leads to 2 apparently independent MCNPX processes (hence 2&nbsp; my_output_file), and&nbsp; not 2 parallel MCNPX processes (with 1&nbsp; my_output_file).&quot;<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/406">https://trac.mcs.anl.gov/projects/mpich2/ticket/406</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

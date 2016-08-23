@@ -1,0 +1,86 @@
+<table cellspacing="0" cellpadding="0" border="0" ><tr><td valign="top" style="font: inherit;"><DIV>Dear All</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>I use MPICH2 under windows Xp. When the attatched MPI-FORTRAN progarm is exeuted on a <STRONG><U>single processor</U></STRONG> machine, the following execution times are recorded</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No. of processes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Execution time</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 30.09</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 25.38</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 23.35</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 22.38</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20.11</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 16.51</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>As I know, if we have only one processor, the execution time will increase as an extra process added. please give me an illustration for the execution times recorded. Best wishes. </DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Alaa El-Nashar</DIV>
+<DIV>&nbsp;</DIV>
+<DIV><BR>--- On <B>Fri, 12/19/08, mpich2 <I>&lt;mpich2-maint@mcs.anl.gov&gt;</I></B> wrote:<BR></DIV>
+<BLOCKQUOTE style="PADDING-LEFT: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: rgb(16,16,255) 2px solid">From: mpich2 &lt;mpich2-maint@mcs.anl.gov&gt;<BR>Subject: Re: [mpich2-maint] #333: a problem<BR>To: <BR>Date: Friday, December 19, 2008, 4:32 PM<BR><BR><PRE>-----------------------------------------------+----------------------------
+ Reporter:  alaa nashar &lt;nashar_al@yahoo.com&gt;  |        Owner:     
+     Type:  bug                                |       Status:  new
+ Priority:  major                              |    Milestone:     
+Component:  mpich2                             |   Resolution:     
+ Keywords:                                     |  
+-----------------------------------------------+----------------------------
+
+
+Comment (by Jayesh Krishna):
+
+ {{{
+
+  Hi,
+   The support for profiling fortran programs (generating clog files) is
+ currently broken in MPICH2 on windows.
+   I will look into this and let you know about our schedule to fix this
+ issue.
+
+ Regards,
+ Jayesh
+
+ -----Original Message-----
+ From: mpich2-bugs-bounces@mcs.anl.gov
+ [mailto:mpich2-bugs-bounces@mcs.anl.gov] On Behalf Of mpich2
+ Sent: Friday, December 19, 2008 4:26 AM
+ To: undisclosed-recipients:
+ Subject: [mpich2-maint] #333: a problem
+
+ -----------------------------------------------+------------------------
+ -----------------------------------------------+----
+  Reporter:  alaa nashar &lt;nashar_al@yahoo.com&gt;  |        Type:  bug
+    Status:  new                                |    Priority:  major
+ Milestone:                                     |   Component:  mpich2
+ -----------------------------------------------+------------------------
+ -----------------------------------------------+----
+
+
+  {{{
+
+  Dear all
+
+  I have installed MPICH2 on my PC running Windows Xp and Digital Visual
+ Fortran  6.0.
+  All thinga are OK but I cant generate clog file after running wmpiexec.
+  &nbsp;If&nbsp; (include 'mpe_logf.h') is added to the source.f, many errors
+are
+ reported  durnig link operation. The considered souce file and the
+ generated errors  are  attatched. Please tell me how can I solve this
+ problem. Thank you
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Alaa
+  El-
+  nashar
+
+
+  }}}
+
+
+ --
+ Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/333&gt;
+ }}}
+
+-- 
+Ticket URL:
+&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/333#comment:&gt;
+</PRE></BLOCKQUOTE></td></tr></table><br>
+
+      

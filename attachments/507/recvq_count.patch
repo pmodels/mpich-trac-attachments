@@ -1,0 +1,27 @@
+Index: src/mpid/ch3/src/ch3u_recvq.c
+===================================================================
+--- src/mpid/ch3/src/ch3u_recvq.c	(revision 4206)
++++ src/mpid/ch3/src/ch3u_recvq.c	(working copy)
+@@ -562,3 +562,22 @@
+ 
+     return count;
+ }
++
++/* returns the number of elements in the posted receive queue */
++#undef FUNCNAME
++#define FUNCNAME MPIDI_CH3U_Recvq_count_posted
++#undef FCNAME
++#define FCNAME MPIDI_QUOTE(FUNCNAME)
++int MPIDI_CH3U_Recvq_count_posted(void)
++{
++    int count = 0;
++    MPID_Request *req = recvq_posted_head;
++
++    while (req)
++    {
++        ++count;
++        req = req->dev.next;
++    }
++
++    return count;
++}

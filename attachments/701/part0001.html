@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #701: mpich2 *Fortran* debugging with MS Vis Stud</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>Hi,<BR>
+&nbsp;Take a look at the section 9.8 in the window's developer's guide (<A HREF="http://www.mcs.anl.gov/research/projects/mpich2/documentation/index.php?s=docs">http://www.mcs.anl.gov/research/projects/mpich2/documentation/index.php?s=docs</A>) on debugging MPI programs.<BR>
+<BR>
+# You can also attach to MPI programs that are running using the VS debugger (&quot;Attach to process&quot;).<BR>
+# If all the MPI processes are launched on the same machine/node then you can start smpd in debug mode (smpd -stop; smpd -d;) and use multiple instances of VS to start your MPI program (mpiexec -n 2 devenv.exe fpi.exe ==&gt; will start two VS windows and you can step individually through them).<BR>
+<BR>
+(PS: The debug versions of MPICH2 libraries, eg: fmpich2d.lib, is only required if you are debugging the MPICH2 library.)<BR>
+Regards,<BR>
+Jayesh</FONT>
+</P>
+
+</BODY>
+</HTML>

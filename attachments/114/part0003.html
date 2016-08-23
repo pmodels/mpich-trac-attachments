@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+
+
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich-discuss] intercomm merge then intercomm create bug/misunderstanding?</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>I think your logic is ok, although I would move the if (rank==0) outside the</FONT>
+
+<BR><FONT SIZE=2>else and use rank in new_global instead of comm_world (because the</FONT>
+
+<BR><FONT SIZE=2>controller is set up in terms of rank 0 in new_global). Then you don't need</FONT>
+
+<BR><FONT SIZE=2>a program_c. </FONT>
+</P>
+
+<P><FONT SIZE=2>But it makes no difference in the output. There must be a bug in the</FONT>
+
+<BR><FONT SIZE=2>implementation.</FONT>
+</P>
+
+<P><FONT SIZE=2>Rajeev</FONT>
+</P>
+<BR>
+<BR>
+
+<P><FONT SIZE=2>&gt; -----Original Message-----</FONT>
+
+<BR><FONT SIZE=2>&gt; From: owner-mpich-discuss@mcs.anl.gov </FONT>
+
+<BR><FONT SIZE=2>&gt; [<A HREF="mailto:owner-mpich-discuss@mcs.anl.gov">mailto:owner-mpich-discuss@mcs.anl.gov</A>] On Behalf Of Brad Penoff</FONT>
+
+<BR><FONT SIZE=2>&gt; Sent: Friday, June 27, 2008 4:38 PM</FONT>
+
+<BR><FONT SIZE=2>&gt; To: mpich-discuss@mcs.anl.gov</FONT>
+
+<BR><FONT SIZE=2>&gt; Subject: Re: [mpich-discuss] intercomm merge then intercomm </FONT>
+
+<BR><FONT SIZE=2>&gt; create bug/misunderstanding?</FONT>
+
+<BR><FONT SIZE=2>&gt; </FONT>
+
+<BR><FONT SIZE=2>&gt; On Fri, Jun 27, 2008 at 8:39 AM, Robert Latham </FONT>
+
+<BR><FONT SIZE=2>&gt; &lt;robl@mcs.anl.gov&gt; wrote:</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt; On Fri, Jun 27, 2008 at 01:19:43AM -0700, Brad Penoff wrote:</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt;&gt; However, when I do this, I keep getting this error that I'm</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt;&gt; having difficulty understanding:</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt;&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt;&gt; mpirun -np 3 ./spawn_merge_create_simple 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #&nbsp; the arg 2 is how</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt;&gt; many procs to spawn</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt;</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt; Hey Brad</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt;</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt; I get this same error as well with MPICH2 from SVN (the </FONT>
+
+<BR><FONT SIZE=2>&gt; gang here has</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt; done a lot of work on the dynamic process path since the release...)</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt;</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt; If I only mpiexec one process and let mpi_comm_spawn build the rest,</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt; things seem to go ok.&nbsp;&nbsp;&nbsp; I can't add too much to help you </FONT>
+
+<BR><FONT SIZE=2>&gt; out: I only</FONT>
+
+<BR><FONT SIZE=2>&gt; &gt; break MPI-2 dynamic process routines, not work on them :&gt;</FONT>
+
+<BR><FONT SIZE=2>&gt; </FONT>
+
+<BR><FONT SIZE=2>&gt; hey Rob,</FONT>
+
+<BR><FONT SIZE=2>&gt; </FONT>
+
+<BR><FONT SIZE=2>&gt; Thanks, ya I hadn't tried the latest MPICH2 from SVN.&nbsp; For the record,</FONT>
+
+<BR><FONT SIZE=2>&gt; on MPICH2 1.0.7, this same code I sent you guys a link to also works</FONT>
+
+<BR><FONT SIZE=2>&gt; if I run only one process.&nbsp; This says there's either a bug in MPICH2</FONT>
+
+<BR><FONT SIZE=2>&gt; or my &quot;program_a&quot; logic for creating the intercommunicator is</FONT>
+
+<BR><FONT SIZE=2>&gt; incorrect...</FONT>
+
+<BR><FONT SIZE=2>&gt; </FONT>
+
+<BR><FONT SIZE=2>&gt; I noticed on the new MPICH2 webpage that the bug tracker is a work in</FONT>
+
+<BR><FONT SIZE=2>&gt; progress... Do you know if there is a bug formally logged against</FONT>
+
+<BR><FONT SIZE=2>&gt; this?</FONT>
+
+<BR><FONT SIZE=2>&gt; </FONT>
+
+<BR><FONT SIZE=2>&gt; Thanks again,</FONT>
+
+<BR><FONT SIZE=2>&gt; brad</FONT>
+
+<BR><FONT SIZE=2>&gt; </FONT>
+
+<BR><FONT SIZE=2>&gt; </FONT>
+</P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,44 @@
+Index: src/mpi/romio/adio/common/ad_end.c
+===================================================================
+--- src/mpi/romio/adio/common/ad_end.c	(revision 4017)
++++ src/mpi/romio/adio/common/ad_end.c	(working copy)
+@@ -57,7 +57,7 @@
+ 
+ 
+ /* This is the delete callback function associated with
+-   ADIO_Init_keyval when MPI_COMM_WORLD is freed */
++   ADIO_Init_keyval when MPI_COMM_SELF is freed */
+ 
+ int ADIOI_End_call(MPI_Comm comm, int keyval, void *attribute_val, void
+ 		  *extra_state)
+@@ -70,5 +70,6 @@
+     ADIOI_UNREFERENCED_ARG(extra_state);
+ 
+     ADIO_End(&error_code);
++    MPI_Keyval_free(&keyval);
+     return error_code;
+ }
+Index: src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_common.c
+===================================================================
+--- src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_common.c	(revision 4017)
++++ src/mpi/romio/adio/ad_zoidfs/ad_zoidfs_common.c	(working copy)
+@@ -39,6 +39,7 @@
+ {
+     int error_code;
+     ADIOI_ZOIDFS_End(&error_code);
++    MPI_Keyval_free(&keyval);
+     return error_code;
+ }
+ 
+Index: src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_common.c
+===================================================================
+--- src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_common.c	(revision 4017)
++++ src/mpi/romio/adio/ad_pvfs2/ad_pvfs2_common.c	(working copy)
+@@ -42,6 +42,7 @@
+ {
+     int error_code;
+     ADIOI_PVFS2_End(&error_code);
++    MPI_Keyval_free(&keyval);
+     return error_code;
+ }
+ 

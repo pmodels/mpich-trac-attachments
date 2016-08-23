@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #471: FW: Cron &lt;thakur@octagon&gt;/home/MPI/nightly/basictests -cc=gcc -cxx=g++ -f77=g77-f90=gfortran -arch=x86_64-Linux-GNU</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;My guess is the &quot;.smpd&quot; configuration file is corrupted due to dynamic hosts. Before starting smpd or running mpiexec try setting the evironment variable SMPD_OPTION_NO_DYNAMIC_HOSTS to 1.<BR>
+<BR>
+(PS: The &quot;.smpd&quot; config file should just contain the passphrase line, &quot;phrase=YOUR_PASSPHRASE&quot;)<BR>
+<BR>
+Regards,<BR>
+Jayesh</FONT>
+</P>
+
+</BODY>
+</HTML>

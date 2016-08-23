@@ -1,0 +1,54 @@
+commit 94b0b61b356dedd1723d14ae77f4231872211e44
+Author: Dave Goodell <goodell@mcs.anl.gov>
+Date:   Wed Jul 18 14:51:07 2012 -0500
+
+    tt#1658: remove '$^' GNU make-ism
+    
+    There are likely other FreeBSD make issues to resolve still.
+    
+    No reviewer.
+---
+ src/binding/f90/buildiface   |    2 +-
+ src/mpi/debugger/Makefile.mk |    9 +++++----
+ 2 files changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/src/binding/f90/buildiface b/src/binding/f90/buildiface
+index 0145a11..7c8a44b 100755
+--- a/src/binding/f90/buildiface
++++ b/src/binding/f90/buildiface
+@@ -869,7 +869,7 @@ src/binding/f90/mpifnoext.h: src/binding/f77/mpif.h
+ 	sed -e 's/^C/\\!/g' -e '/EXTERNAL/d' \\
+ 		-e '/REAL\\*8/d' \\
+ 		-e '/DOUBLE PRECISION/d' \\
+-		-e '/MPI_WTICK/d' \$^ > \$@
++		-e '/MPI_WTICK/d' \$? > \$@
+ 
+ CLEANFILES += src/binding/f90/mpifnoext.h
+ 
+diff --git a/src/mpi/debugger/Makefile.mk b/src/mpi/debugger/Makefile.mk
+index 84c24cb..fc5d3f8 100644
+--- a/src/mpi/debugger/Makefile.mk
++++ b/src/mpi/debugger/Makefile.mk
+@@ -31,17 +31,18 @@ lib_libtvmpich2_la_LDFLAGS = -g
+ #
+ # NB: these tests can only be built *after* a "make install" step.  They must be
+ # built explicitly
+-src/mpi/debugger/tvtest: src/mpi/debugger/tvtest.o src/mpi/debugger/dbgstub.o
+-	$(bindir)/mpicc -o $@ $^ -ltvmpich2
++tvtest_objs = src/mpi/debugger/tvtest.o src/mpi/debugger/dbgstub.o
++src/mpi/debugger/tvtest: $(tvtest_objs)
++	$(bindir)/mpicc -o $@ $(tvtest_objs) -ltvmpich2
+ 
+ src/mpi/debugger/tvtest.o: src/mpi/debugger/tvtest.c
+-	$(bindir)/mpicc -c -o $@ $<
++	$(bindir)/mpicc -c -o $@ $?
+ 
+ # no rule for dbgstub.o, it needs to be built by suffix rules in the usual
+ # fashion because it needs direct access to MPICH2 internal headers
+ 
+ src/mpi/debugger/qdemo: src/mpi/debugger/qdemo.c
+-	$(bindir)/mpicc -o $@ $^
++	$(bindir)/mpicc -o $@ $?
+ 
+ endif BUILD_DEBUGGER_DLL
+ 

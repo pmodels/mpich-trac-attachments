@@ -1,0 +1,415 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>FW: [mpich2-maint] #116: Failure to convert from rlog to slog2 with JumpShot</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi Anthony,<BR>
+&nbsp; You might want to take a look at this.<BR>
+&nbsp; When opening an rlog file using Jumpshot, &quot;File --&gt; Select&quot;, an error message is displayed by default. If I click &quot;Convert&quot; the file is converted to slog2 format without any errors (successfully). Why does Jumpshot display the error message (see below) by default ?<BR>
+<BR>
+==========================<BR>
+Executing C:\Program Files\Java\jre1.6.0_07\bin\java.exe -Xms32m -Xmx64m&nbsp; -Djava.library.path=C:\Program&nbsp; Files\MPICH2-1.0.7\bin;C:\Program&nbsp; Files\MPICH2-1.0.7\bin\..\trace_rlog\lib;C:\Program<BR>
+&nbsp;Files\MPICH2-1.0.7\bin\.\trace_rlog -jar&nbsp; C:\Program Files\MPICH2-1.0.7\bin\traceTOslog2.jar -h ....<BR>
+&nbsp;Output &gt; Usage: java slog2.output.TraceToSlog2 [options] trace_filename.<BR>
+&nbsp;Output &gt;&nbsp; options:<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-h|--h|-help|--help]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Display HELP<BR>
+&nbsp;message.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-tc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Check increasing<BR>
+&nbsp;endtime order,<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit when 1st<BR>
+&nbsp;violation occurs.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-tcc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Check increasing<BR>
+&nbsp;endtime order,<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue when<BR>
+&nbsp;violations occur.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-nc number_of_children_per_node]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Default value is<BR>
+&nbsp;2.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-ls max_byte_size_of_leaf_node]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Default value is<BR>
+&nbsp;65536.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-o output_filename_with_slog2_suffix]<BR>
+&nbsp;Output &gt;<BR>
+&nbsp;Output &gt;&nbsp; note: &quot;max_byte_size_of_leaf_node&quot; can be specified with suffix&nbsp; k, K, m or M,<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where k or K stands for kilobyte, m or M stands for<BR>
+&nbsp;megabyte.<BR>
+&nbsp;Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.g. 64k means 65536 bytes.<BR>
+&nbsp;Output &gt;<BR>
+&nbsp;Output &gt; Usage: executable_name ASCII_drawable_filename&nbsp; Output &gt; trace.InputLog.open() exits normally!<BR>
+&nbsp;&gt; Ending with exit status 0<BR>
+<BR>
+====================================<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+&gt; -----Original Message-----<BR>
+&gt; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&gt; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&gt; Sent: Friday, August 29, 2008 10:53 AM<BR>
+&gt; To: undisclosed-recipients:<BR>
+&gt; Subject: Re: [mpich2-maint] #116: Failure to convert from<BR>
+&gt; rlog to slog2 with JumpShot<BR>
+&gt;<BR>
+&gt; -------------------------------------------------------------+<BR>
+&gt; ----------<BR>
+&gt; -------------------------------------------------------------+----<BR>
+&gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Bisseling, Georg&quot; &lt;georg.bisseling@intel.com&gt;&nbsp;<BR>
+&gt; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&gt; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;<BR>
+&gt;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&gt; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&gt; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&gt; |&nbsp;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&gt; -------------------------------------------------------------+<BR>
+&gt; ----------<BR>
+&gt; -------------------------------------------------------------+----<BR>
+&gt;<BR>
+&gt;<BR>
+&gt; Comment (by Jayesh Krishna):<BR>
+&gt;<BR>
+&gt;&nbsp; Hi,<BR>
+&gt;&nbsp;&nbsp;&nbsp; I am able to convert the rlog file attached in your email<BR>
+&gt; (with the&nbsp; steps mentioned in my prev email) to slog2 format<BR>
+&gt; and view the resulting&nbsp; log using Jumpshot.<BR>
+&gt;&nbsp;&nbsp;&nbsp; Please try the steps mentioned in my prev email (As I<BR>
+&gt; mentioned before&nbsp; there could be something wrong with the<BR>
+&gt; default settings).<BR>
+&gt;<BR>
+&gt;&nbsp; Regards,<BR>
+&gt;&nbsp; Jayesh<BR>
+&gt;<BR>
+&gt;&nbsp; -----Original Message-----<BR>
+&gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&gt; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&gt;&nbsp; On Behalf Of mpich2<BR>
+&gt;&nbsp; Sent: Friday, August 29, 2008 10:46 AM<BR>
+&gt;&nbsp; To: undisclosed-recipients:<BR>
+&gt;&nbsp; Subject: Re: [mpich2-maint] #116: Failure to convert from<BR>
+&gt; rlog to slog2&nbsp; with JumpShot<BR>
+&gt;<BR>
+&gt;&nbsp;<BR>
+&gt; -------------------------------------------------------------+<BR>
+&gt; ----------<BR>
+&gt;&nbsp; -------------------------------------------------------------+----<BR>
+&gt;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Bisseling, Georg&quot; &lt;georg.bisseling@intel.com&gt;&nbsp; |<BR>
+&gt;&nbsp; Owner:<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp; Status:&nbsp; new<BR>
+&gt;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp; Component:&nbsp; mpich2<BR>
+&gt;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp; Keywords:<BR>
+&gt;&nbsp;<BR>
+&gt; -------------------------------------------------------------+<BR>
+&gt; ----------<BR>
+&gt;&nbsp; -------------------------------------------------------------+----<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;&nbsp; Comment (by Bisseling, Georg):<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp; Please have a lock at the HTML mail I sent you.<BR>
+&gt;&nbsp;&nbsp; The caption of the converter window states that&nbsp; rlog -&gt;<BR>
+&gt; slog2 is chosen.<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp; The error message indicates that the converter&nbsp; is not<BR>
+&gt; content with its&nbsp; command line arguments.<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp; Unfortunately line wrapping is switched off in&nbsp; the text<BR>
+&gt; window showing&nbsp; the error so that I can&nbsp; not send you the<BR>
+&gt; full command line generated by&nbsp; the conversion tool.<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+&gt;&nbsp;&nbsp; Sent: Freitag, 29. August 2008 17:42<BR>
+&gt;&nbsp;&nbsp; To: Bisseling, Georg<BR>
+&gt;&nbsp;&nbsp; Cc: mpich2-maint@mcs.anl.gov<BR>
+&gt;&nbsp;&nbsp; Subject: RE: [mpich2-maint] #116: Failure to convert from<BR>
+&gt; rlog to slog2&nbsp; with JumpShot<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; Hi,<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp; I am assuming that the default converter might not be<BR>
+&gt; rlog--&gt;slog2&nbsp; converter (it could be clog2--&gt;slog2 converter).<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp; This is what I do,<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp; 1) Launch Jumpshot from app menu in &quot;Program files&quot;<BR>
+&gt;&nbsp;&nbsp; 2) Select &quot;File--&gt;Convert&quot;<BR>
+&gt;&nbsp;&nbsp; 3) Select the converter at the top as &quot;RLOG--&gt;SLOG_2&quot;<BR>
+&gt;&nbsp;&nbsp; 4) Select the &quot;Input file...&quot; (Your rlog file) &amp; specify an<BR>
+&gt; &quot;Output file&quot;<BR>
+&gt;&nbsp;&nbsp; 5) Click on &quot;Convert&quot;<BR>
+&gt;&nbsp;&nbsp; 6) Click &quot;OK&quot; ---&gt; Now Jumpshot opens the log file in slog2 format<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; Let us know if it works for you.<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp; Regards,<BR>
+&gt;&nbsp;&nbsp; Jayesh<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp; -----Original Message-----<BR>
+&gt;&nbsp;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&gt;&nbsp; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&gt;&nbsp;&nbsp; On Behalf Of mpich2<BR>
+&gt;&nbsp;&nbsp; Sent: Friday, August 29, 2008 10:35 AM<BR>
+&gt;&nbsp;&nbsp; To: undisclosed-recipients:<BR>
+&gt;&nbsp;&nbsp; Subject: Re: [mpich2-maint] #116: Failure to convert from<BR>
+&gt; rlog to slog2&nbsp; with JumpShot<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp;<BR>
+&gt; -------------------------------------------------------------+<BR>
+&gt; ----------<BR>
+&gt;&nbsp;&nbsp; -------------------------------------------------------------+----<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Bisseling, Georg&quot; &lt;georg.bisseling@intel.com&gt;&nbsp; |<BR>
+&gt;&nbsp;&nbsp; Owner:<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&gt;&nbsp;&nbsp;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+&gt;&nbsp;&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp; Keywords:<BR>
+&gt;&nbsp;&nbsp;<BR>
+&gt; -------------------------------------------------------------+<BR>
+&gt; ----------<BR>
+&gt;&nbsp;&nbsp; -------------------------------------------------------------+----<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp; Comment (by Bisseling, Georg):<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; I just opened the rlog file via &quot;File-&gt;Select&quot; and<BR>
+&gt; JumpShot created the&nbsp; file names automatically.<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; The rlog file was created from running test/basic/sr1 with<BR>
+&gt; logging&nbsp; enabled&nbsp; and then applying&nbsp; irlog2rlog. The<BR>
+&gt; resulting rlog file&nbsp; is&nbsp; properly digested by printrlog. See&nbsp;<BR>
+&gt; Attachement.<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; just pressing yes results in:<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;-----Original Message-----<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;[<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;Sent: Freitag, 29. August 2008 17:24<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;Subject: Re: [mpich2-maint] #116: Failure to convert from<BR>
+&gt; rlog&nbsp; &gt;to<BR>
+&gt;&nbsp;&nbsp; slog2 with JumpShot&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;-------------------------------------------------------------+-<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;-------------<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Reporter:&nbsp; &quot;Bisseling, Georg&quot; &lt;georg.bisseling@intel.com&gt;&nbsp; |<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Component:&nbsp; mpich2<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Keywords:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;-------------------------------------------------------------+-<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;-------------<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;Comment (by Jayesh Krishna):<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Hi,<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; In the Jumpshot &quot;Logfile converter&quot; window, Did you select<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;the &quot;Input<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; file...&quot; &amp; &quot;Output file...&quot; after selecting the &quot;Type of<BR>
+&gt; conversion&quot;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; (rlog2 --&gt; slog2) ?<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; If it still doesn't work for you, let us know more details<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;on how you<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; tried converting the rlog file (How the rlog file was<BR>
+&gt; created, the&nbsp; &gt;&nbsp; Jumpshot fields selected, Jumpshot windows<BR>
+&gt; opened etc).<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; (PS: The error mentioned below appears if the &quot;Input<BR>
+&gt; file...&quot; is not&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp; specified)&nbsp; &gt;&nbsp; &gt; Regards,&nbsp; &gt; Jayesh&nbsp; &gt;&nbsp; &gt; -----Original<BR>
+&gt;&nbsp;&nbsp; Message-----&nbsp; &gt; From: owner-mpich2-bugs@mcs.anl.gov&nbsp;<BR>
+&gt; &gt;[<A HREF="mailto:owner-">mailto:owner-</A>&nbsp; mpich2-bugs@mcs.anl.gov]<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; On Behalf Of mpich2<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Sent: Friday, August 29, 2008 10:06 AM&nbsp; &gt; To:<BR>
+&gt; undisclosed-recipients:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Subject: Re: [mpich2-maint] #116: Failure to convert<BR>
+&gt; from&nbsp; &gt;rlog to<BR>
+&gt;&nbsp;&nbsp; slog2&nbsp; &gt; with JumpShot&nbsp; &gt;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;-------------------------------------------------------------+-<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;---------<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt; -------------------------------------------------------------+----<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Bisseling, Georg&quot; &lt;georg.bisseling@intel.com&gt;&nbsp; |<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Owner:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Status:&nbsp; new<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Component:&nbsp; mpich2<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Keywords:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;-------------------------------------------------------------+-<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;---------<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt; -------------------------------------------------------------+----<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Comment (by Bisseling, Georg):<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; That's what I did.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; _____<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]&nbsp; &gt;&nbsp;<BR>
+&gt; Sent: Freitag,&nbsp; 29. August 2008 16:20&nbsp; &gt;&nbsp; To: Bisseling, Georg&nbsp; &gt;&nbsp; Cc:<BR>
+&gt;&nbsp;&nbsp; mpich2-maint@mcs.anl.gov&nbsp; &gt;&nbsp; Subject: RE: [mpich2-maint]<BR>
+&gt; #116: Failure to&nbsp; convert from&nbsp; &gt;rlog to slog2&nbsp; &gt; with<BR>
+&gt; JumpShot&nbsp; &gt;&nbsp; &gt;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Hi,<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp; Can you bring up Jumpshot and then do the conversion (When<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;you install<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; MPICH2 on windows you should have a shortcut to<BR>
+&gt; Jumpshot in&nbsp; &gt;the&nbsp; &quot;Program&nbsp; &gt; Files&quot; app menu) ?<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Regards,<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Jayesh<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; -----Original Message-----<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; On Behalf Of mpich2<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Sent: Friday, August 29, 2008 5:05 AM&nbsp; &gt;&nbsp; To:<BR>
+&gt; undisclosed-recipients:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Subject: [mpich2-maint] #116: Failure to convert from<BR>
+&gt; rlog&nbsp; &gt;to slog2&nbsp; with&nbsp; &gt; JumpShot&nbsp; &gt;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;------------------------------------------------------------+--<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;---------<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;<BR>
+&gt; ------------------------------------------------------------+----<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Reporter:&nbsp; &quot;Bisseling, Georg&quot; &lt;georg.bisseling@intel.com&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; bug<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;|&nbsp;&nbsp; Priority:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; major<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;------------------------------------------------------------+--<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;---------<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;<BR>
+&gt; ------------------------------------------------------------+----<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Dear maintainers,<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; when using the stable MPICH2 1.0.7 packet for Windows under<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;Windows XP<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; 32Bit&nbsp; using Suns JRE 6 Update 7 I could not load a rlog<BR>
+&gt;&nbsp; file into&nbsp; &gt;&nbsp; JumpShot.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; The conversion to the slog2 format failed with the<BR>
+&gt; following error<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; shown:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Executing C:\Program Files\Java\jre1.6.0_07\bin\java.exe<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;-Xms32m -Xmx64m<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; -Djava.library.path=C:\Program&nbsp;<BR>
+&gt; Files\MPICH2-1.0.7\bin;C:\Program&nbsp; &gt;&nbsp;<BR>
+&gt; Files\MPICH2-1.0.7\bin\..\trace_rlog\lib;C:\Program<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Files\MPICH2-1.0.7\bin\.\trace_rlog -jar&nbsp; C:\Program<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Files\MPICH2-1.0.7\bin\traceTOslog2.jar -h ....<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt; Usage: java slog2.output.TraceToSlog2 [options]<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;trace_filename.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp; options:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-h|--h|-help|--help]<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;Display HELP<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; message.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-tc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Check<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; increasing<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; endtime order,<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;exit when 1st<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; violation occurs.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-tcc]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Check<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; increasing<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; endtime order,<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;continue when<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; violations occur.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-nc number_of_children_per_node]<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;Default value<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; is<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; 2.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-ls max_byte_size_of_leaf_node]<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;Default value<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; is<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; 65536.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [-o output_filename_with_slog2_suffix]<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp; note: &quot;max_byte_size_of_leaf_node&quot; can be<BR>
+&gt; specified with<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; suffix&nbsp; k, K, m or M,<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where k or K stands for kilobyte, m or<BR>
+&gt; M stands for<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; megabyte.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e.g. 64k means 65536 bytes.<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Output &gt; Usage: executable_name<BR>
+&gt; ASCII_drawable_filename&nbsp; Output &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; trace.InputLog.open() exits normally!<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; &gt; Ending with exit status 0<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Best regards<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; --<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Georg Bisseling<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Senior Software Engineer<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Software &amp; Solutions Group<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Intel GmbH<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Hermuelheimer Str. 8a<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; 50321 Bruehl, Germany<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Tel: +49-2232-20-9044<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp;&nbsp; Fax: +49-2232-20-9029<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; --<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&nbsp; Ticket URL:<BR>
+&gt; &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/116">https://trac.mcs.anl.gov/projects/mpich2/ticket/116</A>&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; --<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt; Ticket URL:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/116#comment:&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;--<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;Ticket URL:<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/116#comment:&gt;<BR>
+&gt;&nbsp;&nbsp;&nbsp; &gt;<BR>
+&gt;<BR>
+&gt;&nbsp;&nbsp; --<BR>
+&gt;&nbsp;&nbsp; Ticket URL:<BR>
+&gt;&nbsp; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/116#comment:&gt;<BR>
+&gt;<BR>
+&gt;&nbsp; --<BR>
+&gt;&nbsp; Ticket URL:<BR>
+&gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/116#comment:&gt;<BR>
+&gt;<BR>
+&gt; --<BR>
+&gt; Ticket URL:<BR>
+&gt; &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/116#comment:&gt;<BR>
+&gt;<BR>
+&gt; </FONT>
+</P>
+
+</BODY>
+</HTML>

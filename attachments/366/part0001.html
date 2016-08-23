@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16735" name=GENERATOR></HEAD>
+<BODY>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=462263315-15012009>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=462263315-15012009>&nbsp;The current fortran libraries&nbsp;in MPICH2 on 
+windows&nbsp;don't support the *TYPE_CREATE_F90* functions. </SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=462263315-15012009>&nbsp;I have added this request to our bug tracking 
+system and will update you on our progress (Should be available in the next 
+release - end of this month.).</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=462263315-15012009></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=462263315-15012009>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=462263315-15012009>Jayesh</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> mpich-discuss-bounces@mcs.anl.gov 
+[mailto:mpich-discuss-bounces@mcs.anl.gov] <B>On Behalf Of </B>trimtrim 
+trimtrim<BR><B>Sent:</B> Thursday, January 15, 2009 3:14 AM<BR><B>To:</B> 
+mpich-discuss@mcs.anl.gov<BR><B>Subject:</B> [mpich-discuss] can not find 
+function MPI_Type_create_f90_real<BR></FONT><BR></DIV>
+<DIV></DIV>Dear every one:<BR>&nbsp; I am try to use the function of 
+"MPI_Type_create_f90_real" to select the MPI send data type. But when I link the 
+program, it shows I can't find the library.<BR>"Error&nbsp;&nbsp;&nbsp; 
+1&nbsp;&nbsp;&nbsp; &nbsp;error LNK2019: unresolved external symbol 
+_MPI_TYPE_CREATE_F90_REAL referenced in function _MAIN__&nbsp;&nbsp;&nbsp; TEST 
+"&nbsp; <BR><BR>Does anyone knows which library I need to add, the library 
+"fmpe.lib" and "fmpich2.lib" are already add to the linker. Below is the 
+attached program.<BR>Many thanks<BR>Regards Haihua.<BR><BR>PROGRAM MAIN<BR>USE 
+mpi<BR>INTEGER(KIND=4),PARAMETER::p = 12,r=37;<BR>INTEGER(KIND=4),PARAMETER:: 
+realKind =selected_real_kind(p,r)<BR>INTEGER(KIND=4):: 
+MPI_INT_KIND,info;<BR>CALL 
+MPI_Type_create_f90_real(p,r,MPI_INT_KIND,info);<BR><BR>write(*,*) 
+realKind;<BR>Write(*,*) PRECISION(x),range(x);<BR><BR>END<BR></BODY></HTML>

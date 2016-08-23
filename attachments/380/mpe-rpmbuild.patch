@@ -1,0 +1,32 @@
+--- src/mpe2/sbin/mpeinstall.in	2007-11-28 16:51:40.000000000 -0500
++++ src/mpe2/sbin/mpeinstall.in.new	2008-04-15 21:32:06.000000000 -0400
+@@ -466,7 +466,6 @@
+ if [ -n "$etcbuild_dir" ] ; then
+     if [ -d $etcbuild_dir ] ; then
+          echo "Installing $pkgname configuration files to $DESTDIR$sysconfdir"
+-         InstallDirRecur $etcbuild_dir $sysconfdir $MODE
+          cd $etcbuild_dir && \
+          for file in *.conf ; do \
+              FixInstallFile $file $sysconfdir/$file ; \
+--- src/mpe2/src/slog2sdk/trace_rlog/src/Makefile.in	2007-05-29 18:25:53.000000000 -0400
++++ src/mpe2/src/slog2sdk/trace_rlog/src/Makefile.in.new	2007-10-15 22:23:20.000000000 -0400
+@@ -48,7 +48,7 @@
+ 
+ JNI_INC          = @JNI_INC@
+ CFLAGS           = -I.. $(JNI_INC) -I$(TRACE_INCDIR) @COPTS@
+-LDFLAGS          = -module -no-undefined -avoid-version @LDFLAGS@
++LDFLAGS          = -module -no-undefined -avoid-version @COPTS@ @LDFLAGS@
+ 
+ # memory leak checker
+ MEMLIBS          = @DEBUG_LIBS@
+--- src/mpe2/src/slog2sdk/trace_sample/src/Makefile.in	2007-05-29 18:25:53.000000000 -0400
++++ src/mpe2/src/slog2sdk/trace_sample/src/Makefile.in.new	2007-10-15 22:23:20.000000000 -0400
+@@ -48,7 +48,7 @@
+ 
+ JNI_INC          = @JNI_INC@
+ CFLAGS           = -I.. $(JNI_INC) -I$(TRACE_INCDIR) @COPTS@
+-LDFLAGS          = -module -no-undefined -avoid-version @LDFLAGS@
++LDFLAGS          = -module -no-undefined -avoid-version @COPTS@ @LDFLAGS@
+ 
+ # memory leak checker
+ MEMLIBS          = @DEBUG_LIBS@

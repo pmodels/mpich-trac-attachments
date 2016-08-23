@@ -1,0 +1,32 @@
+#/usr/bin/tcsh
+
+## #PBS is a variable passed to the queing system.
+
+#PBS -l nodes=5:ppn=1
+#PBS -q batch
+
+## two hashmarks means commented out.
+## # Job Limits
+## cputime
+##PBS -l cput=300000000
+
+## Merge std error to stdout
+#PBS -j oe
+
+## Set the name of output file
+##PBS -o Blade2D.out
+
+## Compute the number of associated nodes
+NODES=`wc -l < $PBS_NODEFILE`
+
+## start MPI with the requested nodes
+$HGR/External/mpich2/1.0.7/bin/$MAKEFILE_PLATFORM/mpdboot -n $NODES -f $PBS_NODEFILE
+# $HGR/External/mvapich2/1.2/bin/$MAKEFILE_PLATFORM/mpdboot -n $NODES -f $PBS_NODEFILE
+
+## Run the application
+/data/roberto/MPI/TestMPICH2/testmaster.sh 10000
+
+## Quit from MPI
+$HGR/External/mpich2/1.0.7/bin/$MAKEFILE_PLATFORM/mpdallexit
+# $HGR/External/mvapich2/1.2/bin/$MAKEFILE_PLATFORM/mpdallexit
+

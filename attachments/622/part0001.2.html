@@ -1,0 +1,157 @@
+
+<br><font size=2 face="sans-serif">re: MPI_Cart_map/MPI_Cart_create - I
+missed the connection there in the standard, though I assumed they were
+connected. I can submit an errata suggesting a clarification in MPI_Cart_map.</font>
+<br>
+<br><font size=2 face="sans-serif">And, I agree - I didn't see anything
+in 2.0 that said these tests were incorrect - they just seemed to be in
+semi-ambiguous areas and the Intel suite chose to interpret them as errors.
+We wouldn't have seen these if the tests hadn't start &quot;failing&quot;
+in MPICH2 1.1. </font>
+<br>
+<br><font size=2 face="sans-serif">Here's the relevant chunk of code for
+the MPI_Graph_create() &quot;error&quot;. This is MPI_Graph_create_err5
+in the test suite.</font>
+<br>
+<br><font size=2 face="sans-serif">#define &nbsp;DIMENSIONS &nbsp; &nbsp;
+&nbsp;2</font>
+<br><font size=2 face="sans-serif">#define &nbsp;TEST_DESC &nbsp; &nbsp;
+&nbsp; &quot;MPI_Graph_create with Null Edge&quot;</font>
+<br><font size=2 face="sans-serif">&nbsp; int</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; index[4], &nbsp;
+&nbsp; &nbsp; &nbsp; /* graph cumulative connection count array &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; */</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; edges[6]; &nbsp;
+&nbsp; &nbsp; &nbsp; /* graph node neighbors list array &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; */</font>
+<br>
+<br><font size=2 face="sans-serif">&nbsp; num_dims = DIMENSIONS;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;nnodes = 4;</font>
+<br>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;edges[1] = 3;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;edges[2] = 0;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;edges[3] = 3;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;edges[4] = 0;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;edges[5] = 2;</font>
+<br>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;index[0] = 2;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;index[1] = 3;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;index[2] = 4;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;index[3] = 6;</font>
+<br>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;/*-----------------------------
+&nbsp;MPI_Graph_create &nbsp;------------------------*/</font>
+<br>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;edges[0] = 0;</font>
+<br>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;reorder = TRUE;</font>
+<br>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;ierr = MPI_Graph_create(MPI_COMM_WORLD,</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+nnodes,</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+index,</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+edges,</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+reorder,</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&amp;comm_graph);</font>
+<br><font size=2 face="sans-serif">&nbsp; if (ierr == MPI_SUCCESS) {</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; fail++;</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; sprintf(info_buf,
+&quot;%s &nbsp;did not FAIL&quot;, TEST_DESC);</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp; &nbsp; MPITEST_message(MPITEST_NONFATAL,
+info_buf);</font>
+<br><font size=2 face="sans-serif">&nbsp; &nbsp;}</font>
+<br><font size=2 face="sans-serif">&nbsp;</font>
+<br>
+<br>
+<br><font size=2 face="sans-serif">Thanks.</font>
+<br>
+<br><font size=2 face="sans-serif"><br>
+Brian Smith<br>
+BlueGene MPI Development<br>
+IBM Rochester<br>
+Phone: 507 253 4717<br>
+smithbr@us.ibm.com<br>
+</font>
+<br>
+<br>
+<br>
+<table width=100%>
+<tr valign=top>
+<td width=40%><font size=1 face="sans-serif"><b>&quot;mpich2&quot; &lt;mpich2-maint@mcs.anl.gov&gt;</b>
+</font>
+<br><font size=1 face="sans-serif">Sent by: owner-mpich2-bugs@mcs.anl.gov</font>
+<p><font size=1 face="sans-serif">05/29/2009 08:19 AM</font>
+<table border>
+<tr valign=top>
+<td bgcolor=white>
+<div align=center><font size=1 face="sans-serif">Please respond to<br>
+mpich2-maint@mcs.anl.gov</font></div></table>
+<br>
+<td width=59%>
+<table width=100%>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">To</font></div>
+<td><font size=1 face="sans-serif">undisclosed-recipients: ;</font>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">cc</font></div>
+<td>
+<tr valign=top>
+<td>
+<div align=right><font size=1 face="sans-serif">Subject</font></div>
+<td><font size=1 face="sans-serif">Re: [mpich2-maint] #622: MPI_Graph_create
+with null edges, MPI_Cart_map with num_dims = 0</font></table>
+<br>
+<table>
+<tr valign=top>
+<td>
+<td></table>
+<br></table>
+<br>
+<br>
+<br><tt><font size=2>----------------------------------------------+-----------------------------<br>
+ Reporter: &nbsp;Brian Smith &lt;smithbr@us.ibm.com&gt; &nbsp;| &nbsp;
+&nbsp; &nbsp; &nbsp;Owner: &nbsp; &nbsp; <br>
+ &nbsp; &nbsp; Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;
+&nbsp; &nbsp; Status: &nbsp;new<br>
+ Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;Milestone:
+&nbsp; &nbsp; <br>
+Component: &nbsp;mpich2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; Resolution: &nbsp;
+&nbsp; <br>
+ Keywords: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp;<br>
+----------------------------------------------+-----------------------------<br>
+<br>
+<br>
+Comment (by gropp):<br>
+<br>
+ Brian,<br>
+<br>
+ These are good catches. &nbsp;On MPI_Cart_map, the MPI 2.1 behavior is
+implicit<br>
+ since page 255, lines 26ff state that MPI_Cart_create may be implemented<br>
+ with MPI_Cart_map. &nbsp;However, this should be made more explicit, so
+this<br>
+ deserves an errata item to the MPI 2.1 standard.<br>
+<br>
+ What are the index values for the Graph_create? &nbsp;I need to see those
+to<br>
+ understand the graph. &nbsp;(However, edges from a process to itself are<br>
+ permitted (p 247, lines 22-23)).<br>
+<br>
+ Note that there isn't anything in the standard that says that these were<br>
+ invalid; this was just the Intel test interpretation. &nbsp;The MPI 2.1<br>
+ behavior was defined to resolve the ambiguity (is it or isn't it valid).<br>
+<br>
+-- <br>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/622#comment:2&gt;<br>
+</font></tt>
+<br>

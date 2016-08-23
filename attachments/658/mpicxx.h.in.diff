@@ -1,0 +1,137 @@
+15,23c15,30
+< // There is a name conflict between stdio.h and the MPI C++ binding 
+< // with respect to the names SEEK_SET, SEEK_CUR, and SEEK_END.  MPI
+< // wants these in the MPI namespace, but stdio.h will #define these
+< // to integer values.  #undef'ing these can cause obscure problems
+< // with other include files (such as iostream), so we instead use
+< // #error to indicate a fatal error.  Users can either #undef 
+< // the names before including mpi.h or include mpi.h *before* stdio.h
+< // or iostream.  
+< 
+---
+> // Check for incompatible GCC versions
+> // GCC (specifically) g++ changed the calling convention
+> // between 3.2.3 and 3.4.3 (!!)  Normally such changes
+> // should only occur at major releases (e.g., version 3 to 4)
+> #ifdef __GNUC__ 
+> # if __GNUC__ >= @GNUCXX_VERSION@ 
+> #  if __GNUC_MINOR__ > 2 && @GNUCXX_MINORVERSION@ == 2 
+> #  error 'Please use the same version of GCC and g++ for compiling MPICH2 and user MPI programs'
+> #  endif
+> # endif     
+> #endif
+> // There is a name conflict between stdio.h and iostream (or iostream.h)
+> // and the MPI C++ binding with respect to the names SEEK_SET, SEEK_CUR, 
+> // and SEEK_END.  MPI wants these in the MPI namespace, but stdio.h, 
+> // iostream, or iostream.h will #define these to integer values.  
+> // #undef'ing these can cause obscure problems.  
+24a32,43
+> 
+> // MPICH_DONT_INCLUDE_STDIO_H is another escape hatch for us, just like
+> // MPICH_IGNORE_CXX_SEEK.  If we encounter a wacky environment or user in the
+> // wild that doesn't want our workaround and/or the stdio.h header, then we can
+> // offer them a way out.
+> #ifndef MPICH_DONT_INCLUDE_STDIO_H
+> // ensure that we have SEEK_* defined
+> # include <stdio.h>
+> #endif
+> 
+> enum MPIR_Dummy_seek_type {
+>     MPIR_DUMMY_SEEK_COMMA_VAL = -1  // permits cleaner comma logic
+26,27c45,47
+< #error "SEEK_SET is #defined but must not be for the C++ binding of MPI"
+< //#undef SEEK_SET
+---
+>     , MPIR_SEEK_SET = SEEK_SET
+> #   undef SEEK_SET
+>     , SEEK_SET = MPIR_SEEK_SET
+30,31c50,52
+< #error "SEEK_CUR is #defined but must not be for the C++ binding of MPI"
+< //#undef SEEK_CUR
+---
+>     , MPIR_SEEK_CUR = SEEK_CUR
+> #   undef SEEK_CUR
+>     , SEEK_CUR = MPIR_SEEK_CUR
+34,35c55,57
+< //#undef SEEK_END
+< #error "SEEK_END is #defined but must not be for the C++ binding of MPI"
+---
+>     , MPIR_SEEK_END = SEEK_END
+> #   undef SEEK_END
+>     , SEEK_END = MPIR_SEEK_END
+36a59,62
+> #ifdef LOCK_SHARED
+>     , MPIR_LOCK_SHARED = LOCK_SHARED
+> #   undef LOCK_SHARED
+>     , LOCK_SHARED = MPIR_LOCK_SHARED
+37a64
+> };
+39,49c66
+< // Check for incompatible GCC versions
+< // GCC (specifically) g++ changed the calling convention
+< // between 3.2.3 and 3.4.3 (!!)  Normally such changes
+< // should only occur at major releases (e.g., version 3 to 4)
+< #ifdef __GNUC__ 
+< # if __GNUC__ >= @GNUC_VERSION@ 
+< #  if __GNUC_MINOR__ > 2 && @GNUC_MINORVERSION@ == 2 
+< #  error 'Please use the same version of GCC for compiling MPICH2 and user MPI programs'
+< #  endif
+< # endif     
+< #endif
+---
+> #endif // MPICH_IGNORE_CXX_SEEK
+220a238,243
+>     static Datatype Match_size( int v1, int v2 ) 
+>     {
+>         Datatype v3;
+>         MPIX_CALL( MPI_Type_match_size( v1, v2, &(v3.the_real_datatype) ));
+>         return v3;
+>     }
+266a290,295
+>     static Datatype Create_f90_real( int v1, int v2 ) 
+>     {
+>         Datatype v3;
+>         MPIX_CALL( MPI_Type_create_f90_real( v1, v2, &(v3.the_real_datatype) ));
+>         return v3;
+>     }
+286a316,321
+>     static Datatype Create_f90_complex( int v1, int v2 ) 
+>     {
+>         Datatype v3;
+>         MPIX_CALL( MPI_Type_create_f90_complex( v1, v2, &(v3.the_real_datatype) ));
+>         return v3;
+>     }
+314a350,355
+>     static Datatype Create_f90_integer( int v1 ) 
+>     {
+>         Datatype v2;
+>         MPIX_CALL( MPI_Type_create_f90_integer( v1, &(v2.the_real_datatype) ));
+>         return v2;
+>     }
+1353,1356d1393
+<     virtual void Call_errhandler( int v2 ) const
+<     {
+<         MPIX_CALL( MPI_Comm_call_errhandler( (MPI_Comm) the_real_comm, v2 ));
+<     }
+1405a1443
+>     virtual void Call_errhandler( int errcode ) const;
+1788,1791d1825
+<     virtual void Call_errhandler( int v2 ) const
+<     {
+<         MPIX_CALL( MPI_Win_call_errhandler( (MPI_Win) the_real_win, v2 ));
+<     }
+1825a1860
+>     virtual void Call_errhandler( int errcode ) const;
+2013,2016d2047
+<     virtual void Call_errhandler( int v2 ) const
+<     {
+<         MPIX_CALL( MPI_File_call_errhandler( (MPI_File) the_real_file, v2 ));
+<     }
+2206a2238
+>     virtual void Call_errhandler( int errcode ) const;
+2526d2557
+< extern const int MAX_NAME_STRING;
+2591a2623,2625
+> extern const int TYPECLASS_REAL;
+> extern const int TYPECLASS_INTEGER;
+> extern const int TYPECLASS_COMPLEX;

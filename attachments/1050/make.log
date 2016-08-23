@@ -1,0 +1,1431 @@
+Beginning make
+Using variables CC='gcc' CFLAGS='   -O2' LDFLAGS=' ' F77='' FFLAGS=' ' FC='' FCFLAGS=' ' CXX='' CXXFLAGS=' ' AR='ar' CPP='gcc -E' CPPFLAGS=' -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/locks -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/locks -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/include -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/wrappers -I/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/wrappers'
+make all-local
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+make clean && cd test && make clean
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+make cleanlibs
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+rm -f lib/libmpich.a lib/libpmpich.a
+rm -f lib/libmpichcxx.a 
+rm -f lib/libfmpich.a lib/libmpichf90.a
+rm -f lib/libmpich.dll* 
+rm -f lib/libpmpich.dll*
+rm -f lib/libmpichcxx.dll* 
+rm -f lib/libfmpich.dll* 
+rm -f lib/libmpichf90.dll* 
+rm -f lib/libmpichf90.*.dll* 
+rm -f lib/libmpich.*.dll* 
+rm -f lib/libpmpich.*.dll*
+rm -f lib/libmpichcxx.*.dll* 
+rm -f lib/libfmpich.*.dll* 
+rm -f lib/libmpich.la* lib/libpmpich.la*
+rm -f lib/libmpichf90.la*
+rm -f lib/libmpichcxx.la* 
+rm -f lib/libfmpich.la* 
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+for dir in  src/mpl src/openpa src - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+test -z "libmpl.la" || rm -f libmpl.la
+rm -f "./so_locations"
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+Making clean in test
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/test'
+ rm -f sanity.exe test_primitives.exe test_barriers.exe test_queue.exe
+ rm -f sanity test_primitives test_barriers test_queue
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/test'
+Making clean in src
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+test -z "libopa.la" || rm -f libopa.la
+rm -f "./so_locations"
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+Making clean in .
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+rm -rf .libs _libs
+rm -f *.lo
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src'
+for dir in mpl mpid mpi util nameserv binding env packaging  pmi pm - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+test -z "libmpl.la" || rm -f libmpl.la
+rm -f "./so_locations"
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid'
+for dir in common ch3 - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ "$dir" = "mpe2" ] ; then continue ; fi ;\
+		if [ "$dir" = "mpl" ] ; then continue ; fi ;\
+		(cd $dir && make clean ) ; done
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common'
+(cd datatype && make clean )
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype'
+(cd dataloop && make clean )
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype/dataloop'
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype/dataloop'
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3'
+for dir in channels src util ; do \
+		(cd $dir && make clean ) ; done
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels'
+for dir in nemesis - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis'
+(cd nemesis && make clean )
+make[9]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis'
+(cd src && make clean )
+make[10]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/src'
+make[10]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/src'
+(cd netmod && make clean )
+make[10]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+for dir in tcp - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[11]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+make[11]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+make[10]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+(cd utils && make clean )
+make[10]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils'
+(cd monitor && make clean )
+make[11]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+make[11]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+(cd replacements && make clean )
+make[11]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+make[11]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+make[10]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils'
+make[9]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis'
+(cd src && make clean )
+make[9]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/src'
+make[9]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/src'
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis'
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels'
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/src'
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/src'
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/util'
+for dir in   - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/util'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi'
+for dir in attr coll comm datatype errhan group init misc pt2pt rma spawn timer topo   - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/attr'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/attr'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/coll'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/coll'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/comm'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/comm'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/datatype'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/datatype'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/errhan'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/errhan'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/group'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/group'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/init'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/init'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/misc'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/misc'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/pt2pt'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/pt2pt'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/rma'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/rma'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/spawn'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/spawn'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/timer'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/timer'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/topo'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/topo'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util'
+for dir in mem info msgs instrm thread dbg param osserv procmap other  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/mem'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/mem'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/info'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/info'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/msgs'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/msgs'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/instrm'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/instrm'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/thread'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/thread'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/dbg'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/dbg'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/param'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/param'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/osserv'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/osserv'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/procmap'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/procmap'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/other'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/other'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/nameserv'
+for dir in file - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/nameserv/file'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/nameserv/file'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/nameserv'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/binding'
+for dir in  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/binding'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/env'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/env'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging'
+(cd pkgconfig && make clean )
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/pkgconfig'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/pkgconfig'
+(cd envmods && make clean )
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/envmods'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/envmods'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pmi'
+for dir in simple - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pmi/simple'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pmi/simple'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pmi'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm'
+for dir in hydra  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra'
+Making clean in tools/bind/hwloc/hwloc
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc'
+Making clean in doc
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/doc'
+ rm -f hwloc-hello.exe
+ rm -f hwloc-hello
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/doc'
+Making clean in tests
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests'
+Making clean in xml
+make[9]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests/xml'
+rm -rf .libs _libs
+rm -f *.lo
+make[9]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests/xml'
+Making clean in ports
+make[9]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests/ports'
+test -z "" || rm -f 
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[9]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests/ports'
+Making clean in linux
+make[9]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests/linux'
+rm -rf .libs _libs
+rm -f *.lo
+make[9]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests/linux'
+Making clean in .
+make[9]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests'
+ rm -f hwloc_cpuset_string.exe hwloc_get_closest_objs.exe hwloc_get_obj_covering_cpuset.exe hwloc_get_cache_covering_cpuset.exe hwloc_get_largest_objs_inside_cpuset.exe hwloc_get_next_obj_covering_cpuset.exe hwloc_get_obj_inside_cpuset.exe hwloc_get_shared_cache_covering_obj.exe hwloc_get_obj_below_array_by_type.exe hwloc_cpuset_first_last_weight.exe hwloc_cpuset_singlify.exe hwloc_type_depth.exe hwloc_bind.exe hwloc_object_userdata.exe hwloc_synthetic.exe hwloc_is_thissystem.exe hwloc_insert_misc.exe
+ rm -f hwloc_cpuset_string hwloc_get_closest_objs hwloc_get_obj_covering_cpuset hwloc_get_cache_covering_cpuset hwloc_get_largest_objs_inside_cpuset hwloc_get_next_obj_covering_cpuset hwloc_get_obj_inside_cpuset hwloc_get_shared_cache_covering_obj hwloc_get_obj_below_array_by_type hwloc_cpuset_first_last_weight hwloc_cpuset_singlify hwloc_type_depth hwloc_bind hwloc_object_userdata hwloc_synthetic hwloc_is_thissystem hwloc_insert_misc
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[9]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests'
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/tests'
+Making clean in utils
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/utils'
+ rm -f lstopo.exe hwloc-calc.exe hwloc-bind.exe hwloc-distrib.exe
+ rm -f lstopo hwloc-calc hwloc-bind hwloc-distrib
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/utils'
+Making clean in include
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/include'
+rm -rf .libs _libs
+rm -f *.lo
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/include'
+Making clean in src
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+test -z "libhwloc.la" || rm -f libhwloc.la
+rm -f "./so_locations"
+rm -rf .libs _libs
+test -z "" || rm -f 
+rm -f *.o
+rm -f *.lo
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+Making clean in .
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc'
+rm -rf .libs _libs
+rm -f *.lo
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc'
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc'
+Making clean in ../../mpl
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+test -z "libmpl.la" || rm -f libmpl.la
+rm -f "./so_locations"
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+Making clean in .
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra'
+ rm -f hydra_persist.exe hydra_nameserver.exe hydra_pmi_proxy.exe mpiexec.exe
+ rm -f hydra_persist hydra_nameserver hydra_pmi_proxy mpiexec
+rm -rf .libs _libs
+test -z "libhydra.la libpm.la" || rm -f libhydra.la libpm.la
+rm -f "./so_locations"
+rm -f "./so_locations"
+rm -f *.o
+rm -f *.lo
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm'
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test'
+for dir in mpi mpid util basic commands ; do \
+		(cd $dir && make clean ) ; done
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi'
+rm -f summary.xml
+for dir in util attr basic datatype coll comm errhan group info init pt2pt rma spawn topo io  threads errors manual perf - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/util'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/util'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/attr'
+rm -f summary.xml
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/attr'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/basic'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/basic'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/datatype'
+rm -f summary.xml
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/datatype'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/coll'
+rm -f summary.xml
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/coll'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/comm'
+rm -f summary.xml
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/comm'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errhan'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errhan'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/group'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/group'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/info'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/info'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/init'
+rm -f summary.xml
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/init'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/pt2pt'
+rm -f summary.xml
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/pt2pt'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/rma'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/rma'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/spawn'
+rm -f summary.xml
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/spawn'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/topo'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/topo'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/io'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/io'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads'
+rm -f summary.xml
+for dir in util pt2pt comm init spawn ; do \
+		(cd $dir && make clean ) ; done
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/util'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/util'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/pt2pt'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/pt2pt'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/comm'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/comm'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/init'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/init'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/spawn'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads/spawn'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/threads'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors'
+for dir in attr coll comm group pt2pt rma spawn topo io  basic faults - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		(cd $dir && make clean ) ; done
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/attr'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/attr'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/coll'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/coll'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/comm'
+rm -f summary.xml
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/comm'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/group'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/group'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/pt2pt'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/pt2pt'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/rma'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/rma'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/spawn'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/spawn'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/topo'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/topo'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/io'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/io'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/basic'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/basic'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/faults'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors/faults'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/errors'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/manual'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/manual'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/perf'
+rm -f summary.xml
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi/perf'
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpi'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpid'
+(cd ch3 && make clean )
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpid/ch3'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpid/ch3'
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/mpid'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/util'
+(cd timer && make clean )
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/util/timer'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/util/timer'
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/util'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/basic'
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/basic'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/commands'
+rm -f err.txt out.log out.txt stdintest stdintest2 sdtiotest a.out
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test/commands'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/test'
+rm -f lib/newconfig
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+  CC     mplstr.lo
+  CC     mpltrmem.lo
+  CC     mplenv.lo
+  CCLD   libmpl.la
+libtool: link: warning: undefined symbols not allowed in i686-pc-cygwin shared libraries
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+Making all in src
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+make  all-am
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.      -MT opa_primitives.lo -MD -MP -MF .deps/opa_primitives.Tpo -c -o opa_primitives.lo opa_primitives.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -MT opa_primitives.lo -MD -MP -MF .deps/opa_primitives.Tpo -c opa_primitives.c -o opa_primitives.o
+mv -f .deps/opa_primitives.Tpo .deps/opa_primitives.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.      -MT opa_queue.lo -MD -MP -MF .deps/opa_queue.Tpo -c -o opa_queue.lo opa_queue.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -MT opa_queue.lo -MD -MP -MF .deps/opa_queue.Tpo -c opa_queue.c -o opa_queue.o
+mv -f .deps/opa_queue.Tpo .deps/opa_queue.Plo
+/bin/sh ../libtool --tag=CC   --mode=link gcc   -version-info 1:0  -o libopa.la -rpath /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib opa_primitives.lo opa_queue.lo  -lpthread 
+libtool: link: warning: undefined symbols not allowed in i686-pc-cygwin shared libraries
+libtool: link: ar cru .libs/libopa.a  opa_primitives.o opa_queue.o
+libtool: link: ranlib .libs/libopa.a
+libtool: link: ( cd ".libs" && rm -f "libopa.la" && ln -s "../libopa.la" "libopa.la" )
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+Making all in test
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/test'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/test'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype/dataloop'
+  CC              dataloop.c
+  CC              segment.c
+  CC              segment_packunpack.c
+  CC              segment_flatten.c
+  CC              segment_count.c
+  CC              dataloop_create.c
+  CC              dataloop_create_contig.c
+  CC              dataloop_create_vector.c
+  CC              dataloop_create_blockindexed.c
+  CC              dataloop_create_indexed.c
+  CC              dataloop_create_struct.c
+  CC              dataloop_create_pairtype.c
+  CC              subarray_support.c
+  CC              darray_support.c
+  AR cr ../../../../../lib/libmpich.a dataloop.o segment.o segment_packunpack.o segment_flatten.o segment_count.o dataloop_create.o dataloop_create_contig.o dataloop_create_vector.o dataloop_create_blockindexed.o dataloop_create_indexed.o dataloop_create_struct.o dataloop_create_pairtype.o subarray_support.o darray_support.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype/dataloop'
+make all-local
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype'
+  CC              mpid_type_debug.c
+  CC              mpid_segment.c
+  CC              mpid_ext32_segment.c
+  CC              mpid_ext32_datatype.c
+  CC              mpid_type_dup.c
+  CC              mpir_type_get_contig_blocks.c
+  CC              mpir_type_flatten.c
+  CC              mpid_type_commit.c
+  CC              mpid_type_zerolen.c
+  CC              mpid_type_vector.c
+  CC              mpid_type_contiguous.c
+  CC              mpid_type_create_resized.c
+  CC              mpid_type_blockindexed.c
+  CC              mpid_type_indexed.c
+  CC              mpid_type_struct.c
+  CC              mpid_type_get_envelope.c
+  CC              mpid_datatype_free.c
+  CC              mpid_datatype_contents.c
+  CC              mpid_type_get_contents.c
+  CC              mpid_type_create_pairtype.c
+  CC              mpid_contents_support.c
+  AR cr ../../../../lib/libmpich.a mpid_type_debug.o mpid_segment.o mpid_ext32_segment.o mpid_ext32_datatype.o mpid_type_dup.o mpir_type_get_contig_blocks.o mpir_type_flatten.o mpid_type_commit.o mpid_type_zerolen.o mpid_type_vector.o mpid_type_contiguous.o mpid_type_create_resized.o mpid_type_blockindexed.o mpid_type_indexed.o mpid_type_struct.o mpid_type_get_envelope.o mpid_datatype_free.o mpid_datatype_contents.o mpid_type_get_contents.o mpid_type_create_pairtype.o mpid_contents_support.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype'
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common/datatype'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/common'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels'
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis'
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/src'
+  CC              mpid_nem_alloc.c
+  CC              mpid_nem_init.c
+  CC              mpid_nem_queue.c
+  CC              mpid_nem_barrier.c
+  CC              mpid_nem_mpich2.c
+  CC              mpid_nem_ckpt.c
+  CC              mpid_nem_finalize.c
+  CC              mpid_nem_network_poll.c
+  CC              mpid_nem_network.c
+  CC              mpid_nem_debug.c
+  CC              mpid_nem_lmt.c
+  CC              mpid_nem_lmt_shm.c
+  CC              mpid_nem_net_array.c
+  CC              mpid_nem_lmt_dma.c
+  CC              mpid_nem_lmt_vmsplice.c
+  AR cr ../../../../../../../lib/libmpich.a mpid_nem_alloc.o mpid_nem_init.o mpid_nem_queue.o mpid_nem_barrier.o mpid_nem_mpich2.o mpid_nem_ckpt.o mpid_nem_finalize.o mpid_nem_network_poll.o mpid_nem_network.o mpid_nem_debug.o mpid_nem_lmt.o mpid_nem_lmt_shm.o mpid_nem_net_array.o mpid_nem_lmt_dma.o mpid_nem_lmt_vmsplice.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/src'
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+  CC              tcp_finalize.c
+  CC              tcp_init.c
+  CC              tcp_send.c
+  CC              tcp_utility.c
+  CC              socksm.c
+  CC              tcp_getip.c
+  CC              tcp_ckpt.c
+  AR cr ../../../../../../../../lib/libmpich.a tcp_finalize.o tcp_init.o tcp_send.o tcp_utility.o socksm.o tcp_getip.o tcp_ckpt.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+make[7]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils'
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+  CC              papi_defs.c
+  AR cr ../../../../../../../../lib/libmpich.a papi_defs.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+make[8]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+  CC              mkstemp.c
+  AR cr ../../../../../../../../lib/libmpich.a mkstemp.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[8]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+make[7]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis/utils'
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/nemesis'
+make[6]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/src'
+  CC              ch3_finalize.c
+  CC              ch3_init.c
+  CC              ch3_isend.c
+  CC              ch3_isendv.c
+  CC              ch3_istartmsg.c
+  CC              ch3_istartmsgv.c
+  CC              ch3_progress.c
+  CC              ch3_comm_spawn.c
+  CC              ch3_abort.c
+  CC              ch3i_comm.c
+  CC              ch3i_eagernoncontig.c
+  AR cr ../../../../../../lib/libmpich.a ch3_finalize.o ch3_init.o ch3_isend.o ch3_isendv.o ch3_istartmsg.o ch3_istartmsgv.o ch3_progress.o ch3_comm_spawn.o ch3_abort.o ch3i_comm.o ch3i_eagernoncontig.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[6]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis/src'
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels/nemesis'
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/channels'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/src'
+  CC              ch3u_buffer.c
+  CC              ch3u_comm_spawn_multiple.c
+  CC              ch3u_handle_connection.c
+  CC              ch3u_handle_recv_pkt.c
+  CC              ch3u_handle_recv_req.c
+  CC              ch3u_handle_send_req.c
+  CC              ch3u_port.c
+  CC              ch3u_recvq.c
+  CC              ch3u_request.c
+  CC              ch3u_rma_ops.c
+  CC              ch3u_rma_sync.c
+  CC              ch3u_rndv.c
+  CC              ch3u_eager.c
+  CC              ch3u_eagersync.c
+  CC              mpid_abort.c
+  CC              mpid_cancel_recv.c
+  CC              mpid_cancel_send.c
+  CC              mpid_comm_disconnect.c
+  CC              mpid_comm_spawn_multiple.c
+  CC              mpid_finalize.c
+  CC              mpid_get_universe_size.c
+  CC              mpid_getpname.c
+  CC              mpid_init.c
+  CC              mpid_iprobe.c
+  CC              mpid_irecv.c
+  CC              mpid_irsend.c
+  CC              mpid_isend.c
+  CC              mpid_issend.c
+  CC              mpid_port.c
+  CC              mpid_probe.c
+  CC              mpid_recv.c
+  CC              mpid_rsend.c
+  CC              mpid_send.c
+  CC              mpid_ssend.c
+  CC              mpid_startall.c
+  CC              mpid_vc.c
+  CC              mpid_rma.c
+  CC              mpidi_isend_self.c
+  CC              mpidi_pg.c
+  CC              mpidi_printf.c
+  AR cr ../../../../lib/libmpich.a ch3u_buffer.o ch3u_comm_spawn_multiple.o ch3u_handle_connection.o ch3u_handle_recv_pkt.o ch3u_handle_recv_req.o ch3u_handle_send_req.o ch3u_port.o ch3u_recvq.o ch3u_request.o ch3u_rma_ops.o ch3u_rma_sync.o ch3u_rndv.o ch3u_eager.o ch3u_eagersync.o mpid_abort.o mpid_cancel_recv.o mpid_cancel_send.o mpid_comm_disconnect.o mpid_comm_spawn_multiple.o mpid_finalize.o mpid_get_universe_size.o mpid_getpname.o mpid_init.o mpid_iprobe.o mpid_irecv.o mpid_irsend.o mpid_isend.o mpid_issend.o mpid_port.o mpid_probe.o mpid_recv.o mpid_rsend.o mpid_send.o mpid_ssend.o mpid_startall.o mpid_vc.o mpid_rma.o mpidi_isend_self.o mpidi_pg.o mpidi_printf.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/src'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/util'
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3/util'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid/ch3'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpid'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/attr'
+  CC              attr_delete.c
+  CC              attr_get.c
+  CC              attr_put.c
+  CC              comm_create_keyval.c
+  CC              comm_delete_attr.c
+  CC              comm_free_keyval.c
+  CC              comm_get_attr.c
+  CC              comm_set_attr.c
+  CC              keyval_create.c
+  CC              keyval_free.c
+  CC              type_create_keyval.c
+  CC              type_delete_attr.c
+  CC              type_free_keyval.c
+  CC              type_get_attr.c
+  CC              type_set_attr.c
+  CC              win_create_keyval.c
+  CC              win_delete_attr.c
+  CC              win_free_keyval.c
+  CC              win_get_attr.c
+  CC              win_set_attr.c
+  CC              attrutil.c
+  CC              dup_fn.c
+  AR cr ../../../lib/libmpich.a attr_delete.o attr_get.o attr_put.o comm_create_keyval.o comm_delete_attr.o comm_free_keyval.o comm_get_attr.o comm_set_attr.o keyval_create.o keyval_free.o type_create_keyval.o type_delete_attr.o type_free_keyval.o type_get_attr.o type_set_attr.o win_create_keyval.o win_delete_attr.o win_free_keyval.o win_get_attr.o win_set_attr.o attrutil.o dup_fn.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/attr'
+  CC             -D<profiling> ./attr_delete.c
+  CC             -D<profiling> ./attr_get.c
+  CC             -D<profiling> ./attr_put.c
+  CC             -D<profiling> ./comm_create_keyval.c
+  CC             -D<profiling> ./comm_delete_attr.c
+  CC             -D<profiling> ./comm_free_keyval.c
+  CC             -D<profiling> ./comm_get_attr.c
+  CC             -D<profiling> ./comm_set_attr.c
+  CC             -D<profiling> ./keyval_create.c
+  CC             -D<profiling> ./keyval_free.c
+  CC             -D<profiling> ./type_create_keyval.c
+  CC             -D<profiling> ./type_delete_attr.c
+  CC             -D<profiling> ./type_free_keyval.c
+  CC             -D<profiling> ./type_get_attr.c
+  CC             -D<profiling> ./type_set_attr.c
+  CC             -D<profiling> ./win_create_keyval.c
+  CC             -D<profiling> ./win_delete_attr.c
+  CC             -D<profiling> ./win_free_keyval.c
+  CC             -D<profiling> ./win_get_attr.c
+  CC             -D<profiling> ./win_set_attr.c
+  AR cr ../../../lib/libpmpich.a _attr_delete.o _attr_get.o _attr_put.o _comm_create_keyval.o _comm_delete_attr.o _comm_free_keyval.o _comm_get_attr.o _comm_set_attr.o _keyval_create.o _keyval_free.o _type_create_keyval.o _type_delete_attr.o _type_free_keyval.o _type_get_attr.o _type_set_attr.o _win_create_keyval.o _win_delete_attr.o _win_free_keyval.o _win_get_attr.o _win_set_attr.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/attr'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/attr'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/coll'
+  CC              allreduce.c
+  CC              barrier.c
+  CC              op_create.c
+  CC              op_free.c
+  CC              bcast.c
+  CC              alltoall.c
+  CC              alltoallv.c
+  CC              reduce.c
+  CC              scatter.c
+  CC              gather.c
+  CC              scatterv.c
+  CC              gatherv.c
+  CC              scan.c
+  CC              exscan.c
+  CC              allgather.c
+  CC              allgatherv.c
+  CC              red_scat.c
+  CC              alltoallw.c
+  CC              reduce_local.c
+  CC              op_commutative.c
+  CC              red_scat_block.c
+  CC              helper_fns.c
+  CC              opsum.c
+  CC              opmax.c
+  CC              opmin.c
+  CC              opband.c
+  CC              opbor.c
+  CC              opbxor.c
+  CC              opland.c
+  CC              oplor.c
+  CC              oplxor.c
+  CC              opprod.c
+  CC              opminloc.c
+  CC              opmaxloc.c
+  AR cr ../../../lib/libmpich.a allreduce.o barrier.o op_create.o op_free.o bcast.o alltoall.o alltoallv.o reduce.o scatter.o gather.o scatterv.o gatherv.o scan.o exscan.o allgather.o allgatherv.o red_scat.o alltoallw.o reduce_local.o op_commutative.o red_scat_block.o helper_fns.o opsum.o opmax.o opmin.o opband.o opbor.o opbxor.o opland.o oplor.o oplxor.o opprod.o opminloc.o opmaxloc.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/coll'
+  CC             -D<profiling> ./allreduce.c
+  CC             -D<profiling> ./barrier.c
+  CC             -D<profiling> ./op_create.c
+  CC             -D<profiling> ./op_free.c
+  CC             -D<profiling> ./bcast.c
+  CC             -D<profiling> ./alltoall.c
+  CC             -D<profiling> ./alltoallv.c
+  CC             -D<profiling> ./reduce.c
+  CC             -D<profiling> ./scatter.c
+  CC             -D<profiling> ./gather.c
+  CC             -D<profiling> ./scatterv.c
+  CC             -D<profiling> ./gatherv.c
+  CC             -D<profiling> ./scan.c
+  CC             -D<profiling> ./exscan.c
+  CC             -D<profiling> ./allgather.c
+  CC             -D<profiling> ./allgatherv.c
+  CC             -D<profiling> ./red_scat.c
+  CC             -D<profiling> ./alltoallw.c
+  CC             -D<profiling> ./reduce_local.c
+  CC             -D<profiling> ./op_commutative.c
+  CC             -D<profiling> ./red_scat_block.c
+  AR cr ../../../lib/libpmpich.a _allreduce.o _barrier.o _op_create.o _op_free.o _bcast.o _alltoall.o _alltoallv.o _reduce.o _scatter.o _gather.o _scatterv.o _gatherv.o _scan.o _exscan.o _allgather.o _allgatherv.o _red_scat.o _alltoallw.o _reduce_local.o _op_commutative.o _red_scat_block.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/coll'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/coll'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/comm'
+  CC              comm_compare.c
+  CC              comm_create.c
+  CC              comm_dup.c
+  CC              comm_free.c
+  CC              comm_get_name.c
+  CC              comm_group.c
+  CC              comm_rank.c
+  CC              comm_size.c
+  CC              comm_remote_group.c
+  CC              comm_remote_size.c
+  CC              comm_set_name.c
+  CC              comm_split.c
+  CC              comm_test_inter.c
+  CC              intercomm_create.c
+  CC              intercomm_merge.c
+  CC              commutil.c
+  AR cr ../../../lib/libmpich.a comm_compare.o comm_create.o comm_dup.o comm_free.o comm_get_name.o comm_group.o comm_rank.o comm_size.o comm_remote_group.o comm_remote_size.o comm_set_name.o comm_split.o comm_test_inter.o intercomm_create.o intercomm_merge.o commutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/comm'
+  CC             -D<profiling> ./comm_compare.c
+  CC             -D<profiling> ./comm_create.c
+  CC             -D<profiling> ./comm_dup.c
+  CC             -D<profiling> ./comm_free.c
+  CC             -D<profiling> ./comm_get_name.c
+  CC             -D<profiling> ./comm_group.c
+  CC             -D<profiling> ./comm_rank.c
+  CC             -D<profiling> ./comm_size.c
+  CC             -D<profiling> ./comm_remote_group.c
+  CC             -D<profiling> ./comm_remote_size.c
+  CC             -D<profiling> ./comm_set_name.c
+  CC             -D<profiling> ./comm_split.c
+  CC             -D<profiling> ./comm_test_inter.c
+  CC             -D<profiling> ./intercomm_create.c
+  CC             -D<profiling> ./intercomm_merge.c
+  AR cr ../../../lib/libpmpich.a _comm_compare.o _comm_create.o _comm_dup.o _comm_free.o _comm_get_name.o _comm_group.o _comm_rank.o _comm_size.o _comm_remote_group.o _comm_remote_size.o _comm_set_name.o _comm_split.o _comm_test_inter.o _intercomm_create.o _intercomm_merge.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/comm'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/comm'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/datatype'
+  CC              address.c
+  CC              get_address.c
+  CC              get_count.c
+  CC              get_elements.c
+  CC              pack.c
+  CC              unpack.c
+  CC              pack_size.c
+  CC              status_set_elements.c
+  CC              type_get_name.c
+  CC              type_set_name.c
+  CC              type_size.c
+  CC              type_extent.c
+  CC              type_vector.c
+  CC              type_commit.c
+  CC              type_indexed.c
+  CC              type_hindexed.c
+  CC              type_struct.c
+  CC              type_contiguous.c
+  CC              type_free.c
+  CC              type_hvector.c
+  CC              type_dup.c
+  CC              type_get_envelope.c
+  CC              type_get_contents.c
+  CC              type_ub.c
+  CC              type_lb.c
+  CC              type_get_extent.c
+  CC              type_get_true_extent.c
+  CC              type_match_size.c
+  CC              type_create_struct.c
+  CC              type_create_hindexed.c
+  CC              type_create_hvector.c
+  CC              pack_external.c
+  CC              pack_external_size.c
+  CC              unpack_external.c
+  CC              type_create_indexed_block.c
+  CC              type_create_resized.c
+  CC              type_create_darray.c
+  CC              type_create_subarray.c
+  CC              typeutil.c
+  AR cr ../../../lib/libmpich.a address.o get_address.o get_count.o get_elements.o pack.o unpack.o pack_size.o status_set_elements.o type_get_name.o type_set_name.o type_size.o type_extent.o type_vector.o type_commit.o type_indexed.o type_hindexed.o type_struct.o type_contiguous.o type_free.o type_hvector.o type_dup.o type_get_envelope.o type_get_contents.o type_ub.o type_lb.o type_get_extent.o type_get_true_extent.o type_match_size.o type_create_struct.o type_create_hindexed.o type_create_hvector.o pack_external.o pack_external_size.o unpack_external.o type_create_indexed_block.o type_create_resized.o type_create_darray.o type_create_subarray.o typeutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/datatype'
+  CC             -D<profiling> ./address.c
+  CC             -D<profiling> ./get_address.c
+  CC             -D<profiling> ./get_count.c
+  CC             -D<profiling> ./get_elements.c
+  CC             -D<profiling> ./pack.c
+  CC             -D<profiling> ./unpack.c
+  CC             -D<profiling> ./pack_size.c
+  CC             -D<profiling> ./status_set_elements.c
+  CC             -D<profiling> ./type_get_name.c
+  CC             -D<profiling> ./type_set_name.c
+  CC             -D<profiling> ./type_size.c
+  CC             -D<profiling> ./type_extent.c
+  CC             -D<profiling> ./type_vector.c
+  CC             -D<profiling> ./type_commit.c
+  CC             -D<profiling> ./type_indexed.c
+  CC             -D<profiling> ./type_hindexed.c
+  CC             -D<profiling> ./type_struct.c
+  CC             -D<profiling> ./type_contiguous.c
+  CC             -D<profiling> ./type_free.c
+  CC             -D<profiling> ./type_hvector.c
+  CC             -D<profiling> ./type_dup.c
+  CC             -D<profiling> ./type_get_envelope.c
+  CC             -D<profiling> ./type_get_contents.c
+  CC             -D<profiling> ./type_ub.c
+  CC             -D<profiling> ./type_lb.c
+  CC             -D<profiling> ./type_get_extent.c
+  CC             -D<profiling> ./type_get_true_extent.c
+  CC             -D<profiling> ./type_match_size.c
+  CC             -D<profiling> ./type_create_struct.c
+  CC             -D<profiling> ./type_create_hindexed.c
+  CC             -D<profiling> ./type_create_hvector.c
+  CC             -D<profiling> ./pack_external.c
+  CC             -D<profiling> ./pack_external_size.c
+  CC             -D<profiling> ./unpack_external.c
+  CC             -D<profiling> ./type_create_indexed_block.c
+  CC             -D<profiling> ./type_create_resized.c
+  CC             -D<profiling> ./type_create_darray.c
+  CC             -D<profiling> ./type_create_subarray.c
+  AR cr ../../../lib/libpmpich.a _address.o _get_address.o _get_count.o _get_elements.o _pack.o _unpack.o _pack_size.o _status_set_elements.o _type_get_name.o _type_set_name.o _type_size.o _type_extent.o _type_vector.o _type_commit.o _type_indexed.o _type_hindexed.o _type_struct.o _type_contiguous.o _type_free.o _type_hvector.o _type_dup.o _type_get_envelope.o _type_get_contents.o _type_ub.o _type_lb.o _type_get_extent.o _type_get_true_extent.o _type_match_size.o _type_create_struct.o _type_create_hindexed.o _type_create_hvector.o _pack_external.o _pack_external_size.o _unpack_external.o _type_create_indexed_block.o _type_create_resized.o _type_create_darray.o _type_create_subarray.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/datatype'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/datatype'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/errhan'
+  CC              add_error_code.c
+  CC              add_error_class.c
+  CC              add_error_string.c
+  CC              comm_call_errhandler.c
+  CC              comm_create_errhandler.c
+  CC              comm_get_errhandler.c
+  CC              comm_set_errhandler.c
+  CC              errhandler_create.c
+  CC              errhandler_free.c
+  CC              errhandler_get.c
+  CC              errhandler_set.c
+  CC              error_class.c
+  CC              error_string.c
+  CC              file_create_errhandler.c
+  CC              file_get_errhandler.c
+  CC              file_set_errhandler.c
+  CC              file_call_errhandler.c
+  CC              win_create_errhandler.c
+  CC              win_call_errhandler.c
+  CC              win_get_errhandler.c
+  CC              win_set_errhandler.c
+  CC              errutil.c
+  CC              dynerrutil.c
+  AR cr ../../../lib/libmpich.a add_error_code.o add_error_class.o add_error_string.o comm_call_errhandler.o comm_create_errhandler.o comm_get_errhandler.o comm_set_errhandler.o errhandler_create.o errhandler_free.o errhandler_get.o errhandler_set.o error_class.o error_string.o file_create_errhandler.o file_get_errhandler.o file_set_errhandler.o file_call_errhandler.o win_create_errhandler.o win_call_errhandler.o win_get_errhandler.o win_set_errhandler.o errutil.o dynerrutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/errhan'
+  CC             -D<profiling> ./add_error_code.c
+  CC             -D<profiling> ./add_error_class.c
+  CC             -D<profiling> ./add_error_string.c
+  CC             -D<profiling> ./comm_call_errhandler.c
+  CC             -D<profiling> ./comm_create_errhandler.c
+  CC             -D<profiling> ./comm_get_errhandler.c
+  CC             -D<profiling> ./comm_set_errhandler.c
+  CC             -D<profiling> ./errhandler_create.c
+  CC             -D<profiling> ./errhandler_free.c
+  CC             -D<profiling> ./errhandler_get.c
+  CC             -D<profiling> ./errhandler_set.c
+  CC             -D<profiling> ./error_class.c
+  CC             -D<profiling> ./error_string.c
+  CC             -D<profiling> ./file_create_errhandler.c
+  CC             -D<profiling> ./file_get_errhandler.c
+  CC             -D<profiling> ./file_set_errhandler.c
+  CC             -D<profiling> ./file_call_errhandler.c
+  CC             -D<profiling> ./win_create_errhandler.c
+  CC             -D<profiling> ./win_call_errhandler.c
+  CC             -D<profiling> ./win_get_errhandler.c
+  CC             -D<profiling> ./win_set_errhandler.c
+  AR cr ../../../lib/libpmpich.a _add_error_code.o _add_error_class.o _add_error_string.o _comm_call_errhandler.o _comm_create_errhandler.o _comm_get_errhandler.o _comm_set_errhandler.o _errhandler_create.o _errhandler_free.o _errhandler_get.o _errhandler_set.o _error_class.o _error_string.o _file_create_errhandler.o _file_get_errhandler.o _file_set_errhandler.o _file_call_errhandler.o _win_create_errhandler.o _win_call_errhandler.o _win_get_errhandler.o _win_set_errhandler.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/errhan'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/errhan'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/group'
+  CC              group_compare.c
+  CC              group_difference.c
+  CC              group_excl.c
+  CC              group_free.c
+  CC              group_incl.c
+  CC              group_intersection.c
+  CC              group_range_excl.c
+  CC              group_range_incl.c
+  CC              group_rank.c
+  CC              group_size.c
+  CC              group_translate_ranks.c
+  CC              group_union.c
+  CC              grouputil.c
+  AR cr ../../../lib/libmpich.a group_compare.o group_difference.o group_excl.o group_free.o group_incl.o group_intersection.o group_range_excl.o group_range_incl.o group_rank.o group_size.o group_translate_ranks.o group_union.o grouputil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/group'
+  CC             -D<profiling> ./group_compare.c
+  CC             -D<profiling> ./group_difference.c
+  CC             -D<profiling> ./group_excl.c
+  CC             -D<profiling> ./group_free.c
+  CC             -D<profiling> ./group_incl.c
+  CC             -D<profiling> ./group_intersection.c
+  CC             -D<profiling> ./group_range_excl.c
+  CC             -D<profiling> ./group_range_incl.c
+  CC             -D<profiling> ./group_rank.c
+  CC             -D<profiling> ./group_size.c
+  CC             -D<profiling> ./group_translate_ranks.c
+  CC             -D<profiling> ./group_union.c
+  AR cr ../../../lib/libpmpich.a _group_compare.o _group_difference.o _group_excl.o _group_free.o _group_incl.o _group_intersection.o _group_range_excl.o _group_range_incl.o _group_rank.o _group_size.o _group_translate_ranks.o _group_union.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/group'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/group'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/init'
+  CC              abort.c
+  CC              init.c
+  CC              initialized.c
+  CC              initthread.c
+  CC              ismain.c
+  CC              finalize.c
+  CC              finalized.c
+  CC              querythread.c
+  CC              initinfo.c
+  CC              async.c
+  AR cr ../../../lib/libmpich.a abort.o init.o initialized.o initthread.o ismain.o finalize.o finalized.o querythread.o initinfo.o async.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/init'
+  CC             -D<profiling> ./abort.c
+  CC             -D<profiling> ./init.c
+  CC             -D<profiling> ./initialized.c
+  CC             -D<profiling> ./initthread.c
+  CC             -D<profiling> ./ismain.c
+  CC             -D<profiling> ./finalize.c
+  CC             -D<profiling> ./finalized.c
+  CC             -D<profiling> ./querythread.c
+  AR cr ../../../lib/libpmpich.a _abort.o _init.o _initialized.o _initthread.o _ismain.o _finalize.o _finalized.o _querythread.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/init'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/init'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/misc'
+  CC              getpname.c
+  CC              pcontrol.c
+  CC              version.c
+  AR cr ../../../lib/libmpich.a getpname.o pcontrol.o version.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/misc'
+  CC             -D<profiling> ./getpname.c
+  CC             -D<profiling> ./pcontrol.c
+  CC             -D<profiling> ./version.c
+  AR cr ../../../lib/libpmpich.a _getpname.o _pcontrol.o _version.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/misc'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/misc'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/pt2pt'
+  CC              bsend.c
+  CC              bsend_init.c
+  CC              bufattach.c
+  CC              buffree.c
+  CC              cancel.c
+  CC              greq_start.c
+  CC              greq_complete.c
+  CC              ibsend.c
+  CC              iprobe.c
+  CC              irecv.c
+  CC              irsend.c
+  CC              isend.c
+  CC              issend.c
+  CC              probe.c
+  CC              recv.c
+  CC              recv_init.c
+  CC              request_free.c
+  CC              request_get_status.c
+  CC              rsend.c
+  CC              rsend_init.c
+  CC              send.c
+  CC              send_init.c
+  CC              sendrecv.c
+  CC              sendrecv_rep.c
+  CC              status_set_cancelled.c
+  CC              ssend.c
+  CC              ssend_init.c
+  CC              start.c
+  CC              startall.c
+  CC              test.c
+  CC              test_cancelled.c
+  CC              testall.c
+  CC              testany.c
+  CC              testsome.c
+  CC              wait.c
+  CC              waitall.c
+  CC              waitany.c
+  CC              waitsome.c
+  CC              bsendutil.c
+  CC              mpir_request.c
+  AR cr ../../../lib/libmpich.a bsend.o bsend_init.o bufattach.o buffree.o cancel.o greq_start.o greq_complete.o ibsend.o iprobe.o irecv.o irsend.o isend.o issend.o probe.o recv.o recv_init.o request_free.o request_get_status.o rsend.o rsend_init.o send.o send_init.o sendrecv.o sendrecv_rep.o status_set_cancelled.o ssend.o ssend_init.o start.o startall.o test.o test_cancelled.o testall.o testany.o testsome.o wait.o waitall.o waitany.o waitsome.o bsendutil.o mpir_request.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/pt2pt'
+  CC             -D<profiling> ./bsend.c
+  CC             -D<profiling> ./bsend_init.c
+  CC             -D<profiling> ./bufattach.c
+  CC             -D<profiling> ./buffree.c
+  CC             -D<profiling> ./cancel.c
+  CC             -D<profiling> ./greq_start.c
+  CC             -D<profiling> ./greq_complete.c
+  CC             -D<profiling> ./ibsend.c
+  CC             -D<profiling> ./iprobe.c
+  CC             -D<profiling> ./irecv.c
+  CC             -D<profiling> ./irsend.c
+  CC             -D<profiling> ./isend.c
+  CC             -D<profiling> ./issend.c
+  CC             -D<profiling> ./probe.c
+  CC             -D<profiling> ./recv.c
+  CC             -D<profiling> ./recv_init.c
+  CC             -D<profiling> ./request_free.c
+  CC             -D<profiling> ./request_get_status.c
+  CC             -D<profiling> ./rsend.c
+  CC             -D<profiling> ./rsend_init.c
+  CC             -D<profiling> ./send.c
+  CC             -D<profiling> ./send_init.c
+  CC             -D<profiling> ./sendrecv.c
+  CC             -D<profiling> ./sendrecv_rep.c
+  CC             -D<profiling> ./status_set_cancelled.c
+  CC             -D<profiling> ./ssend.c
+  CC             -D<profiling> ./ssend_init.c
+  CC             -D<profiling> ./start.c
+  CC             -D<profiling> ./startall.c
+  CC             -D<profiling> ./test.c
+  CC             -D<profiling> ./test_cancelled.c
+  CC             -D<profiling> ./testall.c
+  CC             -D<profiling> ./testany.c
+  CC             -D<profiling> ./testsome.c
+  CC             -D<profiling> ./wait.c
+  CC             -D<profiling> ./waitall.c
+  CC             -D<profiling> ./waitany.c
+  CC             -D<profiling> ./waitsome.c
+  AR cr ../../../lib/libpmpich.a _bsend.o _bsend_init.o _bufattach.o _buffree.o _cancel.o _greq_start.o _greq_complete.o _ibsend.o _iprobe.o _irecv.o _irsend.o _isend.o _issend.o _probe.o _recv.o _recv_init.o _request_free.o _request_get_status.o _rsend.o _rsend_init.o _send.o _send_init.o _sendrecv.o _sendrecv_rep.o _status_set_cancelled.o _ssend.o _ssend_init.o _start.o _startall.o _test.o _test_cancelled.o _testall.o _testany.o _testsome.o _wait.o _waitall.o _waitany.o _waitsome.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/pt2pt'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/pt2pt'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/rma'
+  CC              accumulate.c
+  CC              alloc_mem.c
+  CC              free_mem.c
+  CC              get.c
+  CC              put.c
+  CC              win_complete.c
+  CC              win_create.c
+  CC              win_fence.c
+  CC              win_free.c
+  CC              win_get_group.c
+  CC              win_get_name.c
+  CC              win_lock.c
+  CC              win_post.c
+  CC              win_set_name.c
+  CC              win_start.c
+  CC              win_unlock.c
+  CC              win_wait.c
+  CC              win_test.c
+  CC              winutil.c
+  AR cr ../../../lib/libmpich.a accumulate.o alloc_mem.o free_mem.o get.o put.o win_complete.o win_create.o win_fence.o win_free.o win_get_group.o win_get_name.o win_lock.o win_post.o win_set_name.o win_start.o win_unlock.o win_wait.o win_test.o winutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/rma'
+  CC             -D<profiling> ./accumulate.c
+  CC             -D<profiling> ./alloc_mem.c
+  CC             -D<profiling> ./free_mem.c
+  CC             -D<profiling> ./get.c
+  CC             -D<profiling> ./put.c
+  CC             -D<profiling> ./win_complete.c
+  CC             -D<profiling> ./win_create.c
+  CC             -D<profiling> ./win_fence.c
+  CC             -D<profiling> ./win_free.c
+  CC             -D<profiling> ./win_get_group.c
+  CC             -D<profiling> ./win_get_name.c
+  CC             -D<profiling> ./win_lock.c
+  CC             -D<profiling> ./win_post.c
+  CC             -D<profiling> ./win_set_name.c
+  CC             -D<profiling> ./win_start.c
+  CC             -D<profiling> ./win_unlock.c
+  CC             -D<profiling> ./win_wait.c
+  CC             -D<profiling> ./win_test.c
+  AR cr ../../../lib/libpmpich.a _accumulate.o _alloc_mem.o _free_mem.o _get.o _put.o _win_complete.o _win_create.o _win_fence.o _win_free.o _win_get_group.o _win_get_name.o _win_lock.o _win_post.o _win_set_name.o _win_start.o _win_unlock.o _win_wait.o _win_test.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/rma'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/rma'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/spawn'
+  CC              comm_disconnect.c
+  CC              comm_get_parent.c
+  CC              comm_join.c
+  CC              comm_spawn.c
+  CC              comm_spawn_multiple.c
+  CC              lookup_name.c
+  CC              publish_name.c
+  CC              unpublish_name.c
+  CC              open_port.c
+  CC              close_port.c
+  CC              comm_connect.c
+  CC              comm_accept.c
+  AR cr ../../../lib/libmpich.a comm_disconnect.o comm_get_parent.o comm_join.o comm_spawn.o comm_spawn_multiple.o lookup_name.o publish_name.o unpublish_name.o open_port.o close_port.o comm_connect.o comm_accept.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/spawn'
+  CC             -D<profiling> ./comm_disconnect.c
+  CC             -D<profiling> ./comm_get_parent.c
+  CC             -D<profiling> ./comm_join.c
+  CC             -D<profiling> ./comm_spawn.c
+  CC             -D<profiling> ./comm_spawn_multiple.c
+  CC             -D<profiling> ./lookup_name.c
+  CC             -D<profiling> ./publish_name.c
+  CC             -D<profiling> ./unpublish_name.c
+  CC             -D<profiling> ./open_port.c
+  CC             -D<profiling> ./close_port.c
+  CC             -D<profiling> ./comm_connect.c
+  CC             -D<profiling> ./comm_accept.c
+  AR cr ../../../lib/libpmpich.a _comm_disconnect.o _comm_get_parent.o _comm_join.o _comm_spawn.o _comm_spawn_multiple.o _lookup_name.o _publish_name.o _unpublish_name.o _open_port.o _close_port.o _comm_connect.o _comm_accept.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/spawn'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/spawn'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/timer'
+  CC              wtime.c
+  CC              wtick.c
+  CC              mpidtime.c
+  AR cr ../../../lib/libmpich.a wtime.o wtick.o mpidtime.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/timer'
+  CC             -D<profiling> ./wtime.c
+  CC             -D<profiling> ./wtick.c
+  AR cr ../../../lib/libpmpich.a _wtime.o _wtick.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/timer'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/timer'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/topo'
+  CC              cart_coords.c
+  CC              cart_create.c
+  CC              cart_get.c
+  CC              cart_map.c
+  CC              cart_rank.c
+  CC              cart_shift.c
+  CC              cart_sub.c
+  CC              dims_create.c
+  CC              graph_get.c
+  CC              graph_map.c
+  CC              graph_nbr.c
+  CC              graphcreate.c
+  CC              graphdimsget.c
+  CC              graphnbrcnt.c
+  CC              cartdim_get.c
+  CC              topo_test.c
+  CC              dist_gr_create_adj.c
+  CC              dist_gr_create.c
+  CC              dist_gr_neighb_count.c
+  CC              dist_gr_neighb.c
+  CC              topoutil.c
+  AR cr ../../../lib/libmpich.a cart_coords.o cart_create.o cart_get.o cart_map.o cart_rank.o cart_shift.o cart_sub.o dims_create.o graph_get.o graph_map.o graph_nbr.o graphcreate.o graphdimsget.o graphnbrcnt.o cartdim_get.o topo_test.o dist_gr_create_adj.o dist_gr_create.o dist_gr_neighb_count.o dist_gr_neighb.o topoutil.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/topo'
+  CC             -D<profiling> ./cart_coords.c
+  CC             -D<profiling> ./cart_create.c
+  CC             -D<profiling> ./cart_get.c
+  CC             -D<profiling> ./cart_map.c
+  CC             -D<profiling> ./cart_rank.c
+  CC             -D<profiling> ./cart_shift.c
+  CC             -D<profiling> ./cart_sub.c
+  CC             -D<profiling> ./dims_create.c
+  CC             -D<profiling> ./graph_get.c
+  CC             -D<profiling> ./graph_map.c
+  CC             -D<profiling> ./graph_nbr.c
+  CC             -D<profiling> ./graphcreate.c
+  CC             -D<profiling> ./graphdimsget.c
+  CC             -D<profiling> ./graphnbrcnt.c
+  CC             -D<profiling> ./cartdim_get.c
+  CC             -D<profiling> ./topo_test.c
+  CC             -D<profiling> ./dist_gr_create_adj.c
+  CC             -D<profiling> ./dist_gr_create.c
+  CC             -D<profiling> ./dist_gr_neighb_count.c
+  CC             -D<profiling> ./dist_gr_neighb.c
+  AR cr ../../../lib/libpmpich.a _cart_coords.o _cart_create.o _cart_get.o _cart_map.o _cart_rank.o _cart_shift.o _cart_sub.o _dims_create.o _graph_get.o _graph_map.o _graph_nbr.o _graphcreate.o _graphdimsget.o _graphnbrcnt.o _cartdim_get.o _topo_test.o _dist_gr_create_adj.o _dist_gr_create.o _dist_gr_neighb_count.o _dist_gr_neighb.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/topo'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi/topo'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpi'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/mem'
+  CC              trmem.c
+  CC              handlemem.c
+  CC              safestr.c
+  CC              argstr.c
+  CC              strerror.c
+  AR cr ../../../lib/libmpich.a trmem.o handlemem.o safestr.o argstr.o strerror.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/mem'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/info'
+  CC              infoutil.c
+  CC              info_create.c
+  CC              info_delete.c
+  CC              info_dup.c
+  CC              info_free.c
+  CC              info_get.c
+  CC              info_getn.c
+  CC              info_getnth.c
+  CC              info_getvallen.c
+  CC              info_set.c
+  AR cr ../../../lib/libmpich.a infoutil.o info_create.o info_delete.o info_dup.o info_free.o info_get.o info_getn.o info_getnth.o info_getvallen.o info_set.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/info'
+  CC             -D<profiling> ./info_create.c
+  CC             -D<profiling> ./info_delete.c
+  CC             -D<profiling> ./info_dup.c
+  CC             -D<profiling> ./info_free.c
+  CC             -D<profiling> ./info_get.c
+  CC             -D<profiling> ./info_getn.c
+  CC             -D<profiling> ./info_getnth.c
+  CC             -D<profiling> ./info_getvallen.c
+  CC             -D<profiling> ./info_set.c
+  AR cr ../../../lib/libpmpich.a _info_create.o _info_delete.o _info_dup.o _info_free.o _info_get.o _info_getn.o _info_getnth.o _info_getvallen.o _info_set.o
+  RANLIB          libpmpich.a
+date > .libstamp2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/info'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/info'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/msgs'
+  CC              msgprint.c
+  AR cr ../../../lib/libmpich.a msgprint.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/msgs'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/instrm'
+  CC              states.c
+  AR cr ../../../lib/libmpich.a states.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/instrm'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/thread'
+  CC              mpiu_thread.c
+  AR cr ../../../lib/libmpich.a mpiu_thread.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/thread'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/dbg'
+  CC              dbg_printf.c
+  CC              timelimit.c
+  CC              exit.c
+  AR cr ../../../lib/libmpich.a dbg_printf.o timelimit.o exit.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/dbg'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/param'
+  CC              param_vals.c
+  AR cr ../../../lib/libmpich.a param_vals.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/param'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/osserv'
+  CC              dl.c
+  AR cr ../../../lib/libmpich.a dl.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/osserv'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/procmap'
+  CC              local_proc.c
+  AR cr ../../../lib/libmpich.a local_proc.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/procmap'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/other'
+  CC              outliers.c
+  CC              assert.c
+  AR cr ../../../lib/libmpich.a outliers.o assert.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util/other'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/util'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/nameserv'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/nameserv/file'
+  CC              file_nameserv.c
+  AR cr ../../../lib/libmpich.a file_nameserv.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/nameserv/file'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/nameserv'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/binding'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/binding'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/env'
+  CC              mpich2version.c
+gcc -O2   -o mpich2version mpich2version.o  \
+	../../lib/libmpich.a -lpthread   
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/env'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/pkgconfig'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/pkgconfig'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/envmods'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/envmods'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pmi'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pmi/simple'
+  CC              simple_pmiutil.c
+  CC              simple_pmi.c
+  AR cr ../../../lib/libmpich.a simple_pmiutil.o simple_pmi.o
+  RANLIB          libmpich.a
+date > .libstamp0
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pmi/simple'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pmi'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra'
+Making all in ../../mpl
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[4]: Nothing to be done for `all'.
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+Making all in tools/bind/hwloc/hwloc
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc'
+Making all in src
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+  CC     topology.lo
+  CC     traversal.lo
+  CC     topology-synthetic.lo
+  CC     bind.lo
+  CC     cpuset.lo
+  CC     misc.lo
+  CC     topology-xml.lo
+  CC     topology-windows.lo
+topology-windows.c: In function 'hwloc_look_windows':
+topology-windows.c:212: warning: assignment from incompatible pointer type
+topology-windows.c:213: warning: assignment from incompatible pointer type
+  CC     topology-x86.lo
+  CCLD   libhwloc.la
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+Making all in include
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/include'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/include'
+Making all in utils
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/utils'
+  CC     lstopo-lstopo.o
+lstopo.c: In function ‘add_process_objects’:
+lstopo.c:99: warning: passing argument 2 of ‘hwloc_get_proc_cpubind’ makes pointer from integer without a cast
+lstopo.c: In function ‘main’:
+lstopo.c:294: warning: assignment makes pointer from integer without a cast
+  CC     lstopo-lstopo-color.o
+  CC     lstopo-lstopo-text.o
+  CC     lstopo-lstopo-draw.o
+  CC     lstopo-lstopo-fig.o
+  CC     lstopo-lstopo-cairo.o
+In file included from /usr/lib/gcc/i686-pc-cygwin/4.3.4/../../../../include/w32api/windows.h:87,
+                 from /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/include/hwloc/config.h:112,
+                 from /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/include/hwloc.h:17,
+                 from lstopo.h:10,
+                 from lstopo-cairo.c:44:
+/usr/lib/gcc/i686-pc-cygwin/4.3.4/../../../../include/w32api/winspool.h:255: error: two or more data types in declaration specifiers
+/usr/lib/gcc/i686-pc-cygwin/4.3.4/../../../../include/w32api/winspool.h:270: error: two or more data types in declaration specifiers
+/usr/lib/gcc/i686-pc-cygwin/4.3.4/../../../../include/w32api/winspool.h:291: error: two or more data types in declaration specifiers
+/usr/lib/gcc/i686-pc-cygwin/4.3.4/../../../../include/w32api/winspool.h:316: error: two or more data types in declaration specifiers
+/usr/lib/gcc/i686-pc-cygwin/4.3.4/../../../../include/w32api/winspool.h:571: error: two or more data types in declaration specifiers
+/usr/lib/gcc/i686-pc-cygwin/4.3.4/../../../../include/w32api/winspool.h:594: error: two or more data types in declaration specifiers
+make[5]: *** [lstopo-lstopo-cairo.o] Error 1
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/utils'
+make[4]: *** [all-recursive] Error 1
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc'
+make[3]: *** [all-recursive] Error 1
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra'
+make[2]: *** [all-redirect] Error 1
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm'
+make[1]: *** [all-redirect] Error 2
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src'
+make: *** [all-redirect] Error 2

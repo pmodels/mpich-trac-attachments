@@ -1,0 +1,41 @@
+Index: src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_init.c
+===================================================================
+--- src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_init.c	(revision 6216)
++++ src/mpid/ch3/channels/nemesis/nemesis/src/mpid_nem_init.c	(working copy)
+@@ -262,13 +262,35 @@
+     }
+ 
+ 
++    /* XXX begin debugging hacks */
++    if (pg_rank == 0) {
++#define print_size(type_) fprintf(stderr, "[%d] sizeof(" #type_ ")=%zd\n", pg_rank, sizeof(type_))
++        print_size(int);
++        print_size(void*);
++        print_size(MPID_nem_queue_t);
++        print_size(MPID_nem_queue_ptr_t);
++#undef print_size
++        fprintf(stderr, "[%d] MPID_NEM_CACHE_LINE_LEN=%d\n", pg_rank, MPID_NEM_CACHE_LINE_LEN);
++        fprintf(stderr, "[%d] SIZEOF_OPA_PTR_T=%d\n", pg_rank, SIZEOF_OPA_PTR_T);
++    }
++    fprintf(stderr, "[%d] num_local=%d\n", pg_rank, num_local);
++    fprintf(stderr, "[%d] free_queues_p=%p\n", pg_rank, free_queues_p);
++    fprintf(stderr, "[%d] recv_queues_p=%p\n", pg_rank, recv_queues_p);
++    /* XXX end debugging hacks */
++
+     /* set route for local procs through shmem */
+     for (index = 0; index < num_local; index++)
+     {
+ 	grank = local_procs[index];
+ 	MPID_nem_mem_region.FreeQ[grank] = &free_queues_p[index];
+ 	MPID_nem_mem_region.RecvQ[grank] = &recv_queues_p[index];
+-        
++
++        /* XXX begin debugging hacks */
++        fprintf(stderr, "[%d] index=%d grank=%d\n", pg_rank, index, grank);
++        fprintf(stderr, "[%d] FreeQ[%d]=%p\n", pg_rank, grank, MPID_nem_mem_region.FreeQ[grank]);
++        fprintf(stderr, "[%d] RecvQ[%d]=%p\n", pg_rank, grank, MPID_nem_mem_region.RecvQ[grank]);
++        /* XXX end debugging hacks */
++
+ 	MPIU_Assert(MPID_NEM_ALIGNED(MPID_nem_mem_region.FreeQ[grank], MPID_NEM_CACHE_LINE_LEN));
+ 	MPIU_Assert(MPID_NEM_ALIGNED(MPID_nem_mem_region.RecvQ[grank], MPID_NEM_CACHE_LINE_LEN));
+     }

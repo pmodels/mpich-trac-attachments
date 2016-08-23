@@ -1,0 +1,77 @@
+Beginning make
+Using variables CC='pgcc' CFLAGS='-O2  -O2' LDFLAGS='-O2 ' AR='ar' FC='pgf77' F90='pgf90' FFLAGS='-O2  ' F90FLAGS='-O2  ' CXX='pgCC'
+make all-local
+make[1]: Entering directory `/tmp/mpich2-1.0.8'
+make[2]: Entering directory `/tmp/mpich2-1.0.8'
+make clean && cd test && make clean
+make[3]: Entering directory `/tmp/mpich2-1.0.8'
+make cleanlibs
+make[4]: Entering directory `/tmp/mpich2-1.0.8'
+rm -f lib/libmpich.a lib/libpmpich.a
+rm -f lib/libmpichcxx.a 
+rm -f lib/libfmpich.a lib/libmpichf90.a
+rm -f lib/libmpich.so* 
+rm -f lib/libpmpich.so*
+rm -f lib/libmpichcxx.so* 
+rm -f lib/libfmpich.so* 
+rm -f lib/libmpich.*.so* 
+rm -f lib/libpmpich.*.so*
+rm -f lib/libmpichcxx.*.so* 
+rm -f lib/libfmpich.*.so* 
+rm -f lib/libmpich.la* lib/libpmpich.la*
+rm -f lib/libmpichcxx.la* 
+rm -f lib/libfmpich.la* 
+make[4]: Leaving directory `/tmp/mpich2-1.0.8'
+for dir in src  examples - ; do \
+	if [ "$dir" = "-" ] ; then break ; fi ; \
+	(cd $dir && make clean ; ) ; done
+make[4]: Entering directory `/tmp/mpich2-1.0.8/src'
+( cd . && /maint/simplemake \
+-rootdir=../ \
+-configdir=. \
+-common=/maint/makedefs \
+-docnamedefs=/maint/docnotes \
+"-autoconf=-I ROOTDIR/confdb" \
+-libdir='${MPILIBNAME}=ROOTDIR/lib' \
+-smroot=/maint \
+-smvar_doc_attop=0 \
+	Makefile.sm )
+/bin/sh: /maint/simplemake: No such file or directory
+make[4]: *** [Makefile.in] Error 127
+make[4]: Leaving directory `/tmp/mpich2-1.0.8/src'
+make[4]: Entering directory `/tmp/mpich2-1.0.8/examples'
+make[4]: Leaving directory `/tmp/mpich2-1.0.8/examples'
+make[3]: Leaving directory `/tmp/mpich2-1.0.8'
+make[3]: Entering directory `/tmp/mpich2-1.0.8/test'
+( cd . && /maint/simplemake \
+-rootdir=../ \
+-configdir=. \
+-common=/maint/makedefs \
+-docnamedefs=/maint/docnotes \
+"-autoconf=-I ROOTDIR/confdb" \
+-libdir='${MPILIBNAME}=ROOTDIR/lib' \
+-smroot=/maint \
+-distcleanfiles="Makefile" \
+-smvar_doc_attop=0 \
+	Makefile.sm )
+/bin/sh: /maint/simplemake: No such file or directory
+make[3]: *** [Makefile.in] Error 127
+make[3]: Leaving directory `/tmp/mpich2-1.0.8/test'
+make[2]: *** [cleanobjsandlibs] Error 2
+make[2]: Leaving directory `/tmp/mpich2-1.0.8'
+make[1]: Leaving directory `/tmp/mpich2-1.0.8'
+make[1]: Entering directory `/tmp/mpich2-1.0.8/src'
+( cd . && /maint/simplemake \
+-rootdir=../ \
+-configdir=. \
+-common=/maint/makedefs \
+-docnamedefs=/maint/docnotes \
+"-autoconf=-I ROOTDIR/confdb" \
+-libdir='${MPILIBNAME}=ROOTDIR/lib' \
+-smroot=/maint \
+-smvar_doc_attop=0 \
+	Makefile.sm )
+/bin/sh: /maint/simplemake: No such file or directory
+make[1]: *** [Makefile.in] Error 127
+make[1]: Leaving directory `/tmp/mpich2-1.0.8/src'
+make: *** [all-redirect] Error 2

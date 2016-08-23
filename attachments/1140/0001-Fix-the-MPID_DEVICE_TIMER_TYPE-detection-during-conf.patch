@@ -1,0 +1,34 @@
+From f1ffcae1224dfb6779faa8b14463205f1b90c999 Mon Sep 17 00:00:00 2001
+From: Joe Ratterman <jratt@us.ibm.com>
+Date: Thu, 2 Dec 2010 10:38:45 -0600
+Subject: [PATCH] Fix the MPID_DEVICE_TIMER_TYPE detection during configure
+
+    It was only used if $timer_type was set to "device", but a
+    previous part of the code converts it to uppercase.  I changed the
+    comparison to use "DEVICE".
+
+Signed-off-by: Joe Ratterman <jratt@us.ibm.com>
+---
+ mpich2/configure.in |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/mpich2/configure.in b/mpich2/configure.in
+index 19d8946..775f321 100644
+--- a/mpich2/configure.in
++++ b/mpich2/configure.in
+@@ -5636,10 +5636,10 @@ fi
+ if test -f $devicedir/setup_device ; then
+     echo sourcing $devicedir/setup_device
+     . $devicedir/setup_device
+ fi
+-# See if we need to update the timer type
+-if test "$timer_type" = "device" ; then
++# See if we need to update the timer type (which was converted to uppercase)
++if test "$timer_type" = "DEVICE" ; then
+     # The device selected should export the datatype for the timer
+     # in MPID_DEVICE_TIMER_TYPE if something other than long is needed
+     if test -n "$MPID_DEVICE_TIMER_TYPE" ; then 
+        MPID_TIMER_TYPE=$MPID_DEVICE_TIMER_TYPE
+-- 
+1.7.3.2.2.g45ba7
+

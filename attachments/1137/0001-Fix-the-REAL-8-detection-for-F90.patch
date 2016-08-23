@@ -1,0 +1,82 @@
+From 84ea7215b1b9cd2473f4bf57f7f1aa00c1250794 Mon Sep 17 00:00:00 2001
+From: Joe Ratterman <jratt@us.ibm.com>
+Date: Wed, 1 Dec 2010 14:07:06 -0600
+Subject: [PATCH] Fix the REAL*8 detection for F90
+
+
+Signed-off-by: Joe Ratterman <jratt@us.ibm.com>
+---
+ mpich2/configure.in |   21 +++++++++++----------
+ 1 files changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/mpich2/configure.in b/mpich2/configure.in
+index 7a40a2e..6f55fe3 100644
+--- a/mpich2/configure.in
++++ b/mpich2/configure.in
+@@ -2082,19 +2082,10 @@ EOF
+     # Also define the name FORTRAN_BINDING for use in #if @FORTRAN_BINDING@..
+     FORTRAN_BINDING=1
+ 
+ fi
+ 
+-WTIME_DOUBLE_TYPE="DOUBLE PRECISION"
+-# Save a copy of the original mpi_base.f90 file
+-if test "$enable_fc" = "yes" -a "$has_fort90_real8" = "yes" ; then
+-    WTIME_DOUBLE_TYPE="REAL*8"
+-fi
+-# WTIME_DOUBLE_TYPE is substituted into mpi_base.f90
+-AC_SUBST(WTIME_DOUBLE_TYPE)
+-
+-
+ dnl By modifying mpif.h to use ! for comments, it can work with many f90 
+ dnl compilers without creating a separate version.  
+ dnl Note that this is run AFTER the AC_OUTPUT actions
+ AC_OUTPUT_COMMANDS([if test "$enable_f77" = yes ; then 
+ if test "$bashWorks" = yes ; then cp -f src/env/mpif77.bash src/env/mpif77 ; fi
+@@ -2122,11 +2113,10 @@ fi],
+ master_top_srcdir=$master_top_srcdir
+ enable_f77=$enable_f77
+ enable_fc=$enable_fc
+ has_exclaim=$has_exclaim
+ has_fort_real8=$pac_cv_fort_real8
+-has_fort90_real8=$pac_cv_fort90_real8
+ includebuild_dir=$includebuild_dir
+ libbuild_dir=$libbuild_dir
+ bashWorks=$bashWorks)
+ 
+ if test "$enable_fc" = "yes" ; then
+@@ -4500,20 +4490,31 @@ EOF
+             fi
+             if test "$OFFSET_KIND" = "-1" ; then
+ 	        OFFSET_KIND=$simpleintkind
+             fi
+         fi
++
++        AC_LANG_PUSH([Fortran])
+         AC_CACHE_CHECK([if real*8 is supported in Fortran 90],
+                        [pac_cv_fort90_real8],[
+             AC_COMPILE_IFELSE([
+                 AC_LANG_PROGRAM([],[      real*8 a])
+             ],[
+                 pac_cv_fort90_real8=yes
+             ],[
+                 pac_cv_fort90_real8=no
+             ])
+         ])
++        AC_LANG_POP([Fortran])
++        WTIME_DOUBLE_TYPE="DOUBLE PRECISION"
++        # Save a copy of the original mpi_base.f90 file
++        if test "$enable_fc" = "yes" -a "$pac_cv_fort90_real8" = "yes" ; then
++            WTIME_DOUBLE_TYPE="REAL*8"
++        fi
++        # WTIME_DOUBLE_TYPE is substituted into mpi_base.f90
++        AC_SUBST(WTIME_DOUBLE_TYPE)
++
+     fi
+     # Make sure that address kind and offset kind have values.
+     if test -z "$ADDRESS_KIND" ; then
+         ADDRESS_KIND=0
+     fi
+-- 
+1.7.3.2.2.g45ba7
+

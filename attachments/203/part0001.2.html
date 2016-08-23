@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #203: mpi_send and recieve problem between windows and linux</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; Can you run a non-MPI program (like hostname) across the two machines ?<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; mpiexec -n 2 -machinefile mf.txt hostname<BR>
+<BR>
+&nbsp; Can you run a sample helloworld MPI program across the machines ? Can you run icpi.c (source of the example is in the examples directory of MPICH2 source and the windows executable, cpi.exe, is in MPICH2\examples directory of the windows installtion dir) across the two machines ?<BR>
+<BR>
+/*========= sample hello world =========*/<BR>
+int main(int argc, char *argv[]){<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int rank;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MPI_Init(&amp;argc, &amp;argv);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MPI_Comm_rank(MPI_COMM_WORLD, &amp;rank);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf(&quot;[%d] Hello world\n&quot;, rank);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MPI_Finalize();<BR>
+}<BR>
+/*========= sample hello world =========*/<BR>
+<BR>
+&nbsp; Please provide us more details so that we can help you further (1. Source code of your MPI program 2. How are you running your program ? 3. Please copy-paste the error message that you get when you run your app etc).<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Friday, October 10, 2008 6:16 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #203: mpi_send and recieve problem between windows and linux<BR>
+<BR>
+------------------------------------------------------------------------+---<BR>
+&nbsp;Reporter:&nbsp; &quot;vemireddy ramakrishnareddy&quot; &lt;vemireddy.rkreddy@gmail.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+------------------------------------------------------------------------+---<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;i am a able to fire a exe on both linux and windows systems<BR>
+<BR>
+<BR>
+&nbsp;but sending and receiving are failing<BR>
+<BR>
+<BR>
+&nbsp;saying that unable to find process group structure with id &lt;&gt;&nbsp; }}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/203">https://trac.mcs.anl.gov/projects/mpich2/ticket/203</A>&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

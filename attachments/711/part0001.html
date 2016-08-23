@@ -1,0 +1,59 @@
+I&#39;m looking into building more of our system in parallel, but I&#39;ve seen lib*.a corruption in MPICH2 before.  When reviewing build output in -j2, I will often see things like this:<div><br></div><div><div style="margin-left: 40px;">
+<font face="&#39;courier new&#39;, monospace">$ pwd</font></div>
+<div style="margin-left: 40px;"><font face="&#39;courier new&#39;, monospace">/bgusr/jratt/bgp.01/bgp/comm/build/mpich2/dcmf-8aint/src/mpi/pt2pt</font></div><div style="margin-left: 40px;"><div><font face="&#39;courier new&#39;, monospace">$ touch /bgusr/jratt/bgp.01/bgp/comm/lib/dev/mpich2/src/mpi/pt2pt/send.c</font></div>
+
+<div><font face="&#39;courier new&#39;, monospace">$ make -s  # NORMAL:<br></font></div><div><font face="&#39;courier new&#39;, monospace">  CC              /bgusr/jratt/bgp.01/bgp/comm/lib/dev/mpich2/src/mpi/pt2pt/send.c</font></div>
+
+<div><font face="&#39;courier new&#39;, monospace">  AR cr ../../../lib/libmpich.cnk.a send.o</font></div><div><font face="&#39;courier new&#39;, monospace">  RANLIB          libmpich.cnk.a</font></div>
+<div><font face="&#39;courier new&#39;, monospace">  CC              /bgusr/jratt/bgp.01/bgp/comm/lib/dev/mpich2/src/mpi/pt2pt/send.c</font></div><div><font face="&#39;courier new&#39;, monospace">  AR cr ../../../lib/<a href="http://libmpich.cnk.la" target="_blank">libmpich.cnk.la</a> send.lo</font></div>
+
+<div><font face="&#39;courier new&#39;, monospace">$ touch /bgusr/jratt/bgp.01/bgp/comm/lib/dev/mpich2/src/mpi/pt2pt/send.c</font></div><div><font face="&#39;courier new&#39;, monospace">$ make -j -s  # ODD:<br></font></div>
+
+</div><div style="margin-left: 40px;"><font face="&#39;courier new&#39;, monospace">  CC              /bgusr/jratt/bgp.01/bgp/comm/lib/dev/mpich2/src/mpi/pt2pt/send.c</font></div><div style="margin-left: 40px;"><b><font face="&#39;courier new&#39;, monospace">  AR cr ../../../lib/libmpich.cnk.a send.o</font></b></div>
+
+<div style="margin-left: 40px;"><b><font face="&#39;courier new&#39;, monospace">  AR cr ../../../lib/libmpich.cnk.a send.o</font></b></div><div style="margin-left: 40px;"><b><font face="&#39;courier new&#39;, monospace">  RANLIB          libmpich.cnk.a</font></b></div>
+
+<div style="margin-left: 40px;"><b><font face="&#39;courier new&#39;, monospace">  RANLIB          libmpich.cnk.a</font></b></div><div style="margin-left: 40px;"><font face="&#39;courier new&#39;, monospace">  CC              /bgusr/jratt/bgp.01/bgp/comm/lib/dev/mpich2/src/mpi/pt2pt/send.c</font></div>
+
+<div style="margin-left: 40px;"><font face="&#39;courier new&#39;, monospace">  AR cr ../../../lib/<a href="http://libmpich.cnk.la" target="_blank">libmpich.cnk.la</a> send.lo</font></div><div><br></div><div>In parallel, it appears to be running AR and RANLIB twice.  Adding $$$$ to the echo commands in the Makefile (shell $$, the pid), I see this:</div>
+
+<div><br></div><div><div style="font-family: courier new,monospace; margin-left: 40px;">$ touch /bgusr/jratt/bgp.01/bgp/comm/lib/dev/mpich2/src/mpi/pt2pt/send.c</div><div style="font-family: courier new,monospace; margin-left: 40px;">
+$ make -j -s</div><div style="font-family: courier new,monospace; margin-left: 40px;">  CC              /bgusr/jratt/bgp.01/bgp/comm/lib/dev/mpich2/src/mpi/pt2pt/send.c</div><div style="font-family: courier new,monospace; margin-left: 40px;">
+
+<b>  AR cr ../../../lib/libmpich.cnk.a send.o 12867</b></div><div style="font-family: courier new,monospace; margin-left: 40px;"><b>  AR cr ../../../lib/libmpich.cnk.a send.o 12868</b></div><div style="font-family: courier new,monospace; margin-left: 40px;">
+<b>  RANLIB          libmpich.cnk.a 12871</b></div><div style="font-family: courier new,monospace; margin-left: 40px;"><b>  RANLIB          libmpich.cnk.a 12873</b></div>
+<div style="font-family: courier new,monospace; margin-left: 40px;">  CC              /bgusr/jratt/bgp.01/bgp/comm/lib/dev/mpich2/src/mpi/pt2pt/send.c</div><div style="font-family: courier new,monospace; margin-left: 40px;">
+  AR cr ../../../lib/<a href="http://libmpich.cnk.la" target="_blank">libmpich.cnk.la</a> send.lo</div><div><br></div></div><div>It appears to be running the commands simultaneously in two processes.  That cannot be a good thing.  I think it comes from this sort of section in the Makefile.in:</div>
+
+<div><br></div><div><div style="margin-left: 40px; font-family: courier new,monospace;"><b>all-redirect: .libstamp0 ../../../lib/lib${MPILIBNAME}.a</b></div><div style="margin-left: 40px; font-family: courier new,monospace;">
+<b>.libstamp0 ../../../lib/lib${MPILIBNAME}.a</b>: bsend.o bsend_init.o bufattach.o \</div><div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>buffree.o cancel.o greq_start.o greq_complete.o ibsend.o iprobe.o \</div>
+
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>irecv.o irsend.o isend.o issend.o probe.o recv.o recv_init.o \</div><div style="margin-left: 40px; font-family: courier new,monospace;">
+<span style="white-space: pre;">	</span>request_free.o request_get_status.o rsend.o rsend_init.o send.o \</div>
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>send_init.o sendrecv.o sendrecv_rep.o status_set_cancelled.o ssend.o \</div><div style="margin-left: 40px; font-family: courier new,monospace;">
+<span style="white-space: pre;">	</span>ssend_init.o start.o startall.o test.o test_cancelled.o testall.o \</div>
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>testany.o testsome.o wait.o waitall.o waitany.o waitsome.o \</div><div style="margin-left: 40px; font-family: courier new,monospace;">
+<span style="white-space: pre;">	</span>bsendutil.o mpir_request.o </div>
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>@if [ &quot;x$(VERBOSE)&quot; != &quot;x1&quot; ] ; then \</div><div style="margin-left: 40px; font-family: courier new,monospace;">
+<span style="white-space: pre;">	</span>  echo &quot;  AR cr ../../../lib/lib${MPILIBNAME}.a $?&quot; ; \</div>
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>else \</div><div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>  echo ${AR} cr ../../../lib/lib${MPILIBNAME}.a $? ; \</div>
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>fi</div>
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>@${AR} cr ../../../lib/lib${MPILIBNAME}.a $?</div><div style="margin-left: 40px; font-family: courier new,monospace;">
+<span style="white-space: pre;">	</span>@if [ &quot;x$(VERBOSE)&quot; != &quot;x1&quot; ] ; then \</div>
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>  echo &quot;  RANLIB          lib${MPILIBNAME}.a&quot; ; \</div><div style="margin-left: 40px; font-family: courier new,monospace;">
+<span style="white-space: pre;">	</span>else \</div><div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>  echo ${RANLIB} ../../../lib/lib${MPILIBNAME}.a ; \</div>
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>fi</div><div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>@${RANLIB} ../../../lib/lib${MPILIBNAME}.a</div>
+<div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>date &gt; .libstamp0</div>
+<div><br></div></div><div>all-redirect is the default rule in use.  It depends on two things, which don&#39;t depend on each other, so make appears to parallelize the building of those two things.  However, those two things aren&#39;t independent and in fact build each other.  Removing the library as a dependency all over the Makefile removes the double-AR and the build still works with dep checking.  I think this simple Makefile illustrates the problem well:</div>
+
+<div><br></div><div><div><div style="margin-left: 40px; font-family: courier new,monospace;">all-redirect: stamp lib</div><div style="margin-left: 40px; font-family: courier new,monospace;">stamp lib: source</div><div style="margin-left: 40px; font-family: courier new,monospace;">
+<div><span style="white-space: pre;">	</span>sleep 1<br></div><div><span style="white-space: pre;">	</span>echo $@ &gt; stamp</div>
+</div><div style="margin-left: 40px; font-family: courier new,monospace;"><span style="white-space: pre;">	</span>echo $@ &gt; lib</div><div><br></div></div><div>Drop that in an (empty) dir and run:</div><div style="margin-left: 40px; font-family: courier new,monospace;">
+touch source ; make -j ; head stamp lib</div></div><div>
+<br></div><div>You can see that it updates stamp and lib twice simultaneously after sleeping 1 sec:</div><div style="font-family: courier new,monospace; margin-left: 40px;"><br></div><div><div style="font-family: courier new,monospace; margin-left: 40px;">
+sleep 1</div><div style="font-family: courier new,monospace; margin-left: 40px;">sleep 1</div><div style="margin-left: 40px; font-family: comic sans ms,sans-serif;"><span style="font-family: courier new,monospace;">echo stamp &gt; stamp</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">echo lib &gt; stamp</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">echo stamp &gt; lib</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">echo lib &gt; lib</span><br></div><div><br></div><div>That will clearly result in non-deterministic data in lib and stamp.</div><div><br><br></div><div>To fix parallel builds, I believe that steps need to be taken to remove those sort of double-target rules.  I understand that the Makefile.in files are built by &quot;simplemake&quot;, but that is the end of my understanding.  Is there someone who still knows how it works and can help get parallel builds working?<br>
+</div>
+<div><br></div><div><br></div><div><br></div><div>Thanks,</div><div>Joe Ratterman</div><div><a href="mailto:jratt@us.ibm.com" target="_blank">jratt@us.ibm.com</a></div><div><br></div></div><div><br></div><div><br></div><div>
+<br></div></div>

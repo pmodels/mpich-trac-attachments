@@ -1,0 +1,575 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; I spoke too soon. We have discontinued supporting sshm channel and that is the reason that you have an old version of sshm related dlls in your system32 directory.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Wednesday, August 13, 2008 2:38 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: Re: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+------------------------------------------------------------+-----------<BR>
+------------------------------------------------------------+----<BR>
+&nbsp; Reporter:&nbsp; &quot;Ayer, Timothy&nbsp; C.&quot; &lt;timothy.ayer@pw.utc.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:&nbsp; jayesh&nbsp;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; assigned<BR>
+&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2&nbsp;<BR>
+Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+------------------------------------------------------------+-----------<BR>
+------------------------------------------------------------+----<BR>
+<BR>
+<BR>
+Comment (by Jayesh Krishna):<BR>
+<BR>
+&nbsp;Hi,<BR>
+&nbsp;&nbsp; Hmmm... This looks like the problem that I mentioned in my email.<BR>
+&nbsp;*sshm*.dll s should have the same datestamp as other dlls (should not be&nbsp; from 2005!).<BR>
+&nbsp;&nbsp; Please try the following,<BR>
+<BR>
+&nbsp;# Uninstall MPICH2 on the hosts involved in your job.<BR>
+&nbsp;# Manually delete the MPICH2 dlls from windows\system32 directory (Please&nbsp; be careful! Make sure that you delete only mpich2*.dll &amp; mpe*.dll)&nbsp; # Re-install MPICH2 1.0.7 (stable version) on the hosts/nodes .<BR>
+&nbsp;# Re-compile cpi.c/fpi.c and try running your job.<BR>
+<BR>
+&nbsp;&nbsp; Let us know the results.<BR>
+<BR>
+&nbsp;Regards,<BR>
+&nbsp;Jayesh<BR>
+<BR>
+&nbsp;-----Original Message-----<BR>
+&nbsp;From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&nbsp;On Behalf Of mpich2<BR>
+&nbsp;Sent: Wednesday, August 13, 2008 2:11 PM<BR>
+&nbsp;To: undisclosed-recipients:<BR>
+&nbsp;Subject: Re: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+&nbsp;------------------------------------------------------------+-----------<BR>
+&nbsp;------------------------------------------------------------+----<BR>
+&nbsp;&nbsp; Reporter:&nbsp; &quot;Ayer, Timothy&nbsp; C.&quot; &lt;timothy.ayer@pw.utc.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Owner:<BR>
+&nbsp;jayesh<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:<BR>
+&nbsp;assigned<BR>
+&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:<BR>
+&nbsp;mpich2<BR>
+&nbsp;Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Keywords:<BR>
+<BR>
+&nbsp;------------------------------------------------------------+-----------<BR>
+&nbsp;------------------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;Comment (by Ayer, Timothy&nbsp; C.):<BR>
+<BR>
+&nbsp; Hi Jayesh,<BR>
+<BR>
+&nbsp; Great to hear from you.&nbsp; I will try your suggestions (icpi.c and slow&nbsp; response).<BR>
+<BR>
+&nbsp; Also here is the output you requested.&nbsp; I have been wondering why the&nbsp; dates&nbsp; on mpich2sshm.dll and mpich2sshmp.dll seem so old (from 2005)???<BR>
+&nbsp;...I&nbsp; should&nbsp; have mentioned it sooner.<BR>
+<BR>
+&nbsp; Thanks,<BR>
+&nbsp; Tim<BR>
+<BR>
+<BR>
+&nbsp; C:\WINDOWS\system32&gt;dir c:\windows\system32\mpe*.dll<BR>
+&nbsp;&nbsp; Volume in drive C is System<BR>
+&nbsp;&nbsp; Volume Serial Number is D8B5-0657<BR>
+<BR>
+&nbsp;&nbsp; Directory of c:\windows\system32<BR>
+<BR>
+&nbsp; 04/04/2008&nbsp; 05:46 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 135,168 mpe.dll<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 File(s)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 135,168 bytes<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Dir(s)&nbsp;&nbsp; 4,497,502,208 bytes free<BR>
+<BR>
+&nbsp; C:\WINDOWS\system32&gt;<BR>
+<BR>
+<BR>
+&nbsp; C:\WINDOWS\system32&gt;dir dir c:\windows\system32\mpich2*.dll<BR>
+&nbsp;&nbsp; Volume in drive C is System<BR>
+&nbsp;&nbsp; Volume Serial Number is D8B5-0657<BR>
+<BR>
+&nbsp;&nbsp; Directory of C:\WINDOWS\system32<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Directory of C:\WINDOWS\system32<BR>
+<BR>
+&nbsp; 04/04/2008&nbsp; 05:28 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,110,016 mpich2.dll<BR>
+&nbsp; 04/04/2008&nbsp; 05:47 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 151,552 mpich2mpe.dll<BR>
+&nbsp; 04/04/2008&nbsp; 05:23 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 159,744 mpich2mpi.dll<BR>
+&nbsp; 04/04/2008&nbsp; 06:31 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,159,168 mpich2mt.dll<BR>
+&nbsp; 04/04/2008&nbsp; 06:42 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,351,680 mpich2mtp.dll<BR>
+&nbsp; 04/04/2008&nbsp; 05:43 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,306,624 mpich2p.dll<BR>
+&nbsp; 04/04/2008&nbsp; 05:55 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,093,632 mpich2shm.dll<BR>
+&nbsp; 04/04/2008&nbsp; 06:03 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,294,336 mpich2shmp.dll<BR>
+&nbsp; 11/23/2005&nbsp; 02:33 AM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,032,192 mpich2sshm.dll&nbsp; &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<BR>
+&nbsp; 11/23/2005&nbsp; 02:36 AM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,294,336 mpich2sshmp.dll &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<BR>
+&nbsp; 04/04/2008&nbsp; 06:14 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,122,304 mpich2ssm.dll<BR>
+&nbsp; 04/04/2008&nbsp; 06:22 PM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,343,488 mpich2ssmp.dll<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12 File(s)&nbsp;&nbsp;&nbsp;&nbsp; 12,419,072 bytes<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 Dir(s)&nbsp;&nbsp; 4,497,502,208 bytes free<BR>
+<BR>
+&nbsp; -----Original Message-----<BR>
+&nbsp; From: owner-mpich2-bugs@mcs.anl.gov<BR>
+&nbsp;[<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>]<BR>
+&nbsp; On Behalf Of mpich2<BR>
+&nbsp; Sent: Wednesday, August 13, 2008 2:58 PM<BR>
+&nbsp; Subject: Re: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;------------------------------------------------------------+-------------<BR>
+&nbsp;--<BR>
+&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Ayer, Timothy&nbsp; C.&quot; &lt;timothy.ayer@pw.utc.com&gt;&nbsp; |<BR>
+&nbsp;Owner:<BR>
+&nbsp; jayesh<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;Status:<BR>
+&nbsp; assigned<BR>
+&nbsp;&nbsp;&nbsp; Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;Component:<BR>
+&nbsp; mpich2<BR>
+&nbsp; Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;Keywords:<BR>
+<BR>
+<BR>
+&nbsp;------------------------------------------------------------+-------------<BR>
+&nbsp;--<BR>
+<BR>
+<BR>
+&nbsp; Comment (by Jayesh Krishna):<BR>
+<BR>
+&nbsp;&nbsp; Hi,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; The logs sent by you show that the communication btw the process<BR>
+&nbsp;&nbsp; managers on the hosts is good. The problem looks to be with the<BR>
+&nbsp;&nbsp; communication btw the MPI processes.<BR>
+<BR>
+&nbsp;&nbsp; # Can you try compiling icpi.c (MPICH2\examples) and run the program in<BR>
+&nbsp;&nbsp; your setup (Make sure that the problem is not related to fortran<BR>
+&nbsp;&nbsp; bindings).<BR>
+&nbsp;&nbsp; # I have seen that some times that the uninstall/install of MPICH2 does<BR>
+&nbsp;&nbsp; not result in the dlls being updated correctly (This has lead to some<BR>
+&nbsp;&nbsp; wierd-difficult-to-debug hangs in our tests. This is not usual but it&nbsp; does<BR>
+&nbsp;&nbsp; not hurt to check for it though). To make sure that you have the right<BR>
+&nbsp;&nbsp; dlls try listing the MPICH2 dlls in your windows system32 directory on<BR>
+&nbsp;&nbsp; both the hosts,<BR>
+<BR>
+&nbsp;&nbsp; &gt;&gt;&gt; dir c:\windows\system32\mpich2*.dll<BR>
+&nbsp;&nbsp; &gt;&gt;&gt; dir c:\windows\system32\mpe*.dll<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Send us the results for verification (Sanity check- they should have&nbsp; the<BR>
+&nbsp;&nbsp; same datestamp)<BR>
+<BR>
+&nbsp;&nbsp; # Also when running fpi.exe using your setup try leaving the job (or may<BR>
+&nbsp;&nbsp; be specify a timeout of 10 mins or so) for 10mins or so and see if it<BR>
+&nbsp;&nbsp; reports any errors. You might want to run netstat (or use &quot;Process<BR>
+&nbsp;&nbsp; explorer&quot; from microsoft and check the TCP/IP tab in the<BR>
+&nbsp;&nbsp; process-&gt;properties) to see what happens to the connections btw the MPI<BR>
+&nbsp;&nbsp; processes from both hosts.<BR>
+<BR>
+&nbsp;&nbsp; (PS: The MPICH2 1.1.0a1 release<BR>
+<BR>
+&nbsp;(<A HREF="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=dow">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=dow</A><BR>
+&nbsp;&nbsp; nloads) is aimed at MPICH2 devs and not for production machines. )<BR>
+<BR>
+&nbsp;&nbsp; Regards,<BR>
+&nbsp;&nbsp; Jayesh<BR>
+<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Ayer, Timothy C. [<A HREF="mailto:timothy.ayer@pw.utc.com">mailto:timothy.ayer@pw.utc.com</A>]<BR>
+&nbsp;&nbsp; Sent: Tuesday, August 05, 2008 9:20 AM<BR>
+&nbsp;&nbsp; To: Jayesh Krishna<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Please find attached the output from the smpd -d procs.&nbsp; Also, the&nbsp; output<BR>
+&nbsp;&nbsp; from the mpiexec just so you can see what I typed.<BR>
+<BR>
+&nbsp;&nbsp; H:\&gt;mpiexec.exe -map v:\\10.30.73.170\temp -hosts 2 10.30.73.170<BR>
+&nbsp;&nbsp; 10.30.73.34 v:\fpi.exe<BR>
+&nbsp;&nbsp;&nbsp; Process&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is alive<BR>
+&nbsp;&nbsp; Enter the number of intervals: (0 quits)<BR>
+&nbsp;&nbsp;&nbsp; Process&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is alive<BR>
+&nbsp;&nbsp;&nbsp; Before bcast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is alive<BR>
+&nbsp;&nbsp; 10<BR>
+&nbsp;&nbsp;&nbsp; Before bcast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is alive<BR>
+&nbsp;&nbsp; 100<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 5:10 PM<BR>
+&nbsp;&nbsp; To: 'Ayer, Timothy C.'<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; The socket/channel connection between the MPI processes take place&nbsp; during<BR>
+&nbsp;&nbsp; MPI_Bcast() (not before that in fpi.f).<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Ayer, Timothy C. [<A HREF="mailto:timothy.ayer@pw.utc.com">mailto:timothy.ayer@pw.utc.com</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 4:00 PM<BR>
+&nbsp;&nbsp; To: Jayesh Krishna<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; The firewall has been disabled.<BR>
+<BR>
+&nbsp;&nbsp; The inputs were from me entering values for estimating pi...I wanted to<BR>
+&nbsp;&nbsp; make sure the program ran through all the logic.<BR>
+<BR>
+&nbsp;&nbsp; I will send the other debug output a little later.<BR>
+<BR>
+&nbsp;&nbsp; Also,&nbsp; as an fyi, we have been running MPICH on thousands of PC's for<BR>
+&nbsp;&nbsp; years now.&nbsp; The other strange part is that over a year ago I did<BR>
+&nbsp;&nbsp; successfully run MPICH2 on over 30 processors.&nbsp; My first thought was the<BR>
+&nbsp;&nbsp; firewall as well.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 4:46 PM<BR>
+&nbsp;&nbsp; To: 'Ayer, Timothy C.'<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; # Do you have windows firewall (or any firewall) running on these&nbsp; machines<BR>
+&nbsp;&nbsp; ?<BR>
+&nbsp;&nbsp; # Why do I see two inputs (10 &amp; 100) in the mpiexec debug output ?<BR>
+&nbsp;&nbsp; # Can you send us the debug output of smpd along with mpiexec ?<BR>
+&nbsp;&nbsp; # Can you check the status of the remote smpd from each host ?<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --- On host A, run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;smpd -status IPAddressOf_hostB&quot;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --- On host B, run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;smpd -status IPAddressOf_hostA&quot;<BR>
+<BR>
+&nbsp;&nbsp; (PS: I just tried running fpi.exe in a shared drive across two 32-bit<BR>
+&nbsp;&nbsp; windows XP machines in our lab but did not get any errors/hang)<BR>
+<BR>
+&nbsp;&nbsp; Regards,<BR>
+&nbsp;&nbsp; Jayesh<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Ayer, Timothy C. [<A HREF="mailto:timothy.ayer@pw.utc.com">mailto:timothy.ayer@pw.utc.com</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 3:11 PM<BR>
+&nbsp;&nbsp; To: Jayesh Krishna<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; This is the same fpi.f which comes with the installation with the<BR>
+&nbsp;&nbsp; exception that I have added print statements.<BR>
+<BR>
+&nbsp;&nbsp; The setup is homogenous (both 32-bit).&nbsp; The output is attached.<BR>
+<BR>
+&nbsp;&nbsp; Thanks for your help.<BR>
+<BR>
+&nbsp;&nbsp; Tim<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 3:48 PM<BR>
+&nbsp;&nbsp; To: 'Ayer, Timothy C.'<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; # Are you running fpi.exe (fpi.f) provided with MPICH2 (Have you&nbsp; modified<BR>
+&nbsp;&nbsp; the program ?)?<BR>
+&nbsp;&nbsp; # I am assuming that the setup is not heterogeneous (MPICH2 currently&nbsp; does<BR>
+&nbsp;&nbsp; not support running jobs across machines with different data models eg:<BR>
+&nbsp;&nbsp; You cannot run your MPI job across 32-bit and 64-bit machines)<BR>
+&nbsp;&nbsp; # Please provide us with the debug/verbose output when running fpi.exe.<BR>
+&nbsp;&nbsp; Start smpd on both the machines in debug mode (1. Stop any instances of<BR>
+&nbsp;&nbsp; smpd running on the system, smpd -stop&nbsp;&nbsp; 2. Start smpd in debug mode,<BR>
+&nbsp; smpd<BR>
+&nbsp;&nbsp; -d) and run mpiexec in verbose mode (mpiexec.exe -verbose -map<BR>
+&nbsp;&nbsp; y:\\IPAddressOf_hostA\temp -hosts 2 IPAddressOf_hostA IPAddressOf_hostB<BR>
+&nbsp;&nbsp; y:\fpi.exe)<BR>
+<BR>
+&nbsp;&nbsp; Regards,<BR>
+&nbsp;&nbsp; Jayesh<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Ayer, Timothy C. [<A HREF="mailto:timothy.ayer@pw.utc.com">mailto:timothy.ayer@pw.utc.com</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 2:21 PM<BR>
+&nbsp;&nbsp; To: Jayesh Krishna<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Thanks, here is the output (note:&nbsp; I have not included IP address or<BR>
+&nbsp;&nbsp; actual hostnames in this email but did use them in testing)<BR>
+<BR>
+&nbsp;&nbsp; # mpiexec.exe -map y:\\IPAddressOf_hostA\temp -hosts 2 IPAddressOf_hostA<BR>
+&nbsp;&nbsp; IPAddressOf_hostB y:\fpi.exe<BR>
+<BR>
+&nbsp;&nbsp; OUTPUT:<BR>
+&nbsp;&nbsp;&nbsp; Process&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is alive<BR>
+&nbsp;&nbsp; Enter the number of intervals: (0 quits)<BR>
+&nbsp;&nbsp;&nbsp; Process&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is alive<BR>
+&nbsp;&nbsp;&nbsp; Before bcast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is alive<BR>
+&nbsp;&nbsp; 10<BR>
+&nbsp;&nbsp;&nbsp; Before bcast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is alive<BR>
+<BR>
+&nbsp;&nbsp; # mpiexec.exe -map y:\\IPAddressOf_hostA\temp hostname<BR>
+<BR>
+&nbsp;&nbsp; XXXXXX (hostname of hostA)<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 3:13 PM<BR>
+&nbsp;&nbsp; To: 'Ayer, Timothy C.'<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; The command hostname (c:\windows\system32\hostname.exe)<BR>
+<BR>
+&nbsp;&nbsp; Regards,<BR>
+&nbsp;&nbsp; Jayesh<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Ayer, Timothy C. [<A HREF="mailto:timothy.ayer@pw.utc.com">mailto:timothy.ayer@pw.utc.com</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 2:11 PM<BR>
+&nbsp;&nbsp; To: Jayesh Krishna<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; You have &quot;hostname&quot; at the end of the second line...what is that&nbsp; referring<BR>
+&nbsp;&nbsp; to?<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 2:47 PM<BR>
+&nbsp;&nbsp; To: 'Ayer, Timothy C.'<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; What is the error message (output) that you get when you run mpiexec ?<BR>
+&nbsp;&nbsp;&nbsp; Pls provide us with the output of the following commands (Make sure&nbsp; that<BR>
+&nbsp;&nbsp; you specify ipaddresses of the hosts involved),<BR>
+<BR>
+&nbsp;&nbsp; # mpiexec.exe -map y:\\IPAddressOf_hostA\temp -hosts 2 IPAddressOf_hostA<BR>
+&nbsp;&nbsp; IPAddressOf_hostB y:\fpi.exe<BR>
+&nbsp;&nbsp; # mpiexec.exe -map y:\\IPAddressOf_hostA\temp hostname<BR>
+<BR>
+&nbsp;&nbsp; Regards,<BR>
+&nbsp;&nbsp; Jayesh<BR>
+<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Ayer, Timothy C. [<A HREF="mailto:timothy.ayer@pw.utc.com">mailto:timothy.ayer@pw.utc.com</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 1:25 PM<BR>
+&nbsp;&nbsp; To: Jayesh Krishna<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; No this does not work...the behavior is the same.&nbsp; The UNC's should/have<BR>
+&nbsp;&nbsp; worked regardless of whether a user a user is logged in.&nbsp; We have never<BR>
+&nbsp;&nbsp; relied on drive network drive mappings since they are intermittently an<BR>
+&nbsp;&nbsp; &quot;interactive&quot; feature.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 2:02 PM<BR>
+&nbsp;&nbsp; To: 'Ayer, Timothy C.'<BR>
+&nbsp;&nbsp; Cc: mpich2-maint@mcs.anl.gov<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; You should try,<BR>
+<BR>
+&nbsp;&nbsp; mpiexec.exe -map y:\\hostA\temp -hosts 2 hostA hostB y:\fpi.exe<BR>
+&nbsp;&nbsp; &lt;<A HREF="file://hosta/temp/fpi.exe">file://hosta/temp/fpi.exe</A>&gt;<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; Let us know if it works for you.<BR>
+<BR>
+&nbsp;&nbsp; (PS: The shared drive is accessible across machines because the drive is<BR>
+&nbsp;&nbsp; accessible/mapped by the user logged on to the machines. SMPD runs as a<BR>
+&nbsp;&nbsp; service logged on as &quot;Local System&quot; and does not - should not- have&nbsp; access<BR>
+&nbsp;&nbsp; to drives shared by users)<BR>
+<BR>
+&nbsp;&nbsp; Regards,<BR>
+&nbsp;&nbsp; Jayesh<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Ayer, Timothy C. [<A HREF="mailto:timothy.ayer@pw.utc.com">mailto:timothy.ayer@pw.utc.com</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 12:50 PM<BR>
+&nbsp;&nbsp; To: Jayesh Krishna<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; The exe can be directly accessed from hostB by executing<BR>
+&nbsp;&nbsp; \\hostA\temp\fpi.exe, that is, you could type it directly into a command<BR>
+&nbsp;&nbsp; prompt from hostB if you wanted.&nbsp; Note also that&nbsp; \temp directory is a<BR>
+&nbsp;&nbsp; shared location.&nbsp; I am not sure physically how this is setup on our<BR>
+&nbsp;&nbsp; network but this has worked with out any &quot;mapping&quot; for MPICH (MPICH1).<BR>
+<BR>
+&nbsp;&nbsp; Note:&nbsp; I did try:&nbsp; mpiexec.exe -map y:\\hostA\temp -hosts 2 hostA hostB<BR>
+&nbsp;&nbsp; \\hostA\temp\fpi.exe but that still hangs in the MPI_Bcast call.<BR>
+<BR>
+&nbsp;&nbsp; The interesting part is that it gets through the initialization:<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call MPI_INIT( ierr )<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call MPI_COMM_RANK( MPI_COMM_WORLD, myid, ierr )<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call MPI_COMM_SIZE( MPI_COMM_WORLD, numprocs, ierr )<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; All execute.<BR>
+<BR>
+&nbsp;&nbsp; Thanks,<BR>
+&nbsp;&nbsp; Tim<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 1:33 PM<BR>
+&nbsp;&nbsp; To: 'Ayer, Timothy C.'<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; How (what mechanism) does hostB access data (exe) in hostA ?<BR>
+<BR>
+&nbsp;&nbsp; Regards,<BR>
+&nbsp;&nbsp; Jayesh<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Ayer, Timothy C. [<A HREF="mailto:timothy.ayer@pw.utc.com">mailto:timothy.ayer@pw.utc.com</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 12:31 PM<BR>
+&nbsp;&nbsp; To: Jayesh Krishna<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; Thanks Jayesh for the quick reply.&nbsp; This is a network availabe UNC path<BR>
+&nbsp; -<BR>
+&nbsp;&nbsp; why do I need to map a drive?<BR>
+<BR>
+&nbsp;&nbsp; I am familiar with the machines file - I was just using the command line<BR>
+&nbsp;&nbsp; for debugging.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; _____<BR>
+<BR>
+&nbsp;&nbsp; From: Jayesh Krishna [<A HREF="mailto:jayesh@mcs.anl.gov">mailto:jayesh@mcs.anl.gov</A>]<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 10:56 AM<BR>
+&nbsp;&nbsp; To: timothy.ayer@pw.utc.com<BR>
+&nbsp;&nbsp; Cc: mpich2-maint@mcs.anl.gov<BR>
+&nbsp;&nbsp; Subject: RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; Hi,<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; If you are running your executable from a shared network drive you&nbsp; need<BR>
+&nbsp;&nbsp; to map (see &quot;--map&quot; option of mpiexec in the window's developer's guide)<BR>
+&nbsp;&nbsp; the network drive with mpiexec when launching your job.<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Also make sure that you have turned the windows firewall (or any other<BR>
+&nbsp;&nbsp; firewalls) off on the machines involved in the job.<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Try specifying the ip addresses of the machines instead of the<BR>
+&nbsp;&nbsp; hostnames.<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Let us know the results.<BR>
+<BR>
+&nbsp;&nbsp; (PS: Instead of the &quot;-hosts&quot; option you could try using the&nbsp; &quot;-machinefile&quot;<BR>
+&nbsp;&nbsp; option available with mpiexec. See the window's developer's guide for<BR>
+&nbsp;&nbsp; details.)<BR>
+<BR>
+&nbsp;&nbsp; Regards,<BR>
+&nbsp;&nbsp; Jayesh<BR>
+&nbsp;&nbsp; -----Original Message-----<BR>
+&nbsp;&nbsp; From: owner-mpich2-bugs@mcs.anl.gov [<A HREF="mailto:owner-">mailto:owner-</A>&nbsp; mpich2-bugs@mcs.anl.gov]<BR>
+&nbsp;&nbsp; On Behalf Of mpich2<BR>
+&nbsp;&nbsp; Sent: Monday, August 04, 2008 9:33 AM<BR>
+&nbsp;&nbsp; To: undisclosed-recipients:<BR>
+&nbsp;&nbsp; Subject: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP<BR>
+<BR>
+&nbsp;&nbsp; -----------------------------------------------------------+------------<BR>
+&nbsp;&nbsp; -----------------------------------------------------------+----<BR>
+&nbsp;&nbsp;&nbsp; Reporter:&nbsp; &quot;Ayer, Timothy&nbsp; C.&quot; &lt;timothy.ayer@pw.utc.com&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:<BR>
+&nbsp;&nbsp; bug<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Priority:<BR>
+&nbsp;&nbsp; major<BR>
+&nbsp;&nbsp; Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+&nbsp;&nbsp; -----------------------------------------------------------+------------<BR>
+&nbsp;&nbsp; -----------------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; I am testing MPICH2 MPICH2-1.0.7 Windows XP (sp2).&nbsp; I have installed it<BR>
+&nbsp;&nbsp; on<BR>
+&nbsp;&nbsp;&nbsp; 2<BR>
+&nbsp;&nbsp;&nbsp; hosts (hostA, hostB) and trying to run the fpi.exe built with<BR>
+&nbsp;&nbsp; fmpich2.lib.<BR>
+&nbsp;&nbsp;&nbsp; The code is hanging in a MPI_Bcast call.&nbsp; The fpi.exe source is&nbsp; attached.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; The following tests work fine from hostA, both prompt for a number of<BR>
+&nbsp;&nbsp; intervals, accept input, and produce and estimate of PI<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; mpiexec.exe -hosts 2 hostA hostA \\hostA\temp\fpi.exe<BR>
+&nbsp;&nbsp; &lt;\\hostA\temp\fpi.exe&gt;<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; mpiexec.exe -hosts 2 hostB hostB \\hostA\temp\fpi.exe<BR>
+&nbsp;&nbsp; &lt;\\hostA\temp\fpi.exe&gt;<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; The following test hangs when submitted from hostA (in MPI_Bcast).&nbsp; It<BR>
+&nbsp;&nbsp; does&nbsp; prompt for input (number of intervals) but once entered it hangs.<BR>
+&nbsp; I<BR>
+&nbsp;&nbsp; have&nbsp; launched the smpd process using smpd -d but see no output from the<BR>
+&nbsp;&nbsp; smpd&nbsp; after I enter an interval value<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; mpiexec.exe -hosts 2 hostA hostB \\hostA\temp\fpi.exe<BR>
+&nbsp;&nbsp; &lt;\\hostA\temp\fpi.exe&gt;<BR>
+<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; Any suggestions would be appreciated.&nbsp;&nbsp; Also let me know if you want me<BR>
+&nbsp;&nbsp; to<BR>
+&nbsp;&nbsp;&nbsp; send debug output.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; Thanks,<BR>
+&nbsp;&nbsp;&nbsp; Tim<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; _____________________<BR>
+&nbsp;&nbsp;&nbsp; Timothy C. Ayer<BR>
+&nbsp;&nbsp;&nbsp; High Performance Technical Computing<BR>
+&nbsp;&nbsp;&nbsp; United Technologies - Pratt &amp; Whitney<BR>
+&nbsp;&nbsp;&nbsp; timothy.ayer@pw.utc.com<BR>
+&nbsp;&nbsp;&nbsp; (860) 565 - 5268 v<BR>
+&nbsp;&nbsp;&nbsp; (860) 565 - 2668 f<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt;fpi.f&gt;&gt;<BR>
+<BR>
+<BR>
+&nbsp;&nbsp; --<BR>
+&nbsp;&nbsp; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/36">https://trac.mcs.anl.gov/projects/mpich2/ticket/36</A>&gt;<BR>
+<BR>
+&nbsp; --<BR>
+&nbsp; Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/36#comment:&gt;<BR>
+<BR>
+&nbsp;--<BR>
+&nbsp;Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/36#comment:&gt;<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/36#comment:&gt;<BR>
+<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

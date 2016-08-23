@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #372: Problem with -wdir option for shared networkhard drives</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>&nbsp;Hi,<BR>
+&nbsp; You should map any network drives that you use in your MPI job using the &quot;-map&quot; option of mpiexec (mpiexec -n 2 -map x:\\IPADDRESS_OF_HOST\NETWORK_SHARE_NAME ... ).<BR>
+&nbsp; Let us know if it works for you.<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Friday, January 23, 2009 7:25 AM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #372: Problem with -wdir option for shared networkhard drives<BR>
+<BR>
+-------------------------------------------------------------+----------<BR>
+-------------------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;DONADILLE Laurent&quot; &lt;laurent.donadille@irsn.fr&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+-------------------------------------------------------------+----------<BR>
+-------------------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Dear developpers,<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;I have installed mpich2-1.0.8-win-ia32.msi on 2 Windows based PCs&nbsp; (downloaded from&nbsp; <A HREF="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=do">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=do</A><BR>
+&nbsp;wnloads).<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;From a shared network hardrive, the provided cpi.exe example works fine,&nbsp; i.e.<BR>
+<BR>
+&nbsp;mpiexec -n &lt;whatever nb proc&gt; -machinefile &lt;file listing the 2 hosts&gt;&nbsp; cpi<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;However, when running the same command but for a program (MCNPX, version&nbsp; running fine with MPICH1) which needs an input file, i.e.<BR>
+<BR>
+&nbsp;mpiexec -n &lt;whatever nb proc&gt; -machinefile &lt;file listing the 2 hosts&gt;&nbsp; -wdir (or -dir) &lt;shared network directory containing the input, which is&nbsp; the current directory&gt; program &lt;input file&gt;<BR>
+<BR>
+&nbsp;the input file is not found.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;It appears that MPICH2 doesn't &quot;see&quot; this network directory, i.e. the&nbsp; -wdir option is not effective.<BR>
+<BR>
+&nbsp;Conversely, the -wdir option works well for local directories.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Could you please help me ?<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Thank you very much in advance.<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Best regards,<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;Dr. L. Donadille<BR>
+<BR>
+<BR>
+<BR>
+&nbsp;IRSN, France<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/372">https://trac.mcs.anl.gov/projects/mpich2/ticket/372</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

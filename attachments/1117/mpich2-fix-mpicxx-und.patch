@@ -1,0 +1,33 @@
+--- Makefile.in	2010-10-02 17:03:25.000000000 -0400
++++ Makefile.in.new	2010-10-12 12:36:36.678703773 -0400
+@@ -99,6 +99,8 @@
+ 
+ CC              = @CC@
+ CFLAGS          = @CFLAGS@ $(MPICH2_MAKE_CFLAGS)
++CXX             = @CXX@
++CXXFLAGS        = @CXXFLAGS@ $(MPICH2_MAKE_CXXFLAGS)
+ C_COMPILE       = $(CC) $(DEFS) $(INCLUDES) $(CFLAGS) $(CPPFLAGS)
+ # Build the shared library from the shared object files
+ lib/lib${MPILIBNAME}.@SHLIB_EXT@: lib/lib${MPILIBNAME}.la
+@@ -115,7 +117,7 @@
+ 	(cd lib && $(CREATESHLIB) --mode=link -version-info "$(ABIVERSION)" -o lib${MPILIBNAME}f90.la  -rpath $(libdir) -L. @LDFLAGS_DEPS@ -l$(MPILIBNAME) @LIB_DEPS@ -ldflags "$(LDFLAGS)" $(LIBS))
+ # Build the shared library from the shared object files
+ lib/lib${MPICXXLIBNAME}.@SHLIB_EXT@: lib/lib${MPICXXLIBNAME}.la
+-	(cd lib && $(CREATESHLIB) --mode=link -version-info "$(ABIVERSION)" -o lib${MPICXXLIBNAME}.la  -rpath $(libdir) -L. @LDFLAGS_DEPS@ -l$(MPILIBNAME) @LIB_DEPS@ -ldflags "$(LDFLAGS)" $(LIBS))
++	(cd lib && $(CREATESHLIB) --mode=link -cc="$(CXX) $(CXXFLAGS)" -clink="$(CXX) $(CXXFLAGS) -shared" -version-info "$(ABIVERSION)" -o lib${MPICXXLIBNAME}.la  -rpath $(libdir) -L. @LDFLAGS_DEPS@ -l$(MPILIBNAME) @LIB_DEPS@ -ldflags "$(LDFLAGS)" $(LIBS))
+ 
+ # --------------------------------------------------------------------------
+ .libstamp0: 
+--- src/util/createshlib.in	2010-10-12 14:02:39.743151668 -0400
++++ src/util/createshlib.in.new	2010-10-12 14:02:52.677826974 -0400
+@@ -98,8 +98,8 @@
+        -dryrun) Show=echo ;;
+        # -cc and -clink allow us to override the commands used to 
+        # build the shared library
+-       -cc=*) CC_SHL=$option ;;
+-       -clink=*) C_LINK_SHL=$option ;;
++       -cc=*) CC_SHL=`echo $arg | sed -e 's/-cc=//'` ;;
++       -clink=*) C_LINK_SHL=`echo $arg | sed -e 's/-clink=//'` ;;
+        -libtype=*) libtype=$option ;;
+        -l*|-L*)
+        dependentLibs="$dependentLibs $arg"

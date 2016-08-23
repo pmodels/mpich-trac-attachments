@@ -1,0 +1,47 @@
+Index: redscatbkinter.c
+===================================================================
+--- redscatbkinter.c	(revision 10807)
++++ redscatbkinter.c	(working copy)
+@@ -35,6 +35,9 @@
+     MTest_Init( &argc, &argv );
+     comm = MPI_COMM_WORLD;
+ 
++#if MTEST_HAVE_MIN_MPI_VERSION(2,2)
++    /* MPI_Reduce_scatter block was added in MPI-2.2 */
++
+     basecount = 1024;
+ 
+     while (MTestGetIntercomm( &comm, &isLeftGroup, 2 )) {
+@@ -98,6 +101,8 @@
+ 	MTestFreeComm( &comm );
+     }
+ 
++#endif
++
+     MTest_Finalize( err );
+ 
+     MPI_Finalize( );
+Index: redscatblk3.c
+===================================================================
+--- redscatblk3.c	(revision 10807)
++++ redscatblk3.c	(working copy)
+@@ -31,6 +31,10 @@
+ 
+     MPI_Comm_size( comm, &size );
+     MPI_Comm_rank( comm, &rank );
++
++#if MTEST_HAVE_MIN_MPI_VERSION(2,2)
++    /* MPI_Reduce_scatter block was added in MPI-2.2 */
++
+     mycount = (1024 * 1024) / size;
+ 
+     sendbuf = (int *) malloc( mycount * size * sizeof(int) );
+@@ -80,6 +84,8 @@
+ 
+     free(sendbuf);
+     free(recvbuf);
++
++#endif
+        
+     MTest_Finalize( err );
+ 

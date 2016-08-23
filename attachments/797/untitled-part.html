@@ -1,0 +1,57 @@
+<html>
+<body>
+<br>
+Hi,<br><br>
+I seem to have inadvertently broken some aspect the mpich2 installer,
+file<br>
+mpich2-1.1.1p1-win-ia32.msi,<br>
+I have tried many things, and I cannot install mpich2 on my
+computer.<br><br>
+Please help me.&nbsp; I am working on a time critical project, and now I
+am dead in the water.<br><br>
+The sequence of events was<br>
+1.&nbsp; installed 2.1.1 (above file) on top of my old version without
+deinstalling the old version<br>
+2.&nbsp; noticed two entries for MPICH2 in Add / Remove programs.<br>
+3.&nbsp; decided I should deinstall them both and reinstall a fresh
+copy.<br>
+4.&nbsp; deinstalled the oldest one first (version 1.0 something)<br>
+5.&nbsp; tried to deinstall the newest one second. (version 1.1)<br>
+<x-tab>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</x-tab>deinstall
+failed.&nbsp; Said there was an error in the installer.<br>
+6.&nbsp; tried to reinstall the newest 1.1.1 again.&nbsp; Again,
+installer failed.&nbsp; Error message is below.<br><br>
+<img src="cid:.0" width=500 height=404 alt="Emacs!"><br><br>
+7.&nbsp; Sopped and disabled MPICH Daemon <br>
+8.&nbsp; Tied again and it failed.<br>
+8.&nbsp; Went into regedit and removed most entries related to MPICH2,
+trying to get a clean state<br>
+9.&nbsp; Ran installer again and got the same message.<br>
+10.&nbsp; Deinstalled MPICH.&nbsp; That worked fine.<br>
+11.&nbsp; Removed all folders and files I could find assosiated with
+mpich and mpich2.<br>
+12.&nbsp; Ran installer again and got the same message.<br>
+13.&nbsp; Thinking maybe the Windows installer was at fault, I went to
+Microsoft and upgraded my Windoew Installer to version 4.5 (for Win
+XP-SP2).<br>
+14.&nbsp; Ran installer again and got the same results.<br><br>
+So, evidently it is not a problem with Windows Installer, and it may not
+be a problem with your file, per se (I downloaded it several
+times).&nbsp; But it seems to be a problem where it is looking for a
+registry entry and can't find what it wants.&nbsp; In other words, if the
+registry is not in a clean state, I guess it fails.<br><br>
+Is there any way to do a clean install from scratch so I can get past
+this?<br><br>
+Thanks,<br><br>
+Peter Smith<br><br>
+<x-sigsep><p></x-sigsep>
+Peter D. Smith,&nbsp; Technical Staff Member<br>
+<font face="arial" size=2>AET-6 / NDE Development Team<br>
+</font>Los Alamos National Laboratory<br>
+Mail Stop C914<br>
+Los Alamos, NM 87545<br><br>
+voice: 505-665-3047<x-tab>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</x-tab>FAX:
+505-665-7176<br>
+e-mail: smithpd@lanl.gov<br>
+</body>
+</html>

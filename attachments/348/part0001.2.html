@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7653.38">
+<TITLE>RE: [mpich2-maint] #348: error in installing mpich2</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>This:&nbsp; For now, try configuring with the option<BR>
+--with-file-system=ufs+nfs.<BR>
+I understand.<BR>
+<BR>
+I do not understand:&nbsp; Or if you don't need to use the MPI-IO functions,<BR>
+configure with --disable-romio.<BR>
+<BR>
+Thanks,<BR>
+<BR>
+Wade Miner<BR>
+<BR>
+<BR>
+<BR>
+-----Original Message-----<BR>
+From: owner-mpich2-bugs@mcs.anl.gov<BR>
+[<A HREF="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Friday, January 09, 2009 2:36 PM<BR>
+Subject: Re: [mpich2-maint] #348: error in installing mpich2<BR>
+<BR>
+---------------------------------------------------------------+--------<BR>
+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Miner, Wade (Newport News)&quot; &lt;Wade.Miner@ngc.com&gt;&nbsp; |<BR>
+Owner:&nbsp; robl<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+Status:&nbsp; new<BR>
+&nbsp;Priority:&nbsp; major&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+Component:&nbsp; mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |<BR>
+Resolution:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+&nbsp;Keywords:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;<BR>
+---------------------------------------------------------------+--------<BR>
+----<BR>
+<BR>
+<BR>
+Comment (by Rajeev Thakur):<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;For now, try configuring with the option --with-file-system=ufs+nfs. Or<BR>
+if<BR>
+&nbsp;you don't need to use the MPI-IO functions, configure with --disable-<BR>
+&nbsp;romio.<BR>
+<BR>
+&nbsp;Rajeev<BR>
+<BR>
+<BR>
+&nbsp;&gt;&nbsp; Good Morning,<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; I have been going through the process of installing mpich2<BR>
+&nbsp;&gt; on an SGI TEZRO<BR>
+&nbsp;&gt;&nbsp; {1000<BR>
+&nbsp;&gt;&nbsp; Mhrz, 8 Gb of ram, two 134 Gb hdd's&nbsp; Operating system; 6.5.30m}.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; In the build step, I got some errors in ad_xfA_done&nbsp; (please see the<BR>
+&nbsp;&gt;&nbsp; attached<BR>
+&nbsp;&gt;&nbsp; file; err.txt).<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; The configure step appeared to me to be OK (c.txt attached).&nbsp; Also<BR>
+&nbsp;&gt;&nbsp; attached is<BR>
+&nbsp;&gt;&nbsp; the m.txt file.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; I greatly appreciate your assistance.<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; &lt;&lt;m.txt&gt;&gt; &lt;&lt;err.txt&gt;&gt; &lt;&lt;c.txt&gt;&gt;<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Most sincerely,<BR>
+&nbsp;&gt;<BR>
+&nbsp;&gt;&nbsp; Wade Miner<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+--<BR>
+Ticket URL:<BR>
+&lt;https://trac.mcs.anl.gov/projects/mpich2/ticket/348#comment:&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

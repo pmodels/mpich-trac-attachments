@@ -1,0 +1,333 @@
+From 7f0ecf9f27d13f69707bd2ed6d4d13bd0ab52c06 Mon Sep 17 00:00:00 2001
+From: Joe Ratterman <jratt@us.ibm.com>
+Date: Mon, 14 Dec 2009 10:58:16 -0600
+Subject: [PATCH] Make the VCR API independent of the nature of the VCR list
+
+---
+ mpich2/src/include/mpiimpl.h               |    4 ++--
+ mpich2/src/mpi/comm/comm_create.c          |    4 ++--
+ mpich2/src/mpi/comm/comm_group.c           |    2 +-
+ mpich2/src/mpi/comm/comm_remote_group.c    |    2 +-
+ mpich2/src/mpi/comm/comm_split.c           |   12 ++++++------
+ mpich2/src/mpi/comm/commutil.c             |   10 +++++-----
+ mpich2/src/mpi/comm/intercomm_create.c     |   10 +++++-----
+ mpich2/src/mpi/comm/intercomm_merge.c      |    8 ++++----
+ mpich2/src/mpi/group/grouputil.c           |    2 +-
+ mpich2/src/mpid/dcmfd/include/mpidpre.h    |    5 +++--
+ mpich2/src/mpid/dcmfd/src/misc/mpid_init.c |    4 ++--
+ mpich2/src/mpid/dcmfd/src/misc/mpid_vc.c   |   16 ++++++++--------
+ 12 files changed, 40 insertions(+), 39 deletions(-)
+
+diff --git a/mpich2/src/include/mpiimpl.h b/mpich2/src/include/mpiimpl.h
+index 40dcdbb..722e237 100644
+--- a/mpich2/src/include/mpiimpl.h
++++ b/mpich2/src/include/mpiimpl.h
+@@ -3333,7 +3333,7 @@ int MPID_VCRT_Get_ptr(MPID_VCRT vcrt, MPID_VCR **vc_pptr);
+ /*@
+   MPID_VCR_Dup - Create a duplicate reference to a virtual connection
+   @*/
+-int MPID_VCR_Dup(MPID_VCR orig_vcr, MPID_VCR * new_vcr);
++int MPID_VCR_Dup(const MPID_VCR *orig_vcr, unsigned origin_index, MPID_VCR *new_vcr, unsigned new_index);
+ 
+ /*@
+    MPID_VCR_Get_lpid - Get the local process id that corresponds to a 
+@@ -3346,7 +3346,7 @@ int MPID_VCR_Dup(MPID_VCR orig_vcr, MPID_VCR * new_vcr);
+    processes may use different ids to identify the same target process
+   @*/
+ /* We macro-ized this at the device. */
+-int MPID_VCR_Get_lpid(MPID_VCR vcr, int * lpid_ptr);
++int MPID_VCR_Get_lpid(MPID_VCR *vcr, unsigned index, int * lpid_ptr);
+ 
+ /* ------------------------------------------------------------------------- */
+ /* Define a macro to allow us to select between statically selected functions
+diff --git a/mpich2/src/mpi/comm/comm_create.c b/mpich2/src/mpi/comm/comm_create.c
+index ea3de75..49d5376 100644
+--- a/mpich2/src/mpi/comm/comm_create.c
++++ b/mpich2/src/mpi/comm/comm_create.c
+@@ -154,7 +154,7 @@ PMPI_LOCAL int MPIR_Comm_create_calculate_mapping(MPID_Group  *group_ptr,
+             mapping[i] = -1;
+             for (j=0; j<vcr_size; j++) {
+                 int comm_lpid;
+-                MPID_VCR_Get_lpid( vcr[j], &comm_lpid );
++                MPID_VCR_Get_lpid( vcr, j, &comm_lpid );
+                 if (comm_lpid == group_ptr->lrank_to_lpid[i].lpid) {
+                     mapping[i] = j;
+                     break;
+@@ -207,7 +207,7 @@ PMPI_LOCAL int MPIR_Comm_create_create_and_map_vcrt(int         n,
+         MPIU_DBG_MSG_FMT(COMM,VERBOSE,
+                          (MPIU_DBG_FDEST, "dupping from mapping_vcr=%p rank=%d into new_rank=%d/%d in new_vcr=%p",
+                           mapping_vcr, mapping[i], i, n, vcr));
+-        mpi_errno = MPID_VCR_Dup(mapping_vcr[mapping[i]], &vcr[i]);
++        mpi_errno = MPID_VCR_Dup(mapping_vcr, mapping[i], vcr, i);
+         if (mpi_errno) MPIU_ERR_POP(mpi_errno);
+     }
+ 
+diff --git a/mpich2/src/mpi/comm/comm_group.c b/mpich2/src/mpi/comm/comm_group.c
+index 71d0d83..04e4764 100644
+--- a/mpich2/src/mpi/comm/comm_group.c
++++ b/mpich2/src/mpi/comm/comm_group.c
+@@ -118,7 +118,7 @@ int MPI_Comm_group(MPI_Comm comm, MPI_Group *group)
+ 	    local_vcr = comm_ptr->vcr;
+ 	
+ 	for (i=0; i<n; i++) {
+-	    (void) MPID_VCR_Get_lpid( local_vcr[i], &lpid );
++	    (void) MPID_VCR_Get_lpid( local_vcr, i, &lpid );
+ 	    group_ptr->lrank_to_lpid[i].lrank = i;
+ 	    group_ptr->lrank_to_lpid[i].lpid  = lpid;
+ 	}
+diff --git a/mpich2/src/mpi/comm/comm_remote_group.c b/mpich2/src/mpi/comm/comm_remote_group.c
+index f22abf0..4254c87 100644
+--- a/mpich2/src/mpi/comm/comm_remote_group.c
++++ b/mpich2/src/mpi/comm/comm_remote_group.c
+@@ -117,7 +117,7 @@ int MPI_Comm_remote_group(MPI_Comm comm, MPI_Group *group)
+ 	
+ 	for (i=0; i<n; i++) {
+ 	    group_ptr->lrank_to_lpid[i].lrank = i;
+-	    (void) MPID_VCR_Get_lpid( comm_ptr->vcr[i], &lpid );
++	    (void) MPID_VCR_Get_lpid( comm_ptr->vcr, i, &lpid );
+ 	    group_ptr->lrank_to_lpid[i].lpid  = lpid;
+ 	}
+ 	group_ptr->size		 = n;
+diff --git a/mpich2/src/mpi/comm/comm_split.c b/mpich2/src/mpi/comm/comm_split.c
+index 6d67026..328484f 100644
+--- a/mpich2/src/mpi/comm/comm_split.c
++++ b/mpich2/src/mpi/comm/comm_split.c
+@@ -323,8 +323,8 @@ int MPI_Comm_split(MPI_Comm comm, int color, int key, MPI_Comm *newcomm)
+ 	    MPID_VCRT_Get_ptr( newcomm_ptr->local_vcrt, 
+ 			       &newcomm_ptr->local_vcr );
+ 	    for (i=0; i<new_size; i++) {
+-		MPID_VCR_Dup( comm_ptr->local_vcr[keytable[i].color], 
+-			      &newcomm_ptr->local_vcr[i] );
++		MPID_VCR_Dup( comm_ptr->local_vcr, keytable[i].color, 
++			      newcomm_ptr->local_vcr, i );
+ 		if (keytable[i].color == comm_ptr->rank) {
+ 		    newcomm_ptr->rank = i;
+ 		}
+@@ -348,8 +348,8 @@ int MPI_Comm_split(MPI_Comm comm, int color, int key, MPI_Comm *newcomm)
+ 	    MPID_VCRT_Create( new_remote_size, &newcomm_ptr->vcrt );
+ 	    MPID_VCRT_Get_ptr( newcomm_ptr->vcrt, &newcomm_ptr->vcr );
+ 	    for (i=0; i<new_remote_size; i++) {
+-		MPID_VCR_Dup( comm_ptr->vcr[remotekeytable[i].color], 
+-			      &newcomm_ptr->vcr[i] );
++		MPID_VCR_Dup( comm_ptr->vcr, remotekeytable[i].color, 
++			      newcomm_ptr->vcr, i );
+ 	    }
+ 
+ 	    newcomm_ptr->context_id     = remote_context_id;
+@@ -365,8 +365,8 @@ int MPI_Comm_split(MPI_Comm comm, int color, int key, MPI_Comm *newcomm)
+ 	    MPID_VCRT_Create( new_size, &newcomm_ptr->vcrt );
+ 	    MPID_VCRT_Get_ptr( newcomm_ptr->vcrt, &newcomm_ptr->vcr );
+ 	    for (i=0; i<new_size; i++) {
+-		MPID_VCR_Dup( comm_ptr->vcr[keytable[i].color], 
+-			      &newcomm_ptr->vcr[i] );
++		MPID_VCR_Dup( comm_ptr->vcr, keytable[i].color, 
++			      newcomm_ptr->vcr, i );
+ 		if (keytable[i].color == comm_ptr->rank) {
+ 		    newcomm_ptr->rank = i;
+ 		}
+diff --git a/mpich2/src/mpi/comm/commutil.c b/mpich2/src/mpi/comm/commutil.c
+index 31edb43..f7b2358 100644
+--- a/mpich2/src/mpi/comm/commutil.c
++++ b/mpich2/src/mpi/comm/commutil.c
+@@ -277,8 +277,8 @@ int MPIR_Comm_commit(MPID_Comm *comm)
+             for (i = 0; i < num_local; ++i) {
+                 /* For rank i in the new communicator, find the corresponding
+                    rank in the input communicator */
+-                MPID_VCR_Dup( comm->vcr[local_procs[i]], 
+-                              &comm->node_comm->vcr[i] );
++                MPID_VCR_Dup( comm->vcr, local_procs[i], 
++                              comm->node_comm->vcr, i );
+             }
+ 
+             MPID_Dev_comm_create_hook( comm->node_comm );
+@@ -305,8 +305,8 @@ int MPIR_Comm_commit(MPID_Comm *comm)
+             for (i = 0; i < num_external; ++i) {
+                 /* For rank i in the new communicator, find the corresponding
+                    rank in the input communicator */
+-                MPID_VCR_Dup( comm->vcr[external_procs[i]], 
+-                              &comm->node_roots_comm->vcr[i] );
++                MPID_VCR_Dup( comm->vcr, external_procs[i], 
++                              comm->node_roots_comm->vcr, i );
+             }
+ 
+             MPID_Dev_comm_create_hook( comm->node_roots_comm );
+@@ -972,7 +972,7 @@ int MPIR_Comm_copy( MPID_Comm *comm_ptr, int size, MPID_Comm **outcomm_ptr )
+ 	for (i=0; i<size; i++) {
+ 	    /* For rank i in the new communicator, find the corresponding
+ 	       rank in the input communicator */
+-	    MPID_VCR_Dup( comm_ptr->vcr[i], &newcomm_ptr->vcr[i] );
++	    MPID_VCR_Dup( comm_ptr->vcr, i, newcomm_ptr->vcr, i );
+ 	}
+     }
+ 
+diff --git a/mpich2/src/mpi/comm/intercomm_create.c b/mpich2/src/mpi/comm/intercomm_create.c
+index f95ea72..81312d0 100644
+--- a/mpich2/src/mpi/comm/intercomm_create.c
++++ b/mpich2/src/mpi/comm/intercomm_create.c
+@@ -105,7 +105,7 @@ PMPI_LOCAL int MPID_GPID_GetAllInComm( MPID_Comm *comm_ptr, int local_size,
+     
+     for (i=0; i<comm_ptr->local_size; i++) {
+ 	*gpid++ = 0;
+-	(void)MPID_VCR_Get_lpid( comm_ptr->vcr[i], gpid );
++	(void)MPID_VCR_Get_lpid( comm_ptr->vcr, i, gpid );
+ 	gpid++;
+     }
+     *singlePG = 1;
+@@ -140,8 +140,8 @@ PMPI_LOCAL int MPID_VCR_CommFromLpids( MPID_Comm *newcomm_ptr,
+ 	/* printf( "[%d] Remote rank %d has lpid %d\n", 
+ 	   MPIR_Process.comm_world->rank, i, lpids[i] ); */
+ 	if (lpids[i] < commworld_ptr->remote_size) {
+-	    MPID_VCR_Dup( commworld_ptr->vcr[lpids[i]], 
+-			  &newcomm_ptr->vcr[i] );
++	    MPID_VCR_Dup( commworld_ptr->vcr, lpids[i], 
++			  newcomm_ptr->vcr, i );
+ 	}
+ 	else {
+ 	    /* We must find the corresponding vcr for a given lpid */
+@@ -163,7 +163,7 @@ PMPI_LOCAL int MPID_LPID_GetAllInComm( MPID_Comm *comm_ptr, int local_size,
+     /* FIXME: Should be using the local_size argument */
+     MPIU_Assert( comm_ptr->local_size == local_size );
+     for (i=0; i<comm_ptr->local_size; i++) {
+-	(void)MPID_VCR_Get_lpid( comm_ptr->vcr[i], &local_lpids[i] );
++	(void)MPID_VCR_Get_lpid( comm_ptr->vcr, i, &local_lpids[i] );
+     }
+     return 0;
+ }
+@@ -554,7 +554,7 @@ int MPI_Intercomm_create(MPI_Comm local_comm, int local_leader,
+     MPID_VCRT_Create( comm_ptr->local_size, &newcomm_ptr->local_vcrt );
+     MPID_VCRT_Get_ptr( newcomm_ptr->local_vcrt, &newcomm_ptr->local_vcr );
+     for (i=0; i<comm_ptr->local_size; i++) {
+-	MPID_VCR_Dup( comm_ptr->vcr[i], &newcomm_ptr->local_vcr[i] );
++	MPID_VCR_Dup( comm_ptr->vcr, i, newcomm_ptr->local_vcr, i );
+     }
+ 
+     /* Inherit the error handler (if any) */
+diff --git a/mpich2/src/mpi/comm/intercomm_merge.c b/mpich2/src/mpi/comm/intercomm_merge.c
+index 4c3c549..4fb8fdf 100644
+--- a/mpich2/src/mpi/comm/intercomm_merge.c
++++ b/mpich2/src/mpi/comm/intercomm_merge.c
+@@ -231,11 +231,11 @@ int MPI_Intercomm_merge(MPI_Comm intercomm, int high, MPI_Comm *newintracomm)
+ 	/* remote group first */
+ 	j = 0;
+ 	for (i=0; i<comm_ptr->remote_size; i++) {
+-	    MPID_VCR_Dup( comm_ptr->vcr[i], &newcomm_ptr->vcr[j++] );
++	    MPID_VCR_Dup( comm_ptr->vcr, i, newcomm_ptr->vcr, j++ );
+ 	}
+ 	for (i=0; i<comm_ptr->local_size; i++) {
+ 	    if (i == comm_ptr->rank) newcomm_ptr->rank = j;
+-	    MPID_VCR_Dup( comm_ptr->local_vcr[i], &newcomm_ptr->vcr[j++] );
++	    MPID_VCR_Dup( comm_ptr->local_vcr, i, newcomm_ptr->vcr, j++ );
+ 	}
+     }
+     else {
+@@ -243,10 +243,10 @@ int MPI_Intercomm_merge(MPI_Comm intercomm, int high, MPI_Comm *newintracomm)
+ 	j = 0;
+ 	for (i=0; i<comm_ptr->local_size; i++) {
+ 	    if (i == comm_ptr->rank) newcomm_ptr->rank = j;
+-	    MPID_VCR_Dup( comm_ptr->local_vcr[i], &newcomm_ptr->vcr[j++] );
++	    MPID_VCR_Dup( comm_ptr->local_vcr, i, newcomm_ptr->vcr, j++ );
+ 	}
+ 	for (i=0; i<comm_ptr->remote_size; i++) {
+-	    MPID_VCR_Dup( comm_ptr->vcr[i], &newcomm_ptr->vcr[j++] );
++	    MPID_VCR_Dup( comm_ptr->vcr, i, newcomm_ptr->vcr, j++ );
+ 	}
+     }
+ 
+diff --git a/mpich2/src/mpi/group/grouputil.c b/mpich2/src/mpi/group/grouputil.c
+index 1fcf145..9512181 100644
+--- a/mpich2/src/mpi/group/grouputil.c
++++ b/mpich2/src/mpi/group/grouputil.c
+@@ -364,7 +364,7 @@ int MPIR_GroupCheckVCRSubset( MPID_Group *group_ptr, int vsize, MPID_VCR *vcr,
+ 			vsize*sizeof(MPID_Group_pmap_t),mpi_errno, "" );
+     /* Initialize the vmap */
+     for (i=0; i<vsize; i++) {
+-	MPID_VCR_Get_lpid( vcr[i], &vmap[i].lpid );
++	MPID_VCR_Get_lpid( vcr, i, &vmap[i].lpid );
+ 	vmap[i].lrank     = i;
+ 	vmap[i].next_lpid = 0;
+ 	vmap[i].flag      = 0;
+diff --git a/mpich2/src/mpid/dcmfd/include/mpidpre.h b/mpich2/src/mpid/dcmfd/include/mpidpre.h
+index dea6f3d..d5b5f61 100644
+--- a/mpich2/src/mpid/dcmfd/include/mpidpre.h
++++ b/mpich2/src/mpid/dcmfd/include/mpidpre.h
+@@ -70,11 +70,12 @@ typedef DCQuad DCMF_CollectiveProtocol_t[1];
+ 
+ #include <mpidthread.h>
+ 
+-typedef int                 MPID_VCR;
++typedef void                MPID_VCR;
++typedef int                 MPIDI_VCR;
+ typedef struct MPIDI_VCRT * MPID_VCRT;
+ #define MPID_VCR_GET_LPID(vcr, index)           \
+ ({                                              \
+-  vcr[index];                                   \
++  ((MPIDI_VCR*)vcr)[index];                     \
+ })
+ #define MPID_GPID_Get(comm_ptr, rank, gpid)             \
+ {                                                       \
+diff --git a/mpich2/src/mpid/dcmfd/src/misc/mpid_init.c b/mpich2/src/mpid/dcmfd/src/misc/mpid_init.c
+index eb8a516..4d0f37a 100644
+--- a/mpich2/src/mpid/dcmfd/src/misc/mpid_init.c
++++ b/mpich2/src/mpid/dcmfd/src/misc/mpid_init.c
+@@ -213,7 +213,7 @@ int MPID_Init(int * argc,
+   rc = MPID_VCRT_Get_ptr(comm->vcrt, &comm->vcr);
+   MPID_assert(rc == MPI_SUCCESS);
+   for (i=0; i<size; i++)
+-    comm->vcr[i] = i;
++    ((MPIDI_VCR*)comm->vcr)[i] = i;
+ 
+   /* comm_create for MPI_COMM_WORLD needs this information to ensure no
+    * barriers are done in dual mode with multithreading
+@@ -233,7 +233,7 @@ int MPID_Init(int * argc,
+   MPID_assert(rc == MPI_SUCCESS);
+   rc = MPID_VCRT_Get_ptr(comm->vcrt, &comm->vcr);
+   MPID_assert(rc == MPI_SUCCESS);
+-  comm->vcr[0] = rank;
++  ((MPIDI_VCR*)comm->vcr)[0] = rank;
+ 
+   /* ------------------------------- */
+   /* Initialize timer data           */
+diff --git a/mpich2/src/mpid/dcmfd/src/misc/mpid_vc.c b/mpich2/src/mpid/dcmfd/src/misc/mpid_vc.c
+index 150f4b4..3c55542 100644
+--- a/mpich2/src/mpid/dcmfd/src/misc/mpid_vc.c
++++ b/mpich2/src/mpid/dcmfd/src/misc/mpid_vc.c
+@@ -19,20 +19,20 @@ struct MPIDI_VCRT
+   int handle;             /**< This element is not used, but exists so that we may use the MPIU_Object routines for reference counting */
+   volatile int ref_count; /**< Number of references to this table */
+   int size;               /**< Number of entries in the table */
+-  MPID_VCR vcr_table[0];  /**< Array of virtual connection references */
++  MPIDI_VCR vcr_table[0]; /**< Array of virtual connection references */
+ };
+ 
+ 
+-int MPID_VCR_Dup(MPID_VCR orig_vcr, MPID_VCR * new_vcr)
++int MPID_VCR_Dup(const MPID_VCR *orig_vcr, unsigned origin_index, MPID_VCR *new_vcr, unsigned new_index)
+ {
+-    *new_vcr = orig_vcr;
+-    return MPI_SUCCESS;
++  ((MPIDI_VCR*)new_vcr)[new_index] = MPID_VCR_GET_LPID(orig_vcr, origin_index);
++  return MPI_SUCCESS;
+ }
+ 
+-int MPID_VCR_Get_lpid(MPID_VCR vcr, int * lpid_ptr)
++int MPID_VCR_Get_lpid(MPID_VCR *vcr, unsigned index, int * lpid_ptr)
+ {
+-    *lpid_ptr = vcr;
+-    return MPI_SUCCESS;
++  *lpid_ptr = MPID_VCR_GET_LPID(vcr, index);
++  return MPI_SUCCESS;
+ }
+ 
+ int MPID_VCRT_Create(int size, MPID_VCRT *vcrt_ptr)
+@@ -40,7 +40,7 @@ int MPID_VCRT_Create(int size, MPID_VCRT *vcrt_ptr)
+     struct MPIDI_VCRT * vcrt;
+     int result;
+ 
+-    vcrt = MPIU_Malloc(sizeof(struct MPIDI_VCRT) + size*sizeof(MPID_VCR));
++    vcrt = MPIU_Malloc(sizeof(struct MPIDI_VCRT) + size*sizeof(MPIDI_VCR));
+     if (vcrt != NULL)
+     {
+         MPIU_Object_set_ref(vcrt, 1);
+-- 
+1.7.1.1.g24d05
+

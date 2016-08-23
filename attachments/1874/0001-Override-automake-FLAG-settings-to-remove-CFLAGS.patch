@@ -1,0 +1,178 @@
+From 5b34c5de2e303c5b5a228d8944c44982e6abad05 Mon Sep 17 00:00:00 2001
+From: Pavan Balaji <balaji@mcs.anl.gov>
+Date: Mon, 6 Jan 2014 14:08:17 -0600
+Subject: [PATCH] Override automake FLAG settings to remove CFLAGS.
+
+Automake seems to automatically add CFLAGS and AM_CFLAGS (and FFLAGS,
+etc.) to the link step.  This is incorrect and causes problems when
+the following conditions hold:
+
+1. The CFLAGS has a variable starting with -l (e.g., -long_double
+accepted by the Intel C compiler).
+
+2. The linker is different from the compiler (e.g., when multiple
+languages are used; in Fortran+C, we use the Fortran linker even
+though the C programs were compiled with the C compiler).
+
+This patch also affects C-only libraries (such as mpl, romio and opa),
+because libtool picks up the -long_double flag from CFLAGS and adds it
+as a dependency to these libraries.  So when they are linked with
+libmpich, libtool thinks that -long_double needs to be used for the
+linking step as well.
+
+The correct solution for this is to patch automake.  But we are
+working around this problem by providing our own link step override.
+
+Fixes #1874.
+---
+ Makefile.am                 | 4 +---
+ src/binding/cxx/Makefile.mk | 9 +++++++++
+ src/binding/f77/buildiface  | 9 +++++++++
+ src/binding/f90/buildiface  | 9 +++++++++
+ src/mpi/romio/Makefile.am   | 9 +++++++++
+ src/mpl/Makefile.am         | 9 +++++++++
+ src/openpa/src/Makefile.am  | 9 +++++++++
+ 7 files changed, 55 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index a6555754..05d18a95 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -91,13 +91,11 @@ if BUILD_F77_BINDING
+ # link with libtool+F77LD
+ lib_lib@MPILIBNAME@_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=F77 \
+ 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(F77LD) \
+-	$(AM_FFLAGS) $(FFLAGS) $(lib_lib@MPILIBNAME@_la_LDFLAGS) \
+-	$(LDFLAGS) -o $@
++	$(lib_lib@MPILIBNAME@_la_LDFLAGS) $(LDFLAGS) -o $@
+ else !BUILD_F77_BINDING
+ # link with libtool+CCLD
+ lib_lib@MPILIBNAME@_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+ 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
+-	$(lib_lib@MPILIBNAME@_la_CFLAGS) $(CFLAGS) \
+ 	$(lib_lib@MPILIBNAME@_la_LDFLAGS) $(LDFLAGS) -o $@
+ endif !BUILD_F77_BINDING
+ 
+diff --git a/src/binding/cxx/Makefile.mk b/src/binding/cxx/Makefile.mk
+index bfc44243..89510f56 100644
+--- a/src/binding/cxx/Makefile.mk
++++ b/src/binding/cxx/Makefile.mk
+@@ -17,6 +17,15 @@ lib_lib@MPICXXLIBNAME@_la_SOURCES = \
+     src/binding/cxx/initcxx.cxx
+ lib_lib@MPICXXLIBNAME@_la_LDFLAGS = $(ABIVERSIONFLAGS)
+ 
++## Override the link step, since automake incorrectly adds CFLAGS and
++## friends to this step as well.  Some compilers (such as the Intel C
++## compiler) use CFLAGS such as -long_double, which get incorrectly
++## interpreted as a library during the link step.  See #1874 for more
++## details.
++lib@MPICXXLIBNAME@_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
++	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
++	$(lib_lib@MPICXXLIBNAME@_la_LDFLAGS) $(LDFLAGS) -o $@
++
+ # Update output files if the buildiface script or mpi.h.in is updated.  Use the
+ # buildiface-stamp to deal with the &ReplaceIfDifferent logic
+ cxx_buildiface_out_files = $(top_srcdir)/src/binding/cxx/mpicxx.h.in \
+diff --git a/src/binding/f77/buildiface b/src/binding/f77/buildiface
+index 11249341..d65be8cc 100755
+--- a/src/binding/f77/buildiface
++++ b/src/binding/f77/buildiface
+@@ -5529,6 +5529,15 @@ sub AddFwrapDefs {
+     print MAKEFD "lib_lib\@FWRAPNAME\@_la_CFLAGS = \$(AM_CFLAGS) -DMPICH_MPI_FROM_PMPI -DUSE_ONLY_MPI_NAMES\n";
+     print MAKEFD "lib_lib\@FWRAPNAME\@_la_SOURCES = \$(mpi_f77_sources)\n";
+     print MAKEFD "lib_lib\@FWRAPNAME\@_la_LDFLAGS = \$(ABIVERSIONFLAGS)\n\n";
++
++    ## Override the link step, since automake incorrectly adds CFLAGS and
++    ## friends to this step as well.  Some compilers (such as the Intel C
++    ## compiler) use CFLAGS such as -long_double, which get incorrectly
++    ## interpreted as a library during the link step.  See #1874 for more
++    ## details.
++    print MAKEFD "lib_lib\@FWRAPNAME\@_la_LINK = \$(LIBTOOL) \$(AM_V_lt) --tag=F77 \\\n";
++    print MAKEFD "         \$(AM_LIBTOOLFLAGS) \$(LIBTOOLFLAGS) --mode=link \$(F77LD) \\\n";
++    print MAKEFD "         \$(lib_lib\@FWRAPNAME\@_la_LDFLAGS) \$(LDFLAGS) -o \$@\n\n";
+ }
+ 
+ # Allow multiple underscore versions of names
+diff --git a/src/binding/f90/buildiface b/src/binding/f90/buildiface
+index 6580643a..40f9987b 100755
+--- a/src/binding/f90/buildiface
++++ b/src/binding/f90/buildiface
+@@ -924,6 +924,15 @@ AM_FCFLAGS += \@FCINCFLAG\@src/binding/f90
+ 
+ lib_LTLIBRARIES += lib/lib\@FCWRAPNAME\@.la
+ 
++## Override the link step, since automake incorrectly adds CFLAGS and
++## friends to this step as well.  Some compilers (such as the Intel C
++## compiler) use CFLAGS such as -long_double, which get incorrectly
++## interpreted as a library during the link step.  See #1874 for more
++## details.
++lib_lib@FCWRAPNAME@_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=FC \
++	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(FCLD) \
++	$(lib_lib@FCWRAPNAME@_la_LDFLAGS) $(LDFLAGS) -o $@
++
+ EOT
+ 
+ print MAKEFD <<EOT;
+diff --git a/src/mpi/romio/Makefile.am b/src/mpi/romio/Makefile.am
+index e27323f4..929a86ec 100644
+--- a/src/mpi/romio/Makefile.am
++++ b/src/mpi/romio/Makefile.am
+@@ -66,6 +66,15 @@ if BUILD_ROMIO_EMBEDDED
+ noinst_LTLIBRARIES = libromio.la
+ libromio_la_SOURCES = $(romio_mpi_sources) $(romio_other_sources) $(glue_sources)
+ 
++## Override the link step, since automake incorrectly adds CFLAGS and
++## friends to this step as well.  Some compilers (such as the Intel C
++## compiler) use CFLAGS such as -long_double, which get incorrectly
++## interpreted as a library during the link step.  See #1874 for more
++## details.
++libromio_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
++	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
++	$(libromio_la_LDFLAGS) $(LDFLAGS) -o $@
++
+ ## NOTE: ROMIO's old build system builds a bunch of _foo.o objects that contain
+ ## PMPI_ implementations as well as calls to only other PMPI routines.  In
+ ## MPICH, these are the objects that need to go into libmpich, while the foo.o
+diff --git a/src/mpl/Makefile.am b/src/mpl/Makefile.am
+index 8693ae64..6005ecbd 100644
+--- a/src/mpl/Makefile.am
++++ b/src/mpl/Makefile.am
+@@ -11,6 +11,15 @@ lib_LTLIBRARIES = lib@MPLLIBNAME@.la
+ lib@MPLLIBNAME@_la_SOURCES = src/mplstr.c src/mpltrmem.c src/mplenv.c
+ lib@MPLLIBNAME@_la_LDFLAGS = ${lib@MPLLIBNAME@_so_versionflags}
+ 
++## Override the link step, since automake incorrectly adds CFLAGS and
++## friends to this step as well.  Some compilers (such as the Intel C
++## compiler) use CFLAGS such as -long_double, which get incorrectly
++## interpreted as a library during the link step.  See #1874 for more
++## details.
++lib@MPLLIBNAME@_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
++	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
++	$(lib_lib@MPLLIBNAME@_la_LDFLAGS) $(LDFLAGS) -o $@
++
+ MPL_TESTS = strsep
+ TESTS = $(MPL_TESTS)
+ check_PROGRAMS = $(MPL_TESTS)
+diff --git a/src/openpa/src/Makefile.am b/src/openpa/src/Makefile.am
+index 2283681c..6eebeac1 100644
+--- a/src/openpa/src/Makefile.am
++++ b/src/openpa/src/Makefile.am
+@@ -7,6 +7,15 @@ lib_LTLIBRARIES = lib@OPALIBNAME@.la
+ lib@OPALIBNAME@_la_SOURCES = opa_primitives.c opa_queue.c
+ lib@OPALIBNAME@_la_LDFLAGS = ${lib@OPALIBNAME@_so_versionflags}
+ 
++## Override the link step, since automake incorrectly adds CFLAGS and
++## friends to this step as well.  Some compilers (such as the Intel C
++## compiler) use CFLAGS such as -long_double, which get incorrectly
++## interpreted as a library during the link step.  See #1874 for more
++## details.
++lib@OPALIBNAME@_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
++	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
++	$(lib_lib@OPALIBNAME@_la_LDFLAGS) $(LDFLAGS) -o $@
++
+ include_HEADERS = opa_primitives.h opa_queue.h opa_util.h
+ nodist_include_HEADERS = opa_config.h
+ DISTCLEANFILES = opa_config.h
+-- 
+1.8.3.4 (Apple Git-47)
+

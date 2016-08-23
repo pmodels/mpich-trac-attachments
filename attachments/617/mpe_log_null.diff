@@ -1,0 +1,62 @@
+Index: src/mpe2/src/logging/src/mpe_log_null.c
+===================================================================
+--- src/mpe2/src/logging/src/mpe_log_null.c	(revision 4620)
++++ src/mpe2/src/logging/src/mpe_log_null.c	(working copy)
+@@ -10,8 +10,15 @@
+ 
+ #include "mpe_log.h"
+ 
++int MPE_Log_hasBeenInit   = 0;
++int MPE_Log_hasBeenClosed = 0;
++
+ int MPE_Init_log( void )
+-{ return MPE_LOG_OK; }
++{
++  MPE_Log_hasBeenInit   = 1;
++  MPE_Log_hasBeenClosed = 0;
++  return MPE_LOG_OK;
++}
+ 
+ int MPE_Start_log( void )
+ { return MPE_LOG_OK; }
+@@ -20,7 +27,7 @@
+ { return MPE_LOG_OK; }
+ 
+ int MPE_Initialized_logging( void )
+-{ return MPE_LOG_OK; }
++{ return MPE_Log_hasBeenInit + MPE_Log_hasBeenClosed; }
+ 
+ int MPE_Describe_comm_state( MPI_Comm comm, int start_etype, int final_etype,
+                              const char *name, const char *color,
+@@ -53,10 +60,17 @@
+ { return -99999; }
+ 
+ int MPE_Log_get_solo_eventID( int *eventdef_eventID )
+-{ return -99999; }
++{
++  if (eventdef_eventID) *eventdef_eventID = -99999; 
++  return MPE_LOG_OK;
++}
+ 
+ int MPE_Log_get_state_eventIDs( int *statedef_startID, int *statedef_finalID )
+-{ return -99999; }
++{
++  if (statedef_startID) *statedef_startID = -99999;
++  if (statedef_finalID) *statedef_finalID = -99999; 
++  return MPE_LOG_OK;
++}
+ 
+ int MPE_Log_comm_send( MPI_Comm comm, int receiver, int tag, int size )
+ { return MPE_LOG_OK; }
+@@ -90,7 +104,10 @@
+ { return MPE_LOG_OK; }
+ 
+ int MPE_Finish_log( const char *filename )
+-{ return MPE_LOG_OK; }
++{
++  MPE_Log_hasBeenClosed = 1;
++  return MPE_LOG_OK;
++}
+ 
+ const char *MPE_Log_merged_logfilename( void )
+ { return NULL; }

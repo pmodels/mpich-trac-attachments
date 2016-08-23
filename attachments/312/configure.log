@@ -1,0 +1,177 @@
+Configuring MPICH2 version 1.0.8 with  '--prefix=/home/dnaneet/mpich2-install'
+Running on system: Linux calumet.we.mtu.edu 2.6.9-78.0.1.EL #1 Tue Jul 22 17:50:18 EDT 2008 x86_64 x86_64 x86_64 GNU/Linux
+Executing mpich2prereq in /home/wecn12/dnaneet/mpich2-1.0.8/src/mpid/ch3 with 
+Executing mpich2prereq in /home/wecn12/dnaneet/mpich2-1.0.8/src/mpid/ch3/channels/sock
+sourcing /home/wecn12/dnaneet/mpich2-1.0.8/src/pm/mpd/mpich2prereq
+sourcing /home/wecn12/dnaneet/mpich2-1.0.8/src/pm/mpd/setup_pm
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether C compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for type of weak symbol support... pragma weak
+checking whether __attribute__ ((weak)) allowed... yes
+checking for multiple weak symbol support... yes
+checking for g77... g77
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether g77 accepts -g... yes
+checking whether Fortran 77 compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking how to get verbose linking output from g77... -v
+checking for Fortran 77 libraries of g77...  -L/usr/lib/gcc/x86_64-redhat-linux/3.4.6 -L/usr/lib/gcc/x86_64-redhat-linux/3.4.6/../../../../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/3.4.6/../../.. -L/lib/../lib64 -L/usr/lib/../lib64 -lfrtbegin -lg2c -lm
+checking whether g77 accepts the FLIBS found by autoconf... yes
+checking whether C can link with  -L/usr/lib/gcc/x86_64-redhat-linux/3.4.6 -L/usr/lib/gcc/x86_64-redhat-linux/3.4.6/../../../../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/3.4.6/../../.. -L/lib/../lib64 -L/usr/lib/../lib64 -lfrtbegin -lg2c -lm... yes
+checking for linker for Fortran main programs... Use Fortran to link programs
+checking for Fortran 77 name mangling... lower doubleunderscore
+checking what libraries are needed to link Fortran programs with C routines that use stdio... none
+checking for f90... no
+checking for xlf90... no
+checking for pgf90... no
+checking for ifort... ifort
+checking that f works as the extension for Fortran 90 program... yes
+checking whether we are using the GNU Fortran 90 compiler... no
+checking whether ifort accepts -g... yes
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (ifort  ) works... yes
+checking whether the Fortran 90 compiler (ifort  ) is a cross-compiler... yes
+checking whether Fortran 90 works with Fortran 77... yes
+checking whether Fortran accepts ! for comments... yes
+checking for include directory flag for Fortran... -I
+checking for Fortran 77 flag for library directories... -L
+checking for which Fortran libraries are needed to link C with Fortran... none
+checking whether Fortran compiler processes .F files with C preprocessor... yes
+checking that f works as the extension for Fortran 90 program... yes
+checking whether we are using the GNU Fortran 90 compiler... (cached) no
+checking whether ifort accepts -g... (cached) yes
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (ifort  ) works... yes
+checking whether the Fortran 90 compiler (ifort  ) is a cross-compiler... yes
+checking for Fortran 90 module extension... mod
+checking for Fortran 90 module include flag... -I
+checking whether Fortran 90 accepts f90 suffix... yes
+checking whether Fortran 90 compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking whether Fortran 90 compiler processes .F90 files with C preprocessor... yes
+checking what libraries are needed to link Fortran90 programs with C routines that use stdio... none
+checking for f90 compiler vendor... intel
+checking for c++... c++
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking whether the C++ compiler c++ can build an executable... yes
+checking whether C++ compiler works with string... yes
+checking whether the compiler supports exceptions... yes
+checking whether the compiler recognizes bool as a built-in type... yes
+checking whether the compiler implements namespaces... yes
+checking whether <iostream> available... yes
+checking whether the compiler implements the namespace std... yes
+checking whether <math> available... no
+checking for GNU g++ version... 3 . 4
+checking whether C++ compiler accepts option -O2... yes
+checking whether routines compiled with -O2 can be linked with ones compiled without -O2... yes
+checking for perl... /usr/bin/perl
+checking for ar... ar
+checking for ranlib... ranlib
+checking for etags... etags
+checking for etags argument to specify language... --language=c
+checking for killall... killall
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking whether install breaks libraries... no
+checking whether mkdir -p works... yes
+checking for make... make
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... no
+checking for bash... /bin/bash
+checking whether /bin/bash supports arrays... yes
+checking for doctext... false
+checking for location of doctext style files... unavailable
+checking for an ANSI C-conforming const... yes
+checking for volatile... yes
+checking for restrict... __restrict
+checking for inline... inline
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking whether byte ordering is bigendian... no
+checking whether C compiler allows unaligned doubles... yes
+checking whether gcc supports __func__... yes
+Using gcc to determine dependencies
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for max C struct integer alignment... eight
+checking for max C struct floating point alignment... sixteen
+checking for max C struct alignment of structs with doubles... eight
+checking for max C struct floating point alignment with long doubles... sixteen
+configure: WARNING: Structures containing long doubles may be aligned differently from structures with floats or longs.  MPICH2 does not handle this case automatically and you should avoid assumed extents for structures containing float types.
+checking if alignment of structs with doubles is based on position... no
+checking if alignment of structs with long long ints is based on position... no
+checking if double alignment breaks rules, find actual alignment... no
+checking for alignment restrictions on pointers... int or better
+checking size of char... 1
+checking size of unsigned char... 1
+checking size of short... 2
+checking size of unsigned short... 2
+checking size of int... 4
+checking size of unsigned int... 4
+checking size of long... 8
+checking size of unsigned long... 8
+checking size of long long... 8
+checking size of unsigned long long... 8
+checking size of float... 4
+checking size of double... 8
+checking size of long double... 16
+checking size of wchar_t... 4
+checking size of void *... 8
+checking for size of float int... 8
+checking for size of double int... 12
+checking for size of long int... 12
+checking for size of short int... 6
+checking for size of 2 int... 8
+checking for size of long double int... 20
+checking for sys/bitypes.h... yes
+checking for inttypes.h... (cached) yes
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for size of Fortran type integer... 4
+checking for size of Fortran type real... 4
+checking for size of Fortran type double precision... 8
+checking whether integer*1 is supported... yes
+checking whether integer*2 is supported... yes
+checking whether integer*4 is supported... yes
+checking whether integer*8 is supported... yes
+checking whether integer*16 is supported... no
+checking whether real*4 is supported... yes
+checking whether real*8 is supported... yes
+checking whether real*16 is supported... no
+checking for C type matching Fortran integer... int
+checking for size of MPI_Status... 20
+checking for values of Fortran logicals... True is 1 and False is 0
+checking how to run the C preprocessor... gcc -E
+checking whether real*8 is supported in Fortran 90... yes
+configure: error: Unable to determine Fortran integer kinds for MPI types.  If you do not need Fortran 90, add --disable-f90 to the configure options.  If you need Fortran 90, please send the output of configure and the file config.log to mpich2-maint@mcs.anl.gov .

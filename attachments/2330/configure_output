@@ -1,0 +1,1328 @@
+
+Executing: cd /Users/barrysmith/Src/petsc/arch-hypre/externalpackages/mpich-3.2 && ./configure --prefix=/Users/barrysmith/Src/petsc/arch-hypre MAKE=/usr/bin/make --libdir=/Users/barrysmith/Src/petsc/arch-hypre/lib CC="gcc" CFLAGS="-Qunused-arguments -g3" AR="/usr/bin/ar" ARFLAGS="cr" CXX="g++" CXXFLAGS="-g" F77="gfortran" FFLAGS="-ffree-line-length-0 -g" FC="gfortran" FCFLAGS="-ffree-line-length-0 -g" --enable-shared --with-device=ch3:sock --with-pm=hydra --enable-fast=no --enable-g=meminit
+stdout:
+Configuring MPICH version 3.2 with  '--prefix=/Users/barrysmith/Src/petsc/arch-hypre' 'MAKE=/usr/bin/make' '--libdir=/Users/barrysmith/Src/petsc/arch-hypre/lib' 'CC=gcc' 'CFLAGS=-Qunused-arguments -g3' 'AR=/usr/bin/ar' 'ARFLAGS=cr' 'CXX=g++' 'CXXFLAGS=-g' 'F77=gfortran' 'FFLAGS=-ffree-line-length-0 -g' 'FC=gfortran' 'FCFLAGS=-ffree-line-length-0 -g' '--enable-shared' '--with-device=ch3:sock' '--with-pm=hydra' '--enable-fast=no' '--enable-g=meminit'
+Running on system: Darwin Barrys-MacBook-Pro.local 15.2.0 Darwin Kernel Version 15.2.0: Fri Nov 13 19:56:56 PST 2015; root:xnu-3248.20.55~2/RELEASE_X86_64 x86_64
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking how to run the C preprocessor... gcc -E
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... confdb/install-sh -c -d
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether /usr/bin/make sets $(MAKE)... yes
+checking for style of include used by /usr/bin/make... GNU
+checking whether /usr/bin/make supports nested variables... yes
+checking dependency style of gcc... gcc3
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking the archiver (/usr/bin/ar) interface... ar
+checking build system type... x86_64-apple-darwin15.2.0
+checking host system type... x86_64-apple-darwin15.2.0
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+checking if the linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+checking the name lister (/usr/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking how to convert x86_64-apple-darwin15.2.0 file names to x86_64-apple-darwin15.2.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin15.2.0 file names to toolchain format... func_convert_file_noop
+checking for /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fno-common -DPIC
+checking if gcc PIC flag -fno-common -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether /usr/bin/make supports nested variables... (cached) yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+checking if the linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) is GNU ld... no
+checking whether the g++ linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fno-common -DPIC
+checking if g++ PIC flag -fno-common -DPIC works... yes
+checking if g++ static flag -static works... no
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether we are using the GNU Fortran compiler... yes
+checking whether gfortran accepts -g... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for gfortran option to produce PIC... -fno-common
+checking if gfortran PIC flag -fno-common works... yes
+checking if gfortran static flag -static works... no
+checking if gfortran supports -c -o file.o... yes
+checking if gfortran supports -c -o file.o... (cached) yes
+checking whether the gfortran linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether gfortran accepts -g... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for gfortran option to produce PIC... -fno-common
+checking if gfortran PIC flag -fno-common works... yes
+checking if gfortran static flag -static works... no
+checking if gfortran supports -c -o file.o... yes
+checking if gfortran supports -c -o file.o... (cached) yes
+checking whether the gfortran linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking hcoll/api/hcoll_api.h usability... no
+checking hcoll/api/hcoll_api.h presence... no
+checking for hcoll/api/hcoll_api.h... no
+checking for hcoll_init in -lhcoll... no
+configure: RUNNING PREREQ FOR ch3:sock
+configure: ===== configuring src/mpl =====
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/Users/barrysmith/Src/petsc/arch-hypre' --disable-versioning 'MAKE=/usr/bin/make' '--libdir=/Users/barrysmith/Src/petsc/arch-hypre/lib' 'CC=gcc' 'CFLAGS=-Qunused-arguments -g3  ' 'AR=/usr/bin/ar' 'ARFLAGS=cr' 'CXX=g++' 'CXXFLAGS=-g ' 'F77=gfortran' 'FFLAGS=-ffree-line-length-0 -g ' 'FC=gfortran' 'FCFLAGS=-ffree-line-length-0 -g ' '--enable-shared' '--with-device=ch3:sock' '--with-pm=hydra' '--enable-fast=no' '--enable-g=meminit' --cache-file=/dev/null --srcdir=.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... confdb/install-sh -c -d
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether /usr/bin/make sets $(MAKE)... yes
+checking whether /usr/bin/make supports nested variables... yes
+checking for style of include used by /usr/bin/make... GNU
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking the archiver (/usr/bin/ar) interface... ar
+checking build system type... x86_64-apple-darwin15.2.0
+checking host system type... x86_64-apple-darwin15.2.0
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+checking if the linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+checking the name lister (/usr/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking how to convert x86_64-apple-darwin15.2.0 file names to x86_64-apple-darwin15.2.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin15.2.0 file names to toolchain format... func_convert_file_noop
+checking for /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fno-common -DPIC
+checking if gcc PIC flag -fno-common -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether /usr/bin/make supports nested variables... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking for C/C++ restrict keyword... __restrict
+checking for inline... inline
+checking for variable argument list macro functionality... yes
+checking for gcov... gcov
+checking whether the compiler supports __typeof(variable)... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking search.h usability... yes
+checking search.h presence... yes
+checking for search.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/uio.h usability... yes
+checking sys/uio.h presence... yes
+checking for sys/uio.h... yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking valgrind.h usability... no
+checking valgrind.h presence... no
+checking for valgrind.h... no
+checking memcheck.h usability... no
+checking memcheck.h presence... no
+checking for memcheck.h... no
+checking valgrind/valgrind.h usability... no
+checking valgrind/valgrind.h presence... no
+checking for valgrind/valgrind.h... no
+checking valgrind/memcheck.h usability... no
+checking valgrind/memcheck.h presence... no
+checking for valgrind/memcheck.h... no
+checking helgrind.h usability... no
+checking helgrind.h presence... no
+checking for helgrind.h... no
+checking valgrind/helgrind.h usability... no
+checking valgrind/helgrind.h presence... no
+checking for valgrind/helgrind.h... no
+checking drd.h usability... no
+checking drd.h presence... no
+checking for drd.h... no
+checking valgrind/drd.h usability... no
+checking valgrind/drd.h presence... no
+checking for valgrind/drd.h... no
+checking whether the valgrind headers are broken or too old... yes
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for strncmp... yes
+checking whether strncmp needs a declaration... no
+checking for putenv... yes
+checking whether putenv needs a declaration... no
+checking for strerror... yes
+checking whether strerror needs a declaration... no
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating include/config.h
+config.status: include/config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing include/mplconfig.h commands
+config.status: creating include/mplconfig.h - prefix MPL for include/config.h defines
+config.status: include/mplconfig.h is unchanged
+configure: ===== done with src/mpl configure =====
+configure: sourcing src/mpl/localdefs
+configure: ===== configuring src/openpa =====
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/Users/barrysmith/Src/petsc/arch-hypre' --disable-versioning --with-atomic-primitives=auto_allow_emulation 'MAKE=/usr/bin/make' '--libdir=/Users/barrysmith/Src/petsc/arch-hypre/lib' 'CC=gcc' 'CFLAGS=-Qunused-arguments -g3  ' 'AR=/usr/bin/ar' 'ARFLAGS=cr' 'CXX=g++' 'CXXFLAGS=-g ' 'F77=gfortran' 'FFLAGS=-ffree-line-length-0 -g ' 'FC=gfortran' 'FCFLAGS=-ffree-line-length-0 -g ' '--enable-shared' '--with-device=ch3:sock' '--with-pm=hydra' '--enable-fast=no' '--enable-g=meminit' --cache-file=/dev/null --srcdir=.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... confdb/install-sh -c -d
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether /usr/bin/make sets $(MAKE)... yes
+checking whether /usr/bin/make supports nested variables... yes
+checking for style of include used by /usr/bin/make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking the archiver (/usr/bin/ar) interface... ar
+checking build system type... x86_64-apple-darwin15.2.0
+checking host system type... x86_64-apple-darwin15.2.0
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+checking if the linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+checking the name lister (/usr/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking how to convert x86_64-apple-darwin15.2.0 file names to x86_64-apple-darwin15.2.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin15.2.0 file names to toolchain format... func_convert_file_noop
+checking for /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fno-common -DPIC
+checking if gcc PIC flag -fno-common -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether /usr/bin/make supports nested variables... (cached) yes
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) gcc3
+checking whether to enable assertions... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking atomic.h usability... no
+checking atomic.h presence... no
+checking for atomic.h... no
+checking intrin.h usability... no
+checking intrin.h presence... no
+checking for intrin.h... no
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for C/C++ restrict keyword... __restrict
+checking for inline... inline
+checking for an ANSI C-conforming const... yes
+checking for pthread_create in -lpthread... yes
+checking for pthread_yield... no
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking for sched_yield... yes
+checking if 100 threads can be run at once... yes
+checking size of void *... 8
+checking size of int... 4
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking if compiler rejects bogus asm statements... yes
+checking for support for gcc x86/x86_64 primitives... yes
+checking for support for gcc x86 primitives for pre-Pentium 4... yes
+checking for support for gcc ia64 primitives... no
+checking for support for gcc PowerPC atomics... no
+checking for support for gcc ARM atomics... no
+checking for support for gcc SiCortex atomics... no
+checking for support for gcc atomic intrinsics... yes
+checking for support for Windows NT atomic intrinsics... no
+checking for support for Sun atomic operations library... no
+checking whether to enable strict fairness checks... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating openpa.pc
+config.status: creating src/config.h
+config.status: src/config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing src/opa_config.h commands
+config.status: creating src/opa_config.h - prefix OPA for src/config.h defines
+config.status: src/opa_config.h is unchanged
+configure: ===== done with src/openpa configure =====
+sourcing /Users/barrysmith/Src/petsc/arch-hypre/externalpackages/mpich-3.2/src/pm/hydra/mpichprereq
+checking whether the compiler defines __func__... yes
+checking whether the compiler defines __FUNC__... no
+checking whether the compiler sets __FUNCTION__... yes
+checking whether C compiler accepts option -O0... yes
+checking whether C compiler option -O0 works with an invalid prototype program... yes
+checking whether routines compiled with -O0 can be linked with ones compiled without -O0... yes
+checking for type of weak symbol alias support... no
+checking whether __attribute__ ((weak)) allowed... yes
+checking whether __attribute__ ((weak_import)) allowed... yes
+checking whether __attribute__((weak,alias(...))) allowed... no
+checking for shared library (esp. rpath) characteristics of CC... done (results in src/env/cc_shlib.conf)
+checking whether Fortran 77 compiler accepts option -O0... yes
+checking whether routines compiled with -O0 can be linked with ones compiled without -O0... no
+checking how to get verbose linking output from gfortran... -v
+checking for Fortran 77 libraries of gfortran...  -L/usr/local/Cellar/gcc/5.2.0/lib/gcc/5/gcc/x86_64-apple-darwin14.4.0/5.2.0 -L/usr/local/Cellar/gcc/5.2.0/lib/gcc/5/gcc/x86_64-apple-darwin14.4.0/5.2.0/../../.. -lgfortran -lquadmath -lm
+checking whether gfortran accepts the FLIBS found by autoconf... yes
+checking whether gcc links with FLIBS found by autoconf... yes
+checking whether Fortran 77 and C objects are compatible... yes
+checking for linker for Fortran main program... Use Fortran to link programs
+checking for Fortran 77 name mangling... lower uscore
+checking for libraries to link Fortran main with C stdio routines... none
+checking whether Fortran init will work with C... yes
+checking for extension for Fortran 90 programs... f90
+checking whether the Fortran 90 compiler (gfortran -ffree-line-length-0 -g  ) works... yes
+checking whether the Fortran 90 compiler (gfortran -ffree-line-length-0 -g  ) is a cross-compiler... no
+checking whether Fortran 90 compiler works with Fortran 77 compiler... yes
+checking for shared library (esp. rpath) characteristics of F77... done (results in src/env/f77_shlib.conf)
+checking whether Fortran 77 accepts ! for comments... yes
+checking for include directory flag for Fortran... -I
+checking for Fortran 77 flag for library directories... -L
+checking whether Fortran 77 compiler processes .F files with C preprocessor... yes
+checking whether gfortran allows mismatched arguments... yes
+checking for Fortran 2008 support... no
+checking for shared library (esp. rpath) characteristics of FC... done (results in src/env/fc_shlib.conf)
+checking whether the Fortran 90 compiler (gfortran -ffree-line-length-0 -g  ) works... yes
+checking whether the Fortran 90 compiler (gfortran -ffree-line-length-0 -g  ) is a cross-compiler... no
+checking for Fortran 90 module extension... mod
+checking for Fortran 90 module include flag... -I
+checking for Fortran 90 module output directory flag... -J
+checking whether Fortran 90 compiler accepts option -O0... yes
+checking whether routines compiled with -O0 can be linked with ones compiled without -O0... no
+checking whether Fortran 90 compiler processes .F90 files with C preprocessor... yes
+checking what libraries are needed to link Fortran90 programs with C routines that use stdio... none
+checking whether TRUE has been defined... no
+checking whether the C++ compiler g++ can build an executable... yes
+checking whether C++ compiler works with string... yes
+checking whether the compiler supports exceptions... yes
+checking whether the compiler recognizes bool as a built-in type... yes
+checking whether the compiler implements namespaces... yes
+checking whether <iostream> available... yes
+checking whether the compiler implements the namespace std... yes
+checking whether <math> available... no
+checking for GNU g++ version... 4 . 2
+checking for shared library (esp. rpath) characteristics of CXX... done (results in src/env/cxx_shlib.conf)
+checking whether C++ compiler accepts option -O0... yes
+checking whether routines compiled with -O0 can be linked with ones compiled without -O0... no
+checking for perl... /usr/bin/perl
+checking for ar... /usr/bin/ar
+checking for ranlib... ranlib
+checking for killall... killall
+checking whether install works... yes
+checking whether mkdir -p works... yes
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for bash... /bin/bash
+checking whether /bin/bash supports arrays... yes
+checking for doctext... false
+checking for an ANSI C-conforming const... yes
+checking for working volatile... yes
+checking for C/C++ restrict keyword... __restrict
+checking for inline... inline
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking if C compiler supports __builtin_expect... yes
+checking whether byte ordering is bigendian... no
+checking whether C compiler allows unaligned doubles... yes
+checking whether gcc supports __func__... yes
+checking whether long double is supported... yes
+checking whether long long is supported... yes
+checking for max C struct integer alignment... eight
+checking for max C struct floating point alignment... sixteen
+checking for max C struct alignment of structs with doubles... eight
+checking for max C struct floating point alignment with long doubles... sixteen
+checking if alignment of structs with doubles is based on position... no
+checking if alignment of structs with long long ints is based on position... no
+checking if double alignment breaks rules, find actual alignment... no
+checking for alignment restrictions on pointers... int or better
+checking size of char... 1
+checking size of unsigned char... 1
+checking size of short... 2
+checking size of unsigned short... 2
+checking size of int... 4
+checking size of unsigned int... 4
+checking size of long... 8
+checking size of unsigned long... 8
+checking size of long long... 8
+checking size of unsigned long long... 8
+checking size of float... 4
+checking size of double... 8
+checking size of long double... 16
+checking size of void *... 8
+checking for ANSI C header files... (cached) yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking size of wchar_t... 4
+checking size of float_int... 8
+checking size of double_int... 16
+checking size of long_int... 16
+checking size of short_int... 8
+checking size of two_int... 8
+checking size of long_double_int... 32
+checking sys/bitypes.h usability... no
+checking sys/bitypes.h presence... no
+checking for sys/bitypes.h... no
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking stdbool.h usability... yes
+checking stdbool.h presence... yes
+checking for stdbool.h... yes
+checking complex.h usability... yes
+checking complex.h presence... yes
+checking for complex.h... yes
+checking size of _Bool... 1
+checking size of float _Complex... 8
+checking size of double _Complex... 16
+checking size of long double _Complex... 32
+checking for _Bool... yes
+checking for float _Complex... yes
+checking for double _Complex... yes
+checking for long double _Complex... yes
+checking for size of Fortran type integer... 4
+checking for size of Fortran type real... 4
+checking for size of Fortran type double precision... 8
+checking whether integer*1 is supported... yes
+checking whether integer*2 is supported... yes
+checking whether integer*4 is supported... yes
+checking whether integer*8 is supported... yes
+checking whether integer*16 is supported... yes
+checking whether real*4 is supported... yes
+checking whether real*8 is supported... yes
+checking whether real*16 is supported... yes
+checking for C type matching Fortran real... float
+checking for C type matching Fortran double... double
+checking for C type matching Fortran integer... int
+checking for values of Fortran logicals... True is 1 and False is 0
+checking for Fortran 90 integer kind for 8-byte integers... 8
+checking for Fortran 90 integer kind for 4-byte integers... 4
+checking if real*8 is supported in Fortran 90... yes
+checking size of bool... 1
+checking complex usability... yes
+checking complex presence... yes
+checking for complex... yes
+checking size of Complex... 8
+checking size of DoubleComplex... 16
+checking size of LongDoubleComplex... 32
+checking for alignment restrictions on int64_t... no
+checking for alignment restrictions on int32_t... no
+checking for gcov... gcov
+checking for ANSI C header files... (cached) yes
+checking for stdlib.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for sys/types.h... (cached) yes
+checking for string.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for stddef.h... (cached) yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking endian.h usability... no
+checking endian.h presence... no
+checking for endian.h... no
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for sys/uio.h... yes
+checking for size_t... yes
+checking for setitimer... yes
+checking for alarm... yes
+checking for vsnprintf... yes
+checking for vsprintf... yes
+checking whether vsnprintf needs a declaration... no
+checking for strerror... yes
+checking for strncasecmp... yes
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... no
+checking whether strerror_r needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for qsort... yes
+checking for va_copy... yes
+checking for variable argument list macro functionality... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for mkstemp... yes
+checking whether mkstemp needs a declaration... no
+checking for fdopen... yes
+checking whether fdopen needs a declaration... yes
+checking for putenv... yes
+checking whether putenv needs a declaration... no
+checking for clock_gettime... no
+checking for clock_getres... no
+checking for gethrtime... no
+checking for mach_absolute_time... yes
+checking for gettimeofday... yes
+checking for mach_absolute_time... (cached) yes
+checking for mach_timebase_info... yes
+checking size of MPIR_Bsend_data_t... 96
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_key_create in -lpthread... yes
+checking for pthread_yield... no
+checking for pthread_key_create... yes
+checking for pthread_cleanup_push... no
+checking whether pthread_cleanup_push is available (may be a macro in pthread.h)... no
+checking whether pthread.h defines PTHREAD_MUTEX_ERRORCHECK_NP... no
+checking whether pthread.h defines PTHREAD_MUTEX_ERRORCHECK... yes
+checking whether pthread_mutexattr_settype needs a declaration... no
+checking for thread local storage specifier... none
+checking for getpid... yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking for unistd.h... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking for sched_yield... yes
+checking for yield... no
+checking for usleep... yes
+checking for sleep... yes
+checking for select... yes
+checking whether usleep needs a declaration... no
+checking for sched_setaffinity... no
+checking for sched_getaffinity... no
+checking for bindprocessor... no
+checking for thread_policy_set... yes
+checking whether thread affinity macros defined... no
+configure: RUNNING CONFIGURE FOR F90 CODE
+checking whether ln -s works... yes
+checking for extension for Fortran 90 programs... f90
+checking for the precision and range of reals...  6 , 37
+checking for the precision and range of double precision...  15 , 307
+checking for the range of integer...  9
+checking for available integer kinds...  2 , 1, 4 , 2, 9 , 4, 18 , 8,
+checking for available integer ranges...  {  2 , 1 , 1 }, {  4 , 2 , 2 }, {  9 , 4 , 4 }, {  18 , 8 , 8 },
+checking for unistd.h... (cached) yes
+checking for string.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for sys/socket.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for assert.h... (cached) yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking for snprintf... (cached) yes
+checking whether snprintf needs a declaration... (cached) no
+checking for strncasecmp... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for sys/socket.h... (cached) yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking netinet/tcp.h usability... yes
+checking netinet/tcp.h presence... yes
+checking for netinet/tcp.h... yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+checking for socket... yes
+checking for setsockopt... yes
+checking for gethostbyname... yes
+checking whether socklen_t is defined (in sys/socket.h if present)... yes
+checking whether struct hostent contains h_addr_list... yes
+checking whether __attribute__ allowed... (cached) yes
+checking whether __attribute__((format)) allowed... (cached) yes
+configure: RUNNING CONFIGURE FOR CH3 DEVICE
+checking for assert.h... (cached) yes
+checking for limits.h... (cached) yes
+checking for string.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/uio.h... (cached) yes
+checking uuid/uuid.h usability... yes
+checking uuid/uuid.h presence... yes
+checking for uuid/uuid.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking for unistd.h... (cached) yes
+checking for arpa/inet.h... (cached) yes
+checking for sys/socket.h... (cached) yes
+checking for net/if.h... yes
+checking for pid_t... yes
+checking for inet_pton... yes
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for CFUUIDCreate... no
+checking for uuid_generate... yes
+checking for time... yes
+checking for OpenPA atomic primitive availability... yes
+checking whether byte ordering is bigendian... (cached) no
+configure: RUNNING CONFIGURE FOR ch3:sock
+checking for net/if.h... yes
+checking for netdb.h... (cached) yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking for sys/socket.h... (cached) yes
+checking sys/sockio.h usability... yes
+checking sys/sockio.h presence... yes
+checking for sys/sockio.h... yes
+checking for sys/types.h... (cached) yes
+checking for errno.h... (cached) yes
+checking for netinet/in.h... (cached) yes
+configure: RUNNING CONFIGURE FOR src/mpid/common/sock
+checking for strerror... (cached) yes
+configure: RUNNING CONFIGURE FOR CH3U SOCK CODE
+checking for assert.h... (cached) yes
+checking for limits.h... (cached) yes
+checking for string.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/uio.h... (cached) yes
+checking for time.h... (cached) yes
+checking for ctype.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for arpa/inet.h... (cached) yes
+checking for sys/socket.h... (cached) yes
+checking for net/if.h... (cached) yes
+checking for pid_t... (cached) yes
+checking for inet_pton... (cached) yes
+checking for gethostname... (cached) yes
+checking whether gethostname needs a declaration... (cached) no
+checking whether we can use struct ifconf... yes
+configure: RUNNING CONFIGURE FOR src/mpid/common/sock/poll
+checking for poll... yes
+checking for assert.h... (cached) yes
+checking for errno.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for limits.h... (cached) yes
+checking for netdb.h... (cached) yes
+checking for netinet/in.h... (cached) yes
+checking for netinet/tcp.h... (cached) yes
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking for stdlib.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking sys/poll.h usability... yes
+checking sys/poll.h presence... yes
+checking for sys/poll.h... yes
+checking for sys/types.h... (cached) yes
+checking for sys/uio.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking if struct poll is defined... yes
+checking if a simple program using poll() can be compiled... yes
+checking whether bit fields work in ip.h... yes
+checking for gethostname... (cached) yes
+checking whether gethostname needs a declaration... (cached) no
+checking for library containing socket... (cached) none required
+checking for library containing gethostbyname... (cached) none required
+checking whether socklen_t is defined (in sys/socket.h if present)... (cached) yes
+configure: ===== configuring src/mpid/common/sock =====
+configure: ===== done with src/mpid/common/sock configure =====
+configure: ===== configuring src/mpi/romio =====
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/Users/barrysmith/Src/petsc/arch-hypre'  'MAKE=/usr/bin/make' '--libdir=/Users/barrysmith/Src/petsc/arch-hypre/lib' 'CC=gcc' 'CFLAGS=-Qunused-arguments -g3   -O0' 'AR=/usr/bin/ar' 'ARFLAGS=cr' 'CXX=g++' 'CXXFLAGS=-g ' 'F77=gfortran' 'FFLAGS=-ffree-line-length-0 -g ' 'FC=gfortran' 'FCFLAGS=-ffree-line-length-0 -g ' '--enable-shared' '--with-device=ch3:sock' '--with-pm=hydra' '--enable-fast=no' '--enable-g=meminit' --cache-file=/dev/null --srcdir=.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... mkdir -p
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether /usr/bin/make sets $(MAKE)... yes
+checking whether /usr/bin/make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking for style of include used by /usr/bin/make... GNU
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking the archiver (/usr/bin/ar) interface... ar
+checking build system type... x86_64-apple-darwin15.2.0
+checking host system type... x86_64-apple-darwin15.2.0
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+checking if the linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+checking the name lister (/usr/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking how to convert x86_64-apple-darwin15.2.0 file names to x86_64-apple-darwin15.2.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin15.2.0 file names to toolchain format... func_convert_file_noop
+checking for /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fno-common -DPIC
+checking if gcc PIC flag -fno-common -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether /usr/bin/make supports nested variables... (cached) yes
+Configuring with args dummy otool64
+checking whether clock skew breaks make... no
+checking whether make supports include... yes
+checking whether make allows comments in actions... yes
+checking for virtual path format... VPATH
+checking whether make sets CFLAGS... yes
+checking for architecture... Darwin
+ROMIO home directory is /Users/barrysmith/Src/petsc/arch-hypre/externalpackages/mpich-3.2/src/mpi/romio
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether gfortran accepts -g... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for gfortran option to produce PIC... -fno-common
+checking if gfortran PIC flag -fno-common works... yes
+checking if gfortran static flag -static works... no
+checking if gfortran supports -c -o file.o... yes
+checking if gfortran supports -c -o file.o... (cached) yes
+checking whether the gfortran linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether we are using the GNU Fortran compiler... yes
+checking whether gfortran accepts -g... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for gfortran option to produce PIC... -fno-common
+checking if gfortran PIC flag -fno-common works... yes
+checking if gfortran static flag -static works... no
+checking if gfortran supports -c -o file.o... yes
+checking if gfortran supports -c -o file.o... (cached) yes
+checking whether the gfortran linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking for long long... yes
+checking size of long long... 8
+checking for memalign... no
+checking Fortran external names
+Fortran externals have a trailing underscore and are lowercase
+checking for inline... inline
+checking for size_t... yes
+checking for ssize_t... yes
+checking for off_t... yes
+checking how to run the C preprocessor... gcc -E
+checking for unistd.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking malloc.h usability... no
+checking malloc.h presence... no
+checking for malloc.h... no
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for sys/types.h... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking for mpix.h... no
+checking for u_char... yes
+checking for u_short... yes
+checking for u_int... yes
+checking for u_long... yes
+checking sys/attr.h usability... yes
+checking sys/attr.h presence... yes
+checking for sys/attr.h... yes
+checking size of int... 4
+checking size of void *... 8
+checking for int large enough for pointers... no
+checking size of long long... (cached) 8
+checking for extension for Fortran 90 programs... f90
+checking for Fortran 90 KIND parameter for 8-byte integers...            8
+checking that we can use integer*8 to declare MPI_DISPLACMENT_CURRENT... yes
+Overriding Array test for MPICH
+checking for type of weak symbol alias support... no
+checking whether __attribute__ ((weak)) allowed... yes
+checking whether __attribute__ ((weak_import)) allowed... yes
+checking whether __attribute__((weak,alias(...))) allowed... no
+checking whether struct flock compatible with MPI_Offset... yes
+checking for pvfs2-config... notfound
+checking configured file systems... testfs ufs nfs
+checking for library containing aio_write... none required
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking aio.h usability... yes
+checking aio.h presence... yes
+checking for aio.h... yes
+checking sys/aio.h usability... yes
+checking sys/aio.h presence... yes
+checking for sys/aio.h... yes
+checking whether aio routines can be used... yes
+checking for obsolete two-argument aio_write... no
+checking for obsolete two-argument aio_suspend... no
+checking for struct aiocb.aio_fildes... yes
+checking for struct aiocb.aio_whence... no
+checking for struct aiocb.aio_handle... no
+checking for struct aiocb.aio_reqprio... yes
+checking for struct aiocb.aio_sigevent... yes
+checking sys/vfs.h usability... no
+checking sys/vfs.h presence... no
+checking for sys/vfs.h... no
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/mount.h usability... yes
+checking sys/mount.h presence... yes
+checking for sys/mount.h... yes
+checking sys/statvfs.h usability... yes
+checking sys/statvfs.h presence... yes
+checking for sys/statvfs.h... yes
+checking for statfs... yes
+checking whether struct statfs properly defined... yes
+checking for f_fstypename member of statfs structure... yes
+checking for sys/stat.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for stat... yes
+checking for st_fstype member of stat structure... no
+checking for sys/types.h... (cached) yes
+checking for sys/statvfs.h... (cached) yes
+checking for sys/vfs.h... (cached) no
+checking for statvfs... yes
+checking for f_basetype member of statvfs structure... no
+checking for blksize_t... yes
+checking for unistd.h... (cached) yes
+checking for large file defines... no
+checking whether pwrite is declared... yes
+checking for strerror... yes
+checking for doctext... false
+checking for strdup... yes
+checking whether strdup needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for lstat... yes
+checking whether lstat needs a declaration... no
+checking for readlink... yes
+checking whether readlink needs a declaration... no
+checking for fsync... yes
+checking whether fsync needs a declaration... no
+checking for ftruncate... yes
+checking whether ftruncate needs a declaration... no
+checking for lseek64... no
+checking for usleep... yes
+checking whether usleep needs a declaration... no
+checking for unistd.h... (cached) yes
+checking for large file defines... none
+setting SYSDEP_INC to 
+checking for C/C++ restrict keyword... __restrict
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking for gcov... gcov
+setting CC to gcc
+setting F77 to gfortran
+setting TEST_CC to $(bindir)/mpicc
+setting TEST_F77 to $(bindir)/mpifort
+setting CFLAGS to -Qunused-arguments -g3   -O0  -DFORTRANUNDERSCORE -DHAVE_ROMIOCONF_H
+setting USER_CFLAGS to 
+setting USER_FFLAGS to 
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating localdefs
+config.status: creating mpi2-other/info/Makefile
+config.status: creating mpi2-other/array/Makefile
+config.status: creating test/Makefile
+config.status: creating test/misc.c
+config.status: creating test/large_file.c
+config.status: creating test/runtests
+config.status: creating test-internal/Makefile
+config.status: creating util/romioinstall
+config.status: creating include/mpio.h
+config.status: creating include/mpiof.h
+config.status: creating mpi2-other/info/fortran/Makefile
+config.status: creating mpi2-other/array/fortran/Makefile
+config.status: creating test/fmisc.f
+config.status: creating test/fcoll_test.f
+config.status: creating test/pfcoll_test.f
+config.status: creating test/fperf.f
+config.status: creating adio/include/romioconf.h
+config.status: adio/include/romioconf.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default-1 commands
+configure: ===== done with src/mpi/romio configure =====
+configure: sourcing src/mpi/romio/localdefs
+configure: ===== configuring src/pm/hydra =====
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/Users/barrysmith/Src/petsc/arch-hypre'  'MAKE=/usr/bin/make' '--libdir=/Users/barrysmith/Src/petsc/arch-hypre/lib' 'CC=gcc' 'CFLAGS=-Qunused-arguments -g3   -O0' 'AR=/usr/bin/ar' 'ARFLAGS=cr' 'CXX=g++' 'CXXFLAGS=-g ' 'F77=gfortran' 'FFLAGS=-ffree-line-length-0 -g ' 'FC=gfortran' 'FCFLAGS=-ffree-line-length-0 -g ' '--enable-shared' '--with-device=ch3:sock' '--with-pm=hydra' '--enable-fast=no' '--enable-g=meminit' --cache-file=/dev/null --srcdir=.
+checking build system type... x86_64-apple-darwin15.2.0
+checking host system type... x86_64-apple-darwin15.2.0
+checking target system type... x86_64-apple-darwin15.2.0
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for fgrep... /usr/bin/grep -F
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... mkdir -p
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether /usr/bin/make sets $(MAKE)... yes
+checking for style of include used by /usr/bin/make... GNU
+checking whether /usr/bin/make supports nested variables... yes
+checking dependency style of gcc... gcc3
+checking the archiver (/usr/bin/ar) interface... ar
+checking whether /usr/bin/make supports nested variables... (cached) yes
+checking for perl... /usr/bin/perl
+checking for doctext... false
+checking for an ANSI C-conforming const... yes
+checking for working volatile... yes
+checking for C/C++ restrict keyword... __restrict
+checking for inline... inline
+checking size of unsigned long... 8
+checking for size_t... yes
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for ld used by gcc... /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+checking if the linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+checking the name lister (/usr/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking how to convert x86_64-apple-darwin15.2.0 file names to x86_64-apple-darwin15.2.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin15.2.0 file names to toolchain format... func_convert_file_noop
+checking for /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... yes
+checking for gcc option to produce PIC... -fno-common -DPIC
+checking if gcc PIC flag -fno-common -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin15.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for variable argument list macro functionality... yes
+checking whether __attribute__ allowed... yes
+checking whether __attribute__((format)) allowed... yes
+checking whether the compiler defines __func__... yes
+checking whether the compiler defines __FUNC__... no
+checking whether the compiler sets __FUNCTION__... yes
+checking for doxygen... no
+checking for gcov... gcov
+checking for ANSI C header files... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sched.h usability... yes
+checking sched.h presence... yes
+checking for sched.h... yes
+checking for sys/stat.h... (cached) yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking netinet/tcp.h usability... yes
+checking netinet/tcp.h presence... yes
+checking for netinet/tcp.h... yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking ifaddrs.h usability... yes
+checking ifaddrs.h presence... yes
+checking for ifaddrs.h... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking winsock2.h usability... no
+checking winsock2.h presence... no
+checking for winsock2.h... no
+checking windows.h usability... no
+checking windows.h presence... no
+checking for windows.h... no
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+checking for library containing hstrerror... none required
+checking for gettimeofday... yes
+checking for time... yes
+checking for strdup... yes
+checking for sigaction... yes
+checking for signal... yes
+checking for usleep... yes
+checking for alloca... no
+checking for unsetenv... yes
+checking for strerror... yes
+checking for strsignal... yes
+checking for stat... yes
+checking for fcntl... yes
+checking for alarm... yes
+checking for isatty... yes
+checking for inet_ntop... yes
+checking for getpgid... yes
+checking for setsid... yes
+checking for killpg... yes
+checking for hstrerror... yes
+checking whether hstrerror needs a declaration... no
+checking whether gettimeofday needs a declaration... no
+checking whether getpgid needs a declaration... no
+checking whether killpg needs a declaration... no
+checking for environ in unistd.h... no
+checking for manually declared extern environ... yes
+checking bootstrap server... user,ssh,rsh,fork,slurm,ll,lsf,sge,pbs,cobalt,manual,persist
+checking tm.h usability... no
+checking tm.h presence... no
+checking for tm.h... no
+checking for tm_init in -ltorque... no
+checking process manager... pmiserv
+checking user interface... mpich
+checking desired processor topology libraries... hwloc
+checking for pkg-config... /usr/local/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for X... libraries /usr/X11/lib, headers /usr/X11/include
+###

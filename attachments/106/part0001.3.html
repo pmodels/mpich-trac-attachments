@@ -1,0 +1,100 @@
+<div dir="ltr">Hi,<br><br>&nbsp;&nbsp;&nbsp; I wrote a very simple test program to see if functions under /ad_pvfs are called.<br>&nbsp;&nbsp;&nbsp; The test program was to open a file and read one char from that file. Then, I found ADIOI_GEN_ReadContig in common/ad_read.c was called, instead of the supposed ADIOI_PVFS_ReadStridedListIO.<br>
+&nbsp;&nbsp;&nbsp; and I&#39;m pretty sure that the file opened is under pvfs system.<br>&nbsp;&nbsp;&nbsp; Thank you.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thomas<br><br><div class="gmail_quote">On Wed, Aug 20, 2008 at 2:57 PM, mpich2 <span dir="ltr">&lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">--------------------------------------------------+-------------------------<br>
+ &nbsp;Reporter: &nbsp;&quot;Thomas Liu&quot; &lt;<a href="mailto:thomas0810@gmail.com">thomas0810@gmail.com</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; Owner:<br>
+ &nbsp; &nbsp; &nbsp;Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;Status: &nbsp;closed<br>
+ &nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; Component: &nbsp;mpich2<br>
+Resolution: &nbsp;fixed &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Keywords:<br>
+--------------------------------------------------+-------------------------<br>
+<br>
+<br>
+Comment (by Rob Ross):<br>
+<br>
+&nbsp;What functions under common are being called?<br>
+<br>
+&nbsp;-- Rob<br>
+<br>
+&nbsp;On Aug 20, 2008, at 2:28 PM, &quot;mpich2&quot; &lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt; wrote:<br>
+<br>
+&nbsp;&gt; --------------------------------------------------<br>
+&nbsp;&gt; +-------------------------<br>
+&nbsp;&gt; &nbsp;Reporter: &nbsp;&quot;Thomas Liu&quot; &lt;<a href="mailto:thomas0810@gmail.com">thomas0810@gmail.com</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; Owner:<br>
+&nbsp;&gt; &nbsp; &nbsp; &nbsp;Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;Status:<br>
+&nbsp;&gt; closed<br>
+&nbsp;&gt; &nbsp;Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; Component:<br>
+&nbsp;&gt; mpich2<br>
+&nbsp;&gt; Resolution: &nbsp;fixed &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp;Keywords:<br>
+&nbsp;&gt; --------------------------------------------------<br>
+&nbsp;&gt; +-------------------------<br>
+&nbsp;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; Comment (by Thomas Liu):<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; Hi,<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp; &nbsp;Thank you very much for your answers. However, MPICH2 still<br>
+&nbsp;&gt; chooses to<br>
+&nbsp;&gt; run functions under /common with that configuration. Besides, I&#39;m<br>
+&nbsp;&gt; trying<br>
+&nbsp;&gt; to<br>
+&nbsp;&gt; run MPICH2 under PVFS 1 instead of PVFS 2. Can you please help me out?<br>
+&nbsp;&gt; Thank<br>
+&nbsp;&gt; you very much.<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Thomas<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; On Tue, Aug 19, 2008 at 4:11 PM, mpich2 &lt;<a href="mailto:mpich2-maint@mcs.anl.gov">mpich2-maint@mcs.anl.gov</a>&gt;<br>
+&nbsp;&gt; wrote:<br>
+&nbsp;&gt;<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt; --------------------------------------------------<br>
+&nbsp;&gt; +-------------------------<br>
+&nbsp;&gt;&gt; Reporter: &nbsp;&quot;Thomas Liu&quot; &lt;<a href="mailto:thomas0810@gmail.com">thomas0810@gmail.com</a>&gt; &nbsp;| &nbsp; &nbsp; &nbsp; Owner:<br>
+&nbsp;&gt;&gt; &nbsp; &nbsp; Type: &nbsp;bug &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;Status: &nbsp;new<br>
+&nbsp;&gt;&gt; Priority: &nbsp;major &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| &nbsp; Component:<br>
+&nbsp;&gt;&gt; mpich2<br>
+&nbsp;&gt;&gt; Resolution: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;Keywords:<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt; --------------------------------------------------<br>
+&nbsp;&gt; +-------------------------<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt; Comment (by Robert Latham):<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt; On Tue, Aug 19, 2008 at 09:01:26PM -0000, mpich2 wrote:<br>
+&nbsp;&gt;&gt;&gt; &nbsp; &nbsp; &nbsp;I&#39;m a user of MPICH2. I would like to run MPICH2 on pvfs file<br>
+&nbsp;&gt;&gt; system.<br>
+&nbsp;&gt;&gt;&gt; But it seems only running in functions under /common. What should I<br>
+&nbsp;&gt; do<br>
+&nbsp;&gt;&gt;&gt; during installing MPICH2 to enable it running on PVFS?<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt; Hi.<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt; You should configure MPICH2 with the &quot;--with-file-systems=pvfs2&quot;<br>
+&nbsp;&gt;&gt; option, and then that will enable all the PVFS-specific optimizations<br>
+&nbsp;&gt;&gt; in &#39;ad_pvfs2&#39;.<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt; Let me know if that doesn&#39;t do the trick.<br>
+&nbsp;&gt;&gt; ==rob<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt; --<br>
+&nbsp;&gt;&gt; Rob Latham<br>
+&nbsp;&gt;&gt; Mathematics and Computer Science Division &nbsp; &nbsp;A215 0178 EA2D B059 8CDF<br>
+&nbsp;&gt;&gt; Argonne National Lab, IL USA &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; B29D F333 664A 4280 315B<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;&gt; --<br>
+&nbsp;&gt;&gt; Ticket URL:<br>
+&nbsp;&gt; &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment</a>:&gt;<br>
+&nbsp;&gt;&gt;<br>
+&nbsp;&gt;<br>
+&nbsp;&gt; --<br>
+&nbsp;&gt; Ticket URL:<br>
+&nbsp;&lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment</a>:<br>
+&nbsp;&gt; &gt;<br>
+&nbsp;&gt;<br>
+<font color="#888888"><br>
+--<br>
+Ticket URL: &lt;<a href="https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment" target="_blank">https://trac.mcs.anl.gov/projects/mpich2/ticket/106#comment</a>:&gt;<br>
+</font></blockquote></div><br></div>

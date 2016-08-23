@@ -1,0 +1,179 @@
+From 788da81b50ab8874f22b574dbd69792a61a466e1 Mon Sep 17 00:00:00 2001
+From: Michael Blocksome <blocksom@us.ibm.com>
+Date: Tue, 16 Apr 2013 16:34:29 -0500
+Subject: [PATCH] Use 'MPIU_ERR_CHKANDJUMP' for onesided parameter checks
+
+The pamid onesided implementation used a non-standard error reporting
+macro which is not available in the top mpich.org master branch.
+
+See ticket #1809
+---
+ src/mpid/pamid/src/onesided/mpid_win_accumulate.c |    9 +++++++--
+ src/mpid/pamid/src/onesided/mpid_win_free.c       |    5 +++++
+ src/mpid/pamid/src/onesided/mpid_win_get.c        |    9 +++++++--
+ src/mpid/pamid/src/onesided/mpid_win_pscw.c       |   11 +++++++----
+ src/mpid/pamid/src/onesided/mpid_win_put.c        |    9 +++++++--
+ 5 files changed, 33 insertions(+), 10 deletions(-)
+
+diff --git a/src/mpid/pamid/src/onesided/mpid_win_accumulate.c b/src/mpid/pamid/src/onesided/mpid_win_accumulate.c
+index 85f42e2..b34c083 100644
+--- a/src/mpid/pamid/src/onesided/mpid_win_accumulate.c
++++ b/src/mpid/pamid/src/onesided/mpid_win_accumulate.c
+@@ -152,6 +152,10 @@ MPIDI_Accumulate(pami_context_t   context,
+  * \param[in] win              Window
+  * \return MPI_SUCCESS
+  */
++#undef FUNCNAME
++#define FUNCNAME MPID_Accumulate
++#undef FCNAME
++#define FCNAME MPIU_QUOTE(FUNCNAME)
+ int
+ MPID_Accumulate(void         *origin_addr,
+                 int           origin_count,
+@@ -163,6 +167,7 @@ MPID_Accumulate(void         *origin_addr,
+                 MPI_Op        op,
+                 MPID_Win     *win)
+ {
++  int mpi_errno = MPI_SUCCESS;
+   MPIDI_Win_request *req = MPIU_Calloc0(1, MPIDI_Win_request);
+   req->win          = win;
+   req->type         = MPIDI_WIN_REQUEST_ACCUMULATE;
+@@ -321,6 +326,6 @@ MPID_Accumulate(void         *origin_addr,
+    */
+   PAMI_Context_post(MPIDI_Context[0], &req->post_request, MPIDI_Accumulate, req);
+ 
+-
+-  return MPI_SUCCESS;
++fn_fail:
++  return mpi_errno;
+ }
+diff --git a/src/mpid/pamid/src/onesided/mpid_win_free.c b/src/mpid/pamid/src/onesided/mpid_win_free.c
+index a71e039..69e082b 100644
+--- a/src/mpid/pamid/src/onesided/mpid_win_free.c
++++ b/src/mpid/pamid/src/onesided/mpid_win_free.c
+@@ -30,6 +30,10 @@
+  * \param[in,out] win  Window
+  * \return MPI_SUCCESS or error returned from MPI_Barrier.
+  */
++#undef FUNCNAME
++#define FUNCNAME MPID_Win_free
++#undef FCNAME
++#define FCNAME MPIU_QUOTE(FUNCNAME)
+ int
+ MPID_Win_free(MPID_Win **win_ptr)
+ {
+@@ -71,5 +75,6 @@ MPID_Win_free(MPID_Win **win_ptr)
+ 
+   MPIU_Handle_obj_free(&MPID_Win_mem, win);
+ 
++fn_fail:
+   return mpi_errno;
+ }
+diff --git a/src/mpid/pamid/src/onesided/mpid_win_get.c b/src/mpid/pamid/src/onesided/mpid_win_get.c
+index aa8114b..d9eaf93 100644
+--- a/src/mpid/pamid/src/onesided/mpid_win_get.c
++++ b/src/mpid/pamid/src/onesided/mpid_win_get.c
+@@ -214,6 +214,10 @@ MPIDI_Get_use_pami_get(pami_context_t context, MPIDI_Win_request * req, int *fre
+  * \param[in] win              Window
+  * \return MPI_SUCCESS
+  */
++#undef FUNCNAME
++#define FUNCNAME MPID_Get
++#undef FCNAME
++#define FCNAME MPIU_QUOTE(FUNCNAME)
+ int
+ MPID_Get(void         *origin_addr,
+          int           origin_count,
+@@ -224,6 +228,7 @@ MPID_Get(void         *origin_addr,
+          MPI_Datatype  target_datatype,
+          MPID_Win     *win)
+ {
++  int mpi_errno = MPI_SUCCESS;
+   MPIDI_Win_request *req = MPIU_Calloc0(1, MPIDI_Win_request);
+   req->win          = win;
+   req->type         = MPIDI_WIN_REQUEST_GET;
+@@ -360,6 +365,6 @@ MPID_Get(void         *origin_addr,
+    */
+   PAMI_Context_post(MPIDI_Context[0], &req->post_request, MPIDI_Get, req);
+ 
+-
+-  return MPI_SUCCESS;
++fn_fail:
++  return mpi_errno;
+ }
+diff --git a/src/mpid/pamid/src/onesided/mpid_win_pscw.c b/src/mpid/pamid/src/onesided/mpid_win_pscw.c
+index 221e316..7dc2cef 100644
+--- a/src/mpid/pamid/src/onesided/mpid_win_pscw.c
++++ b/src/mpid/pamid/src/onesided/mpid_win_pscw.c
+@@ -113,13 +113,15 @@ MPID_Win_start(MPID_Group *group,
+   MPID_PROGRESS_WAIT_WHILE(group->size != sync->pw.count);
+   sync->pw.count = 0;
+ 
+-  MPIU_ERR_CHKORASSERT(win->mpid.sync.sc.group == NULL,
+-                       mpi_errno, MPI_ERR_GROUP, return mpi_errno, "**group");
++  MPIU_ERR_CHKANDJUMP((win->mpid.sync.sc.group != NULL), mpi_errno, MPI_ERR_GROUP, "**group");
+ 
+   win->mpid.sync.sc.group = group;
+   win->mpid.sync.origin_epoch_type = MPID_EPOTYPE_START;
+ 
++fn_exit:
+   return mpi_errno;
++fn_fail:
++  goto fn_exit;
+ }
+ 
+ 
+@@ -174,8 +176,8 @@ MPID_Win_post(MPID_Group *group,
+ 
+   MPIR_Group_add_ref(group);
+ 
+-  MPIU_ERR_CHKORASSERT(win->mpid.sync.pw.group == NULL,
+-                       mpi_errno, MPI_ERR_GROUP, return mpi_errno,"**group");
++  MPIU_ERR_CHKANDJUMP((win->mpid.sync.pw.group != NULL), mpi_errno, MPI_ERR_GROUP, "**group");
++
+   win->mpid.sync.pw.group = group;
+ 
+   MPIDI_WinPSCW_info info = {
+@@ -187,6 +189,7 @@ MPID_Win_post(MPID_Group *group,
+ 
+   win->mpid.sync.target_epoch_type = MPID_EPOTYPE_POST;
+ 
++fn_fail:
+   return mpi_errno;
+ }
+ 
+diff --git a/src/mpid/pamid/src/onesided/mpid_win_put.c b/src/mpid/pamid/src/onesided/mpid_win_put.c
+index 1d4f428..8864721 100644
+--- a/src/mpid/pamid/src/onesided/mpid_win_put.c
++++ b/src/mpid/pamid/src/onesided/mpid_win_put.c
+@@ -220,6 +220,10 @@ MPIDI_Put_use_pami_put(pami_context_t   context, MPIDI_Win_request * req,int *fr
+  * \param[in] win              Window
+  * \return MPI_SUCCESS
+  */
++#undef FUNCNAME
++#define FUNCNAME MPID_Put
++#undef FCNAME
++#define FCNAME MPIU_QUOTE(FUNCNAME)
+ int
+ MPID_Put(void         *origin_addr,
+          int           origin_count,
+@@ -230,6 +234,7 @@ MPID_Put(void         *origin_addr,
+          MPI_Datatype  target_datatype,
+          MPID_Win     *win)
+ {
++  int mpi_errno = MPI_SUCCESS;
+   MPIDI_Win_request *req = MPIU_Calloc0(1, MPIDI_Win_request);
+   req->win          = win;
+   req->type         = MPIDI_WIN_REQUEST_PUT;
+@@ -365,6 +370,6 @@ MPID_Put(void         *origin_addr,
+    */
+   PAMI_Context_post(MPIDI_Context[0], &req->post_request, MPIDI_Put, req);
+ 
+-
+-  return MPI_SUCCESS;
++fn_fail:
++  return mpi_errno;
+ }
+-- 
+1.7.1
+

@@ -1,0 +1,31 @@
+<div class="gmail_quote"><span></span>Hi <br><div class="gmail_quote"><br>I am running a weather modeling program(WRF) on 56 processors(12 quad cores and 4 dual cores - all x86_64). The program runs for about 10 hours and then dies with these messages<br>
+
+
+<br><i>rank 59 in job 1  garl-fire15.local_39996   caused collective abort of all ranks<br>  exit status of rank 59: killed by signal 9<br>rank 58 in job 1  garl-fire15.local_39996   caused collective abort of all ranks<br>
+
+
+  exit status of rank 58: killed by signal 9<br>rank 3 in job 1  garl-fire15.local_39996   caused collective abort of all ranks<br>  exit status of rank 3: killed by signal 9<br>rank 42 in job 1  garl-fire15.local_39996   caused collective abort of all ranks<br>
+
+
+  exit status of rank 42: return code 1<br>rank 40 in job 1  garl-fire15.local_39996   caused collective abort of all ranks<br>  exit status of rank 40: return code 1<br>rank 45 in job 1  garl-fire15.local_39996   caused collective abort of all ranks<br>
+
+
+  exit status of rank 45: return code 1<br>rank 44 in job 1  garl-fire15.local_39996   caused collective abort of all ranks<br>  exit status of rank 44: killed by signal 9<br>rank 21 in job 1  garl-fire15.local_39996   caused collective abort of all ranks<br>
+
+
+  exit status of rank 21: return code 1<br><br></i><br><br>In the log file, these errors are reported, <br><br><i>Fatal error in MPI_Wait: Other MPI error, error stack:<br>MPI_Wait(156).............................: MPI_Wait(request=0x6816130, status0x7fbfff1e10) failed<br>
+
+
+MPIDI_CH3i_Progress_wait(215).............: an error occurred while handling an event returned by MPIDU_Sock_Wait()<br>MPIDI_CH3I_Progress_handle_sock_event(420):<br>MPIDU_Socki_handle_read(637)..............: connection failure (set=0,sock=15,errno=104:Connection reset by peer)[cli_21]: aborting job:<br>
+
+
+Fatal error in MPI_Wait: Other MPI error, error stack:<br>MPI_Wait(156).............................: MPI_Wait(request=0x6816130, status0x7fbfff1e10) failed<br>MPIDI_CH3i_Progress_wait(215).............: an error occurred while handling an event returned by MPIDU_Sock_Wait()<br>
+
+
+MPIDI_CH3I_Progress_handle_sock_event(420):<br>MPIDU_Socki_handle_read(637)..............: connection failure (set=0,sock=15,errno=104:Connection reset by peer)</i><br><br><br><br>I am using mpich2-1.0.8 (configured like this - ./configure --prefix=/usr/local/mpich2-1.0.8 --enable-f90)<br>
+
+I have also tried configuring with nemesis (./configure --prefix=/usr/local/mpich2-1.0.8 --enable-f90 --with-device=ch3:nemesis)<br><br>I do not face this problem for smaller input size. I have also checked free memory during the run, its almost always ~2GB.  I also did <b>unset limits</b> and <b>export MP_STACK_SIZE=64000000</b><br>
+
+
+<br>Any clue why the program is crashing? <br><br><br>Thanks in advance<br>Preeti<br></div><br>
+</div><br>

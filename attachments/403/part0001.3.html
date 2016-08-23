@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #403: mpiexec kills the remote login shell</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>Hi,<BR>
+&nbsp;Do you get a core dump of mpiexec/hellow/ssh ? (if yes, what does it show ?)<BR>
+&nbsp;Can you run a simple non-MPI C program with fflush(stdout) &amp; fflush(stderr) in it?<BR>
+&nbsp;If the above suggestions don't narrow down the problem I will give you a debug module (patch with some extra printfs) to help us narrow down the problem.<BR>
+<BR>
+(PS: I looked into the code, but cannot think of anything that might fail in your environment.)<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: Yu-Cheng Chou [<A HREF="mailto:cycchou@ucdavis.edu">mailto:cycchou@ucdavis.edu</A>]<BR>
+Sent: Thursday, February 05, 2009 4:27 PM<BR>
+To: Jayesh Krishna<BR>
+Cc: mpich2-maint@mcs.anl.gov<BR>
+Subject: Re: [mpich2-maint] #403: mpiexec kills the remote login shell<BR>
+<BR>
+&gt;&nbsp; Hi,<BR>
+&gt; The debug outputs look normal (the problem could be with the part of<BR>
+&gt; the code at mpiexec exit() which has no dbg statements). I have added<BR>
+&gt; this to our bug tracking list.<BR>
+&gt; Meanwhile,<BR>
+&gt;<BR>
+&gt; #&nbsp; Can you send us your &quot;.smpd&quot; config file ?<BR>
+<BR>
+The &quot;.smpd&quot; file only contains one line of statement as follows.<BR>
+<BR>
+phrase=123<BR>
+<BR>
+&gt; #&nbsp; Did you modify the MPICH2 code to run on Korbet (Please send us<BR>
+&gt; your configure command &amp; any env settings set to configure/make<BR>
+&gt; MPICH2)?<BR>
+<BR>
+I did not modify the MPICH2 source code.<BR>
+The configure command that I used is listed below.<BR>
+<BR>
+./configure LDFLAGS=-L/tmp/korebot/mpich2-1.0.8/korebot_openssl/lib<BR>
+--host=arm-linux --with-cross=crosstype --with-pm=smpd --with-mpe=no --disable-f90 --disable-f77 --disable-cxx<BR>
+--prefix=/tmp/korebot/mpich2-1.0.8/korebot_mpich2<BR>
+<BR>
+The &quot;korebot_openssl/lib&quot; contains the libraries needed for building smpd.<BR>
+<BR>
+The content of the file &quot;crosstype&quot; is listed below.<BR>
+<BR>
+CROSS_SIZEOF_FLOAT_INT=8<BR>
+CROSS_SIZEOF_DOUBLE_INT=12<BR>
+CROSS_SIZEOF_LONG_INT=8<BR>
+CROSS_SIZEOF_SHORT_INT=8<BR>
+CROSS_SIZEOF_2_INT=8<BR>
+CROSS_SIZEOF_LONG_DOUBLE_INT=16<BR>
+<BR>
+Thank you<BR>
+<BR>
+<BR>
+&gt;&nbsp; &gt; -----Original Message-----<BR>
+&gt;&nbsp; &gt; From: Yu-Cheng Chou [<A HREF="mailto:cycchou@ucdavis.edu">mailto:cycchou@ucdavis.edu</A>]&nbsp; &gt; Sent:<BR>
+&gt; Wednesday, February 04, 2009 2:32 PM&nbsp; &gt; To: Jayesh Krishna&nbsp; &gt; Cc:<BR>
+&gt; mpich-discuss@mcs.anl.gov&nbsp; &gt; Subject: Re: [mpich-discuss] mpiexec<BR>
+&gt; kills the remote login shell&nbsp; &gt;&nbsp; &gt; &gt;&nbsp; Hi,<BR>
+&gt;&nbsp; &gt; &gt;&nbsp;&nbsp; Does smpd abort when you run your MPI job ?<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt; No.<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; &gt; &gt;<BR>
+&gt;&nbsp; &gt; &gt; Regards,<BR>
+&gt;&nbsp; &gt; &gt; Jayesh<BR>
+&gt;&nbsp; &gt; &gt;<BR>
+&gt;&nbsp; &gt; &gt; -----Original Message-----<BR>
+&gt;&nbsp; &gt; &gt; From: Yu-Cheng Chou [<A HREF="mailto:cycchou@ucdavis.edu">mailto:cycchou@ucdavis.edu</A>]&nbsp; &gt; &gt; Sent:<BR>
+&gt; Wednesday, February 04, 2009 1:56 PM&nbsp; &gt; &gt; To: Jayesh Krishna&nbsp; &gt; &gt; Cc:<BR>
+&gt; mpich-discuss@mcs.anl.gov&nbsp; &gt; &gt; Subject: Re: [mpich-discuss] mpiexec<BR>
+&gt; kills the remote login shell&nbsp; &gt; &gt;&nbsp; &gt; &gt; Hi&nbsp; &gt; &gt;&nbsp; &gt; &gt; I can<BR>
+&gt; cross-compile the program and then simply run the&nbsp; &gt; executable on&nbsp; &gt;<BR>
+&gt; &gt; Korebot with no errors.<BR>
+&gt;&nbsp; &gt; &gt;<BR>
+&gt;&nbsp; &gt; &gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt; Hi,<BR>
+&gt;&nbsp; &gt; &gt;&gt;&nbsp; Can you try running (without mpiexec) a simple C program with&nbsp;<BR>
+&gt; &gt; &gt;&gt;<BR>
+&gt; exit(-1) on Korebot ?<BR>
+&gt;&nbsp; &gt; &gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt; ========================================<BR>
+&gt;&nbsp; &gt; &gt;&gt; #include &lt;stdlib.h&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt; int main(int argc, char *argv[])&nbsp; &gt; &gt;&gt; {<BR>
+&gt;&nbsp; &gt; &gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp; exit(-1);<BR>
+&gt;&nbsp; &gt; &gt;&gt; }<BR>
+&gt;&nbsp; &gt; &gt;&gt; ========================================<BR>
+&gt;&nbsp; &gt; &gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt; Regards,<BR>
+&gt;&nbsp; &gt; &gt;&gt; Jayesh<BR>
+&gt;&nbsp; &gt; &gt;&gt; ________________________________&nbsp; &gt; &gt;&gt; From:<BR>
+&gt; mpich-discuss-bounces@mcs.anl.gov&nbsp; &gt; &gt;&gt;<BR>
+&gt; [<A HREF="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] On Behalf Of Jayesh&nbsp; &gt; &gt;&gt;<BR>
+&gt; Krishna&nbsp; &gt; &gt;&gt; Sent: Wednesday, February 04, 2009 1:04 PM&nbsp; &gt; &gt;&gt; To:<BR>
+&gt; 'Yu-Cheng Chou'<BR>
+&gt;&nbsp; &gt; &gt;&gt; Cc: mpich-discuss@mcs.anl.gov<BR>
+&gt;&nbsp; &gt; &gt;&gt; Subject: Re: [mpich-discuss] mpiexec kills the remote login<BR>
+&gt; shell&nbsp; &gt;<BR>
+&gt;&gt;&gt;&nbsp; &gt; &gt;&gt;&nbsp; Hi,<BR>
+&gt;&nbsp; &gt; &gt;&gt;&nbsp;&nbsp; Can you also attach the corresponding smpd debug output ?<BR>
+&gt;&nbsp; &gt; &gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt; Regards,<BR>
+&gt;&nbsp; &gt; &gt;&gt; Jayesh<BR>
+&gt;&nbsp; &gt; &gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt; -----Original Message-----<BR>
+&gt;&nbsp; &gt; &gt;&gt; From: Yu-Cheng Chou [<A HREF="mailto:cycchou@ucdavis.edu">mailto:cycchou@ucdavis.edu</A>]&nbsp; &gt; &gt;&gt; Sent:<BR>
+&gt; Wednesday, February 04, 2009 1:02 PM&nbsp; &gt; &gt;&gt; To: Jayesh Krishna&nbsp; &gt; &gt;&gt; Cc:<BR>
+&gt; mpich-discuss@mcs.anl.gov&nbsp; &gt; &gt;&gt; Subject: Re: [mpich-discuss] mpiexec<BR>
+&gt; kills the remote login shell&nbsp; &gt; &gt;&gt;&nbsp; &gt; &gt;&gt; Hi,&nbsp; &gt; &gt;&gt;&nbsp; &gt; &gt;&gt; Firstly, the<BR>
+&gt; previously attached mpiexec verbose output is&nbsp; &gt; a wrong one.<BR>
+&gt;&nbsp; &gt; &gt;&gt; I've attached the correct one to this email.<BR>
+&gt;&nbsp; &gt; &gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt; Secondly, I want to point out that as long as mpiexec is<BR>
+&gt; initiated&nbsp; &gt;<BR>
+&gt;&gt;&gt; from Korebot to run a program, no matter it's a MPI or non-MPI&nbsp; &gt; &gt;&gt;<BR>
+&gt; program, no matter the program can be found or not, as soon as&nbsp; &gt; &gt;&gt;<BR>
+&gt; mpiexec is finished, the ssh connection to Korebot will be gone.<BR>
+&gt;&nbsp; &gt; &gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt; Thank you<BR>
+&gt;&nbsp; &gt; &gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Hi,<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&nbsp;&nbsp; The mpiexec output shows the following error when<BR>
+&gt;&nbsp; &gt; running hellow,<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; ==================<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Unable to exec 'hello' on korebot&nbsp; &gt; &gt;&gt;&gt;&nbsp; &gt; &gt;&gt;&gt; Error 2 - No<BR>
+&gt; such file or directory&nbsp; &gt; &gt;&gt;&gt;&nbsp; &gt; &gt;&gt;&gt; ==================&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&nbsp;&nbsp; Please provide the debug output of smpd (smpd -d 2&gt;&amp;1 | tee<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; smpd.out) along with mpiexec (mpiexec -verbose -n 2&nbsp; &gt; ./hellow<BR>
+&gt; 2&gt;&amp;1<BR>
+&gt; |&nbsp; &gt; &gt;&gt;&gt; tee mpiexec.out).<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; #&nbsp; Can you run simple C programs (without using mpiexec)&nbsp; &gt; on<BR>
+&gt; Korbet ?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; #&nbsp; Is the ssh connection aborted when you run non-MPI programs&nbsp;<BR>
+&gt; &gt; &gt;&gt;&gt; (mpiexec -n 2&nbsp; &gt; &gt;&gt;&gt; hostname) ?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; #&nbsp; Can you send us your &quot;.smpd&quot; config file ?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; #&nbsp; Did you modify the MPICH2 code to run on Korbet&nbsp; &gt; (Please<BR>
+&gt; send us&nbsp; &gt; &gt;&gt;&gt; your configure command &amp; any env settings set to&nbsp; &gt;<BR>
+&gt; configure/make MPICH2)?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Regards,<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Jayesh<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; ________________________________&nbsp; &gt; &gt;&gt;&gt; From:<BR>
+&gt; mpich-discuss-bounces@mcs.anl.gov&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt; [<A HREF="mailto:mpich-discuss-bounces@mcs.anl.gov">mailto:mpich-discuss-bounces@mcs.anl.gov</A>] On Behalf Of Jayesh&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt; Krishna&nbsp; &gt; &gt;&gt;&gt; Sent: Wednesday, February 04, 2009 8:41 AM&nbsp; &gt; &gt;&gt;&gt; To:<BR>
+&gt; 'Yu-Cheng Chou'<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Cc: mpich-discuss@mcs.anl.gov<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Subject: Re: [mpich-discuss] mpiexec kills the remote login<BR>
+&gt; shell&nbsp; &gt;<BR>
+&gt;&gt;&gt;&gt;&nbsp; &gt; &gt;&gt;&gt;&nbsp; Hi,<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&nbsp;&nbsp; I will take a look at the debug logs and get back to you.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Meanwhile, can you run simple C programs without using mpiexec<BR>
+&gt; on&nbsp; &gt;<BR>
+&gt;&gt;&gt;&gt; Korbet ?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&nbsp;&nbsp; MPICH2 currently does not support heterogeneous systems (So you<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; won't be able to run your MPI job across ARM &amp; other&nbsp; &gt;<BR>
+&gt; architectures).<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Regards,<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Jayesh<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; -----Original Message-----<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; From: Yu-Cheng Chou [<A HREF="mailto:cycchou@ucdavis.edu">mailto:cycchou@ucdavis.edu</A>]&nbsp; &gt; &gt;&gt;&gt; Sent:<BR>
+&gt; Tuesday, February 03, 2009 7:52 PM&nbsp; &gt; &gt;&gt;&gt; To: Jayesh Krishna&nbsp; &gt; &gt;&gt;&gt; Cc:<BR>
+&gt; mpich-discuss@mcs.anl.gov&nbsp; &gt; &gt;&gt;&gt; Subject: Re: [mpich-discuss] mpiexec<BR>
+&gt; kills the remote login shell&nbsp; &gt; &gt;&gt;&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; # Can you run non-MPI<BR>
+&gt; programs using mpiexec (mpiexec -n&nbsp; &gt; 2 hostname) ?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Yes.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; # Can you compile and run the hello world program&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt; (examples/hellow.c) provided with MPICH2 (mpiexec -n 2 ./hellow)?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Yes.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; # How did you start smpd (the command used to start&nbsp; &gt; smpd) ?<BR>
+&gt; How did&nbsp; &gt; &gt;&gt;&gt;&gt; you run your MPI job (the command used to run your job)?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; I have a &quot;.smpd&quot; file containing one line of information,&nbsp; &gt;<BR>
+&gt; which is&nbsp; &gt; &gt;&gt;&gt; &quot;phrase=123&quot;.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Thus, I started smpd using &quot;smpd -s&quot;.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Then I used &quot;mpiexec -n 1 hellow&quot; to run hellow on Korebot.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; # How did you find that mpiexec kills the sshd process (We&nbsp; &gt;<BR>
+&gt; &gt;&gt;&gt;&gt; typically ssh to unix machines and run mpiexec without&nbsp; &gt; any problems) ?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; I logged in Korebot with two terminals.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; &gt;From #1 terminal, I checked all the processes running on Korebot.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; &gt;From #2 terminal, I started smpd and run hellow using&nbsp; &gt; the<BR>
+&gt; commands&nbsp; &gt; &gt;&gt;&gt; mentioned above.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; After hellow was finished, the connection to Korebot via&nbsp; &gt; #2<BR>
+&gt; terminal&nbsp; &gt; &gt;&gt;&gt; was closed.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; &gt;From #1 terminal, I knew that the sshd process&nbsp; &gt; associated<BR>
+&gt; with<BR>
+&gt; #2&nbsp; &gt; &gt;&gt;&gt; &gt;terminal&nbsp; &gt; &gt;&gt;&gt; was gone.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;&nbsp; Can you run smpd/mpiexec in debug mode and provide us with<BR>
+&gt; the&nbsp; &gt;<BR>
+&gt;&gt;&gt;&gt;&gt; outputs (smpd -d / mpiexec -n 2 -verbose hostname) ?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; The first attached text file is the output from running hellow<BR>
+&gt; in&nbsp; &gt;<BR>
+&gt;&gt;&gt;&gt; mpiexec's verbose mode.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; There is another issue.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; This time, I used two machines. One is Korebot as&nbsp; &gt; mentioned<BR>
+&gt; above,&nbsp; &gt; &gt;&gt;&gt; and the other is a laptop running Ubuntu Linux OS.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; I started smpd with the same &quot;.smpd&quot; file and command as&nbsp; &gt;<BR>
+&gt; mentioned&nbsp; &gt; &gt;&gt;&gt; above both on Korebot and the lap top.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; There is a machine file called &quot;hostfile&quot; on Korebot. The file&nbsp;<BR>
+&gt; &gt; &gt;&gt;&gt; contains the following information about the name of the&nbsp; &gt; two machines.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; korebot<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; shrimp<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; Then from Korebot, I ran cpi using the following command.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; mpiexec -machinefile ./hostfile -verbose -n 2 cpi&nbsp; &gt; &gt;&gt;&gt;&nbsp; &gt; &gt;&gt;&gt;&nbsp;<BR>
+&gt; &gt;<BR>
+&gt;&gt;&gt;&gt; But the value of pi is a huge number. I think it is related to&nbsp; &gt;<BR>
+&gt;&gt;&gt;&gt; &gt;&gt;&gt;<BR>
+&gt; &quot;double type variables&quot; being transferred between&nbsp; &gt; processes running&nbsp;<BR>
+&gt; &gt;<BR>
+&gt;&gt;&gt;&gt; on an ARM-based Linux and a general Linux machines.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt; The second attached text file is the output from running cpi in&nbsp;<BR>
+&gt; &gt;<BR>
+&gt;&gt;&gt;&gt; mpiexec's verbose mode.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; I am cross-compiling mpich2-1.0.8 with smpd for Khepera&nbsp; &gt; III<BR>
+&gt; mobile&nbsp; &gt; &gt;&gt;&gt;&gt; robot.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; This mobile robot has a Korebot board which is an ARM-based&nbsp; &gt;<BR>
+&gt; &gt;&gt;&gt;&gt; computer with a Linux operating system.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; The cross-compilation was fine.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; Firstly, I logged in to Korebot through ssh.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; Secondly, I started smpd.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; Thirdly, I ran mpiexec to execute an MPI program (cpi)&nbsp; &gt; that<BR>
+&gt; comes&nbsp; &gt; &gt;&gt;&gt;&gt; with the package.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; The result was correct, but when mpiexec was finished, the ssh&nbsp;<BR>
+&gt; &gt;<BR>
+&gt;&gt;&gt;&gt;&gt; connection to the Korebot was closed.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; I found that mpiexec kills the sshd process through which I<BR>
+&gt; was&nbsp; &gt;<BR>
+&gt;&gt;&gt;&gt;&gt; remotely connected to Korebot.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; I've been looking for the cause, but still have not&nbsp; &gt; found<BR>
+&gt; any clues.<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; Could you give me any ideas to solve this problem?<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; Thank you,<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt; Yu-Cheng<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;&gt;<BR>
+&gt;&nbsp; &gt; &gt;<BR>
+&gt;&nbsp; &gt;<BR>
+&gt;&nbsp; }}}<BR>
+&gt;<BR>
+&gt;<BR>
+&gt; --<BR>
+&gt; Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/403">https://trac.mcs.anl.gov/projects/mpich2/ticket/403</A>&gt;<BR>
+&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

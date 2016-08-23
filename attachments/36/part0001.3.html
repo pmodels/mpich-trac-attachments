@@ -1,0 +1,517 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows XP</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.6000.16674" name=GENERATOR></HEAD>
+<BODY>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008>Hi,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008>&nbsp; The logs sent by you show that the communication 
+btw the process managers on the hosts is good. The problem looks to be with the 
+communication btw the MPI processes.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008># Can you try compiling icpi.c (MPICH2\examples) and 
+run the program in your setup (Make sure that the problem is not related to 
+fortran bindings).</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008># I have seen that some times that the 
+uninstall/install of MPICH2 does not result in the dlls being updated correctly 
+(This has lead to some wierd-difficult-to-debug hangs in our tests. This is not 
+usual but it does not hurt to check for it though). To make sure that you have 
+the right dlls try listing the MPICH2 dlls in your windows system32 directory on 
+both the hosts,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008>&gt;&gt;&gt; dir 
+c:\windows\system32\mpich2*.dll</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008>&gt;&gt;&gt; dir 
+c:\windows\system32\mpe*.dll</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008>&nbsp; Send us the results for verification (Sanity 
+check- they should have the same datestamp)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008># Also when running fpi.exe using your setup try 
+leaving the job (or may be specify a timeout of 10 mins or so) for 10mins or so 
+and see if it reports any errors. You might want to run netstat (or use "Process 
+explorer" from microsoft and check the TCP/IP tab in the 
+process-&gt;properties)&nbsp;to see what happens to the connections btw the MPI 
+processes from both hosts.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008>(PS:&nbsp;The MPICH2 1.1.0a1 release (<A 
+href="http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads">http://www.mcs.anl.gov/research/projects/mpich2/downloads/index.php?s=downloads</A>) 
+is aimed at MPICH2 devs and not for production machines. )</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008>Jayesh</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=540523718-13082008>&nbsp;&nbsp; </SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Ayer, Timothy C. 
+[mailto:timothy.ayer@pw.utc.com] <BR><B>Sent:</B> Tuesday, August 05, 2008 9:20 
+AM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] #36: 
+MPICH2 fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><SPAN class=020531214-05082008><FONT face=Arial 
+color=#0000ff size=2>Please find attached the output from the smpd -d 
+procs.&nbsp; Also, the output from the mpiexec just so you can see what I 
+typed.</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=020531214-05082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=020531214-05082008><FONT face=Arial 
+color=#0000ff size=2>H:\&gt;mpiexec.exe -map v:\\10.30.73.170\temp -hosts 2 
+10.30.73.170 10.30.73.34 
+v:\fpi.exe<BR>&nbsp;Process&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+2&nbsp; is alive<BR>Enter the number of intervals: (0 
+quits)<BR>&nbsp;Process&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+2&nbsp; is alive<BR>&nbsp;Before 
+bcast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; 
+of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is 
+alive<BR>10<BR>&nbsp;Before 
+bcast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp; 
+of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is 
+alive<BR>100</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=020531214-05082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=020531214-05082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna [mailto:jayesh@mcs.anl.gov] 
+<BR><B>Sent:</B> Monday, August 04, 2008 5:10 PM<BR><B>To:</B> 'Ayer, Timothy 
+C.'<BR><B>Subject:</B> RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows 
+XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=990380621-04082008>The socket/channel connection between the MPI processes 
+take place during MPI_Bcast() (not before that in fpi.f).</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=990380621-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Ayer, Timothy C. 
+[mailto:timothy.ayer@pw.utc.com] <BR><B>Sent:</B> Monday, August 04, 2008 4:00 
+PM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] #36: 
+MPICH2 fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><SPAN class=165465320-04082008><FONT face=Arial 
+color=#0000ff size=2>The firewall has been disabled.</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=165465320-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=165465320-04082008><FONT face=Arial 
+color=#0000ff size=2>The inputs were from me entering values for estimating 
+pi...I wanted to make sure the program ran through all the 
+logic.</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=165465320-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=165465320-04082008><FONT face=Arial 
+color=#0000ff size=2>I will send the other debug output a little 
+later.</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=165465320-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=165465320-04082008><FONT face=Arial 
+color=#0000ff size=2>Also,&nbsp; as an fyi, we have been running MPICH on 
+thousands of PC's for years now.&nbsp; The other strange part is that over a 
+year ago I did successfully run MPICH2 on over 30 processors.&nbsp; My first 
+thought was the firewall as well.</FONT></SPAN></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna [mailto:jayesh@mcs.anl.gov] 
+<BR><B>Sent:</B> Monday, August 04, 2008 4:46 PM<BR><B>To:</B> 'Ayer, Timothy 
+C.'<BR><B>Subject:</B> RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows 
+XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008># Do you have&nbsp;windows firewall (or any 
+firewall)&nbsp;running on these machines ?</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008># Why do&nbsp;I see two inputs (10 &amp; 100) in the 
+mpiexec debug output ?</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008># Can you send us the debug output of smpd along with 
+mpiexec ?</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008># Can you check the status of the remote smpd from each 
+host ?</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008>&nbsp;&nbsp; --- On host A, 
+run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "smpd -status 
+IPAddressOf_hostB"</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008>&nbsp;&nbsp; --- On host B, 
+run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "smpd -status 
+IPAddressOf_hostA"</SPAN></FONT></DIV></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008>(PS: I just tried running fpi.exe in a shared drive 
+across two 32-bit windows XP machines in our lab but did not get any 
+errors/hang)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=291392120-04082008>Jayesh</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Ayer, Timothy C. 
+[mailto:timothy.ayer@pw.utc.com] <BR><B>Sent:</B> Monday, August 04, 2008 3:11 
+PM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] #36: 
+MPICH2 fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><SPAN class=145510320-04082008><FONT face=Arial 
+color=#0000ff size=2>This is the same fpi.f which comes with the installation 
+with the exception that I have added print statements.</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=145510320-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=145510320-04082008><FONT face=Arial 
+color=#0000ff size=2>The setup is homogenous (both 32-bit).&nbsp; The output is 
+attached.</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=145510320-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=145510320-04082008><FONT face=Arial 
+color=#0000ff size=2>Thanks for your help.&nbsp;</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=145510320-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial><FONT size=2><FONT color=#0000ff><SPAN 
+class=145510320-04082008>Tim</SPAN></FONT></FONT></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna [mailto:jayesh@mcs.anl.gov] 
+<BR><B>Sent:</B> Monday, August 04, 2008 3:48 PM<BR><B>To:</B> 'Ayer, Timothy 
+C.'<BR><B>Subject:</B> RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows 
+XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=556084019-04082008># Are you running fpi.exe (fpi.f)&nbsp;provided with 
+MPICH2 (Have you modified the program ?)?</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=556084019-04082008># I am assuming that the setup is not heterogeneous 
+(MPICH2 currently does not support running jobs across machines with different 
+data models eg: You cannot run your MPI job across 32-bit and 64-bit 
+machines)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=556084019-04082008># Please provide us with the debug/verbose output when 
+running fpi.exe. Start smpd on both the machines in debug mode (1. Stop any 
+instances of smpd running on the system, smpd -stop&nbsp;&nbsp; 2. Start smpd in 
+debug mode, smpd -d) and run mpiexec in verbose mode (<SPAN 
+class=640525617-04082008><FONT color=#008000>mpiexec.exe -verbose -map 
+y:\\IPAddressOf_hostA\temp -hosts 2 IPAddressOf_hostA IPAddressOf_hostB 
+y:\fpi.exe</FONT></SPAN>)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=556084019-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=556084019-04082008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=556084019-04082008>Jayesh</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Ayer, Timothy C. 
+[mailto:timothy.ayer@pw.utc.com] <BR><B>Sent:</B> Monday, August 04, 2008 2:21 
+PM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] #36: 
+MPICH2 fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left>
+<DIV dir=ltr align=left><SPAN class=618154118-04082008><FONT face=Arial 
+color=#0000ff size=2><SPAN class=296371419-04082008>Thanks, here is the output 
+(note:&nbsp; I have not included IP address or actual hostnames in this email 
+but did use them in testing)</SPAN></FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=618154118-04082008><FONT face=Arial 
+color=#0000ff size=2><SPAN 
+class=296371419-04082008></SPAN></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=618154118-04082008><FONT face=Arial><FONT 
+size=2><FONT color=#008000># <SPAN class=640525617-04082008>mpiexec.exe -map 
+y:\\IPAddressOf_hostA\temp -hosts 2 IPAddressOf_hostA IPAddressOf_hostB 
+y:\fpi.exe</SPAN></FONT></FONT></FONT></SPAN></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008><SPAN 
+class=640525617-04082008></SPAN></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008><SPAN class=640525617-04082008><SPAN 
+class=296371419-04082008>OUTPUT:</SPAN></SPAN></SPAN></FONT></DIV></DIV>
+<DIV dir=ltr align=left><STRONG><FONT face=Arial><FONT color=#0000ff><FONT 
+size=2>&nbsp;Process&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+2&nbsp; is alive<BR>Enter the number of intervals: (0 
+quits)<BR>&nbsp;Process&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+1&nbsp; of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+2&nbsp; is alive<BR>&nbsp;Before 
+bcast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; 
+of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is 
+alive<BR>10<BR>&nbsp;Before 
+bcast&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp; 
+of&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; is 
+alive<SPAN class=296371419-04082008>&nbsp; 
+</SPAN></FONT></FONT></FONT></STRONG></DIV>
+<DIV dir=ltr align=left><STRONG><FONT face=Arial color=#0000ff 
+size=2></FONT></STRONG>&nbsp;</DIV>
+<DIV dir=ltr align=left>
+<DIV dir=ltr align=left><FONT face=Arial color=#008000 size=2><SPAN 
+class=618154118-04082008><SPAN class=640525617-04082008># mpiexec.exe -map 
+y:\\IPAddressOf_hostA\temp hostname</SPAN></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#ff0000 size=2><SPAN 
+class=618154118-04082008><SPAN 
+class=640525617-04082008></SPAN></SPAN></FONT>&nbsp;</DIV></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=296371419-04082008><STRONG>XXXXXX (hostname of 
+hostA)</STRONG></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+size=2><STRONG></STRONG></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff 
+size=2></FONT>&nbsp;</DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna [mailto:jayesh@mcs.anl.gov] 
+<BR><B>Sent:</B> Monday, August 04, 2008 3:13 PM<BR><B>To:</B> 'Ayer, Timothy 
+C.'<BR><B>Subject:</B> RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows 
+XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=008501119-04082008>The command hostname 
+(c:\windows\system32\hostname.exe)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=008501119-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=008501119-04082008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=008501119-04082008>Jayesh</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Ayer, Timothy C. 
+[mailto:timothy.ayer@pw.utc.com] <BR><B>Sent:</B> Monday, August 04, 2008 2:11 
+PM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] #36: 
+MPICH2 fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><SPAN class=088420819-04082008><FONT face=Arial 
+color=#0000ff size=2>You have "hostname" at the end of the second line...what is 
+that referring to?</FONT></SPAN></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna [mailto:jayesh@mcs.anl.gov] 
+<BR><B>Sent:</B> Monday, August 04, 2008 2:47 PM<BR><B>To:</B> 'Ayer, Timothy 
+C.'<BR><B>Subject:</B> RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows 
+XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008>&nbsp;What is the error message (output)&nbsp;that you 
+get when you run mpiexec ?</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008>&nbsp;Pls provide us with the output of the following 
+commands (Make sure that you specify ipaddresses of the hosts 
+involved),</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008># <SPAN class=640525617-04082008>mpiexec.exe -map 
+y:\\IPAddressOf_hostA\temp -hosts 2 IPAddressOf_hostA IPAddressOf_hostB 
+y:\fpi.exe</SPAN></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008><SPAN class=640525617-04082008># mpiexec.exe -map 
+y:\\IPAddressOf_hostA\temp <FONT 
+color=#ff0000>hostname</FONT></SPAN></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008><SPAN 
+class=640525617-04082008></SPAN></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008><SPAN 
+class=640525617-04082008>Regards,</SPAN></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008><SPAN 
+class=640525617-04082008>Jayesh</SPAN></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=618154118-04082008></SPAN></FONT>&nbsp;</DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Ayer, Timothy C. 
+[mailto:timothy.ayer@pw.utc.com] <BR><B>Sent:</B> Monday, August 04, 2008 1:25 
+PM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] #36: 
+MPICH2 fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><SPAN class=651241418-04082008><FONT face=Arial 
+color=#0000ff size=2>No this does not work...the behavior is the same.&nbsp; The 
+UNC's should/have worked regardless of whether a user a user is logged in.&nbsp; 
+We have never relied on drive network drive mappings since they are 
+intermittently an "interactive" feature.</FONT></SPAN></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna [mailto:jayesh@mcs.anl.gov] 
+<BR><B>Sent:</B> Monday, August 04, 2008 2:02 PM<BR><B>To:</B> 'Ayer, Timothy 
+C.'<BR><B>Cc:</B> mpich2-maint@mcs.anl.gov<BR><B>Subject:</B> RE: [mpich2-maint] 
+#36: MPICH2 fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008>You should try,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008>mpiexec.exe -map y:\\hostA\temp -hosts 2 hostA hostB 
+y<A href="file://hosta/temp/fpi.exe">:\fpi.exe</A></SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008>&nbsp;Let us know if it works for 
+you.</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008>(PS: The shared drive is accessible across machines 
+because the drive is accessible/mapped by the user logged on to the machines. 
+SMPD runs as a service logged on as "Local System" and does not - should not- 
+have access to drives shared by users)</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=640525617-04082008>Jayesh</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Ayer, Timothy C. 
+[mailto:timothy.ayer@pw.utc.com] <BR><B>Sent:</B> Monday, August 04, 2008 12:50 
+PM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] #36: 
+MPICH2 fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><SPAN class=955053417-04082008><FONT size=2><FONT 
+face=Arial color=#0000ff>The exe can be directly accessed from hostB by 
+executing&nbsp; <A href="file://\\hostA\temp\fpi.exe">\\hostA\temp\fpi.exe</A>, 
+that is, you could type it directly into a command prompt from hostB if you 
+wanted.&nbsp; Note also that&nbsp; \temp directory is a shared location.&nbsp; I 
+am not sure physically how this is setup on our network but this has worked with 
+out any "mapping" for MPICH (MPICH1).&nbsp; </FONT></FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=955053417-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=955053417-04082008>
+<DIV><SPAN class=955053417-04082008><FONT face=Arial color=#0000ff 
+size=2>Note:&nbsp; I did try: &nbsp;mpiexec.exe -map y:\\hostA\temp -hosts 2 
+hostA hostB <A 
+href="file://\\hostA\temp\fpi.exe">\\hostA\temp\fpi.exe</A></FONT></SPAN><SPAN 
+class=955053417-04082008><SPAN class=955053417-04082008><FONT face=Arial 
+color=#0000ff size=2> but that still hangs in the MPI_Bcast 
+call.</FONT></SPAN></DIV></SPAN></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=955053417-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=955053417-04082008><FONT face=Arial 
+color=#0000ff size=2>The interesting part is that it gets through the 
+initialization:</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=955053417-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=955053417-04082008><FONT face=Arial 
+color=#0000ff size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call MPI_INIT( ierr 
+)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call MPI_COMM_RANK( MPI_COMM_WORLD, myid, 
+ierr )<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; call MPI_COMM_SIZE( MPI_COMM_WORLD, 
+numprocs, ierr )<BR></DIV>
+<DIV></FONT></SPAN><SPAN class=955053417-04082008><FONT face=Arial color=#0000ff 
+size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV><SPAN class=955053417-04082008><FONT face=Arial color=#0000ff size=2>All 
+execute.</FONT></SPAN></DIV>
+<DIV><SPAN class=955053417-04082008><FONT face=Arial color=#0000ff 
+size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV><SPAN class=955053417-04082008><FONT face=Arial color=#0000ff 
+size=2>Thanks,</FONT></SPAN></DIV>
+<DIV><SPAN class=955053417-04082008><FONT face=Arial color=#0000ff 
+size=2>Tim</FONT></SPAN></DIV>
+<DIV><SPAN class=955053417-04082008></SPAN><SPAN class=955053417-04082008><FONT 
+face=Arial color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna [mailto:jayesh@mcs.anl.gov] 
+<BR><B>Sent:</B> Monday, August 04, 2008 1:33 PM<BR><B>To:</B> 'Ayer, Timothy 
+C.'<BR><B>Subject:</B> RE: [mpich2-maint] #36: MPICH2 fpi.exe hanging on Windows 
+XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=327583117-04082008>How (what mechanism)&nbsp;does hostB access data 
+(exe)&nbsp;in hostA ?</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=327583117-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=327583117-04082008>Regards,</SPAN></FONT></DIV>
+<DIV dir=ltr align=left><FONT face=Arial color=#0000ff size=2><SPAN 
+class=327583117-04082008>Jayesh</SPAN></FONT></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Ayer, Timothy C. 
+[mailto:timothy.ayer@pw.utc.com] <BR><B>Sent:</B> Monday, August 04, 2008 12:31 
+PM<BR><B>To:</B> Jayesh Krishna<BR><B>Subject:</B> RE: [mpich2-maint] #36: 
+MPICH2 fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV>
+<DIV dir=ltr align=left><SPAN class=209305914-04082008><FONT face=Arial 
+color=#0000ff size=2>Thanks Jayesh for the quick reply.&nbsp; This is a network 
+availabe UNC path&nbsp; -&nbsp;why do I need to map a drive?&nbsp; 
+</FONT></SPAN></DIV>
+<DIV dir=ltr align=left><SPAN class=209305914-04082008><FONT face=Arial 
+color=#0000ff size=2></FONT></SPAN>&nbsp;</DIV>
+<DIV dir=ltr align=left><SPAN class=209305914-04082008><FONT face=Arial 
+color=#0000ff size=2>I am familiar with the machines file - I was just using the 
+command line for debugging.</FONT></SPAN></DIV><BR>
+<DIV class=OutlookMessageHeader lang=en-us dir=ltr align=left>
+<HR tabIndex=-1>
+<FONT face=Tahoma size=2><B>From:</B> Jayesh Krishna [mailto:jayesh@mcs.anl.gov] 
+<BR><B>Sent:</B> Monday, August 04, 2008 10:56 AM<BR><B>To:</B> 
+timothy.ayer@pw.utc.com<BR><B>Cc:</B> 
+mpich2-maint@mcs.anl.gov<BR><B>Subject:</B> RE: [mpich2-maint] #36: MPICH2 
+fpi.exe hanging on Windows XP<BR></FONT><BR></DIV>
+<DIV></DIV><!-- Converted from text/plain format -->
+<P><FONT size=2>&nbsp;Hi,<BR>&nbsp; If you are running your executable from a 
+shared network drive you need to map (see "--map" option of mpiexec in the 
+window's developer's guide) the network drive with mpiexec when launching your 
+job.<BR>&nbsp; Also make sure that you have turned the windows firewall (or any 
+other firewalls) off on the machines involved in the job.<BR>&nbsp; Try 
+specifying the ip addresses of the machines instead of the hostnames.<BR>&nbsp; 
+Let us know the results.<BR><BR>(PS: Instead of the "-hosts" option you could 
+try using the "-machinefile" option available with mpiexec. See the window's 
+developer's guide for details.)<BR><BR>Regards,<BR>Jayesh<BR>-----Original 
+Message-----<BR>From: owner-mpich2-bugs@mcs.anl.gov [<A 
+href="mailto:owner-mpich2-bugs@mcs.anl.gov">mailto:owner-mpich2-bugs@mcs.anl.gov</A>] 
+On Behalf Of mpich2<BR>Sent: Monday, August 04, 2008 9:33 AM<BR>To: 
+undisclosed-recipients:<BR>Subject: [mpich2-maint] #36: MPICH2 fpi.exe hanging 
+on Windows 
+XP<BR><BR>-----------------------------------------------------------+------------<BR>-----------------------------------------------------------+----<BR>&nbsp;Reporter:&nbsp; 
+"Ayer, Timothy&nbsp; C." &lt;timothy.ayer@pw.utc.com&gt;&nbsp; 
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;<BR>&nbsp;&nbsp; 
+Status:&nbsp; 
+new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|&nbsp;&nbsp; Priority:&nbsp; major<BR>Component:&nbsp; 
+mpich2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|&nbsp;<BR>-----------------------------------------------------------+------------<BR>-----------------------------------------------------------+----<BR><BR><BR>&nbsp;I 
+am testing MPICH2 MPICH2-1.0.7 Windows XP (sp2).&nbsp; I have installed it 
+on<BR>&nbsp;2<BR>&nbsp;hosts (hostA, hostB) and trying to run the fpi.exe built 
+with fmpich2.lib.<BR>&nbsp;The code is hanging in a MPI_Bcast call.&nbsp; The 
+fpi.exe source is attached.<BR><BR>&nbsp;The following tests work fine from 
+hostA, both prompt for a number of&nbsp; intervals, accept input, and produce 
+and estimate of PI<BR><BR>&nbsp;mpiexec.exe -hosts 2 hostA hostA 
+\\hostA\temp\fpi.exe&nbsp; &lt;\\hostA\temp\fpi.exe&gt;<BR><BR>&nbsp;mpiexec.exe 
+-hosts 2 hostB hostB \\hostA\temp\fpi.exe&nbsp; 
+&lt;\\hostA\temp\fpi.exe&gt;<BR><BR><BR><BR>&nbsp;The following test hangs when 
+submitted from hostA (in MPI_Bcast).&nbsp; It&nbsp; does&nbsp; prompt for input 
+(number of intervals) but once entered it hangs.&nbsp; I have&nbsp; launched the 
+smpd process using smpd -d but see no output from the smpd&nbsp; after I enter 
+an interval value<BR><BR>&nbsp;mpiexec.exe -hosts 2 hostA hostB 
+\\hostA\temp\fpi.exe&nbsp; &lt;\\hostA\temp\fpi.exe&gt;<BR><BR><BR>&nbsp;Any 
+suggestions would be appreciated.&nbsp;&nbsp; Also let me know if you want me 
+to<BR>&nbsp;send debug 
+output.<BR><BR>&nbsp;Thanks,<BR>&nbsp;Tim<BR><BR>&nbsp;_____________________<BR>&nbsp;Timothy 
+C. Ayer<BR>&nbsp;High Performance Technical Computing<BR>&nbsp;United 
+Technologies - Pratt &amp; 
+Whitney<BR>&nbsp;timothy.ayer@pw.utc.com<BR>&nbsp;(860) 565 - 5268 
+v<BR>&nbsp;(860) 565 - 2668 f<BR><BR>&nbsp; 
+&lt;&lt;fpi.f&gt;&gt;<BR><BR><BR>--<BR>Ticket URL: &lt;<A 
+href="https://trac.mcs.anl.gov/projects/mpich2/ticket/36">https://trac.mcs.anl.gov/projects/mpich2/ticket/36</A>&gt;<BR><BR></FONT></P></BODY></HTML>

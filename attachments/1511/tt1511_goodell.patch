@@ -1,0 +1,603 @@
+[33m7e78990[m [34mDave Goodell[m [35m6 minutes ago[m [31m (HEAD, master)[m WIP my changes to the jeff changes
+
+diff --git a/test/mpi/rma/contig_displ.c b/test/mpi/rma/contig_displ.c
+index 7e8bbf9..7bd469d 100644
+--- a/test/mpi/rma/contig_displ.c
++++ b/test/mpi/rma/contig_displ.c
+@@ -30,13 +30,7 @@ int main(int argc, char **argv)
+     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+     MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
+ 
+-    if (nprocs < 1) {
+-        printf("Run this program with 1 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    if (rank==0)
+-    {
++    if (rank == 0) {
+         /* To improve reporting of problems about operations, we
+            change the error handler to errors return */
+         MPI_Comm_set_errhandler( MPI_COMM_SELF, MPI_ERRORS_RETURN );
+diff --git a/test/mpi/rma/lockcontention.c b/test/mpi/rma/lockcontention.c
+index 96e42fd..ae5fcf7 100644
+--- a/test/mpi/rma/lockcontention.c
++++ b/test/mpi/rma/lockcontention.c
+@@ -31,13 +31,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 3) {
+         fprintf(stderr, "Run this program with 3 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
++        MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1 || rank==2, rank, &CommThree); 
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 3), rank, &CommThree);
+ 
+-    if (rank == 0 || rank==1 || rank==2) 
+-    {
++    if (rank < 3) {
+         if (rank == 0) {
+             for (i=0; i<SIZE2; i++) {
+                 A[i] = B[i] = i;
+@@ -94,6 +93,7 @@ int main(int argc, char *argv[])
+             }
+         }
+     }
++    MPI_Comm_free(&CommThree);
+ 
+     MTest_Finalize(errs);
+     MPI_Finalize();
+diff --git a/test/mpi/rma/test1.c b/test/mpi/rma/test1.c
+index 045c193..65d5a22 100644
+--- a/test/mpi/rma/test1.c
++++ b/test/mpi/rma/test1.c
+@@ -24,17 +24,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank==0 || rank==1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         if (rank == 0) {
+             for (i=0; i<SIZE; i++)
+                 A[i] = B[i] = i;
+diff --git a/test/mpi/rma/test1_am.c b/test/mpi/rma/test1_am.c
+index b87fac4..b860d7a 100644
+--- a/test/mpi/rma/test1_am.c
++++ b/test/mpi/rma/test1_am.c
+@@ -28,17 +28,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce);
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank==0 || rank==1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         i = MPI_Alloc_mem(SIZE * sizeof(int), MPI_INFO_NULL, &A);
+         if (i) {
+             printf("Can't allocate memory in test program\n");
+diff --git a/test/mpi/rma/test1_dt.c b/test/mpi/rma/test1_dt.c
+index 481a360..b302afd 100644
+--- a/test/mpi/rma/test1_dt.c
++++ b/test/mpi/rma/test1_dt.c
+@@ -26,17 +26,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+ 
+         if (rank == 0) {
+             for (i=0; i<SIZE; i++)
+diff --git a/test/mpi/rma/test2.c b/test/mpi/rma/test2.c
+index 7b76499..c0700a0 100644
+--- a/test/mpi/rma/test2.c
++++ b/test/mpi/rma/test2.c
+@@ -26,16 +26,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2)
+     {
+         MPI_Comm_group(CommDeuce, &comm_group);
+ 
+diff --git a/test/mpi/rma/test2_am.c b/test/mpi/rma/test2_am.c
+index 225b802..163834c 100644
+--- a/test/mpi/rma/test2_am.c
++++ b/test/mpi/rma/test2_am.c
+@@ -28,16 +28,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2)
+     {
+ 
+         i = MPI_Alloc_mem(SIZE2 * sizeof(int), MPI_INFO_NULL, &A);
+diff --git a/test/mpi/rma/test3.c b/test/mpi/rma/test3.c
+index e40648a..6a7bc14 100644
+--- a/test/mpi/rma/test3.c
++++ b/test/mpi/rma/test3.c
+@@ -31,26 +31,22 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2)
+     {
+         A = (int *) malloc(SIZE * sizeof(int));
+         if (!A) {
+             printf("Can't allocate memory in test program\n");
+-            MPI_Abort(CommDeuce, 1);
++            MPI_Abort(MPI_COMM_WORLD, 1);
+         }
+         B = (int *) malloc(SIZE * sizeof(int));
+         if (!B) {
+             printf("Can't allocate memory in test program\n");
+-            MPI_Abort(CommDeuce, 1);
++            MPI_Abort(MPI_COMM_WORLD, 1);
+         }
+ 
+         MPI_Comm_group(CommDeuce, &comm_group);
+diff --git a/test/mpi/rma/test3_am.c b/test/mpi/rma/test3_am.c
+index 8bee49f..b2b2369 100644
+--- a/test/mpi/rma/test3_am.c
++++ b/test/mpi/rma/test3_am.c
+@@ -33,17 +33,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         i = MPI_Alloc_mem(SIZE * sizeof(int), MPI_INFO_NULL, &A);
+         if (i) {
+             printf("Can't allocate memory in test program\n");
+@@ -70,7 +65,7 @@ int main(int argc, char *argv[])
+             MPI_Win_complete(win);
+             MPI_Send(B, SIZE, MPI_INT, 1, 100, MPI_COMM_WORLD);
+         }
+-        else if ( rank==1 ) {
++        else {  /* rank=1 */
+             for (i=0; i<SIZE; i++) A[i] = B[i] = (-4)*i;
+             MPI_Win_create(B, SIZE*sizeof(int), sizeof(int), MPI_INFO_NULL, CommDeuce, &win);
+             destrank = 0;
+diff --git a/test/mpi/rma/test4.c b/test/mpi/rma/test4.c
+index fdae6bb..63a471d 100644
+--- a/test/mpi/rma/test4.c
++++ b/test/mpi/rma/test4.c
+@@ -27,17 +27,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         if (rank == 0) {
+             for (i=0; i<SIZE2; i++) A[i] = B[i] = i;
+             MPI_Win_create(NULL, 0, 1, MPI_INFO_NULL, CommDeuce, &win);
+@@ -62,7 +57,7 @@ int main(int argc, char *argv[])
+                     errs++;
+                 }
+         }
+-        else if (rank == 1) {
++        else {  /* rank=1 */
+             for (i=0; i<SIZE2; i++) B[i] = (-4)*i;
+             MPI_Win_create(B, SIZE2*sizeof(int), sizeof(int), MPI_INFO_NULL, CommDeuce, &win);
+ 
+diff --git a/test/mpi/rma/test4_am.c b/test/mpi/rma/test4_am.c
+index 1e16e71..3370f77 100644
+--- a/test/mpi/rma/test4_am.c
++++ b/test/mpi/rma/test4_am.c
+@@ -29,17 +29,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         i = MPI_Alloc_mem(SIZE2 * sizeof(int), MPI_INFO_NULL, &A);
+         if (i) {
+             printf("Can't allocate memory in test program\n");
+@@ -75,7 +70,7 @@ int main(int argc, char *argv[])
+                     errs++;
+                 }
+         }
+-        else if (rank == 1) {
++        else {  /* rank=1 */
+             for (i=0; i<SIZE2; i++) B[i] = (-4)*i;
+             MPI_Win_create(B, SIZE2*sizeof(int), sizeof(int), MPI_INFO_NULL, CommDeuce, &win);
+ 
+diff --git a/test/mpi/rma/test5.c b/test/mpi/rma/test5.c
+index 3cdf71b..61f8168 100644
+--- a/test/mpi/rma/test5.c
++++ b/test/mpi/rma/test5.c
+@@ -25,17 +25,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         if (rank == 0) {
+             for (i=0; i<SIZE; i++)
+                 B[i] = 500 + i;
+diff --git a/test/mpi/rma/test5_am.c b/test/mpi/rma/test5_am.c
+index fbc292f..5ad880e 100644
+--- a/test/mpi/rma/test5_am.c
++++ b/test/mpi/rma/test5_am.c
+@@ -27,17 +27,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         i = MPI_Alloc_mem(SIZE * sizeof(int), MPI_INFO_NULL, &A);
+         if (i) {
+             printf("Can't allocate memory in test program\n");
+diff --git a/test/mpi/rma/transpose1.c b/test/mpi/rma/transpose1.c
+index 2d26fa9..5134df9 100644
+--- a/test/mpi/rma/transpose1.c
++++ b/test/mpi/rma/transpose1.c
+@@ -29,17 +29,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         A_data = (int *) malloc(NROWS * NCOLS * sizeof(int));
+         A = (int **) malloc(NROWS * sizeof(int *));
+ 
+diff --git a/test/mpi/rma/transpose2.c b/test/mpi/rma/transpose2.c
+index 990723d..c8a10f1 100644
+--- a/test/mpi/rma/transpose2.c
++++ b/test/mpi/rma/transpose2.c
+@@ -30,17 +30,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         if (rank == 0)
+         {
+             for (i=0; i<NROWS; i++)
+@@ -72,8 +67,8 @@ int main(int argc, char *argv[])
+ 
+             MPI_Win_fence(0, win);
+         }
+-        else if (rank == 1)
+-        {
++        else
++        { /* rank=1 */
+             for (i=0; i<NROWS; i++)
+                 for (j=0; j<NCOLS; j++)
+                     A[i][j] = -1;
+diff --git a/test/mpi/rma/transpose3.c b/test/mpi/rma/transpose3.c
+index 6a5d74b..8d46fd0 100644
+--- a/test/mpi/rma/transpose3.c
++++ b/test/mpi/rma/transpose3.c
+@@ -29,16 +29,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2)
+     {
+         MPI_Comm_group(CommDeuce, &comm_group);
+ 
+@@ -67,8 +63,8 @@ int main(int argc, char *argv[])
+ 
+             MPI_Win_complete(win);
+         }
+-        else if (rank == 1)
+-        {
++        else
++        { /* rank=1 */
+             for (i=0; i<NROWS; i++)
+                 for (j=0; j<NCOLS; j++)
+                     A[i][j] = -1;
+diff --git a/test/mpi/rma/transpose4.c b/test/mpi/rma/transpose4.c
+index ccd0613..9a756fa 100644
+--- a/test/mpi/rma/transpose4.c
++++ b/test/mpi/rma/transpose4.c
+@@ -28,16 +28,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2)
+     {
+         if (rank == 0) {
+             for (i=0; i<NROWS; i++)
+@@ -62,8 +58,8 @@ int main(int argc, char *argv[])
+             MPI_Win_unlock(1, win);
+             MPI_Win_free(&win);
+         }
+-        else if (rank == 1)
+-        {
++        else
++        { /* rank=1 */
+             for (i=0; i<NROWS; i++) 
+                 for (j=0; j<NCOLS; j++)
+                     A[i][j] = -1;
+diff --git a/test/mpi/rma/transpose5.c b/test/mpi/rma/transpose5.c
+index 3f2c154..a1fb2cb 100644
+--- a/test/mpi/rma/transpose5.c
++++ b/test/mpi/rma/transpose5.c
+@@ -29,16 +29,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2)
+     {
+         A_data = (int *) malloc(NROWS * NCOLS * sizeof(int));
+         A = (int **) malloc(NROWS * sizeof(int *));
+@@ -70,8 +66,8 @@ int main(int argc, char *argv[])
+ 
+             MPI_Win_fence(0, win);
+         }
+-        else if (rank == 1)
+-        {
++        else
++        { /* rank=1 */
+             for (i=0; i<NROWS; i++)
+                 for (j=0; j<NCOLS; j++)
+                     A[i][j] = i*NCOLS + j;
+diff --git a/test/mpi/rma/transpose6.c b/test/mpi/rma/transpose6.c
+index 801be87..d785639 100644
+--- a/test/mpi/rma/transpose6.c
++++ b/test/mpi/rma/transpose6.c
+@@ -25,12 +25,6 @@ int main(int argc, char *argv[])
+     MPI_Comm_rank(MPI_COMM_WORLD,&rank); 
+     MPI_Comm_size(MPI_COMM_WORLD,&nprocs); 
+ 
+-    if (nprocs < 1)
+-    {
+-        printf("Run this program with 1 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+     if (rank==0)
+     {
+         for (i=0; i<NROWS; i++)
+diff --git a/test/mpi/rma/transpose7.c b/test/mpi/rma/transpose7.c
+index c5635ff..4a89a62 100644
+--- a/test/mpi/rma/transpose7.c
++++ b/test/mpi/rma/transpose7.c
+@@ -29,16 +29,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1)
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2)
+     {
+         A_data = (int *) malloc(NROWS * NCOLS * sizeof(int));
+         A = (int **) malloc(NROWS * sizeof(int *));
+diff --git a/test/mpi/rma/wintest.c b/test/mpi/rma/wintest.c
+index 092ed0f..a0ff6ca 100644
+--- a/test/mpi/rma/wintest.c
++++ b/test/mpi/rma/wintest.c
+@@ -27,17 +27,12 @@ int main(int argc, char *argv[])
+ 
+     if (nprocs < 2) {
+         printf("Run this program with 2 or more processes\n");
+-        MPI_Abort(MPI_COMM_WORLD,1);
+-    }
+-
+-    i = MPI_Comm_split(MPI_COMM_WORLD, rank==0 || rank==1, rank, &CommDeuce); 
+-    if (i) {
+-        printf("Can't create a subcommunicator of two processes\n");
+         MPI_Abort(MPI_COMM_WORLD, 1);
+     }
+ 
+-    if (rank == 0 || rank == 1) 
+-    {
++    MPI_Comm_split(MPI_COMM_WORLD, (rank < 2), rank, &CommDeuce);
++
++    if (rank < 2) {
+         MPI_Comm_group(CommDeuce, &comm_group);
+ 
+         if (rank == 0) {
+@@ -59,8 +54,7 @@ int main(int argc, char *argv[])
+                     errs++;
+                 }
+         }
+-        else if (rank == 1) 
+-        {
++        else {  /* rank=1 */
+             for (i=0; i<SIZE2; i++) B[i] = (-4)*i;
+             MPI_Win_create(B, SIZE2*sizeof(int), sizeof(int), MPI_INFO_NULL, CommDeuce, &win);
+             destrank = 0;

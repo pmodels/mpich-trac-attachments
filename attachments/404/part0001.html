@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=us-ascii">
+<META NAME="Generator" CONTENT="MS Exchange Server version 6.5.7036.0">
+<TITLE>RE: [mpich2-maint] #404: maint/updatefiles gives these errors</TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/plain format -->
+
+<P><FONT SIZE=2>My fault... I did not check-in the err messages for util wrappers in trunk. Doing it right now...<BR>
+<BR>
+Regards,<BR>
+Jayesh<BR>
+<BR>
+-----Original Message-----<BR>
+From: mpich2-bugs-bounces@mcs.anl.gov [<A HREF="mailto:mpich2-bugs-bounces@mcs.anl.gov">mailto:mpich2-bugs-bounces@mcs.anl.gov</A>] On Behalf Of mpich2<BR>
+Sent: Thursday, February 05, 2009 4:24 PM<BR>
+To: undisclosed-recipients:<BR>
+Subject: [mpich2-maint] #404: maint/updatefiles gives these errors<BR>
+<BR>
+--------------------------------------------------+---------------------<BR>
+--------------------------------------------------+----<BR>
+&nbsp;Reporter:&nbsp; &quot;Rajeev Thakur&quot; &lt;thakur@mcs.anl.gov&gt;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp; bug&nbsp;&nbsp;<BR>
+&nbsp;&nbsp; Status:&nbsp; new&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Priority:&nbsp; major<BR>
+Milestone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; Component:&nbsp; mpich2<BR>
+--------------------------------------------------+---------------------<BR>
+--------------------------------------------------+----<BR>
+<BR>
+<BR>
+&nbsp;{{{<BR>
+<BR>
+&nbsp;Extracting the error messages...<BR>
+&nbsp;Shortname **bind for generic messages has no expansion (first seen in file&nbsp; :src/util/wrappers/mpiu_sock_wrappers.h:src/util/wrappers/mpiu_sock_wrappers<BR>
+&nbsp;.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **bindportrange for generic messages has no expansion (first&nbsp; seen&nbsp; in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **getsockopt for generic messages has no expansion (first seen&nbsp; in&nbsp; file&nbsp; :src/util/wrappers/mpiu_sock_wrappers.h:src/util/wrappers/mpiu_sock_wrappers<BR>
+&nbsp;.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **inet_addr for generic messages has no expansion (first seen in&nbsp; file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **ioctlsocket for generic messages has no expansion (first seen&nbsp; in&nbsp; file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **lseek for generic messages has no expansion (first seen in&nbsp; file<BR>
+&nbsp;:src/util/wrappers/mpiu_shm_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **shmw_badhnd for generic messages has no expansion (first seen&nbsp; in&nbsp; file&nbsp; :src/util/wrappers/mpiu_shm_wrappers.h:src/util/wrappers/mpiu_shm_wrappers.h<BR>
+&nbsp;:src/util/wrappers/mpiu_shm_wrappers.h:src/util/wrappers/mpiu_shm_wrappers.h<BR>
+&nbsp;:src/util/wrappers/mpiu_shm_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **shmw_deserbufbig for generic messages has no expansion (first&nbsp; seen in file :src/util/wrappers/mpiu_shm_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **shmw_sethnd for generic messages has no expansion (first seen&nbsp; in&nbsp; file :src/util/wrappers/mpiu_shm_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **sock_close for generic messages has no expansion (first seen&nbsp; in&nbsp; file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **sock_read for generic messages has no expansion (first seen in&nbsp; file&nbsp; :src/util/wrappers/mpiu_sock_wrappers.h:src/util/wrappers/mpiu_sock_wrappers<BR>
+&nbsp;.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **wsacleanup for generic messages has no expansion (first seen&nbsp; in&nbsp; file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **wsastartup for generic messages has no expansion (first seen&nbsp; in&nbsp; file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;(Add expansion to )<BR>
+&nbsp;Shortname **bind %s %d for specific messages has no expansion (first seen&nbsp; in&nbsp; file&nbsp; :src/util/wrappers/mpiu_sock_wrappers.h:src/util/wrappers/mpiu_sock_wrappers<BR>
+&nbsp;.h)<BR>
+&nbsp;Shortname **bindportrange %d %d for specific messages has no expansion&nbsp; (first seen in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Shortname **getsockopt %s %d for specific messages has no expansion (first&nbsp; seen in file&nbsp; :src/util/wrappers/mpiu_sock_wrappers.h:src/util/wrappers/mpiu_sock_wrappers<BR>
+&nbsp;.h)<BR>
+&nbsp;Shortname **inet_addr %s %d for specific messages has no expansion (first&nbsp; seen in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Shortname **ioctlsocket %s %d for specific messages has no expansion&nbsp; (first&nbsp; seen in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Shortname **lseek %s for specific messages has no expansion (first seen in&nbsp; file :src/util/wrappers/mpiu_shm_wrappers.h)<BR>
+&nbsp;Shortname **select %s %d for specific messages has no expansion (first&nbsp; seen&nbsp; in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Shortname **setsockopt %s %d for specific messages has no expansion (first&nbsp; seen in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Shortname **sock_accept %s %d for specific messages has no expansion&nbsp; (first&nbsp; seen in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Shortname **sock_close %s %d for specific messages has no expansion (first&nbsp; seen in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Shortname **sock_connect %s %d for specific messages has no expansion&nbsp; (first&nbsp; seen in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Shortname **sock_read %s %d for specific messages has no expansion (first&nbsp; seen in file&nbsp; :src/util/wrappers/mpiu_sock_wrappers.h:src/util/wrappers/mpiu_sock_wrappers<BR>
+&nbsp;.h)<BR>
+&nbsp;Shortname **sock_write %s %d for specific messages has no expansion (first&nbsp; seen in file&nbsp; :src/util/wrappers/mpiu_sock_wrappers.h:src/util/wrappers/mpiu_sock_wrappers<BR>
+&nbsp;.h)<BR>
+&nbsp;Shortname **wsacleanup %s %d for specific messages has no expansion (first&nbsp; seen in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Shortname **wsastartup %s %d for specific messages has no expansion (first&nbsp; seen in file :src/util/wrappers/mpiu_sock_wrappers.h)<BR>
+&nbsp;Because of errors in extracting error messages, the file&nbsp; src/mpi/errhan/defmsg.h was not updated.<BR>
+<BR>
+&nbsp;}}}<BR>
+<BR>
+<BR>
+--<BR>
+Ticket URL: &lt;<A HREF="https://trac.mcs.anl.gov/projects/mpich2/ticket/404">https://trac.mcs.anl.gov/projects/mpich2/ticket/404</A>&gt;<BR>
+</FONT>
+</P>
+
+</BODY>
+</HTML>

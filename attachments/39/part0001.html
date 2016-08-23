@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=us-ascii">
+<META content="MSHTML 6.00.3790.4275" name=GENERATOR></HEAD>
+<BODY>
+<DIV><FONT face=Arial size=2><SPAN 
+class=294230321-04082008>Hi,</SPAN></FONT></DIV>
+<DIV><FONT face=Arial size=2><SPAN 
+class=294230321-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV><FONT face=Arial size=2><SPAN class=294230321-04082008>I have a 
+question.&nbsp; I tried to set up mpi on a set of 5 computers.&nbsp; mpdboot 
+works on each machine individually.</SPAN></FONT></DIV>
+<DIV><FONT face=Arial size=2><SPAN 
+class=294230321-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV><FONT face=Arial size=2><SPAN class=294230321-04082008>However if I 
+run:</SPAN></FONT></DIV>
+<DIV><FONT face=Arial size=2><SPAN 
+class=294230321-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV><FONT face=Arial size=2><SPAN class=294230321-04082008>&nbsp;-bash-3.00$ 
+mpdboot -n 5 -d --verbose --ncpus=3 <BR>&nbsp;debug: starting <BR>&nbsp;running 
+mpdallexit on erl01 <BR>&nbsp;LAUNCHED mpd on erl01&nbsp; via <BR>&nbsp;debug: 
+launch cmd= /home/sosentoski/mpich2-install/bin/mpd.py&nbsp;&nbsp; --ncpus=3 -e 
+-d <BR>&nbsp;debug: mpd on erl01&nbsp; on port 35273 <BR>&nbsp;RUNNING: mpd on 
+erl01 <BR>&nbsp;debug: info for running mpd: {'ncpus': 3, 'list_port': 35273, 
+'entry_port': '', 'host': 'erl01', 'entry_host': '', 'ifhn': ''} 
+<BR>&nbsp;LAUNCHED mpd on erl04&nbsp; via&nbsp; erl01 <BR>&nbsp;debug: launch 
+cmd= ssh -x -n -q erl04 '/home/sosentoski/mpich2-install/bin/mpd.py&nbsp; -h 
+erl01 -p 35273&nbsp; --ncpus=1 -e -d' <BR>&nbsp;LAUNCHED mpd on erl07&nbsp; 
+via&nbsp; erl01 <BR>&nbsp;debug: launch cmd= ssh -x -n -q erl07 
+'/home/sosentoski/mpich2-install/bin/mpd.py&nbsp; -h erl01 -p 35273&nbsp; 
+--ncpus=1 -e -d' <BR>&nbsp;LAUNCHED mpd on erl06&nbsp; via&nbsp; erl01 
+<BR>&nbsp;debug: launch cmd= ssh -x -n -q erl06 
+'/home/sosentoski/mpich2-install/bin/mpd.py&nbsp; -h erl01 -p 35273&nbsp; 
+--ncpus=1 -e -d' <BR>&nbsp;LAUNCHED mpd on erl05&nbsp; via&nbsp; erl01 
+<BR>&nbsp;debug: launch cmd= ssh -x -n -q erl05 
+'/home/sosentoski/mpich2-install/bin/mpd.py&nbsp; -h erl01 -p 35273&nbsp; 
+--ncpus=1 -e -d' <BR>&nbsp;debug: mpd on erl07&nbsp; on port no_port 
+<BR>&nbsp;mpdboot_erl01 (handle_mpd_output 406): from mpd on erl07, invalid port 
+info: <BR>&nbsp;no_port&nbsp;<BR>&nbsp;</SPAN></FONT></DIV>
+<DIV><FONT face=Arial size=2><SPAN 
+class=294230321-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV><FONT face=Arial size=2><SPAN class=294230321-04082008>Do you have any 
+helpful hints about what might be wrong with my set up?</SPAN></FONT></DIV>
+<DIV><FONT face=Arial size=2><SPAN 
+class=294230321-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV><FONT face=Arial size=2><SPAN 
+class=294230321-04082008>Thanks</SPAN></FONT></DIV>
+<DIV><FONT face=Arial size=2><SPAN 
+class=294230321-04082008></SPAN></FONT>&nbsp;</DIV>
+<DIV><FONT face=Arial size=2><SPAN class=294230321-04082008>Sarah 
+Osentoski</SPAN></FONT></DIV></BODY></HTML>

@@ -1,0 +1,230 @@
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install ; fi
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share ; fi
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc/ ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc/ ; fi
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/man ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/man ; fi
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include ; fi
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install ; fi
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib ; fi
+make install-local
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+if [ "no" = "yes" ] ; then \
+	    /usr/bin/install -c -m 644 src/mpi/debugger/libtvmpich2.dll \
+			/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libtvmpich2.dll ; fi
+if [ -n "" ] ; then \
+	    for pm in  /dev/null ; do \
+		if [ -d src/pm/$pm ] ; then \
+		     (cd src/pm/$pm && make install-alt ) ; fi ; \
+	    done ; \
+	fi
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild'
+/usr/bin/install -c -m 644 src/include/mpi.h /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include/mpi.h
+/usr/bin/install -c -m 644 lib/libmpich.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpich.a
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc/ ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc/ ; fi
+if [ -s src/mpi/romio/include/mpiof.h ] ; then /usr/bin/install -c -m 644 src/mpi/romio/include/mpiof.h /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include/mpiof.h ; fi
+if [ -s src/mpi/romio/include/mpio.h ] ; then /usr/bin/install -c -m 644 src/mpi/romio/include/mpio.h /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include/mpio.h ; fi
+if [ -s lib/libmpich.a ] ; then /usr/bin/install -c -m 644 lib/libmpich.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpich.a ; fi
+if [ -s lib/libmpichcxx.a ] ; then /usr/bin/install -c -m 644 lib/libmpichcxx.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpichcxx.a ; fi
+if [ -s lib/libfmpich.a ] ; then /usr/bin/install -c -m 644 lib/libfmpich.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libfmpich.a ; fi
+if [ -s lib/libpmpich.a ] ; then /usr/bin/install -c -m 644 lib/libpmpich.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libpmpich.a ; fi
+if [ -s lib/libfmpich.a ] ; then /usr/bin/install -c -m 644 lib/libfmpich.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libfmpich.a ; fi
+if [ -s lib/libmpichf90.a ] ; then /usr/bin/install -c -m 644 lib/libmpichf90.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpichf90.a ; fi
+if [ -s lib/libmpich.dll ] ; then false -version-info 2:0 --mode=install lib/libmpich.dll /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpich.dll ; fi
+if [ -s lib/libpmpich.dll ] ; then false -version-info 2:0 --mode=install lib/libpmpich.dll /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libpmpich.dll ; fi
+if [ -s lib/libfmpich.dll ] ; then false -version-info 2:0 --mode=install lib/libfmpich.dll /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libfmpich.dll ; fi
+if [ -s lib/libmpichf90.dll ] ; then false -version-info 2:0 --mode=install lib/libmpichf90.dll /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpichf90.dll ; fi
+if [ -s lib/libmpichcxx.dll ] ; then false -version-info 2:0 --mode=install lib/libmpichcxx.dll /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpichcxx.dll ; fi
+if [ -s ./doc/userguide/user.pdf ] ; then /usr/bin/install -c -m 644 ./doc/userguide/user.pdf /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc//user.pdf ; fi
+if [ -s ./doc/installguide/install.pdf ] ; then /usr/bin/install -c -m 644 ./doc/installguide/install.pdf /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc//install.pdf ; fi
+if [ -s ./doc/smpd/smpd_pmi.pdf ] ; then /usr/bin/install -c -m 644 ./doc/smpd/smpd_pmi.pdf /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc//smpd_pmi.pdf ; fi
+if [ -s ./doc/logging/logging.pdf ] ; then /usr/bin/install -c -m 644 ./doc/logging/logging.pdf /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc//logging.pdf ; fi
+(cd src/env && make INSTALL_STRIP_FLAG= install)
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/env'
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install ; fi
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install ; fi
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin ; fi
+/usr/bin/install -c  mpich2version /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin/mpich2version
+/usr/bin/install -c mpicc /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin/mpicc
+/usr/bin/install -c parkill /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin/parkill
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/etc ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/etc ; fi
+/usr/bin/install -c -m 644 mpixxx_opts.conf /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/etc/mpixxx_opts.conf
+/usr/bin/install -c -m 644 mpicc.conf /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/etc/mpicc.conf
+if [ -s mpicxx ] ; then /usr/bin/install -c mpicxx /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin/mpicxx ; fi
+if [ -s mpif77 ] ; then /usr/bin/install -c mpif77 /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin/mpif77 ; fi
+if [ -s mpif90 ] ; then /usr/bin/install -c mpif90 /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin/mpif90 ; fi
+if [ -s mpicxx.conf ] ; then /usr/bin/install -c -m 644 mpicxx.conf /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/etc/mpicxx.conf ; fi
+if [ -s mpif77.conf ] ; then /usr/bin/install -c -m 644 mpif77.conf /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/etc/mpif77.conf ; fi
+if [ -s mpif90.conf ] ; then /usr/bin/install -c -m 644 mpif90.conf /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/etc/mpif90.conf ; fi
+make install-postamble
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/env'
+if [ -x /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin/mpicxx ] ; then \
+	    cd /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/bin && ln -f -s mpicxx mpic++ ; fi
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/env'
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/env'
+(cd src/packaging/pkgconfig && make INSTALL_STRIP_FLAG= install)
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/pkgconfig'
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/pkgconfig ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/pkgconfig ; fi
+if [ -s mpich2-ch3.pc ] ; then /usr/bin/install -c -m 644 mpich2-ch3.pc /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/pkgconfig/mpich2-ch3.pc ; fi
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/pkgconfig'
+(cd src/packaging/envmods && make INSTALL_STRIP_FLAG= install)
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/envmods'
+if [ ! -d /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/etc ] ; then mkdir -p /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/etc ; fi
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/packaging/envmods'
+for dir in  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ;\
+		(cd $dir && make INSTALL_STRIP_FLAG= PACKAGE= install) ;\
+	done
+for dir in  src/mpl src/openpa src/pm/hydra - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ;\
+		(cd $dir && make INSTALL_STRIP_FLAG= PACKAGE= install) ;\
+	done
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+test -z "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib" || /usr/bin/mkdir -p "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib"
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   libmpl.la '/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib'
+libtool: install: /usr/bin/install -c .libs/libmpl.lai /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpl.la
+libtool: install: /usr/bin/install -c .libs/libmpl.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpl.a
+libtool: install: chmod 644 /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpl.a
+libtool: install: ranlib /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpl.a
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-LLIBDIR' linker flag
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+Making install in src
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+test -z "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib" || /usr/bin/mkdir -p "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib"
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libopa.la '/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib'
+libtool: install: /usr/bin/install -c .libs/libopa.lai /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libopa.la
+libtool: install: /usr/bin/install -c .libs/libopa.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libopa.a
+libtool: install: chmod 644 /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libopa.a
+libtool: install: ranlib /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libopa.a
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-LLIBDIR' linker flag
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+test -z "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include" || /usr/bin/mkdir -p "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include"
+ /usr/bin/install -c -m 644 opa_config.h opa_primitives.h opa_queue.h opa_util.h '/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include'
+test -z "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include" || /usr/bin/mkdir -p "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include"
+/usr/bin/mkdir -p '/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include/primitives'
+ /usr/bin/install -c -m 644  primitives/opa_by_lock.h primitives/opa_emulated.h primitives/opa_gcc_ia64.h primitives/opa_gcc_intel_32_64.h primitives/opa_gcc_intel_32_64_barrier.h primitives/opa_gcc_intel_32_64_ops.h primitives/opa_gcc_intel_32_64_p3.h primitives/opa_gcc_intel_32_64_p3barrier.h primitives/opa_gcc_intrinsics.h primitives/opa_gcc_ppc.h primitives/opa_gcc_sicortex.h primitives/opa_nt_intrinsics.h primitives/opa_sun_atomic_ops.h primitives/opa_unsafe.h '/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/include/primitives'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/src'
+Making install in test
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/test'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/test'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/test'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa/test'
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc/openpa" || /usr/bin/mkdir -p "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc/openpa"
+ /usr/bin/install -c -m 644 README '/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/share/doc/openpa'
+test -z "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/pkgconfig" || /usr/bin/mkdir -p "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/pkgconfig"
+ /usr/bin/install -c -m 644 openpa.pc '/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/pkgconfig'
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/openpa'
+make[1]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra'
+Making install in ../../mpl
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+test -z "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib" || /usr/bin/mkdir -p "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib"
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   libmpl.la '/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib'
+libtool: install: /usr/bin/install -c .libs/libmpl.lai /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpl.la
+libtool: install: /usr/bin/install -c .libs/libmpl.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpl.a
+libtool: install: chmod 644 /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpl.a
+libtool: install: ranlib /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libmpl.a
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-LLIBDIR' linker flag
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/mpl'
+Making install in tools/bind/hwloc/hwloc
+make[2]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc'
+Making install in src
+make[3]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+make[4]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+test -z "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib" || mkdir -p "/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib"
+ /bin/sh ../libtool   --mode=install /usr/bin/install -c   libhwloc.la '/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib'
+libtool: install: /usr/bin/install -c .libs/libhwloc.lai /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libhwloc.la
+libtool: install: /usr/bin/install -c .libs/libhwloc.a /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libhwloc.a
+libtool: install: chmod 644 /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libhwloc.a
+libtool: install: ranlib /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib/libhwloc.a
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-LLIBDIR' linker flag
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make  install-exec-hook
+make[5]: Entering directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+/usr/bin/install -c .libs/libhwloc.def /cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/mpich2-install/lib
+/usr/bin/install: cannot stat `.libs/libhwloc.def': No such file or directory
+make[5]: *** [install-exec-hook] Error 1
+make[5]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+make[4]: *** [install-exec-am] Error 2
+make[4]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+make[3]: *** [install-am] Error 2
+make[3]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc/src'
+make[2]: *** [install-recursive] Error 1
+make[2]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra/tools/bind/hwloc/hwloc'
+make[1]: *** [install-recursive] Error 1
+make[1]: Leaving directory `/cygdrive/c/Users/jayesh/ANL/MPICH2CygwinBuild/freshBuild/src/pm/hydra'

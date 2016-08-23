@@ -1,0 +1,728 @@
+for dir in  src/mpl src/openpa src test examples - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[1]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpl'
+make[1]: *** No rule to make target `dependencies'.  Stop.
+make[1]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpl'
+make[1]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/openpa'
+make[1]: *** No rule to make target `dependencies'.  Stop.
+make[1]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/openpa'
+make[1]: Entering directory `/home/balaji/software/mpich2/trunk/build/src'
+for dir in mpl mpid mpi util nameserv binding env packaging  pmi pm - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		if [ "$dir" = "mpe2" ] ; then continue ; fi ;\
+		if [ "$dir" = "openpa" ] ; then continue ; fi ;\
+		if [ "$dir" = "mpl" ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[2]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid'
+for dir in common ch3 - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/common'
+for dir in datatype sched sock ; do \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[4]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/common/datatype'
+rm -f .deps/newalldeps
+echo "include .deps/mpid_type_debug.d" >>.deps/newalldeps
+echo "include .deps/mpid_segment.d" >>.deps/newalldeps
+echo "include .deps/mpid_ext32_segment.d" >>.deps/newalldeps
+echo "include .deps/mpid_ext32_datatype.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_dup.d" >>.deps/newalldeps
+echo "include .deps/mpir_type_get_contig_blocks.d" >>.deps/newalldeps
+echo "include .deps/mpir_type_flatten.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_commit.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_zerolen.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_vector.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_contiguous.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_create_resized.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_blockindexed.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_indexed.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_struct.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_get_envelope.d" >>.deps/newalldeps
+echo "include .deps/mpid_datatype_free.d" >>.deps/newalldeps
+echo "include .deps/mpid_datatype_contents.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_get_contents.d" >>.deps/newalldeps
+echo "include .deps/mpid_type_create_pairtype.d" >>.deps/newalldeps
+echo "include .deps/mpid_contents_support.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+if [ -s dataloop/Makefile ] ; then (cd dataloop && make dependencies ) ; fi
+make[5]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/common/datatype/dataloop'
+rm -f .deps/newalldeps
+echo "include .deps/dataloop.d" >>.deps/newalldeps
+echo "include .deps/segment.d" >>.deps/newalldeps
+echo "include .deps/segment_packunpack.d" >>.deps/newalldeps
+echo "include .deps/segment_flatten.d" >>.deps/newalldeps
+echo "include .deps/segment_count.d" >>.deps/newalldeps
+echo "include .deps/dataloop_create.d" >>.deps/newalldeps
+echo "include .deps/dataloop_create_contig.d" >>.deps/newalldeps
+echo "include .deps/dataloop_create_vector.d" >>.deps/newalldeps
+echo "include .deps/dataloop_create_blockindexed.d" >>.deps/newalldeps
+echo "include .deps/dataloop_create_indexed.d" >>.deps/newalldeps
+echo "include .deps/dataloop_create_struct.d" >>.deps/newalldeps
+echo "include .deps/dataloop_create_pairtype.d" >>.deps/newalldeps
+echo "include .deps/subarray_support.d" >>.deps/newalldeps
+echo "include .deps/darray_support.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[5]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/common/datatype/dataloop'
+make[4]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/common/datatype'
+make[4]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/common/sched'
+rm -f .deps/newalldeps
+echo "include .deps/mpid_sched.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[4]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/common/sched'
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/common'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3'
+for dir in channels src util ; do \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[4]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels'
+for dir in nemesis - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[5]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis'
+if [ -s nemesis/Makefile ] ; then (cd nemesis && make dependencies ) ; fi
+make[6]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis'
+if [ -s src/Makefile ] ; then (cd src && make dependencies ) ; fi
+make[7]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/src'
+rm -f .deps/newalldeps
+echo "include .deps/mpid_nem_alloc.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_init.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_queue.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_barrier.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_mpich2.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_ckpt.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_finalize.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_network_poll.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_network.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_debug.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_lmt.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_lmt_shm.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_net_array.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_lmt_dma.d" >>.deps/newalldeps
+echo "include .deps/mpid_nem_lmt_vmsplice.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[7]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/src'
+if [ -s netmod/Makefile ] ; then (cd netmod && make dependencies ) ; fi
+make[7]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+for dir in tcp - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[8]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+rm -f .deps/newalldeps
+echo "include .deps/tcp_finalize.d" >>.deps/newalldeps
+echo "include .deps/tcp_init.d" >>.deps/newalldeps
+echo "include .deps/tcp_send.d" >>.deps/newalldeps
+echo "include .deps/tcp_utility.d" >>.deps/newalldeps
+echo "include .deps/socksm.d" >>.deps/newalldeps
+echo "include .deps/tcp_getip.d" >>.deps/newalldeps
+echo "include .deps/tcp_ckpt.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[8]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/netmod/tcp'
+make[7]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/netmod'
+if [ -s utils/Makefile ] ; then (cd utils && make dependencies ) ; fi
+make[7]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/utils'
+if [ -s monitor/Makefile ] ; then (cd monitor && make dependencies ) ; fi
+make[8]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+rm -f .deps/newalldeps
+echo "include .deps/papi_defs.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[8]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/utils/monitor'
+if [ -s replacements/Makefile ] ; then (cd replacements && make dependencies ) ; fi
+make[8]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+rm -f .deps/newalldeps
+echo "include .deps/mkstemp.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[8]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/utils/replacements'
+make[7]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis/utils'
+make[6]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/nemesis'
+if [ -s src/Makefile ] ; then (cd src && make dependencies ) ; fi
+make[6]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/src'
+rm -f .deps/newalldeps
+echo "include .deps/ch3_finalize.d" >>.deps/newalldeps
+echo "include .deps/ch3_init.d" >>.deps/newalldeps
+echo "include .deps/ch3_isend.d" >>.deps/newalldeps
+echo "include .deps/ch3_isendv.d" >>.deps/newalldeps
+echo "include .deps/ch3_istartmsg.d" >>.deps/newalldeps
+echo "include .deps/ch3_istartmsgv.d" >>.deps/newalldeps
+echo "include .deps/ch3_progress.d" >>.deps/newalldeps
+echo "include .deps/ch3_abort.d" >>.deps/newalldeps
+echo "include .deps/ch3i_comm.d" >>.deps/newalldeps
+echo "include .deps/ch3i_eagernoncontig.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[6]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis/src'
+make[5]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels/nemesis'
+make[4]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/channels'
+make[4]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/src'
+rm -f .deps/newalldeps
+echo "include .deps/ch3u_buffer.d" >>.deps/newalldeps
+echo "include .deps/ch3u_comm_spawn_multiple.d" >>.deps/newalldeps
+echo "include .deps/ch3u_handle_connection.d" >>.deps/newalldeps
+echo "include .deps/ch3u_handle_recv_pkt.d" >>.deps/newalldeps
+echo "include .deps/ch3u_handle_recv_req.d" >>.deps/newalldeps
+echo "include .deps/ch3u_handle_send_req.d" >>.deps/newalldeps
+echo "include .deps/ch3u_port.d" >>.deps/newalldeps
+echo "include .deps/ch3u_recvq.d" >>.deps/newalldeps
+echo "include .deps/ch3u_request.d" >>.deps/newalldeps
+echo "include .deps/ch3u_rma_ops.d" >>.deps/newalldeps
+echo "include .deps/ch3u_rma_sync.d" >>.deps/newalldeps
+echo "include .deps/ch3u_rndv.d" >>.deps/newalldeps
+echo "include .deps/ch3u_eager.d" >>.deps/newalldeps
+echo "include .deps/ch3u_eagersync.d" >>.deps/newalldeps
+echo "include .deps/mpid_abort.d" >>.deps/newalldeps
+echo "include .deps/mpid_cancel_recv.d" >>.deps/newalldeps
+echo "include .deps/mpid_cancel_send.d" >>.deps/newalldeps
+echo "include .deps/mpid_comm_disconnect.d" >>.deps/newalldeps
+echo "include .deps/mpid_comm_spawn_multiple.d" >>.deps/newalldeps
+echo "include .deps/mpid_finalize.d" >>.deps/newalldeps
+echo "include .deps/mpid_get_universe_size.d" >>.deps/newalldeps
+echo "include .deps/mpid_getpname.d" >>.deps/newalldeps
+echo "include .deps/mpid_init.d" >>.deps/newalldeps
+echo "include .deps/mpid_iprobe.d" >>.deps/newalldeps
+echo "include .deps/mpid_irecv.d" >>.deps/newalldeps
+echo "include .deps/mpid_irsend.d" >>.deps/newalldeps
+echo "include .deps/mpid_isend.d" >>.deps/newalldeps
+echo "include .deps/mpid_issend.d" >>.deps/newalldeps
+echo "include .deps/mpid_port.d" >>.deps/newalldeps
+echo "include .deps/mpid_probe.d" >>.deps/newalldeps
+echo "include .deps/mpid_recv.d" >>.deps/newalldeps
+echo "include .deps/mpid_rsend.d" >>.deps/newalldeps
+echo "include .deps/mpid_send.d" >>.deps/newalldeps
+echo "include .deps/mpid_ssend.d" >>.deps/newalldeps
+echo "include .deps/mpid_startall.d" >>.deps/newalldeps
+echo "include .deps/mpid_vc.d" >>.deps/newalldeps
+echo "include .deps/mpid_rma.d" >>.deps/newalldeps
+echo "include .deps/mpidi_isend_self.d" >>.deps/newalldeps
+echo "include .deps/mpidi_pg.d" >>.deps/newalldeps
+echo "include .deps/mpidi_printf.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[4]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/src'
+make[4]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/util'
+for dir in   - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[4]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3/util'
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid/ch3'
+make[2]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpid'
+make[2]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi'
+for dir in attr coll comm datatype errhan group init misc pt2pt rma spawn timer topo   - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		if [ "$dir" = "romio" ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/attr'
+rm -f .deps/newalldeps
+echo "include .deps/attr_delete.d" >>.deps/newalldeps
+echo "include .deps/attr_get.d" >>.deps/newalldeps
+echo "include .deps/attr_put.d" >>.deps/newalldeps
+echo "include .deps/comm_create_keyval.d" >>.deps/newalldeps
+echo "include .deps/comm_delete_attr.d" >>.deps/newalldeps
+echo "include .deps/comm_free_keyval.d" >>.deps/newalldeps
+echo "include .deps/comm_get_attr.d" >>.deps/newalldeps
+echo "include .deps/comm_set_attr.d" >>.deps/newalldeps
+echo "include .deps/keyval_create.d" >>.deps/newalldeps
+echo "include .deps/keyval_free.d" >>.deps/newalldeps
+echo "include .deps/type_create_keyval.d" >>.deps/newalldeps
+echo "include .deps/type_delete_attr.d" >>.deps/newalldeps
+echo "include .deps/type_free_keyval.d" >>.deps/newalldeps
+echo "include .deps/type_get_attr.d" >>.deps/newalldeps
+echo "include .deps/type_set_attr.d" >>.deps/newalldeps
+echo "include .deps/win_create_keyval.d" >>.deps/newalldeps
+echo "include .deps/win_delete_attr.d" >>.deps/newalldeps
+echo "include .deps/win_free_keyval.d" >>.deps/newalldeps
+echo "include .deps/win_get_attr.d" >>.deps/newalldeps
+echo "include .deps/win_set_attr.d" >>.deps/newalldeps
+echo "include .deps/attrutil.d" >>.deps/newalldeps
+echo "include .deps/dup_fn.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/attr'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/coll'
+rm -f .deps/newalldeps
+echo "include .deps/allreduce.d" >>.deps/newalldeps
+echo "include .deps/barrier.d" >>.deps/newalldeps
+echo "include .deps/op_create.d" >>.deps/newalldeps
+echo "include .deps/op_free.d" >>.deps/newalldeps
+echo "include .deps/bcast.d" >>.deps/newalldeps
+echo "include .deps/alltoall.d" >>.deps/newalldeps
+echo "include .deps/alltoallv.d" >>.deps/newalldeps
+echo "include .deps/reduce.d" >>.deps/newalldeps
+echo "include .deps/scatter.d" >>.deps/newalldeps
+echo "include .deps/gather.d" >>.deps/newalldeps
+echo "include .deps/scatterv.d" >>.deps/newalldeps
+echo "include .deps/gatherv.d" >>.deps/newalldeps
+echo "include .deps/scan.d" >>.deps/newalldeps
+echo "include .deps/exscan.d" >>.deps/newalldeps
+echo "include .deps/allgather.d" >>.deps/newalldeps
+echo "include .deps/allgatherv.d" >>.deps/newalldeps
+echo "include .deps/red_scat.d" >>.deps/newalldeps
+echo "include .deps/alltoallw.d" >>.deps/newalldeps
+echo "include .deps/reduce_local.d" >>.deps/newalldeps
+echo "include .deps/op_commutative.d" >>.deps/newalldeps
+echo "include .deps/red_scat_block.d" >>.deps/newalldeps
+echo "include .deps/iallgather.d" >>.deps/newalldeps
+echo "include .deps/iallgatherv.d" >>.deps/newalldeps
+echo "include .deps/iallreduce.d" >>.deps/newalldeps
+echo "include .deps/ialltoall.d" >>.deps/newalldeps
+echo "include .deps/ialltoallv.d" >>.deps/newalldeps
+echo "include .deps/ialltoallw.d" >>.deps/newalldeps
+echo "include .deps/ibarrier.d" >>.deps/newalldeps
+echo "include .deps/ibcast.d" >>.deps/newalldeps
+echo "include .deps/iexscan.d" >>.deps/newalldeps
+echo "include .deps/igather.d" >>.deps/newalldeps
+echo "include .deps/igatherv.d" >>.deps/newalldeps
+echo "include .deps/ired_scat.d" >>.deps/newalldeps
+echo "include .deps/ired_scat_block.d" >>.deps/newalldeps
+echo "include .deps/ireduce.d" >>.deps/newalldeps
+echo "include .deps/iscan.d" >>.deps/newalldeps
+echo "include .deps/iscatter.d" >>.deps/newalldeps
+echo "include .deps/iscatterv.d" >>.deps/newalldeps
+echo "include .deps/helper_fns.d" >>.deps/newalldeps
+echo "include .deps/opsum.d" >>.deps/newalldeps
+echo "include .deps/opmax.d" >>.deps/newalldeps
+echo "include .deps/opmin.d" >>.deps/newalldeps
+echo "include .deps/opband.d" >>.deps/newalldeps
+echo "include .deps/opbor.d" >>.deps/newalldeps
+echo "include .deps/opbxor.d" >>.deps/newalldeps
+echo "include .deps/opland.d" >>.deps/newalldeps
+echo "include .deps/oplor.d" >>.deps/newalldeps
+echo "include .deps/oplxor.d" >>.deps/newalldeps
+echo "include .deps/opprod.d" >>.deps/newalldeps
+echo "include .deps/opminloc.d" >>.deps/newalldeps
+echo "include .deps/opmaxloc.d" >>.deps/newalldeps
+echo "include .deps/nbcutil.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/coll'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/comm'
+rm -f .deps/newalldeps
+echo "include .deps/comm_compare.d" >>.deps/newalldeps
+echo "include .deps/comm_create.d" >>.deps/newalldeps
+echo "include .deps/comm_dup.d" >>.deps/newalldeps
+echo "include .deps/comm_free.d" >>.deps/newalldeps
+echo "include .deps/comm_get_name.d" >>.deps/newalldeps
+echo "include .deps/comm_group.d" >>.deps/newalldeps
+echo "include .deps/comm_rank.d" >>.deps/newalldeps
+echo "include .deps/comm_size.d" >>.deps/newalldeps
+echo "include .deps/comm_remote_group.d" >>.deps/newalldeps
+echo "include .deps/comm_remote_size.d" >>.deps/newalldeps
+echo "include .deps/comm_set_name.d" >>.deps/newalldeps
+echo "include .deps/comm_split.d" >>.deps/newalldeps
+echo "include .deps/comm_test_inter.d" >>.deps/newalldeps
+echo "include .deps/intercomm_create.d" >>.deps/newalldeps
+echo "include .deps/intercomm_merge.d" >>.deps/newalldeps
+echo "include .deps/commutil.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/comm'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/datatype'
+rm -f .deps/newalldeps
+echo "include .deps/address.d" >>.deps/newalldeps
+echo "include .deps/get_address.d" >>.deps/newalldeps
+echo "include .deps/get_count.d" >>.deps/newalldeps
+echo "include .deps/get_elements.d" >>.deps/newalldeps
+echo "include .deps/pack.d" >>.deps/newalldeps
+echo "include .deps/unpack.d" >>.deps/newalldeps
+echo "include .deps/pack_size.d" >>.deps/newalldeps
+echo "include .deps/status_set_elements.d" >>.deps/newalldeps
+echo "include .deps/type_get_name.d" >>.deps/newalldeps
+echo "include .deps/type_set_name.d" >>.deps/newalldeps
+echo "include .deps/type_size.d" >>.deps/newalldeps
+echo "include .deps/type_extent.d" >>.deps/newalldeps
+echo "include .deps/type_vector.d" >>.deps/newalldeps
+echo "include .deps/type_commit.d" >>.deps/newalldeps
+echo "include .deps/type_indexed.d" >>.deps/newalldeps
+echo "include .deps/type_hindexed.d" >>.deps/newalldeps
+echo "include .deps/type_struct.d" >>.deps/newalldeps
+echo "include .deps/type_contiguous.d" >>.deps/newalldeps
+echo "include .deps/type_free.d" >>.deps/newalldeps
+echo "include .deps/type_hvector.d" >>.deps/newalldeps
+echo "include .deps/type_dup.d" >>.deps/newalldeps
+echo "include .deps/type_get_envelope.d" >>.deps/newalldeps
+echo "include .deps/type_get_contents.d" >>.deps/newalldeps
+echo "include .deps/type_ub.d" >>.deps/newalldeps
+echo "include .deps/type_lb.d" >>.deps/newalldeps
+echo "include .deps/type_get_extent.d" >>.deps/newalldeps
+echo "include .deps/type_get_true_extent.d" >>.deps/newalldeps
+echo "include .deps/type_match_size.d" >>.deps/newalldeps
+echo "include .deps/type_create_struct.d" >>.deps/newalldeps
+echo "include .deps/type_create_hindexed.d" >>.deps/newalldeps
+echo "include .deps/type_create_hvector.d" >>.deps/newalldeps
+echo "include .deps/pack_external.d" >>.deps/newalldeps
+echo "include .deps/pack_external_size.d" >>.deps/newalldeps
+echo "include .deps/unpack_external.d" >>.deps/newalldeps
+echo "include .deps/type_create_indexed_block.d" >>.deps/newalldeps
+echo "include .deps/type_create_resized.d" >>.deps/newalldeps
+echo "include .deps/type_create_darray.d" >>.deps/newalldeps
+echo "include .deps/type_create_subarray.d" >>.deps/newalldeps
+echo "include .deps/typeutil.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/datatype'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/errhan'
+rm -f .deps/newalldeps
+echo "include .deps/add_error_code.d" >>.deps/newalldeps
+echo "include .deps/add_error_class.d" >>.deps/newalldeps
+echo "include .deps/add_error_string.d" >>.deps/newalldeps
+echo "include .deps/comm_call_errhandler.d" >>.deps/newalldeps
+echo "include .deps/comm_create_errhandler.d" >>.deps/newalldeps
+echo "include .deps/comm_get_errhandler.d" >>.deps/newalldeps
+echo "include .deps/comm_set_errhandler.d" >>.deps/newalldeps
+echo "include .deps/errhandler_create.d" >>.deps/newalldeps
+echo "include .deps/errhandler_free.d" >>.deps/newalldeps
+echo "include .deps/errhandler_get.d" >>.deps/newalldeps
+echo "include .deps/errhandler_set.d" >>.deps/newalldeps
+echo "include .deps/error_class.d" >>.deps/newalldeps
+echo "include .deps/error_string.d" >>.deps/newalldeps
+echo "include .deps/file_create_errhandler.d" >>.deps/newalldeps
+echo "include .deps/file_get_errhandler.d" >>.deps/newalldeps
+echo "include .deps/file_set_errhandler.d" >>.deps/newalldeps
+echo "include .deps/file_call_errhandler.d" >>.deps/newalldeps
+echo "include .deps/win_create_errhandler.d" >>.deps/newalldeps
+echo "include .deps/win_call_errhandler.d" >>.deps/newalldeps
+echo "include .deps/win_get_errhandler.d" >>.deps/newalldeps
+echo "include .deps/win_set_errhandler.d" >>.deps/newalldeps
+echo "include .deps/errutil.d" >>.deps/newalldeps
+echo "include .deps/dynerrutil.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/errhan'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/group'
+rm -f .deps/newalldeps
+echo "include .deps/group_compare.d" >>.deps/newalldeps
+echo "include .deps/group_difference.d" >>.deps/newalldeps
+echo "include .deps/group_excl.d" >>.deps/newalldeps
+echo "include .deps/group_free.d" >>.deps/newalldeps
+echo "include .deps/group_incl.d" >>.deps/newalldeps
+echo "include .deps/group_intersection.d" >>.deps/newalldeps
+echo "include .deps/group_range_excl.d" >>.deps/newalldeps
+echo "include .deps/group_range_incl.d" >>.deps/newalldeps
+echo "include .deps/group_rank.d" >>.deps/newalldeps
+echo "include .deps/group_size.d" >>.deps/newalldeps
+echo "include .deps/group_translate_ranks.d" >>.deps/newalldeps
+echo "include .deps/group_union.d" >>.deps/newalldeps
+echo "include .deps/grouputil.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/group'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/init'
+rm -f .deps/newalldeps
+echo "include .deps/abort.d" >>.deps/newalldeps
+echo "include .deps/init.d" >>.deps/newalldeps
+echo "include .deps/initialized.d" >>.deps/newalldeps
+echo "include .deps/initthread.d" >>.deps/newalldeps
+echo "include .deps/ismain.d" >>.deps/newalldeps
+echo "include .deps/finalize.d" >>.deps/newalldeps
+echo "include .deps/finalized.d" >>.deps/newalldeps
+echo "include .deps/querythread.d" >>.deps/newalldeps
+echo "include .deps/initinfo.d" >>.deps/newalldeps
+echo "include .deps/async.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/init'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/misc'
+rm -f .deps/newalldeps
+echo "include .deps/getpname.d" >>.deps/newalldeps
+echo "include .deps/pcontrol.d" >>.deps/newalldeps
+echo "include .deps/version.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/misc'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/pt2pt'
+rm -f .deps/newalldeps
+echo "include .deps/bsend.d" >>.deps/newalldeps
+echo "include .deps/bsend_init.d" >>.deps/newalldeps
+echo "include .deps/bufattach.d" >>.deps/newalldeps
+echo "include .deps/buffree.d" >>.deps/newalldeps
+echo "include .deps/cancel.d" >>.deps/newalldeps
+echo "include .deps/greq_start.d" >>.deps/newalldeps
+echo "include .deps/greq_complete.d" >>.deps/newalldeps
+echo "include .deps/ibsend.d" >>.deps/newalldeps
+echo "include .deps/iprobe.d" >>.deps/newalldeps
+echo "include .deps/irecv.d" >>.deps/newalldeps
+echo "include .deps/irsend.d" >>.deps/newalldeps
+echo "include .deps/isend.d" >>.deps/newalldeps
+echo "include .deps/issend.d" >>.deps/newalldeps
+echo "include .deps/probe.d" >>.deps/newalldeps
+echo "include .deps/recv.d" >>.deps/newalldeps
+echo "include .deps/recv_init.d" >>.deps/newalldeps
+echo "include .deps/request_free.d" >>.deps/newalldeps
+echo "include .deps/request_get_status.d" >>.deps/newalldeps
+echo "include .deps/rsend.d" >>.deps/newalldeps
+echo "include .deps/rsend_init.d" >>.deps/newalldeps
+echo "include .deps/send.d" >>.deps/newalldeps
+echo "include .deps/send_init.d" >>.deps/newalldeps
+echo "include .deps/sendrecv.d" >>.deps/newalldeps
+echo "include .deps/sendrecv_rep.d" >>.deps/newalldeps
+echo "include .deps/status_set_cancelled.d" >>.deps/newalldeps
+echo "include .deps/ssend.d" >>.deps/newalldeps
+echo "include .deps/ssend_init.d" >>.deps/newalldeps
+echo "include .deps/start.d" >>.deps/newalldeps
+echo "include .deps/startall.d" >>.deps/newalldeps
+echo "include .deps/test.d" >>.deps/newalldeps
+echo "include .deps/test_cancelled.d" >>.deps/newalldeps
+echo "include .deps/testall.d" >>.deps/newalldeps
+echo "include .deps/testany.d" >>.deps/newalldeps
+echo "include .deps/testsome.d" >>.deps/newalldeps
+echo "include .deps/wait.d" >>.deps/newalldeps
+echo "include .deps/waitall.d" >>.deps/newalldeps
+echo "include .deps/waitany.d" >>.deps/newalldeps
+echo "include .deps/waitsome.d" >>.deps/newalldeps
+echo "include .deps/bsendutil.d" >>.deps/newalldeps
+echo "include .deps/mpir_request.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/pt2pt'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/rma'
+rm -f .deps/newalldeps
+echo "include .deps/accumulate.d" >>.deps/newalldeps
+echo "include .deps/alloc_mem.d" >>.deps/newalldeps
+echo "include .deps/free_mem.d" >>.deps/newalldeps
+echo "include .deps/get.d" >>.deps/newalldeps
+echo "include .deps/put.d" >>.deps/newalldeps
+echo "include .deps/win_complete.d" >>.deps/newalldeps
+echo "include .deps/win_create.d" >>.deps/newalldeps
+echo "include .deps/win_fence.d" >>.deps/newalldeps
+echo "include .deps/win_free.d" >>.deps/newalldeps
+echo "include .deps/win_get_group.d" >>.deps/newalldeps
+echo "include .deps/win_get_name.d" >>.deps/newalldeps
+echo "include .deps/win_lock.d" >>.deps/newalldeps
+echo "include .deps/win_post.d" >>.deps/newalldeps
+echo "include .deps/win_set_name.d" >>.deps/newalldeps
+echo "include .deps/win_start.d" >>.deps/newalldeps
+echo "include .deps/win_unlock.d" >>.deps/newalldeps
+echo "include .deps/win_wait.d" >>.deps/newalldeps
+echo "include .deps/win_test.d" >>.deps/newalldeps
+echo "include .deps/winutil.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/rma'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/spawn'
+rm -f .deps/newalldeps
+echo "include .deps/comm_disconnect.d" >>.deps/newalldeps
+echo "include .deps/comm_get_parent.d" >>.deps/newalldeps
+echo "include .deps/comm_join.d" >>.deps/newalldeps
+echo "include .deps/comm_spawn.d" >>.deps/newalldeps
+echo "include .deps/comm_spawn_multiple.d" >>.deps/newalldeps
+echo "include .deps/lookup_name.d" >>.deps/newalldeps
+echo "include .deps/publish_name.d" >>.deps/newalldeps
+echo "include .deps/unpublish_name.d" >>.deps/newalldeps
+echo "include .deps/open_port.d" >>.deps/newalldeps
+echo "include .deps/close_port.d" >>.deps/newalldeps
+echo "include .deps/comm_connect.d" >>.deps/newalldeps
+echo "include .deps/comm_accept.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/spawn'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/timer'
+rm -f .deps/newalldeps
+echo "include .deps/wtime.d" >>.deps/newalldeps
+echo "include .deps/wtick.d" >>.deps/newalldeps
+echo "include .deps/mpidtime.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/timer'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/mpi/topo'
+rm -f .deps/newalldeps
+echo "include .deps/cart_coords.d" >>.deps/newalldeps
+echo "include .deps/cart_create.d" >>.deps/newalldeps
+echo "include .deps/cart_get.d" >>.deps/newalldeps
+echo "include .deps/cart_map.d" >>.deps/newalldeps
+echo "include .deps/cart_rank.d" >>.deps/newalldeps
+echo "include .deps/cart_shift.d" >>.deps/newalldeps
+echo "include .deps/cart_sub.d" >>.deps/newalldeps
+echo "include .deps/dims_create.d" >>.deps/newalldeps
+echo "include .deps/graph_get.d" >>.deps/newalldeps
+echo "include .deps/graph_map.d" >>.deps/newalldeps
+echo "include .deps/graph_nbr.d" >>.deps/newalldeps
+echo "include .deps/graphcreate.d" >>.deps/newalldeps
+echo "include .deps/graphdimsget.d" >>.deps/newalldeps
+echo "include .deps/graphnbrcnt.d" >>.deps/newalldeps
+echo "include .deps/cartdim_get.d" >>.deps/newalldeps
+echo "include .deps/topo_test.d" >>.deps/newalldeps
+echo "include .deps/dist_gr_create_adj.d" >>.deps/newalldeps
+echo "include .deps/dist_gr_create.d" >>.deps/newalldeps
+echo "include .deps/dist_gr_neighb_count.d" >>.deps/newalldeps
+echo "include .deps/dist_gr_neighb.d" >>.deps/newalldeps
+echo "include .deps/topoutil.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi/topo'
+make[2]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/mpi'
+make[2]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util'
+for dir in mem info msgs instrm thread dbg param osserv procmap other  - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		if [ "$dir" = "ex" ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/mem'
+rm -f .deps/newalldeps
+echo "include .deps/trmem.d" >>.deps/newalldeps
+echo "include .deps/handlemem.d" >>.deps/newalldeps
+echo "include .deps/safestr.d" >>.deps/newalldeps
+echo "include .deps/argstr.d" >>.deps/newalldeps
+echo "include .deps/strerror.d" >>.deps/newalldeps
+echo "include .deps/check.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/mem'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/info'
+rm -f .deps/newalldeps
+echo "include .deps/infoutil.d" >>.deps/newalldeps
+echo "include .deps/info_create.d" >>.deps/newalldeps
+echo "include .deps/info_delete.d" >>.deps/newalldeps
+echo "include .deps/info_dup.d" >>.deps/newalldeps
+echo "include .deps/info_free.d" >>.deps/newalldeps
+echo "include .deps/info_get.d" >>.deps/newalldeps
+echo "include .deps/info_getn.d" >>.deps/newalldeps
+echo "include .deps/info_getnth.d" >>.deps/newalldeps
+echo "include .deps/info_getvallen.d" >>.deps/newalldeps
+echo "include .deps/info_set.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/info'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/msgs'
+rm -f .deps/newalldeps
+echo "include .deps/msgprint.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/msgs'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/instrm'
+rm -f .deps/newalldeps
+echo "include .deps/states.d" >>.deps/newalldeps
+echo "include .deps/instr.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/instrm'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/thread'
+rm -f .deps/newalldeps
+echo "include .deps/mpiu_thread.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/thread'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/dbg'
+rm -f .deps/newalldeps
+echo "include .deps/dbg_printf.d" >>.deps/newalldeps
+echo "include .deps/timelimit.d" >>.deps/newalldeps
+echo "include .deps/exit.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/dbg'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/param'
+rm -f .deps/newalldeps
+echo "include .deps/param_vals.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/param'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/osserv'
+rm -f .deps/newalldeps
+echo "include .deps/dl.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/osserv'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/procmap'
+rm -f .deps/newalldeps
+echo "include .deps/local_proc.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/procmap'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/util/other'
+rm -f .deps/newalldeps
+echo "include .deps/outliers.d" >>.deps/newalldeps
+echo "include .deps/assert.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util/other'
+make[2]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/util'
+make[2]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/nameserv'
+for dir in file test - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/nameserv/file'
+rm -f .deps/newalldeps
+echo "include .deps/file_nameserv.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/nameserv/file'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/nameserv/test'
+rm -f .deps/newalldeps
+echo "include .deps/testnd.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/nameserv/test'
+make[2]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/nameserv'
+make[2]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/binding'
+for dir in  f77 f90 cxx - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/binding/f77'
+make[3]: Nothing to be done for `dependencies'.
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/binding/f77'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/binding/f90'
+make[3]: Nothing to be done for `dependencies'.
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/binding/f90'
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/binding/cxx'
+make[3]: Nothing to be done for `dependencies'.
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/binding/cxx'
+make[2]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/binding'
+make[2]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/env'
+rm -f .deps/newalldeps
+echo "include .deps/mpich2version.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[2]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/env'
+make[2]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/packaging'
+if [ -s pkgconfig/Makefile ] ; then (cd pkgconfig && make dependencies ) ; fi
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/packaging/pkgconfig'
+make[3]: Nothing to be done for `dependencies'.
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/packaging/pkgconfig'
+if [ -s envmods/Makefile ] ; then (cd envmods && make dependencies ) ; fi
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/packaging/envmods'
+make[3]: Nothing to be done for `dependencies'.
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/packaging/envmods'
+make[2]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/packaging'
+make[2]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/pmi'
+for dir in simple - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[3]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/pmi/simple'
+rm -f .deps/newalldeps
+echo "include .deps/simple_pmiutil.d" >>.deps/newalldeps
+echo "include .deps/simple_pmi.d" >>.deps/newalldeps
+if [ -s .deps/newalldeps ] ; then mv -f .deps/newalldeps .deps/alldeps ; fi
+date >.deps/timestamp
+make[3]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/pmi/simple'
+make[2]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/pmi'
+make[2]: Entering directory `/home/balaji/software/mpich2/trunk/build/src/pm'
+for dir in hydra  util - ; do \
+		if [ "$dir" = "-" ] ; then break ; fi ; \
+		if [ ! -s $dir/Makefile ] ; then continue ; fi ;\
+		if [ "$dir" = "mpd" ] ; then continue ; fi ;\
+		if [ "$dir" = "hydra" ] ; then continue ; fi ;\
+		(cd $dir && make dependencies ) ; done
+make[2]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src/pm'
+make[1]: Leaving directory `/home/balaji/software/mpich2/trunk/build/src'
+make[1]: Entering directory `/home/balaji/software/mpich2/trunk/build/test'
+make[1]: Nothing to be done for `dependencies'.
+make[1]: Leaving directory `/home/balaji/software/mpich2/trunk/build/test'
+make[1]: Entering directory `/home/balaji/software/mpich2/trunk/build/examples'
+make[1]: Nothing to be done for `dependencies'.
+make[1]: Leaving directory `/home/balaji/software/mpich2/trunk/build/examples'
