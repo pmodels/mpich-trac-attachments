@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+
+  <head>
+    <title>
+      margo_mpi_test[1].tgz on Ticket #2355 – Attachment
+     – mpich
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="/projects/mpich/search" />
+        <link rel="help" href="/projects/mpich/wiki/TracGuide" />
+        <link rel="alternate" href="/projects/mpich/raw-attachment/ticket/2355/margo_mpi_test%5B1%5D.tgz" type="application/x-tar; charset=utf-8" title="Original Format" />
+        <link rel="up" href="/projects/mpich/ticket/2355" title="Ticket #2355" />
+        <link rel="start" href="/projects/mpich/wiki" />
+        <link rel="stylesheet" href="/projects/mpich/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/projects/mpich/chrome/common/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="/projects/mpich/chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="/projects/mpich/chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="/projects/mpich/search/opensearch" title="Search mpich" />
+      <script type="text/javascript" charset="utf-8" src="/projects/mpich/chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/projects/mpich/chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/projects/mpich/chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/projects/mpich/chrome/common/js/search.js"></script>
+      <script type="text/javascript" src="/projects/mpich/chrome/common/js/folding.js"></script>
+      <script type="text/javascript">
+        jQuery(document).ready(function($) {
+          $('#preview table.code').enableCollapsibleColumns($('#preview table.code thead th.content'));
+        });
+      </script>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <a id="logo" href="http://trac.mpich.org/projects/mpich/"><img src="/projects/mpich/chrome/common/trac_banner.png" alt="" /></a>
+      </div>
+      <form id="search" action="/projects/mpich/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="/projects/mpich/login">Login</a></li><li><a href="/projects/mpich/prefs">Preferences</a></li><li><a href="/projects/mpich/wiki/TracGuide">Help/Guide</a></li><li class="last"><a href="/projects/mpich/about">About Trac</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="/projects/mpich/wiki">Wiki</a></li><li><a href="/projects/mpich/timeline">Timeline</a></li><li><a href="/projects/mpich/roadmap">Roadmap</a></li><li><a href="/projects/mpich/browser">Browse Source</a></li><li><a href="/projects/mpich/report">View Tickets</a></li><li class="last"><a href="/projects/mpich/search">Search</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="last first"><a href="/projects/mpich/ticket/2355">Back to Ticket #2355</a></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="/projects/mpich/ticket/2355">Ticket #2355</a>: margo_mpi_test[1].tgz</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">File margo_mpi_test[1].tgz,
+                <span title="8168 bytes">8.0 KB</span>
+                (added by robl, <a class="timeline" href="/projects/mpich/timeline?from=2016-10-04T16%3A38%3A01-05%3A00&amp;precision=second" title="See timeline at 10/04/16 16:38:01">13 days ago</a>)</th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                <p>
+test case for RPC-oriented workload
+</p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+          
+    <p>
+        <strong>HTML preview not available</strong>, since no preview renderer could handle it.
+      Try <a href="/projects/mpich/raw-attachment/ticket/2355/margo_mpi_test%5B1%5D.tgz">downloading</a> the file instead.
+    </p>
+
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/projects/mpich/raw-attachment/ticket/2355/margo_mpi_test%5B1%5D.tgz">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/projects/mpich/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">Powered by <a href="/projects/mpich/about"><strong>Trac 1.0</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  </body>
+</html>
